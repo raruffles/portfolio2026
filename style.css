@@ -675,7 +675,8 @@ body.dark-mode .hero-img {
 /* =========================================
    MEDIA QUERIES
    ========================================= */
-@media (max-width: 1199px) {
+/* Desativa o cursor customizado em telas menores que 1200px OU em telas de toque (Mobile/Tablet) */
+@media (max-width: 1199px), (hover: none) and (pointer: coarse) {
     html, body, *, *::before, *::after,
     a, button, img, p, h1, h2, h3, h4, span, div {
         cursor: auto !important;
@@ -684,6 +685,7 @@ body.dark-mode .hero-img {
     #custom-cursor {
         display: none !important;
     }
+}
 }
 
 @media (max-width: 899px) {

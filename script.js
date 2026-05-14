@@ -1,13 +1,14 @@
 document.addEventListener('DOMContentLoaded', () => {
     
-    // =========================================
+   // =========================================
     // 1. CURSOR DO FIGMA
     // =========================================
     const customCursor = document.getElementById('custom-cursor');
     const customCursorPath = document.querySelector('#custom-cursor path');
     
     document.addEventListener('mousemove', (e) => {
-        if (customCursor) {
+        // Só move o cursor se a tela for para Desktop (1200px ou mais)
+        if (customCursor && window.innerWidth >= 1200) {
             customCursor.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0)`;
         }
     });
