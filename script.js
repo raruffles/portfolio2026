@@ -23,9 +23,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const applyAccent = (config) => {
         const isDarkMode = document.body.classList.contains('dark-mode');
         
+        // Verifica se existe uma cor específica pro dark mode, senão usa a padrão
+        let targetHex = (isDarkMode && config.hexDark) ? config.hexDark : config.hex;
+        
         // Se a cor for preta e o modo escuro estiver ativo, a cor de destaque vira branca.
         const isBlackAccent = config.key === 'black' || activeAccentKey === 'black';
-        const accentColor = (isBlackAccent && isDarkMode) ? '#ffffff' : config.hex;
+        const accentColor = (isBlackAccent && isDarkMode) ? '#ffffff' : targetHex;
         
         const logoFilter = isDarkMode ? config.logoFilterDark : config.logoFilterLight;
 
@@ -50,6 +53,19 @@ document.addEventListener('DOMContentLoaded', () => {
         if (customCursorPath) {
             customCursorPath.setAttribute('fill', isDarkMode ? '#1a1f1f' : '#ffffff');
             customCursorPath.setAttribute('stroke', isDarkMode ? '#ffffff' : '#1a1f1f');
+        }
+
+        // Lógica para a cor do texto EXPLORADA
+        const figmaBox = document.querySelector('.figma-box');
+        if (figmaBox) {
+            const isBlackSwatch = config.key === 'black';
+            if (isDarkMode && isBlackSwatch) {
+                // No modo escuro com a cor "Preta", o texto fica na cor do fundo (preto)
+                figmaBox.style.color = 'var(--bg-color)';
+            } else {
+                // Em todos os outros casos, o texto fica branco
+                figmaBox.style.color = '#ffffff';
+            }
         }
     };
 
@@ -120,45 +136,39 @@ document.addEventListener('DOMContentLoaded', () => {
         {
             key: 'black',
             hex: '#111111',
-            hue: '0deg',
-            sat: '0%',
-            bri: '100%',
+            hue: '0deg', sat: '0%', bri: '100%',
             logoFilterLight: 'none',
             logoFilterDark: 'brightness(0) saturate(100%) invert(1)'
         },
         {
             key: 'rose',
             hex: '#C0005A',
-            hue: '0deg',
-            sat: '100%',
-            bri: '100%',
+            hexDark: '#C0005A', /* Mantém igual no dark mode */
+            hue: '0deg', sat: '100%', bri: '100%',
             logoFilterLight: 'brightness(0) saturate(100%) invert(18%) sepia(45%) saturate(220%) hue-rotate(318deg) brightness(92%) contrast(96%)',
             logoFilterDark: 'brightness(0) saturate(100%) invert(18%) sepia(45%) saturate(220%) hue-rotate(318deg) brightness(92%) contrast(96%)'
         },
         {
             key: 'blue',
             hex: '#1700A0',
-            hue: '230deg',
-            sat: '110%',
-            bri: '100%',
+            hexDark: '#5438F9', /* AZUL EXCLUSIVO DARK MODE */
+            hue: '230deg', sat: '110%', bri: '100%',
             logoFilterLight: 'brightness(0) saturate(100%) invert(11%) sepia(42%) saturate(240%) hue-rotate(243deg) brightness(78%) contrast(98%)',
             logoFilterDark: 'brightness(0) saturate(100%) invert(11%) sepia(42%) saturate(240%) hue-rotate(243deg) brightness(78%) contrast(98%)'
         },
         {
             key: 'green',
             hex: '#1E6B2C',
-            hue: '140deg',
-            sat: '130%',
-            bri: '90%',
+            hexDark: '#2C943F', /* VERDE EXCLUSIVO DARK MODE */
+            hue: '140deg', sat: '130%', bri: '90%',
             logoFilterLight: 'brightness(0) saturate(100%) invert(39%) sepia(32%) saturate(210%) hue-rotate(84deg) brightness(88%) contrast(92%)',
             logoFilterDark: 'brightness(0) saturate(100%) invert(39%) sepia(32%) saturate(210%) hue-rotate(84deg) brightness(88%) contrast(92%)'
         },
         {
             key: 'wine',
             hex: '#550917',
-            hue: '35deg',
-            sat: '90%',
-            bri: '70%',
+            hexDark: '#C41535', /* VINHO EXCLUSIVO DARK MODE */
+            hue: '35deg', sat: '90%', bri: '70%',
             logoFilterLight: 'brightness(0) saturate(100%) invert(11%) sepia(38%) saturate(230%) hue-rotate(323deg) brightness(74%) contrast(96%)',
             logoFilterDark: 'brightness(0) saturate(100%) invert(11%) sepia(38%) saturate(230%) hue-rotate(323deg) brightness(74%) contrast(96%)'
         }
