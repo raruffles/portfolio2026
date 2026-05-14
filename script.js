@@ -16,10 +16,30 @@ document.addEventListener('DOMContentLoaded', () => {
     const themeToggle = document.getElementById('theme-toggle');
     const iconMoon = document.getElementById('icon-moon');
     const iconSun = document.getElementById('icon-sun');
+    let activeAccentKey = 'black';
+
+    const applyAccent = (config) => {
+        const isBlackAccent = activeAccentKey === 'black';
+        const accentColor = isBlackAccent && document.body.classList.contains('dark-mode') ? '#ffffff' : config.hex;
+        const logoFilter = document.body.classList.contains('dark-mode')
+            ? config.logoFilterDark
+            : config.logoFilterLight;
+
+        document.documentElement.style.setProperty('--current-accent', accentColor);
+        document.documentElement.style.setProperty('--davinci-hue', config.hue);
+        document.documentElement.style.setProperty('--davinci-sat', config.sat);
+        document.documentElement.style.setProperty('--davinci-bri', config.bri);
+        document.documentElement.style.setProperty('--logo-filter', logoFilter);
+    };
 
     if (themeToggle) {
         themeToggle.addEventListener('click', () => {
             document.body.classList.toggle('dark-mode');
+
+            if (swatches.length > 0) {
+                const config = colorSettings.find((item) => item.key === activeAccentKey) || colorSettings[0];
+                applyAccent(config);
+            }
             
             if (document.body.classList.contains('dark-mode')) {
                 iconMoon.style.display = 'none';
@@ -76,10 +96,51 @@ document.addEventListener('DOMContentLoaded', () => {
     const swatches = document.querySelectorAll('.color-swatch');
     
     const colorSettings = [
-        { hex: '#C0005A', hue: '0deg', sat: '100%', bri: '100%' },   // 1º Botão: Rosa
-        { hex: '#1700A0', hue: '230deg', sat: '110%', bri: '100%' }, // 2º Botão: Azul
-        { hex: '#1E6B2C', hue: '140deg', sat: '130%', bri: '90%' },  // 3º Botão: Verde
-        { hex: '#550917', hue: '35deg', sat: '90%', bri: '70%' }     // 4º Botão: Vinho
+        {
+            key: 'black',
+            hex: '#111111',
+            hue: '0deg',
+            sat: '0%',
+            bri: '100%',
+            logoFilterLight: 'none',
+            logoFilterDark: 'brightness(0) saturate(100%) invert(1)'
+        },
+        {
+            key: 'rose',
+            hex: '#C0005A',
+            hue: '0deg',
+            sat: '100%',
+            bri: '100%',
+            logoFilterLight: 'brightness(0) saturate(100%) invert(18%) sepia(94%) saturate(4019%) hue-rotate(318deg) brightness(90%) contrast(110%)',
+            logoFilterDark: 'brightness(0) saturate(100%) invert(18%) sepia(94%) saturate(4019%) hue-rotate(318deg) brightness(90%) contrast(110%)'
+        },
+        {
+            key: 'blue',
+            hex: '#1700A0',
+            hue: '230deg',
+            sat: '110%',
+            bri: '100%',
+            logoFilterLight: 'brightness(0) saturate(100%) invert(11%) sepia(91%) saturate(7365%) hue-rotate(243deg) brightness(72%) contrast(124%)',
+            logoFilterDark: 'brightness(0) saturate(100%) invert(11%) sepia(91%) saturate(7365%) hue-rotate(243deg) brightness(72%) contrast(124%)'
+        },
+        {
+            key: 'green',
+            hex: '#1E6B2C',
+            hue: '140deg',
+            sat: '130%',
+            bri: '90%',
+            logoFilterLight: 'brightness(0) saturate(100%) invert(39%) sepia(93%) saturate(496%) hue-rotate(84deg) brightness(86%) contrast(88%)',
+            logoFilterDark: 'brightness(0) saturate(100%) invert(39%) sepia(93%) saturate(496%) hue-rotate(84deg) brightness(86%) contrast(88%)'
+        },
+        {
+            key: 'wine',
+            hex: '#550917',
+            hue: '35deg',
+            sat: '90%',
+            bri: '70%',
+            logoFilterLight: 'brightness(0) saturate(100%) invert(11%) sepia(89%) saturate(2871%) hue-rotate(323deg) brightness(71%) contrast(106%)',
+            logoFilterDark: 'brightness(0) saturate(100%) invert(11%) sepia(89%) saturate(2871%) hue-rotate(323deg) brightness(71%) contrast(106%)'
+        }
     ];
 
     if(swatches.length > 0) {
@@ -92,14 +153,16 @@ document.addEventListener('DOMContentLoaded', () => {
             swatch.classList.add('active');
 
             const config = colorSettings[index];
-            
-            // Atualiza a Cor do CSS inteiro
-            document.documentElement.style.setProperty('--current-accent', config.hex);
-            document.documentElement.style.setProperty('--davinci-hue', config.hue);
-            document.documentElement.style.setProperty('--davinci-sat', config.sat);
-            document.documentElement.style.setProperty('--davinci-bri', config.bri);
+            activeAccentKey = config.key || 'rose';
+            applyAccent(config);
         });
     });
+
+    if (swatches.length > 0) {
+        const initialConfig = colorSettings[0];
+        activeAccentKey = initialConfig.key;
+        applyAccent(initialConfig);
+    }
 
     // =========================================
     // 4. SISTEMA DE TRADUÇÃO AUTOMÁTICA
