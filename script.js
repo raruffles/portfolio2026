@@ -32,6 +32,45 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // =========================================
+    // 2.1 MENU MOBILE (HAMBURGUER)
+    // =========================================
+    const mobileMenuBtn = document.getElementById('mobile-menu');
+    const navLinksContainer = document.querySelector('.nav-links');
+
+    const closeMobileMenu = () => {
+        if (navLinksContainer) {
+            navLinksContainer.classList.remove('mobile-open');
+        }
+        if (mobileMenuBtn) {
+            mobileMenuBtn.setAttribute('aria-expanded', 'false');
+        }
+    };
+
+    if (mobileMenuBtn && navLinksContainer) {
+        mobileMenuBtn.setAttribute('aria-label', 'Abrir menu');
+        mobileMenuBtn.setAttribute('aria-expanded', 'false');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            const isOpen = navLinksContainer.classList.toggle('mobile-open');
+            mobileMenuBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        });
+
+        navLinksContainer.querySelectorAll('a').forEach((link) => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth <= 899) {
+                    closeMobileMenu();
+                }
+            });
+        });
+
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 899) {
+                closeMobileMenu();
+            }
+        });
+    }
+
+    // =========================================
     // 3. PALETA DE CORES DINÂMICA (DUOTONE + ACCENT)
     // =========================================
     const swatches = document.querySelectorAll('.color-swatch');

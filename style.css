@@ -654,11 +654,52 @@ body.dark-mode .hero-img {
 @media (max-width: 899px) {
     .navbar { justify-content: space-between; }
     .nav-links { display: none; }
-    .menu-toggle { display: flex !important; flex-direction: column; gap: 5px; order: 1; }
+    .menu-toggle {
+        display: flex !important;
+        flex-direction: column;
+        gap: 5px;
+        order: 1;
+        padding: 8px;
+        border-radius: 10px;
+        background: transparent;
+    }
     .logo { order: 2; flex: 1; justify-content: center; }
     .nav-actions { order: 3; flex: none; }
-    
-    .hero-top { display: flex; flex-wrap: wrap; white-space: normal; margin-bottom: 12px; justify-content: center; text-align: center; }
+
+    .nav-links.mobile-open {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+        position: fixed;
+        top: 80px;
+        left: 0;
+        right: 0;
+        z-index: 1200;
+        background-color: var(--bg-color);
+        border-top: 2px solid var(--border-color);
+        border-bottom: 2px solid var(--border-color);
+        padding: 8px 5%;
+    }
+
+    .nav-links.mobile-open li {
+        list-style: none;
+        width: 100%;
+    }
+
+    .nav-links.mobile-open a {
+        display: block;
+        width: 100%;
+        padding: 14px 0;
+        font-size: 15px;
+        letter-spacing: 0.12em;
+        border-bottom: 1px solid color-mix(in srgb, var(--current-accent) 20%, var(--border-color));
+    }
+
+    .nav-links.mobile-open li:last-child a {
+        border-bottom: 0;
+    }
+
+    .hero-top { display: none; }
     .line-deco { width: 50px; }
     .hero-title-container { margin: 0; text-align: center; width: 100%; }
     
@@ -685,7 +726,7 @@ body.dark-mode .hero-img {
     /* GRID MOBILE: reserva area inferior para a imagem, sem sobreposicao de texto */
     .hero-content-grid { 
         justify-content: flex-start; 
-        padding-top: 30px;
+        padding-top: 14px;
         padding-left: 5%;
         padding-right: 5%;
         padding-bottom: clamp(340px, 47vh, 500px) !important;
