@@ -15,48 +15,48 @@
     </svg>
 
     <nav class="navbar">
-    <div class="menu-toggle" id="mobile-menu">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-    </div>
+        <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
 
-    <div class="logo">
-        <a href="#">
-            <img src="src/logo.png" alt="Raphael Lima" class="logo-img">
-        </a>
-    </div>
-    
-    <ul class="nav-links">
-        <li><a href="#jornada" data-i18n="nav-jornada">JORNADA</a></li>
-        <li><a href="#trabalhos" data-i18n="nav-trabalhos">TRABALHOS</a></li>
-        <li><a href="#contato" data-i18n="nav-contato">CONTATO</a></li>
-    </ul>
-
-    <div class="nav-actions">
-        <button class="lang-btn" id="lang-toggle" aria-label="Alterar Idioma">
-            <span id="lang-pt" class="active-lang">PT</span>
-            <span id="lang-en">EN</span>
-        </button>
+        <div class="logo">
+            <a href="#">
+                <img src="src/logo.png" alt="Raphael Lima" class="logo-img">
+            </a>
+        </div>
         
-        <button class="theme-toggle" id="theme-toggle" aria-label="Alterar Tema">
-            <svg id="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-            </svg>
-            <svg id="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display: none;">
-                <circle cx="12" cy="12" r="5"></circle>
-                <line x1="12" y1="1" x2="12" y2="3"></line>
-                <line x1="12" y1="21" x2="12" y2="23"></line>
-                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                <line x1="1" y1="12" x2="3" y2="12"></line>
-                <line x1="21" y1="12" x2="23" y2="12"></line>
-                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-            </svg>
-        </button>
-    </div>
-</nav>
+        <ul class="nav-links">
+            <li><a href="#jornada" data-i18n="nav-jornada">JORNADA</a></li>
+            <li><a href="#trabalhos" data-i18n="nav-trabalhos">TRABALHOS</a></li>
+            <li><a href="#contato" data-i18n="nav-contato">CONTATO</a></li>
+        </ul>
+
+        <div class="nav-actions">
+            <button class="lang-btn" id="lang-toggle" aria-label="Alterar Idioma">
+                <span id="lang-pt" class="active-lang">PT</span>
+                <span id="lang-en">EN</span>
+            </button>
+            
+            <button class="theme-toggle" id="theme-toggle" aria-label="Alterar Tema">
+                <svg id="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                </svg>
+                <svg id="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display: none;">
+                    <circle cx="12" cy="12" r="5"></circle>
+                    <line x1="12" y1="1" x2="12" y2="3"></line>
+                    <line x1="12" y1="21" x2="12" y2="23"></line>
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                    <line x1="1" y1="12" x2="3" y2="12"></line>
+                    <line x1="21" y1="12" x2="23" y2="12"></line>
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                </svg>
+            </button>
+        </div>
+    </nav>
     
     <header class="hero">
         <div class="hero-content-grid">
@@ -70,7 +70,7 @@
             <div class="hero-title-container">
                 <div class="line-1" data-i18n="hero-title1">DESIGN É<br class="stack-break"> CRIATIVIDADE</div>
                 
-                <div class="line-2-wrapper">
+                <div class="line-2-wrapper" style="display: flex; align-items: stretch; gap: 20px;">
                     <div class="figma-box">
                         <span data-i18n="hero-title2">EXPLORADA</span>
                         <span class="handle top-left"></span>
@@ -78,15 +78,24 @@
                         <span class="handle bottom-left"></span>
                         <span class="handle bottom-right"></span>
                     </div>
+                    
+                    <div class="color-palette vertical" style="display: flex; flex-direction: column; justify-content: space-between; padding: 10px 0;">
+                        <button class="color-swatch active" style="background-color: #C0005A;"></button>
+                        <button class="color-swatch" style="background-color: #1700A0;"></button>
+                        <button class="color-swatch" style="background-color: #1E6B2C;"></button>
+                        <button class="color-swatch" style="background-color: #550917;"></button>
+                    </div>
                 </div>
             </div>
 
-            <div class="hero-bottom">
-                <div class="bottom-title">
-                    <h2>RAPHAEL LIMA 2K26</h2>
-                    <span class="line-deco-thick"></span>
+            <div class="hero-bottom-wrapper" style="margin-top: 40px; position: relative; z-index: 4;">
+                <div class="hero-bottom" style="margin-top: 0; text-align: left;">
+                    <div class="bottom-title" style="display: flex; align-items: center; gap: 15px; margin-bottom: 5px;">
+                        <h2>RAPHAEL LIMA 2K26</h2>
+                        <span class="line-deco-thick"></span>
+                    </div>
+                    <p data-i18n="hero-desc">Transformando experiências complexas em<br class="desktop-only">experiências intuitivas que impulsionam negócios.</p>
                 </div>
-                <p data-i18n="hero-desc">Transformando experiências complexas em<br class="desktop-only">experiências intuitivas que impulsionam negócios.</p>
             </div>
             
         </div>

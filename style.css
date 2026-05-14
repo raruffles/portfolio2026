@@ -4,7 +4,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;500;600;700;800&display=swap');
 
 /* =========================================
-   VARIÁVEIS DE TEMA
+   VARIÁVEIS DE TEMA E CORES DO DA VINCI
    ========================================= */
 :root {
     --bg-color: #ffffff;
@@ -12,7 +12,14 @@
     --text-muted: #435554;
     --nav-bg: rgba(255, 255, 255, 0.85);
     --border-color: #e0e0e0;
-    --accent-color: #2b7fff; /* Azul do Figma */
+    
+    /* Cor Dinâmica Ativa */
+    --current-accent: #C0005A;
+    
+    /* Variáveis Iniciais do Da Vinci */
+    --davinci-hue: 0deg;
+    --davinci-sat: 100%;
+    --davinci-bri: 100%;
 }
 
 body.dark-mode {
@@ -103,8 +110,8 @@ body.is-dragging-element * {
     position: sticky;
     top: 0;
     z-index: 1000;
-    border-bottom: 2px solid var(--border-color); /* Atualizado para 2px */
-    transition: background-color 0.4s ease;
+    border-bottom: 2px solid var(--border-color);
+    transition: background-color 0.4s ease, border-color 0.4s ease;
 }
 
 .menu-toggle { display: none; }
@@ -140,7 +147,6 @@ body.is-dragging-element * {
     transition: filter 0.4s ease; 
 }
 
-/* Inverte a logo para branco no modo escuro */
 body.dark-mode .logo-img {
     filter: invert(1);
 }
@@ -154,6 +160,7 @@ body.dark-mode .logo-img {
 }
 
 .nav-links a {
+    position: relative;
     font-family: 'Montserrat', sans-serif;
     font-size: 16px;
     font-weight: 600;
@@ -163,11 +170,29 @@ body.dark-mode .logo-img {
     align-items: center;
     height: 32px;
     line-height: 1;
-    transition: color 0.3s ease, transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: color 0.3s ease;
 }
-.nav-links a:hover {
-    color: var(--text-muted);
-    transform: scale(1.1);
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background-color: var(--current-accent);
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active-link {
+    color: var(--current-accent);
+}
+
+.nav-links a:hover::after,
+.nav-links a.active-link::after {
+    width: 100%;
 }
 
 .nav-actions {
@@ -182,7 +207,7 @@ body.dark-mode .logo-img {
     display: flex;
     align-items: center;
     background-color: transparent;
-    border: 2px solid var(--border-color); /* Atualizado para 2px */
+    border: 2px solid color-mix(in srgb, var(--current-accent) 20%, var(--border-color));
     border-radius: 40px;
     padding: 2px; 
     height: 40px; 
@@ -204,27 +229,26 @@ body.dark-mode .logo-img {
     line-height: 1;
 }
 
-/* Estado visual do idioma ativo */
 .lang-btn .active-lang {
-    background-color: var(--text-color);
-    color: var(--bg-color);
+    background-color: var(--current-accent);
+    color: #ffffff;
 }
 
 .lang-btn:hover {
-    border-color: var(--text-muted);
+    border-color: var(--current-accent);
 }
 
 .theme-toggle {
-    background: none;
-    border: 2px solid var(--border-color); /* Atualizado para 2px */
+    background-color: var(--current-accent);
+    border: 2px solid var(--border-color);
     border-radius: 50%;
     width: 40px; 
     height: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--text-color);
-    transition: border-color 0.4s ease, background-color 0.4s ease;
+    color: #ffffff;
+    transition: border-color 0.4s ease, background-color 0.4s ease, color 0.4s ease, transform 0.3s ease;
 }
 
 .theme-toggle svg { 
@@ -234,7 +258,7 @@ body.dark-mode .logo-img {
 }
 
 .theme-toggle:hover {
-    border-color: var(--text-muted);
+    transform: scale(1.05);
 }
 
 /* =========================================
@@ -281,7 +305,7 @@ body.dark-mode .logo-img {
 .line-deco {
     display: inline-block;
     width: 250px;
-    height: 2px; /* Já era 2px */
+    height: 2px;
     background-color: var(--text-color);
 }
 
@@ -293,16 +317,17 @@ body.dark-mode .logo-img {
     position: relative;
 }
 
+/* Tipografia Base (Desktop) */
 .line-1 {
     position: relative;
     z-index: 1;
     font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(48px, 11vw, 128px);
+    font-size: clamp(60px, 10vw, 120px);
     word-spacing: 0;
-    line-height: 1.1;
+    line-height: 0.95; 
     padding-top: 10px;
     text-transform: uppercase;
-    letter-spacing: -5px;
+    letter-spacing: -0.01em;
     color: var(--text-color);
 }
 
@@ -311,44 +336,98 @@ body.dark-mode .logo-img {
 .line-2-wrapper {
     position: relative;
     z-index: 3;
+    display: inline-block !important; 
 }
 
+/* CAIXA FIGMA */
 .figma-box {
     display: inline-block;
     position: relative;
     font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(48px, 11vw, 128px);
+    font-size: clamp(50px, 9vw, 110px);
     margin-top: clamp(8px, 1.5vh, 20px);
-    margin-left: -25px;
+    margin-left: -20px;
     padding: clamp(6px, 1vh, 12px) clamp(12px, 2vw, 24px);
     letter-spacing: 0.0em;
     line-height: 1;
     text-transform: uppercase;
-    background-color: var(--bg-color);
-    border: 2px solid var(--accent-color); /* Atualizado para 2px */
-    color: var(--text-color);
-    transition: background-color 0.4s ease, color 0.4s ease;
+    
+    background-color: var(--current-accent);
+    color: #ffffff; 
+    border: 2px solid var(--current-accent);
+    
+    transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease;
 }
 
 .figma-box .handle {
     position: absolute;
-    width: 12px;
-    height: 12px;
+    width: 10px;
+    height: 10px;
     box-sizing: border-box;
     background-color: var(--bg-color);
-    border: 2px solid var(--accent-color); /* Atualizado para 2px */
+    border: 2px solid var(--current-accent);
+    transition: border-color 0.4s ease, background-color 0.4s ease;
 }
-.handle.top-left { top: -8px; left: -8px; }
-.handle.top-right { top: -8px; right: -8px; }
-.handle.bottom-left { bottom: -8px; left: -8px; }
-.handle.bottom-right { bottom: -8px; right: -8px; }
+.handle.top-left { top: -6px; left: -6px; }
+.handle.top-right { top: -6px; right: -6px; }
+.handle.bottom-left { bottom: -6px; left: -6px; }
+.handle.bottom-right { bottom: -6px; right: -6px; }
 
-.hero-bottom {
+/* =========================================
+   PALETA DE CORES FLUTUANTE (FIXA)
+   ========================================= */
+.color-palette.vertical {
+    position: fixed !important;
+    right: 25px !important;
+    left: auto !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 15px !important;
+    padding: 15px 12px !important;
+    margin: 0 !important;
+    background-color: var(--nav-bg) !important;
+    border: 2px solid var(--border-color) !important;
+    border-radius: 40px !important;
+    z-index: 99999 !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1) !important;
+    transition: border-color 0.4s ease, background-color 0.4s ease;
+}
+
+.color-swatch {
+    width: 24px;
+    height: 24px;
+    border: none;
+    border-radius: 50%;
+    cursor: none;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
+}
+
+.color-swatch:hover {
+    transform: scale(1.15) !important;
+}
+
+.color-swatch.active {
+    transform: scale(1.2) !important;
+    box-shadow: 0 0 0 2px var(--nav-bg), 0 0 0 4px var(--current-accent);
+}
+
+/* ========================================= */
+
+.hero-bottom-wrapper {
     position: relative;
     z-index: 4;
+    margin-top: 40px;
+    width: 100%;
+    max-width: 500px;
+}
+
+.hero-bottom {
     max-width: 500px;
     text-align: left;
-    margin-top: 40px;
 }
 
 .bottom-title {
@@ -383,18 +462,25 @@ body.dark-mode .logo-img {
     color: var(--text-muted);
 }
 
+/* =========================================
+   IMAGEM DO DA VINCI (Configurações base)
+   ========================================= */
 .hero-img {
     position: absolute;
-    bottom: -2px !important;
+    bottom: 0; /* Ancorado rigidamente na base */
     z-index: 2;
     pointer-events: none;
-    object-fit: contain;
-    object-position: bottom right;
     display: block;
+    filter: hue-rotate(var(--davinci-hue)) saturate(var(--davinci-sat)) brightness(var(--davinci-bri));
+    transition: filter 0.5s ease;
+}
+
+body.dark-mode .hero-img {
+    filter: hue-rotate(var(--davinci-hue)) saturate(var(--davinci-sat)) brightness(var(--davinci-bri));
 }
 
 /* =========================================
-   OUTRAS SEÇÕES (JORNADA, TRABALHOS, CONTATO)
+   OUTRAS SEÇÕES
    ========================================= */
 .section-label {
     font-family: 'Montserrat', sans-serif;
@@ -414,7 +500,8 @@ body.dark-mode .logo-img {
     font-weight: 400;
     margin-bottom: 60px;
     text-transform: uppercase;
-    color: var(--text-color);
+    color: var(--current-accent);
+    transition: color 0.4s ease;
 }
 
 .jornada-grid, .portfolio-grid {
@@ -424,8 +511,9 @@ body.dark-mode .logo-img {
 }
 
 .info-block {
-    border-top: 2px solid var(--border-color); /* Atualizado para 2px */
+    border-top: 2px solid color-mix(in srgb, var(--current-accent) 20%, var(--border-color));
     padding-top: 20px;
+    transition: border-color 0.4s ease;
 }
 
 .info-block h3, .portfolio-info h3 {
@@ -528,7 +616,7 @@ body.dark-mode .logo-img {
 }
 .contact-info p a:hover {
     transform: scale(1.05);
-    color: var(--text-color);
+    color: var(--current-accent); 
 }
 
 .copyright {
@@ -543,93 +631,184 @@ body.dark-mode .logo-img {
     text-transform: uppercase;
     font-weight: 500;
     color: var(--text-muted);
-    border-top: 2px solid var(--border-color); /* Atualizado para 2px */
+    border-top: 2px solid var(--border-color);
 }
 
 /* =========================================
-   RESPONSIVIDADE
+   MEDIA QUERIES (RESPONSIVIDADE ALINHADA ÀS REFERÊNCIAS)
    ========================================= */
-@media (max-width: 900px) {
+
+/* Cursor nativo em tablet/mobile */
+@media (max-width: 1199px) {
+    html, body, *, *::before, *::after,
+    a, button, img, p, h1, h2, h3, h4, span, div {
+        cursor: auto !important;
+    }
+
+    #custom-cursor {
+        display: none !important;
+    }
+}
+
+/* 1. MOBILE E TELAS PEQUENAS (< 900px) */
+@media (max-width: 899px) {
     .navbar { justify-content: space-between; }
     .nav-links { display: none; }
     .menu-toggle { display: flex !important; flex-direction: column; gap: 5px; order: 1; }
     .logo { order: 2; flex: 1; justify-content: center; }
     .nav-actions { order: 3; flex: none; }
-
-    .hero-top { display: flex; white-space: normal; }
-
-    .hero-title-container { margin: 0; }
-    .hero-bottom { margin-top: auto; }
-
-    .hero-content-grid {
-        justify-content: flex-start;
-        padding-bottom: 400px;
-        padding-top: 20px;
+    
+    .hero-top { display: flex; flex-wrap: wrap; white-space: normal; margin-bottom: 12px; justify-content: center; text-align: center; }
+    .line-deco { width: 50px; }
+    .hero-title-container { margin: 0; text-align: center; width: 100%; }
+    
+    .line-1 {
+        font-size: clamp(56px, 16.5vw, 96px);
+        line-height: 0.94;
+        letter-spacing: 0;
+        text-align: center;
     }
 
-    .hero-img {
-        height: 380px;
-        max-height: 45vh;
+    .line-2-wrapper {
         width: 100%;
-        max-width: 500px;
-        left: 50%;
-        transform: translateX(-50%);
-        object-position: bottom center;
+        text-align: center;
+    }
+
+    .figma-box {
+        font-size: clamp(54px, 15.5vw, 92px);
+        margin-left: 0;
+        margin-top: 10px;
+        padding: 8px 16px;
+        letter-spacing: 0;
+    }
+    
+    /* GRID MOBILE: reserva area inferior para a imagem, sem sobreposicao de texto */
+    .hero-content-grid { 
+        justify-content: flex-start; 
+        padding-top: 30px;
+        padding-left: 5%;
+        padding-right: 5%;
+        padding-bottom: clamp(340px, 47vh, 500px) !important;
+        gap: 20px;
+        align-items: center;
+    }
+
+    .hero-bottom-wrapper {
+        margin-top: 22px;
+        margin-bottom: 0;
+        width: 100%;
+        max-width: 100%;
+        text-align: center;
+    }
+
+    .hero-bottom {
+        max-width: 100%;
+        text-align: center;
+    }
+
+    .bottom-title {
+        justify-content: center;
+    }
+    
+    /* DA VINCI NO MOBILE: centralizado no fundo, sem invadir os textos */
+    .hero-img {
+        height: clamp(340px, 47vh, 500px) !important;
+        width: 100% !important; 
+        max-width: 100% !important;
+        left: 0 !important; 
+        right: 0 !important; 
+        bottom: 0 !important;
+        top: auto !important;
+        object-fit: contain !important;
+        object-position: center bottom !important; 
+        transform: none !important; 
+        position: absolute !important;
+    }
+
+    .color-palette.vertical {
+        right: 10px !important;
+        padding: 10px 8px !important;
+        gap: 12px !important;
+        transform: translateY(-50%) scale(0.85) !important;
+        transform-origin: right center;
     }
 }
 
-@media (min-width: 901px) and (max-width: 1199px) {
+/* 2. TABLET E TELAS MÉDIAS (900px até 1199px) */
+@media (min-width: 900px) and (max-width: 1199px) {
     .mobile-only { display: none; }
     .desktop-only { display: inline; }
     .menu-toggle { display: none !important; }
-
-    .nav-links { display: flex; justify-content: center; flex: 1; }
+    .nav-links { display: flex; gap: 25px; justify-content: center; flex: 1; }
     .stack-break { display: block; }
-
-    .section-title {
-        font-family: 'Bebas Neue', sans-serif;
-        font-size: 72px;
-        letter-spacing: 0.03em;
-        line-height: 0.95;
-        font-weight: 400;
-        text-transform: uppercase;
-        color: var(--text-color);
-        margin-bottom: 60px;
+    
+    .hero-content-grid {
+        justify-content: flex-start;
+        align-items: flex-start;
+        padding-bottom: clamp(390px, 46vh, 560px) !important;
+    }
+    
+    .line-1 {
+        font-size: clamp(68px, 8.6vw, 108px);
+        line-height: 0.94;
+        letter-spacing: 0;
     }
 
-    .hero-img { height: 70%; right: -5%; object-position: bottom right; }
+    .figma-box {
+        font-size: clamp(62px, 8vw, 98px);
+        margin-left: -8px;
+        letter-spacing: 0;
+    }
 
+    /* TABLET: imagem fica no fundo central, e o texto permanece acima sem sobreposicao */
+    .hero-img {
+        height: clamp(390px, 46vh, 560px) !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        left: 0 !important;
+        right: 0 !important;
+        bottom: 0 !important;
+        object-fit: contain !important;
+        object-position: center bottom !important;
+        position: absolute !important;
+    }
+    
+    .hero-bottom-wrapper {
+        margin-top: 18px;
+        margin-bottom: 0;
+        align-self: flex-start;
+        max-width: 620px;
+    }
+
+    .section-title { font-family: 'Bebas Neue', sans-serif; font-size: 72px; letter-spacing: 0.03em; line-height: 0.95; font-weight: 400; text-transform: uppercase; color: var(--current-accent); margin-bottom: 60px; }
     .jornada-grid { grid-template-columns: repeat(2, 1fr); }
     .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
-
     .footer-layout { grid-template-columns: 1fr 1fr; }
     .copyright { flex-direction: row; }
 }
 
+/* 3. DESKTOP (1200px ou mais) */
 @media (min-width: 1200px) {
     .mobile-only { display: none; }
     .desktop-only { display: inline; }
     .menu-toggle { display: none !important; }
-
     .nav-links { display: flex; justify-content: center; flex: 1; }
     .stack-break { display: none; }
 
-    .section-title {
-        font-family: 'Bebas Neue', sans-serif;
-        font-size: 90px;
-        letter-spacing: 0.03em;
-        font-weight: 400;
-        line-height: 0.95;
-        text-transform: uppercase;
-        color: var(--text-color);
-        margin-bottom: 60px;
+    .section-title { font-family: 'Bebas Neue', sans-serif; font-size: 90px; letter-spacing: 0.03em; font-weight: 400; line-height: 0.95; text-transform: uppercase; color: var(--current-accent); margin-bottom: 60px; }
+
+    .hero-img {
+        height: 90%;
+        max-width: 58%;
+        width: auto;
+        right: -3%;
+        bottom: 0;
+        object-fit: contain;
+        object-position: bottom right;
     }
-
-    .hero-img { height: 85%; right: -2%; object-position: bottom right; }
-
+    
     .jornada-grid { grid-template-columns: repeat(4, 1fr); gap: 30px; }
     .portfolio-grid { grid-template-columns: repeat(3, 1fr); }
-
     .footer-layout { grid-template-columns: 1fr 1fr; gap: 60px; }
     .copyright { flex-direction: row; }
 }

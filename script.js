@@ -32,10 +32,39 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // =========================================
-    // 3. SISTEMA DE TRADUÇÃO AUTOMÁTICA
+    // 3. PALETA DE CORES DINÂMICA (DUOTONE + ACCENT)
     // =========================================
+    const swatches = document.querySelectorAll('.color-swatch');
     
-    // Dicionário Completo do Site
+    const colorSettings = [
+        { hex: '#C0005A', hue: '0deg', sat: '100%', bri: '100%' },   // 1º Botão: Rosa
+        { hex: '#1700A0', hue: '230deg', sat: '110%', bri: '100%' }, // 2º Botão: Azul
+        { hex: '#1E6B2C', hue: '140deg', sat: '130%', bri: '90%' },  // 3º Botão: Verde
+        { hex: '#550917', hue: '35deg', sat: '90%', bri: '70%' }     // 4º Botão: Vinho
+    ];
+
+    if(swatches.length > 0) {
+        swatches[0].classList.add('active');
+    }
+
+    swatches.forEach((swatch, index) => {
+        swatch.addEventListener('click', () => {
+            swatches.forEach(s => s.classList.remove('active'));
+            swatch.classList.add('active');
+
+            const config = colorSettings[index];
+            
+            // Atualiza a Cor do CSS inteiro
+            document.documentElement.style.setProperty('--current-accent', config.hex);
+            document.documentElement.style.setProperty('--davinci-hue', config.hue);
+            document.documentElement.style.setProperty('--davinci-sat', config.sat);
+            document.documentElement.style.setProperty('--davinci-bri', config.bri);
+        });
+    });
+
+    // =========================================
+    // 4. SISTEMA DE TRADUÇÃO AUTOMÁTICA
+    // =========================================
     const translations = {
         pt: {
             "nav-jornada": "JORNADA",
@@ -103,29 +132,24 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    let currentLang = 'en'; // Padrão é inglês
+    let currentLang = 'en'; 
 
-    // Detecta localização do Navegador: Se for Brasil ou Portugal, define para Português
     const userLang = navigator.language || navigator.userLanguage; 
     if (userLang === 'pt-BR' || userLang === 'pt-PT' || userLang.startsWith('pt')) {
         currentLang = 'pt';
     }
 
-    // Elementos visuais do botão de status de idioma
     const langPt = document.getElementById('lang-pt');
     const langEn = document.getElementById('lang-en');
 
-    // Função que aplica os textos e atualiza a interface do botão
     const applyTranslations = (lang) => {
-        // Altera os textos
         document.querySelectorAll('[data-i18n]').forEach(el => {
             const key = el.getAttribute('data-i18n');
-            if (translations[lang][key]) {
+            if (translations[lang] && translations[lang][key]) {
                 el.innerHTML = translations[lang][key];
             }
         });
 
-        // Atualiza o "Status" visual do botão Toggle
         if (lang === 'pt') {
             langPt.classList.add('active-lang');
             langEn.classList.remove('active-lang');
@@ -135,18 +159,44 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    // Aplica o idioma detectado imediatamente ao carregar a página
     applyTranslations(currentLang);
 
-    // Lógica de clique para o botão de idioma no menu
     const langToggleBtn = document.getElementById('lang-toggle');
     if (langToggleBtn) {
         langToggleBtn.addEventListener('click', (e) => {
             e.preventDefault();
-            // Inverte o idioma
             currentLang = currentLang === 'pt' ? 'en' : 'pt';
-            // Reaplica a tradução e o visual do botão
             applyTranslations(currentLang);
         });
     }
+
+    // =========================================
+    // 5. SCROLL SPY (CORRIGIDO PARA O CONTATO)
+    // =========================================
+    const sections = document.querySelectorAll('section, footer');
+    const navLinks = document.querySelectorAll('.nav-links a');
+
+    window.addEventListener('scroll', () => {
+        let current = "";
+        
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            // O valor de tolerância foi aumentado para pegar a seção antes
+            if (pageYOffset >= (sectionTop - 250)) {
+                current = section.getAttribute('id');
+            }
+        });
+
+        // Força a marcação do "CONTATO" se o usuário rolar até o final absoluto da página
+        if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 50) {
+            current = 'contato';
+        }
+
+        navLinks.forEach(link => {
+            link.classList.remove('active-link');
+            if (current && link.getAttribute('href').includes(current)) {
+                link.classList.add('active-link');
+            }
+        });
+    });
 });
