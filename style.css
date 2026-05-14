@@ -103,7 +103,7 @@ body.is-dragging-element * {
     position: sticky;
     top: 0;
     z-index: 1000;
-    border-bottom: 1px solid var(--border-color);
+    border-bottom: 2px solid var(--border-color); /* Atualizado para 2px */
     transition: background-color 0.4s ease;
 }
 
@@ -137,10 +137,10 @@ body.is-dragging-element * {
     width: 150px;
     height: auto;
     display: block;
-    transition: filter 0.4s ease; /* Adiciona uma transição suave */
+    transition: filter 0.4s ease; 
 }
 
-/* A mágica acontece aqui: inverte a logo para branco no modo escuro */
+/* Inverte a logo para branco no modo escuro */
 body.dark-mode .logo-img {
     filter: invert(1);
 }
@@ -173,47 +173,68 @@ body.dark-mode .logo-img {
 .nav-actions {
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 16px; 
     flex: 1;
     justify-content: flex-end;
 }
 
 .lang-btn {
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+    border: 2px solid var(--border-color); /* Atualizado para 2px */
+    border-radius: 40px;
+    padding: 2px; 
+    height: 40px; 
+    transition: border-color 0.4s ease;
+}
+
+.lang-btn span {
     font-family: 'Montserrat', sans-serif;
-    font-size: 14px;
+    font-size: 14px; 
     font-weight: 600;
-    color: var(--text-color);
-    border: 1px solid var(--border-color);
-    height: 32px;
-    padding: 0 16px;
     display: flex;
     align-items: center;
     justify-content: center;
+    height: 100%;
+    padding: 0 14px;
+    border-radius: 36px; 
+    color: var(--text-color);
+    transition: background-color 0.4s ease, color 0.4s ease; 
     line-height: 1;
-    border-radius: 40px;
-    transition: all 0.3s ease;
 }
+
+/* Estado visual do idioma ativo */
+.lang-btn .active-lang {
+    background-color: var(--text-color);
+    color: var(--bg-color);
+}
+
 .lang-btn:hover {
-    border-color: var(--text-color);
-    transform: scale(1.1);
+    border-color: var(--text-muted);
 }
 
 .theme-toggle {
     background: none;
-    border: 1px solid var(--border-color);
+    border: 2px solid var(--border-color); /* Atualizado para 2px */
     border-radius: 50%;
-    width: 32px;
-    height: 32px;
+    width: 40px; 
+    height: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
     color: var(--text-color);
-    transition: all 0.3s ease;
+    transition: border-color 0.4s ease, background-color 0.4s ease;
 }
-.theme-toggle svg { display: block; }
+
+.theme-toggle svg { 
+    display: block;
+    width: 18px; 
+    height: 18px;
+}
+
 .theme-toggle:hover {
-    border-color: var(--text-color);
-    transform: scale(1.1);
+    border-color: var(--text-muted);
 }
 
 /* =========================================
@@ -260,7 +281,7 @@ body.dark-mode .logo-img {
 .line-deco {
     display: inline-block;
     width: 250px;
-    height: 2px;
+    height: 2px; /* Já era 2px */
     background-color: var(--text-color);
 }
 
@@ -304,7 +325,7 @@ body.dark-mode .logo-img {
     line-height: 1;
     text-transform: uppercase;
     background-color: var(--bg-color);
-    border: 1.5px solid var(--accent-color);
+    border: 2px solid var(--accent-color); /* Atualizado para 2px */
     color: var(--text-color);
     transition: background-color 0.4s ease, color 0.4s ease;
 }
@@ -315,7 +336,7 @@ body.dark-mode .logo-img {
     height: 12px;
     box-sizing: border-box;
     background-color: var(--bg-color);
-    border: 1.5px solid var(--accent-color);
+    border: 2px solid var(--accent-color); /* Atualizado para 2px */
 }
 .handle.top-left { top: -8px; left: -8px; }
 .handle.top-right { top: -8px; right: -8px; }
@@ -403,7 +424,7 @@ body.dark-mode .logo-img {
 }
 
 .info-block {
-    border-top: 1px solid var(--border-color);
+    border-top: 2px solid var(--border-color); /* Atualizado para 2px */
     padding-top: 20px;
 }
 
@@ -522,7 +543,7 @@ body.dark-mode .logo-img {
     text-transform: uppercase;
     font-weight: 500;
     color: var(--text-muted);
-    border-top: 1px solid var(--border-color);
+    border-top: 2px solid var(--border-color); /* Atualizado para 2px */
 }
 
 /* =========================================
