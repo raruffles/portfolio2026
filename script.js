@@ -4,6 +4,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // 1. CURSOR DO FIGMA
     // =========================================
     const customCursor = document.getElementById('custom-cursor');
+    const customCursorPath = document.querySelector('#custom-cursor path');
+    
     document.addEventListener('mousemove', (e) => {
         if (customCursor) {
             customCursor.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0)`;
@@ -19,17 +21,36 @@ document.addEventListener('DOMContentLoaded', () => {
     let activeAccentKey = 'black';
 
     const applyAccent = (config) => {
-        const isBlackAccent = activeAccentKey === 'black';
-        const accentColor = isBlackAccent && document.body.classList.contains('dark-mode') ? '#ffffff' : config.hex;
-        const logoFilter = document.body.classList.contains('dark-mode')
-            ? config.logoFilterDark
-            : config.logoFilterLight;
+        const isDarkMode = document.body.classList.contains('dark-mode');
+        
+        // Se a cor for preta e o modo escuro estiver ativo, a cor de destaque vira branca.
+        const isBlackAccent = config.key === 'black' || activeAccentKey === 'black';
+        const accentColor = (isBlackAccent && isDarkMode) ? '#ffffff' : config.hex;
+        
+        const logoFilter = isDarkMode ? config.logoFilterDark : config.logoFilterLight;
 
+        // Aplica o acento e as variáveis duotone do Da Vinci
         document.documentElement.style.setProperty('--current-accent', accentColor);
         document.documentElement.style.setProperty('--davinci-hue', config.hue);
         document.documentElement.style.setProperty('--davinci-sat', config.sat);
         document.documentElement.style.setProperty('--davinci-bri', config.bri);
         document.documentElement.style.setProperty('--logo-filter', logoFilter);
+
+        // Toggle para classe auxiliar caso seja branco puro
+        if (accentColor.toLowerCase() === '#ffffff') {
+            document.body.classList.add('accent-white');
+        } else {
+            document.body.classList.remove('accent-white');
+        }
+
+        const nameTone = isDarkMode ? 'var(--text-color)' : `color-mix(in srgb, ${accentColor} 12%, #222 88%)`;
+        document.documentElement.style.setProperty('--raphael-tone', nameTone);
+        
+        // Inverte a cor do cursor do Figma para garantir contraste
+        if (customCursorPath) {
+            customCursorPath.setAttribute('fill', isDarkMode ? '#1a1f1f' : '#ffffff');
+            customCursorPath.setAttribute('stroke', isDarkMode ? '#ffffff' : '#1a1f1f');
+        }
     };
 
     if (themeToggle) {
@@ -111,8 +132,8 @@ document.addEventListener('DOMContentLoaded', () => {
             hue: '0deg',
             sat: '100%',
             bri: '100%',
-            logoFilterLight: 'brightness(0) saturate(100%) invert(18%) sepia(94%) saturate(4019%) hue-rotate(318deg) brightness(90%) contrast(110%)',
-            logoFilterDark: 'brightness(0) saturate(100%) invert(18%) sepia(94%) saturate(4019%) hue-rotate(318deg) brightness(90%) contrast(110%)'
+            logoFilterLight: 'brightness(0) saturate(100%) invert(18%) sepia(45%) saturate(220%) hue-rotate(318deg) brightness(92%) contrast(96%)',
+            logoFilterDark: 'brightness(0) saturate(100%) invert(18%) sepia(45%) saturate(220%) hue-rotate(318deg) brightness(92%) contrast(96%)'
         },
         {
             key: 'blue',
@@ -120,8 +141,8 @@ document.addEventListener('DOMContentLoaded', () => {
             hue: '230deg',
             sat: '110%',
             bri: '100%',
-            logoFilterLight: 'brightness(0) saturate(100%) invert(11%) sepia(91%) saturate(7365%) hue-rotate(243deg) brightness(72%) contrast(124%)',
-            logoFilterDark: 'brightness(0) saturate(100%) invert(11%) sepia(91%) saturate(7365%) hue-rotate(243deg) brightness(72%) contrast(124%)'
+            logoFilterLight: 'brightness(0) saturate(100%) invert(11%) sepia(42%) saturate(240%) hue-rotate(243deg) brightness(78%) contrast(98%)',
+            logoFilterDark: 'brightness(0) saturate(100%) invert(11%) sepia(42%) saturate(240%) hue-rotate(243deg) brightness(78%) contrast(98%)'
         },
         {
             key: 'green',
@@ -129,8 +150,8 @@ document.addEventListener('DOMContentLoaded', () => {
             hue: '140deg',
             sat: '130%',
             bri: '90%',
-            logoFilterLight: 'brightness(0) saturate(100%) invert(39%) sepia(93%) saturate(496%) hue-rotate(84deg) brightness(86%) contrast(88%)',
-            logoFilterDark: 'brightness(0) saturate(100%) invert(39%) sepia(93%) saturate(496%) hue-rotate(84deg) brightness(86%) contrast(88%)'
+            logoFilterLight: 'brightness(0) saturate(100%) invert(39%) sepia(32%) saturate(210%) hue-rotate(84deg) brightness(88%) contrast(92%)',
+            logoFilterDark: 'brightness(0) saturate(100%) invert(39%) sepia(32%) saturate(210%) hue-rotate(84deg) brightness(88%) contrast(92%)'
         },
         {
             key: 'wine',
@@ -138,8 +159,8 @@ document.addEventListener('DOMContentLoaded', () => {
             hue: '35deg',
             sat: '90%',
             bri: '70%',
-            logoFilterLight: 'brightness(0) saturate(100%) invert(11%) sepia(89%) saturate(2871%) hue-rotate(323deg) brightness(71%) contrast(106%)',
-            logoFilterDark: 'brightness(0) saturate(100%) invert(11%) sepia(89%) saturate(2871%) hue-rotate(323deg) brightness(71%) contrast(106%)'
+            logoFilterLight: 'brightness(0) saturate(100%) invert(11%) sepia(38%) saturate(230%) hue-rotate(323deg) brightness(74%) contrast(96%)',
+            logoFilterDark: 'brightness(0) saturate(100%) invert(11%) sepia(38%) saturate(230%) hue-rotate(323deg) brightness(74%) contrast(96%)'
         }
     ];
 
@@ -148,11 +169,19 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     swatches.forEach((swatch, index) => {
-        swatch.addEventListener('click', () => {
+        swatch.addEventListener('click', (e) => {
+            const key = swatch.getAttribute('data-key');
+            let config = null;
+            if (key) {
+                config = colorSettings.find(c => c.key === key);
+            }
+            if (!config) {
+                config = colorSettings[index] || colorSettings[0];
+            }
+
             swatches.forEach(s => s.classList.remove('active'));
             swatch.classList.add('active');
 
-            const config = colorSettings[index];
             activeAccentKey = config.key || 'rose';
             applyAccent(config);
         });
@@ -273,7 +302,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // =========================================
-    // 5. SCROLL SPY (CORRIGIDO PARA O CONTATO)
+    // 5. SCROLL SPY
     // =========================================
     const sections = document.querySelectorAll('section, footer');
     const navLinks = document.querySelectorAll('.nav-links a');
@@ -283,13 +312,11 @@ document.addEventListener('DOMContentLoaded', () => {
         
         sections.forEach(section => {
             const sectionTop = section.offsetTop;
-            // O valor de tolerância foi aumentado para pegar a seção antes
             if (pageYOffset >= (sectionTop - 250)) {
                 current = section.getAttribute('id');
             }
         });
 
-        // Força a marcação do "CONTATO" se o usuário rolar até o final absoluto da página
         if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 50) {
             current = 'contato';
         }

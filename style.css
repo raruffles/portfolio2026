@@ -82,6 +82,7 @@ a, button, img, p, h1, h2, h3, h4, span, div {
     filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.15));
     transform: translate(-100px, -100px);
     will-change: transform;
+    /* Removido o transition para o cursor seguir o mouse perfeitamente (zero delay) */
 }
 
 img, a {
@@ -215,6 +216,10 @@ body.dark-mode .logo-img {
     transition: border-color 0.4s ease;
 }
 
+body.accent-white .lang-btn .active-lang {
+    color: #000000 !important;
+}
+
 .lang-btn span {
     font-family: 'Montserrat', sans-serif;
     font-size: 14px; 
@@ -232,7 +237,7 @@ body.dark-mode .logo-img {
 
 .lang-btn .active-lang {
     background-color: var(--current-accent);
-    color: #ffffff;
+    color: #ffffff !important; /* Força o texto "PT" a ficar branco na página inicial */
 }
 
 .lang-btn:hover {
@@ -250,6 +255,13 @@ body.dark-mode .logo-img {
     justify-content: center;
     color: #ffffff;
     transition: border-color 0.4s ease, background-color 0.4s ease, color 0.4s ease, transform 0.3s ease;
+}
+
+/* TEMA ESCURO: Botão Theme branco com ícone preto */
+body.dark-mode .theme-toggle {
+    background-color: #ffffff;
+    color: #000000;
+    border-color: #ffffff;
 }
 
 .theme-toggle svg { 
@@ -354,9 +366,8 @@ body.dark-mode .logo-img {
     text-transform: uppercase;
     
     background-color: var(--current-accent);
-    color: #ffffff; 
+    color: var(--bg-color); /* TEXTO SEMPRE NA COR DO FUNDO (preto no dark, branco no light) */
     border: 2px solid var(--current-accent);
-    background-color: var(--current-accent);
     
     transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease;
 }
@@ -400,18 +411,19 @@ body.dark-mode .logo-img {
 }
 
 .color-swatch {
-    width: 24px;
-    height: 24px;
-    border: none;
+    width: 28px; /* Aumentado para melhor área de clique */
+    height: 28px;
+    border: 2px solid transparent; /* Adicionado para evitar pulo no layout */
     border-radius: 50%;
     cursor: none;
-    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease, background-color 0.4s ease;
 }
 
 .color-swatch.swatch-black {
     background-color: #111111 !important;
 }
 
+/* BOLINHA BRANCA O TEMPO TODO NO MODO ESCURO */
 body.dark-mode .color-swatch.swatch-black {
     background-color: #ffffff !important;
 }
@@ -473,11 +485,11 @@ body.dark-mode .color-swatch.swatch-black {
 }
 
 /* =========================================
-   IMAGEM DO DA VINCI (Configurações base)
+   IMAGEM DO DA VINCI
    ========================================= */
 .hero-img {
     position: absolute;
-    bottom: 0; /* Ancorado rigidamente na base */
+    bottom: 0;
     z-index: 2;
     pointer-events: none;
     display: block;
@@ -645,10 +657,8 @@ body.dark-mode .hero-img {
 }
 
 /* =========================================
-   MEDIA QUERIES (RESPONSIVIDADE ALINHADA ÀS REFERÊNCIAS)
+   MEDIA QUERIES
    ========================================= */
-
-/* Cursor nativo em tablet/mobile */
 @media (max-width: 1199px) {
     html, body, *, *::before, *::after,
     a, button, img, p, h1, h2, h3, h4, span, div {
@@ -656,11 +666,20 @@ body.dark-mode .hero-img {
     }
 
     #custom-cursor {
-        display: none !important;
-    }
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 24px !important; /* Reduzido de 48px para o tamanho padrão do cursor do Figma */
+    height: 24px !important;
+    z-index: 999999;
+    pointer-events: none;
+    transform-origin: top left; /* Garante que o clique seja exatamente na ponta da seta */
+    filter: drop-shadow(0px 2px 4px rgba(0,0,0,0.25)); /* Sombra idêntica à do Figma */
+    transform: translate(-100px, -100px);
+    will-change: transform;
+}
 }
 
-/* 1. MOBILE E TELAS PEQUENAS (< 900px) */
 @media (max-width: 899px) {
     .navbar { justify-content: space-between; }
     .nav-links { display: none; }
@@ -733,7 +752,6 @@ body.dark-mode .hero-img {
         letter-spacing: 0;
     }
     
-    /* GRID MOBILE: reserva area inferior para a imagem, sem sobreposicao de texto */
     .hero-content-grid { 
         justify-content: flex-start; 
         padding-top: 14px;
@@ -761,7 +779,6 @@ body.dark-mode .hero-img {
         justify-content: center;
     }
     
-    /* DA VINCI NO MOBILE: centralizado no fundo, sem invadir os textos */
     .hero-img {
         height: clamp(340px, 47vh, 500px) !important;
         width: 100% !important; 
@@ -785,7 +802,6 @@ body.dark-mode .hero-img {
     }
 }
 
-/* 2. TABLET E TELAS MÉDIAS (900px até 1199px) */
 @media (min-width: 900px) and (max-width: 1199px) {
     .mobile-only { display: none; }
     .desktop-only { display: inline; }
@@ -811,7 +827,6 @@ body.dark-mode .hero-img {
         letter-spacing: 0;
     }
 
-    /* TABLET: imagem fica no fundo central, e o texto permanece acima sem sobreposicao */
     .hero-img {
         height: clamp(390px, 46vh, 560px) !important;
         width: 100% !important;
@@ -838,7 +853,6 @@ body.dark-mode .hero-img {
     .copyright { flex-direction: row; }
 }
 
-/* 3. DESKTOP (1200px ou mais) */
 @media (min-width: 1200px) {
     .mobile-only { display: none; }
     .desktop-only { display: inline; }
