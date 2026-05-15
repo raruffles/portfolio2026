@@ -231,7 +231,7 @@ document.addEventListener('DOMContentLoaded', () => {
             "works-tag-1": "UX/UI EDUCAÇÃO",
             "works-tag-2": "BRANDING DIREÇÃO",
             "works-tag-placeholder": "[IMAGEM]",
-            "works-tag-3": "CULTURA",
+            "works-tag-3": "REDES",
             "contact-label": "// 03 — CONTATO",
             "contact-title": "ENTRE EM CONTATO",
             "contact-call": "Vamos transformar uma ideia em uma experiência digital memorável.",
