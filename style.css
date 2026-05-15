@@ -147,8 +147,10 @@ body.is-dragging-element * {
     filter: var(--logo-filter, none);
 }
 
+/* Garante que o logo fique branco e visível no modo escuro */
 body.dark-mode .logo-img {
-    filter: var(--logo-filter, none);
+    filter: brightness(0) invert(1);
+    opacity: 0.9; /* Opcional: deixa um pouco menos "agressivo" que o branco puro */
 }
 
 .nav-links {
