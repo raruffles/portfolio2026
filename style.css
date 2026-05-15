@@ -390,7 +390,7 @@ body.dark-mode .theme-toggle {
     right: 25px !important;
     left: auto !important;
     top: 50% !important;
-    transform: translateY(-50%) !important;
+    transform: translateY(-50%) translateZ(999px) !important;
     display: flex !important;
     flex-direction: column !important;
     gap: 15px !important;
@@ -788,12 +788,13 @@ body.dark-mode .hero-img {
         position: absolute !important;
     }
 
-    .color-palette.vertical {
+.color-palette.vertical {
         right: 10px !important;
         padding: 10px 8px !important;
         gap: 12px !important;
-        transform: translateY(-50%) scale(0.85) !important;
+        transform: translateY(-50%) scale(0.85) translateZ(999px) !important;
         transform-origin: right center;
+        z-index: 999999 !important;
     }
 }
 
