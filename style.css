@@ -82,7 +82,6 @@ a, button, img, p, h1, h2, h3, h4, span, div {
     filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.15));
     transform: translate(-100px, -100px);
     will-change: transform;
-    /* Removido o transition para o cursor seguir o mouse perfeitamente (zero delay) */
 }
 
 img, a {
@@ -237,7 +236,7 @@ body.accent-white .lang-btn .active-lang {
 
 .lang-btn .active-lang {
     background-color: var(--current-accent);
-    color: #ffffff !important; /* Força o texto "PT" a ficar branco na página inicial */
+    color: #ffffff !important; 
 }
 
 .lang-btn:hover {
@@ -257,7 +256,6 @@ body.accent-white .lang-btn .active-lang {
     transition: border-color 0.4s ease, background-color 0.4s ease, color 0.4s ease, transform 0.3s ease;
 }
 
-/* TEMA ESCURO: Botão Theme branco com ícone preto */
 body.dark-mode .theme-toggle {
     background-color: #ffffff;
     color: #000000;
@@ -330,7 +328,6 @@ body.dark-mode .theme-toggle {
     position: relative;
 }
 
-/* Tipografia Base (Desktop) */
 .line-1 {
     position: relative;
     z-index: 1;
@@ -352,7 +349,6 @@ body.dark-mode .theme-toggle {
     display: inline-block !important;
 }
 
-/* CAIXA FIGMA */
 .figma-box {
     display: inline-block;
     position: relative;
@@ -366,7 +362,7 @@ body.dark-mode .theme-toggle {
     text-transform: uppercase;
     
     background-color: var(--current-accent);
-    color: var(--bg-color); /* TEXTO SEMPRE NA COR DO FUNDO (preto no dark, branco no light) */
+    color: var(--bg-color);
     border: 2px solid var(--current-accent);
     
     transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease;
@@ -409,9 +405,9 @@ body.dark-mode .theme-toggle {
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1) !important;
     transition: border-color 0.4s ease, background-color 0.4s ease;
 }
-/* Modifique a classe existente adicionando "position: relative;" */
+
 .color-swatch {
-    position: relative; /* ADICIONADO: Necessário para a área de clique expandida */
+    position: relative;
     width: 28px; 
     height: 28px;
     border: 2px solid transparent; 
@@ -420,10 +416,6 @@ body.dark-mode .theme-toggle {
     transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease, background-color 0.4s ease;
 }
 
-/* =========================================
-   ADICIONE ESTE BLOCO LOGO ABAIXO
-   ========================================= */
-/* Expande a área de clique (hitbox) em 8px para cada lado sem alterar a estética */
 .color-swatch::after {
     content: '';
     position: absolute;
@@ -439,7 +431,6 @@ body.dark-mode .theme-toggle {
     background-color: #111111 !important;
 }
 
-/* BOLINHA BRANCA O TEMPO TODO NO MODO ESCURO */
 body.dark-mode .color-swatch.swatch-black {
     background-color: #ffffff !important;
 }
@@ -452,8 +443,6 @@ body.dark-mode .color-swatch.swatch-black {
     transform: scale(1.2) !important;
     box-shadow: 0 0 0 2px var(--nav-bg), 0 0 0 4px var(--current-accent);
 }
-
-/* ========================================= */
 
 .hero-bottom-wrapper {
     position: relative;
@@ -675,7 +664,6 @@ body.dark-mode .hero-img {
 /* =========================================
    MEDIA QUERIES
    ========================================= */
-/* Desativa o cursor customizado em telas menores que 1200px OU em telas de toque (Mobile/Tablet) */
 @media (max-width: 1199px), (hover: none) and (pointer: coarse) {
     html, body, *, *::before, *::after,
     a, button, img, p, h1, h2, h3, h4, span, div {
@@ -685,7 +673,6 @@ body.dark-mode .hero-img {
     #custom-cursor {
         display: none !important;
     }
-}
 }
 
 @media (max-width: 899px) {
@@ -868,7 +855,6 @@ body.dark-mode .hero-img {
     .nav-links { display: flex; justify-content: center; flex: 1; }
     .stack-break { display: none; }
 
- 
     .section-title { font-family: 'Bebas Neue', sans-serif; font-size: 90px; letter-spacing: 0.03em; font-weight: 400; line-height: 0.95; text-transform: uppercase; color: var(--current-accent); margin-bottom: 60px; }
 
     .hero-img {

@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="500" height="700" viewBox="0 0 500 700">
+  <defs>
+    <filter id="bw">
+      <feColorMatrix type="matrix" values="0.33 0.33 0.33 0 0 
+                                           0.33 0.33 0.33 0 0 
+                                           0.33 0.33 0.33 0 0 
+                                           0 0 0 1 0"/>
+    </filter>
+
+    <clipPath id="dryCut">
+      <path d="M0,0 H500 V550 L350,700 H0 Z" />
+    </clipPath>
+  </defs>
+
+  <g clip-path="url(#dryCut)" filter="url(#bw)">
+    <image href="davinci.jpg" x="0" y="0" width="500" height="700" preserveAspectRatio="xMidYMid slice" />
+  </g>
+
+  <g clip-path="url(#dryCut)">
+    <image href="sombra.png" x="0" y="0" width="500" height="700" preserveAspectRatio="xMidYMid slice" />
+  </g>
+</svg>
