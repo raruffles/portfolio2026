@@ -11,17 +11,6 @@
         --mono: 'JetBrains Mono', ui-monospace, monospace;
     }
 
-    /* Fonte mono nos rótulos de seção */
-    .case-label {
-        font-family: var(--mono);
-        font-size: 13px;
-        letter-spacing: 0.1em;
-        color: var(--current-accent);
-        text-transform: uppercase;
-        display: block;
-        margin-bottom: 24px;
-    }
-
     /* ===== HERO DO PROJETO ===== */
     .case-hero {
         position: relative;
@@ -282,24 +271,11 @@
         max-width: 1200px;
     }
 
-    .case-title em {
-        font-style: normal;
-        color: var(--current-accent);
-    }
-
     .case-text {
         font-family: 'Montserrat', sans-serif;
-        font-size: clamp(15px, 1.3vw, 18px);
         line-height: 1.7;
         color: var(--text-muted);
         max-width: 740px;
-    }
-
-    .case-text + .case-text { margin-top: 24px; }
-
-    .case-text strong {
-        color: var(--text-color);
-        font-weight: 600;
     }
 
     /* Layout 2 colunas editorial */
@@ -947,44 +923,6 @@
         color: var(--text-muted);
     }
 
-    /* ===== MOBILE SECTION ===== */
-    .mobile-showcase {
-        display: grid;
-        grid-template-columns: 380px 1fr;
-        gap: 80px;
-        margin-top: 60px;
-        align-items: center;
-    }
-
-    .mobile-big-stat {
-        font-family: 'Bebas Neue', sans-serif;
-        font-size: clamp(140px, 16vw, 240px);
-        line-height: 0.85;
-        color: var(--current-accent);
-        letter-spacing: -0.02em;
-    }
-
-    .mobile-big-stat small {
-        display: block;
-        font-family: 'Montserrat', sans-serif;
-        font-size: 14px;
-        letter-spacing: 0.1em;
-        font-weight: 500;
-        color: var(--text-muted);
-        text-transform: uppercase;
-        margin-top: 20px;
-    }
-
-    .phones-grid {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 16px;
-        margin-top: 60px;
-    }
-
-    .phone-frame {
-        aspect-ratio: 9/19;
-        background: var(--text-color);
         border-radius: 22px;
         padding: 8px;
         position: relative;
