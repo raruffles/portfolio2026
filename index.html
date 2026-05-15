@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Raphael Lima - Designer de Produtos Digitais</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&family=Montserrat:wght@500;600&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/x-icon" href="src/favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&family=Montserrat:wght@500;600&family=Oswald:wght@500;700&family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="favicon.png">
 </head>
 <body>
 
@@ -81,9 +81,9 @@
                 </div>
             </div>
 
-            <div class="hero-bottom-wrapper" style="margin-top: 40px; position: relative; z-index: 4;">
-                <div class="hero-bottom" style="margin-top: 0; text-align: left;">
-                    <div class="bottom-title" style="display: flex; align-items: center; gap: 15px; margin-bottom: 5px;">
+            <div class="hero-bottom-wrapper">
+                <div class="hero-bottom">
+                    <div class="bottom-title">
                         <h2>RAPHAEL LIMA 2K26</h2>
                         <span class="line-deco-thick"></span>
                     </div>
@@ -123,7 +123,6 @@
         <span class="section-label" data-i18n="works-label">// 02 — TRABALHOS</span>
         <h2 class="section-title" data-i18n="works-title">TRABALHOS SELECIONADOS</h2>
         <div class="portfolio-grid">
-            <div class="portfolio-item">
                 <img src="src/work-mais-solidario.png" alt="Projeto Mais Solidário" class="portfolio-img">
                 <div class="portfolio-info">
                     <div class="portfolio-title-row">
@@ -132,7 +131,6 @@
                     </div>
                     <p data-i18n="works-tag-1">UX/UI EDUCAÇÃO</p>
                 </div>
-            </div>
             <div class="portfolio-item">
                 <img src="src/work-a-carta.png" alt="Projeto Guuh SC - A Carta" class="portfolio-img">
                 <div class="portfolio-info">
@@ -187,12 +185,12 @@
         </div>
     </footer>
 
-    <div class="color-palette vertical" style="display: flex; flex-direction: column; justify-content: space-between; padding: 10px 0;">
-        <button class="color-swatch swatch-black active" style="background-color: #111111;"></button>
-        <button class="color-swatch" style="background-color: #C0005A;"></button>
-        <button class="color-swatch" style="background-color: #1700A0;"></button>
-        <button class="color-swatch" style="background-color: #1E6B2C;"></button>
-        <button class="color-swatch" style="background-color: #550917;"></button>
+    <div class="color-palette vertical">
+        <button class="color-swatch swatch-black active" data-key="black" style="background-color: #111111;"></button>
+        <button class="color-swatch" data-key="rose" style="background-color: #C0005A;"></button>
+        <button class="color-swatch" data-key="blue" style="background-color: #1700A0;"></button>
+        <button class="color-swatch" data-key="green" style="background-color: #1E6B2C;"></button>
+        <button class="color-swatch" data-key="wine" style="background-color: #550917;"></button>
     </div>
 
     <script src="script.js"></script>

@@ -1,11 +1,5 @@
-/* =========================================
-   IMPORTAÇÃO DAS FONTES
-   ========================================= */
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;500;600;700;800&display=swap');
 
-/* =========================================
-   VARIÁVEIS DE TEMA E CORES DO DA VINCI
-   ========================================= */
 :root {
     --bg-color: #ffffff;
     --text-color: #1a1f1f;
@@ -13,10 +7,8 @@
     --nav-bg: rgba(255, 255, 255, 0.85);
     --border-color: #e0e0e0;
     
-    /* Cor Dinâmica Ativa */
     --current-accent: #C0005A;
     
-    /* Variáveis Iniciais do Da Vinci */
     --davinci-hue: 0deg;
     --davinci-sat: 100%;
     --davinci-bri: 100%;
@@ -30,9 +22,6 @@ body.dark-mode {
     --border-color: #333333;
 }
 
-/* =========================================
-   BASE E CONFIGURAÇÕES GLOBAIS
-   ========================================= */
 * {
     margin: 0;
     padding: 0;
@@ -63,9 +52,6 @@ a {
 .mobile-only { display: inline; }
 .desktop-only { display: none; }
 
-/* =========================================
-   CURSOR DO FIGMA (48px)
-   ========================================= */
 html, body, *, *::before, *::after,
 a, button, img, p, h1, h2, h3, h4, span, div {
     cursor: none !important;
@@ -94,9 +80,6 @@ body.is-dragging-element * {
     -webkit-user-select: none !important;
 }
 
-/* =========================================
-   NAVBAR E BOTÕES
-   ========================================= */
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -147,10 +130,9 @@ body.is-dragging-element * {
     filter: var(--logo-filter, none);
 }
 
-/* Garante que o logo fique branco e visível no modo escuro */
 body.dark-mode .logo-img {
     filter: brightness(0) invert(1);
-    opacity: 0.9; /* Opcional: deixa um pouco menos "agressivo" que o branco puro */
+    opacity: 0.9;
 }
 
 .nav-links {
@@ -274,9 +256,6 @@ body.dark-mode .theme-toggle {
     transform: scale(1.05);
 }
 
-/* =========================================
-   HERO SECTION
-   ========================================= */
 .hero {
     position: relative;
     width: 100%;
@@ -384,9 +363,6 @@ body.dark-mode .theme-toggle {
 .handle.bottom-left { bottom: -6px; left: -6px; }
 .handle.bottom-right { bottom: -6px; right: -6px; }
 
-/* =========================================
-   PALETA DE CORES FLUTUANTE (FIXA)
-   ========================================= */
 .color-palette.vertical {
     position: fixed !important;
     right: 25px !important;
@@ -491,9 +467,6 @@ body.dark-mode .color-swatch.swatch-black {
     color: var(--text-muted);
 }
 
-/* =========================================
-   IMAGEM DO DA VINCI
-   ========================================= */
 .hero-img {
     position: absolute;
     bottom: 0;
@@ -508,9 +481,6 @@ body.dark-mode .hero-img {
     filter: hue-rotate(var(--davinci-hue)) saturate(var(--davinci-sat)) brightness(var(--davinci-bri));
 }
 
-/* =========================================
-   OUTRAS SEÇÕES
-   ========================================= */
 .section-label {
     font-family: 'Montserrat', sans-serif;
     font-size: 14px;
@@ -663,9 +633,6 @@ body.dark-mode .hero-img {
     border-top: 2px solid var(--border-color);
 }
 
-/* =========================================
-   MEDIA QUERIES
-   ========================================= */
 @media (max-width: 1199px), (hover: none) and (pointer: coarse) {
     html, body, *, *::before, *::after,
     a, button, img, p, h1, h2, h3, h4, span, div {
@@ -726,13 +693,11 @@ body.dark-mode .hero-img {
     }
 
     .hero-top { display: none; }
-    .line-deco { width: 50px; }
     .hero-title-container { margin: 0; text-align: center; width: 100%; }
     
     .line-1 {
         font-size: clamp(56px, 16.5vw, 96px);
         line-height: 0.94;
-        letter-spacing: 0;
         text-align: center;
     }
 
@@ -746,29 +711,21 @@ body.dark-mode .hero-img {
         margin-left: 0;
         margin-top: 10px;
         padding: 8px 16px;
-        letter-spacing: 0;
     }
     
     .hero-content-grid { 
         justify-content: flex-start; 
         padding-top: 14px;
-        padding-left: 5%;
-        padding-right: 5%;
         padding-bottom: clamp(340px, 47vh, 500px) !important;
-        gap: 20px;
         align-items: center;
     }
 
     .hero-bottom-wrapper {
         margin-top: 22px;
-        margin-bottom: 0;
-        width: 100%;
-        max-width: 100%;
         text-align: center;
     }
 
     .hero-bottom {
-        max-width: 100%;
         text-align: center;
     }
 
@@ -779,18 +736,14 @@ body.dark-mode .hero-img {
     .hero-img {
         height: clamp(340px, 47vh, 500px) !important;
         width: 100% !important; 
-        max-width: 100% !important;
         left: 0 !important; 
-        right: 0 !important; 
         bottom: 0 !important;
-        top: auto !important;
         object-fit: contain !important;
         object-position: center bottom !important; 
-        transform: none !important; 
         position: absolute !important;
     }
 
-.color-palette.vertical {
+    .color-palette.vertical {
         right: 10px !important;
         padding: 10px 8px !important;
         gap: 12px !important;
@@ -801,11 +754,7 @@ body.dark-mode .hero-img {
 }
 
 @media (min-width: 900px) and (max-width: 1199px) {
-    .mobile-only { display: none; }
-    .desktop-only { display: inline; }
-    .menu-toggle { display: none !important; }
     .nav-links { display: flex; gap: 25px; justify-content: center; flex: 1; }
-    .stack-break { display: block; }
     
     .hero-content-grid {
         justify-content: flex-start;
@@ -815,22 +764,17 @@ body.dark-mode .hero-img {
     
     .line-1 {
         font-size: clamp(68px, 8.6vw, 108px);
-        line-height: 0.94;
-        letter-spacing: 0;
     }
 
     .figma-box {
         font-size: clamp(62px, 8vw, 98px);
         margin-left: -8px;
-        letter-spacing: 0;
     }
 
     .hero-img {
         height: clamp(390px, 46vh, 560px) !important;
         width: 100% !important;
-        max-width: 100% !important;
         left: 0 !important;
-        right: 0 !important;
         bottom: 0 !important;
         object-fit: contain !important;
         object-position: center bottom !important;
@@ -839,12 +783,11 @@ body.dark-mode .hero-img {
     
     .hero-bottom-wrapper {
         margin-top: 18px;
-        margin-bottom: 0;
         align-self: flex-start;
         max-width: 620px;
     }
 
-    .section-title { font-family: 'Bebas Neue', sans-serif; font-size: 72px; letter-spacing: 0.03em; line-height: 0.95; font-weight: 400; text-transform: uppercase; color: var(--current-accent); margin-bottom: 60px; }
+    .section-title { font-size: 72px; }
     .jornada-grid { grid-template-columns: repeat(2, 1fr); }
     .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
     .footer-layout { grid-template-columns: 1fr 1fr; }
@@ -852,18 +795,13 @@ body.dark-mode .hero-img {
 }
 
 @media (min-width: 1200px) {
-    .mobile-only { display: none; }
-    .desktop-only { display: inline; }
-    .menu-toggle { display: none !important; }
     .nav-links { display: flex; justify-content: center; flex: 1; }
-    .stack-break { display: none; }
 
-    .section-title { font-family: 'Bebas Neue', sans-serif; font-size: 90px; letter-spacing: 0.03em; font-weight: 400; line-height: 0.95; text-transform: uppercase; color: var(--current-accent); margin-bottom: 60px; }
+    .section-title { font-size: 90px; }
 
     .hero-img {
         height: 90%;
         max-width: 58%;
-        width: auto;
         right: -3%;
         bottom: 0;
         object-fit: contain;

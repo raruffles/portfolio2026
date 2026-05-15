@@ -1,0 +1,13 @@
+{
+  "name": "davinci-portfolio",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "npx -y http-server . -p 3000",
+    "build": "mkdir -p dist && cp index.html style.css script.js mais-solidario.html mais-solidario-case.css mais-solidario-case.js *.png dist/",
+    "start": "npx -y http-server dist -p 3000"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}
