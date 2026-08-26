@@ -1,36 +1,356 @@
-﻿<!DOCTYPE html>
-<html lang="pt-BR">
+<!DOCTYPE html>
+<html class="light" lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mais Solidário — Case Study | Raphael Lima</title>
-    <meta name="description" content="Redesign completo de uma plataforma social de bolsas de estudo. Da arquitetura da informação ao rebranding.">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="mais-solidario-case.css">
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/x-icon" href="favicon.png">
-</head>
-<body>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Estudo de Caso - Mais Solidário | Raphael Lima</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=Montserrat:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css"/>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary-fixed": "#001159",
+                    "on-tertiary-fixed-variant": "#90003b",
+                    "surface-container-highest": "#e4e2e2",
+                    "primary-fixed": "#e2e2e2",
+                    "tertiary-fixed": "#ffd9de",
+                    "on-tertiary": "#ffffff",
+                    "secondary-fixed-dim": "#b9c3ff",
+                    "surface-dim": "#dbdad9",
+                    "primary-fixed-dim": "#c6c6c6",
+                    "tertiary-container": "#3f0016",
+                    "inverse-surface": "#303031",
+                    "secondary-fixed": "#dee1ff",
+                    "outline": "#7e7576",
+                    "inverse-primary": "#c6c6c6",
+                    "on-error": "#ffffff",
+                    "on-tertiary-fixed": "#3f0016",
+                    "surface-bright": "#fbf9f9",
+                    "background": "#ffffff",
+                    "outline-variant": "#cfc4c5",
+                    "error-container": "#ffdad6",
+                    "on-surface": "#1b1c1c",
+                    "surface-container-high": "#e9e8e7",
+                    "secondary": "#304ed2",
+                    "on-primary-fixed-variant": "#474747",
+                    "on-surface-variant": "#4c4546",
+                    "on-primary-fixed": "#1b1b1b",
+                    "surface-container-low": "#f5f3f3",
+                    "on-primary": "#ffffff",
+                    "primary-container": "#1b1b1b",
+                    "on-secondary-fixed-variant": "#0e34bd",
+                    "surface-container": "#efeded",
+                    "surface": "#ffffff",
+                    "on-secondary-container": "#fffbff",
+                    "on-secondary": "#ffffff",
+                    "secondary-container": "#4d68ec",
+                    "primary": "#000000",
+                    "on-background": "#1b1c1c",
+                    "on-tertiary-container": "#f23773",
+                    "inverse-on-surface": "#f2f0f0",
+                    "tertiary": "#000000",
+                    "tertiary-fixed-dim": "#ffb2bf",
+                    "error": "#ba1a1a",
+                    "on-primary-container": "#848484",
+                    "surface-variant": "#e4e2e2",
+                    "surface-tint": "#5e5e5e",
+                    "on-error-container": "#93000a",
+                    "surface-container-lowest": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter-grid": "2rem",
+                    "element-gap": "1.5rem",
+                    "section-gap": "6rem",
+                    "margin-page": "5vw",
+                    "divider-weight": "1px"
+            },
+            "fontFamily": {
+                    "label-sm": [
+                            "Montserrat"
+                    ],
+                    "body-lg": [
+                            "Montserrat"
+                    ],
+                    "body-md": [
+                            "Montserrat"
+                    ],
+                    "headline-lg": [
+                            "Bebas Neue"
+                    ],
+                    "headline-xl": [
+                            "Bebas Neue"
+                    ],
+                    "headline-md": [
+                            "Bebas Neue"
+                    ],
+                    "headline-lg-mobile": [
+                            "Bebas Neue"
+                    ],
+                    "label-lg": [
+                            "Montserrat"
+                    ],
+                    "headline-sm": [
+                            "Bebas Neue"
+                    ]
+            },
+            "fontSize": {
+                    "label-sm": [
+                            "14px",
+                            {
+                                    "lineHeight": "1.2",
+                                    "fontWeight": "500"
+                            }
+                    ],
+                    "body-lg": [
+                            "18px",
+                            {
+                                    "lineHeight": "1.6",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "body-md": [
+                            "16px",
+                            {
+                                    "lineHeight": "1.6",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "headline-lg": [
+                            "48px",
+                            {
+                                    "lineHeight": "1.2",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "headline-xl": [
+                            "80px",
+                            {
+                                    "lineHeight": "1.1",
+                                    "letterSpacing": "0.02em",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "headline-md": [
+                            "32px",
+                            {
+                                    "lineHeight": "1.2",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "headline-lg-mobile": [
+                            "36px",
+                            {
+                                    "lineHeight": "1.2",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "label-lg": [
+                            "14px",
+                            {
+                                    "lineHeight": "1.2",
+                                    "letterSpacing": "0.1em",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "headline-sm": [
+                            "24px",
+                            {
+                                    "lineHeight": "1.2",
+                                    "fontWeight": "400"
+                            }
+                    ]
+            }
+    },
+        },
+      }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
 
-    <!-- ============ CURSOR CUSTOMIZADO ============ -->
+        /* Unified typography system with home page */
+        body, .nav-links a, .nav-actions a, button, p, span, li, a {
+            font-family: 'Montserrat', sans-serif !important;
+        }
+
+        /* 14px font-size floor enforcement */
+        *, *::before, *::after {
+            min-font-size: 14px;
+        }
+        .text-xs, .text-[10px], .text-[11px], .text-[12px], .text-[13px] {
+            font-size: 14px !important;
+        }
+        .font-label-sm, .text-label-sm, .partner-tag, .nav-actions a, .logo a, .nav-links a {
+            font-size: 14px !important;
+        }
+
+        /* No color filter on case study images */
+        img:not(.logo-img):not(.theme-toggle img):not(.invert-dark) {
+            filter: none !important;
+        }
+
+        /* Invert transparent dark text images to white in dark mode */
+        .dark .invert-dark, body.dark-mode .invert-dark {
+            filter: brightness(0) invert(1) !important;
+            transition: filter 0.5s ease;
+        }
+
+        /* Section main titles receive Bebas Neue 90px on Desktop, matching the home page */
+        h1, h3:not(.metric-value) {
+            font-family: 'Bebas Neue', sans-serif !important;
+            font-size: 56px !important;
+            letter-spacing: 0.03em !important;
+            line-height: 0.95 !important;
+            font-weight: 400 !important;
+            text-transform: uppercase !important;
+            color: var(--current-accent, #000000) !important;
+            transition: color 0.5s ease;
+        }
+        @media (min-width: 900px) {
+            h1, h3:not(.metric-value) { font-size: 72px !important; }
+        }
+        @media (min-width: 1200px) {
+            h1, h3:not(.metric-value) { font-size: 90px !important; }
+        }
+
+        /* Subsection headings styled as H2 (Bebas Neue 48px on Desktop) */
+        h2:not(.metric-value) {
+            font-family: 'Bebas Neue', sans-serif !important;
+            font-size: 32px !important;
+            letter-spacing: 0.03em !important;
+            line-height: 1.1 !important;
+            font-weight: 400 !important;
+            text-transform: uppercase !important;
+            color: var(--current-accent, #000000) !important;
+            transition: color 0.5s ease;
+        }
+        @media (min-width: 900px) {
+            h2:not(.metric-value) { font-size: 40px !important; }
+        }
+        @media (min-width: 1200px) {
+            h2:not(.metric-value) { font-size: 48px !important; }
+        }
+
+        /* Sub-headings remain smaller */
+        h4 {
+            font-family: 'Bebas Neue', sans-serif !important;
+            font-size: 24px !important;
+            letter-spacing: 0.03em !important;
+            line-height: 1.2 !important;
+            font-weight: 400 !important;
+            text-transform: uppercase !important;
+            color: var(--text-color) !important;
+            transition: color 0.5s ease;
+        }
+
+        /* Mini-title labels configured to Montserrat 14px, matching the home page */
+        .case-label {
+            color: var(--outline, #7e7576) !important;
+            font-family: 'Montserrat', sans-serif !important;
+            font-size: 14px !important;
+            font-weight: 500 !important;
+            letter-spacing: 0.2em !important;
+            text-transform: uppercase !important;
+            transition: color 0.5s ease;
+        }
+
+        /* Active submenu link color matches accent */
+        div.sticky a.font-bold {
+            color: var(--current-accent, #000000) !important;
+        }
+
+        /* Button colors matching accent color */
+        a[data-i18n="case-results-btn-proto"] {
+            background-color: var(--current-accent, #000000) !important;
+            border-color: var(--current-accent, #000000) !important;
+            color: #ffffff !important;
+        }
+        a[data-i18n="case-results-btn-next"] {
+            border-color: var(--current-accent, #000000) !important;
+            color: var(--current-accent, #000000) !important;
+        }
+
+        /* Metrics banner elements are strictly white at all times to prevent black-on-black */
+        .metrics-section, .metrics-section h2, .metrics-section p {
+            color: #ffffff !important;
+        }
+        .metric-value {
+            color: #ffffff !important;
+            font-family: 'Bebas Neue', sans-serif !important;
+            font-size: 80px !important;
+        }
+        @media (max-width: 767px) {
+            .metric-value { font-size: 50px !important; }
+        }
+
+        /* Animation System */
+        .scroll-animate {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .scroll-animate.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .delay-100 { transition-delay: 100ms; }
+        .delay-200 { transition-delay: 200ms; }
+        .delay-300 { transition-delay: 300ms; }
+        .delay-400 { transition-delay: 400ms; }
+    </style>
+</head>
+<body class="bg-background text-on-background antialiased selection:bg-primary selection:text-on-primary dark:bg-primary dark:text-on-primary transition-colors duration-300">
+
+    <!-- Custom Cursor -->
     <svg id="custom-cursor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
         <path d="M5.5 3.21V20.8c0 .45.54.67.85.35l4.86-4.86a.5.5 0 0 1 .35-.15h6.42c.45 0 .67-.54.35-.85L5.5 3.21z" fill="white" stroke="#1a1f1f" stroke-width="1.5" stroke-linejoin="round"/>
     </svg>
 
-    <!-- ============ NAVBAR ============ -->
-    <nav class="navbar">
+    <!-- TopNavBar (Vinculado com a Home) -->
+    <nav class="navbar border-b border-outline-variant/60 dark:border-primary-container">
+        <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
         <div class="logo">
             <a href="index.html">
                 <img src="src/logo.png" alt="Raphael Lima" class="logo-img">
             </a>
         </div>
+        <ul class="nav-links">
+            <li><a href="index.html" data-i18n="nav-inicio">INÍCIO</a></li>
+            <li><a href="index.html#jornada" data-i18n="nav-jornada">JORNADA</a></li>
+            <li><a href="index.html#trabalhos" data-i18n="nav-trabalhos" class="active-link">TRABALHOS</a></li>
+            <li><a href="index.html#contato" data-i18n="nav-contato">CONTATO</a></li>
+        </ul>
         <div class="nav-actions">
-            <a href="index.html" style="font-family: var(--mono); font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--current-accent); margin-right: 8px;">← Voltar</a>
+            <button class="lang-btn" id="lang-toggle" aria-label="Alterar Idioma">
+                <span id="lang-pt" class="active-lang">PT</span>
+                <span id="lang-en">EN</span>
+            </button>
             <button class="theme-toggle" id="theme-toggle" aria-label="Alterar Tema">
                 <svg id="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                 </svg>
-                <svg id="icon-sun" class="icon-hidden" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <svg id="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display: none;">
                     <circle cx="12" cy="12" r="5"></circle>
                     <line x1="12" y1="1" x2="12" y2="3"></line>
                     <line x1="12" y1="21" x2="12" y2="23"></line>
@@ -45,732 +365,308 @@
         </div>
     </nav>
 
-    <!-- ============ HERO DO PROJETO ============ -->
-    <header class="case-hero">
-        <div class="case-hero-meta">
-            <span>Case 01</span>
-            <span class="dot"></span>
-            <span>UX/UI Educação</span>
-            <span class="dot"></span>
-            <span>5 meses · 2023</span>
-            <span class="dot"></span>
-            <span>Lead Product Designer</span>
+    <!-- SubMenu Sticky (Tom Claro/Escuro Dinâmico) -->
+    <div class="sticky top-[80px] z-40 bg-surface-container-low dark:bg-primary border-b border-outline-variant/60 dark:border-primary-container py-4 transition-colors duration-300">
+        <div class="flex justify-start md:justify-center items-center gap-8 px-4 md:px-margin-page max-w-[1440px] mx-auto overflow-x-auto whitespace-nowrap scrollbar-none font-label-lg text-label-sm tracking-wider uppercase">
+            <a href="index.html#trabalhos" class="hidden md:inline-flex items-center hover:text-primary dark:hover:text-on-primary text-outline transition-colors font-normal mr-4" aria-label="Voltar para Trabalhos">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5">
+                    <line x1="19" y1="12" x2="5" y2="12"></line>
+                    <polyline points="12 19 5 12 12 5"></polyline>
+                </svg>
+            </a>
+            <span class="hidden md:inline-block text-outline-variant dark:text-primary-container mr-4">|</span>
+            
+            <a href="#sobre" class="hover:text-primary dark:hover:text-on-primary transition-colors font-bold text-primary dark:text-on-primary">SOBRE</a>
+            <span class="text-outline-variant dark:text-primary-container">|</span>
+            <a href="#problema" class="hover:text-primary dark:hover:text-on-primary transition-colors font-normal text-on-surface-variant dark:text-primary-fixed-dim">PROBLEMA</a>
+            <span class="text-outline-variant dark:text-primary-container">|</span>
+            <a href="#processo" class="hover:text-primary dark:hover:text-on-primary transition-colors font-normal text-on-surface-variant dark:text-primary-fixed-dim">PROCESSO</a>
+            <span class="text-outline-variant dark:text-primary-container">|</span>
+            <a href="#identidade" class="hover:text-primary dark:hover:text-on-primary transition-colors font-normal text-on-surface-variant dark:text-primary-fixed-dim">IDENTIDADE</a>
+            <span class="text-outline-variant dark:text-primary-container">|</span>
+            <a href="#componentes" class="hover:text-primary dark:hover:text-on-primary transition-colors font-normal text-on-surface-variant dark:text-primary-fixed-dim">COMPONENTES</a>
+            <span class="text-outline-variant dark:text-primary-container">|</span>
+            <a href="#dados-e-resultados" class="hover:text-primary dark:hover:text-on-primary transition-colors font-normal text-on-surface-variant dark:text-primary-fixed-dim">DADOS E RESULTADOS</a>
         </div>
+    </div>
 
-        <h1 class="case-hero-title">
-            <span class="line">Mais</span>
-            <span class="line indent">Solidário</span>
-        </h1>
-
-        <p class="case-hero-lead">
-            <strong>Redesign completo de uma plataforma social de bolsas de estudo.</strong>
-            Da arquitetura da informação ao rebranding, levando educação superior a quem antes desistia no meio do caminho.
-        </p>
-
-        <div class="project-strip">
-            <div class="project-strip-item">
-                <h4>Cliente</h4>
-                <p>Projeto Social Independente</p>
-            </div>
-            <div class="project-strip-item">
-                <h4>Função</h4>
-                <p>Lead Product Designer · UX/UI</p>
-            </div>
-            <div class="project-strip-item">
-                <h4>Escopo</h4>
-                <p>Pesquisa · IA · UI Kit · Branding</p>
-            </div>
-            <div class="project-strip-item">
-                <h4>Setor</h4>
-                <p>Educação · Inclusão Digital</p>
-            </div>
-            <div class="project-strip-item">
-                <h4>Ano</h4>
-                <p>2023 — 5 meses</p>
-            </div>
-        </div>
-
-        <div class="hero-mockup">
-            <div class="hero-mockup-frame">
-                <div class="hero-mockup-content">
-                    <small>BOLSAS DE ESTUDO · MAIS SOLIDÁRIO</small>
-                    Encontre a bolsa<br>
-                    que cabe no seu<br>
-                    <span style="color: var(--ms-laranja);">futuro.</span>
-                </div>
-            </div>
-            <span class="hero-mockup-label">Mockup · Home redesenhada · Busca guiada por intenção</span>
-        </div>
-    </header>
-
-    <!-- ============ BANNER DE IMPACTO ============ -->
-    <section class="impact-banner">
-        <div class="impact-banner-inner">
-            <span class="case-label">// Impacto · Números que importam</span>
-            <h2>O redesign moveu <em>o ponteiro</em><br>onde mais importa.</h2>
-
-            <div class="impact-grid">
-                <div class="metric-block">
-                    <div class="metric-number">+40%</div>
-                    <div class="metric-label">Conclusão de tarefa</div>
-                    <div class="metric-text">Estudantes finalizando inscrição completa após o redesign.</div>
-                </div>
-                <div class="metric-block">
-                    <div class="metric-number">−35%</div>
-                    <div class="metric-label">Tempo de busca</div>
-                    <div class="metric-text">Da intenção até a bolsa ideal, sem fricções desnecessárias.</div>
-                </div>
-                <div class="metric-block">
-                    <div class="metric-number">WCAG</div>
-                    <div class="metric-label">Conformidade AA</div>
-                    <div class="metric-text">Acessibilidade auditada, documentada e versionada.</div>
-                </div>
-                <div class="metric-block">
-                    <div class="metric-number">6+</div>
-                    <div class="metric-label">Stakeholders</div>
-                    <div class="metric-text">Reuniões guiadas em descoberta com áreas diversas.</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============ // 01 · CONTEXTO ============ -->
-    <section class="case-section">
-        <span class="case-label">// 01 — O Contexto</span>
-        <h2 class="case-title">Estudantes desistiam<br>antes <em>de começar</em>.</h2>
-        <div class="two-col">
-            <div>
-                <p class="case-text">
-                    A interface antiga era <strong>confusa, sobrecarregada e pouco confiável</strong>. O fluxo de inscrição tinha excesso de opções, navegação inconsistente e nenhuma camada de prova social — o que gerava abandono em massa durante a candidatura às bolsas.
-                </p>
-                <p class="case-text">
-                    O desafio: reconectar pessoas de baixa renda a oportunidades reais de educação superior, com uma plataforma <strong>acolhedora, acessível e orientada por dados de comportamento</strong>.
-                </p>
-            </div>
-            <div>
-                <p class="case-text">
-                    Comecei o projeto com perguntas norteadoras: o que não está bom no momento? Quem são as pessoas usuárias? O que torna uma plataforma de bolsas realmente acessível? Quais são as necessidades reais dos estudantes?
-                </p>
-                <p class="case-text">
-                    A partir daí, mais de <strong>6 reuniões com stakeholders</strong>, leitura sobre educação acessível e pesquisa CSD (Certezas, Suposições, Dúvidas) abriram caminho para o que viria.
-                </p>
-            </div>
-        </div>
-
-        <div class="problems-grid">
-            <div class="problem-card">
-                <div class="problem-card-num">PROBLEMA · 01</div>
-                <h3 class="problem-card-title">Navegação Complexa</h3>
-                <p class="problem-card-text">Hierarquia confusa, múltiplos caminhos para a mesma ação. O usuário se perdia antes de chegar à decisão.</p>
-            </div>
-            <div class="problem-card">
-                <div class="problem-card-num">PROBLEMA · 02</div>
-                <h3 class="problem-card-title">Falta de Consistência</h3>
-                <p class="problem-card-text">Componentes duplicados, paleta inconsistente, nenhum sistema. Cada tela parecia um produto diferente.</p>
-            </div>
-            <div class="problem-card">
-                <div class="problem-card-num">PROBLEMA · 03</div>
-                <h3 class="problem-card-title">Pouco Foco no Usuário</h3>
-                <p class="problem-card-text">Linguagem institucional, jargão jurídico-acadêmico, sem orientação nem acolhimento em momentos críticos.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============ // 02 · A PESQUISA ============ -->
-    <section class="case-section">
-        <span class="case-label">// 02 — A Pesquisa</span>
-        <h2 class="case-title">Escuta profunda,<br><em>decisão</em> informada.</h2>
-        <p class="case-text" style="max-width: 900px;">
-            Combinamos entrevistas qualitativas com estudantes, survey quantitativa e análise heurística de plataformas concorrentes. O cruzamento revelou padrões claros de fricção e oportunidades de redesenho centradas em <strong>confiança e clareza</strong>. Análise CSD + Card Sorting reorganizaram a arquitetura da informação por intenção, não por taxonomia institucional.
-        </p>
-
-        <div class="research-stats">
-            <div class="research-stat">
-                <div class="research-stat-num">18</div>
-                <div class="research-stat-label">Entrevistas em profundidade</div>
-            </div>
-            <div class="research-stat">
-                <div class="research-stat-num">412</div>
-                <div class="research-stat-label">Respostas em survey</div>
-            </div>
-            <div class="research-stat">
-                <div class="research-stat-num">24</div>
-                <div class="research-stat-label">Participantes Card Sorting</div>
-            </div>
-            <div class="research-stat">
-                <div class="research-stat-num">04</div>
-                <div class="research-stat-label">Análises heurísticas</div>
-            </div>
-        </div>
-
-        <div class="quote-grid">
-            <div class="quote-card">
-                <p class="quote-text">Tem tanta opção que eu fecho a aba.</p>
-                <div class="quote-meta-title">Sobrecarga cognitiva</div>
-                <div class="quote-meta">Estudante · 19 anos</div>
-            </div>
-            <div class="quote-card">
-                <p class="quote-text">Parece golpe. Não sei se a bolsa é real.</p>
-                <div class="quote-meta-title">Falta de confiança</div>
-                <div class="quote-meta">Estudante · 23 anos</div>
-            </div>
-            <div class="quote-card">
-                <p class="quote-text">Eu não entendo metade dos termos do edital.</p>
-                <div class="quote-meta-title">Linguagem hostil</div>
-                <div class="quote-meta">Estudante · 21 anos</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============ // 03 · O PROCESSO ============ -->
-    <section class="case-section">
-        <span class="case-label">// 03 — O Processo</span>
-        <h2 class="case-title">Da escuta ativa<br>ao <em>sistema vivo</em>.</h2>
-        <p class="case-text">
-            Um fluxo iterativo, do mapeamento até o sistema escalável. Cada etapa alimentou a próxima — e nada foi feito sem validação com a base de usuários.
-        </p>
-
-        <div class="process-grid">
-            <div class="process-step">
-                <span class="process-step-num">01</span>
-                <h4 class="process-step-title">Descoberta</h4>
-                <p class="process-step-text">Entrevistas com 6+ stakeholders, leitura sobre educação acessível, mapeamento CSD.</p>
-            </div>
-            <div class="process-step">
-                <span class="process-step-num">02</span>
-                <h4 class="process-step-title">Personas</h4>
-                <p class="process-step-text">Joana (bolsista) e Pedro (não-bolsista). Jornadas reais, dores e gatilhos de confiança.</p>
-            </div>
-            <div class="process-step">
-                <span class="process-step-num">03</span>
-                <h4 class="process-step-title">Arquitetura</h4>
-                <p class="process-step-text">Reorganização da IA por área de interesse + assistente de busca orientada.</p>
-            </div>
-            <div class="process-step">
-                <span class="process-step-num">04</span>
-                <h4 class="process-step-title">Protótipos</h4>
-                <p class="process-step-text">Wireframes → alta fidelidade → testes com usuários. Iteração contínua nas fricções.</p>
-            </div>
-            <div class="process-step">
-                <span class="process-step-num">05</span>
-                <h4 class="process-step-title">Sistema</h4>
-                <p class="process-step-text">UI Kit modular em Atomic Design. Componentes versionados, prontos para escalar.</p>
-            </div>
-            <div class="process-step">
-                <span class="process-step-num">06</span>
-                <h4 class="process-step-title">Rebranding</h4>
-                <p class="process-step-text">Nova paleta, tipografia e logo. Identidade que comunica confiança e acolhimento.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============ // 04 · PERSONAS ============ -->
-    <section class="case-section">
-        <span class="case-label">// 04 — Quem Usa</span>
-        <h2 class="case-title">Duas pessoas.<br>Um <em>mesmo sonho</em>.</h2>
-        <p class="case-text">
-            Personas baseadas em entrevistas e dados reais — não em suposições. Cada decisão de design respondeu a uma dor concreta dessas duas vidas.
-        </p>
-
-        <div class="personas-grid">
-            <div class="persona-card">
-                <div class="persona-card-tag">Persona · 01</div>
-                <div class="persona-avatar">J</div>
-                <h3 class="persona-name">Joana</h3>
-                <div class="persona-role">Estudante bolsista · 21 anos</div>
-                <p class="persona-quote">
-                    Sempre teve o sonho de cursar uma graduação. Com o projeto, as mensalidades cabem no bolso e ela sabe que não vai ficar com dívida após formada.
-                </p>
-            </div>
-            <div class="persona-card">
-                <div class="persona-card-tag">Persona · 02</div>
-                <div class="persona-avatar">P</div>
-                <h3 class="persona-name">Pedro</h3>
-                <div class="persona-role">Em transição de carreira · 28 anos</div>
-                <p class="persona-quote">
-                    Busca acesso à educação superior, desenvolvimento profissional e melhores perspectivas de emprego. Está entrando no mercado de trabalho.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============ // 05 · REBRANDING + CORES ============ -->
-    <section class="brand-section">
-        <div class="brand-inner">
-            <span class="case-label">// 05 — Rebranding</span>
-            <h2 class="case-title">Uma marca <em>que abraça</em>.</h2>
-            <p class="case-text" style="max-width: 900px;">
-                A nova identidade traduz <strong style="color: #fff;">propósito, acolhimento e estabilidade</strong>. Tipografia geométrica, paleta com tons de azul e verde para confiança e renovação, e o laranja como cor de ação para candidaturas e avisos críticos. Não é só estética — é uma escolha estratégica que apoia a decisão do estudante.
-            </p>
-
-            <div class="color-story">
-                <div class="color-block color-block-1">
-                    <div>
-                        <div class="color-name">Azul<br>Celestial</div>
-                        <div class="color-role">Principal · Confiança</div>
-                    </div>
-                    <div>
-                        <div class="color-codes">
-                            HEX #1B8C78<br>
-                            RGB 27 · 140 · 120
+    <main>
+        <!-- Hero Section / Sobre -->
+        <section id="sobre" class="px-margin-page py-16 max-w-[1440px] mx-auto scroll-mt-[160px]">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-gutter-grid items-center">
+                <div class="md:col-span-5 flex flex-col gap-6 scroll-animate">
+                    <p class="font-label-lg text-label-lg case-label">// CASE STUDY — MAIS SOLIDÁRIO</p>
+                    <h1 class="font-headline-xl text-[42px] sm:text-[60px] md:text-headline-xl text-primary dark:text-on-primary leading-[0.9] uppercase">
+                        MAIS<br/>SOLIDÁRIO
+                    </h1>
+                    <p class="font-body-lg text-body-lg text-on-surface-variant dark:text-primary-fixed-dim" data-i18n="case-hero-subtitle">
+                        Simplificando a candidatura a bolsas de estudo para estudantes de baixa renda.
+                    </p>
+                    <div class="grid grid-cols-2 gap-4 mt-6 border-l-2 border-primary dark:border-on-primary pl-4">
+                        <div>
+                            <p class="font-label-sm text-label-sm text-on-surface-variant dark:text-primary-fixed-dim uppercase font-bold" data-i18n="case-meta-time">5 meses</p>
+                            <p class="font-label-sm text-label-sm text-outline dark:text-primary-fixed-dim uppercase">UX Research</p>
                         </div>
-                        <p class="color-desc">Segurança, estabilidade e profissionalismo — qualidades essenciais em educação.</p>
-                    </div>
-                </div>
-                <div class="color-block color-block-2">
-                    <div>
-                        <div class="color-name">Verde<br>Renovo</div>
-                        <div class="color-role">Secundário · Crescimento</div>
-                    </div>
-                    <div>
-                        <div class="color-codes">
-                            HEX #2DBE91<br>
-                            RGB 45 · 190 · 145
+                        <div>
+                            <p class="font-label-sm text-label-sm text-on-surface-variant dark:text-primary-fixed-dim uppercase font-bold" data-i18n="case-meta-role">Lead Product Designer</p>
+                            <p class="font-label-sm text-label-sm text-outline dark:text-primary-fixed-dim uppercase">UI Design Support</p>
                         </div>
-                        <p class="color-desc">Crescimento, renovação e novas possibilidades para o futuro dos estudantes.</p>
                     </div>
                 </div>
-                <div class="color-block color-block-3">
-                    <div>
-                        <div class="color-name">Laranja<br>Ação</div>
-                        <div class="color-role">Acento · Energia</div>
+                <div class="md:col-span-7 scroll-animate delay-200">
+                    <img alt="Mockup Mais Solidário" class="w-full h-auto object-contain" src="src/mais_solidario/mais-solidario-mockup-notebook.png"/>
+                </div>
+            </div>
+        </section>
+
+        <!-- Impact Metrics -->
+        <section class="metrics-section px-margin-page py-12 max-w-[1440px] mx-auto bg-primary dark:bg-primary-container text-on-primary dark:text-on-primary transition-colors border-y border-outline-variant dark:border-primary-container scroll-animate">
+            <div class="max-w-[1200px] mx-auto">
+                <p class="font-label-sm text-label-sm uppercase mb-6">// IMPACTO EM NÚMEROS</p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                    <div class="flex flex-col gap-2 scroll-animate delay-100">
+                        <h2 class="metric-value">40%</h2>
+                        <p class="font-label-lg text-label-lg uppercase tracking-widest mt-2" data-i18n="case-metrics-1">FINALIZAÇÃO DA INSCRIÇÃO</p>
                     </div>
-                    <div>
-                        <div class="color-codes">
-                            HEX #FF7A29<br>
-                            RGB 255 · 122 · 41
+                    <div class="flex flex-col gap-2 justify-center scroll-animate delay-200">
+                        <h2 class="metric-value">-35%</h2>
+                        <p class="font-label-lg text-label-lg uppercase tracking-widest mt-2" data-i18n="case-metrics-2">TEMPO DE BUSCA</p>
+                    </div>
+                    <div class="flex flex-col gap-2 justify-center scroll-animate delay-300">
+                        <h2 class="metric-value">WCAG</h2>
+                        <p class="font-label-lg text-label-lg uppercase tracking-widest mt-2" data-i18n="case-metrics-3">CONFORMIDADE EM ACESSIBILIDADE</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Problem & Solution -->
+        <section id="problema" class="px-margin-page py-20 max-w-[1440px] mx-auto border-b border-outline-variant dark:border-primary-container scroll-mt-[160px] scroll-animate">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-gutter-grid">
+                <div class="flex flex-col gap-4 scroll-animate delay-100">
+                    <p class="font-label-lg text-label-lg case-label" data-i18n="case-problem-label">// 01 — O PROBLEMA</p>
+                    <h2 class="text-primary dark:text-on-primary uppercase mb-2" data-i18n="case-problem-subtitle">NAVEGAÇÃO CONFUSA E FALTA DE CONFIANÇA</h2>
+                    <p class="font-body-md text-body-md text-on-surface-variant dark:text-primary-fixed-dim" data-i18n="case-problem-desc">O site antigo apresentava problemas crônicos de arquitetura de informação, tornando a busca por bolsas um processo frustrante. A falta de hierarquia visual e design datado também geravam desconfiança nos usuários sobre a legitimidade da plataforma.</p>
+                </div>
+                <div class="flex flex-col gap-4 scroll-animate delay-200">
+                    <p class="font-label-lg text-label-lg case-label" data-i18n="case-solution-label">// 02 — A SOLUÇÃO</p>
+                    <h2 class="text-primary dark:text-on-primary uppercase mb-2" data-i18n="case-solution-subtitle">BUSCA GUIADA E PROVA SOCIAL</h2>
+                    <p class="font-body-md text-body-md text-on-surface-variant dark:text-primary-fixed-dim" data-i18n="case-solution-desc">Redesenhamos a experiência focando em uma busca guiada por intenção do usuário (intent-guided search), simplificando os formulários e incorporando elementos de prova social através de cards de tendências e cursos mais buscados para aumentar a credibilidade e facilitar a tomada de decisão.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Processo UX -->
+        <section id="processo" class="px-margin-page py-20 max-w-[1440px] mx-auto border-b border-outline-variant dark:border-primary-container scroll-mt-[160px] scroll-animate">
+            <p class="font-label-lg text-label-lg case-label mb-2" data-i18n="case-process-label">// 03 — O PROCESSO</p>
+            <h3 class="font-headline-xl text-[42px] sm:text-[60px] md:text-headline-xl text-primary dark:text-on-primary leading-none uppercase mb-8" data-i18n="case-process-title">Metodologia CSD</h3>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-gutter-grid items-center mb-16">
+                <div class="scroll-animate delay-100 flex flex-col gap-4">
+                    <p class="font-body-md text-body-md text-on-surface-variant dark:text-primary-fixed-dim" data-i18n="case-process-desc">Utilizamos a metodologia Matriz CSD (Certezas, Suposições e Dúvidas) para alinhar as expectativas em reuniões com stakeholders. Complementamos com pesquisa desk sobre o comportamento de estudantes.</p>
+                    <h4 class="font-label-lg text-label-lg text-primary dark:text-on-primary uppercase mt-4 mb-2" data-i18n="case-process-questions">Perguntas Norteadoras</h4>
+                    <ul class="list-disc pl-5 font-body-md text-body-md text-on-surface-variant dark:text-primary-fixed-dim space-y-1">
+                        <li data-i18n="case-process-q1">Como os usuários avaliam a credibilidade de um programa de bolsas?</li>
+                        <li data-i18n="case-process-q2">Quais são os principais pontos de atrito no preenchimento de formulários longos?</li>
+                    </ul>
+                </div>
+                <div class="flex justify-center scroll-animate delay-200">
+                    <img alt="Personas e Depoimentos" class="w-full max-w-[500px] h-auto object-contain" src="src/mais_solidario/cards-pessoas.png"/>
+                </div>
+            </div>
+            
+            <!-- Antes vs Depois Layout Redesenhado -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-gutter-grid items-center mt-12 scroll-animate">
+                <div class="flex flex-col gap-4 scroll-animate delay-100">
+                    <div class="rounded-xl overflow-hidden shadow">
+                        <img alt="Antiga Interface" class="w-full h-auto object-contain" src="src/mais_solidario/antigo-site.png"/>
+                    </div>
+                    <p class="font-label-sm text-label-sm text-outline dark:text-primary-fixed-dim uppercase" data-i18n="case-old-label">// A PLATAFORMA ANTIGA</p>
+                </div>
+                <div class="flex flex-col gap-6 scroll-animate delay-200">
+                    <h2 class="text-primary dark:text-on-primary uppercase mb-2" data-i18n="case-compare-subtitle">A Mudança na Tela</h2>
+                    <p class="font-body-md text-body-md text-on-surface-variant dark:text-primary-fixed-dim" data-i18n="case-compare-desc">
+                        Refizemos a página do zero, estabelecendo uma hierarquia de informações mais clara, com uma barra de busca em destaque e menos cliques para o resultado final.
+                    </p>
+                    <div class="border-t border-outline-variant dark:border-primary-container pt-4">
+                        <h4 class="font-label-lg text-label-lg text-primary dark:text-on-primary uppercase mb-2" data-i18n="case-compare-f1-title">Filtros de busca direcionados</h4>
+                        <p class="font-body-md text-body-md text-on-surface-variant dark:text-primary-fixed-dim" data-i18n="case-compare-f1-desc">Estudantes agora buscam por curso, cidade ou modalidade em uma interface simplificada, sem sobrecarregar com opções irrelevantes.</p>
+                    </div>
+                    <div class="border-t border-outline-variant dark:border-primary-container pt-4">
+                        <h4 class="font-label-lg text-label-lg text-primary dark:text-on-primary uppercase mb-2" data-i18n="case-compare-f2-title">Prova social em destaque</h4>
+                        <p class="font-body-md text-body-md text-on-surface-variant dark:text-primary-fixed-dim" data-i18n="case-compare-f2-desc">Depoimentos de bolsistas formados e logos de universidades parceiras visíveis logo na primeira dobra, reforçando credibilidade.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Visual & UI Kit / Identidade -->
+        <section id="identidade" class="px-margin-page py-20 max-w-[1440px] mx-auto border-b border-outline-variant dark:border-primary-container bg-surface-container-lowest dark:bg-primary-container/20 scroll-mt-[160px] scroll-animate">
+            <p class="font-label-lg text-label-lg case-label mb-2" data-i18n="case-identity-label">// 05 — IDENTIDADE</p>
+            <h3 class="font-headline-xl text-[42px] sm:text-[60px] md:text-headline-xl text-primary dark:text-on-primary leading-none uppercase mb-8" data-i18n="case-identity-title">Cores &amp; Identidade</h3>
+            
+            <div class="grid grid-cols-1 gap-16">
+                <!-- Cores -->
+                <div class="flex flex-col md:flex-row gap-8 items-start">
+                    <div class="md:w-1/3 flex flex-col gap-4">
+                        <p class="font-body-md text-body-md text-on-surface-variant dark:text-primary-fixed-dim font-bold" data-i18n="case-identity-desc">As cores principais combinam a seriedade do azul com a energia do laranja, criando uma atmosfera que transmite confiança e vitalidade.</p>
+                    </div>
+                    
+                    <!-- Cores Renderizadas em HTML Puro (Responsivas, Alinhadas a Esquerda e Estilizadas em Escada com Animação Um-a-Um) -->
+                    <div class="md:w-2/3 grid grid-cols-1 sm:grid-cols-3 gap-8 text-left items-start">
+                        <!-- Azul Celestial -->
+                        <div class="flex flex-col gap-4 sm:mt-0 scroll-animate delay-100">
+                            <div class="w-full aspect-[4/3] bg-[#189ed7]"></div>
+                            <div>
+                                <p class="font-label-sm text-label-sm text-outline dark:text-primary-fixed-dim uppercase">RGB: 24, 158, 215</p>
+                                <p class="font-label-sm text-label-sm text-outline dark:text-primary-fixed-dim uppercase">HEX: #1B8C78</p>
+                                <h4 class="font-headline-sm text-headline-sm text-primary dark:text-on-primary uppercase mt-1 mb-2" data-i18n="case-color-name-1">Azul Celestial</h4>
+                                <p class="font-body-md text-body-md text-on-surface-variant dark:text-primary-fixed-dim text-left leading-relaxed" data-i18n="case-color-desc-1">
+                                    Escolhido por sua associação com confiança, segurança e estabilidade. Essa cor transmite seriedade e reforça a credibilidade da plataforma, garantindo que quem acessa tenha a sensação de segurança ao navegar e confiar nos serviços do Mais Solidário.
+                                </p>
+                            </div>
                         </div>
-                        <p class="color-desc">Contraste estratégico para botões de inscrição, CTAs e avisos críticos.</p>
+                        <!-- Verde Esmeralda -->
+                        <div class="flex flex-col gap-4 sm:mt-12 scroll-animate delay-200">
+                            <div class="w-full aspect-[4/3] bg-[#6BCA91]"></div>
+                            <div>
+                                <p class="font-label-sm text-label-sm text-outline dark:text-primary-fixed-dim uppercase">RGB: 107, 202, 145</p>
+                                <p class="font-label-sm text-label-sm text-outline dark:text-primary-fixed-dim uppercase">HEX: #6BCA91</p>
+                                <h4 class="font-headline-sm text-headline-sm text-primary dark:text-on-primary uppercase mt-1 mb-2" data-i18n="case-color-name-2">Verde Esmeralda</h4>
+                                <p class="font-body-md text-body-md text-on-surface-variant dark:text-primary-fixed-dim text-left leading-relaxed" data-i18n="case-color-desc-2">
+                                    Associado à esperança, crescimento e sucesso. O verde simboliza o impacto positivo que o Mais Solidário proporciona, ajudando usuários a visualizarem a realização de seus sonhos acadêmicos e profissionais.
+                                </p>
+                            </div>
+                        </div>
+                        <!-- Laranja Giz de Cera -->
+                        <div class="flex flex-col gap-4 sm:mt-24 scroll-animate delay-300">
+                            <div class="w-full aspect-[4/3] bg-[#FF6B3D]"></div>
+                            <div>
+                                <p class="font-label-sm text-label-sm text-outline dark:text-primary-fixed-dim uppercase">RGB: 255, 107, 61</p>
+                                <p class="font-label-sm text-label-sm text-outline dark:text-primary-fixed-dim uppercase">HEX: #FF6B3D</p>
+                                <h4 class="font-headline-sm text-headline-sm text-primary dark:text-on-primary uppercase mt-1 mb-2" data-i18n="case-color-name-3">Laranja Giz de Cera</h4>
+                                <p class="font-body-md text-body-md text-on-surface-variant dark:text-primary-fixed-dim text-left leading-relaxed" data-i18n="case-color-desc-3">
+                                    Representa dinamismo, criatividade e acessibilidade. Essa cor foi incluída para criar pontos de destaque na interface, guiando os usuários de forma visual e estimulando ações como a inscrição ou a navegação entre as bolsas disponíveis.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Tipografia -->
+                <div class="flex flex-col gap-6">
+                    <h2 class="text-primary dark:text-on-primary uppercase" data-i18n="case-typo-title">Tipografia</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+                        <div class="p-6 flex justify-center items-center scroll-animate delay-100">
+                            <img alt="Fonte Poppins" class="max-h-[250px] w-auto object-contain invert-dark" src="src/mais_solidario/media__1787770835848.png"/>
+                        </div>
+                        <div class="p-6 flex justify-center items-center scroll-animate delay-200 md:mt-12">
+                            <img alt="Fonte Ubuntu" class="max-h-[250px] w-auto object-contain invert-dark" src="src/mais_solidario/media__1787770835677.png"/>
+                        </div>
+                    </div>
+                </div>
+                <!-- Logos -->
+                <div class="flex flex-col gap-6">
+                    <h2 class="text-primary dark:text-on-primary uppercase" data-i18n="case-logo-title">Variações de Logotipo</h2>
+                    <div class="flex flex-col sm:flex-row items-start justify-center gap-24 py-12 px-12">
+                        <!-- 1. Cap Símbolo (Pequeno) -->
+                        <div class="flex flex-col items-center gap-2 sm:mt-0 max-w-[200px] scroll-animate delay-100">
+                            <div class="flex justify-center items-center h-32">
+                                <img alt="Símbolo Cap" class="max-h-16 w-auto object-contain invert-dark" src="src/mais_solidario/media__1787771476584.png"/>
+                            </div>
+                            <span class="font-label-sm text-label-sm text-primary dark:text-on-primary uppercase tracking-widest mt-2 font-bold text-center" data-i18n="case-logo-legend-1">Símbolo (Pequeno)</span>
+                            <p class="font-body-md text-[14px] text-outline dark:text-primary-fixed-dim text-center leading-normal" data-i18n="case-logo-desc-1">Favicon e Ícone de Aplicativo</p>
+                        </div>
+                        <!-- 2. Logo Vertical (Médio) -->
+                        <div class="flex flex-col items-center gap-2 sm:mt-12 max-w-[200px] scroll-animate delay-200">
+                            <div class="flex justify-center items-center h-32">
+                                <img alt="Logotipo Vertical" class="max-h-24 w-auto object-contain invert-dark" src="src/mais_solidario/logo-2-mais-solidario-black.png"/>
+                            </div>
+                            <span class="font-label-sm text-label-sm text-primary dark:text-on-primary uppercase tracking-widest mt-2 font-bold text-center" data-i18n="case-logo-legend-2">Logo Vertical (Médio)</span>
+                            <p class="font-body-md text-[14px] text-outline dark:text-primary-fixed-dim text-center leading-normal" data-i18n="case-logo-desc-2">Assinatura de Marca Vertical</p>
+                        </div>
+                        <!-- 3. Logo Horizontal (Grande) -->
+                        <div class="flex flex-col items-center gap-2 sm:mt-24 max-w-[200px] scroll-animate delay-300">
+                            <div class="flex justify-center items-center h-32">
+                                <img alt="Logotipo Horizontal" class="max-h-20 w-auto object-contain invert-dark" src="src/mais_solidario/media__1787771476571.png"/>
+                            </div>
+                            <span class="font-label-sm text-label-sm text-primary dark:text-on-primary uppercase tracking-widest mt-2 font-bold text-center" data-i18n="case-logo-legend-3">Logo Horizontal (Grande)</span>
+                            <p class="font-body-md text-[14px] text-outline dark:text-primary-fixed-dim text-center leading-normal" data-i18n="case-logo-desc-3">Assinatura de Marca Principal</p>
+                        </div>
                     </div>
                 </div>
             </div>
+        </section>
 
-            <div class="type-grid">
-                <div class="type-block">
-                    <div class="type-label">Tipografia · 01 · Display</div>
-                    <div class="type-name poppins">Poppins</div>
-                    <p class="type-desc">Geometria limpa para títulos e ações principais. Traços firmes, excelente legibilidade em diferentes tamanhos. Estabilidade e confiança.</p>
-                    <p class="type-sample poppins">Aa Bb Cc Dd Ee Ff Gg Hh</p>
+        <!-- Features / Componentes -->
+        <section id="componentes" class="px-margin-page py-20 max-w-[1440px] mx-auto border-b border-outline-variant dark:border-primary-container scroll-mt-[160px] scroll-animate">
+            <p class="font-label-lg text-label-lg case-label mb-2" data-i18n="case-features-label">// 06 — COMPONENTES</p>
+            <h3 class="font-headline-xl text-[42px] sm:text-[60px] md:text-headline-xl text-primary dark:text-on-primary leading-none uppercase mb-8" data-i18n="case-features-title">Cards</h3>
+            
+            <div class="flex flex-col gap-16">
+                <!-- Card Empregabilidade -->
+                <div class="flex flex-col md:flex-row gap-8 items-center p-6 md:p-8 rounded-xl scroll-animate">
+                    <div class="md:w-1/2 flex flex-col gap-4 scroll-animate delay-100">
+                        <h2 class="text-primary dark:text-on-primary uppercase" data-i18n="case-feat1-title">Card Empregabilidade</h2>
+                        <p class="font-body-md text-body-md text-on-surface-variant dark:text-primary-fixed-dim" data-i18n="case-feat1-desc">Seção de cursos com alta taxa de empregabilidade no mercado, com selo de garantia e percentual histórico de contratação de ex-alunos.</p>
+                    </div>
+                    <div class="md:w-1/2 flex justify-center scroll-animate delay-200">
+                        <img alt="Card Empregabilidade" class="w-full max-w-sm h-auto object-contain" src="src/mais_solidario/card-crescimento.png"/>
+                    </div>
                 </div>
-                <div class="type-block">
-                    <div class="type-label">Tipografia · 02 · Body</div>
-                    <div class="type-name ubuntu">Ubuntu</div>
-                    <p class="type-desc">Suavidade e fluidez nos textos corridos. Equilíbrio com a Poppins. Humanização que acolhe o leitor — em vez de afastá-lo com formalidade.</p>
-                    <p class="type-sample ubuntu">Aa Bb Cc Dd Ee Ff Gg Hh</p>
+                <!-- Card Mais Buscados -->
+                <div class="flex flex-col md:flex-row-reverse gap-8 items-center p-6 md:p-8 rounded-xl scroll-animate">
+                    <div class="md:w-1/2 flex flex-col gap-4 scroll-animate delay-100">
+                        <h2 class="text-primary dark:text-on-primary uppercase" data-i18n="case-feat2-title">Card Mais Buscados</h2>
+                        <p class="font-body-md text-body-md text-on-surface-variant dark:text-primary-fixed-dim" data-i18n="case-feat2-desc">Em destaque na home, este componente gera prova social ao listar os cursos mais populares da semana com indicators de vagas restantes.</p>
+                    </div>
+                    <div class="md:w-1/2 grid grid-cols-1 sm:grid-cols-2 gap-4 items-start">
+                        <img alt="Card Curso 1" class="w-full h-auto object-contain rounded-lg scroll-animate delay-100" src="src/mais_solidario/card-cursos.png"/>
+                        <img alt="Card Curso 2" class="w-full h-auto object-contain rounded-lg sm:mt-12 scroll-animate delay-200" src="src/mais_solidario/card-cursos2.png"/>
+                    </div>
+                </div>
+                <!-- Faculdades Parceiras -->
+                <div class="flex flex-col gap-6 scroll-animate">
+                    <h2 class="text-primary dark:text-on-primary uppercase" data-i18n="case-feat3-title">Faculdades Parceiras</h2>
+                    <div class="rounded-xl overflow-hidden scroll-animate delay-100">
+                        <img alt="Faculdades com Bolsas" class="w-full h-auto object-contain" src="src/mais_solidario/faculdades-mais-solidario.png"/>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- ============ // 06 · PRINCÍPIOS ============ -->
-    <section class="case-section">
-        <span class="case-label">// 06 — Decisões de Design</span>
-        <h2 class="case-title">Seis princípios<br>que guiaram <em>cada pixel</em>.</h2>
+        <!-- Conclusão / Dados e Resultados -->
+        <section id="dados-e-resultados" class="px-margin-page py-24 max-w-[1440px] mx-auto text-center scroll-mt-[160px] scroll-animate">
+            <p class="font-label-lg text-label-lg case-label mb-6" data-i18n="case-results-label">// 07 — DADOS E RESULTADOS</p>
+            <h3 class="font-headline-xl text-[42px] sm:text-[60px] md:text-headline-xl text-primary dark:text-on-primary mb-12 max-w-4xl mx-auto uppercase leading-[0.9]" data-i18n="case-results-title">
+                REDUÇÃO DE 40% NO TEMPO MÉDIO DE INSCRIÇÃO
+            </h3>
+            <div class="flex flex-col sm:flex-row justify-center gap-6">
+                <a href="https://portfolio-mais-solidario-proto.vercel.app/" target="_blank" class="px-8 py-4 bg-primary text-on-primary dark:bg-on-primary dark:text-primary font-label-lg text-label-lg uppercase tracking-widest border border-primary dark:border-on-primary hover:bg-inverse-surface dark:hover:bg-primary-fixed-dim transition-colors flex items-center justify-center" data-i18n="case-results-btn-proto">
+                    NAVEGUE NO PROTÓTIPO
+                </a>
+                <a href="index.html#trabalhos" class="px-8 py-4 bg-transparent text-primary dark:text-on-primary font-label-lg text-label-lg uppercase tracking-widest border border-primary dark:border-on-primary hover:bg-surface-container-low dark:hover:bg-primary-container transition-colors flex items-center justify-center" data-i18n="case-results-btn-next">
+                    VER PRÓXIMO PROJETO
+                </a>
+            </div>
+        </section>
+    </main>
 
-        <div class="principles-grid">
-            <div class="principle">
-                <div class="principle-num">01</div>
-                <div class="principle-icon">→</div>
-                <h4 class="principle-title">Navegação Simplificada</h4>
-                <p class="principle-text">Fluxo quebrado em micro-passos com indicador de progresso visível em todas as etapas da inscrição.</p>
-            </div>
-            <div class="principle">
-                <div class="principle-num">02</div>
-                <div class="principle-icon">Aa</div>
-                <h4 class="principle-title">Linguagem Clara</h4>
-                <p class="principle-text">Substituição de jargão jurídico-acadêmico por português conversacional, validado com a base de usuários.</p>
-            </div>
-            <div class="principle">
-                <div class="principle-num">03</div>
-                <div class="principle-icon">✓</div>
-                <h4 class="principle-title">Apoio Visual</h4>
-                <p class="principle-text">Ícones, ilustrações e selos de confiança em pontos críticos de decisão. Visual reduz dúvida.</p>
-            </div>
-            <div class="principle">
-                <div class="principle-num">04</div>
-                <div class="principle-icon">◑</div>
-                <h4 class="principle-title">Acessibilidade Total</h4>
-                <p class="principle-text">Modo alto contraste, leitor de tela, fontes redimensionáveis até 200%. Sem exceções.</p>
-            </div>
-            <div class="principle">
-                <div class="principle-num">05</div>
-                <div class="principle-icon">?</div>
-                <h4 class="principle-title">Suporte Personalizado</h4>
-                <p class="principle-text">Chatbot guiado + FAQ contextual em cada etapa do fluxo. Ajuda no momento certo.</p>
-            </div>
-            <div class="principle">
-                <div class="principle-num">06</div>
-                <div class="principle-icon">★</div>
-                <h4 class="principle-title">Prova Social</h4>
-                <p class="principle-text">Depoimentos verificados de bolsistas formados, com nome do curso e instituição. Realidade gera confiança.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============ // 07 · SOLUÇÕES ============ -->
-    <section class="case-section">
-        <span class="case-label">// 07 — As Soluções</span>
-        <h2 class="case-title">Cards que decidem<br>por quem está <em>indeciso</em>.</h2>
-        <p class="case-text">
-            Dois componentes nascidos da pesquisa para reduzir a indecisão e gerar prova social. Aparecem em destaque nas listagens e nas páginas de detalhe do curso.
-        </p>
-
-        <div class="solutions-block">
-            <div class="solution-text">
-                <span class="solution-tag">Card · 01</span>
-                <h3 class="solution-title">Empregabilidade<br>& Pesquisas</h3>
-                <p>Voltado para cursos com alto índice de contratação no mercado. Combina selo visual + tag de destaque + descrição curta. Reduz a dúvida estratégica de quem está escolhendo carreira.</p>
-                <ul class="solution-features">
-                    <li>Alta empregabilidade comprovada</li>
-                    <li>Alta demanda no mercado atual</li>
-                    <li>Tendência de crescimento em 2025</li>
-                </ul>
-            </div>
-            <div class="screen-card" style="aspect-ratio: 4/3;">
-                <div class="screen-num">CARD · 01</div>
-                <div class="screen-label">Card empregabilidade · Listagem</div>
-            </div>
-        </div>
-
-        <div class="solutions-block">
-            <div class="screen-card" style="aspect-ratio: 4/3;">
-                <div class="screen-num">CARD · 02</div>
-                <div class="screen-label">Card mais buscados · Prova social</div>
-            </div>
-            <div class="solution-text">
-                <span class="solution-tag">Card · 02</span>
-                <h3 class="solution-title">Mais<br>Buscados</h3>
-                <p>Baseado em dados internos da plataforma, gera prova social ao mostrar os cursos mais populares entre os estudantes. Reduz a indecisão — especialmente entre usuários inseguros.</p>
-                <ul class="solution-features">
-                    <li>Mais cursados na semana</li>
-                    <li>Poucas bolsas disponíveis</li>
-                    <li>Tendência consolidada em 2025</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============ // 08 · GALERIA DE TELAS ============ -->
-    <section class="case-section">
-        <span class="case-label">// 08 — Galeria de Telas</span>
-        <h2 class="case-title">Nove telas,<br>um sistema <em>coeso</em>.</h2>
-        <p class="case-text">
-            Do login à confirmação, cada tela reusa componentes do mesmo UI Kit. O design system não é decorativo — ele é o que permite escalar sem perder consistência.
-        </p>
-
-        <div class="screens-grid">
-            <div class="screen-card">
-                <div class="screen-num">01</div>
-                <div class="screen-label">Login · Entrada simplificada</div>
-            </div>
-            <div class="screen-card">
-                <div class="screen-num">02</div>
-                <div class="screen-label">Dashboard · Status da candidatura</div>
-            </div>
-            <div class="screen-card">
-                <div class="screen-num">03</div>
-                <div class="screen-label">Cadastro · Dados pessoais</div>
-            </div>
-            <div class="screen-card">
-                <div class="screen-num">04</div>
-                <div class="screen-label">Busca · Filtros por intenção</div>
-            </div>
-            <div class="screen-card">
-                <div class="screen-num">05</div>
-                <div class="screen-label">Detalhe · Informações-chave</div>
-            </div>
-            <div class="screen-card">
-                <div class="screen-num">06</div>
-                <div class="screen-label">Inscrição · Upload de documentos</div>
-            </div>
-            <div class="screen-card">
-                <div class="screen-num">07</div>
-                <div class="screen-label">Resumo · Revisão final</div>
-            </div>
-            <div class="screen-card">
-                <div class="screen-num">08</div>
-                <div class="screen-label">Confirmação · Candidatura enviada</div>
-            </div>
-            <div class="screen-card">
-                <div class="screen-num">09</div>
-                <div class="screen-label">FAQ · Suporte contextual</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============ // 09 · ACESSIBILIDADE ============ -->
-    <section class="a11y-banner">
-        <div class="a11y-inner">
-            <span class="case-label">// 09 — Acessibilidade</span>
-            <h2 class="case-title">Educação para todos —<br>sem exceção.</h2>
-            <p class="case-text" style="max-width: 900px;">
-                Acessibilidade não foi camada final, foi premissa. Cada componente do UI Kit nasceu com tokens de contraste, foco visível e estados ARIA documentados. O resultado: a plataforma serve quem mais precisa.
+    <!-- Footer -->
+    <footer class="bg-surface dark:bg-primary border-t border-outline-variant dark:border-primary-container transition-colors duration-300">
+        <div class="flex flex-col md:flex-row justify-between items-center w-full px-margin-page py-12 max-w-[1440px] mx-auto">
+            <p class="font-label-lg text-label-lg text-primary dark:text-on-primary uppercase">
+                © 2026 RAPHAEL LIMA
             </p>
-
-            <div class="a11y-grid">
-                <div class="a11y-item">
-                    <div class="a11y-item-tag">A11Y · 01</div>
-                    <h4 class="a11y-item-title">WCAG 2.1 AA</h4>
-                    <p class="a11y-item-text">Conformidade auditada, documentada e versionada no UI Kit. Sem promessas — só evidência.</p>
-                </div>
-                <div class="a11y-item">
-                    <div class="a11y-item-tag">A11Y · 02</div>
-                    <h4 class="a11y-item-title">Navegação por Teclado</h4>
-                    <p class="a11y-item-text">Todos os componentes interativos acessíveis via tab/shift+tab, com ordem lógica.</p>
-                </div>
-                <div class="a11y-item">
-                    <div class="a11y-item-tag">A11Y · 03</div>
-                    <h4 class="a11y-item-title">Leitores de Tela</h4>
-                    <p class="a11y-item-text">ARIA labels, landmarks semânticos e ordem lógica de leitura validada com NVDA e VoiceOver.</p>
-                </div>
-                <div class="a11y-item">
-                    <div class="a11y-item-tag">A11Y · 04</div>
-                    <h4 class="a11y-item-title">Contraste 4.5:1</h4>
-                    <p class="a11y-item-text">Validado em todas as combinações de cor sobre fundo. Modo alto contraste opcional.</p>
-                </div>
-                <div class="a11y-item">
-                    <div class="a11y-item-tag">A11Y · 05</div>
-                    <h4 class="a11y-item-title">Texto Redimensionável</h4>
-                    <p class="a11y-item-text">Layout fluido até 200% de zoom sem perda de função ou conteúdo cortado.</p>
-                </div>
-                <div class="a11y-item">
-                    <div class="a11y-item-tag">A11Y · 06</div>
-                    <h4 class="a11y-item-title">Foco Visível</h4>
-                    <p class="a11y-item-text">Outline destacado em todos os elementos focáveis. Quem usa teclado nunca se perde.</p>
-                </div>
+            <div class="flex gap-4 mt-4 md:mt-0">
+                <span class="font-label-lg text-label-lg text-primary dark:text-on-primary uppercase" data-i18n="case-footer-role">
+                    DESIGNER DE PRODUTO • UX/UI
+                </span>
             </div>
-        </div>
-    </section>
-
-    <!-- ============ // 10 · MOBILE ============ -->
-    <section class="case-section">
-        <span class="case-label">// 10 — Versão Mobile</span>
-        <h2 class="case-title">Mobile-first não como<br>buzzword. Como <em>realidade</em>.</h2>
-
-        <div class="mobile-showcase">
-            <div>
-                <div class="mobile-big-stat">
-                    68%
-                    <small>Dos acessos vêm do celular</small>
-                </div>
-            </div>
-            <div>
-                <p class="case-text" style="margin-bottom: 24px;">
-                    A maioria absoluta candidata pelo smartphone, muitas vezes em conexões instáveis. <strong>Cada interação foi otimizada</strong> para toque, peso e tempo de carregamento.
-                </p>
-                <p class="case-text">
-                    Botões com área mínima de 44px, formulários em etapas, upload otimizado para imagens de documentos. Mobile não é uma versão menor — é o ponto de partida do desenho.
-                </p>
-            </div>
-        </div>
-
-        <div class="phones-grid">
-            <div class="phone-frame">
-                <div class="phone-screen"></div>
-                <div class="phone-label">01 · Login</div>
-            </div>
-            <div class="phone-frame">
-                <div class="phone-screen"></div>
-                <div class="phone-label">02 · Dashboard</div>
-            </div>
-            <div class="phone-frame">
-                <div class="phone-screen"></div>
-                <div class="phone-label">03 · Inscrição</div>
-            </div>
-            <div class="phone-frame">
-                <div class="phone-screen"></div>
-                <div class="phone-label">04 · Confirmação</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============ // 11 · CAMPANHA OOH ============ -->
-    <section class="campaign-section">
-        <div class="campaign-inner">
-            <span class="case-label">// 11 — Campanha de Lançamento</span>
-            <h2 class="case-title">A marca saiu da tela<br>e ocupou <em>a rua</em>.</h2>
-            <p class="case-text" style="max-width: 900px;">
-                Após o redesign digital, expandimos a identidade para fora da tela. Outdoors, fachadas institucionais e mídia social. A coerência visual ajudou o reconhecimento e elevou a adesão de calouros no semestre seguinte.
-            </p>
-
-            <div class="campaign-visuals">
-                <div class="billboard">
-                    <span class="billboard-tag">Outdoor · Campanha de Adesão 2024</span>
-                    <h3 class="billboard-title">A bolsa do<br>seu sonho <span class="accent">existe.</span></h3>
-                </div>
-                <div class="facade">
-                    <span class="billboard-tag">Fachada · Ativação OOH</span>
-                    <h3 class="facade-text">Educação<br>para<br>todos.</h3>
-                </div>
-            </div>
-
-            <div class="campaign-stats">
-                <div class="campaign-stat">
-                    <div class="campaign-stat-label">Alcance</div>
-                    <div class="campaign-stat-num">2.4M</div>
-                    <div class="campaign-stat-text">Impressões em 30 dias de campanha.</div>
-                </div>
-                <div class="campaign-stat">
-                    <div class="campaign-stat-label">Engajamento</div>
-                    <div class="campaign-stat-num">+180%</div>
-                    <div class="campaign-stat-text">Em redes sociais durante o ciclo.</div>
-                </div>
-                <div class="campaign-stat">
-                    <div class="campaign-stat-label">Adesão</div>
-                    <div class="campaign-stat-num">+50%</div>
-                    <div class="campaign-stat-text">Novos cadastros pós-campanha integrada.</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============ // 12 · ANTES vs DEPOIS ============ -->
-    <section class="case-section">
-        <span class="case-label">// 12 — Antes vs Depois</span>
-        <h2 class="case-title">Os números<br>falam <em>por si</em>.</h2>
-
-        <div class="compare-table-wrap">
-            <table class="compare-table">
-                <thead>
-                    <tr>
-                        <th>Métrica</th>
-                        <th>Antes</th>
-                        <th>Depois</th>
-                        <th>Δ Variação</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Tempo médio de inscrição</td>
-                        <td>22 min</td>
-                        <td>8 min</td>
-                        <td>−64%</td>
-                    </tr>
-                    <tr>
-                        <td>Taxa de conclusão</td>
-                        <td>41%</td>
-                        <td>81%</td>
-                        <td>+97%</td>
-                    </tr>
-                    <tr>
-                        <td>Erros por formulário</td>
-                        <td>3.2</td>
-                        <td>0.7</td>
-                        <td>−78%</td>
-                    </tr>
-                    <tr>
-                        <td>NPS pós-experiência</td>
-                        <td>12</td>
-                        <td>68</td>
-                        <td>+466%</td>
-                    </tr>
-                    <tr>
-                        <td>Adesão de calouros</td>
-                        <td>—</td>
-                        <td>+50%</td>
-                        <td>NOVO</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </section>
-
-    <!-- ============ // 13 · ENTREGA FINAL / REFLEXÃO ============ -->
-    <section class="case-section">
-        <span class="case-label">// 13 — Entrega Final</span>
-        <h2 class="case-title">Uma plataforma renovada,<br>acessível e <em>estratégica</em>.</h2>
-
-        <div class="delivery-block">
-            <ul class="deliverables">
-                <li>Redução de 40% no tempo médio de inscrição</li>
-                <li>Aumento expressivo na retenção percebida</li>
-                <li>Sistema de design pronto para escalar</li>
-                <li>Conformidade WCAG 2.1 AA documentada</li>
-                <li>UI Kit modular em Atomic Design</li>
-                <li>Identidade visual coerente em todos os pontos de contato</li>
-            </ul>
-
-            <div class="reflection">
-                <div class="reflection-label">Reflexão · Lead Designer</div>
-                <p class="reflection-quote">
-                    "Trabalhar no Mais Solidário foi entender que UX, quando bem feito, também é política pública: abre porta onde antes só havia parede."
-                </p>
-                <div class="reflection-author">— Raphael Lima</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============ // 14 · CRÉDITOS ============ -->
-    <section class="case-section">
-        <span class="case-label">// 14 — Créditos</span>
-        <h2 class="case-title">Ninguém entrega<br><em>sozinho</em>.</h2>
-
-        <div class="credits-grid">
-            <div class="credit-block">
-                <div class="credit-role">Lead Product Designer</div>
-                <div class="credit-name accent">Raphael Lima</div>
-            </div>
-            <div class="credit-block">
-                <div class="credit-role">UX Research</div>
-                <div class="credit-name">Bárbara Mendes<br>Lucas Tavares</div>
-            </div>
-            <div class="credit-block">
-                <div class="credit-role">UI Design Support</div>
-                <div class="credit-name">Marina Costa</div>
-            </div>
-            <div class="credit-block">
-                <div class="credit-role">Front-end</div>
-                <div class="credit-name">Equipe interna · 3 devs</div>
-            </div>
-            <div class="credit-block">
-                <div class="credit-role">Stakeholders</div>
-                <div class="credit-name">Coordenação Pedagógica<br>+ Diretoria</div>
-            </div>
-            <div class="credit-block">
-                <div class="credit-role">Auditoria de Acessibilidade</div>
-                <div class="credit-name">Consultoria externa<br>certificada</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============ MANTRA FINAL ============ -->
-    <section class="mantra-section">
-        <h2 class="mantra-text">
-            Design é criatividade<br>
-            <em>explorada</em> para<br>
-            gerar impacto.
-        </h2>
-        <a href="index.html" class="back-link">
-            ← Voltar para o portfólio
-        </a>
-    </section>
-
-    <!-- ============ CONTATO ============ -->
-    <footer class="case-contact">
-        <span class="case-label">// 15 — Próximo Passo</span>
-        <h2 class="case-title">Vamos <em>conversar</em>?</h2>
-
-        <div class="case-contact-grid">
-            <div class="case-contact-item">
-                <h4>Localização</h4>
-                <p>São José dos Campos<br>São Paulo, Brasil</p>
-            </div>
-            <div class="case-contact-item">
-                <h4>Email</h4>
-                <p><a href="mailto:raphaeldesilvalima@gmail.com">raphaeldesilvalima@gmail.com</a></p>
-            </div>
-            <div class="case-contact-item">
-                <h4>Telefone</h4>
-                <p><a href="https://wa.me/5512988001322">(12) 98800-1322</a></p>
-            </div>
-        </div>
-
-        <div class="case-copyright">
-            <span>© 2026 Raphael Lima</span>
-            <span>Case 01 · Mais Solidário · UX/UI Educação</span>
         </div>
     </footer>
 
+    <!-- Swatches de acento flutuantes -->
     <div class="color-palette vertical">
         <button class="color-swatch swatch-black active" data-key="black" style="background-color: #111111;"></button>
         <button class="color-swatch" data-key="rose" style="background-color: #C0005A;"></button>
@@ -779,7 +675,129 @@
         <button class="color-swatch" data-key="wine" style="background-color: #550917;"></button>
     </div>
 
-    <script src="mais-solidario-case.js"></script>
+    <!-- Script de Switch de Tema e Lógicas Gerais -->
+    <script src="script.js?v=2028"></script>
+    <script>
+      // Sincronizar classes de dark mode do script.js com o Tailwind
+      const syncTheme = () => {
+        const isDark = document.body.classList.contains('dark-mode');
+        if (isDark) {
+          document.documentElement.classList.add('dark');
+          document.documentElement.classList.remove('light');
+        } else {
+          document.documentElement.classList.add('light');
+          document.documentElement.classList.remove('dark');
+        }
+      };
 
+      // Mutation observer para escutar classes aplicadas no document.body pelo script.js
+      const observer = new MutationObserver((mutations) => {
+        mutations.forEach((mutation) => {
+          if (mutation.attributeName === 'class') {
+            syncTheme();
+          }
+        });
+      });
+      
+      observer.observe(document.body, { attributes: true });
+      
+      // Sincronização inicial
+      const initThemeSync = () => {
+        syncTheme();
+        const themeBtn = document.getElementById('theme-toggle');
+        if (themeBtn) {
+          themeBtn.addEventListener('click', () => {
+            setTimeout(syncTheme, 50);
+          });
+        }
+      };
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initThemeSync);
+      } else {
+        initThemeSync();
+      }
+
+      // Intersection Observer para animações de rolagem
+      const observerOptions = {
+        root: null,
+        rootMargin: '0px 0px -80px 0px', // triggers when element is 80px into viewport
+        threshold: 0.05
+      };
+
+      const scrollObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+            observer.unobserve(entry.target); // Anima apenas uma vez
+          }
+        });
+      }, observerOptions);
+
+      const initScrollAnimations = () => {
+        const animTargets = document.querySelectorAll('.scroll-animate');
+        animTargets.forEach(target => {
+          scrollObserver.observe(target);
+        });
+      };
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initScrollAnimations);
+      } else {
+        initScrollAnimations();
+      }
+
+      // Submenu Active Bold Toggle & Scroll Spy Observer
+      const submenuLinks = document.querySelectorAll('div.sticky a');
+      const sections = [
+        document.getElementById('sobre'),
+        document.getElementById('problema'),
+        document.getElementById('processo'),
+        document.getElementById('identidade'),
+        document.getElementById('componentes'),
+        document.getElementById('dados-e-resultados')
+      ];
+
+      const setActiveLink = (hash) => {
+        submenuLinks.forEach(link => {
+          if (link.getAttribute('href') === hash) {
+            link.classList.add('font-bold', 'text-primary', 'dark:text-on-primary');
+            link.classList.remove('font-normal', 'text-on-surface-variant', 'dark:text-primary-fixed-dim');
+          } else {
+            link.classList.remove('font-bold', 'text-primary', 'dark:text-on-primary');
+            link.classList.add('font-normal', 'text-on-surface-variant', 'dark:text-primary-fixed-dim');
+          }
+        });
+      };
+
+      // Set initial state
+      if (window.location.hash) {
+        setActiveLink(window.location.hash);
+      } else {
+        setActiveLink('#sobre');
+      }
+
+      submenuLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+          const hash = link.getAttribute('href');
+          setActiveLink(hash);
+        });
+      });
+
+      const spyObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            setActiveLink('#' + entry.target.id);
+          }
+        });
+      }, {
+        root: null,
+        rootMargin: '-50% 0px -50% 0px' // triggers when section is in middle of viewport
+      });
+
+      sections.forEach(sec => {
+        if (sec) spyObserver.observe(sec);
+      });
+    </script>
 </body>
 </html>

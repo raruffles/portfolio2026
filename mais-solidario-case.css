@@ -1,4 +1,4 @@
-﻿/* =====================================================
+/* =====================================================
        CASE STUDY · MAIS SOLIDÁRIO
        Sobrescreve e estende o style.css do portfólio
        ===================================================== */
@@ -1427,3 +1427,41 @@
     .bg-palette-blue { background-color: #1700A0; }
     .bg-palette-green { background-color: #1E6B2C; }
     .bg-palette-wine { background-color: #550917; }
+
+    /* ===== CUSTOM LAYOUT ADAPTATIONS FOR MODEL MATCHING ===== */
+    .hero-layout-grid {
+        display: grid;
+        grid-template-columns: 1.15fr 0.85fr;
+        gap: 80px;
+        align-items: center;
+        margin-bottom: 60px;
+    }
+
+    .hero-left-col {
+        align-self: center;
+    }
+
+    .hero-right-col {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    @media (max-width: 1199px) {
+        .hero-layout-grid {
+            grid-template-columns: 1fr;
+            gap: 50px;
+        }
+    }
+
+    @media (max-width: 991px) {
+        .partners-logos-grid {
+            grid-template-columns: repeat(2, 1fr) !important;
+        }
+    }
+
+    @media (max-width: 575px) {
+        .partners-logos-grid {
+            grid-template-columns: 1fr !important;
+        }
+    }

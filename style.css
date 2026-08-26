@@ -473,7 +473,7 @@ body.dark-mode .color-swatch.swatch-black {
     z-index: 2;
     pointer-events: none;
     display: block;
-    filter: hue-rotate(var(--davinci-hue)) saturate(var(--davinci-sat)) brightness(var(--davinci-bri));
+    filter: none;
     transition: filter 0.5s ease;
 }
 
@@ -689,7 +689,7 @@ body.dark-mode .hero-img {
     border-top: 2px solid var(--border-color);
 }
 
-@media (max-width: 1199px), (hover: none) and (pointer: coarse) {
+@media (hover: none) and (pointer: coarse) {
     html, body, *, *::before, *::after,
     a, button, img, p, h1, h2, h3, h4, span, div {
         cursor: auto !important;
