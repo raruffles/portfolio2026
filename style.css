@@ -473,12 +473,8 @@ body.dark-mode .color-swatch.swatch-black {
     z-index: 2;
     pointer-events: none;
     display: block;
-    filter: none;
-    transition: filter 0.5s ease;
-}
-
-body.dark-mode .hero-img {
     filter: hue-rotate(var(--davinci-hue)) saturate(var(--davinci-sat)) brightness(var(--davinci-bri));
+    transition: filter 0.5s ease;
 }
 
 .section-label {
