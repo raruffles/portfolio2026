@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dra. Anelise O'Reilly | Odontologia Estética & Harmonização</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="icon" type="image/x-icon" href="src/favicon.png">
+<style>
+  :root{
+    --ivory:#FAF6EF;
+    --stone:#EFE7D8;
+    --charcoal:#1C1A17;
+    --gold:#B08D57;
+    --gold-light:#D9C39A;
+    --wine:#5C2A2A;
+  }
+  html{scroll-behavior:smooth;}
+  body{font-family:'Manrope',sans-serif; background:var(--ivory); color:var(--charcoal); min-height:100vh;}
+  .font-display{font-family:'Cormorant Garamond',serif;}
+  .plaque{
+    border:1px solid var(--gold);
+    position:relative;
+  }
+  .plaque::before{
+    content:"";
+    position:absolute; inset:6px;
+    border:1px solid var(--gold-light);
+    pointer-events:none;
+    z-index:10;
+  }
+  .gold-divider{
+    width:44px; height:1px; background:var(--gold);
+  }
+  @media (prefers-reduced-motion: no-preference){
+    .fade-up{
+      animation: fadeUp 0.9s ease-out both;
+    }
+    @keyframes fadeUp{
+      from{opacity:0; transform:translateY(18px);}
+      to{opacity:1; transform:translateY(0);}
+    }
+  }
+  .stagger-1{animation-delay:.1s}
+  .stagger-2{animation-delay:.25s}
+  .stagger-3{animation-delay:.4s}
+  a:focus-visible, button:focus-visible, input:focus-visible{
+    outline:2px solid var(--gold); outline-offset:3px;
+  }
+
+  @keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    20%, 60% { transform: translateX(-6px); }
+    40%, 80% { transform: translateX(6px); }
+  }
+  .shake { animation: shake 0.35s ease-in-out; }
+</style>
+</head>
+<body class="antialiased">
+
+<!-- TELA DE BLOQUEIO / SENHA -->
+<div id="lock-screen" class="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-[var(--ivory)] transition-opacity duration-500">
+  <div class="plaque max-w-md w-full p-8 md:p-10 bg-[var(--ivory)] text-center shadow-2xl relative z-10" id="lock-box">
+    <div class="w-14 h-14 mx-auto mb-5 rounded-full border border-[var(--gold)] flex items-center justify-center text-[var(--gold)] bg-[var(--stone)]/40">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+      </svg>
+    </div>
+    <p class="text-xs tracking-[0.25em] mb-2 uppercase font-medium" style="color:var(--gold)">Acesso Exclusivo</p>
+    <h1 class="font-display text-3xl md:text-4xl mb-3 leading-tight" style="color:var(--charcoal)">Dra. Anelise O'Reilly</h1>
+    <div class="gold-divider mx-auto mb-5"></div>
+    <p class="text-sm leading-relaxed text-[var(--charcoal)]/80 mb-6">
+      Esta página é reservada e protegida. Digite a senha para visualizar o projeto.
+    </p>
+
+    <form id="lock-form" class="space-y-4" onsubmit="handlePasswordSubmit(event)">
+      <div class="relative">
+        <input 
+          type="password" 
+          id="password-input" 
+          placeholder="Digite a senha..." 
+          autocomplete="current-password"
+          class="w-full px-4 py-3 text-sm bg-[var(--stone)]/40 border border-[var(--gold)]/80 focus:border-[var(--gold)] focus:ring-1 focus:ring-[var(--gold)] outline-none text-[var(--charcoal)] placeholder-[var(--charcoal)]/45 text-center tracking-wider transition-all"
+          required
+          autofocus
+        >
+      </div>
+      <div id="error-message" class="text-xs font-semibold text-[#8b1e1e] hidden tracking-wide">
+        Senha incorreta. Tente novamente.
+      </div>
+      <button 
+        type="submit" 
+        class="w-full py-3.5 px-6 text-sm tracking-widest uppercase transition-colors bg-[var(--charcoal)] text-[var(--ivory)] hover:bg-[var(--gold)] hover:text-[var(--charcoal)] font-semibold"
+      >
+        Acessar Página
+      </button>
+    </form>
+    <p class="text-[11px] text-[var(--charcoal)]/50 mt-6 tracking-wider">
+      Odontologia Estética &amp; Harmonização Facial
+    </p>
+  </div>
+</div>
+
+<!-- CONTEÚDO PROTEGIDO DA PÁGINA (OCULTO ATÉ DESBLOQUEAR) -->
+<div id="page-content" style="display: none;">
+
+<!-- NAV -->
+<header class="fixed top-0 inset-x-0 z-50 backdrop-blur bg-[var(--ivory)]/90 border-b border-[var(--gold-light)]/60">
+  <div class="max-w-6xl mx-auto px-6 md:px-10 h-20 flex items-center justify-between">
+    <a href="#" class="font-display text-2xl tracking-wide" style="color:var(--charcoal)">
+      Anelise <span style="color:var(--gold)">O'Reilly</span>
+    </a>
+    <nav class="hidden md:flex items-center gap-10 text-sm tracking-wide">
+      <a href="#sobre" class="hover:text-[var(--gold)] transition-colors">Sobre</a>
+      <a href="#especialidades" class="hover:text-[var(--gold)] transition-colors">Especialidades</a>
+      <a href="#pacientes" class="hover:text-[var(--gold)] transition-colors">Pacientes</a>
+      <a href="#contato" class="hover:text-[var(--gold)] transition-colors">Contato</a>
+    </nav>
+    <div class="flex items-center gap-4">
+      <button onclick="lockPage()" title="Bloquear página novamente" class="text-xs text-[var(--charcoal)]/70 hover:text-[var(--gold)] transition-colors flex items-center gap-1.5 px-3 py-1.5 border border-[var(--gold-light)]/60">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+        </svg>
+        <span>Bloquear</span>
+      </button>
+      <a href="https://wa.me/5512996567256" class="hidden md:inline-block text-sm px-5 py-2.5 border border-[var(--charcoal)] hover:bg-[var(--charcoal)] hover:text-[var(--ivory)] transition-colors">
+        Agendar consulta
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="pt-40 pb-24 md:pt-48 md:pb-32 relative overflow-hidden">
+  <div class="max-w-6xl mx-auto px-6 md:px-10 grid md:grid-cols-12 gap-10 items-center">
+    <div class="md:col-span-7 fade-up">
+      <p class="text-sm tracking-[0.2em] mb-6" style="color:var(--gold)">CIRURGIÃ-DENTISTA · JACAREÍ, SP</p>
+      <h1 class="font-display text-5xl md:text-6xl leading-[1.08] mb-6">
+        Sorrisos com identidade,<br>cuidados com precisão.
+      </h1>
+      <p class="text-base md:text-lg max-w-md leading-relaxed mb-10 text-[var(--charcoal)]/80">
+        Atendimento particular em odontologia estética e harmonização facial, conduzido com técnica, escuta e atenção a cada detalhe.
+      </p>
+      <div class="flex flex-wrap items-center gap-5">
+        <a href="https://wa.me/5512996567256" class="inline-block px-7 py-3.5 text-sm tracking-wide text-[var(--ivory)]" style="background:var(--charcoal)">
+          Falar no WhatsApp
+        </a>
+        <a href="#especialidades" class="inline-block text-sm tracking-wide border-b border-[var(--gold)] pb-1">
+          Ver especialidades
+        </a>
+      </div>
+    </div>
+    <div class="md:col-span-5 fade-up stagger-2">
+      <div class="plaque aspect-[4/5] p-3 relative overflow-hidden shadow-2xl bg-[var(--charcoal)]">
+        <div class="relative w-full h-full overflow-hidden">
+          <img 
+            src="src/dra-anelise.png" 
+            alt="Dra. Anelise O'Reilly - Cirurgiã-Dentista" 
+            class="w-full h-full object-cover object-top filter brightness-[0.98] contrast-[1.02] transition-transform duration-700 hover:scale-105"
+          >
+          <div class="absolute inset-x-0 bottom-0 p-6 bg-gradient-to-t from-[var(--charcoal)]/95 via-[var(--charcoal)]/60 to-transparent z-[5]">
+            <p class="font-display italic text-[var(--gold-light)] text-base mb-2">"Autoestima começa no sorriso."</p>
+            <div class="gold-divider mb-3" style="background:var(--gold-light)"></div>
+            <p class="text-[var(--ivory)] text-sm font-semibold tracking-wide">Dra. Anelise O'Reilly</p>
+            <p class="text-[var(--gold-light)]/80 text-xs mt-0.5">Cirurgiã-Dentista · CRO-SP 00000</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CREDENCIAIS -->
+<section class="border-y border-[var(--gold-light)]/50 py-8">
+  <div class="max-w-6xl mx-auto px-6 md:px-10 flex flex-wrap justify-between gap-6 text-center md:text-left">
+    <div>
+      <p class="font-display text-3xl">10+</p>
+      <p class="text-xs tracking-wide text-[var(--charcoal)]/60 mt-1">anos de atuação</p>
+    </div>
+    <div>
+      <p class="font-display text-3xl">112</p>
+      <p class="text-xs tracking-wide text-[var(--charcoal)]/60 mt-1">avaliações 5 estrelas</p>
+    </div>
+    <div>
+      <p class="font-display text-3xl">3</p>
+      <p class="text-xs tracking-wide text-[var(--charcoal)]/60 mt-1">áreas de especialização</p>
+    </div>
+    <div>
+      <p class="font-display text-3xl">Jacareí</p>
+      <p class="text-xs tracking-wide text-[var(--charcoal)]/60 mt-1">atendimento presencial</p>
+    </div>
+  </div>
+</section>
+
+<!-- SOBRE + VALORES -->
+<section id="sobre" class="py-24 md:py-32">
+  <div class="max-w-6xl mx-auto px-6 md:px-10 grid md:grid-cols-12 gap-12 md:gap-16">
+    <div class="md:col-span-6">
+      <p class="text-sm tracking-[0.2em] mb-4" style="color:var(--gold)">SOBRE</p>
+      <h2 class="font-display text-4xl mb-6 leading-tight">Uma trajetória construída caso a caso.</h2>
+      <p class="text-[var(--charcoal)]/80 leading-relaxed mb-4">
+        Formada em Odontologia, a Dra. Anelise dedica sua prática à estética do sorriso e à harmonização facial, unindo fundamentos técnicos a um olhar atento às particularidades de cada paciente.
+      </p>
+      <p class="text-[var(--charcoal)]/80 leading-relaxed">
+        Sua equipe acompanha o paciente da primeira consulta ao pós-tratamento, com transparência sobre cada etapa do processo.
+      </p>
+    </div>
+    <div class="md:col-span-6 grid grid-cols-2 gap-6">
+      <div class="plaque p-7">
+        <p class="text-xs tracking-[0.15em] mb-3" style="color:var(--gold)">MISSÃO</p>
+        <p class="text-sm leading-relaxed text-[var(--charcoal)]/85">
+          Promover saúde bucal e estética com cuidado individualizado, elevando a autoestima de quem confia em nosso trabalho.
+        </p>
+      </div>
+      <div class="plaque p-7">
+        <p class="text-xs tracking-[0.15em] mb-3" style="color:var(--gold)">VALORES</p>
+        <p class="text-sm leading-relaxed text-[var(--charcoal)]/85">
+          Pontualidade, transparência, segurança clínica e respeito ao tempo de cada paciente.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ESPECIALIDADES -->
+<section id="especialidades" class="py-24 md:py-32" style="background:var(--stone)">
+  <div class="max-w-6xl mx-auto px-6 md:px-10">
+    <p class="text-sm tracking-[0.2em] mb-4" style="color:var(--gold)">ESPECIALIDADES</p>
+    <h2 class="font-display text-4xl mb-14 max-w-xl leading-tight">Tratamentos conduzidos com técnica e sensibilidade.</h2>
+
+    <div class="divide-y divide-[var(--gold-light)]">
+      <div class="grid md:grid-cols-12 py-8 gap-4 items-baseline">
+        <p class="md:col-span-1 font-display text-2xl" style="color:var(--gold)">01</p>
+        <p class="md:col-span-4 font-display text-2xl">Harmonização facial</p>
+        <p class="md:col-span-7 text-[var(--charcoal)]/75 text-sm md:text-base">Preenchimentos e toxina botulínica para equilíbrio natural das expressões.</p>
+      </div>
+      <div class="grid md:grid-cols-12 py-8 gap-4 items-baseline">
+        <p class="md:col-span-1 font-display text-2xl" style="color:var(--gold)">02</p>
+        <p class="md:col-span-4 font-display text-2xl">Estética do sorriso</p>
+        <p class="md:col-span-7 text-[var(--charcoal)]/75 text-sm md:text-base">Clareamento, lentes e facetas planejadas conforme o formato do rosto.</p>
+      </div>
+      <div class="grid md:grid-cols-12 py-8 gap-4 items-baseline">
+        <p class="md:col-span-1 font-display text-2xl" style="color:var(--gold)">03</p>
+        <p class="md:col-span-4 font-display text-2xl">Implantes e reabilitação</p>
+        <p class="md:col-span-7 text-[var(--charcoal)]/75 text-sm md:text-base">Reposição dentária com foco em função e naturalidade estética.</p>
+      </div>
+      <div class="grid md:grid-cols-12 py-8 gap-4 items-baseline">
+        <p class="md:col-span-1 font-display text-2xl" style="color:var(--gold)">04</p>
+        <p class="md:col-span-4 font-display text-2xl">Odontologia geral</p>
+        <p class="md:col-span-7 text-[var(--charcoal)]/75 text-sm md:text-base">Limpeza, restaurações e acompanhamento preventivo contínuo.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DEPOIMENTO -->
+<section id="pacientes" class="py-24 md:py-32">
+  <div class="max-w-4xl mx-auto px-6 md:px-10 text-center">
+    <p class="text-sm tracking-[0.2em] mb-8" style="color:var(--gold)">O QUE DIZEM NOSSOS PACIENTES</p>
+    <div class="flex justify-center gap-1 mb-6" style="color:var(--gold)">
+      <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+    </div>
+    <blockquote class="font-display text-2xl md:text-3xl italic leading-snug mb-8">
+      "Uma das profissionais mais atenciosas que já conheci. Me senti cuidada em cada etapa do tratamento."
+    </blockquote>
+    <p class="text-sm text-[var(--charcoal)]/60">Paciente atendida em Jacareí</p>
+  </div>
+</section>
+
+<!-- GALERIA -->
+<section class="pb-6">
+  <div class="grid grid-cols-2 md:grid-cols-4">
+    <div class="aspect-square" style="background:linear-gradient(155deg,#2b2620,var(--wine))"></div>
+    <div class="aspect-square" style="background:var(--stone)"></div>
+    <div class="aspect-square" style="background:linear-gradient(155deg,var(--gold-light),var(--gold))"></div>
+    <div class="aspect-square" style="background:var(--charcoal)"></div>
+  </div>
+</section>
+
+<!-- CONTATO -->
+<section id="contato" class="py-24 md:py-32" style="background:var(--charcoal); color:var(--ivory)">
+  <div class="max-w-6xl mx-auto px-6 md:px-10 grid md:grid-cols-12 gap-12">
+    <div class="md:col-span-6">
+      <p class="text-sm tracking-[0.2em] mb-4" style="color:var(--gold-light)">AGENDAMENTO</p>
+      <h2 class="font-display text-4xl mb-6 leading-tight">Vamos conversar sobre o seu sorriso.</h2>
+      <p class="text-[var(--ivory)]/70 leading-relaxed mb-8 max-w-md">
+        Atendimento particular, com horários reservados para uma avaliação sem pressa.
+      </p>
+      <a href="https://wa.me/5512996567256" class="inline-block px-7 py-3.5 text-sm tracking-wide" style="background:var(--gold); color:var(--charcoal)">
+        Agendar pelo WhatsApp
+      </a>
+    </div>
+    <div class="md:col-span-6 md:pl-10 md:border-l border-[var(--gold-light)]/30 space-y-6">
+      <div>
+        <p class="text-xs tracking-[0.15em] text-[var(--gold-light)] mb-1">ENDEREÇO</p>
+        <p class="text-[var(--ivory)]/85">R. Dr. Lúcio Malta, 387 — Jacareí, SP</p>
+      </div>
+      <div>
+        <p class="text-xs tracking-[0.15em] text-[var(--gold-light)] mb-1">TELEFONE</p>
+        <p class="text-[var(--ivory)]/85">(12) 99656-7256</p>
+      </div>
+      <div>
+        <p class="text-xs tracking-[0.15em] text-[var(--gold-light)] mb-1">HORÁRIO</p>
+        <p class="text-[var(--ivory)]/85">Segunda a sexta, 8h às 19h</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="py-8 text-center text-xs text-[var(--charcoal)]/50">
+  Dra. Anelise O'Reilly · Odontologia Estética &amp; Harmonização
+</footer>
+
+</div>
+
+<script>
+  const AUTH_KEY = 'dra_anelise_auth_v1';
+  const CORRECT_PASS = 'oreilly';
+
+  function checkAuth() {
+    if (sessionStorage.getItem(AUTH_KEY) === 'granted') {
+      unlockPage(false);
+    }
+  }
+
+  function unlockPage(animate = true) {
+    const lockScreen = document.getElementById('lock-screen');
+    const pageContent = document.getElementById('page-content');
+    
+    pageContent.style.display = 'block';
+    if (animate) {
+      lockScreen.style.opacity = '0';
+      setTimeout(() => {
+        lockScreen.style.display = 'none';
+      }, 500);
+    } else {
+      lockScreen.style.display = 'none';
+    }
+  }
+
+  function handlePasswordSubmit(e) {
+    e.preventDefault();
+    const input = document.getElementById('password-input');
+    const errorMsg = document.getElementById('error-message');
+    const lockBox = document.getElementById('lock-box');
+
+    if (input.value.trim().toLowerCase() === CORRECT_PASS) {
+      sessionStorage.setItem(AUTH_KEY, 'granted');
+      errorMsg.classList.add('hidden');
+      unlockPage(true);
+    } else {
+      errorMsg.classList.remove('hidden');
+      lockBox.classList.add('shake');
+      input.value = '';
+      input.focus();
+      setTimeout(() => {
+        lockBox.classList.remove('shake');
+      }, 400);
+    }
+  }
+
+  function lockPage() {
+    sessionStorage.removeItem(AUTH_KEY);
+    window.location.reload();
+  }
+
+  // Executa checagem de autenticação ao carregar
+  checkAuth();
+</script>
+
+</body>
+</html>
