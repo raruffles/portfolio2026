@@ -6,7 +6,7 @@
     <title>Estudo de Caso - GUUH SC (A Carta) | Raphael Lima</title>
     <link href="https://fonts.googleapis.com" rel="preconnect"/>
     <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=Montserrat:wght@300;400;500;600;700;800&amp;family=Space+Grotesk:wght@500;700&amp;display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=Montserrat:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
     <link rel="stylesheet" href="style.css"/>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <script id="tailwind-config">
@@ -79,9 +79,22 @@
               "divider-weight": "1px"
             },
             "fontFamily": {
+              "label-sm": ["Montserrat", "sans-serif"],
+              "body-lg": ["Montserrat", "sans-serif"],
+              "body-md": ["Montserrat", "sans-serif"],
+              "label-lg": ["Montserrat", "sans-serif"],
               "montserrat": ["Montserrat", "sans-serif"],
-              "bebas": ["Bebas Neue", "sans-serif"],
-              "space": ["Space Grotesk", "sans-serif"]
+              "bebas": ["Bebas Neue", "sans-serif"]
+            },
+            "fontSize": {
+              "label-sm": ["14px", { "lineHeight": "1.2", "fontWeight": "500" }],
+              "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+              "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
+              "headline-lg": ["48px", { "lineHeight": "1.2", "fontWeight": "400" }],
+              "headline-xl": ["80px", { "lineHeight": "1.1", "letterSpacing": "0.02em", "fontWeight": "400" }],
+              "headline-md": ["32px", { "lineHeight": "1.2", "fontWeight": "400" }],
+              "label-lg": ["14px", { "lineHeight": "1.2", "letterSpacing": "0.1em", "fontWeight": "700" }],
+              "headline-sm": ["24px", { "lineHeight": "1.2", "fontWeight": "400" }]
             }
           }
         }
@@ -92,21 +105,24 @@
             scroll-behavior: smooth;
         }
 
-        /* Unified typography system with home page */
+        /* Unified typography system with home page and mais-solidario */
         body, .nav-links a, .nav-actions a, button, p, span, li, a {
             font-family: 'Montserrat', sans-serif !important;
         }
 
-        /* 14px font-size floor enforcement - exactly matching mais-solidario */
+        /* 14px font-size floor enforcement */
         *, *::before, *::after {
             min-font-size: 14px;
         }
         .text-xs, .text-[10px], .text-[11px], .text-[12px], .text-[13px] {
             font-size: 14px !important;
         }
+        .font-label-sm, .text-label-sm {
+            font-size: 14px !important;
+        }
 
-        /* Case study title styles */
-        h1, h3:not(.metric-value) {
+        /* Section main titles receive Bebas Neue */
+        h1, h3:not(.metric-value):not(.card-title-override) {
             font-family: 'Bebas Neue', sans-serif !important;
             font-size: 56px !important;
             letter-spacing: 0.03em !important;
@@ -117,10 +133,10 @@
             transition: color 0.5s ease;
         }
         @media (min-width: 900px) {
-            h1, h3:not(.metric-value) { font-size: 72px !important; }
+            h1, h3:not(.metric-value):not(.card-title-override) { font-size: 72px !important; }
         }
         @media (min-width: 1200px) {
-            h1, h3:not(.metric-value) { font-size: 90px !important; }
+            h1, h3:not(.metric-value):not(.card-title-override) { font-size: 90px !important; }
         }
 
         h2:not(.metric-value) {
@@ -166,7 +182,7 @@
             color: var(--current-accent, #000000) !important;
         }
 
-        /* Interactive Dynamic Accent Buttons */
+        /* Dynamic Accent Buttons matching Mais Solidário */
         .btn-accent {
             background-color: var(--current-accent, #000000) !important;
             border: 2px solid var(--current-accent, #000000) !important;
@@ -185,12 +201,11 @@
             color: #ffffff !important;
         }
 
-        /* Border accent */
         .border-accent {
             border-color: var(--current-accent, #000000) !important;
         }
 
-        /* Metrics banner elements */
+        /* Metrics banner elements strictly white to prevent black-on-black */
         .metrics-section, .metrics-section h2, .metrics-section p {
             color: #ffffff !important;
         }
@@ -218,7 +233,7 @@
         .delay-300 { transition-delay: 300ms; }
         .delay-400 { transition-delay: 400ms; }
 
-        /* Neon Pill Tag */
+        /* Neon Pill Tags */
         .neon-pill-pink {
             background: rgba(255, 0, 127, 0.12);
             color: #ff007f;
@@ -239,7 +254,7 @@
             color: #ffffff !important;
         }
 
-        /* Lightbox styling */
+        /* Lightbox modal styling */
         #lightbox-modal {
             transition: opacity 0.3s ease, visibility 0.3s ease;
         }
@@ -262,7 +277,7 @@
         <path d="M5.5 3.21V20.8c0 .45.54.67.85.35l4.86-4.86a.5.5 0 0 1 .35-.15h6.42c.45 0 .67-.54.35-.85L5.5 3.21z" fill="white" stroke="#1a1f1f" stroke-width="1.5" stroke-linejoin="round"/>
     </svg>
 
-    <!-- TopNavBar (Vinculado com a Home) -->
+    <!-- TopNavBar (Idêntica à Home e Mais Solidário) -->
     <nav class="navbar">
         <div class="menu-toggle" id="mobile-menu">
             <span class="bar"></span>
@@ -304,7 +319,7 @@
         </div>
     </nav>
 
-    <!-- SubMenu Sticky Reduzido incluindo a nova Seção Galeria -->
+    <!-- SubMenu Sticky (Estrutura idêntica à Mais Solidário, com navegação fluida) -->
     <div class="sticky top-[80px] z-40 bg-surface-container-low dark:bg-primary border-b border-outline-variant/60 dark:border-primary-container py-3.5 transition-colors duration-300">
         <div class="flex justify-start lg:justify-center items-center gap-5 lg:gap-7 px-4 md:px-margin-page max-w-[1440px] mx-auto overflow-x-auto whitespace-nowrap scrollbar-none text-[14px] tracking-wider uppercase font-semibold">
             <a href="index.html#trabalhos" class="inline-flex items-center hover:text-primary dark:hover:text-on-primary text-outline transition-colors font-normal mr-1" title="Voltar para Trabalhos">
@@ -332,54 +347,33 @@
     </div>
 
     <main>
-        <!-- Hero Section / Sobre -->
+        <!-- Hero Section / Sobre - Usando a imagem da hero oficial como capa do projeto -->
         <section id="sobre" class="px-margin-page py-16 max-w-[1440px] mx-auto scroll-mt-[150px]">
             <div class="grid grid-cols-1 md:grid-cols-12 gap-gutter-grid items-center">
-                <div class="md:col-span-6 flex flex-col gap-6 scroll-animate">
-                    <div class="flex flex-wrap items-center gap-3">
-                        <span class="case-label">// CASE STUDY APRESENTAÇÃO</span>
-                        <span class="text-outline dark:text-primary-fixed-dim">•</span>
-                        <span class="case-label text-[var(--current-accent)] font-bold">UX/UI &amp; BRANDING</span>
-                    </div>
+                <div class="md:col-span-5 flex flex-col gap-6 scroll-animate">
+                    <p class="font-label-lg text-label-lg case-label">// CASE STUDY — GUUH SC</p>
 
-                    <h1 class="text-[42px] sm:text-[60px] md:text-headline-xl text-primary dark:text-on-primary leading-[0.9] uppercase">
+                    <h1 class="font-headline-xl text-[42px] sm:text-[60px] md:text-headline-xl text-primary dark:text-on-primary leading-[0.9] uppercase">
                         GUUH SC<br/>
                         <span>A CARTA</span>
                     </h1>
 
-                    <!-- Período: Agosto a Setembro de 2025 -->
-                    <div class="flex items-center gap-2.5 text-[14px] text-outline dark:text-primary-fixed-dim font-semibold uppercase tracking-wider">
-                        <svg class="w-4 h-4 text-[var(--current-accent)] shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-                            <line x1="16" y1="2" x2="16" y2="6"></line>
-                            <line x1="8" y1="2" x2="8" y2="6"></line>
-                            <line x1="3" y1="10" x2="21" y2="10"></line>
-                        </svg>
-                        <span>Agosto a Setembro de 2025</span>
-                    </div>
-
-                    <p class="text-[16px] md:text-[18px] font-semibold text-primary dark:text-on-primary leading-snug">
-                        Plataforma Digital e Identidade Visual — GUUH SC ("Voz da Quebrada")
+                    <p class="font-body-lg text-body-lg text-on-surface-variant dark:text-primary-fixed-dim">
+                        Ecossistema web oficial, estratégia de conversão B2B/B2C e identidade visual da campanha do álbum "A Carta".
                     </p>
 
-                    <p class="text-[15px] text-on-surface-variant dark:text-primary-fixed-dim leading-relaxed">
-                        Ecossistema web oficial, estratégia de conversão B2B/B2C e campanha visual do álbum "A Carta".
-                    </p>
-
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-2 border-l-2 border-accent pl-4">
+                    <div class="grid grid-cols-2 gap-4 mt-2 border-l-2 border-primary dark:border-on-primary pl-4">
                         <div>
-                            <p class="text-[14px] text-outline dark:text-primary-fixed-dim uppercase tracking-wider">Atribuições</p>
-                            <p class="text-[15px] font-bold text-primary dark:text-on-primary uppercase mt-0.5">UX/UI Design &amp; Dev Web</p>
-                            <p class="text-[14px] text-on-surface-variant dark:text-primary-fixed-dim">Identidade Visual Social Media</p>
+                            <p class="font-label-sm text-label-sm text-on-surface-variant dark:text-primary-fixed-dim uppercase font-bold">Agosto a Setembro de 2025</p>
+                            <p class="font-label-sm text-label-sm text-outline dark:text-primary-fixed-dim uppercase">UX/UI Design &amp; Dev Web</p>
                         </div>
                         <div>
-                            <p class="text-[14px] text-outline dark:text-primary-fixed-dim uppercase tracking-wider">Direção Criativa</p>
-                            <p class="text-[15px] font-bold text-primary dark:text-on-primary uppercase mt-0.5">Campanha "A Carta"</p>
-                            <p class="text-[14px] text-on-surface-variant dark:text-primary-fixed-dim">Ecossistema One-Page Oficial</p>
+                            <p class="font-label-sm text-label-sm text-on-surface-variant dark:text-primary-fixed-dim uppercase font-bold">Direção Criativa</p>
+                            <p class="font-label-sm text-label-sm text-outline dark:text-primary-fixed-dim uppercase">Identidade Social &amp; Web</p>
                         </div>
                     </div>
 
-                    <!-- CTA Hero: Acessar Site Agora -> https://guuhsc.com.br -->
+                    <!-- CTAs Hero: Acessar Site Agora -> https://guuhsc.com.br -->
                     <div class="flex flex-wrap items-center gap-4 pt-2">
                         <a href="https://guuhsc.com.br" target="_blank" rel="noopener noreferrer" class="btn-accent inline-flex items-center gap-2.5 font-bold text-[14px] tracking-wider uppercase px-7 py-4 rounded-xl shadow-lg transition-all transform hover:-translate-y-0.5">
                             <span>Acessar Site Agora</span>
@@ -398,12 +392,13 @@
                     </div>
                 </div>
 
-                <div class="md:col-span-6 scroll-animate delay-200">
+                <!-- Capa Hero Oficial do Projeto -->
+                <div class="md:col-span-7 scroll-animate delay-200">
                     <div class="relative rounded-2xl overflow-hidden shadow-2xl border border-outline-variant/60 dark:border-primary-container bg-[#0d0b14] group">
-                        <img alt="Campanha Visual e Plataforma A Carta - GUUH SC" class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105" src="src/work-a-carta.png"/>
+                        <img alt="Capa Oficial da Plataforma GUUH SC — Voz da Quebrada" class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105" src="src/work-guuhsc-live.png"/>
                         <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none"></div>
                         <div class="absolute bottom-4 left-4 right-4 flex items-center justify-between text-white text-[14px] font-mono">
-                            <span class="bg-[#ff007f] text-black font-bold px-3 py-1 rounded">ÁLBUM "A CARTA"</span>
+                            <span class="bg-[#ff007f] text-white font-bold px-3 py-1 rounded">HUB DIGITAL OFICIAL</span>
                             <span class="text-[#00f5d4] bg-black/60 backdrop-blur px-3 py-1 rounded">DDD 012 · SJC</span>
                         </div>
                     </div>
@@ -411,56 +406,71 @@
             </div>
         </section>
 
-        <!-- Impact Metrics -->
+        <!-- Impact Metrics (Estilo Mais Solidário) -->
         <section class="metrics-section px-margin-page py-12 max-w-[1440px] mx-auto bg-primary dark:bg-primary-container text-on-primary dark:text-on-primary transition-colors border-y border-outline-variant dark:border-primary-container scroll-animate">
             <div class="max-w-[1200px] mx-auto">
-                <p class="text-[14px] uppercase tracking-widest text-[#ff007f] font-bold mb-6">// RESULTADOS &amp; MÉTRICAS — IMPACTO E VALIDAÇÃO ESTRATÉGICA</p>
+                <p class="font-label-sm text-label-sm uppercase mb-6 text-[#ff007f] font-bold tracking-widest">// RESULTADOS &amp; MÉTRICAS — IMPACTO ESTRATÉGICO</p>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
                     <div class="flex flex-col gap-2 scroll-animate delay-100">
                         <h2 class="metric-value text-[#00f5d4]">100%</h2>
-                        <p class="font-bold text-[15px] tracking-widest uppercase text-white mt-1">Ecossistema Digital Unificado</p>
-                        <p class="text-[14px] text-white/70 leading-relaxed">Centralização de todos os lançamentos do álbum "A Carta", clipes e redes em uma experiência única.</p>
+                        <p class="font-label-lg text-label-lg uppercase tracking-widest mt-2">ECOSSISTEMA CENTRALIZADO</p>
+                        <p class="text-[14px] text-white/70 leading-relaxed">Hub único unificando lançamentos do álbum "A Carta", videoclipes e redes sociais.</p>
                     </div>
                     <div class="flex flex-col gap-2 justify-center scroll-animate delay-200">
                         <h2 class="metric-value text-[#ff007f]">3.4x</h2>
-                        <p class="font-bold text-[15px] tracking-widest uppercase text-white mt-1">Agilidade no Fechamento de Shows</p>
-                        <p class="text-[14px] text-white/70 leading-relaxed">Canal comercial direto que permitiu aos contratantes consultar datas abertas e rider técnico em menos de 2 minutos.</p>
+                        <p class="font-label-lg text-label-lg uppercase tracking-widest mt-2">AGILIDADE DE CONVERSÃO B2B</p>
+                        <p class="text-[14px] text-white/70 leading-relaxed">Contratantes consultam rider técnico e disponibilidade de agenda em menos de 2 minutos.</p>
                     </div>
                     <div class="flex flex-col gap-2 justify-center scroll-animate delay-300">
-                        <h2 class="metric-value text-white">Consolidação</h2>
-                        <p class="font-bold text-[15px] tracking-widest uppercase text-white mt-1">Identidade Visual Omnichannel</p>
-                        <p class="text-[14px] text-white/70 leading-relaxed">Alinhamento visual rigoroso entre palcos, capas de streaming, Instagram e a plataforma web.</p>
+                        <h2 class="metric-value text-white">012 SJC</h2>
+                        <p class="font-label-lg text-label-lg uppercase tracking-widest mt-2">CONSOLIDAÇÃO DE MARCA</p>
+                        <p class="text-[14px] text-white/70 leading-relaxed">Alinhamento estético entre palco, capas de streaming, Instagram e a plataforma web.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- 01 — O Desafio & Público -->
+        <!-- 01 — O Desafio: Problema e Objetivo empilhados um abaixo do outro, SEM BORDAS, usando as cores do site -->
         <section id="desafio" class="px-margin-page py-20 max-w-[1440px] mx-auto border-b border-outline-variant dark:border-primary-container scroll-mt-[150px] scroll-animate">
-            <div class="flex flex-col gap-3 mb-10">
+            <div class="flex flex-col gap-3 mb-12">
                 <p class="case-label">// 01 — VISÃO GERAL E CONTEXTO</p>
                 <h2 class="text-primary dark:text-on-primary uppercase leading-tight">O Desafio do Artista Independente</h2>
             </div>
 
-            <!-- O Problema e O Objetivo -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-gutter-grid mb-16">
-                <div class="p-8 rounded-2xl bg-surface-container-low dark:bg-primary-container/40 border border-outline-variant/60 dark:border-primary-container flex flex-col gap-4 scroll-animate delay-100">
-                    <span class="neon-pill-pink w-fit px-3 py-1 rounded-full text-[14px] font-bold uppercase tracking-wider">O Problema Identificado</span>
-                    <h3 class="text-2xl text-primary dark:text-on-primary uppercase">Presença Fragmentada e Ruído de Comunicação</h3>
-                    <p class="text-[15px] text-on-surface-variant dark:text-primary-fixed-dim leading-relaxed">
-                        A necessidade de centralizar a presença digital do artista independente <strong>GUUH SC</strong> em um único hub oficial, conectando lançamentos musicais, presença nas redes sociais e contato comercial sem dispersão de audiência.
+            <!-- Problema e Objetivo: Um abaixo do outro, SEM BORDAS, cores do site (Rosa e Ciano) -->
+            <div class="flex flex-col gap-8 mb-16">
+                <!-- 01 O Problema Identificado (Rosa Choque do Site) - SEM BORDAS -->
+                <div class="p-8 sm:p-10 rounded-2xl bg-surface-container-low dark:bg-primary-container/40 flex flex-col gap-4 scroll-animate delay-100">
+                    <div class="flex items-center gap-3">
+                        <span class="neon-pill-pink px-4 py-1.5 rounded-full text-[14px] font-bold uppercase tracking-wider">
+                            O Problema Identificado
+                        </span>
+                    </div>
+                    <h3 class="font-headline-lg text-3xl sm:text-4xl text-[#ff007f] uppercase tracking-wide">
+                        Presença Fragmentada e Ruído de Comunicação
+                    </h3>
+                    <p class="font-body-md text-body-md text-on-surface-variant dark:text-primary-fixed-dim leading-relaxed max-w-[1100px]">
+                        A necessidade de centralizar a presença digital do artista independente <strong>GUUH SC</strong> em um único hub oficial, conectando lançamentos musicais, presença nas redes sociais e contato comercial sem dispersão de audiência entre diferentes plataformas.
                     </p>
                 </div>
-                <div class="p-8 rounded-2xl bg-surface-container-low dark:bg-primary-container/40 border border-outline-variant/60 dark:border-primary-container flex flex-col gap-4 scroll-animate delay-200">
-                    <span class="neon-pill-cyan w-fit px-3 py-1 rounded-full text-[14px] font-bold uppercase tracking-wider">O Objetivo Estratégico</span>
-                    <h3 class="text-2xl text-primary dark:text-on-primary uppercase">Hub de Conversão B2B e Retenção B2C</h3>
-                    <p class="text-[15px] text-on-surface-variant dark:text-primary-fixed-dim leading-relaxed">
-                        Criar uma plataforma otimizada não apenas para engajar fãs (com clipes e streaming), mas que funcionasse como uma ferramenta de vendas e autoridade para contratantes de shows para a temporada <strong>2026/2027</strong>, alinhada à estética do projeto "A Carta".
+
+                <!-- 02 O Objetivo Estratégico (Ciano Neon do Site) - SEM BORDAS -->
+                <div class="p-8 sm:p-10 rounded-2xl bg-surface-container-low dark:bg-primary-container/40 flex flex-col gap-4 scroll-animate delay-200">
+                    <div class="flex items-center gap-3">
+                        <span class="neon-pill-cyan px-4 py-1.5 rounded-full text-[14px] font-bold uppercase tracking-wider">
+                            O Objetivo Estratégico
+                        </span>
+                    </div>
+                    <h3 class="font-headline-lg text-3xl sm:text-4xl text-[#00f5d4] uppercase tracking-wide">
+                        Hub de Conversão B2B e Retenção B2C
+                    </h3>
+                    <p class="font-body-md text-body-md text-on-surface-variant dark:text-primary-fixed-dim leading-relaxed max-w-[1100px]">
+                        Criar uma plataforma otimizada não apenas para engajar fãs (com reprodução instantânea de clipes e streaming de áudio), mas que funcionasse primordialmente como ferramenta comercial e de autoridade para contratantes de shows para a temporada <strong>2026/2027</strong>, alinhada à estética do projeto "A Carta".
                     </p>
                 </div>
             </div>
 
-            <!-- Mapeamento de Públicos-Alvo com Ícones SVG nítidos -->
+            <!-- Mapeamento de Públicos-Alvo -->
             <div class="mt-8">
                 <h4 class="text-2xl uppercase text-primary dark:text-on-primary mb-6">Mapeamento de Públicos-Alvo</h4>
                 <div class="grid grid-cols-1 md:grid-cols-12 gap-gutter-grid items-center">
@@ -505,8 +515,7 @@
             </div>
         </section>
 
-        <!-- 02 — Look & Feel (UI) -->
-        <!-- NOTA: Caixas da paleta de cores SEM bordas externas, e TODOS os textos em preto ou cinza neutro -->
+        <!-- 02 — Look & Feel (UI): Caixas da paleta SEM bordas externas e textos em preto/cinza neutro -->
         <section id="identidade" class="px-margin-page py-20 max-w-[1440px] mx-auto border-b border-outline-variant dark:border-primary-container bg-surface-container-lowest dark:bg-primary-container/20 scroll-mt-[150px] scroll-animate">
             <p class="case-label mb-2">// 02 — IDENTIDADE VISUAL &amp; UI DESIGN</p>
             <h3 class="font-headline-xl text-[42px] sm:text-[60px] md:text-headline-xl text-primary dark:text-on-primary leading-none uppercase mb-4">Look &amp; Feel Urbano de Alto Contraste</h3>
@@ -514,7 +523,7 @@
                 Uma abordagem urbana, noturna e de alto contraste, refletindo a energia e a atitude da cena musical ("Voz da Quebrada"), combinando texturas de arte de rua com refinamento editorial.
             </p>
 
-            <!-- Paleta de Cores e Tokens UI: Sem bordas nas caixas, textos em preto e cinza -->
+            <!-- Paleta de Cores: Sem bordas nas caixas, textos em preto e cinza -->
             <div class="mb-16">
                 <h4 class="text-2xl uppercase text-primary dark:text-on-primary mb-8">Paleta de Cores e Tokens UI</h4>
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
@@ -616,13 +625,12 @@
             </div>
         </section>
 
-        <!-- 03 — Estrutura One-Page (UX) -->
-        <!-- Cada card com as cores de destaque solicitadas (rosa, verde/ciano, azul, esmeralda, sunset, ouro) e ícones SVG inline -->
+        <!-- 03 — Estrutura One-Page: Usando ESTRITAMENTE as cores da identidade visual do site (Rosa Choque e Ciano Neon) -->
         <section id="estrutura" class="px-margin-page py-20 max-w-[1440px] mx-auto border-b border-outline-variant dark:border-primary-container scroll-mt-[150px] scroll-animate">
             <p class="case-label mb-2">// 03 — ARQUITETURA DA INFORMAÇÃO &amp; UX STRATEGY</p>
             <h3 class="font-headline-xl text-[42px] sm:text-[60px] md:text-headline-xl text-primary dark:text-on-primary leading-none uppercase mb-4">Jornada de Navegação One-Page</h3>
             <p class="text-[16px] md:text-[18px] text-on-surface-variant dark:text-primary-fixed-dim max-w-[900px] mb-12 leading-relaxed">
-                Estrutura One-Page contínua: do engajamento emocional à conversão comercial com pontos focais coloridos de alta energia.
+                Estrutura One-Page contínua: do engajamento emocional à conversão comercial, ritmada pelo contraste autêntico do Rosa Choque e Ciano Neon do site.
             </p>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -648,7 +656,7 @@
                     </div>
                 </div>
 
-                <!-- 02 Storytelling - Verde/Ciano Neon (#00F5D4) -->
+                <!-- 02 Storytelling - Ciano Neon (#00F5D4) -->
                 <div class="p-7 rounded-2xl border border-outline-variant/60 dark:border-primary-container bg-surface-container-low dark:bg-primary-container/40 flex flex-col justify-between scroll-animate delay-200">
                     <div>
                         <div class="flex items-center justify-between mb-4">
@@ -670,13 +678,13 @@
                     </div>
                 </div>
 
-                <!-- 03 Hub Audiovisual - Azul Elétrico (#4D68EC) -->
+                <!-- 03 Hub Audiovisual - Rosa Choque (#FF007F) -->
                 <div class="p-7 rounded-2xl border border-outline-variant/60 dark:border-primary-container bg-surface-container-low dark:bg-primary-container/40 flex flex-col justify-between scroll-animate delay-300">
                     <div>
                         <div class="flex items-center justify-between mb-4">
-                            <span class="font-bebas text-4xl text-[#4d68ec]">03</span>
-                            <div class="w-11 h-11 rounded-xl bg-[#4d68ec]/10 border border-[#4d68ec]/30 flex items-center justify-center">
-                                <svg class="w-5 h-5 text-[#4d68ec]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <span class="font-bebas text-4xl text-[#ff007f]">03</span>
+                            <div class="w-11 h-11 rounded-xl bg-[#ff007f]/10 border border-[#ff007f]/30 flex items-center justify-center">
+                                <svg class="w-5 h-5 text-[#ff007f]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                     <polygon points="23 7 16 12 23 17 23 7"></polygon>
                                     <rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect>
                                 </svg>
@@ -687,18 +695,18 @@
                             Organização em formato de grid dos clipes oficiais do YouTube (incluindo Músicas e Making Of), imergindo o usuário.
                         </p>
                     </div>
-                    <div class="mt-6 pt-4 border-t border-outline-variant/40 dark:border-primary-container text-[14px] font-semibold text-[#4d68ec]">
+                    <div class="mt-6 pt-4 border-t border-outline-variant/40 dark:border-primary-container text-[14px] font-semibold text-[#ff007f]">
                         Grid de vídeo responsivo com reprodução instantânea
                     </div>
                 </div>
 
-                <!-- 04 Retenção e Streaming - Verde Esmeralda / Spotify (#22C55E) -->
+                <!-- 04 Retenção e Streaming - Ciano Neon (#00F5D4) -->
                 <div class="p-7 rounded-2xl border border-outline-variant/60 dark:border-primary-container bg-surface-container-low dark:bg-primary-container/40 flex flex-col justify-between scroll-animate delay-100">
                     <div>
                         <div class="flex items-center justify-between mb-4">
-                            <span class="font-bebas text-4xl text-[#22c55e]">04</span>
-                            <div class="w-11 h-11 rounded-xl bg-[#22c55e]/10 border border-[#22c55e]/30 flex items-center justify-center">
-                                <svg class="w-5 h-5 text-[#22c55e]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <span class="font-bebas text-4xl text-[#00f5d4]">04</span>
+                            <div class="w-11 h-11 rounded-xl bg-[#00f5d4]/10 border border-[#00f5d4]/30 flex items-center justify-center">
+                                <svg class="w-5 h-5 text-[#00f5d4]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                     <circle cx="12" cy="12" r="10"></circle>
                                     <circle cx="12" cy="12" r="3"></circle>
                                     <path d="M8 12a4 4 0 0 1 8 0"></path>
@@ -710,18 +718,18 @@
                             Integração de streaming para que os ouvintes escutem a discografia completa sem sair do ecossistema do site.
                         </p>
                     </div>
-                    <div class="mt-6 pt-4 border-t border-outline-variant/40 dark:border-primary-container text-[14px] font-semibold text-[#22c55e]">
+                    <div class="mt-6 pt-4 border-t border-outline-variant/40 dark:border-primary-container text-[14px] font-semibold text-[#00f5d4]">
                         Player de áudio / Spotify Embed interativo
                     </div>
                 </div>
 
-                <!-- 05 Social Proof - Magenta / Rosa Sunset (#EC4899) -->
+                <!-- 05 Social Proof - Rosa Choque (#FF007F) -->
                 <div class="p-7 rounded-2xl border border-outline-variant/60 dark:border-primary-container bg-surface-container-low dark:bg-primary-container/40 flex flex-col justify-between scroll-animate delay-200">
                     <div>
                         <div class="flex items-center justify-between mb-4">
-                            <span class="font-bebas text-4xl text-[#ec4899]">05</span>
-                            <div class="w-11 h-11 rounded-xl bg-[#ec4899]/10 border border-[#ec4899]/30 flex items-center justify-center">
-                                <svg class="w-5 h-5 text-[#ec4899]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <span class="font-bebas text-4xl text-[#ff007f]">05</span>
+                            <div class="w-11 h-11 rounded-xl bg-[#ff007f]/10 border border-[#ff007f]/30 flex items-center justify-center">
+                                <svg class="w-5 h-5 text-[#ff007f]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                     <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
                                     <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
                                     <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
@@ -733,18 +741,18 @@
                             Feed dinâmico que demonstra relevância em tempo real, engajamento comunitário e presença digital ativa.
                         </p>
                     </div>
-                    <div class="mt-6 pt-4 border-t border-outline-variant/40 dark:border-primary-container text-[14px] font-semibold text-[#ec4899]">
+                    <div class="mt-6 pt-4 border-t border-outline-variant/40 dark:border-primary-container text-[14px] font-semibold text-[#ff007f]">
                         Galeria dinâmica conectada às redes
                     </div>
                 </div>
 
-                <!-- 06 Seção de Autoridade - Ouro / Âmbar (#F59E0B) -->
+                <!-- 06 Seção de Autoridade - Ciano Neon (#00F5D4) -->
                 <div class="p-7 rounded-2xl border border-outline-variant/60 dark:border-primary-container bg-surface-container-low dark:bg-primary-container/40 flex flex-col justify-between scroll-animate delay-300">
                     <div>
                         <div class="flex items-center justify-between mb-4">
-                            <span class="font-bebas text-4xl text-[#f59e0b]">06</span>
-                            <div class="w-11 h-11 rounded-xl bg-[#f59e0b]/10 border border-[#f59e0b]/30 flex items-center justify-center">
-                                <svg class="w-5 h-5 text-[#f59e0b]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <span class="font-bebas text-4xl text-[#00f5d4]">06</span>
+                            <div class="w-11 h-11 rounded-xl bg-[#00f5d4]/10 border border-[#00f5d4]/30 flex items-center justify-center">
+                                <svg class="w-5 h-5 text-[#00f5d4]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                     <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
                                 </svg>
                             </div>
@@ -754,7 +762,7 @@
                             Listagem do histórico de palcos e próximos shows com tags visuais de status para gerar urgência.
                         </p>
                     </div>
-                    <div class="mt-6 pt-4 border-t border-outline-variant/40 dark:border-primary-container text-[14px] font-semibold text-[#f59e0b]">
+                    <div class="mt-6 pt-4 border-t border-outline-variant/40 dark:border-primary-container text-[14px] font-semibold text-[#00f5d4]">
                         Status de shows: "Confirmado", "Ingressos Esgotando", "Data Disponível"
                     </div>
                 </div>
@@ -773,9 +781,13 @@
                             </p>
                         </div>
                         <div class="shrink-0">
-                            <span class="btn-accent inline-flex items-center gap-2 text-white px-5 py-3 rounded-xl font-bold text-[14px] uppercase tracking-wider shadow">
-                                CTA de contratação direto para produtor comercial
-                            </span>
+                            <a href="https://guuhsc.com.br" target="_blank" rel="noopener noreferrer" class="btn-accent inline-flex items-center gap-2 text-white px-6 py-3.5 rounded-xl font-bold text-[14px] uppercase tracking-wider shadow hover:scale-105 transition-transform">
+                                <span>Acessar Plataforma Web</span>
+                                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                                    <polyline points="12 5 19 12 12 19"></polyline>
+                                </svg>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -838,103 +850,19 @@
 
                 <!-- Mockup Content Canvas -->
                 <div class="p-6 sm:p-10 md:p-12 bg-gradient-to-b from-[#0a0612] via-[#120822] to-[#0a0612]">
-                    <!-- Top Wireframe Bar -->
-                    <div class="flex items-center justify-between pb-8 border-b border-white/10">
-                        <div class="flex items-center gap-3">
-                            <img src="guuhsc/images/logo.png" alt="Logo Guuh SC" class="h-8 w-auto filter drop-shadow-[0_0_8px_rgba(255,0,127,0.5)]"/>
-                            <span class="font-bebas text-2xl tracking-wider text-white">GUUH SC</span>
-                        </div>
-                        <div class="hidden sm:flex items-center gap-6 text-[14px] text-white/70 font-semibold tracking-wider">
-                            <span class="text-[#ff007f]">A CARTA</span>
-                            <span>DISCOGRAFIA</span>
-                            <span>SHOWS</span>
-                            <span>CONTATO</span>
-                        </div>
-                        <a href="https://guuhsc.com.br" target="_blank" rel="noopener noreferrer" class="bg-[#ff007f] text-white font-bold text-[14px] px-5 py-2 rounded-lg hover:bg-[#ff007f]/90 transition-all shadow-[0_0_15px_rgba(255,0,127,0.4)]">
-                            CONTRATAR SHOW
-                        </a>
-                    </div>
-
-                    <!-- Mini Hero Wireframe Preview -->
-                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center py-10">
-                        <div class="lg:col-span-7 flex flex-col gap-4">
-                            <span class="text-[#00f5d4] font-mono text-[14px] tracking-widest uppercase">// NOVO ÁLBUM DISPONÍVEL</span>
-                            <h2 class="text-4xl sm:text-5xl md:text-6xl font-bebas text-white leading-none">
-                                A CARTA <span class="text-[#ff007f]">•</span> O ESPETÁCULO
-                            </h2>
-                            <p class="text-white/70 text-[15px] leading-relaxed max-w-[500px]">
-                                Letras que retratam as vivências, batalhas e conquistas da quebrada 012 com beats pesados e produção visual cinematográfica.
-                            </p>
-                            <div class="flex flex-wrap gap-4 pt-2">
-                                <a href="https://guuhsc.com.br" target="_blank" rel="noopener noreferrer" class="bg-[#ff007f] text-white font-bold text-[14px] px-6 py-3 rounded-xl flex items-center gap-2 hover:scale-105 transition-transform">
-                                    <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
-                                        <path d="M8 5v14l11-7z"/>
-                                    </svg>
-                                    <span>OUVIR NO SPOTIFY</span>
-                                </a>
-                                <a href="https://guuhsc.com.br" target="_blank" rel="noopener noreferrer" class="border border-white/30 text-white font-semibold text-[14px] px-6 py-3 rounded-xl hover:bg-white/10 transition-all">
-                                    ASSISTIR CLIPES
-                                </a>
-                            </div>
-                        </div>
-
-                        <div class="lg:col-span-5">
-                            <div class="relative rounded-2xl overflow-hidden shadow-2xl border border-white/20 group">
-                                <img src="guuhsc/images/hero-bg.jpg" alt="Guuh SC Hero" class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500"/>
-                                <div class="absolute bottom-3 left-3 right-3 p-3 rounded-xl bg-black/70 backdrop-blur border border-white/10 flex items-center justify-between text-[14px]">
-                                    <span class="text-[#ff007f] font-bold">10 FAIXAS EXCLUSIVAS</span>
-                                    <span class="text-[#00f5d4] font-mono">SPOTIFY &amp; YOUTUBE</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Agenda Interativa Preview -->
-                    <div class="pt-8 border-t border-white/10">
-                        <div class="flex items-center justify-between mb-4">
-                            <h4 class="font-bebas text-2xl text-white">AGENDA OFICIAL DE SHOWS</h4>
-                            <span class="text-[14px] font-mono text-[#00f5d4]">STATUS EM TEMPO REAL</span>
-                        </div>
-                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                            <!-- Show 1 -->
-                            <div class="p-4 rounded-xl bg-black/40 border border-white/5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
-                                <div class="flex items-center gap-4">
-                                    <span class="font-bebas text-2xl text-[#ff007f]">24 OUT 2026</span>
-                                    <span class="text-[15px] font-semibold text-white">Festa Regional SJC</span>
-                                </div>
-                                <span class="bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 text-[14px] px-3 py-1 rounded-full font-bold uppercase">
-                                    Confirmado
-                                </span>
-                            </div>
-
-                            <!-- Show 2 -->
-                            <div class="p-4 rounded-xl bg-black/40 border border-white/5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
-                                <div class="flex items-center gap-4">
-                                    <span class="font-bebas text-2xl text-white">14 NOV 2026</span>
-                                    <span class="text-[15px] font-semibold text-white">Espeto &amp; Vinho Festival</span>
-                                </div>
-                                <span class="bg-yellow-400/20 text-yellow-300 border border-yellow-400/40 text-[14px] px-3 py-1 rounded-full font-bold uppercase">
-                                    Últimos Lotes
-                                </span>
-                            </div>
-
-                            <!-- Show 3 -->
-                            <div class="p-4 rounded-xl bg-black/40 border border-white/5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
-                                <div class="flex items-center gap-4">
-                                    <span class="font-bebas text-2xl text-[#00f5d4]">05 DEZ 2026</span>
-                                    <span class="text-[15px] font-semibold text-white">Show Especial de Lançamento</span>
-                                </div>
-                                <span class="bg-white/10 text-white border border-white/20 text-[14px] px-3 py-1 rounded-full font-bold uppercase">
-                                    Data Disponível
-                                </span>
-                            </div>
+                    <div class="relative rounded-2xl overflow-hidden shadow-2xl border border-white/15 group">
+                        <img src="src/work-guuhsc-live.png" alt="Interface Oficial Guuh SC" class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700"/>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none"></div>
+                        <div class="absolute bottom-4 left-4 right-4 flex items-center justify-between text-white text-[14px] font-mono">
+                            <span class="bg-[#ff007f] text-white font-bold px-3 py-1 rounded">EXPERIÊNCIA OFICIAL</span>
+                            <span class="text-[#00f5d4] bg-black/60 backdrop-blur px-3 py-1 rounded">PRODUÇÕES INDEPENDENTES &amp; LOVE FUNK</span>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- 05 — NOVA SEÇÃO: Galeria Visual do Artista & Material de Campanha (Ultra Moderna com Bento Grid e Lightbox) -->
+        <!-- 05 — Galeria Visual & Material de Campanha (Bento Grid e Lightbox) -->
         <section id="galeria" class="px-margin-page py-20 max-w-[1440px] mx-auto border-b border-outline-variant dark:border-primary-container scroll-mt-[150px] scroll-animate">
             <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-6">
                 <div>
@@ -1039,7 +967,7 @@
                     <img src="guuhsc/images/yt-projeto-z.jpg" alt="Clipe Projeto Z" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"/>
                     <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-70 group-hover:opacity-95 transition-opacity"></div>
                     <div class="absolute top-4 left-4">
-                        <span class="bg-[#4d68ec] text-white text-[14px] font-bold px-3 py-1 rounded-md">
+                        <span class="bg-[#ff007f] text-white text-[14px] font-bold px-3 py-1 rounded-md">
                             CLIPE OFICIAL
                         </span>
                     </div>
@@ -1057,7 +985,7 @@
                     <img src="guuhsc/images/yt-tenere.jpg" alt="Clipe Tenéré" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"/>
                     <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-70 group-hover:opacity-95 transition-opacity"></div>
                     <div class="absolute top-4 left-4">
-                        <span class="bg-[#f59e0b] text-black text-[14px] font-bold px-3 py-1 rounded-md">
+                        <span class="bg-[#00f5d4] text-black text-[14px] font-bold px-3 py-1 rounded-md">
                             MAKING OF
                         </span>
                     </div>
@@ -1066,7 +994,7 @@
                             <h4 class="text-xl text-white uppercase font-bold">Tenéré</h4>
                             <p class="text-[14px] text-white/70">Bastidores &amp; Faixa</p>
                         </div>
-                        <span class="text-[#f59e0b] font-mono text-[14px] font-bold">HD 1080P</span>
+                        <span class="text-[#ff007f] font-mono text-[14px] font-bold">HD 1080P</span>
                     </div>
                 </div>
 
@@ -1144,7 +1072,7 @@
                 </div>
             </div>
 
-            <!-- CTAs Finais de Navegação Atualizados -->
+            <!-- CTAs Finais de Navegação -->
             <div class="flex flex-col sm:flex-row items-center justify-center gap-6 scroll-animate">
                 <a href="https://guuhsc.com.br" target="_blank" rel="noopener noreferrer" class="btn-accent w-full sm:w-auto inline-flex items-center justify-center gap-3 font-bold text-[14px] tracking-wider uppercase px-8 py-4 rounded-xl shadow-lg transition-all transform hover:-translate-y-0.5">
                     <span>Acessar Site Agora</span>
@@ -1183,7 +1111,7 @@
         </div>
     </div>
 
-    <!-- Footer -->
+    <!-- Footer (Idêntico à Home e Mais Solidário) -->
     <footer class="bg-surface dark:bg-primary border-t border-outline-variant dark:border-primary-container transition-colors duration-300">
         <div class="flex flex-col md:flex-row justify-between items-center w-full px-margin-page py-12 max-w-[1440px] mx-auto">
             <p class="text-[14px] font-bold text-primary dark:text-on-primary uppercase">
