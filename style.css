@@ -865,3 +865,14 @@ body.dark-mode .color-swatch.swatch-black {
     .footer-layout { grid-template-columns: 1fr 1fr; gap: 60px; }
     .copyright { flex-direction: row; }
 }
+
+/* Utility to hide scrollbars while retaining scroll functionality */
+.scrollbar-none::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+.scrollbar-none {
+  -ms-overflow-style: none !important;
+  scrollbar-width: none !important;
+}

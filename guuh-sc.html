@@ -261,6 +261,16 @@
             visibility: hidden;
             pointer-events: none;
         }
+            /* Utility to hide scrollbars while retaining scroll */
+        .scrollbar-none::-webkit-scrollbar {
+            display: none !important;
+            width: 0 !important;
+            height: 0 !important;
+        }
+        .scrollbar-none {
+            -ms-overflow-style: none !important;
+            scrollbar-width: none !important;
+        }
     </style>
 </head>
 <body class="bg-background text-on-background antialiased selection:bg-[#ff007f] selection:text-white dark:bg-primary dark:text-on-primary transition-colors duration-300">
@@ -312,30 +322,30 @@
         </div>
     </nav>
 
-    <!-- SubMenu Sticky Compacto -->
-    <div class="sticky top-[80px] z-40 bg-surface-container-low dark:bg-primary border-b border-outline-variant/60 dark:border-primary-container py-3.5 transition-colors duration-300">
-        <div class="flex justify-start lg:justify-center items-center gap-5 lg:gap-7 px-4 md:px-margin-page max-w-[1440px] mx-auto overflow-x-auto whitespace-nowrap scrollbar-none text-[14px] tracking-wider uppercase font-semibold">
-            <a href="index.html#trabalhos" class="inline-flex items-center hover:text-primary dark:hover:text-on-primary text-outline transition-colors font-normal mr-1" title="Voltar para Trabalhos">
+    <!-- SubMenu Sticky Compacto & Responsivo (Sem quebras de linha em resoluções < 1300px) -->
+    <div class="sticky top-[80px] z-40 bg-surface-container-low dark:bg-primary border-b border-outline-variant/60 dark:border-primary-container py-3 transition-colors duration-300">
+        <div class="flex justify-start xl:justify-center items-center gap-3 sm:gap-4 md:gap-5 xl:gap-7 px-4 sm:px-6 md:px-8 max-w-[1440px] mx-auto overflow-x-auto whitespace-nowrap scrollbar-none text-[13px] md:text-[14px] tracking-wider uppercase font-semibold">
+            <a href="index.html#trabalhos" class="shrink-0 inline-flex items-center hover:text-primary dark:hover:text-on-primary text-outline transition-colors font-normal mr-1" title="Voltar para Trabalhos">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4">
                     <line x1="19" y1="12" x2="5" y2="12"></line>
                     <polyline points="12 19 5 12 12 5"></polyline>
                 </svg>
             </a>
-            <span class="text-outline-variant dark:text-primary-container">|</span>
+            <span class="shrink-0 text-outline-variant dark:text-primary-container">|</span>
             
-            <a href="#sobre" class="hover:text-primary dark:hover:text-on-primary transition-colors font-bold text-primary dark:text-on-primary">SOBRE</a>
-            <span class="text-outline-variant dark:text-primary-container">|</span>
-            <a href="#desafio" class="hover:text-primary dark:hover:text-on-primary transition-colors font-normal text-on-surface-variant dark:text-primary-fixed-dim">O DESAFIO</a>
-            <span class="text-outline-variant dark:text-primary-container">|</span>
-            <a href="#identidade" class="hover:text-primary dark:hover:text-on-primary transition-colors font-normal text-on-surface-variant dark:text-primary-fixed-dim">ESTUDO UI</a>
-            <span class="text-outline-variant dark:text-primary-container">|</span>
-            <a href="#estrutura" class="hover:text-primary dark:hover:text-on-primary transition-colors font-normal text-on-surface-variant dark:text-primary-fixed-dim">ESTRUTURA DO SITE</a>
-            <span class="text-outline-variant dark:text-primary-container">|</span>
-            <a href="#solucoes" class="hover:text-primary dark:hover:text-on-primary transition-colors font-normal text-on-surface-variant dark:text-primary-fixed-dim">MOCKUP E SOLUÇÕES</a>
-            <span class="text-outline-variant dark:text-primary-container">|</span>
-            <a href="#galeria" class="hover:text-primary dark:hover:text-on-primary transition-colors font-normal text-on-surface-variant dark:text-primary-fixed-dim">GALERIA</a>
-            <span class="text-outline-variant dark:text-primary-container">|</span>
-            <a href="#resultados" class="hover:text-primary dark:hover:text-on-primary transition-colors font-normal text-on-surface-variant dark:text-primary-fixed-dim">RESULTADOS</a>
+            <a href="#sobre" class="shrink-0 hover:text-primary dark:hover:text-on-primary transition-colors font-bold text-primary dark:text-on-primary">SOBRE</a>
+            <span class="shrink-0 text-outline-variant dark:text-primary-container">|</span>
+            <a href="#desafio" class="shrink-0 hover:text-primary dark:hover:text-on-primary transition-colors font-normal text-on-surface-variant dark:text-primary-fixed-dim">DESAFIO</a>
+            <span class="shrink-0 text-outline-variant dark:text-primary-container">|</span>
+            <a href="#identidade" class="shrink-0 hover:text-primary dark:hover:text-on-primary transition-colors font-normal text-on-surface-variant dark:text-primary-fixed-dim">ESTUDO UI</a>
+            <span class="shrink-0 text-outline-variant dark:text-primary-container">|</span>
+            <a href="#estrutura" class="shrink-0 hover:text-primary dark:hover:text-on-primary transition-colors font-normal text-on-surface-variant dark:text-primary-fixed-dim">ESTRUTURA</a>
+            <span class="shrink-0 text-outline-variant dark:text-primary-container">|</span>
+            <a href="#solucoes" class="shrink-0 hover:text-primary dark:hover:text-on-primary transition-colors font-normal text-on-surface-variant dark:text-primary-fixed-dim">MOCKUP</a>
+            <span class="shrink-0 text-outline-variant dark:text-primary-container">|</span>
+            <a href="#galeria" class="shrink-0 hover:text-primary dark:hover:text-on-primary transition-colors font-normal text-on-surface-variant dark:text-primary-fixed-dim">GALERIA</a>
+            <span class="shrink-0 text-outline-variant dark:text-primary-container">|</span>
+            <a href="#resultados" class="shrink-0 hover:text-primary dark:hover:text-on-primary transition-colors font-normal text-on-surface-variant dark:text-primary-fixed-dim">RESULTADOS</a>
         </div>
     </div>
 
