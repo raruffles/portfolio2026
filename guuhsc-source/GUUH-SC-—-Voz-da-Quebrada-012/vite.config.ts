@@ -190,7 +190,7 @@ function instagramApiPlugin(): Plugin {
 
 export default defineConfig(() => {
   return {
-    base: '/guuhsc/',
+    base: './',
     plugins: [react(), tailwindcss(), instagramApiPlugin()],
     resolve: {
       alias: {
