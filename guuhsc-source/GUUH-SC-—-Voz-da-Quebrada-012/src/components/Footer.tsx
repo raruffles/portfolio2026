@@ -105,15 +105,6 @@ export const Footer: React.FC<FooterProps> = () => {
           </div>
 
           <div className="flex items-center gap-4">
-            <a
-              href={ARTIST_INFO.links.officialSite}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-[#21f6c9] transition-colors"
-            >
-              www.guuhsc.com
-            </a>
-            <span className="text-white/20">|</span>
             <span className="text-[#21f6c9] font-mono font-bold">DDD 012</span>
           </div>
         </div>

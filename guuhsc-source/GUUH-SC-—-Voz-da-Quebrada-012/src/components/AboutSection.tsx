@@ -104,16 +104,6 @@ export const AboutSection: React.FC = () => {
                 <span>Ouvir em todas as plataformas</span>
                 <ExternalLink className="w-4 h-4" />
               </a>
-
-              <a
-                href={ARTIST_INFO.links.officialSite}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-[#21f6c9] hover:underline text-sm font-semibold px-4 py-3"
-              >
-                <span>Visitar www.guuhsc.com</span>
-                <ExternalLink className="w-3.5 h-3.5" />
-              </a>
             </div>
           </div>
         </div>
