@@ -87,8 +87,8 @@ export const AboutSection: React.FC = () => {
               <div className="bg-[#0a0612]/70 border border-white/10 rounded-lg p-3.5 flex items-center gap-3 col-span-2 sm:col-span-1">
                 <Award className="w-5 h-5 text-[#21f6c9] shrink-0" />
                 <div>
-                  <div className="text-xs text-white/50">Cultura</div>
-                  <div className="text-sm font-bold text-[#f4eeff]">Funk Consciente</div>
+                  <div className="text-xs text-white/50">Gênero</div>
+                  <div className="text-sm font-bold text-[#f4eeff]">Funk / Trap</div>
                 </div>
               </div>
             </div>

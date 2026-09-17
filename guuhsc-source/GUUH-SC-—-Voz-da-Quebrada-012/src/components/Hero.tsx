@@ -45,7 +45,7 @@ export const Hero: React.FC<HeroProps> = ({ onPlayHit }) => {
 
         {/* Subtitle */}
         <p className="max-w-[560px] text-base sm:text-lg text-[#b7a6d6] leading-relaxed mb-8">
-          Funk de rua direto da quebrada. Sem esquentar banco — jogador diferente, som diferente.
+          Funk / Trap de rua direto da quebrada. Sem esquentar banco — jogador diferente, som diferente.
           Produções independentes e faixas com a <span className="text-[#ff2e92] font-semibold">Love Funk</span>.
         </p>
 

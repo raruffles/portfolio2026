@@ -2,7 +2,7 @@ import React from 'react';
 
 export const MarqueeBanner: React.FC = () => {
   const items = [
-    'FUNK DE RUA',
+    'FUNK / TRAP',
     'SÃO JOSÉ DOS CAMPOS',
     'LOVE FUNK & CRIA HIT',
     'GUUH SC',

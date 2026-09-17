@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 import { ARTIST_INFO } from '../data/guuhData';
 import { Instagram, Youtube, Music, ArrowUp, Lock } from 'lucide-react';
 
@@ -21,7 +21,7 @@ export const Footer: React.FC<FooterProps> = ({ onLock }) => {
               GUUH<span className="text-[#ff2e92]">SC</span>
             </div>
             <p className="text-xs text-[#b7a6d6] mt-1">
-              Voz da Quebrada 012 • São José dos Campos - SP • Funk de Rua &amp; Love Funk
+              Voz da Quebrada 012 • São José dos Campos - SP • Funk / Trap &amp; Love Funk
             </p>
           </div>
 
