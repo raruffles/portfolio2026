@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { SHOWS_DATA, ARTIST_INFO } from '../data/guuhData';
 import { Calendar, MapPin, CheckCircle2, Sparkles, Send, Phone, MessageSquare } from 'lucide-react';
+import { WhatsAppIcon } from './icons/WhatsAppIcon';
 
 export const ShowsSection: React.FC = () => {
   const [contractCity, setContractCity] = useState('');
@@ -156,8 +157,8 @@ Poderiam me passar os valores e rider técnico? Obrigado!`;
         <div className="bg-gradient-to-r from-[#0a0612] via-[#150b24] to-[#0a0612] border border-white/10 rounded-2xl p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="space-y-1 text-center md:text-left">
             <h4 className="font-anton text-2xl text-[#f4eeff]">Quer levar o GUUH SC para o seu evento?</h4>
-            <p className="text-sm text-[#b7a6d6]">
-              Atendemos todo o Estado de São Paulo, Vale do Paraíba (012) e outros estados. Show completo de funk e trap.
+            <p className="text-sm text-[#b7a6d6] max-w-2xl">
+              Atendimento e contratação em <strong className="text-[#21f6c9]">São José dos Campos (SJC)</strong>, <strong className="text-[#f4eeff]">Taubaté</strong>, <strong className="text-[#f4eeff]">Jacareí</strong>, todo o <strong className="text-[#21f6c9]">Vale do Paraíba</strong>, <strong className="text-[#ff2e92]">Litoral de SP</strong> (Caraguá, Ubatuba, São Sebastião, Ilhabela), <strong className="text-[#f4eeff]">São Paulo Capital</strong>, <strong className="text-[#21f6c9]">Rio de Janeiro</strong> e capitais de todo o Brasil.
             </p>
           </div>
 
@@ -166,9 +167,9 @@ Poderiam me passar os valores e rider técnico? Obrigado!`;
               href={`https://wa.me/${ARTIST_INFO.phoneRaw}?text=Ol%C3%A1!%20Gostaria%20de%20informa%C3%A7%C3%B5es%20para%20contratar%20show%20do%20Guuh%20SC.`}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-[#21f6c9] hover:bg-[#21f6c9]/90 text-[#0a0612] font-bold text-sm px-6 py-3 rounded-full box-glow-cyan transition-all hover:scale-105"
+              className="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#20bd5a] text-black font-bold text-sm px-6 py-3 rounded-full shadow-[0_0_20px_rgba(37,211,102,0.35)] transition-all hover:scale-105"
             >
-              <MessageSquare className="w-4 h-4" />
+              <WhatsAppIcon className="w-4 h-4 fill-current" />
               <span>WhatsApp da Assessoria</span>
             </a>
           </div>

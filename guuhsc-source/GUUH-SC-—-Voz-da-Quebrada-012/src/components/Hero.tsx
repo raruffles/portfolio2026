@@ -1,6 +1,7 @@
 import React from 'react';
-import { Play, Flame, ExternalLink, Headphones, Disc3 } from 'lucide-react';
+import { Play, Flame, ExternalLink, Headphones } from 'lucide-react';
 import { ARTIST_INFO } from '../data/guuhData';
+import { SpotifyIcon } from './icons/SpotifyIcon';
 
 interface HeroProps {
   onPlayHit: (youtubeId: string, title: string) => void;
@@ -65,7 +66,7 @@ export const Hero: React.FC<HeroProps> = ({ onPlayHit }) => {
             className="inline-flex items-center gap-2.5 bg-[#1db954] hover:bg-[#1db954]/90 text-black font-bold text-sm sm:text-base px-7 py-3.5 rounded-full shadow-[0_0_25px_rgba(29,185,84,0.4)] hover:scale-105 transition-all"
             id="hero-btn-ouca-spotify"
           >
-            <Disc3 className="w-5 h-5 animate-spin" style={{ animationDuration: '4s' }} />
+            <SpotifyIcon className="w-5 h-5 fill-current text-black" />
             <span>OUVIR NO SPOTIFY</span>
           </a>
 

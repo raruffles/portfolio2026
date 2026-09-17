@@ -9,7 +9,7 @@ export const ARTIST_INFO = {
   tagline: 'Voz da Quebrada 012 · Funk / Trap sem esquentar banco',
   bio1: 'De DDD 012, Gustavo da Silva, natural de São José dos Campos/SP, conquistou a cena da quebrada pelo vulgo GUUH SC. Durante muito tempo teve que sustentar um riso fictício, mas como jogador diferente que é, não precisa esquentar banco.',
   bio2: 'Hoje acumula milhares de visualizações nas principais plataformas digitais, convertendo vivências reais em funk consciente, trap e ritmos marcantes. Músicas de produção própria e parcerias de peso com a gravadora Love Funk e Cria Hit.',
-  phone: '(12) 98164-1325',
+  phone: '+55 12 98164-1325',
   phoneRaw: '5512981641325',
   email: 'guuhscmc@gmail.com',
   links: {
@@ -20,6 +20,7 @@ export const ARTIST_INFO = {
     tiktok: 'https://www.tiktok.com/@guuhscmc',
     presave: 'https://lnkfi.re/GuuhSC',
     loveFunk: 'https://www.youtube.com/@lovefunkprodutora',
+    whatsapp: 'https://wa.me/5512981641325?text=Ol%C3%A1,%20gostaria%20de%20informa%C3%A7%C3%B5es%20para%20contratar%20o%20show%20do%20Guuh%20SC!',
   }
 };
 
@@ -316,11 +317,11 @@ export const SHOWS_DATA: ShowItem[] = [
   {
     id: 's-agenda-aberta',
     title: 'Agenda Aberta · Temporada 2026 / 2027',
-    city: 'São Paulo, Vale do Paraíba (012), Interior e Brasil',
+    city: 'São José dos Campos, Taubaté, Jacareí, Vale do Paraíba, Litoral SP, São Paulo e Rio de Janeiro',
     location: 'Casas de Show, Festivais, Casas Noturnas e Eventos',
     status: 'agenda-aberta',
     date: 'Datas Disponíveis',
-    description: 'Disponibilidade imediata para contratação em todo o Brasil. Produção completa, repertório autoral e presença de palco marcante.'
+    description: 'Disponibilidade imediata para contratação de shows em São José dos Campos (012), Taubaté, Jacareí, todo o Vale do Paraíba, Litoral Norte de SP (Caraguatatuba, Ubatuba, São Sebastião, Ilhabela), Grande SP, Rio de Janeiro e capitais do Brasil.'
   },
   {
     id: 's-1',

@@ -1,6 +1,7 @@
 import React from 'react';
 import { ARTIST_INFO } from '../data/guuhData';
-import { Music, ExternalLink, Headphones, Disc3, Sparkles } from 'lucide-react';
+import { ExternalLink } from 'lucide-react';
+import { SpotifyIcon } from './icons/SpotifyIcon';
 
 interface StreamSectionProps {
   onPlayVideo?: (youtubeId: string, title: string) => void;
@@ -21,7 +22,7 @@ export const StreamSection: React.FC<StreamSectionProps> = () => {
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
           <div>
             <div className="inline-flex items-center gap-2 text-xs font-bold text-[#1db954] uppercase tracking-widest mb-3">
-              <Headphones className="w-4 h-4" />
+              <SpotifyIcon className="w-4 h-4 fill-current" />
               <span>Streaming Oficial · Spotify</span>
             </div>
             <h2 className="font-anton text-4xl sm:text-5xl md:text-6xl text-[#f4eeff]">
@@ -39,7 +40,7 @@ export const StreamSection: React.FC<StreamSectionProps> = () => {
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2.5 bg-[#1db954] hover:bg-[#1db954]/90 text-black font-bold text-xs sm:text-sm px-6 py-3.5 rounded-full transition-all hover:scale-105 shadow-[0_0_25px_rgba(29,185,84,0.4)] self-start md:self-end"
           >
-            <Music className="w-4 h-4 fill-current text-black" />
+            <SpotifyIcon className="w-4 h-4 fill-current text-black" />
             <span>Seguir no Spotify</span>
             <ExternalLink className="w-3.5 h-3.5 opacity-80" />
           </a>
@@ -53,7 +54,7 @@ export const StreamSection: React.FC<StreamSectionProps> = () => {
           <div className="flex flex-wrap items-center justify-between gap-4 mb-6 relative z-10">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-full bg-[#1db954]/20 border border-[#1db954]/50 flex items-center justify-center text-[#1db954]">
-                <Disc3 className="w-5 h-5 animate-spin" style={{ animationDuration: '6s' }} />
+                <SpotifyIcon className="w-5 h-5 fill-current" />
               </div>
               <div>
                 <h3 className="font-anton text-2xl text-[#f4eeff]">
@@ -66,8 +67,7 @@ export const StreamSection: React.FC<StreamSectionProps> = () => {
             </div>
 
             <div className="flex items-center gap-2">
-              <span className="inline-flex items-center gap-1.5 text-xs font-bold text-[#1db954] bg-[#1db954]/10 border border-[#1db954]/30 px-3 py-1 rounded-full">
-                <Sparkles className="w-3.5 h-3.5" />
+              <span className="inline-flex items-center text-xs font-bold text-[#1db954] bg-[#1db954]/10 border border-[#1db954]/30 px-3 py-1 rounded-full">
                 Player Integrado
               </span>
             </div>
@@ -102,6 +102,7 @@ export const StreamSection: React.FC<StreamSectionProps> = () => {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-1.5 bg-[#1db954] text-black font-bold text-xs px-4 py-2 rounded-full hover:scale-105 transition-all shadow-[0_0_15px_rgba(29,185,84,0.3)]"
               >
+                <SpotifyIcon className="w-3.5 h-3.5 fill-current text-black" />
                 <span>Spotify</span>
                 <ExternalLink className="w-3 h-3 opacity-70" />
               </a>

@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { ARTIST_INFO } from '../data/guuhData';
-import { Phone, Mail, Send, CheckCircle2, MessageSquare, Instagram, Youtube, Music } from 'lucide-react';
+import { Phone, Mail, CheckCircle2, Instagram, Youtube } from 'lucide-react';
+import { WhatsAppIcon } from './icons/WhatsAppIcon';
+import { SpotifyIcon } from './icons/SpotifyIcon';
 
 export const ContactSection: React.FC = () => {
   const [name, setName] = useState('');
@@ -12,11 +14,9 @@ export const ContactSection: React.FC = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsSent(true);
-    // Open whatsapp with the formatted message as convenience
-    const text = `Mensagem do site GUUH SC:\n• Nome: ${name}\n• Email: ${email}\n• Telefone: ${phone}\n• Mensagem: ${message}`;
-    setTimeout(() => {
-      window.open(`https://wa.me/${ARTIST_INFO.phoneRaw}?text=${encodeURIComponent(text)}`, '_blank');
-    }, 600);
+    const text = `Mensagem enviada pelo site oficial GUUH SC:\n• Nome: ${name}\n• Email: ${email || 'Não informado'}\n• Telefone: ${phone || 'Não informado'}\n• Mensagem: ${message}`;
+    const url = `https://wa.me/${ARTIST_INFO.phoneRaw}?text=${encodeURIComponent(text)}`;
+    window.open(url, '_blank');
   };
 
   return (
@@ -45,11 +45,12 @@ export const ContactSection: React.FC = () => {
                   Assessoria Direta (Telefone & WhatsApp)
                 </div>
                 <a
-                  href={`https://wa.me/${ARTIST_INFO.phoneRaw}`}
+                  href={`https://wa.me/${ARTIST_INFO.phoneRaw}?text=Ol%C3%A1!%20Gostaria%20de%20falar%20com%20a%20assessoria%20do%20Guuh%20SC.`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="font-anton text-2xl text-[#f4eeff] hover:text-[#ff2e92] transition-colors flex items-center gap-2"
+                  className="font-anton text-2xl text-[#21f6c9] hover:text-[#ff2e92] transition-colors flex items-center gap-2.5 group"
                 >
+                  <WhatsAppIcon className="w-6 h-6 text-[#25D366] shrink-0 group-hover:scale-110 transition-transform" />
                   <span>{ARTIST_INFO.phone}</span>
                 </a>
                 <span className="text-xs text-white/40 block mt-1">
@@ -103,7 +104,7 @@ export const ContactSection: React.FC = () => {
                     rel="noopener noreferrer"
                     className="flex items-center gap-2 bg-[#150b24] hover:bg-[#1db954]/20 border border-white/10 text-xs font-bold px-4 py-2 rounded-full transition-all text-[#f4eeff]"
                   >
-                    <Music className="w-3.5 h-3.5 text-[#1db954]" />
+                    <SpotifyIcon className="w-3.5 h-3.5 text-[#1db954] fill-current" />
                     <span>Spotify</span>
                   </a>
                 </div>
@@ -195,25 +196,15 @@ export const ContactSection: React.FC = () => {
                     />
                   </div>
 
-                  <div className="pt-2 flex flex-wrap items-center justify-between gap-4">
+                  <div className="pt-2">
                     <button
                       type="submit"
-                      className="inline-flex items-center gap-2 bg-[#ff2e92] hover:bg-[#ff2e92]/90 text-[#0a0612] font-bold text-sm px-8 py-3.5 rounded-full box-glow-pink hover:scale-105 transition-all cursor-pointer"
+                      className="inline-flex items-center gap-2.5 bg-[#25D366] hover:bg-[#20bd5a] text-black font-bold text-sm px-8 py-3.5 rounded-full shadow-[0_0_20px_rgba(37,211,102,0.35)] hover:scale-105 transition-all cursor-pointer w-full sm:w-auto justify-center"
                       id="btn-enviar-contato"
                     >
-                      <Send className="w-4 h-4" />
-                      <span>ENVIAR MENSAGEM</span>
+                      <WhatsAppIcon className="w-4 h-4 fill-current" />
+                      <span>ENVIAR MENSAGEM NO WHATSAPP</span>
                     </button>
-
-                    <a
-                      href={`https://wa.me/${ARTIST_INFO.phoneRaw}?text=Ol%C3%A1,%20vim%20pelo%20site%20oficial%20do%20Guuh%20SC!`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-xs font-semibold text-[#21f6c9] hover:underline flex items-center gap-1"
-                    >
-                      <MessageSquare className="w-3.5 h-3.5" />
-                      <span>Ou chame no WhatsApp agora</span>
-                    </a>
                   </div>
                 </form>
               )}

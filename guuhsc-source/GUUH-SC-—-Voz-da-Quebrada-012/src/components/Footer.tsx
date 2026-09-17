@@ -1,6 +1,7 @@
 import React from 'react';
 import { ARTIST_INFO } from '../data/guuhData';
-import { Instagram, Youtube, Music, ArrowUp } from 'lucide-react';
+import { Instagram, Youtube, ArrowUp } from 'lucide-react';
+import { SpotifyIcon } from './icons/SpotifyIcon';
 
 interface FooterProps {}
 
@@ -38,8 +39,9 @@ export const Footer: React.FC<FooterProps> = () => {
               rel="noopener noreferrer"
               aria-label="Spotify"
               className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-[#21f6c9] hover:bg-[#21f6c9]/20 hover:scale-110 transition-all"
+              title="Spotify Oficial"
             >
-              <Music className="w-4 h-4" />
+              <SpotifyIcon className="w-4 h-4 fill-current" />
             </a>
             <a
               href={ARTIST_INFO.links.youtube}
@@ -85,8 +87,16 @@ export const Footer: React.FC<FooterProps> = () => {
           </div>
         </div>
 
+        {/* Regional SEO Coverage Bar */}
+        <div className="py-5 border-b border-white/10 text-center md:text-left">
+          <p className="text-xs text-[#b7a6d6] leading-relaxed">
+            <strong className="text-[#21f6c9]">Contratação de Shows &amp; Presença Regional:</strong>{' '}
+            São José dos Campos (SJC) · Taubaté · Jacareí · Vale do Paraíba (012) · Litoral Norte de SP (Caraguatatuba, Ubatuba, São Sebastião, Ilhabela) · São Paulo Capital &amp; Região Metropolitana · Rio de Janeiro (RJ) · Principais Capitais do Brasil.
+          </p>
+        </div>
+
         {/* Bottom Credits */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#b7a6d6]">
+        <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#b7a6d6]">
           <div className="flex flex-col sm:flex-row items-center gap-2">
             <span>Marcas e direitos reservados &copy; {new Date().getFullYear()} Guuh SC.</span>
             <span className="hidden sm:inline text-white/20">•</span>

@@ -64,6 +64,9 @@ export const AboutSection: React.FC = () => {
               <p>
                 Já passou por diversos shows e apresentações marcantes — <strong className="text-[#f4eeff]">Festa Regional 1º de Maio</strong>, <strong className="text-[#f4eeff]">Espeto & Viola</strong>, <strong className="text-[#f4eeff]">Quinta do Bem</strong>, além do festival <strong className="text-[#f4eeff]">Arteurbana (Pavam Music)</strong>.
               </p>
+              <p>
+                Com base firme em <strong className="text-[#21f6c9]">São José dos Campos</strong>, a voz do artista alcança <strong className="text-[#f4eeff]">Taubaté</strong>, <strong className="text-[#f4eeff]">Jacareí</strong> e todas as cidades do <strong className="text-[#21f6c9]">Vale do Paraíba</strong>, marcando presença também no <strong className="text-[#ff2e92]">Litoral Norte de SP</strong> (Caraguatatuba, Ubatuba, São Sebastião e Ilhabela), com conexões diretas na capital de <strong className="text-[#f4eeff]">São Paulo</strong>, <strong className="text-[#21f6c9]">Rio de Janeiro</strong> e capitais de todo o país.
+              </p>
             </div>
 
             {/* Badges / Highlights */}

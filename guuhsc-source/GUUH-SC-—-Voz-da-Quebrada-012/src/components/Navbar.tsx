@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Menu, X, Play, Music, Youtube, Instagram, Phone } from 'lucide-react';
+import { Menu, X, Play, Youtube, Instagram, Phone, ShieldCheck } from 'lucide-react';
+import { SpotifyIcon } from './icons/SpotifyIcon';
 import { ARTIST_INFO } from '../data/guuhData';
 
 interface NavbarProps {
@@ -62,7 +63,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenVideoModal }) => {
               className="w-8 h-8 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-[#21f6c9] hover:bg-[#21f6c9]/20 hover:scale-110 transition-all"
               title="Spotify Oficial"
             >
-              <Music className="w-4 h-4" />
+              <SpotifyIcon className="w-4 h-4 fill-current" />
             </a>
             <a
               href={ARTIST_INFO.links.youtube}
@@ -157,7 +158,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenVideoModal }) => {
               className="text-[#21f6c9] hover:opacity-80"
               aria-label="Spotify"
             >
-              <Music className="w-6 h-6" />
+              <SpotifyIcon className="w-6 h-6 fill-current" />
             </a>
             <a
               href={ARTIST_INFO.links.youtube}
