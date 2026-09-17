@@ -183,20 +183,28 @@
         }
 
         /* Dynamic Accent Buttons matching Mais Solidário */
-        .btn-accent {
+        .btn-case-primary,
+        a.btn-case-primary {
             background-color: var(--current-accent, #000000) !important;
-            border: 2px solid var(--current-accent, #000000) !important;
+            border: 1px solid var(--current-accent, #000000) !important;
             color: #ffffff !important;
+            transition: all 0.3s ease !important;
         }
-        .btn-accent:hover {
-            filter: brightness(1.1);
+        .btn-case-primary:hover,
+        a.btn-case-primary:hover {
+            filter: brightness(1.15) !important;
+            opacity: 0.95 !important;
         }
-        .btn-accent-outline {
-            border: 2px solid var(--current-accent, #000000) !important;
+
+        .btn-case-outline,
+        a.btn-case-outline {
+            background-color: transparent !important;
+            border: 1px solid var(--current-accent, #000000) !important;
             color: var(--current-accent, #000000) !important;
-            background: transparent !important;
+            transition: all 0.3s ease !important;
         }
-        .btn-accent-outline:hover {
+        .btn-case-outline:hover,
+        a.btn-case-outline:hover {
             background-color: var(--current-accent, #000000) !important;
             color: #ffffff !important;
         }
@@ -378,10 +386,10 @@
 
                     <!-- CTAs Hero (Base e componentes quadrados idênticos a mais-solidario.html) -->
                     <div class="flex flex-col sm:flex-row items-start gap-4 pt-2">
-                        <a href="https://guuhsc.com.br" target="_blank" rel="noopener noreferrer" class="px-8 py-4 bg-primary text-on-primary dark:bg-on-primary dark:text-primary font-label-lg text-label-lg uppercase tracking-widest border border-primary dark:border-on-primary hover:bg-inverse-surface dark:hover:bg-primary-fixed-dim transition-colors flex items-center justify-center">
+                        <a href="https://guuhsc.com.br" target="_blank" rel="noopener noreferrer" class="btn-case-primary px-8 py-4 font-label-lg text-label-lg uppercase tracking-widest border transition-colors flex items-center justify-center">
                             ACESSAR SITE AGORA
                         </a>
-                        <a href="#desafio" class="px-8 py-4 bg-transparent text-primary dark:text-on-primary font-label-lg text-label-lg uppercase tracking-widest border border-primary dark:border-on-primary hover:bg-surface-container-low dark:hover:bg-primary-container transition-colors flex items-center justify-center">
+                        <a href="#desafio" class="btn-case-outline px-8 py-4 font-label-lg text-label-lg uppercase tracking-widest border transition-colors flex items-center justify-center">
                             VER ESTUDO COMPLETO
                         </a>
                     </div>
@@ -877,10 +885,10 @@
                 ECOSSISTEMA DIGITAL 100% UNIFICADO
             </h3>
             <div class="flex flex-col sm:flex-row justify-center gap-6">
-                <a href="https://guuhsc.com.br" target="_blank" rel="noopener noreferrer" class="px-8 py-4 bg-primary text-on-primary dark:bg-on-primary dark:text-primary font-label-lg text-label-lg uppercase tracking-widest border border-primary dark:border-on-primary hover:bg-inverse-surface dark:hover:bg-primary-fixed-dim transition-colors flex items-center justify-center">
+                <a href="https://guuhsc.com.br" target="_blank" rel="noopener noreferrer" class="btn-case-primary px-8 py-4 font-label-lg text-label-lg uppercase tracking-widest border transition-colors flex items-center justify-center">
                     NAVEGUE NO SITE
                 </a>
-                <a href="index.html#trabalhos" class="px-8 py-4 bg-transparent text-primary dark:text-on-primary font-label-lg text-label-lg uppercase tracking-widest border border-primary dark:border-on-primary hover:bg-surface-container-low dark:hover:bg-primary-container transition-colors flex items-center justify-center">
+                <a href="index.html#trabalhos" class="btn-case-outline px-8 py-4 font-label-lg text-label-lg uppercase tracking-widest border transition-colors flex items-center justify-center">
                     VER PRÓXIMO PROJETO
                 </a>
             </div>
