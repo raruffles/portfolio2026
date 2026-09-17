@@ -331,15 +331,6 @@ export const SHOWS_DATA: ShowItem[] = [
     description: 'Apresentação diante de milhares de pessoas com o repertório completo de funk de rua.'
   },
   {
-    id: 's-2',
-    title: 'Bar do Rei dos Drinks',
-    city: 'São José dos Campos / SP',
-    location: 'Zona Sul - SJC',
-    status: 'realizado',
-    date: 'Noite de Sucesso',
-    description: 'Pista lotada e gravação de trechos exclusivos para os vlogs oficiais.'
-  },
-  {
     id: 's-3',
     title: 'Espeto & Viola Lounge',
     city: 'Vale do Paraíba / SP',

@@ -189,13 +189,16 @@ body.dark-mode .logo-img {
 }
 
 .lang-btn {
-    display: flex;
+    display: inline-flex;
     align-items: center;
+    justify-content: center;
     background-color: transparent;
     border: 2px solid color-mix(in srgb, var(--current-accent) 20%, var(--border-color));
     border-radius: 40px;
     padding: 2px; 
     height: 40px; 
+    box-sizing: border-box;
+    flex-shrink: 0;
     transition: border-color 0.4s ease;
 }
 
@@ -207,7 +210,7 @@ body.accent-white .lang-btn .active-lang {
     font-family: 'Montserrat', sans-serif;
     font-size: 14px; 
     font-weight: 600;
-    display: flex;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
     height: 100%;
@@ -216,6 +219,7 @@ body.accent-white .lang-btn .active-lang {
     color: var(--text-color);
     transition: background-color 0.4s ease, color 0.4s ease; 
     line-height: 1;
+    box-sizing: border-box;
 }
 
 .lang-btn .active-lang {
@@ -233,10 +237,12 @@ body.accent-white .lang-btn .active-lang {
     border-radius: 50%;
     width: 40px; 
     height: 40px;
-    display: flex;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
     color: #ffffff;
+    box-sizing: border-box;
+    flex-shrink: 0;
     transition: border-color 0.4s ease, background-color 0.4s ease, color 0.4s ease, transform 0.3s ease;
 }
 

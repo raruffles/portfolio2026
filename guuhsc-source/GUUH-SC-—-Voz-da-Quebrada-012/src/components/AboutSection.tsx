@@ -62,7 +62,7 @@ export const AboutSection: React.FC = () => {
                 Hoje conta com conteúdo publicado em todas as plataformas digitais, transformando seus sonhos em realidade. Música de produção própria, além de faixas pela gravadora <a href={ARTIST_INFO.links.loveFunk} target="_blank" rel="noopener noreferrer" className="text-[#ff2e92] font-bold underline hover:text-[#21f6c9] transition-colors">Love Funk</a> e selo <strong className="text-[#f4eeff]">Cria Hit</strong>.
               </p>
               <p>
-                Já passou por diversos shows e apresentações marcantes — <strong className="text-[#f4eeff]">Festa Regional 1º de Maio</strong>, <strong className="text-[#f4eeff]">Bar do Rei dos Drinks</strong>, <strong className="text-[#f4eeff]">Espeto & Viola</strong>, <strong className="text-[#f4eeff]">Quinta do Bem</strong>, além do festival <strong className="text-[#f4eeff]">Arteurbana (Pavam Music)</strong>.
+                Já passou por diversos shows e apresentações marcantes — <strong className="text-[#f4eeff]">Festa Regional 1º de Maio</strong>, <strong className="text-[#f4eeff]">Espeto & Viola</strong>, <strong className="text-[#f4eeff]">Quinta do Bem</strong>, além do festival <strong className="text-[#f4eeff]">Arteurbana (Pavam Music)</strong>.
               </p>
             </div>
 
