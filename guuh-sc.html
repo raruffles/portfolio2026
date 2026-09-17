@@ -205,17 +205,16 @@
             border-color: var(--current-accent, #000000) !important;
         }
 
-        /* Metrics banner elements strictly white to prevent black-on-black */
+        /* Metrics banner elements strictly white and responsive */
         .metrics-section, .metrics-section h2, .metrics-section p {
             color: #ffffff !important;
         }
         .metric-value {
             color: #ffffff !important;
             font-family: 'Bebas Neue', sans-serif !important;
-            font-size: 80px !important;
-        }
-        @media (max-width: 767px) {
-            .metric-value { font-size: 50px !important; }
+            font-size: clamp(48px, 5.5vw, 80px) !important;
+            line-height: 1 !important;
+            white-space: nowrap;
         }
 
         /* Animation System */
@@ -246,12 +245,6 @@
         }
         .dark .neon-pill-cyan {
             color: #00f5d4;
-        }
-
-        /* Gallery Filter Button Active */
-        .gallery-filter-btn.active {
-            background-color: var(--current-accent, #000000) !important;
-            color: #ffffff !important;
         }
 
         /* Lightbox modal styling */
@@ -319,7 +312,7 @@
         </div>
     </nav>
 
-    <!-- SubMenu Sticky (Estrutura idêntica à Mais Solidário, com navegação fluida) -->
+    <!-- SubMenu Sticky Compacto -->
     <div class="sticky top-[80px] z-40 bg-surface-container-low dark:bg-primary border-b border-outline-variant/60 dark:border-primary-container py-3.5 transition-colors duration-300">
         <div class="flex justify-start lg:justify-center items-center gap-5 lg:gap-7 px-4 md:px-margin-page max-w-[1440px] mx-auto overflow-x-auto whitespace-nowrap scrollbar-none text-[14px] tracking-wider uppercase font-semibold">
             <a href="index.html#trabalhos" class="inline-flex items-center hover:text-primary dark:hover:text-on-primary text-outline transition-colors font-normal mr-1" title="Voltar para Trabalhos">
@@ -406,25 +399,25 @@
             </div>
         </section>
 
-        <!-- Impact Metrics (Estilo Mais Solidário) -->
+        <!-- Impact Metrics: Valores em branco puro e layout responsivo sem quebras -->
         <section class="metrics-section px-margin-page py-12 max-w-[1440px] mx-auto bg-primary dark:bg-primary-container text-on-primary dark:text-on-primary transition-colors border-y border-outline-variant dark:border-primary-container scroll-animate">
             <div class="max-w-[1200px] mx-auto">
-                <p class="font-label-sm text-label-sm uppercase mb-6 text-[#ff007f] font-bold tracking-widest">// RESULTADOS &amp; MÉTRICAS — IMPACTO ESTRATÉGICO</p>
+                <p class="font-label-sm text-label-sm uppercase mb-6 text-white/80 font-bold tracking-widest">// RESULTADOS &amp; MÉTRICAS — IMPACTO ESTRATÉGICO</p>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
                     <div class="flex flex-col gap-2 scroll-animate delay-100">
-                        <h2 class="metric-value text-[#00f5d4]">100%</h2>
-                        <p class="font-label-lg text-label-lg uppercase tracking-widest mt-2">ECOSSISTEMA CENTRALIZADO</p>
-                        <p class="text-[14px] text-white/70 leading-relaxed">Hub único unificando lançamentos do álbum "A Carta", videoclipes e redes sociais.</p>
+                        <h2 class="metric-value text-white">100%</h2>
+                        <p class="font-label-lg text-[14px] uppercase tracking-wider text-white mt-2">ECOSSISTEMA CENTRALIZADO</p>
+                        <p class="text-[14px] text-white/70 leading-relaxed">Hub único unificando lançamentos do álbum "A Carta", clipes e redes sociais.</p>
                     </div>
                     <div class="flex flex-col gap-2 justify-center scroll-animate delay-200">
-                        <h2 class="metric-value text-[#ff007f]">3.4x</h2>
-                        <p class="font-label-lg text-label-lg uppercase tracking-widest mt-2">AGILIDADE DE CONVERSÃO B2B</p>
+                        <h2 class="metric-value text-white">3.4x</h2>
+                        <p class="font-label-lg text-[14px] uppercase tracking-wider text-white mt-2">AGILIDADE COMERCIAL B2B</p>
                         <p class="text-[14px] text-white/70 leading-relaxed">Contratantes consultam rider técnico e disponibilidade de agenda em menos de 2 minutos.</p>
                     </div>
                     <div class="flex flex-col gap-2 justify-center scroll-animate delay-300">
                         <h2 class="metric-value text-white">012 SJC</h2>
-                        <p class="font-label-lg text-label-lg uppercase tracking-widest mt-2">CONSOLIDAÇÃO DE MARCA</p>
-                        <p class="text-[14px] text-white/70 leading-relaxed">Alinhamento estético entre palco, capas de streaming, Instagram e a plataforma web.</p>
+                        <p class="font-label-lg text-[14px] uppercase tracking-wider text-white mt-2">MARCA CONSOLIDADA</p>
+                        <p class="text-[14px] text-white/70 leading-relaxed">Alinhamento estético entre palco, capas de streaming, Instagram e plataforma web.</p>
                     </div>
                 </div>
             </div>
@@ -470,34 +463,34 @@
                 </div>
             </div>
 
-            <!-- Mapeamento de Públicos-Alvo -->
+            <!-- Mapeamento de Públicos-Alvo: Totalmente Neutro e SEM BORDAS -->
             <div class="mt-8">
                 <h4 class="text-2xl uppercase text-primary dark:text-on-primary mb-6">Mapeamento de Públicos-Alvo</h4>
                 <div class="grid grid-cols-1 md:grid-cols-12 gap-gutter-grid items-center">
-                    <!-- Segmento B2C -->
-                    <div class="md:col-span-4 p-7 rounded-2xl border border-outline-variant/60 dark:border-primary-container bg-surface dark:bg-primary scroll-animate delay-100">
-                        <div class="w-14 h-14 rounded-xl bg-[#ff007f]/10 border border-[#ff007f]/30 flex items-center justify-center mb-5">
-                            <svg class="w-7 h-7 text-[#ff007f]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <!-- Segmento B2C: Neutro e Sem Bordas -->
+                    <div class="md:col-span-4 p-8 rounded-2xl bg-surface-container-low dark:bg-primary-container/40 flex flex-col gap-3 scroll-animate delay-100">
+                        <div class="w-12 h-12 rounded-xl bg-surface dark:bg-primary border border-outline-variant/30 flex items-center justify-center text-primary dark:text-on-primary mb-2">
+                            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M3 18v-6a9 9 0 0 1 18 0v6"></path>
                                 <path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"></path>
                             </svg>
                         </div>
-                        <span class="text-[14px] uppercase tracking-widest text-[#ff007f] font-bold">Segmento B2C</span>
-                        <h4 class="text-xl text-primary dark:text-on-primary uppercase mt-1 mb-2">Fãs e Ouvintes</h4>
+                        <span class="text-[14px] uppercase tracking-wider text-on-surface-variant dark:text-primary-fixed-dim font-bold">Segmento B2C</span>
+                        <h4 class="text-xl text-primary dark:text-on-primary uppercase font-bold">Fãs e Ouvintes</h4>
                         <p class="text-[14px] text-on-surface-variant dark:text-primary-fixed-dim leading-relaxed">
                             Consumo rápido de músicas, clipes em alta definição e acompanhamento em tempo real da agenda de shows.
                         </p>
                     </div>
 
-                    <!-- Imagem Central de Palco -->
-                    <div class="md:col-span-4 rounded-2xl overflow-hidden shadow-xl border border-outline-variant/60 dark:border-primary-container scroll-animate delay-200">
+                    <!-- Imagem Central de Palco: Sem Bordas -->
+                    <div class="md:col-span-4 rounded-2xl overflow-hidden shadow-xl scroll-animate delay-200">
                         <img src="guuhsc/images/crowd-stage.jpg" alt="Público em Show do Guuh SC" class="w-full h-[250px] object-cover hover:scale-105 transition-transform duration-500"/>
                     </div>
 
-                    <!-- Segmento B2B -->
-                    <div class="md:col-span-4 p-7 rounded-2xl border border-outline-variant/60 dark:border-primary-container bg-surface dark:bg-primary scroll-animate delay-300">
-                        <div class="w-14 h-14 rounded-xl bg-[#00f5d4]/10 border border-[#00f5d4]/30 flex items-center justify-center mb-5">
-                            <svg class="w-7 h-7 text-[#00f5d4]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <!-- Segmento B2B: Neutro e Sem Bordas -->
+                    <div class="md:col-span-4 p-8 rounded-2xl bg-surface-container-low dark:bg-primary-container/40 flex flex-col gap-3 scroll-animate delay-300">
+                        <div class="w-12 h-12 rounded-xl bg-surface dark:bg-primary border border-outline-variant/30 flex items-center justify-center text-primary dark:text-on-primary mb-2">
+                            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
                                 <line x1="16" y1="2" x2="16" y2="6"></line>
                                 <line x1="8" y1="2" x2="8" y2="6"></line>
@@ -505,8 +498,8 @@
                                 <path d="m9 16 2 2 4-4"></path>
                             </svg>
                         </div>
-                        <span class="text-[14px] uppercase tracking-widest text-[#00f5d4] font-bold">Segmento B2B</span>
-                        <h4 class="text-xl text-primary dark:text-on-primary uppercase mt-1 mb-2">Contratantes &amp; Produtores</h4>
+                        <span class="text-[14px] uppercase tracking-wider text-on-surface-variant dark:text-primary-fixed-dim font-bold">Segmento B2B</span>
+                        <h4 class="text-xl text-primary dark:text-on-primary uppercase font-bold">Contratantes &amp; Produtores</h4>
                         <p class="text-[14px] text-on-surface-variant dark:text-primary-fixed-dim leading-relaxed">
                             Verificação instantânea de autoridade (histórico de palco, métricas de público) e facilidade de contato direto para orçamentos.
                         </p>
@@ -625,203 +618,124 @@
             </div>
         </section>
 
-        <!-- 03 — Estrutura One-Page: Usando ESTRITAMENTE as cores da identidade visual do site (Rosa Choque e Ciano Neon) -->
+        <!-- 03 — Estrutura One-Page: 6 Cards padronizados, sem subtítulos de rodapé, com acento dinâmico reativo às cores do site -->
         <section id="estrutura" class="px-margin-page py-20 max-w-[1440px] mx-auto border-b border-outline-variant dark:border-primary-container scroll-mt-[150px] scroll-animate">
             <p class="case-label mb-2">// 03 — ARQUITETURA DA INFORMAÇÃO &amp; UX STRATEGY</p>
             <h3 class="font-headline-xl text-[42px] sm:text-[60px] md:text-headline-xl text-primary dark:text-on-primary leading-none uppercase mb-4">Jornada de Navegação One-Page</h3>
             <p class="text-[16px] md:text-[18px] text-on-surface-variant dark:text-primary-fixed-dim max-w-[900px] mb-12 leading-relaxed">
-                Estrutura One-Page contínua: do engajamento emocional à conversão comercial, ritmada pelo contraste autêntico do Rosa Choque e Ciano Neon do site.
+                Estrutura One-Page contínua: do engajamento emocional à conversão comercial, ritmada com clareza e sem ruídos visuais.
             </p>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- 01 Hero Section - Rosa Choque (#FF007F) -->
-                <div class="p-7 rounded-2xl border border-outline-variant/60 dark:border-primary-container bg-surface-container-low dark:bg-primary-container/40 flex flex-col justify-between scroll-animate delay-100">
-                    <div>
-                        <div class="flex items-center justify-between mb-4">
-                            <span class="font-bebas text-4xl text-[#ff007f]">01</span>
-                            <div class="w-11 h-11 rounded-xl bg-[#ff007f]/10 border border-[#ff007f]/30 flex items-center justify-center">
-                                <svg class="w-5 h-5 text-[#ff007f]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path>
-                                    <line x1="4" y1="22" x2="4" y2="15"></line>
-                                </svg>
-                            </div>
+                <!-- 01 Hero Section -->
+                <div class="p-8 rounded-2xl bg-surface-container-low dark:bg-primary-container/40 flex flex-col gap-4 scroll-animate delay-100">
+                    <div class="flex items-center justify-between">
+                        <span class="font-bebas text-5xl text-[var(--current-accent)]">01</span>
+                        <div class="w-11 h-11 rounded-xl bg-surface dark:bg-primary border border-outline-variant/30 flex items-center justify-center text-[var(--current-accent)]">
+                            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path>
+                                <line x1="4" y1="22" x2="4" y2="15"></line>
+                            </svg>
                         </div>
-                        <h4 class="text-2xl uppercase text-primary dark:text-on-primary mb-2">Hero Section</h4>
-                        <p class="text-[14px] text-on-surface-variant dark:text-primary-fixed-dim leading-relaxed">
-                            Apresentação imediata da marca (Logo GUUH SC) com botões rápidos de ação para reprodução e contato.
-                        </p>
                     </div>
-                    <div class="mt-6 pt-4 border-t border-outline-variant/40 dark:border-primary-container text-[14px] font-semibold text-[#ff007f]">
-                        Chamada visual + Acesso rápido ao Spotify &amp; YouTube
-                    </div>
+                    <h4 class="text-2xl uppercase text-primary dark:text-on-primary">Hero Section</h4>
+                    <p class="text-[15px] text-on-surface-variant dark:text-primary-fixed-dim leading-relaxed">
+                        Apresentação imediata da marca (Logo GUUH SC) com botões rápidos de ação para reprodução e contato.
+                    </p>
                 </div>
 
-                <!-- 02 Storytelling - Ciano Neon (#00F5D4) -->
-                <div class="p-7 rounded-2xl border border-outline-variant/60 dark:border-primary-container bg-surface-container-low dark:bg-primary-container/40 flex flex-col justify-between scroll-animate delay-200">
-                    <div>
-                        <div class="flex items-center justify-between mb-4">
-                            <span class="font-bebas text-4xl text-[#00f5d4]">02</span>
-                            <div class="w-11 h-11 rounded-xl bg-[#00f5d4]/10 border border-[#00f5d4]/30 flex items-center justify-center">
-                                <svg class="w-5 h-5 text-[#00f5d4]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                                    <circle cx="12" cy="7" r="4"></circle>
-                                </svg>
-                            </div>
+                <!-- 02 Storytelling -->
+                <div class="p-8 rounded-2xl bg-surface-container-low dark:bg-primary-container/40 flex flex-col gap-4 scroll-animate delay-200">
+                    <div class="flex items-center justify-between">
+                        <span class="font-bebas text-5xl text-[var(--current-accent)]">02</span>
+                        <div class="w-11 h-11 rounded-xl bg-surface dark:bg-primary border border-outline-variant/30 flex items-center justify-center text-[var(--current-accent)]">
+                            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="12" cy="7" r="4"></circle>
+                            </svg>
                         </div>
-                        <h4 class="text-2xl uppercase text-primary dark:text-on-primary mb-2">Storytelling (Quem é GUUH SC)</h4>
-                        <p class="text-[14px] text-on-surface-variant dark:text-primary-fixed-dim leading-relaxed">
-                            Humanização do artista com foto de bastidor autêntica e biografia concisa da trajetória da quebrada aos palcos.
-                        </p>
                     </div>
-                    <div class="mt-6 pt-4 border-t border-outline-variant/40 dark:border-primary-container text-[14px] font-semibold text-[#00f5d4]">
-                        Foto de bastidor + Manifesto de arte
-                    </div>
+                    <h4 class="text-2xl uppercase text-primary dark:text-on-primary">Storytelling (Quem é GUUH SC)</h4>
+                    <p class="text-[15px] text-on-surface-variant dark:text-primary-fixed-dim leading-relaxed">
+                        Humanização do artista com foto de bastidor autêntica e biografia concisa da trajetória da quebrada aos palcos.
+                    </p>
                 </div>
 
-                <!-- 03 Hub Audiovisual - Rosa Choque (#FF007F) -->
-                <div class="p-7 rounded-2xl border border-outline-variant/60 dark:border-primary-container bg-surface-container-low dark:bg-primary-container/40 flex flex-col justify-between scroll-animate delay-300">
-                    <div>
-                        <div class="flex items-center justify-between mb-4">
-                            <span class="font-bebas text-4xl text-[#ff007f]">03</span>
-                            <div class="w-11 h-11 rounded-xl bg-[#ff007f]/10 border border-[#ff007f]/30 flex items-center justify-center">
-                                <svg class="w-5 h-5 text-[#ff007f]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <polygon points="23 7 16 12 23 17 23 7"></polygon>
-                                    <rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect>
-                                </svg>
-                            </div>
+                <!-- 03 Hub Audiovisual -->
+                <div class="p-8 rounded-2xl bg-surface-container-low dark:bg-primary-container/40 flex flex-col gap-4 scroll-animate delay-300">
+                    <div class="flex items-center justify-between">
+                        <span class="font-bebas text-5xl text-[var(--current-accent)]">03</span>
+                        <div class="w-11 h-11 rounded-xl bg-surface dark:bg-primary border border-outline-variant/30 flex items-center justify-center text-[var(--current-accent)]">
+                            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polygon points="23 7 16 12 23 17 23 7"></polygon>
+                                <rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect>
+                            </svg>
                         </div>
-                        <h4 class="text-2xl uppercase text-primary dark:text-on-primary mb-2">Hub Audiovisual (Vídeos &amp; Lançamentos)</h4>
-                        <p class="text-[14px] text-on-surface-variant dark:text-primary-fixed-dim leading-relaxed">
-                            Organização em formato de grid dos clipes oficiais do YouTube (incluindo Músicas e Making Of), imergindo o usuário.
-                        </p>
                     </div>
-                    <div class="mt-6 pt-4 border-t border-outline-variant/40 dark:border-primary-container text-[14px] font-semibold text-[#ff007f]">
-                        Grid de vídeo responsivo com reprodução instantânea
-                    </div>
+                    <h4 class="text-2xl uppercase text-primary dark:text-on-primary">Hub Audiovisual (Vídeos &amp; Lançamentos)</h4>
+                    <p class="text-[15px] text-on-surface-variant dark:text-primary-fixed-dim leading-relaxed">
+                        Organização em formato de grid dos clipes oficiais do YouTube (incluindo Músicas e Making Of), imergindo o usuário.
+                    </p>
                 </div>
 
-                <!-- 04 Retenção e Streaming - Ciano Neon (#00F5D4) -->
-                <div class="p-7 rounded-2xl border border-outline-variant/60 dark:border-primary-container bg-surface-container-low dark:bg-primary-container/40 flex flex-col justify-between scroll-animate delay-100">
-                    <div>
-                        <div class="flex items-center justify-between mb-4">
-                            <span class="font-bebas text-4xl text-[#00f5d4]">04</span>
-                            <div class="w-11 h-11 rounded-xl bg-[#00f5d4]/10 border border-[#00f5d4]/30 flex items-center justify-center">
-                                <svg class="w-5 h-5 text-[#00f5d4]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <circle cx="12" cy="12" r="10"></circle>
-                                    <circle cx="12" cy="12" r="3"></circle>
-                                    <path d="M8 12a4 4 0 0 1 8 0"></path>
-                                </svg>
-                            </div>
+                <!-- 04 Retenção e Streaming -->
+                <div class="p-8 rounded-2xl bg-surface-container-low dark:bg-primary-container/40 flex flex-col gap-4 scroll-animate delay-100">
+                    <div class="flex items-center justify-between">
+                        <span class="font-bebas text-5xl text-[var(--current-accent)]">04</span>
+                        <div class="w-11 h-11 rounded-xl bg-surface dark:bg-primary border border-outline-variant/30 flex items-center justify-center text-[var(--current-accent)]">
+                            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <circle cx="12" cy="12" r="3"></circle>
+                                <path d="M8 12a4 4 0 0 1 8 0"></path>
+                            </svg>
                         </div>
-                        <h4 class="text-2xl uppercase text-primary dark:text-on-primary mb-2">Retenção e Streaming (Spotify Oficial)</h4>
-                        <p class="text-[14px] text-on-surface-variant dark:text-primary-fixed-dim leading-relaxed">
-                            Integração de streaming para que os ouvintes escutem a discografia completa sem sair do ecossistema do site.
-                        </p>
                     </div>
-                    <div class="mt-6 pt-4 border-t border-outline-variant/40 dark:border-primary-container text-[14px] font-semibold text-[#00f5d4]">
-                        Player de áudio / Spotify Embed interativo
-                    </div>
+                    <h4 class="text-2xl uppercase text-primary dark:text-on-primary">Retenção e Streaming (Spotify Oficial)</h4>
+                    <p class="text-[15px] text-on-surface-variant dark:text-primary-fixed-dim leading-relaxed">
+                        Integração de streaming para que os ouvintes escutem a discografia completa sem sair do ecossistema do site.
+                    </p>
                 </div>
 
-                <!-- 05 Social Proof - Rosa Choque (#FF007F) -->
-                <div class="p-7 rounded-2xl border border-outline-variant/60 dark:border-primary-container bg-surface-container-low dark:bg-primary-container/40 flex flex-col justify-between scroll-animate delay-200">
-                    <div>
-                        <div class="flex items-center justify-between mb-4">
-                            <span class="font-bebas text-4xl text-[#ff007f]">05</span>
-                            <div class="w-11 h-11 rounded-xl bg-[#ff007f]/10 border border-[#ff007f]/30 flex items-center justify-center">
-                                <svg class="w-5 h-5 text-[#ff007f]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-                                </svg>
-                            </div>
+                <!-- 05 Social Proof -->
+                <div class="p-8 rounded-2xl bg-surface-container-low dark:bg-primary-container/40 flex flex-col gap-4 scroll-animate delay-200">
+                    <div class="flex items-center justify-between">
+                        <span class="font-bebas text-5xl text-[var(--current-accent)]">05</span>
+                        <div class="w-11 h-11 rounded-xl bg-surface dark:bg-primary border border-outline-variant/30 flex items-center justify-center text-[var(--current-accent)]">
+                            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                            </svg>
                         </div>
-                        <h4 class="text-2xl uppercase text-primary dark:text-on-primary mb-2">Social Proof (Últimas do Instagram)</h4>
-                        <p class="text-[14px] text-on-surface-variant dark:text-primary-fixed-dim leading-relaxed">
-                            Feed dinâmico que demonstra relevância em tempo real, engajamento comunitário e presença digital ativa.
-                        </p>
                     </div>
-                    <div class="mt-6 pt-4 border-t border-outline-variant/40 dark:border-primary-container text-[14px] font-semibold text-[#ff007f]">
-                        Galeria dinâmica conectada às redes
-                    </div>
+                    <h4 class="text-2xl uppercase text-primary dark:text-on-primary">Social Proof (Últimas do Instagram)</h4>
+                    <p class="text-[15px] text-on-surface-variant dark:text-primary-fixed-dim leading-relaxed">
+                        Feed dinâmico que demonstra relevância em tempo real, engajamento comunitário e presença digital ativa.
+                    </p>
                 </div>
 
-                <!-- 06 Seção de Autoridade - Ciano Neon (#00F5D4) -->
-                <div class="p-7 rounded-2xl border border-outline-variant/60 dark:border-primary-container bg-surface-container-low dark:bg-primary-container/40 flex flex-col justify-between scroll-animate delay-300">
-                    <div>
-                        <div class="flex items-center justify-between mb-4">
-                            <span class="font-bebas text-4xl text-[#00f5d4]">06</span>
-                            <div class="w-11 h-11 rounded-xl bg-[#00f5d4]/10 border border-[#00f5d4]/30 flex items-center justify-center">
-                                <svg class="w-5 h-5 text-[#00f5d4]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
-                                </svg>
-                            </div>
-                        </div>
-                        <h4 class="text-2xl uppercase text-primary dark:text-on-primary mb-2">Seção de Autoridade (Agenda Temporada 2026/2027)</h4>
-                        <p class="text-[14px] text-on-surface-variant dark:text-primary-fixed-dim leading-relaxed">
-                            Listagem do histórico de palcos e próximos shows com tags visuais de status para gerar urgência.
-                        </p>
-                    </div>
-                    <div class="mt-6 pt-4 border-t border-outline-variant/40 dark:border-primary-container text-[14px] font-semibold text-[#00f5d4]">
-                        Status de shows: "Confirmado", "Ingressos Esgotando", "Data Disponível"
-                    </div>
-                </div>
-
-                <!-- 07 Conversão - Destaque em Gradiente -->
-                <div class="p-7 rounded-2xl border-2 border-accent bg-surface-container-low dark:bg-primary-container/40 flex flex-col justify-between md:col-span-2 lg:col-span-3 scroll-animate delay-400">
-                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                        <div>
-                            <div class="flex items-center gap-3 mb-2">
-                                <span class="font-bebas text-4xl text-[var(--current-accent)]">07</span>
-                                <span class="neon-pill-pink px-3 py-1 rounded-full text-[14px] font-bold uppercase">Etapa Final de Conversão</span>
-                            </div>
-                            <h4 class="text-2xl uppercase text-primary dark:text-on-primary">Conversão (Contato para Shows)</h4>
-                            <p class="text-[14px] text-on-surface-variant dark:text-primary-fixed-dim max-w-[800px] leading-relaxed">
-                                Formulário direto e canais de WhatsApp comercial posicionados estrategicamente no final da jornada do usuário.
-                            </p>
-                        </div>
-                        <div class="shrink-0">
-                            <a href="https://guuhsc.com.br" target="_blank" rel="noopener noreferrer" class="btn-accent inline-flex items-center gap-2 text-white px-6 py-3.5 rounded-xl font-bold text-[14px] uppercase tracking-wider shadow hover:scale-105 transition-transform">
-                                <span>Acessar Plataforma Web</span>
-                                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                                    <line x1="5" y1="12" x2="19" y2="12"></line>
-                                    <polyline points="12 5 19 12 12 19"></polyline>
-                                </svg>
-                            </a>
+                <!-- 06 Seção de Autoridade -->
+                <div class="p-8 rounded-2xl bg-surface-container-low dark:bg-primary-container/40 flex flex-col gap-4 scroll-animate delay-300">
+                    <div class="flex items-center justify-between">
+                        <span class="font-bebas text-5xl text-[var(--current-accent)]">06</span>
+                        <div class="w-11 h-11 rounded-xl bg-surface dark:bg-primary border border-outline-variant/30 flex items-center justify-center text-[var(--current-accent)]">
+                            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                            </svg>
                         </div>
                     </div>
+                    <h4 class="text-2xl uppercase text-primary dark:text-on-primary">Seção de Autoridade (Agenda Temporada)</h4>
+                    <p class="text-[15px] text-on-surface-variant dark:text-primary-fixed-dim leading-relaxed">
+                        Listagem do histórico de palcos e próximos shows com tags visuais de status para gerar urgência e credibilidade.
+                    </p>
                 </div>
             </div>
         </section>
 
-        <!-- 04 — Mockup & Soluções -->
+        <!-- 04 — Mockup & Soluções: Direto ao ponto, com foco na interface -->
         <section id="solucoes" class="px-margin-page py-20 max-w-[1440px] mx-auto border-b border-outline-variant dark:border-primary-container scroll-mt-[150px] scroll-animate">
             <p class="case-label mb-2">// 04 — SOLUÇÕES DE DESIGN APLICADAS</p>
-            <h3 class="font-headline-xl text-[42px] sm:text-[60px] md:text-headline-xl text-primary dark:text-on-primary leading-none uppercase mb-4">Interface &amp; Protótipo do Ecossistema</h3>
-            
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter-grid mb-12">
-                <div class="p-6 rounded-2xl border border-outline-variant/60 dark:border-primary-container bg-surface dark:bg-primary scroll-animate delay-100">
-                    <span class="text-[14px] uppercase tracking-widest text-[#ff007f] font-bold">UI &amp; Layout</span>
-                    <h4 class="text-xl text-primary dark:text-on-primary uppercase mt-1 mb-2">Uso de Cards e Containers Encapsulados</h4>
-                    <p class="text-[14px] text-on-surface-variant dark:text-primary-fixed-dim leading-relaxed">
-                        O layout utiliza seções encapsuladas com bordas suaves para separar visualmente álbuns, clipes e datas de shows, evitando poluição visual no fundo escuro.
-                    </p>
-                </div>
-                <div class="p-6 rounded-2xl border border-outline-variant/60 dark:border-primary-container bg-surface dark:bg-primary scroll-animate delay-200">
-                    <span class="text-[14px] uppercase tracking-widest text-[#00f5d4] font-bold">Psicologia Visual</span>
-                    <h4 class="text-xl text-primary dark:text-on-primary uppercase mt-1 mb-2">Hierarquia Visual com Acentos Neon</h4>
-                    <p class="text-[14px] text-on-surface-variant dark:text-primary-fixed-dim leading-relaxed">
-                        O botão rosa vibrante ("Ouvir no Spotify", "Inscrever-se", "Enviar uma Mensagem") é o elemento de maior peso visual na tela, guiando o olhar com clareza.
-                    </p>
-                </div>
-                <div class="p-6 rounded-2xl border border-outline-variant/60 dark:border-primary-container bg-surface dark:bg-primary scroll-animate delay-300">
-                    <span class="text-[14px] uppercase tracking-widest text-outline dark:text-primary-fixed-dim font-bold">Engenharia UX</span>
-                    <h4 class="text-xl text-primary dark:text-on-primary uppercase mt-1 mb-2">Responsividade Total (Mobile First)</h4>
-                    <p class="text-[14px] text-on-surface-variant dark:text-primary-fixed-dim leading-relaxed">
-                        Arquitetura pensada primordialmente para telas de smartphones, onde mais de 88% do público do artista e produtores consome conteúdo musical.
-                    </p>
-                </div>
-            </div>
+            <h3 class="font-headline-xl text-[42px] sm:text-[60px] md:text-headline-xl text-primary dark:text-on-primary leading-none uppercase mb-8">Interface &amp; Protótipo do Ecossistema</h3>
 
             <!-- Mockup Interativo em Estilo Browser Window -->
             <div class="rounded-2xl border-2 border-white/20 shadow-2xl overflow-hidden bg-[#0d0b14] text-white scroll-animate">
@@ -862,54 +776,36 @@
             </div>
         </section>
 
-        <!-- 05 — Galeria Visual & Material de Campanha (Bento Grid e Lightbox) -->
+        <!-- 05 — Galeria Visual com exatamente 3 Imagens Curadas -->
         <section id="galeria" class="px-margin-page py-20 max-w-[1440px] mx-auto border-b border-outline-variant dark:border-primary-container scroll-mt-[150px] scroll-animate">
-            <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-6">
-                <div>
-                    <p class="case-label mb-2">// 05 — GALERIA VISUAL &amp; DIREÇÃO DE ARTE</p>
-                    <h3 class="font-headline-xl text-[42px] sm:text-[60px] md:text-headline-xl text-primary dark:text-on-primary leading-none uppercase">
-                        Galeria de Campanha &amp; Palco
-                    </h3>
-                    <p class="text-[16px] md:text-[18px] text-on-surface-variant dark:text-primary-fixed-dim max-w-[800px] mt-3 leading-relaxed">
-                        Curadoria dos materiais fotográficos oficiais, ensaios urbanos, capas de singles e presenças em palco que fundamentaram toda a identidade visual do ecossistema digital.
-                    </p>
-                </div>
-
-                <!-- Filtros Interativos da Galeria -->
-                <div class="flex flex-wrap items-center gap-2 shrink-0">
-                    <button class="gallery-filter-btn active text-[14px] font-bold uppercase tracking-wider px-5 py-2.5 rounded-full border border-outline-variant/60 dark:border-primary-container transition-all" data-filter="all">
-                        Todos
-                    </button>
-                    <button class="gallery-filter-btn text-[14px] font-medium uppercase tracking-wider px-5 py-2.5 rounded-full border border-outline-variant/60 dark:border-primary-container text-on-surface-variant dark:text-primary-fixed-dim hover:text-primary dark:hover:text-on-primary transition-all" data-filter="palco">
-                        Palco &amp; Ensaio
-                    </button>
-                    <button class="gallery-filter-btn text-[14px] font-medium uppercase tracking-wider px-5 py-2.5 rounded-full border border-outline-variant/60 dark:border-primary-container text-on-surface-variant dark:text-primary-fixed-dim hover:text-primary dark:hover:text-on-primary transition-all" data-filter="clipes">
-                        Clipes &amp; Capas
-                    </button>
-                    <button class="gallery-filter-btn text-[14px] font-medium uppercase tracking-wider px-5 py-2.5 rounded-full border border-outline-variant/60 dark:border-primary-container text-on-surface-variant dark:text-primary-fixed-dim hover:text-primary dark:hover:text-on-primary transition-all" data-filter="social">
-                        Social Feed
-                    </button>
-                </div>
+            <div class="flex flex-col mb-10">
+                <p class="case-label mb-2">// 05 — GALERIA VISUAL &amp; DIREÇÃO DE ARTE</p>
+                <h3 class="font-headline-xl text-[42px] sm:text-[60px] md:text-headline-xl text-primary dark:text-on-primary leading-none uppercase">
+                    Galeria de Campanha &amp; Palco
+                </h3>
+                <p class="text-[16px] md:text-[18px] text-on-surface-variant dark:text-primary-fixed-dim max-w-[800px] mt-3 leading-relaxed">
+                    Curadoria visual oficial registrando a energia do palco diante do público, ensaios editoriais urbanos e o design de capas de lançamento.
+                </p>
             </div>
 
-            <!-- Bento Grid Ultra Moderno da Galeria -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-6" id="gallery-grid">
-                <!-- Item 1: Palco Principal (Grande Destaque - 7 Colunas) -->
-                <div class="gallery-item lg:col-span-7 relative group rounded-3xl overflow-hidden border border-outline-variant/60 dark:border-primary-container shadow-2xl bg-black cursor-pointer aspect-[16/10] sm:aspect-auto sm:min-h-[380px]" data-category="palco" data-full="guuhsc/images/crowd-stage.jpg" data-title="Show Ao Vivo — Palco da Quebrada" data-desc="Energia bruta e conexão direta com a multidão durante o festival no Vale do Paraíba (DDD 012).">
+            <!-- Grid de 3 Imagens Curadas -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6" id="gallery-grid">
+                <!-- Imagem 1: Palco Principal -->
+                <div class="gallery-item relative group rounded-3xl overflow-hidden shadow-xl bg-black cursor-pointer aspect-[4/3]" data-full="guuhsc/images/crowd-stage.jpg" data-title="Show Ao Vivo — Palco da Quebrada" data-desc="Energia e impacto direto com a multidão durante apresentação no Vale do Paraíba (DDD 012).">
                     <img src="guuhsc/images/crowd-stage.jpg" alt="Show Ao Vivo Guuh SC" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"/>
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent opacity-80 group-hover:opacity-95 transition-opacity duration-300"></div>
-                    <div class="absolute top-5 left-5">
-                        <span class="bg-[#ff007f] text-white font-bold text-[14px] uppercase tracking-wider px-3.5 py-1.5 rounded-full shadow-lg">
-                            Ao Vivo • Palco Principal
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/25 to-transparent opacity-80 group-hover:opacity-95 transition-opacity duration-300"></div>
+                    <div class="absolute top-4 left-4">
+                        <span class="bg-[#ff007f] text-white font-bold text-[14px] uppercase tracking-wider px-3.5 py-1 rounded-full shadow">
+                            Ao Vivo • Palco
                         </span>
                     </div>
-                    <div class="absolute bottom-6 left-6 right-6 flex items-end justify-between">
+                    <div class="absolute bottom-5 left-5 right-5 flex items-end justify-between">
                         <div>
-                            <h4 class="text-2xl text-white uppercase font-bold tracking-wide">Público &amp; Palco 012</h4>
-                            <p class="text-[14px] text-white/80 max-w-[420px] mt-1">Validação de audiência e impacto de palco para contratantes.</p>
+                            <h4 class="text-xl text-white uppercase font-bold tracking-wide">Público &amp; Palco 012</h4>
+                            <p class="text-[14px] text-white/80 mt-0.5">Impacto e validação de audiência.</p>
                         </div>
-                        <div class="w-12 h-12 rounded-full bg-white/20 backdrop-blur border border-white/30 flex items-center justify-center text-white shrink-0 group-hover:bg-[#ff007f] group-hover:border-[#ff007f] transition-colors">
-                            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <div class="w-10 h-10 rounded-full bg-white/20 backdrop-blur flex items-center justify-center text-white shrink-0 group-hover:bg-[#ff007f] transition-colors">
+                            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                                 <polyline points="15 3 21 3 21 9"></polyline>
                                 <polyline points="9 21 3 21 3 15"></polyline>
                                 <line x1="21" y1="3" x2="14" y2="10"></line>
@@ -919,22 +815,22 @@
                     </div>
                 </div>
 
-                <!-- Item 2: Ensaio Atitude Óculos Escuros (5 Colunas) -->
-                <div class="gallery-item lg:col-span-5 relative group rounded-3xl overflow-hidden border border-outline-variant/60 dark:border-primary-container shadow-2xl bg-black cursor-pointer aspect-[4/3] sm:aspect-auto sm:min-h-[380px]" data-category="palco" data-full="guuhsc/images/guuh-sunglasses.jpg" data-title="Ensaio Editorial Urbano" data-desc="Identidade visual urbana e de alto contraste registrada para a divulgação oficial do álbum.">
+                <!-- Imagem 2: Ensaio Editorial Urbano -->
+                <div class="gallery-item relative group rounded-3xl overflow-hidden shadow-xl bg-black cursor-pointer aspect-[4/3]" data-full="guuhsc/images/guuh-sunglasses.jpg" data-title="Ensaio Editorial Urbano" data-desc="Identidade visual urbana e de alto contraste registrada para a divulgação oficial do álbum.">
                     <img src="guuhsc/images/guuh-sunglasses.jpg" alt="Ensaio Editorial Urbano" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"/>
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-80 group-hover:opacity-95 transition-opacity duration-300"></div>
-                    <div class="absolute top-5 left-5">
-                        <span class="bg-[#00f5d4] text-black font-bold text-[14px] uppercase tracking-wider px-3.5 py-1.5 rounded-full shadow-lg">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/25 to-transparent opacity-80 group-hover:opacity-95 transition-opacity duration-300"></div>
+                    <div class="absolute top-4 left-4">
+                        <span class="bg-[#00f5d4] text-black font-bold text-[14px] uppercase tracking-wider px-3.5 py-1 rounded-full shadow">
                             Ensaio Editorial
                         </span>
                     </div>
-                    <div class="absolute bottom-6 left-6 right-6 flex items-end justify-between">
+                    <div class="absolute bottom-5 left-5 right-5 flex items-end justify-between">
                         <div>
-                            <h4 class="text-2xl text-white uppercase font-bold tracking-wide">Atitude &amp; Estilo</h4>
-                            <p class="text-[14px] text-white/80 mt-1">Fotografia com paleta noturna e estética trap.</p>
+                            <h4 class="text-xl text-white uppercase font-bold tracking-wide">Atitude &amp; Estilo</h4>
+                            <p class="text-[14px] text-white/80 mt-0.5">Estética urbana e paleta noturna.</p>
                         </div>
-                        <div class="w-12 h-12 rounded-full bg-white/20 backdrop-blur border border-white/30 flex items-center justify-center text-white shrink-0 group-hover:bg-[#00f5d4] group-hover:text-black group-hover:border-[#00f5d4] transition-colors">
-                            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <div class="w-10 h-10 rounded-full bg-white/20 backdrop-blur flex items-center justify-center text-white shrink-0 group-hover:bg-[#00f5d4] group-hover:text-black transition-colors">
+                            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                                 <polyline points="15 3 21 3 21 9"></polyline>
                                 <polyline points="9 21 3 21 3 15"></polyline>
                                 <line x1="21" y1="3" x2="14" y2="10"></line>
@@ -944,86 +840,28 @@
                     </div>
                 </div>
 
-                <!-- Item 3: Capa Cabelo Branco (4 Colunas) -->
-                <div class="gallery-item lg:col-span-4 relative group rounded-3xl overflow-hidden border border-outline-variant/60 dark:border-primary-container shadow-xl bg-black cursor-pointer aspect-square" data-category="clipes" data-full="guuhsc/images/cabelo-branco-cover.jpg" data-title="Capa Oficial — Cabelo Branco" data-desc="Design de capa para single com tipografia display pesada e contraste urbano.">
-                    <img src="guuhsc/images/cabelo-branco-cover.jpg" alt="Capa Cabelo Branco" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"/>
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-70 group-hover:opacity-95 transition-opacity"></div>
+                <!-- Imagem 3: Capa Oficial Single Cabelo Branco -->
+                <div class="gallery-item relative group rounded-3xl overflow-hidden shadow-xl bg-black cursor-pointer aspect-[4/3]" data-full="guuhsc/images/cabelo-branco-cover.jpg" data-title="Capa Oficial — Cabelo Branco" data-desc="Design de capa para single autoral combinando tipografia display pesada e contraste urbano.">
+                    <img src="guuhsc/images/cabelo-branco-cover.jpg" alt="Capa Cabelo Branco" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"/>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/25 to-transparent opacity-80 group-hover:opacity-95 transition-opacity duration-300"></div>
                     <div class="absolute top-4 left-4">
-                        <span class="bg-black/60 backdrop-blur text-white border border-white/20 text-[14px] font-mono px-3 py-1 rounded-md">
+                        <span class="bg-black/70 backdrop-blur text-white border border-white/20 text-[14px] font-mono px-3.5 py-1 rounded-full shadow">
                             SINGLE COVER
                         </span>
                     </div>
                     <div class="absolute bottom-5 left-5 right-5 flex items-end justify-between">
                         <div>
-                            <h4 class="text-xl text-white uppercase font-bold">Cabelo Branco</h4>
-                            <p class="text-[14px] text-white/70">Single Oficial</p>
+                            <h4 class="text-xl text-white uppercase font-bold tracking-wide">Cabelo Branco</h4>
+                            <p class="text-[14px] text-white/80 mt-0.5">Identidade visual de lançamentos.</p>
                         </div>
-                        <span class="text-[#ff007f] font-mono text-[14px] font-bold">SPOTIFY</span>
-                    </div>
-                </div>
-
-                <!-- Item 4: Clipe Projeto Z (4 Colunas) -->
-                <div class="gallery-item lg:col-span-4 relative group rounded-3xl overflow-hidden border border-outline-variant/60 dark:border-primary-container shadow-xl bg-black cursor-pointer aspect-square" data-category="clipes" data-full="guuhsc/images/yt-projeto-z.jpg" data-title="Videoclipe — Projeto Z" data-desc="Capa do clipe audiovisual de alta fidelidade disponibilizado no YouTube Oficial.">
-                    <img src="guuhsc/images/yt-projeto-z.jpg" alt="Clipe Projeto Z" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"/>
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-70 group-hover:opacity-95 transition-opacity"></div>
-                    <div class="absolute top-4 left-4">
-                        <span class="bg-[#ff007f] text-white text-[14px] font-bold px-3 py-1 rounded-md">
-                            CLIPE OFICIAL
-                        </span>
-                    </div>
-                    <div class="absolute bottom-5 left-5 right-5 flex items-end justify-between">
-                        <div>
-                            <h4 class="text-xl text-white uppercase font-bold">Projeto Z</h4>
-                            <p class="text-[14px] text-white/70">Produção Audiovisual</p>
+                        <div class="w-10 h-10 rounded-full bg-white/20 backdrop-blur flex items-center justify-center text-white shrink-0 group-hover:bg-[#ff007f] transition-colors">
+                            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="15 3 21 3 21 9"></polyline>
+                                <polyline points="9 21 3 21 3 15"></polyline>
+                                <line x1="21" y1="3" x2="14" y2="10"></line>
+                                <line x1="3" y1="21" x2="10" y2="14"></line>
+                            </svg>
                         </div>
-                        <span class="text-[#00f5d4] font-mono text-[14px] font-bold">YOUTUBE</span>
-                    </div>
-                </div>
-
-                <!-- Item 5: Clipe Tenéré (4 Colunas) -->
-                <div class="gallery-item lg:col-span-4 relative group rounded-3xl overflow-hidden border border-outline-variant/60 dark:border-primary-container shadow-xl bg-black cursor-pointer aspect-square" data-category="clipes" data-full="guuhsc/images/yt-tenere.jpg" data-title="Videoclipe — Tenéré" data-desc="Making of e videoclipe gravado na quebrada conectando raízes e superação.">
-                    <img src="guuhsc/images/yt-tenere.jpg" alt="Clipe Tenéré" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"/>
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-70 group-hover:opacity-95 transition-opacity"></div>
-                    <div class="absolute top-4 left-4">
-                        <span class="bg-[#00f5d4] text-black text-[14px] font-bold px-3 py-1 rounded-md">
-                            MAKING OF
-                        </span>
-                    </div>
-                    <div class="absolute bottom-5 left-5 right-5 flex items-end justify-between">
-                        <div>
-                            <h4 class="text-xl text-white uppercase font-bold">Tenéré</h4>
-                            <p class="text-[14px] text-white/70">Bastidores &amp; Faixa</p>
-                        </div>
-                        <span class="text-[#ff007f] font-mono text-[14px] font-bold">HD 1080P</span>
-                    </div>
-                </div>
-
-                <!-- Grid Social Media: 4 Cards de Instagram (3 colunas cada) -->
-                <div class="gallery-item lg:col-span-3 sm:col-span-1 relative group rounded-2xl overflow-hidden border border-outline-variant/60 dark:border-primary-container shadow-lg bg-black cursor-pointer aspect-square" data-category="social" data-full="guuhsc/images/instagram/post-1-C_8XO9EpxUy.jpg" data-title="Instagram — Show Jacareí" data-desc="Cobertura social em tempo real de shows na região do Vale.">
-                    <img src="guuhsc/images/instagram/post-1-C_8XO9EpxUy.jpg" alt="Instagram Show Jacareí" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"/>
-                    <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center p-4 text-center">
-                        <span class="text-white font-bold text-[14px] uppercase tracking-wider">Show Jacareí • Feed</span>
-                    </div>
-                </div>
-
-                <div class="gallery-item lg:col-span-3 sm:col-span-1 relative group rounded-2xl overflow-hidden border border-outline-variant/60 dark:border-primary-container shadow-lg bg-black cursor-pointer aspect-square" data-category="social" data-full="guuhsc/images/instagram/post-2-DTdRhoGAO3g.jpg" data-title="Instagram — Campanha A Carta" data-desc="Peça de carrossel para contagem regressiva de lançamento.">
-                    <img src="guuhsc/images/instagram/post-2-DTdRhoGAO3g.jpg" alt="Instagram Campanha" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"/>
-                    <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center p-4 text-center">
-                        <span class="text-white font-bold text-[14px] uppercase tracking-wider">Lançamento • A Carta</span>
-                    </div>
-                </div>
-
-                <div class="gallery-item lg:col-span-3 sm:col-span-1 relative group rounded-2xl overflow-hidden border border-outline-variant/60 dark:border-primary-container shadow-lg bg-black cursor-pointer aspect-square" data-category="social" data-full="guuhsc/images/instagram/post-3-C3pk3pFs5CL.jpg" data-title="Instagram — Bastidores de Estúdio" data-desc="Gravação e produção musical das faixas autorais.">
-                    <img src="guuhsc/images/instagram/post-3-C3pk3pFs5CL.jpg" alt="Instagram Estúdio" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"/>
-                    <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center p-4 text-center">
-                        <span class="text-white font-bold text-[14px] uppercase tracking-wider">Gravação em Estúdio</span>
-                    </div>
-                </div>
-
-                <div class="gallery-item lg:col-span-3 sm:col-span-1 relative group rounded-2xl overflow-hidden border border-outline-variant/60 dark:border-primary-container shadow-lg bg-black cursor-pointer aspect-square" data-category="social" data-full="guuhsc/images/instagram/post-4-DdSOxHOTKEa.jpg" data-title="Instagram — Audiência e Fãs" data-desc="Comunidade engajada do trap da quebrada 012.">
-                    <img src="guuhsc/images/instagram/post-4-DdSOxHOTKEa.jpg" alt="Instagram Audiência" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"/>
-                    <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center p-4 text-center">
-                        <span class="text-white font-bold text-[14px] uppercase tracking-wider">Comunidade &amp; Fãs 012</span>
                     </div>
                 </div>
             </div>
@@ -1034,25 +872,25 @@
             <p class="case-label mb-2">// 06 — CONCLUSÃO E RESULTADOS</p>
             <h3 class="font-headline-xl text-[42px] sm:text-[60px] md:text-headline-xl text-primary dark:text-on-primary leading-none uppercase mb-8">Impacto e Validação Estratégica</h3>
 
-            <!-- Resultados Cards -->
+            <!-- Resultados Cards: Neutros e Responsivos -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter-grid mb-16">
-                <div class="p-8 rounded-2xl bg-surface-container-low dark:bg-primary-container/40 border border-outline-variant/60 dark:border-primary-container flex flex-col gap-3 scroll-animate delay-100">
-                    <span class="font-bebas text-6xl text-[#00f5d4]">100%</span>
-                    <h4 class="text-2xl text-primary dark:text-on-primary uppercase">Ecossistema Digital Unificado</h4>
+                <div class="p-8 rounded-2xl bg-surface-container-low dark:bg-primary-container/40 flex flex-col gap-3 scroll-animate delay-100">
+                    <span class="font-bebas text-5xl sm:text-6xl text-primary dark:text-on-primary">100%</span>
+                    <h4 class="text-2xl text-primary dark:text-on-primary uppercase">Ecossistema Digital</h4>
                     <p class="text-[14px] text-on-surface-variant dark:text-primary-fixed-dim leading-relaxed">
                         Centralização de todos os lançamentos do álbum "A Carta", clipes e redes em uma experiência única.
                     </p>
                 </div>
-                <div class="p-8 rounded-2xl bg-surface-container-low dark:bg-primary-container/40 border border-outline-variant/60 dark:border-primary-container flex flex-col gap-3 scroll-animate delay-200">
-                    <span class="font-bebas text-6xl text-[#ff007f]">3.4x</span>
-                    <h4 class="text-2xl text-primary dark:text-on-primary uppercase">Agilidade no Fechamento de Shows</h4>
+                <div class="p-8 rounded-2xl bg-surface-container-low dark:bg-primary-container/40 flex flex-col gap-3 scroll-animate delay-200">
+                    <span class="font-bebas text-5xl sm:text-6xl text-primary dark:text-on-primary">3.4x</span>
+                    <h4 class="text-2xl text-primary dark:text-on-primary uppercase">Agilidade Comercial</h4>
                     <p class="text-[14px] text-on-surface-variant dark:text-primary-fixed-dim leading-relaxed">
                         Canal comercial direto que permitiu aos contratantes consultar datas abertas e rider técnico em menos de 2 minutos.
                     </p>
                 </div>
-                <div class="p-8 rounded-2xl bg-surface-container-low dark:bg-primary-container/40 border border-outline-variant/60 dark:border-primary-container flex flex-col gap-3 scroll-animate delay-300">
-                    <span class="font-bebas text-5xl text-primary dark:text-on-primary mt-3 mb-1">Consolidação</span>
-                    <h4 class="text-2xl text-primary dark:text-on-primary uppercase">Identidade Visual Omnichannel</h4>
+                <div class="p-8 rounded-2xl bg-surface-container-low dark:bg-primary-container/40 flex flex-col gap-3 scroll-animate delay-300">
+                    <span class="font-bebas text-5xl sm:text-6xl text-primary dark:text-on-primary">012 SJC</span>
+                    <h4 class="text-2xl text-primary dark:text-on-primary uppercase">Marca Consolidada</h4>
                     <p class="text-[14px] text-on-surface-variant dark:text-primary-fixed-dim leading-relaxed">
                         Alinhamento visual rigoroso entre palcos, capas de streaming, Instagram e a plataforma web.
                     </p>
@@ -1105,7 +943,7 @@
                 <img id="lightbox-img" src="" alt="Ampliação" class="w-auto h-auto max-h-[75vh] object-contain"/>
             </div>
             <div class="text-center max-w-2xl text-white">
-                <h4 id="lightbox-title" class="font-bebas text-3xl uppercase tracking-wider text-[#ff007f]"></h4>
+                <h4 id="lightbox-title" class="font-bebas text-3xl uppercase tracking-wider text-white"></h4>
                 <p id="lightbox-desc" class="text-[14px] text-white/80 mt-1"></p>
             </div>
         </div>
@@ -1257,36 +1095,13 @@
         if (sec) spyObserver.observe(sec);
       });
 
-      // Lógica de Filtros da Galeria
-      const filterBtns = document.querySelectorAll('.gallery-filter-btn');
-      const galleryItems = document.querySelectorAll('.gallery-item');
-
-      filterBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-          filterBtns.forEach(b => {
-            b.classList.remove('active', 'text-white');
-            b.classList.add('text-on-surface-variant', 'dark:text-primary-fixed-dim');
-          });
-          btn.classList.add('active', 'text-white');
-          btn.classList.remove('text-on-surface-variant', 'dark:text-primary-fixed-dim');
-
-          const filter = btn.getAttribute('data-filter');
-          galleryItems.forEach(item => {
-            if (filter === 'all' || item.getAttribute('data-category') === filter) {
-              item.style.display = 'block';
-            } else {
-              item.style.display = 'none';
-            }
-          });
-        });
-      });
-
-      // Lógica do Modal Lightbox
+      // Lógica do Modal Lightbox (3 imagens)
       const lightboxModal = document.getElementById('lightbox-modal');
       const lightboxClose = document.getElementById('lightbox-close');
       const lightboxImg = document.getElementById('lightbox-img');
       const lightboxTitle = document.getElementById('lightbox-title');
       const lightboxDesc = document.getElementById('lightbox-desc');
+      const galleryItems = document.querySelectorAll('.gallery-item');
 
       galleryItems.forEach(item => {
         item.addEventListener('click', () => {
