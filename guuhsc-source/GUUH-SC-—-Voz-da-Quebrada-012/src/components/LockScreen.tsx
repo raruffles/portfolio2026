@@ -72,14 +72,16 @@ export const LockScreen: React.FC<LockScreenProps> = ({ onUnlock }) => {
             <span>Acesso Exclusivo</span>
           </div>
           <div className="flex justify-center pt-2 pb-1">
-            <img
-              src="/guuhsc/images/logo/logo-w-f.png"
-              alt="GUUH SC"
-              className="h-10 sm:h-12 w-auto object-contain"
-              onError={(e) => {
-                (e.currentTarget as HTMLImageElement).src = 'images/logo/logo-w-f.png';
-              }}
-            />
+            <div className="logo-neon-container">
+              <img
+                src="/guuhsc/images/logo/logo-w-f.png"
+                alt="GUUH SC"
+                className="logo-neon h-10 sm:h-12 w-auto object-contain"
+                onError={(e) => {
+                  (e.currentTarget as HTMLImageElement).src = 'images/logo/logo-w-f.png';
+                }}
+              />
+            </div>
           </div>
           <p className="text-xs sm:text-sm font-semibold text-[#21f6c9] tracking-wider uppercase">
             Voz da Quebrada 012

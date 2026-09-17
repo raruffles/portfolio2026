@@ -24,14 +24,16 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenVideoModal, onLock }) => {
       <nav className="max-w-[1160px] mx-auto px-6 py-4 flex items-center justify-between">
         {/* Logo */}
         <a href="#" className="flex items-center gap-3 group" id="nav-brand-logo">
-          <img
-            src="/guuhsc/images/logo/logo-w-f.png"
-            alt="GUUH SC"
-            className="h-8 sm:h-9 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
-            onError={(e) => {
-              (e.currentTarget as HTMLImageElement).src = 'images/logo/logo-w-f.png';
-            }}
-          />
+          <div className="logo-neon-container">
+            <img
+              src="/guuhsc/images/logo/logo-w-f.png"
+              alt="GUUH SC"
+              className="logo-neon h-8 sm:h-9 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+              onError={(e) => {
+                (e.currentTarget as HTMLImageElement).src = 'images/logo/logo-w-f.png';
+              }}
+            />
+          </div>
           <span className="hidden sm:inline-block text-[11px] font-semibold text-[#21f6c9] bg-[#21f6c9]/10 border border-[#21f6c9]/30 px-2.5 py-0.5 rounded-full tracking-wider">
             012 • SJC
           </span>

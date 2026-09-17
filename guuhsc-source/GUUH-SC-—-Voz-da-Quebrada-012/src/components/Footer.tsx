@@ -17,14 +17,16 @@ export const Footer: React.FC<FooterProps> = ({ onLock }) => {
         <div className="flex flex-col md:flex-row items-center justify-between gap-6 pb-8 border-b border-white/10">
           {/* Logo & Slogan */}
           <div className="flex flex-col items-center md:items-start text-center md:text-left">
-            <img
-              src="/guuhsc/images/logo/logo-w-f.png"
-              alt="GUUH SC"
-              className="h-8 sm:h-9 w-auto object-contain mb-1"
-              onError={(e) => {
-                (e.currentTarget as HTMLImageElement).src = 'images/logo/logo-w-f.png';
-              }}
-            />
+            <div className="logo-neon-container mb-2">
+              <img
+                src="/guuhsc/images/logo/logo-w-f.png"
+                alt="GUUH SC"
+                className="logo-neon h-8 sm:h-9 w-auto object-contain"
+                onError={(e) => {
+                  (e.currentTarget as HTMLImageElement).src = 'images/logo/logo-w-f.png';
+                }}
+              />
+            </div>
             <p className="text-xs text-[#b7a6d6] mt-1">
               Voz da Quebrada 012 • São José dos Campos - SP • Funk / Trap &amp; Love Funk
             </p>
