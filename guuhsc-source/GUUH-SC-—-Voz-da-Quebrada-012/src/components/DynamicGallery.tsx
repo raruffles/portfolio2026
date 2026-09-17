@@ -162,7 +162,7 @@ export const DynamicGallery: React.FC<DynamicGalleryProps> = ({ onOpenLightbox }
             <div className="relative shrink-0">
               <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full p-[2.5px] bg-gradient-to-tr from-[#f09433] via-[#dc2743] to-[#bc1888] shadow-[0_0_20px_rgba(220,39,67,0.4)]">
                 <img
-                  src={profile.profilePicUrl || '/guuhsc/images/instagram/guuh-avatar.jpg'}
+                  src={profile.profilePicUrl || './images/instagram/guuh-avatar.jpg'}
                   alt={profile.fullName}
                   className="w-full h-full object-cover rounded-full bg-[#0a0612]"
                 />
@@ -252,7 +252,7 @@ export const DynamicGallery: React.FC<DynamicGalleryProps> = ({ onOpenLightbox }
                     >
                       <div className="w-8 h-8 rounded-full p-[2px] bg-gradient-to-tr from-[#f09433] via-[#dc2743] to-[#bc1888]">
                         <img
-                          src={profile.profilePicUrl || '/guuhsc/images/instagram/guuh-avatar.jpg'}
+                          src={profile.profilePicUrl || './images/instagram/guuh-avatar.jpg'}
                           alt="Guuh SC"
                           className="w-full h-full object-cover rounded-full bg-[#0a0612]"
                         />

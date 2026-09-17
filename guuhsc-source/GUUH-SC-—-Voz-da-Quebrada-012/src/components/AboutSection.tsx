@@ -17,7 +17,7 @@ export const AboutSection: React.FC = () => {
               {/* Primary Image: Guuh SC de costas com chapéu */}
               <div className="absolute left-0 top-0 w-[72%] h-[84%] rounded-xl overflow-hidden border-2 border-white/10 shadow-[-12px_12px_0px_#ff2e92] z-10 transition-transform duration-500 hover:scale-102">
                 <img
-                  src="/guuhsc/images/guuh-back.png"
+                  src="./images/guuh-back.png"
                   alt="Guuh SC de costas com chapéu"
                   className="w-full h-full object-cover object-top filter contrast-105"
                 />
@@ -29,7 +29,7 @@ export const AboutSection: React.FC = () => {
               {/* Secondary Overlapping Image: Guuh com óculos */}
               <div className="absolute right-0 bottom-0 w-[58%] h-[64%] rounded-xl overflow-hidden border-2 border-white/10 shadow-[12px_-12px_0px_#21f6c9] z-20 transition-transform duration-500 hover:scale-105">
                 <img
-                  src="/guuhsc/images/guuh-sunglasses.jpg"
+                  src="./images/guuh-sunglasses.jpg"
                   alt="Guuh SC com óculos escuros"
                   className="w-full h-full object-cover object-center"
                 />

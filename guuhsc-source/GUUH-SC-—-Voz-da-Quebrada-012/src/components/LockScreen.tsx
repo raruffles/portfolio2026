@@ -74,11 +74,11 @@ export const LockScreen: React.FC<LockScreenProps> = ({ onUnlock }) => {
           <div className="flex justify-center pt-2 pb-1">
             <div className="logo-neon-container">
               <img
-                src="/guuhsc/images/logo/logo-w-f.png"
+                src="./images/logo/logo-w-f.png"
                 alt="GUUH SC"
                 className="logo-neon h-10 sm:h-12 w-auto object-contain"
                 onError={(e) => {
-                  (e.currentTarget as HTMLImageElement).src = 'images/logo/logo-w-f.png';
+                  (e.currentTarget as HTMLImageElement).src = './images/logo/logo-w-f.png';
                 }}
               />
             </div>

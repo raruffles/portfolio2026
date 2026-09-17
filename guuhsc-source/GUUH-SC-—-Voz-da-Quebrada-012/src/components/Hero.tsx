@@ -13,7 +13,7 @@ export const Hero: React.FC<HeroProps> = ({ onPlayHit }) => {
       {/* Full Size Background Image with Seamless Dark & Neon Overlays (No Image Break, No Yellow Area) */}
       <div className="absolute inset-0 z-0">
         <img
-          src="/guuhsc/images/hero-bg.jpg"
+          src="./images/hero-bg.jpg"
           alt="MC Guuh SC ao vivo no palco"
           className="w-full h-full object-cover object-center brightness-90 contrast-110"
         />
@@ -43,11 +43,11 @@ export const Hero: React.FC<HeroProps> = ({ onPlayHit }) => {
           <span className="sr-only">GUUH SC</span>
           <div className="hero-logo-neon-container">
             <img
-              src="/guuhsc/images/logo/logo-w-f.png"
+              src="./images/logo/logo-w-f.png"
               alt="GUUH SC"
               className="hero-logo-neon h-20 sm:h-32 md:h-44 lg:h-48 w-auto max-w-full object-contain"
               onError={(e) => {
-                (e.currentTarget as HTMLImageElement).src = 'images/logo/logo-w-f.png';
+                (e.currentTarget as HTMLImageElement).src = './images/logo/logo-w-f.png';
               }}
             />
           </div>

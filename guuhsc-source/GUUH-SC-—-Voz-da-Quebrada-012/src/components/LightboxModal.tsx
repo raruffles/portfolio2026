@@ -60,7 +60,7 @@ export const LightboxModal: React.FC<LightboxModalProps> = ({ item, onClose }) =
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-[#f09433] via-[#dc2743] to-[#bc1888] p-[2px]">
                   <img
-                    src="/guuhsc/images/instagram/guuh-avatar.jpg"
+                    src="./images/instagram/guuh-avatar.jpg"
                     alt="Guuh SC"
                     className="w-full h-full object-cover rounded-full bg-[#0a0612]"
                   />

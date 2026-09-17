@@ -26,11 +26,11 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenVideoModal }) => {
         <a href="#" className="flex items-center gap-3 group" id="nav-brand-logo">
           <div className="logo-neon-container">
             <img
-              src="/guuhsc/images/logo/logo-w-f.png"
+              src="./images/logo/logo-w-f.png"
               alt="GUUH SC"
               className="logo-neon h-8 sm:h-9 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
               onError={(e) => {
-                (e.currentTarget as HTMLImageElement).src = 'images/logo/logo-w-f.png';
+                (e.currentTarget as HTMLImageElement).src = './images/logo/logo-w-f.png';
               }}
             />
           </div>

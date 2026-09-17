@@ -18,11 +18,11 @@ export const Footer: React.FC<FooterProps> = () => {
           <div className="flex flex-col items-center md:items-start text-center md:text-left">
             <div className="logo-neon-container mb-2">
               <img
-                src="/guuhsc/images/logo/logo-w-f.png"
+                src="./images/logo/logo-w-f.png"
                 alt="GUUH SC"
                 className="logo-neon h-8 sm:h-9 w-auto object-contain"
                 onError={(e) => {
-                  (e.currentTarget as HTMLImageElement).src = 'images/logo/logo-w-f.png';
+                  (e.currentTarget as HTMLImageElement).src = './images/logo/logo-w-f.png';
                 }}
               />
             </div>

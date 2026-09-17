@@ -13,7 +13,7 @@ export const ARTIST_INFO = {
   phoneRaw: '5512981641325',
   email: 'guuhscmc@gmail.com',
   links: {
-    officialSite: 'https://www.guuhsc.com/',
+    officialSite: 'https://guuhsc.com/',
     spotify: 'https://open.spotify.com/intl-pt/artist/5H1zYFcTrOxFcFvOk1JjwO',
     youtube: 'https://www.youtube.com/@guuhsc',
     instagram: 'https://www.instagram.com/guuhscmc/',
@@ -33,7 +33,7 @@ export const VIDEOS_DATA: VideoItem[] = [
     year: '2024',
     producer: 'Produção Oficial',
     description: 'Clipe oficial marcando uma das maiores produções audiovisuais de rua do Vale do Paraíba.',
-    thumbnail: '/guuhsc/images/yt-projeto-z.jpg',
+    thumbnail: './images/yt-projeto-z.jpg',
     viewsBadge: '6,5 mil views',
     publishedText: 'há 4 meses'
   },
@@ -45,7 +45,7 @@ export const VIDEOS_DATA: VideoItem[] = [
     year: '2024',
     producer: 'Prod: Mano R no beat · Visuals: Raphael O Lima',
     description: 'Ligação — Guuh SC feat. Mc Charlinho. Produção e mix/master por Mano R no beat, projeto visual por Raphael O Lima.',
-    thumbnail: '/guuhsc/images/yt-ligacao-charlinho.jpg',
+    thumbnail: './images/yt-ligacao-charlinho.jpg',
     viewsBadge: 'Lançamento',
     publishedText: 'há 6 meses'
   },
@@ -57,7 +57,7 @@ export const VIDEOS_DATA: VideoItem[] = [
     year: '2024',
     producer: 'Clipe Oficial',
     description: 'Feat de peso unindo vozes marcantes da cena regional de São José dos Campos (012).',
-    thumbnail: '/guuhsc/images/yt-perfeicao.jpg',
+    thumbnail: './images/yt-perfeicao.jpg',
     viewsBadge: '717 views',
     publishedText: 'há 7 meses'
   },
@@ -69,7 +69,7 @@ export const VIDEOS_DATA: VideoItem[] = [
     year: '2024',
     producer: 'Prod. (Share, Mano-R no beat)',
     description: 'Música consciente expressando a realidade, as vivências de rua e a vitória da quebrada.',
-    thumbnail: '/guuhsc/images/yt-vivencias.jpg',
+    thumbnail: './images/yt-vivencias.jpg',
     viewsBadge: '4,3 mil views',
     publishedText: 'há 9 meses'
   },
@@ -81,7 +81,7 @@ export const VIDEOS_DATA: VideoItem[] = [
     year: '2023',
     producer: 'Prod. Slaasty',
     description: 'Clipe oficial de rua pelas pistas do Vale do Paraíba com batida pesada e acelerada.',
-    thumbnail: '/guuhsc/images/yt-tenere.jpg',
+    thumbnail: './images/yt-tenere.jpg',
     viewsBadge: '3,8 mil views',
     publishedText: 'há 10 meses'
   },
@@ -93,7 +93,7 @@ export const VIDEOS_DATA: VideoItem[] = [
     year: '2023',
     producer: 'Bastidores Oficiais',
     description: 'Bastidores e resenha completa das gravações do clipe Tenéré mostrando a realidade das filmagens independentes.',
-    thumbnail: '/guuhsc/images/yt-making-of-tenere.jpg',
+    thumbnail: './images/yt-making-of-tenere.jpg',
     viewsBadge: 'Bastidores',
     publishedText: 'há 10 meses'
   },
@@ -105,7 +105,7 @@ export const VIDEOS_DATA: VideoItem[] = [
     year: '2023',
     producer: 'Prod. Dj Yago (Love Funk / Cria Hit)',
     description: 'Hit gravado com participação da comunidade e grande repercussão nas plataformas digitais.',
-    thumbnail: '/guuhsc/images/cabelo-branco-cover.jpg',
+    thumbnail: './images/cabelo-branco-cover.jpg',
     viewsBadge: 'Love Funk'
   },
   {
@@ -116,7 +116,7 @@ export const VIDEOS_DATA: VideoItem[] = [
     year: '2024',
     producer: 'Prod. Biazzoto',
     description: 'Clipe oficial retratando a rotina, correria e a busca do progresso no dia a dia.',
-    thumbnail: '/guuhsc/images/yt-domingo.jpg',
+    thumbnail: './images/yt-domingo.jpg',
     viewsBadge: 'Clipe Oficial'
   },
   {
@@ -127,7 +127,7 @@ export const VIDEOS_DATA: VideoItem[] = [
     year: '2023',
     producer: 'Dj Basili (Cria Hit / Love Funk)',
     description: 'Web Clipe oficial lançado em parceria com a gravadora Love Funk e selo Cria Hit.',
-    thumbnail: '/guuhsc/images/yt-tattoo-pele.jpg',
+    thumbnail: './images/yt-tattoo-pele.jpg',
     viewsBadge: 'Cria Hit'
   }
 ];
@@ -139,7 +139,7 @@ export const TRACKS_DATA: TrackItem[] = [
     producer: 'Dj Yago',
     duration: '2:45',
     year: '2023',
-    coverImage: '/guuhsc/images/cabelo-branco-cover.jpg',
+    coverImage: './images/cabelo-branco-cover.jpg',
     spotifyUrl: 'https://open.spotify.com/intl-pt/artist/5H1zYFcTrOxFcFvOk1JjwO',
     youtubeUrl: 'https://www.youtube.com/watch?v=a3SwCEShmFo',
     highlight: true,
@@ -151,7 +151,7 @@ export const TRACKS_DATA: TrackItem[] = [
     producer: 'Dj Basili · Love Funk / Cria Hit',
     duration: '2:30',
     year: '2023',
-    coverImage: '/guuhsc/images/yt-tattoo-pele.jpg',
+    coverImage: './images/yt-tattoo-pele.jpg',
     spotifyUrl: 'https://open.spotify.com/intl-pt/artist/5H1zYFcTrOxFcFvOk1JjwO',
     youtubeUrl: 'https://www.youtube.com/watch?v=-49zc37LDbk',
     highlight: true,
@@ -163,7 +163,7 @@ export const TRACKS_DATA: TrackItem[] = [
     producer: 'Biazzoto',
     duration: '3:05',
     year: '2024',
-    coverImage: '/guuhsc/images/yt-domingo.jpg',
+    coverImage: './images/yt-domingo.jpg',
     spotifyUrl: 'https://open.spotify.com/intl-pt/artist/5H1zYFcTrOxFcFvOk1JjwO',
     youtubeUrl: 'https://www.youtube.com/watch?v=Dhzxg3T8oQk',
     highlight: true,
@@ -175,7 +175,7 @@ export const TRACKS_DATA: TrackItem[] = [
     producer: 'Guuh SC',
     duration: '2:50',
     year: '2022',
-    coverImage: '/guuhsc/images/yt-projeto-z.jpg',
+    coverImage: './images/yt-projeto-z.jpg',
     spotifyUrl: 'https://open.spotify.com/intl-pt/artist/5H1zYFcTrOxFcFvOk1JjwO',
     youtubeUrl: 'https://www.youtube.com/watch?v=9x3tqaA3IOE',
     bpm: 130
@@ -186,7 +186,7 @@ export const TRACKS_DATA: TrackItem[] = [
     producer: 'Slaasty',
     duration: '2:40',
     year: '2022',
-    coverImage: '/guuhsc/images/yt-tenere.jpg',
+    coverImage: './images/yt-tenere.jpg',
     spotifyUrl: 'https://open.spotify.com/intl-pt/artist/5H1zYFcTrOxFcFvOk1JjwO',
     youtubeUrl: 'https://www.youtube.com/watch?v=tzOta4NWV-I',
     bpm: 134
@@ -198,7 +198,7 @@ export const TRACKS_DATA: TrackItem[] = [
     producer: 'Produção Regional',
     duration: '3:15',
     year: '2022',
-    coverImage: '/guuhsc/images/yt-perfeicao.jpg',
+    coverImage: './images/yt-perfeicao.jpg',
     spotifyUrl: 'https://open.spotify.com/intl-pt/artist/5H1zYFcTrOxFcFvOk1JjwO',
     youtubeUrl: 'https://www.youtube.com/watch?v=7oYXcMiCQKw',
     bpm: 125
@@ -210,7 +210,7 @@ export const INSTAGRAM_PROFILE: InstagramProfile = {
   fullName: 'Guuh SC',
   biography: 'Sjc ✨ Artista independente · Parceria via direct 📩 ⬇️ Só pensa em namorar⬇️',
   followersCount: 10812,
-  profilePicUrl: '/guuhsc/images/instagram/guuh-avatar.jpg',
+  profilePicUrl: './images/instagram/guuh-avatar.jpg',
   isVerified: true
 };
 
@@ -218,7 +218,7 @@ export const GALLERY_DATA: GalleryItem[] = [
   {
     id: 'ig-3457740796632438066',
     type: 'instagram',
-    imageUrl: '/guuhsc/images/instagram/post-1-C_8XO9EpxUy.jpg',
+    imageUrl: './images/instagram/post-1-C_8XO9EpxUy.jpg',
     shortcode: 'C_8XO9EpxUy',
     embedUrl: 'https://www.instagram.com/p/C_8XO9EpxUy/embed/captioned/',
     title: 'Show em Jacareí · Família MPR012',
@@ -234,7 +234,7 @@ export const GALLERY_DATA: GalleryItem[] = [
   {
     id: 'ig-3809277937409125856',
     type: 'instagram',
-    imageUrl: '/guuhsc/images/instagram/post-2-DTdRhoGAO3g.jpg',
+    imageUrl: './images/instagram/post-2-DTdRhoGAO3g.jpg',
     shortcode: 'DTdRhoGAO3g',
     embedUrl: 'https://www.instagram.com/p/DTdRhoGAO3g/embed/captioned/',
     title: 'Gravação de Clipe · Perfeição (Feat. Mc Lamp)',
@@ -250,7 +250,7 @@ export const GALLERY_DATA: GalleryItem[] = [
   {
     id: 'ig-3308337554645029003',
     type: 'instagram',
-    imageUrl: '/guuhsc/images/instagram/post-3-C3pk3pFs5CL.jpg',
+    imageUrl: './images/instagram/post-3-C3pk3pFs5CL.jpg',
     shortcode: 'C3pk3pFs5CL',
     embedUrl: 'https://www.instagram.com/p/C3pk3pFs5CL/embed/captioned/',
     title: 'Nem tudo que é constante vira rotina 👑',
@@ -266,7 +266,7 @@ export const GALLERY_DATA: GalleryItem[] = [
   {
     id: 'ig-3986313567837921562',
     type: 'instagram',
-    imageUrl: '/guuhsc/images/instagram/post-4-DdSOxHOTKEa.jpg',
+    imageUrl: './images/instagram/post-4-DdSOxHOTKEa.jpg',
     shortcode: 'DdSOxHOTKEa',
     embedUrl: 'https://www.instagram.com/p/DdSOxHOTKEa/embed/captioned/',
     title: 'Freestyle & Improviso no Beat 🎙️',
@@ -282,7 +282,7 @@ export const GALLERY_DATA: GalleryItem[] = [
   {
     id: 'ig-3985718544796241816',
     type: 'instagram',
-    imageUrl: '/guuhsc/images/instagram/post-5-DdQHeY1RE-Y.jpg',
+    imageUrl: './images/instagram/post-5-DdQHeY1RE-Y.jpg',
     shortcode: 'DdQHeY1RE-Y',
     embedUrl: 'https://www.instagram.com/p/DdQHeY1RE-Y/embed/captioned/',
     title: 'Johnnie Walker 🔥 Em Breve',
@@ -298,7 +298,7 @@ export const GALLERY_DATA: GalleryItem[] = [
   {
     id: 'ig-3984279031523824956',
     type: 'instagram',
-    imageUrl: '/guuhsc/images/instagram/post-6-DdLAKtoA9U8.jpg',
+    imageUrl: './images/instagram/post-6-DdLAKtoA9U8.jpg',
     shortcode: 'DdLAKtoA9U8',
     embedUrl: 'https://www.instagram.com/p/DdLAKtoA9U8/embed/captioned/',
     title: 'Saiuuu!!! Johnnie Walker 🥃💥',
