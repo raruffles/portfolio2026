@@ -1,4 +1,4 @@
-﻿import React, { useState } from 'react';
+import React, { useState } from 'react';
 import { Lock, Eye, EyeOff, ArrowRight, ShieldCheck, ArrowLeft } from 'lucide-react';
 
 interface LockScreenProps {
@@ -71,9 +71,16 @@ export const LockScreen: React.FC<LockScreenProps> = ({ onUnlock }) => {
             <ShieldCheck className="w-3 h-3" />
             <span>Acesso Exclusivo</span>
           </div>
-          <h1 className="font-anton text-3xl sm:text-4xl tracking-wider text-[#f4eeff] pt-1">
-            GUUH<span className="text-[#ff2e92]">SC</span>
-          </h1>
+          <div className="flex justify-center pt-2 pb-1">
+            <img
+              src="/guuhsc/images/logo/logo-w-f.png"
+              alt="GUUH SC"
+              className="h-10 sm:h-12 w-auto object-contain"
+              onError={(e) => {
+                (e.currentTarget as HTMLImageElement).src = 'images/logo/logo-w-f.png';
+              }}
+            />
+          </div>
           <p className="text-xs sm:text-sm font-semibold text-[#21f6c9] tracking-wider uppercase">
             Voz da Quebrada 012
           </p>
