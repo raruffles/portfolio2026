@@ -38,9 +38,18 @@ export const Hero: React.FC<HeroProps> = ({ onPlayHit }) => {
         </div>
 
         {/* Title */}
-        <h1 className="font-anton text-6xl sm:text-8xl md:text-9xl tracking-tight leading-[0.88] text-[#f4eeff] mb-4 drop-shadow-[0_0_25px_rgba(255,46,146,0.45)]">
-          GUUH<br />
-          <span className="text-[#21f6c9] glow-cyan">SC</span>
+        <h1 className="mb-6 flex items-center">
+          <span className="sr-only">GUUH SC</span>
+          <div className="hero-logo-neon-container">
+            <img
+              src="/guuhsc/images/logo/logo-w-f.png"
+              alt="GUUH SC"
+              className="hero-logo-neon h-20 sm:h-32 md:h-44 lg:h-48 w-auto max-w-full object-contain"
+              onError={(e) => {
+                (e.currentTarget as HTMLImageElement).src = 'images/logo/logo-w-f.png';
+              }}
+            />
+          </div>
         </h1>
 
         {/* Subtitle */}
