@@ -1,4 +1,4 @@
-﻿# Node dependencies
+# Node dependencies
 node_modules/
 **/node_modules/
 
@@ -18,3 +18,4 @@ guuhsc-source/**/dist/
 .DS_Store
 Thumbs.db
 *.log
+.playwright-mcp/

@@ -4,6 +4,7 @@ Allow: /
 # Bloquear pastas de desenvolvimento ou scripts internos (se houver)
 Disallow: /src/assets/config/
 Disallow: /admin/
+Disallow: /eletricistas/
 
 # Caminho do seu Sitemap
 Sitemap: https://raphaelolima.com.br/sitemap.xml
