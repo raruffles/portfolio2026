@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html class="light" lang="pt-BR">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Estudo de Caso - Blog Admin (O Que Me Tira O Sono) | Raphael Lima</title>
+    <link rel="icon" type="image/png" href="src/favicon.png"/>
+    <link rel="shortcut icon" href="src/favicon.png"/>
+    <link rel="apple-touch-icon" href="src/favicon.png"/>
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=Montserrat:wght@300;400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="style.css"/>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+              "on-secondary-fixed": "#001159",
+              "on-tertiary-fixed-variant": "#90003b",
+              "surface-container-highest": "#e4e2e2",
+              "primary-fixed": "#e2e2e2",
+              "tertiary-fixed": "#ffd9de",
+              "on-tertiary": "#ffffff",
+              "secondary-fixed-dim": "#b9c3ff",
+              "surface-dim": "#dbdad9",
+              "primary-fixed-dim": "#c6c6c6",
+              "tertiary-container": "#3f0016",
+              "inverse-surface": "#303031",
+              "secondary-fixed": "#dee1ff",
+              "outline": "#7e7576",
+              "inverse-primary": "#c6c6c6",
+              "on-error": "#ffffff",
+              "on-tertiary-fixed": "#3f0016",
+              "surface-bright": "#fbf9f9",
+              "background": "#ffffff",
+              "outline-variant": "#cfc4c5",
+              "error-container": "#ffdad6",
+              "on-surface": "#1b1c1c",
+              "surface-container-high": "#e9e8e7",
+              "secondary": "#ff007f",
+              "on-primary-fixed-variant": "#474747",
+              "on-surface-variant": "#4c4546",
+              "on-primary-fixed": "#1b1b1b",
+              "surface-container-low": "#f5f3f3",
+              "on-primary": "#ffffff",
+              "primary-container": "#1b1b1b",
+              "on-secondary-fixed-variant": "#0e34bd",
+              "surface-container": "#efeded",
+              "surface": "#ffffff",
+              "on-secondary-container": "#fffbff",
+              "on-secondary": "#ffffff",
+              "secondary-container": "#4d68ec",
+              "primary": "#000000",
+              "on-background": "#1b1c1c",
+              "on-tertiary-container": "#f23773",
+              "inverse-on-surface": "#f2f0f0",
+              "tertiary": "#000000",
+              "tertiary-fixed-dim": "#ffb2bf",
+              "error": "#ba1a1a",
+              "on-primary-container": "#848484",
+              "surface-variant": "#e4e2e2",
+              "surface-tint": "#5e5e5e",
+              "on-error-container": "#93000a",
+              "surface-container-lowest": "#ffffff"
+            },
+            "borderRadius": {
+              "DEFAULT": "0.25rem",
+              "lg": "0.5rem",
+              "xl": "0.75rem",
+              "2xl": "1rem",
+              "3xl": "1.5rem",
+              "full": "9999px"
+            },
+            "spacing": {
+              "gutter-grid": "2rem",
+              "element-gap": "1.5rem",
+              "section-gap": "6rem",
+              "margin-page": "5vw",
+              "divider-weight": "1px"
+            },
+            "fontFamily": {
+              "label-sm": ["Montserrat", "sans-serif"],
+              "body-lg": ["Montserrat", "sans-serif"],
+              "body-md": ["Montserrat", "sans-serif"],
+              "label-lg": ["Montserrat", "sans-serif"],
+              "montserrat": ["Montserrat", "sans-serif"],
+              "bebas": ["Bebas Neue", "sans-serif"],
+              "mono": ["JetBrains Mono", "monospace"]
+            },
+            "fontSize": {
+              "label-sm": ["14px", { "lineHeight": "1.2", "fontWeight": "500" }],
+              "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+              "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
+              "headline-lg": ["48px", { "lineHeight": "1.2", "fontWeight": "400" }],
+              "headline-xl": ["80px", { "lineHeight": "1.1", "letterSpacing": "0.02em", "fontWeight": "400" }],
+              "headline-md": ["32px", { "lineHeight": "1.2", "fontWeight": "400" }],
+              "label-lg": ["14px", { "lineHeight": "1.2", "letterSpacing": "0.1em", "fontWeight": "700" }],
+              "headline-sm": ["24px", { "lineHeight": "1.2", "fontWeight": "400" }]
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Unified typography system */
+        body, .nav-links a, .nav-actions a, button, p, span, li, a {
+            font-family: 'Montserrat', sans-serif !important;
+        }
+
+        /* 14px font-size floor enforcement */
+        *, *::before, *::after {
+            min-font-size: 14px;
+        }
+        .text-xs, .text-[10px], .text-[11px], .text-[12px], .text-[13px] {
+            font-size: 14px !important;
+        }
+        .font-label-sm, .text-label-sm {
+            font-size: 14px !important;
+        }
+
+        /* Section main titles receive Bebas Neue */
+        h1, h3:not(.metric-value):not(.card-title-override) {
+            font-family: 'Bebas Neue', sans-serif !important;
+            font-size: 56px !important;
+            letter-spacing: 0.03em !important;
+            line-height: 0.95 !important;
+            font-weight: 400 !important;
+            text-transform: uppercase !important;
+            color: var(--current-accent, #000000) !important;
+            transition: color 0.5s ease;
+        }
+        @media (min-width: 900px) {
+            h1, h3:not(.metric-value):not(.card-title-override) { font-size: 72px !important; }
+        }
+        @media (min-width: 1200px) {
+            h1, h3:not(.metric-value):not(.card-title-override) { font-size: 90px !important; }
+        }
+
+        h2:not(.metric-value) {
+            font-family: 'Bebas Neue', sans-serif !important;
+            font-size: 32px !important;
+            letter-spacing: 0.03em !important;
+            line-height: 1.1 !important;
+            font-weight: 400 !important;
+            text-transform: uppercase !important;
+            color: var(--current-accent, #000000) !important;
+            transition: color 0.5s ease;
+        }
+        @media (min-width: 900px) {
+            h2:not(.metric-value) { font-size: 40px !important; }
+        }
+        @media (min-width: 1200px) {
+            h2:not(.metric-value) { font-size: 48px !important; }
+        }
+
+        h4 {
+            font-family: 'Bebas Neue', sans-serif !important;
+            font-size: 24px !important;
+            letter-spacing: 0.03em !important;
+            line-height: 1.2 !important;
+            font-weight: 400 !important;
+            text-transform: uppercase !important;
+            color: var(--text-color) !important;
+            transition: color 0.5s ease;
+        }
+
+        .case-label {
+            color: var(--outline, #7e7576) !important;
+            font-family: 'Montserrat', sans-serif !important;
+            font-size: 14px !important;
+            font-weight: 500 !important;
+            letter-spacing: 0.2em !important;
+            text-transform: uppercase !important;
+            transition: color 0.5s ease;
+        }
+
+        /* Buttons matching accent */
+        .btn-case-primary {
+            background-color: var(--current-accent, #000000) !important;
+            border-color: var(--current-accent, #000000) !important;
+            color: #ffffff !important;
+        }
+        .btn-case-outline {
+            border-color: var(--current-accent, #000000) !important;
+            color: var(--current-accent, #000000) !important;
+            background-color: transparent !important;
+        }
+        .btn-case-outline:hover {
+            background-color: var(--current-accent, #000000) !important;
+            color: #ffffff !important;
+        }
+
+        /* Metrics banner elements */
+        .metrics-section, .metrics-section h2, .metrics-section p {
+            color: #ffffff !important;
+        }
+        .metric-value {
+            color: #ffffff !important;
+            font-family: 'Bebas Neue', sans-serif !important;
+            font-size: 80px !important;
+        }
+        @media (max-width: 767px) {
+            .metric-value { font-size: 50px !important; }
+        }
+
+        /* Animation System */
+        .scroll-animate {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .scroll-animate.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .delay-100 { transition-delay: 100ms; }
+        .delay-200 { transition-delay: 200ms; }
+        .delay-300 { transition-delay: 300ms; }
+        .delay-400 { transition-delay: 400ms; }
+
+        /* Lightbox modal states */
+        #lightbox-modal.closed {
+            display: none;
+        }
+        #lightbox-modal.open {
+            display: flex;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background antialiased selection:bg-primary selection:text-on-primary dark:bg-primary dark:text-on-primary transition-colors duration-300">
+
+    <!-- Custom Cursor Figma -->
+    <svg id="custom-cursor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M5.5 3.21V20.8c0 .45.54.67.85.35l4.86-4.86a.5.5 0 0 1 .35-.15h6.42c.45 0 .67-.54.35-.85L5.5 3.21z" fill="white" stroke="#1a1f1f" stroke-width="1.5" stroke-linejoin="round"/>
+    </svg>
+
+    <!-- Top Navigation Bar -->
+    <nav class="navbar">
+        <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+        <div class="logo">
+            <a href="index.html">
+                <img src="src/logo.png" alt="Raphael Lima" class="logo-img">
+            </a>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html" data-i18n="nav-inicio">INÍCIO</a></li>
+            <li><a href="index.html#jornada" data-i18n="nav-jornada">JORNADA</a></li>
+            <li><a href="index.html#trabalhos" data-i18n="nav-trabalhos" class="active-link">TRABALHOS</a></li>
+            <li><a href="index.html#contato" data-i18n="nav-contato">CONTATO</a></li>
+        </ul>
+        <div class="nav-actions">
+            <button class="lang-btn" id="lang-toggle" aria-label="Alterar Idioma">
+                <span id="lang-pt" class="active-lang">PT</span>
+                <span id="lang-en">EN</span>
+            </button>
+            <button class="theme-toggle" id="theme-toggle" aria-label="Alterar Tema">
+                <svg id="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                </svg>
+                <svg id="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display: none;">
+                    <circle cx="12" cy="12" r="5"></circle>
+                    <line x1="12" y1="1" x2="12" y2="3"></line>
+                    <line x1="12" y1="21" x2="12" y2="23"></line>
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                    <line x1="1" y1="12" x2="3" y2="12"></line>
+                    <line x1="21" y1="12" x2="23" y2="12"></line>
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                </svg>
+            </button>
+        </div>
+    </nav>
+
+    <!-- SubMenu Sticky (Scroll Spy & Navegação Interna) -->
+    <div class="sticky top-[80px] z-40 bg-surface-container-low dark:bg-primary border-b border-outline-variant/60 dark:border-primary-container py-2.5 transition-colors duration-300">
+        <div class="flex justify-start md:justify-center items-center gap-1.5 sm:gap-2 md:gap-3 px-4 md:px-margin-page max-w-[1440px] mx-auto overflow-x-auto whitespace-nowrap scrollbar-none font-label-lg text-label-sm tracking-wider uppercase">
+            <a href="index.html#trabalhos" class="shrink-0 inline-flex items-center justify-center p-2.5 rounded-lg hover:bg-black/5 dark:hover:bg-white/10 text-outline hover:text-primary dark:hover:text-on-primary transition-colors font-normal" aria-label="Voltar para Trabalhos" title="Voltar para Trabalhos">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5">
+                    <line x1="19" y1="12" x2="5" y2="12"></line>
+                    <polyline points="12 19 5 12 12 5"></polyline>
+                </svg>
+            </a>
+            <span class="shrink-0 text-outline-variant/60 dark:text-primary-container">|</span>
+
+            <a href="#sobre" class="shrink-0 py-2 px-3 sm:px-3.5 rounded-lg hover:bg-black/5 dark:hover:bg-white/10 transition-colors font-bold text-primary dark:text-on-primary">SOBRE</a>
+            <span class="shrink-0 text-outline-variant/60 dark:text-primary-container">|</span>
+            <a href="#desafio" class="shrink-0 py-2 px-3 sm:px-3.5 rounded-lg hover:bg-black/5 dark:hover:bg-white/10 transition-colors font-normal text-on-surface-variant dark:text-primary-fixed-dim">DESAFIO</a>
+            <span class="shrink-0 text-outline-variant/60 dark:text-primary-container">|</span>
+            <a href="#arquitetura" class="shrink-0 py-2 px-3 sm:px-3.5 rounded-lg hover:bg-black/5 dark:hover:bg-white/10 transition-colors font-normal text-on-surface-variant dark:text-primary-fixed-dim">ARQUITETURA</a>
+            <span class="shrink-0 text-outline-variant/60 dark:text-primary-container">|</span>
+            <a href="#experiencia" class="shrink-0 py-2 px-3 sm:px-3.5 rounded-lg hover:bg-black/5 dark:hover:bg-white/10 transition-colors font-normal text-on-surface-variant dark:text-primary-fixed-dim">EXPERIÊNCIA UI</a>
+            <span class="shrink-0 text-outline-variant/60 dark:text-primary-container">|</span>
+            <a href="#admin" class="shrink-0 py-2 px-3 sm:px-3.5 rounded-lg hover:bg-black/5 dark:hover:bg-white/10 transition-colors font-normal text-on-surface-variant dark:text-primary-fixed-dim">PAINEL ADMIN</a>
+            <span class="shrink-0 text-outline-variant/60 dark:text-primary-container">|</span>
+            <a href="#mockups" class="shrink-0 py-2 px-3 sm:px-3.5 rounded-lg hover:bg-black/5 dark:hover:bg-white/10 transition-colors font-normal text-on-surface-variant dark:text-primary-fixed-dim">MOCKUPS &amp; GALERIA</a>
+            <span class="shrink-0 text-outline-variant/60 dark:text-primary-container">|</span>
+            <a href="#dados-e-resultados" class="shrink-0 py-2 px-3 sm:px-3.5 rounded-lg hover:bg-black/5 dark:hover:bg-white/10 transition-colors font-normal text-on-surface-variant dark:text-primary-fixed-dim">RESULTADOS</a>
+        </div>
+    </div>
+
+    <main>
+        <!-- Hero Section / Sobre -->
+        <section id="sobre" class="px-margin-page py-16 max-w-[1440px] mx-auto scroll-mt-[150px]">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-gutter-grid items-center">
+                <div class="md:col-span-5 flex flex-col gap-6 scroll-animate">
+                    <p class="font-label-lg text-label-lg case-label">// CASE STUDY — SISTEMA EDITORIAL HEADLESS</p>
+
+                    <h1 class="font-headline-xl text-[40px] sm:text-[58px] md:text-headline-xl text-primary dark:text-on-primary leading-[0.9] uppercase">
+                        O QUE ME TIRA<br/>
+                        <span>O SONO</span>
+                    </h1>
+
+                    <p class="font-body-lg text-body-lg text-on-surface-variant dark:text-primary-fixed-dim leading-relaxed">
+                        Plataforma editorial autoral e painel administrativo headless com Keystatic, autenticação corporativa via GitHub OAuth e leitura sem distrações.
+                    </p>
+
+                    <div class="grid grid-cols-2 gap-4 mt-2 border-l-2 border-primary dark:border-on-primary pl-4">
+                        <div>
+                            <p class="font-label-sm text-label-sm text-on-surface-variant dark:text-primary-fixed-dim uppercase font-bold">Maio de 2026</p>
+                            <p class="font-label-sm text-label-sm text-outline dark:text-primary-fixed-dim uppercase">Design de Produto &amp; Front-End</p>
+                        </div>
+                        <div>
+                            <p class="font-label-sm text-label-sm text-on-surface-variant dark:text-primary-fixed-dim uppercase font-bold">Next.js · Keystatic · Tailwind</p>
+                            <p class="font-label-sm text-label-sm text-outline dark:text-primary-fixed-dim uppercase">Git-Based CMS &amp; Vercel Edge</p>
+                        </div>
+                    </div>
+
+                    <!-- CTAs Hero -->
+                    <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2">
+                        <a href="https://blog-admin-three-delta.vercel.app/?post=modelo-limpo&group=peso-realidade" target="_blank" rel="noopener noreferrer" class="btn-case-primary px-8 py-4 font-label-lg text-label-lg uppercase tracking-widest border transition-colors flex items-center justify-center gap-2 text-center">
+                            <span>ACESSAR SITE AO VIVO</span>
+                            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="7" y1="17" x2="17" y2="7"></line>
+                                <polyline points="7 7 17 7 17 17"></polyline>
+                            </svg>
+                        </a>
+                        <a href="#desafio" class="btn-case-outline px-8 py-4 font-label-lg text-label-lg uppercase tracking-widest border transition-colors flex items-center justify-center text-center">
+                            VER ESTUDO COMPLETO
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Capa Hero Oficial do Projeto -->
+                <div class="md:col-span-7 scroll-animate delay-200">
+                    <div class="relative rounded-2xl overflow-hidden shadow-2xl border border-outline-variant/60 dark:border-primary-container bg-[#0e1015] group">
+                        <img alt="Capa Oficial da Plataforma O Que Me Tira O Sono — Modelo Limpo" class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-102" src="src/work-blog-admin.png"/>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-transparent pointer-events-none"></div>
+                        <div class="absolute bottom-4 left-4 right-4 flex items-center justify-between text-white text-[14px] font-mono">
+                            <span class="bg-[#111111] border border-white/20 text-white font-bold px-3 py-1 rounded">HEADLESS CMS SOBERANO</span>
+                            <span class="text-[#f0f0f0] bg-black/60 backdrop-blur px-3 py-1 rounded">KEYSTATIC · GITHUB OAUTH</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Impact Metrics -->
+        <section class="metrics-section px-margin-page py-12 max-w-[1440px] mx-auto bg-primary dark:bg-primary-container text-on-primary dark:text-on-primary transition-colors border-y border-outline-variant dark:border-primary-container scroll-animate">
+            <div class="max-w-[1200px] mx-auto">
+                <p class="font-label-sm text-label-sm uppercase mb-6 text-white/80 font-bold tracking-widest">// IMPACTO EM NÚMEROS — GOVERNANÇA &amp; PERFORMANCE</p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                    <div class="flex flex-col gap-2 scroll-animate delay-100">
+                        <h2 class="metric-value text-white">100%</h2>
+                        <p class="font-label-lg text-[14px] uppercase tracking-wider text-white mt-2">GIT-BASED &amp; SOBERANIA TOTAL</p>
+                        <p class="text-[14px] text-white/70 leading-relaxed">Conteúdo estruturado em Markdoc/Markdown versionado no repositório. Zero dependência de bancos SQL pesados.</p>
+                    </div>
+                    <div class="flex flex-col gap-2 justify-center scroll-animate delay-200">
+                        <h2 class="metric-value text-white">&lt;1.2s</h2>
+                        <p class="font-label-lg text-[14px] uppercase tracking-wider text-white mt-2">CARREGAMENTO &amp; LEITURA LIMPA</p>
+                        <p class="text-[14px] text-white/70 leading-relaxed">First Contentful Paint ultra-rápido na Vercel Edge. Zero anúncios, popups invasivos ou rastreadores terceiros.</p>
+                    </div>
+                    <div class="flex flex-col gap-2 justify-center scroll-animate delay-300">
+                        <h2 class="metric-value text-white">OAuth</h2>
+                        <p class="font-label-lg text-[14px] uppercase tracking-wider text-white mt-2">SEGURANÇA &amp; GESTÃO RESTRITA</p>
+                        <p class="text-[14px] text-white/70 leading-relaxed">Painel editorial com controle de acesso corporativo via GitHub OAuth, blindando a área de publicação.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 01 — O Desafio & O Contexto -->
+        <section id="desafio" class="px-margin-page py-20 max-w-[1440px] mx-auto border-b border-outline-variant dark:border-primary-container scroll-mt-[150px] scroll-animate">
+            <div class="flex flex-col gap-3 mb-12">
+                <p class="case-label">// 01 — VISÃO GERAL &amp; O DESAFIO</p>
+                <h2 class="text-primary dark:text-on-primary uppercase leading-tight">O Dilema das Plataformas Tradicionais</h2>
+            </div>
+
+            <div class="flex flex-col gap-8 mb-12">
+                <!-- O Problema -->
+                <div class="p-8 sm:p-10 rounded-2xl bg-surface-container-low dark:bg-primary-container/40 flex flex-col gap-4 scroll-animate delay-100">
+                    <div class="flex items-center gap-3">
+                        <span class="w-3 h-3 rounded-full bg-red-500"></span>
+                        <h4 class="text-2xl text-primary dark:text-on-primary uppercase font-bold tracking-wide">Fricção Editorial, Bloatware &amp; Falta de Soberania</h4>
+                    </div>
+                    <p class="text-[16px] leading-relaxed text-on-surface-variant dark:text-primary-fixed-dim">
+                        Plataformas convencionais como WordPress, Medium ou Substack impõem algoritmos opacos, cobranças recorrentes, bancos de dados relacionais pesados e interfaces repletas de elementos de distração. Além disso, o escritor comum que opta por geradores estáticos (SSG) geralmente se depara com a barreira técnica de ter que abrir o terminal, compilar e realizar commits manuais para cada parágrafo ou imagem nova.
+                    </p>
+                </div>
+
+                <!-- O Objetivo -->
+                <div class="p-8 sm:p-10 rounded-2xl bg-surface-container-low dark:bg-primary-container/40 flex flex-col gap-4 scroll-animate delay-200">
+                    <div class="flex items-center gap-3">
+                        <span class="w-3 h-3 rounded-full bg-emerald-500"></span>
+                        <h4 class="text-2xl text-primary dark:text-on-primary uppercase font-bold tracking-wide">A Missão: Experiência Sagrada de Leitura + Painel Web no Git</h4>
+                    </div>
+                    <p class="text-[16px] leading-relaxed text-on-surface-variant dark:text-primary-fixed-dim">
+                        Projetar um ecossistema completo e autônomo com duas pontas impecáveis:
+                    </p>
+                    <ul class="list-disc list-inside space-y-2 text-[15px] text-on-surface-variant dark:text-primary-fixed-dim">
+                        <li><strong>Para o Leitor:</strong> Uma experiência zen, tipografia suíça calibrada, temas claro/escuro com transição suave, agrupamento por temas filosóficos e tempo de carregamento instantâneo.</li>
+                        <li><strong>Para o Autor:</strong> Uma interface web de edição rica em <code>/admin</code> protegida por OAuth via GitHub, capaz de salvar textos e capas diretamente no repositório com deploy contínuo automático.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 02 — Arquitetura de Produto & Git-Based CMS -->
+        <section id="arquitetura" class="px-margin-page py-20 max-w-[1440px] mx-auto border-b border-outline-variant dark:border-primary-container scroll-mt-[150px] scroll-animate">
+            <div class="flex flex-col gap-3 mb-10">
+                <p class="case-label">// 02 — ARQUITETURA &amp; METODOLOGIA</p>
+                <h3 class="font-headline-xl text-[40px] sm:text-[58px] md:text-headline-xl text-primary dark:text-on-primary leading-none uppercase">
+                    Engenharia Git-Based com Keystatic
+                </h3>
+                <p class="text-[16px] md:text-[18px] text-on-surface-variant dark:text-primary-fixed-dim max-w-[850px] leading-relaxed">
+                    Eliminação da complexidade de servidores de banco de dados tradicionais através de um CMS que opera como uma ponte visual sobre arquivos versionados no repositório Git.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+                <div class="p-8 rounded-2xl border border-outline-variant/60 dark:border-primary-container bg-surface dark:bg-primary-container/20 flex flex-col gap-3 scroll-animate delay-100">
+                    <span class="font-mono text-[14px] text-outline font-bold">// 01 — ARQUIVOS CO-LOCADOS</span>
+                    <h4 class="text-xl uppercase font-bold text-primary dark:text-on-primary">Pasta Única por Post</h4>
+                    <p class="text-[15px] text-on-surface-variant dark:text-primary-fixed-dim leading-relaxed">
+                        Cada post habita sua própria pasta dentro de <code>src/content/posts/</code>. Imagens de capa e mídias internas moram no mesmo diretório, garantindo portabilidade absoluta e prevenindo links órfãos.
+                    </p>
+                </div>
+
+                <div class="p-8 rounded-2xl border border-outline-variant/60 dark:border-primary-container bg-surface dark:bg-primary-container/20 flex flex-col gap-3 scroll-animate delay-200">
+                    <span class="font-mono text-[14px] text-outline font-bold">// 02 — COMMITS VIA GITHUB APP</span>
+                    <h4 class="text-xl uppercase font-bold text-primary dark:text-on-primary">Sincronização Nativa</h4>
+                    <p class="text-[15px] text-on-surface-variant dark:text-primary-fixed-dim leading-relaxed">
+                        Ao salvar um rascunho ou publicar em produção, o Keystatic se comunica diretamente com a API do GitHub, criando commits atômicos ou branches dedicadas sem que o autor precise tocar em uma linha de terminal.
+                    </p>
+                </div>
+
+                <div class="p-8 rounded-2xl border border-outline-variant/60 dark:border-primary-container bg-surface dark:bg-primary-container/20 flex flex-col gap-3 scroll-animate delay-300">
+                    <span class="font-mono text-[14px] text-outline font-bold">// 03 — CI/CD NA VERCEL EDGE</span>
+                    <h4 class="text-xl uppercase font-bold text-primary dark:text-on-primary">Deploy em Segundos</h4>
+                    <p class="text-[15px] text-on-surface-variant dark:text-primary-fixed-dim leading-relaxed">
+                        A cada commit aceito, a Vercel compila as rotas estáticas e distribui os artigos globalmente via Edge CDN, entregando páginas em milissegundos com renderização otimizada.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Pipeline Diagram -->
+            <div class="p-8 rounded-2xl bg-surface-container-low dark:bg-primary-container/30 border border-outline-variant/40 dark:border-primary-container">
+                <p class="font-mono text-[14px] text-outline mb-4 uppercase tracking-wider font-bold">// FLUXO DA ESTEIRA EDITORIAL</p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-center">
+                    <div class="p-4 rounded-xl bg-surface dark:bg-primary-container border border-outline-variant/40 dark:border-primary-container/60">
+                        <div class="font-bold text-[14px] text-primary dark:text-on-primary mb-1">1. AUTENTICAÇÃO</div>
+                        <div class="text-[13px] text-outline">Login com GitHub em /admin</div>
+                    </div>
+                    <div class="p-4 rounded-xl bg-surface dark:bg-primary-container border border-outline-variant/40 dark:border-primary-container/60">
+                        <div class="font-bold text-[14px] text-primary dark:text-on-primary mb-1">2. REDAÇÃO &amp; MÍDIA</div>
+                        <div class="text-[13px] text-outline">Markdoc estruturado + upload local</div>
+                    </div>
+                    <div class="p-4 rounded-xl bg-surface dark:bg-primary-container border border-outline-variant/40 dark:border-primary-container/60">
+                        <div class="font-bold text-[14px] text-primary dark:text-on-primary mb-1">3. COMMIT AUTOMÁTICO</div>
+                        <div class="text-[13px] text-outline">Gravado no repositório GitHub</div>
+                    </div>
+                    <div class="p-4 rounded-xl bg-surface dark:bg-primary-container border border-outline-variant/40 dark:border-primary-container/60">
+                        <div class="font-bold text-[14px] text-primary dark:text-on-primary mb-1">4. EDGE DEPLOY</div>
+                        <div class="text-[13px] text-outline">Distribuição global na Vercel</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 03 — A Experiência do Leitor & Design Editorial -->
+        <section id="experiencia" class="px-margin-page py-20 max-w-[1440px] mx-auto border-b border-outline-variant dark:border-primary-container scroll-mt-[150px] scroll-animate">
+            <div class="flex flex-col gap-3 mb-10">
+                <p class="case-label">// 03 — EXPERIÊNCIA DO USUÁRIO &amp; DESIGN EDITORIAL</p>
+                <h3 class="font-headline-xl text-[40px] sm:text-[58px] md:text-headline-xl text-primary dark:text-on-primary leading-none uppercase">
+                    Taxonomia Temática &amp; Tipografia
+                </h3>
+                <p class="text-[16px] md:text-[18px] text-on-surface-variant dark:text-primary-fixed-dim max-w-[850px] leading-relaxed">
+                    O design foi concebido com disciplina minimalista, garantindo que o protagonismo da tela pertença à escrita e à reflexão.
+                </p>
+            </div>
+
+            <!-- Taxonomia dos Grupos Temáticos -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+                <div class="p-6 rounded-2xl border border-outline-variant/60 dark:border-primary-container bg-surface dark:bg-primary-container/20 flex flex-col gap-2">
+                    <span class="text-xs font-mono font-bold text-outline">GRUPO 01</span>
+                    <h4 class="text-xl text-primary dark:text-on-primary">O Peso da Realidade</h4>
+                    <p class="text-[14px] text-on-surface-variant dark:text-primary-fixed-dim leading-relaxed">
+                        Crônicas urbanas, observações do cotidiano, rotinas de trabalho e o atrito com as exigências da vida adulta.
+                    </p>
+                </div>
+
+                <div class="p-6 rounded-2xl border border-outline-variant/60 dark:border-primary-container bg-surface dark:bg-primary-container/20 flex flex-col gap-2">
+                    <span class="text-xs font-mono font-bold text-outline">GRUPO 02</span>
+                    <h4 class="text-xl text-primary dark:text-on-primary">Labirintos da Mente</h4>
+                    <p class="text-[14px] text-on-surface-variant dark:text-primary-fixed-dim leading-relaxed">
+                        Ensaios sobre insônia, fluxo de pensamentos na madrugada, ansiedade, processos criativos e dilemas internos.
+                    </p>
+                </div>
+
+                <div class="p-6 rounded-2xl border border-outline-variant/60 dark:border-primary-container bg-surface dark:bg-primary-container/20 flex flex-col gap-2">
+                    <span class="text-xs font-mono font-bold text-outline">GRUPO 03</span>
+                    <h4 class="text-xl text-primary dark:text-on-primary">O Outro e Eu</h4>
+                    <p class="text-[14px] text-on-surface-variant dark:text-primary-fixed-dim leading-relaxed">
+                        Relações humanas, encontros, desencontros, diálogo, alteridade e o impacto dos outros em quem nós somos.
+                    </p>
+                </div>
+
+                <div class="p-6 rounded-2xl border border-outline-variant/60 dark:border-primary-container bg-surface dark:bg-primary-container/20 flex flex-col gap-2">
+                    <span class="text-xs font-mono font-bold text-outline">GRUPO 04</span>
+                    <h4 class="text-xl text-primary dark:text-on-primary">Alegorias &amp; Fugas</h4>
+                    <p class="text-[14px] text-on-surface-variant dark:text-primary-fixed-dim leading-relaxed">
+                        Ficção lírica, narrativas metafóricas, devaneios noturnos e experimentações de estilo fora da realidade literal.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Recursos de UI -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="flex flex-col gap-4">
+                    <h4 class="text-2xl text-primary dark:text-on-primary uppercase font-bold">Modo Escuro com Contraste Curado</h4>
+                    <p class="text-[15px] text-on-surface-variant dark:text-primary-fixed-dim leading-relaxed">
+                        Como a essência do projeto dialoga diretamente com a insônia e a leitura noturna, a paleta dark foi construída com tons de preto profundo e cinzas neutros de baixo estresse visual, evitando fadiga ocular em ambientes de pouca luz.
+                    </p>
+                </div>
+                <div class="flex flex-col gap-4">
+                    <h4 class="text-2xl text-primary dark:text-on-primary uppercase font-bold">Navegação Lateral &amp; Metadados Precisos</h4>
+                    <p class="text-[15px] text-on-surface-variant dark:text-primary-fixed-dim leading-relaxed">
+                        A barra superior traz um menu drawer recolhível que agrupa a navegação por grupos temáticos e links institucionais. Cada artigo exibe o tempo estimado de leitura (ex: "1 min de leitura") e perfil do autor (P.H.).
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 04 — Painel Administrativo & Governança (/admin) -->
+        <section id="admin" class="px-margin-page py-20 max-w-[1440px] mx-auto border-b border-outline-variant dark:border-primary-container scroll-mt-[150px] scroll-animate">
+            <div class="flex flex-col gap-3 mb-10">
+                <p class="case-label">// 04 — GOVERNANÇA &amp; PAINEL RESTRITO</p>
+                <h3 class="font-headline-xl text-[40px] sm:text-[58px] md:text-headline-xl text-primary dark:text-on-primary leading-none uppercase">
+                    Autenticação &amp; Proteção Editorial
+                </h3>
+                <p class="text-[16px] md:text-[18px] text-on-surface-variant dark:text-primary-fixed-dim max-w-[850px] leading-relaxed">
+                    A área administrativa foi blindada com controle de autenticação via OAuth corporativo, garantindo que somente autores com chave de acesso possam publicar e alterar posts.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                <div class="lg:col-span-5 flex flex-col gap-6">
+                    <div class="p-6 rounded-2xl bg-surface-container-low dark:bg-primary-container/40 flex flex-col gap-3">
+                        <span class="font-mono text-[14px] text-outline font-bold">ROTA PROTEGIDA: /admin</span>
+                        <h4 class="text-2xl text-primary dark:text-on-primary uppercase">Área Restrita do Autor</h4>
+                        <p class="text-[15px] text-on-surface-variant dark:text-primary-fixed-dim leading-relaxed">
+                            Qualquer tentativa de acesso direto à rota administrativa redireciona o usuário para a tela de autenticação do GitHub (<code>/login?callbackUrl=%2Fadmin</code>), validando permissões organizacionais.
+                        </p>
+                    </div>
+
+                    <div class="p-6 rounded-2xl bg-surface-container-low dark:bg-primary-container/40 flex flex-col gap-3">
+                        <span class="font-mono text-[14px] text-outline font-bold">CONTROLE DE ESTADOS</span>
+                        <h4 class="text-2xl text-primary dark:text-on-primary uppercase">Rascunho vs. Publicado</h4>
+                        <p class="text-[15px] text-on-surface-variant dark:text-primary-fixed-dim leading-relaxed">
+                            Textos em desenvolvimento mantêm status <code>Draft</code>, visíveis apenas localmente ou em branches de prévia. Apenas textos finalizados ganham a flag <code>Published</code> para entrar no feed oficial.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-7">
+                    <div class="relative rounded-2xl overflow-hidden shadow-2xl border border-outline-variant/60 dark:border-primary-container bg-[#15161b]">
+                        <img src="src/blog-admin/admin-login.png" alt="Tela de Login Seguro e Área Restrita com GitHub" class="w-full h-auto object-cover"/>
+                        <div class="absolute bottom-3 right-3 bg-black/80 backdrop-blur px-3 py-1 rounded text-white text-[13px] font-mono">
+                            GITHUB OAUTH · LOGIN RESTRICTED
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 05 — Mockups & Galeria Interativa com Lightbox -->
+        <section id="mockups" class="px-margin-page py-20 max-w-[1440px] mx-auto border-b border-outline-variant dark:border-primary-container scroll-mt-[150px] scroll-animate">
+            <div class="flex flex-col mb-10">
+                <p class="case-label mb-2">// 05 — PROTÓTIPO EM TELA &amp; GALERIA</p>
+                <h3 class="font-headline-xl text-[40px] sm:text-[58px] md:text-headline-xl text-primary dark:text-on-primary leading-none uppercase">
+                    Interface em Produção
+                </h3>
+                <p class="text-[16px] md:text-[18px] text-on-surface-variant dark:text-primary-fixed-dim max-w-[850px] leading-relaxed">
+                    Explore abaixo as interfaces reais do projeto rodando na Vercel Edge. Clique em qualquer card para abrir a visualização em alta definição.
+                </p>
+            </div>
+
+            <!-- Mockup Interativo Estilo Browser Window -->
+            <div class="rounded-2xl border-2 border-white/20 shadow-2xl overflow-hidden bg-[#0d0e13] text-white mb-16 scroll-animate">
+                <div class="bg-[#15161c] px-4 py-3 border-b border-white/10 flex items-center justify-between">
+                    <div class="flex items-center gap-2">
+                        <span class="w-3 h-3 rounded-full bg-red-500/80"></span>
+                        <span class="w-3 h-3 rounded-full bg-yellow-500/80"></span>
+                        <span class="w-3 h-3 rounded-full bg-green-500/80"></span>
+                    </div>
+                    <div class="bg-[#0b0c10] px-6 py-1.5 rounded-full text-[13px] md:text-[14px] text-white/90 font-mono border border-white/10 flex items-center gap-2 max-w-[600px] truncate">
+                        <svg class="w-3.5 h-3.5 text-emerald-400 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                        </svg>
+                        <span class="truncate">https://blog-admin-three-delta.vercel.app/?post=modelo-limpo&amp;group=peso-realidade</span>
+                    </div>
+                    <a href="https://blog-admin-three-delta.vercel.app/?post=modelo-limpo&group=peso-realidade" target="_blank" rel="noopener noreferrer" class="text-[14px] text-white/90 hover:text-white hover:underline font-bold inline-flex items-center gap-1">
+                        <span>Abrir ao vivo</span>
+                        <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="7" y1="17" x2="17" y2="7"></line>
+                            <polyline points="7 7 17 7 17 17"></polyline>
+                        </svg>
+                    </a>
+                </div>
+
+                <div class="p-4 sm:p-8 bg-[#0a0b0e]">
+                    <img src="src/blog-admin/article-light.png" alt="Leitura do Post Modelo Limpo no Blog O Que Me Tira O Sono" class="w-full h-auto rounded-xl border border-white/10"/>
+                </div>
+            </div>
+
+            <!-- Grid de 3 Imagens Curadas para Lightbox -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6" id="gallery-grid">
+                <!-- Imagem 1: Post em Modo Noturno -->
+                <div class="gallery-item relative group rounded-2xl overflow-hidden shadow-xl bg-black cursor-pointer aspect-[16/10]" data-full="src/blog-admin/article-dark.png" data-title="Post Modelo Limpo — Modo Noturno" data-desc="Tipografia otimizada para leitura na madrugada com alto contraste e zero brilho excessivo.">
+                    <img src="src/blog-admin/article-dark.png" alt="Modo Noturno Artigo" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"/>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent opacity-80 group-hover:opacity-95 transition-opacity duration-300"></div>
+                    <div class="absolute top-4 left-4">
+                        <span class="bg-neutral-800 border border-white/20 text-white font-bold text-[13px] uppercase tracking-wider px-3.5 py-1 rounded-full shadow">
+                            Dark Mode • Leitura
+                        </span>
+                    </div>
+                    <div class="absolute bottom-4 left-4 right-4 flex items-end justify-between">
+                        <div>
+                            <h4 class="text-xl text-white uppercase font-bold tracking-wide">Modo Escuro Suíço</h4>
+                            <p class="text-[13px] text-white/80">Leitura reflexiva noturna sem fadiga.</p>
+                        </div>
+                        <div class="w-9 h-9 rounded-full bg-white/20 backdrop-blur flex items-center justify-center text-white shrink-0 group-hover:bg-white/40 transition-colors">
+                            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="15 3 21 3 21 9"></polyline>
+                                <polyline points="9 21 3 21 3 15"></polyline>
+                                <line x1="21" y1="3" x2="14" y2="10"></line>
+                                <line x1="3" y1="21" x2="10" y2="14"></line>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Imagem 2: Painel de Autenticação GitHub -->
+                <div class="gallery-item relative group rounded-2xl overflow-hidden shadow-xl bg-black cursor-pointer aspect-[16/10]" data-full="src/blog-admin/admin-login.png" data-title="Autenticação Segura via GitHub OAuth" data-desc="Proteção da rota /admin com restrição de edição apenas para o autor registrado.">
+                    <img src="src/blog-admin/admin-login.png" alt="Área Restrita GitHub Login" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"/>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent opacity-80 group-hover:opacity-95 transition-opacity duration-300"></div>
+                    <div class="absolute top-4 left-4">
+                        <span class="bg-[#171515] border border-white/20 text-white font-bold text-[13px] uppercase tracking-wider px-3.5 py-1 rounded-full shadow">
+                            OAuth • Governança
+                        </span>
+                    </div>
+                    <div class="absolute bottom-4 left-4 right-4 flex items-end justify-between">
+                        <div>
+                            <h4 class="text-xl text-white uppercase font-bold tracking-wide">Painel Administrativo</h4>
+                            <p class="text-[13px] text-white/80">Segurança de publicação no GitHub.</p>
+                        </div>
+                        <div class="w-9 h-9 rounded-full bg-white/20 backdrop-blur flex items-center justify-center text-white shrink-0 group-hover:bg-white/40 transition-colors">
+                            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="15 3 21 3 21 9"></polyline>
+                                <polyline points="9 21 3 21 3 15"></polyline>
+                                <line x1="21" y1="3" x2="14" y2="10"></line>
+                                <line x1="3" y1="21" x2="10" y2="14"></line>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Imagem 3: Seleção de Temas & Home do Blog -->
+                <div class="gallery-item relative group rounded-2xl overflow-hidden shadow-xl bg-black cursor-pointer aspect-[16/10]" data-full="src/blog-admin/home-themes.png" data-title="Navegação por Grupos Temáticos" data-desc="Classificação conceptual por cores e temas existenciais na página principal do blog.">
+                    <img src="src/blog-admin/home-themes.png" alt="Home de Grupos Temáticos" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"/>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent opacity-80 group-hover:opacity-95 transition-opacity duration-300"></div>
+                    <div class="absolute top-4 left-4">
+                        <span class="bg-neutral-800 border border-white/20 text-white font-bold text-[13px] uppercase tracking-wider px-3.5 py-1 rounded-full shadow">
+                            Taxonomia • Editorial
+                        </span>
+                    </div>
+                    <div class="absolute bottom-4 left-4 right-4 flex items-end justify-between">
+                        <div>
+                            <h4 class="text-xl text-white uppercase font-bold tracking-wide">Grupos de Leitura</h4>
+                            <p class="text-[13px] text-white/80">Filtragem ágil por temas autorais.</p>
+                        </div>
+                        <div class="w-9 h-9 rounded-full bg-white/20 backdrop-blur flex items-center justify-center text-white shrink-0 group-hover:bg-white/40 transition-colors">
+                            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="15 3 21 3 21 9"></polyline>
+                                <polyline points="9 21 3 21 3 15"></polyline>
+                                <line x1="21" y1="3" x2="14" y2="10"></line>
+                                <line x1="3" y1="21" x2="10" y2="14"></line>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 06 — Dados, Resultados & Conclusão -->
+        <section id="dados-e-resultados" class="px-margin-page py-20 max-w-[1440px] mx-auto scroll-mt-[150px] scroll-animate">
+            <div class="flex flex-col mb-10">
+                <p class="case-label mb-2">// 06 — IMPACTO, ENTREGÁVEIS &amp; RESULTADOS</p>
+                <h3 class="font-headline-xl text-[40px] sm:text-[58px] md:text-headline-xl text-primary dark:text-on-primary leading-none uppercase">
+                    Autonomia Total &amp; Legado Editorial
+                </h3>
+                <p class="text-[16px] md:text-[18px] text-on-surface-variant dark:text-primary-fixed-dim max-w-[850px] leading-relaxed">
+                    O ecossistema provou que é possível construir um produto digital editorial sofisticado sem custos de infraestrutura de banco de dados e com soberania de código.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+                <div class="p-8 rounded-2xl bg-surface-container-low dark:bg-primary-container/30 border border-outline-variant/60 dark:border-primary-container flex flex-col gap-3">
+                    <h4 class="text-3xl font-bebas text-primary dark:text-on-primary">R$ 0,00</h4>
+                    <p class="font-bold text-[14px] uppercase text-primary dark:text-on-primary">Custo Recorrente de Banco</p>
+                    <p class="text-[14px] text-on-surface-variant dark:text-primary-fixed-dim leading-relaxed">
+                        Eliminação total de custos mensais com bancos de dados relacionais em nuvem, utilizando o próprio Git como camada de persistência.
+                    </p>
+                </div>
+
+                <div class="p-8 rounded-2xl bg-surface-container-low dark:bg-primary-container/30 border border-outline-variant/60 dark:border-primary-container flex flex-col gap-3">
+                    <h4 class="text-3xl font-bebas text-primary dark:text-on-primary">100%</h4>
+                    <p class="font-bold text-[14px] uppercase text-primary dark:text-on-primary">Custódia do Conteúdo</p>
+                    <p class="text-[14px] text-on-surface-variant dark:text-primary-fixed-dim leading-relaxed">
+                        Todos os ensaios pertencem ao autor em arquivos Markdown/Markdoc puros, imunes a encerramento de serviços ou bloqueios de plataforma.
+                    </p>
+                </div>
+
+                <div class="p-8 rounded-2xl bg-surface-container-low dark:bg-primary-container/30 border border-outline-variant/60 dark:border-primary-container flex flex-col gap-3">
+                    <h4 class="text-3xl font-bebas text-primary dark:text-on-primary">&lt;400ms</h4>
+                    <p class="font-bold text-[14px] uppercase text-primary dark:text-on-primary">Tempo de Resposta na Edge</p>
+                    <p class="text-[14px] text-on-surface-variant dark:text-primary-fixed-dim leading-relaxed">
+                        Geração estática inteligente na Vercel garantindo que leitores acessem crônicas instantaneamente de qualquer lugar do mundo.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Bloco Final com CTAs -->
+            <div class="p-8 sm:p-12 rounded-3xl bg-surface-container-low dark:bg-primary-container/40 border border-outline-variant/60 dark:border-primary-container flex flex-col md:flex-row items-center justify-between gap-6">
+                <div>
+                    <h4 class="text-3xl uppercase font-bold text-primary dark:text-on-primary mb-2">Conheça o Projeto ao Vivo</h4>
+                    <p class="text-[15px] text-on-surface-variant dark:text-primary-fixed-dim max-w-[600px]">
+                        Navegue pelas crônicas, teste a alternância de temas claro/escuro e inspecione a estrutura do repositório no GitHub.
+                    </p>
+                </div>
+                <div class="flex flex-col sm:flex-row items-stretch gap-4 shrink-0 w-full sm:w-auto">
+                    <a href="https://blog-admin-three-delta.vercel.app/?post=modelo-limpo&group=peso-realidade" target="_blank" rel="noopener noreferrer" class="btn-case-primary px-8 py-4 font-label-lg text-label-lg uppercase tracking-widest border transition-colors flex items-center justify-center gap-2 text-center">
+                        <span>ABRIR NA VERCEL</span>
+                        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="7" y1="17" x2="17" y2="7"></line>
+                            <polyline points="7 7 17 7 17 17"></polyline>
+                        </svg>
+                    </a>
+                    <a href="https://github.com/raruffles/blog-o-que-me-tira-o-sono" target="_blank" rel="noopener noreferrer" class="btn-case-outline px-8 py-4 font-label-lg text-label-lg uppercase tracking-widest border transition-colors flex items-center justify-center gap-2 text-center">
+                        <span>GITHUB</span>
+                        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                        </svg>
+                    </a>
+                    <a href="index.html#trabalhos" class="px-6 py-4 font-label-lg text-label-lg uppercase tracking-widest border border-outline-variant hover:border-primary dark:hover:border-on-primary text-primary dark:text-on-primary transition-colors flex items-center justify-center text-center">
+                        VOLTAR
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal Lightbox Interativo para a Galeria -->
+    <div id="lightbox-modal" class="closed fixed inset-0 z-50 bg-black/95 backdrop-blur-md flex items-center justify-center p-4 sm:p-8">
+        <button id="lightbox-close" class="absolute top-6 right-6 w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors" aria-label="Fechar ampliação">
+            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+        </button>
+        <div class="max-w-5xl w-full flex flex-col items-center gap-4">
+            <div class="relative max-h-[75vh] overflow-hidden rounded-2xl shadow-2xl border border-white/20">
+                <img id="lightbox-img" src="" alt="Ampliação" class="w-auto h-auto max-h-[75vh] object-contain"/>
+            </div>
+            <div class="text-center max-w-2xl text-white">
+                <h4 id="lightbox-title" class="font-bebas text-3xl uppercase tracking-wider text-white"></h4>
+                <p id="lightbox-desc" class="text-[14px] text-white/80 mt-1"></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Padrão -->
+    <footer class="bg-surface dark:bg-primary border-t border-outline-variant dark:border-primary-container transition-colors duration-300">
+        <div class="flex flex-col md:flex-row justify-between items-center w-full px-margin-page py-12 max-w-[1440px] mx-auto">
+            <p class="text-[14px] font-bold text-primary dark:text-on-primary uppercase">
+                © 2026 RAPHAEL LIMA
+            </p>
+            <div class="flex gap-4 mt-4 md:mt-0">
+                <span class="text-[14px] font-medium text-primary dark:text-on-primary uppercase">
+                    DESIGNER DE PRODUTO • UX/UI
+                </span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Swatches de cores flutuantes -->
+    <div class="color-palette vertical">
+        <button class="color-swatch swatch-black active" data-key="black" style="background-color: #111111;" aria-label="Cor Preto"></button>
+        <button class="color-swatch" data-key="rose" style="background-color: #C0005A;" aria-label="Cor Rosa"></button>
+        <button class="color-swatch" data-key="blue" style="background-color: #1700A0;" aria-label="Cor Azul"></button>
+        <button class="color-swatch" data-key="green" style="background-color: #1E6B2C;" aria-label="Cor Verde"></button>
+        <button class="color-swatch" data-key="wine" style="background-color: #550917;" aria-label="Cor Vinho"></button>
+    </div>
+
+    <!-- Scripts do Site -->
+    <script src="script.js?v=2028"></script>
+    <script>
+      // Sincronizar classes de dark mode com o Tailwind
+      const syncTheme = () => {
+        const isDark = document.body.classList.contains('dark-mode');
+        if (isDark) {
+          document.documentElement.classList.add('dark');
+          document.documentElement.classList.remove('light');
+        } else {
+          document.documentElement.classList.add('light');
+          document.documentElement.classList.remove('dark');
+        }
+      };
+
+      const observer = new MutationObserver((mutations) => {
+        mutations.forEach((mutation) => {
+          if (mutation.attributeName === 'class') {
+            syncTheme();
+          }
+        });
+      });
+      observer.observe(document.body, { attributes: true });
+
+      const initThemeSync = () => {
+        syncTheme();
+        const themeBtn = document.getElementById('theme-toggle');
+        if (themeBtn) {
+          themeBtn.addEventListener('click', () => {
+            setTimeout(syncTheme, 50);
+          });
+        }
+      };
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initThemeSync);
+      } else {
+        initThemeSync();
+      }
+
+      // Intersection Observer para animações de rolagem
+      const observerOptions = {
+        root: null,
+        rootMargin: '0px 0px -80px 0px',
+        threshold: 0.05
+      };
+
+      const scrollObserver = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+            obs.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+
+      const initScrollAnimations = () => {
+        const animTargets = document.querySelectorAll('.scroll-animate');
+        animTargets.forEach(target => {
+          scrollObserver.observe(target);
+        });
+      };
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initScrollAnimations);
+      } else {
+        initScrollAnimations();
+      }
+
+      // Submenu Active Bold Toggle & Scroll Spy Observer
+      const submenuLinks = document.querySelectorAll('div.sticky a');
+      const sections = [
+        document.getElementById('sobre'),
+        document.getElementById('desafio'),
+        document.getElementById('arquitetura'),
+        document.getElementById('experiencia'),
+        document.getElementById('admin'),
+        document.getElementById('mockups'),
+        document.getElementById('dados-e-resultados')
+      ];
+
+      const setActiveLink = (hash) => {
+        submenuLinks.forEach(link => {
+          if (link.getAttribute('href') === hash) {
+            link.classList.add('font-bold', 'text-primary', 'dark:text-on-primary');
+            link.classList.remove('font-normal', 'text-on-surface-variant', 'dark:text-primary-fixed-dim');
+          } else if (link.getAttribute('href') && link.getAttribute('href').startsWith('#')) {
+            link.classList.remove('font-bold', 'text-primary', 'dark:text-on-primary');
+            link.classList.add('font-normal', 'text-on-surface-variant', 'dark:text-primary-fixed-dim');
+          }
+        });
+      };
+
+      if (window.location.hash) {
+        setActiveLink(window.location.hash);
+      } else {
+        setActiveLink('#sobre');
+      }
+
+      submenuLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+          const hash = link.getAttribute('href');
+          if (hash && hash.startsWith('#')) {
+            setActiveLink(hash);
+          }
+        });
+      });
+
+      const spyObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            setActiveLink('#' + entry.target.id);
+          }
+        });
+      }, {
+        root: null,
+        rootMargin: '-20% 0px -60% 0px'
+      });
+
+      sections.forEach(sec => {
+        if (sec) spyObserver.observe(sec);
+      });
+
+      // Lógica do Modal Lightbox
+      const lightboxModal = document.getElementById('lightbox-modal');
+      const lightboxClose = document.getElementById('lightbox-close');
+      const lightboxImg = document.getElementById('lightbox-img');
+      const lightboxTitle = document.getElementById('lightbox-title');
+      const lightboxDesc = document.getElementById('lightbox-desc');
+      const galleryItems = document.querySelectorAll('.gallery-item');
+
+      galleryItems.forEach(item => {
+        item.addEventListener('click', () => {
+          const fullSrc = item.getAttribute('data-full');
+          const title = item.getAttribute('data-title');
+          const desc = item.getAttribute('data-desc');
+
+          if (fullSrc) {
+            lightboxImg.src = fullSrc;
+            lightboxTitle.textContent = title || '';
+            lightboxDesc.textContent = desc || '';
+            lightboxModal.classList.remove('closed');
+            lightboxModal.classList.add('open');
+            document.body.style.overflow = 'hidden';
+          }
+        });
+      });
+
+      const closeLightbox = () => {
+        lightboxModal.classList.remove('open');
+        lightboxModal.classList.add('closed');
+        document.body.style.overflow = '';
+      };
+
+      if (lightboxClose) {
+        lightboxClose.addEventListener('click', closeLightbox);
+      }
+      if (lightboxModal) {
+        lightboxModal.addEventListener('click', (e) => {
+          if (e.target === lightboxModal) {
+            closeLightbox();
+          }
+        });
+      }
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && lightboxModal.classList.contains('open')) {
+          closeLightbox();
+        }
+      });
+    </script>
+</body>
+</html>
