@@ -979,3 +979,27 @@ body.dark-mode.accent-white a.btn-case-outline:hover *,
     color: #000000 !important;
     stroke: #000000 !important;
 }
+
+/* =========================================
+   SUBMENU STICKY - ROLAGEM E LINK ATIVO
+   ========================================= */
+div.sticky > div {
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+}
+
+div.sticky a.font-bold {
+    color: var(--current-accent, #000000) !important;
+}
+
+body.dark-mode div.sticky a.font-bold,
+.dark div.sticky a.font-bold {
+    color: var(--current-accent, #ffffff) !important;
+}
+
+body.accent-white div.sticky a.font-bold,
+body.dark-mode.accent-white div.sticky a.font-bold,
+.dark.accent-white div.sticky a.font-bold,
+html.dark.accent-white div.sticky a.font-bold {
+    color: #ffffff !important;
+}

@@ -1070,21 +1070,44 @@
         initScrollAnimations();
       }
 
-      // Submenu Active Bold Toggle & Scroll Spy Observer
-      const submenuLinks = document.querySelectorAll('div.sticky a');
-      const sections = [
-        document.getElementById('sobre'),
-        document.getElementById('desafio'),
-        document.getElementById('identidade'),
-        document.getElementById('estrutura'),
-        document.getElementById('solucoes'),
-        document.getElementById('galeria'),
-        document.getElementById('dados-e-resultados') || document.getElementById('resultados')
-      ];
+      // ==========================================
+      // Submenu Sticky: Scroll Spy, Rolagem Suave e Auto-Scroll
+      // ==========================================
+      const submenuContainer = document.querySelector('div.sticky > div');
+      const submenuLinks = Array.from(document.querySelectorAll('div.sticky a[href^="#"]'));
+      const sections = submenuLinks.map(link => {
+        const hash = link.getAttribute('href');
+        return hash ? document.querySelector(hash) : null;
+      }).filter(Boolean);
 
-      const setActiveLink = (hash) => {
+      let currentActiveHash = '';
+      let isUserClicking = false;
+
+      // Centraliza automaticamente o link ativo na barra de rolagem horizontal
+      const centerSubmenuLink = (link, smooth = true) => {
+        if (!link || !submenuContainer) return;
+        if (submenuContainer.scrollWidth <= submenuContainer.clientWidth) return;
+
+        const linkLeft = link.offsetLeft;
+        const linkWidth = link.offsetWidth;
+        const containerWidth = submenuContainer.clientWidth;
+        const targetScrollLeft = linkLeft - (containerWidth / 2) + (linkWidth / 2);
+
+        submenuContainer.scrollTo({
+          left: Math.max(0, targetScrollLeft),
+          behavior: smooth ? 'smooth' : 'auto'
+        });
+      };
+
+      const setActiveLink = (hash, shouldScrollSubmenu = true) => {
+        if (!hash) return;
+        const isChanged = (currentActiveHash !== hash);
+        currentActiveHash = hash;
+
+        let activeLink = null;
         submenuLinks.forEach(link => {
           if (link.getAttribute('href') === hash) {
+            activeLink = link;
             link.classList.add('font-bold', 'text-primary', 'dark:text-on-primary');
             link.classList.remove('font-normal', 'text-on-surface-variant', 'dark:text-primary-fixed-dim');
           } else {
@@ -1092,37 +1115,122 @@
             link.classList.add('font-normal', 'text-on-surface-variant', 'dark:text-primary-fixed-dim');
           }
         });
+
+        if (activeLink && shouldScrollSubmenu && isChanged) {
+          centerSubmenuLink(activeLink, true);
+        }
       };
 
-      if (window.location.hash) {
-        setActiveLink(window.location.hash);
-      } else {
-        setActiveLink('#sobre');
-      }
+      // Detecta a seção em foco conforme o usuário rola a página para baixo ou para cima
+      const updateActiveSection = () => {
+        if (isUserClicking || sections.length === 0) return;
 
+        const scrollY = window.pageYOffset || document.documentElement.scrollTop;
+        const viewportHeight = window.innerHeight;
+        const docHeight = document.documentElement.scrollHeight;
+
+        // Se chegou ao rodapé da página, ativa o último item
+        if (scrollY + viewportHeight >= docHeight - 80) {
+          const lastLink = submenuLinks[submenuLinks.length - 1];
+          if (lastLink) {
+            setActiveLink(lastLink.getAttribute('href'), true);
+          }
+          return;
+        }
+
+        // Se está no topo, ativa o primeiro item
+        if (scrollY < 120 && submenuLinks.length > 0) {
+          setActiveLink(submenuLinks[0].getAttribute('href'), true);
+          return;
+        }
+
+        const headerOffset = 160;
+        let activeSection = null;
+
+        for (let i = 0; i < sections.length; i++) {
+          const sec = sections[i];
+          const rect = sec.getBoundingClientRect();
+          if (rect.top <= headerOffset && rect.bottom > headerOffset) {
+            activeSection = sec;
+            break;
+          }
+        }
+
+        if (!activeSection) {
+          let closestDist = Infinity;
+          for (let i = 0; i < sections.length; i++) {
+            const sec = sections[i];
+            const rect = sec.getBoundingClientRect();
+            const dist = Math.abs(rect.top - headerOffset);
+            if (rect.top <= headerOffset && dist < closestDist) {
+              closestDist = dist;
+              activeSection = sec;
+            }
+          }
+        }
+
+        if (activeSection) {
+          setActiveLink('#' + activeSection.id, true);
+        }
+      };
+
+      // Escuta a rolagem via requestAnimationFrame para máxima fluidez
+      let ticking = false;
+      window.addEventListener('scroll', () => {
+        if (!ticking) {
+          window.requestAnimationFrame(() => {
+            updateActiveSection();
+            ticking = false;
+          });
+          ticking = true;
+        }
+      }, { passive: true });
+
+      window.addEventListener('resize', () => {
+        const activeLink = document.querySelector('div.sticky a.font-bold');
+        if (activeLink) centerSubmenuLink(activeLink, false);
+      });
+
+      // Clique no submenu: scroll suave da página até a seção e centralização imediata na barra
       submenuLinks.forEach(link => {
         link.addEventListener('click', (e) => {
           const hash = link.getAttribute('href');
           if (hash && hash.startsWith('#')) {
-            setActiveLink(hash);
+            e.preventDefault();
+            const targetSec = document.querySelector(hash);
+            if (targetSec) {
+              isUserClicking = true;
+              setActiveLink(hash, true);
+              centerSubmenuLink(link, true);
+
+              const stickyOffset = 140; // Navbar (80px) + Submenu (~48px) + margem
+              const targetTop = targetSec.getBoundingClientRect().top + window.pageYOffset - stickyOffset;
+
+              window.scrollTo({
+                top: Math.max(0, targetTop),
+                behavior: 'smooth'
+              });
+
+              if (history.pushState) {
+                history.pushState(null, null, hash);
+              }
+
+              setTimeout(() => {
+                isUserClicking = false;
+              }, 800);
+            }
           }
         });
       });
 
-      const spyObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            setActiveLink('#' + entry.target.id);
-          }
-        });
-      }, {
-        root: null,
-        rootMargin: '-20% 0px -60% 0px'
-      });
-
-      sections.forEach(sec => {
-        if (sec) spyObserver.observe(sec);
-      });
+      // Inicialização do estado
+      if (window.location.hash) {
+        setTimeout(() => {
+          setActiveLink(window.location.hash, true);
+        }, 150);
+      } else if (submenuLinks.length > 0) {
+        setActiveLink(submenuLinks[0].getAttribute('href'), false);
+      }
 
       // Lógica do Modal Lightbox (3 imagens)
       const lightboxModal = document.getElementById('lightbox-modal');
