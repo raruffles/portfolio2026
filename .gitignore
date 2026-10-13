@@ -20,3 +20,5 @@ Thumbs.db
 *.log
 .playwright-mcp/
 links_eletricistas.txt
+tabulacao*.txt
+*.tsv
