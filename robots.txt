@@ -6,6 +6,7 @@ Disallow: /src/assets/config/
 Disallow: /admin/
 Disallow: /eletricistas/
 Disallow: /13-10-2026-eletricistas/
+Disallow: /sites-13/
 
 # Caminho do seu Sitemap
 Sitemap: https://raphaelolima.com.br/sitemap.xml
