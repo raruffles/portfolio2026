@@ -981,20 +981,25 @@ body.dark-mode.accent-white a.btn-case-outline:hover *,
 }
 
 /* =========================================
-   SUBMENU STICKY - ROLAGEM E LINK ATIVO
+   SUBMENU STICKY - ROLAGEM E LINK ATIVO (ESTILO IFOOD)
    ========================================= */
 div.sticky > div {
     -webkit-overflow-scrolling: touch;
-    scroll-behavior: smooth;
+}
+
+div.sticky a {
+    transition: all 0.25s ease;
 }
 
 div.sticky a.font-bold {
     color: var(--current-accent, #000000) !important;
+    background-color: rgba(0, 0, 0, 0.06);
 }
 
 body.dark-mode div.sticky a.font-bold,
 .dark div.sticky a.font-bold {
     color: var(--current-accent, #ffffff) !important;
+    background-color: rgba(255, 255, 255, 0.12);
 }
 
 body.accent-white div.sticky a.font-bold,
@@ -1002,4 +1007,6 @@ body.dark-mode.accent-white div.sticky a.font-bold,
 .dark.accent-white div.sticky a.font-bold,
 html.dark.accent-white div.sticky a.font-bold {
     color: #ffffff !important;
+    background-color: rgba(255, 255, 255, 0.16);
 }
+

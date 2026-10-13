@@ -377,20 +377,20 @@
                     <polyline points="12 19 5 12 12 5"></polyline>
                 </svg>
             </a>
-            <span class="shrink-0 text-outline-variant/60 dark:text-primary-container">|</span>
+            <span class="hidden md:inline shrink-0 text-outline-variant/60 dark:text-primary-container">|</span>
 
             <a href="#sobre" class="shrink-0 py-2 px-3 sm:px-3.5 rounded-lg hover:bg-black/5 dark:hover:bg-white/10 transition-colors font-bold text-primary dark:text-on-primary">SOBRE</a>
-            <span class="shrink-0 text-outline-variant/60 dark:text-primary-container">|</span>
+            <span class="hidden md:inline shrink-0 text-outline-variant/60 dark:text-primary-container">|</span>
             <a href="#desafio" class="shrink-0 py-2 px-3 sm:px-3.5 rounded-lg hover:bg-black/5 dark:hover:bg-white/10 transition-colors font-normal text-on-surface-variant dark:text-primary-fixed-dim">DESAFIO</a>
-            <span class="shrink-0 text-outline-variant/60 dark:text-primary-container">|</span>
+            <span class="hidden md:inline shrink-0 text-outline-variant/60 dark:text-primary-container">|</span>
             <a href="#arquitetura" class="shrink-0 py-2 px-3 sm:px-3.5 rounded-lg hover:bg-black/5 dark:hover:bg-white/10 transition-colors font-normal text-on-surface-variant dark:text-primary-fixed-dim">ARQUITETURA</a>
-            <span class="shrink-0 text-outline-variant/60 dark:text-primary-container">|</span>
+            <span class="hidden md:inline shrink-0 text-outline-variant/60 dark:text-primary-container">|</span>
             <a href="#experiencia" class="shrink-0 py-2 px-3 sm:px-3.5 rounded-lg hover:bg-black/5 dark:hover:bg-white/10 transition-colors font-normal text-on-surface-variant dark:text-primary-fixed-dim">EXPERIÊNCIA UI</a>
-            <span class="shrink-0 text-outline-variant/60 dark:text-primary-container">|</span>
+            <span class="hidden md:inline shrink-0 text-outline-variant/60 dark:text-primary-container">|</span>
             <a href="#admin" class="shrink-0 py-2 px-3 sm:px-3.5 rounded-lg hover:bg-black/5 dark:hover:bg-white/10 transition-colors font-normal text-on-surface-variant dark:text-primary-fixed-dim">PAINEL ADMIN</a>
-            <span class="shrink-0 text-outline-variant/60 dark:text-primary-container">|</span>
+            <span class="hidden md:inline shrink-0 text-outline-variant/60 dark:text-primary-container">|</span>
             <a href="#mockups" class="shrink-0 py-2 px-3 sm:px-3.5 rounded-lg hover:bg-black/5 dark:hover:bg-white/10 transition-colors font-normal text-on-surface-variant dark:text-primary-fixed-dim">MOCKUPS &amp; GALERIA</a>
-            <span class="shrink-0 text-outline-variant/60 dark:text-primary-container">|</span>
+            <span class="hidden md:inline shrink-0 text-outline-variant/60 dark:text-primary-container">|</span>
             <a href="#dados-e-resultados" class="shrink-0 py-2 px-3 sm:px-3.5 rounded-lg hover:bg-black/5 dark:hover:bg-white/10 transition-colors font-normal text-on-surface-variant dark:text-primary-fixed-dim">RESULTADOS</a>
         </div>
     </div>
@@ -979,7 +979,7 @@
       }
 
       // ==========================================
-      // Submenu Sticky: Scroll Spy, Rolagem Suave e Auto-Scroll
+      // Submenu Sticky: Scroll Spy & Deslizamento Automático (Estilo iFood)
       // ==========================================
       const submenuContainer = document.querySelector('div.sticky > div');
       const submenuLinks = Array.from(document.querySelectorAll('div.sticky a[href^="#"]'));
@@ -990,24 +990,46 @@
 
       let currentActiveHash = '';
       let isUserClicking = false;
+      let isSubmenuTouched = false;
 
-      // Centraliza automaticamente o link ativo na barra de rolagem horizontal
-      const centerSubmenuLink = (link, smooth = true) => {
-        if (!link || !submenuContainer) return;
+      if (submenuContainer) {
+        submenuContainer.addEventListener('touchstart', () => { isSubmenuTouched = true; }, { passive: true });
+        submenuContainer.addEventListener('touchend', () => {
+          setTimeout(() => { isSubmenuTouched = false; }, 800);
+        }, { passive: true });
+      }
+
+      // Desliza automaticamente a barra do submenu para o lado (estilo iFood no mobile)
+      const slideSubmenuToLink = (link, smooth = true) => {
+        if (!link || !submenuContainer || isSubmenuTouched) return;
         if (submenuContainer.scrollWidth <= submenuContainer.clientWidth) return;
 
-        const linkLeft = link.offsetLeft;
-        const linkWidth = link.offsetWidth;
-        const containerWidth = submenuContainer.clientWidth;
-        const targetScrollLeft = linkLeft - (containerWidth / 2) + (linkWidth / 2);
+        const isMobile = window.innerWidth < 768;
+        let targetScrollLeft = 0;
+
+        if (isMobile) {
+          // No mobile: estilo iFood! O primeiro link (#sobre) fica alinhado no início (0) com o botão voltar.
+          // Conforme você desce, cada item desliza suavemente para o lado esquerdo (com 16px de margem).
+          if (link === submenuLinks[0]) {
+            targetScrollLeft = 0;
+          } else {
+            targetScrollLeft = Math.max(0, link.offsetLeft - 16);
+          }
+        } else {
+          // No desktop/tablet: centraliza suavemente caso haja overflow horizontal
+          const linkLeft = link.offsetLeft;
+          const linkWidth = link.offsetWidth;
+          const containerWidth = submenuContainer.clientWidth;
+          targetScrollLeft = Math.max(0, linkLeft - (containerWidth / 2) + (linkWidth / 2));
+        }
 
         submenuContainer.scrollTo({
-          left: Math.max(0, targetScrollLeft),
+          left: targetScrollLeft,
           behavior: smooth ? 'smooth' : 'auto'
         });
       };
 
-      const setActiveLink = (hash, shouldScrollSubmenu = true) => {
+      const setActiveLink = (hash, shouldSlideSubmenu = true) => {
         if (!hash) return;
         const isChanged = (currentActiveHash !== hash);
         currentActiveHash = hash;
@@ -1024,12 +1046,12 @@
           }
         });
 
-        if (activeLink && shouldScrollSubmenu && isChanged) {
-          centerSubmenuLink(activeLink, true);
+        if (activeLink && shouldSlideSubmenu && isChanged) {
+          slideSubmenuToLink(activeLink, true);
         }
       };
 
-      // Detecta a seção em foco conforme o usuário rola a página para baixo ou para cima
+      // Detecta a seção em foco conforme o usuário desce ou sobe a página
       const updateActiveSection = () => {
         if (isUserClicking || sections.length === 0) return;
 
@@ -1052,7 +1074,7 @@
           return;
         }
 
-        const headerOffset = 160;
+        const headerOffset = 135; // Linha logo abaixo da barra fixa do submenu
         let activeSection = null;
 
         for (let i = 0; i < sections.length; i++) {
@@ -1082,7 +1104,7 @@
         }
       };
 
-      // Escuta a rolagem via requestAnimationFrame para máxima fluidez
+      // Escuta a rolagem via requestAnimationFrame para máxima fluidez a 60fps
       let ticking = false;
       window.addEventListener('scroll', () => {
         if (!ticking) {
@@ -1096,10 +1118,10 @@
 
       window.addEventListener('resize', () => {
         const activeLink = document.querySelector('div.sticky a.font-bold');
-        if (activeLink) centerSubmenuLink(activeLink, false);
+        if (activeLink) slideSubmenuToLink(activeLink, false);
       });
 
-      // Clique no submenu: scroll suave da página até a seção e centralização imediata na barra
+      // Clique no submenu: scroll suave da página até a seção e deslizamento do submenu
       submenuLinks.forEach(link => {
         link.addEventListener('click', (e) => {
           const hash = link.getAttribute('href');
@@ -1109,9 +1131,9 @@
             if (targetSec) {
               isUserClicking = true;
               setActiveLink(hash, true);
-              centerSubmenuLink(link, true);
+              slideSubmenuToLink(link, true);
 
-              const stickyOffset = 140; // Navbar (80px) + Submenu (~48px) + margem
+              const stickyOffset = 135; // Navbar (80px) + Submenu (~44px) + margem
               const targetTop = targetSec.getBoundingClientRect().top + window.pageYOffset - stickyOffset;
 
               window.scrollTo({
