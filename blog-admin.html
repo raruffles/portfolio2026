@@ -182,19 +182,90 @@
         }
 
         /* Buttons matching accent */
-        .btn-case-primary {
+        .btn-case-primary,
+        a.btn-case-primary {
             background-color: var(--current-accent, #000000) !important;
             border-color: var(--current-accent, #000000) !important;
             color: #ffffff !important;
+            transition: all 0.3s ease !important;
         }
-        .btn-case-outline {
+        .btn-case-primary *,
+        a.btn-case-primary * {
+            color: inherit !important;
+        }
+        .btn-case-primary:hover,
+        a.btn-case-primary:hover {
+            filter: brightness(1.15) !important;
+            opacity: 0.95 !important;
+        }
+        .btn-case-outline,
+        a.btn-case-outline {
             border-color: var(--current-accent, #000000) !important;
             color: var(--current-accent, #000000) !important;
             background-color: transparent !important;
+            transition: all 0.3s ease !important;
         }
-        .btn-case-outline:hover {
+        .btn-case-outline:hover,
+        a.btn-case-outline:hover {
             background-color: var(--current-accent, #000000) !important;
             color: #ffffff !important;
+        }
+
+        /* Modo Preto e Branco (Fundo preto, Caixa branca, Texto preto) */
+        body.accent-white .btn-case-primary,
+        body.accent-white a.btn-case-primary,
+        body.dark-mode.accent-white .btn-case-primary,
+        body.dark-mode.accent-white a.btn-case-primary,
+        .dark.accent-white .btn-case-primary,
+        .dark.accent-white a.btn-case-primary,
+        html.dark.accent-white .btn-case-primary,
+        html.dark.accent-white a.btn-case-primary {
+            background-color: #ffffff !important;
+            border-color: #ffffff !important;
+            color: #000000 !important;
+        }
+        body.accent-white .btn-case-primary *,
+        body.accent-white a.btn-case-primary *,
+        body.dark-mode.accent-white .btn-case-primary *,
+        body.dark-mode.accent-white a.btn-case-primary *,
+        .dark.accent-white .btn-case-primary *,
+        .dark.accent-white a.btn-case-primary *,
+        html.dark.accent-white .btn-case-primary *,
+        html.dark.accent-white a.btn-case-primary * {
+            color: #000000 !important;
+            stroke: #000000 !important;
+        }
+        body.accent-white .btn-case-primary:hover,
+        body.accent-white a.btn-case-primary:hover,
+        body.dark-mode.accent-white .btn-case-primary:hover,
+        body.dark-mode.accent-white a.btn-case-primary:hover,
+        .dark.accent-white .btn-case-primary:hover,
+        .dark.accent-white a.btn-case-primary:hover,
+        html.dark.accent-white .btn-case-primary:hover,
+        html.dark.accent-white a.btn-case-primary:hover {
+            background-color: #e5e5e5 !important;
+            border-color: #e5e5e5 !important;
+            color: #000000 !important;
+            filter: none !important;
+        }
+        body.accent-white .btn-case-outline:hover,
+        body.accent-white a.btn-case-outline:hover,
+        body.dark-mode.accent-white .btn-case-outline:hover,
+        body.dark-mode.accent-white a.btn-case-outline:hover,
+        .dark.accent-white .btn-case-outline:hover,
+        .dark.accent-white a.btn-case-outline:hover {
+            background-color: #ffffff !important;
+            border-color: #ffffff !important;
+            color: #000000 !important;
+        }
+        body.accent-white .btn-case-outline:hover *,
+        body.accent-white a.btn-case-outline:hover *,
+        body.dark-mode.accent-white .btn-case-outline:hover *,
+        body.dark-mode.accent-white a.btn-case-outline:hover *,
+        .dark.accent-white .btn-case-outline:hover *,
+        .dark.accent-white a.btn-case-outline:hover * {
+            color: #000000 !important;
+            stroke: #000000 !important;
         }
 
         /* Metrics banner elements */

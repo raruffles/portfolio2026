@@ -63,8 +63,10 @@ const init = () => {
         // Toggle para classe auxiliar caso seja branco puro
         if (accentColor.toLowerCase() === '#ffffff') {
             document.body.classList.add('accent-white');
+            document.documentElement.classList.add('accent-white');
         } else {
             document.body.classList.remove('accent-white');
+            document.documentElement.classList.remove('accent-white');
         }
 
         const nameTone = isDarkMode ? 'var(--text-color)' : `color-mix(in srgb, ${accentColor} 12%, #222 88%)`;
