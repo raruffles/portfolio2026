@@ -394,9 +394,11 @@ function initScrollSpy() {
     });
 
     navLinks.forEach(link => {
-      link.classList.remove('text-[#f59e0b]', 'border-b-2', 'border-[#f59e0b]');
+      link.classList.remove('text-[#f59e0b]', 'border-[#f59e0b]');
+      link.classList.add('border-transparent');
       if (link.getAttribute('href') === `#${current}`) {
-        link.classList.add('text-[#f59e0b]', 'border-b-2', 'border-[#f59e0b]');
+        link.classList.remove('border-transparent');
+        link.classList.add('text-[#f59e0b]', 'border-[#f59e0b]');
       }
     });
   }, { passive: true });
