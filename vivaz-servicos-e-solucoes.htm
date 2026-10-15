@@ -287,13 +287,20 @@ img { display: block; max-width: 100%; height: auto; }
   line-height: 1;
 }
 
-.svg-wa {
-  width: 1.25em;
-  height: 1.25em;
+.btn i.bi-whatsapp {
+  font-size: 1.25rem;
   flex: none;
-  fill: currentColor;
   display: inline-block;
   vertical-align: middle;
+  line-height: 1;
+}
+.fab-whatsapp i.bi-whatsapp {
+  font-size: 30px;
+  line-height: 1;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* ── Eyebrow Badge (Monochrome Sleek) ────────────────── */
@@ -422,7 +429,7 @@ header {
   align-items: center;
   justify-content: space-between;
   height: 74px;
-  gap: 1.25rem;
+  gap: 1rem;
 }
 @media (min-width: 768px) {
   .topbar { height: 82px; }
@@ -432,15 +439,16 @@ header {
   display: flex;
   align-items: center;
   gap: 0.85rem;
-  min-width: 0;
+  flex-shrink: 0;
+  min-width: max-content;
 }
 .brand-logo-frame {
   display: flex;
   align-items: center;
   justify-content: center;
   flex: none;
-  width: 46px;
-  height: 46px;
+  width: 44px;
+  height: 44px;
   border-radius: 12px;
   background: var(--card);
   border: 1px solid var(--border);
@@ -463,6 +471,7 @@ header {
 .brand-text {
   display: flex;
   flex-direction: column;
+  line-height: 1.15;
 }
 .brand-name {
   font-family: var(--font-heading);
@@ -470,37 +479,141 @@ header {
   font-size: 17px;
   letter-spacing: -0.015em;
   color: var(--ink);
-  line-height: 1.15;
   white-space: nowrap;
 }
 .brand-sub {
-  font-size: 11.5px;
+  font-size: 11px;
   color: var(--soft);
   font-weight: 600;
-  letter-spacing: 0.03em;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
   white-space: nowrap;
 }
 
-.nav-links {
+/* ── Menu Superior Desktop ────────────────────────────── */
+.nav-menu {
   display: none;
   align-items: center;
-  gap: 1.6rem;
-  font-size: 14px;
-  font-weight: 600;
+  gap: 0.35rem;
+  margin-inline: auto;
+}
+@media (min-width: 1040px) {
+  .nav-menu { display: flex; }
+}
+.nav-item {
   color: var(--soft);
+  font-family: var(--font-body);
+  font-size: 13.5px;
+  font-weight: 600;
+  padding: 0.45rem 0.85rem;
+  border-radius: var(--r-full);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color 0.2s ease, background 0.2s ease;
 }
-@media (min-width: 980px) {
-  .nav-links { display: flex; }
-}
-.nav-links a:hover {
+.nav-item:hover {
   color: var(--ink);
+  background: var(--bg-subtle);
+}
+
+/* ── Menu Mobile Hamburger & Drawer ─────────────────── */
+.menu-toggle {
+  width: 42px;
+  height: 42px;
+  border-radius: var(--r-full);
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--ink);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  font-size: 1.35rem;
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
+  flex: none;
+}
+@media (min-width: 1040px) {
+  .menu-toggle { display: none; }
+}
+.menu-toggle:hover {
+  background: var(--card-hover);
+  border-color: var(--border-focus);
+}
+.menu-toggle .icon-close { display: none; }
+.menu-toggle.is-active .icon-open { display: none; }
+.menu-toggle.is-active .icon-close { display: block; }
+
+.mobile-menu {
+  display: none;
+  border-top: 1px solid var(--border);
+  background: color-mix(in srgb, var(--bg) 96%, transparent);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  padding: 1rem 1.25rem 1.5rem;
+  animation: navSlideDown 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.mobile-menu.is-open {
+  display: block;
+}
+@keyframes navSlideDown {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.mobile-menu-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  max-width: 1200px;
+  margin-inline: auto;
+}
+.mobile-nav-item {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.85rem 1.15rem;
+  border-radius: var(--r-md);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--ink);
+  text-decoration: none;
+  background: var(--bg-subtle);
+  border: 1px solid transparent;
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+.mobile-nav-item:hover, .mobile-nav-item:active {
+  background: var(--card);
+  border-color: var(--border);
+  color: var(--mono-accent);
+}
+.mobile-nav-item i, .mobile-nav-item .material-symbols-outlined {
+  color: var(--mono-accent);
+  font-size: 1.25rem;
+  flex: none;
+}
+[data-theme="light"] .mobile-nav-item i,
+[data-theme="light"] .mobile-nav-item .material-symbols-outlined {
+  color: #09090b;
+}
+.mobile-nav-cta {
+  background: var(--wa) !important;
+  color: #ffffff !important;
+  font-weight: 700;
+  margin-top: 0.5rem;
+  border-color: rgba(255, 255, 255, 0.2) !important;
+  box-shadow: 0 4px 14px rgba(21, 128, 61, 0.35);
+}
+.mobile-nav-cta i {
+  color: #ffffff !important;
 }
 
 .header-right {
   display: flex;
   align-items: center;
-  gap: 0.8rem;
+  gap: 0.65rem;
+  flex-shrink: 0;
+}
+#hdr-wa span { display: none; }
+@media (min-width: 520px) {
+  #hdr-wa span { display: inline; }
 }
 #theme-btn {
   width: 42px;
@@ -1431,13 +1544,14 @@ footer {
       </div>
     </a>
 
-    <nav class="nav-links" aria-label="Navegação Principal">
-      <a href="#especialidades">Especialidades</a>
-      <a href="#metodologia">Como Atuamos</a>
-      <a href="#obras">Obras & Portfólio</a>
-      <a href="#sobre">A Empresa</a>
-      <a href="#avaliacoes">Depoimentos</a>
-      <a href="#faq">Dúvidas</a>
+    <!-- Menu Superior Desktop -->
+    <nav class="nav-menu" id="navMenu" aria-label="Navegação Principal">
+      <a href="#especialidades" class="nav-item">Especialidades</a>
+      <a href="#metodologia" class="nav-item">Metodologia</a>
+      <a href="#obras" class="nav-item">Obras</a>
+      <a href="#sobre" class="nav-item">A Empresa</a>
+      <a href="#avaliacoes" class="nav-item">Depoimentos</a>
+      <a href="#faq" class="nav-item">Dúvidas</a>
     </nav>
 
     <div class="header-right">
@@ -1446,11 +1560,49 @@ footer {
         <i class="ph-bold ph-moon"></i>
       </button>
 
-      <a id="hdr-wa" href="#contato" class="btn btn-sm btn-wa">
-        <svg class="svg-wa" viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2ZM12.04 3.67C14.24 3.67 16.31 4.53 17.87 6.08C19.42 7.64 20.28 9.71 20.28 11.92C20.28 16.46 16.59 20.16 12.04 20.16C10.59 20.16 9.17 19.78 7.92 19.04L7.62 18.86L4.5 19.68L5.33 16.64L5.13 16.32C4.33 15.04 3.8 13.5 3.8 11.91C3.8 7.37 7.5 3.67 12.04 3.67ZM8.97 7.42C8.76 7.42 8.51 7.5 8.3 7.73C8.08 7.96 7.49 8.52 7.49 9.65C7.49 10.78 8.32 11.87 8.44 12.02C8.56 12.18 10.03 14.47 12.33 15.42C14.24 16.2 14.63 16.05 15.06 16.01C15.48 15.97 16.42 15.45 16.61 14.91C16.8 14.37 16.8 13.91 16.74 13.82C16.68 13.73 16.53 13.67 16.31 13.56C16.1 13.45 15.06 12.94 14.87 12.87C14.67 12.8 14.53 12.76 14.39 12.98C14.24 13.2 13.83 13.68 13.7 13.83C13.58 13.98 13.46 14 13.25 13.89C13.03 13.78 12.34 13.55 11.52 12.82C10.88 12.25 10.45 11.54 10.33 11.33C10.21 11.11 10.31 10.99 10.42 10.88C10.52 10.78 10.64 10.62 10.76 10.48C10.88 10.34 10.92 10.23 11 10.07C11.08 9.91 11.04 9.77 10.98 9.65C10.92 9.53 10.47 8.42 10.28 7.96C10.1 7.52 9.91 7.58 9.77 7.57L9.34 7.56C9.13 7.56 8.97 7.42 8.97 7.42Z"/>
-        </svg>
+      <a id="hdr-wa" href="#contato" class="btn btn-sm btn-wa" aria-label="Solicitar Orçamento no WhatsApp">
+        <i class="bi bi-whatsapp"></i>
         <span>Solicitar Orçamento</span>
+      </a>
+
+      <!-- Botão Hambúrguer Mobile / Tablet -->
+      <button id="menu-toggle" class="menu-toggle" aria-label="Abrir menu de navegação" aria-expanded="false" aria-controls="mobileMenu">
+        <i class="bi bi-list icon-open" aria-hidden="true"></i>
+        <i class="bi bi-x-lg icon-close" aria-hidden="true"></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Drawer Menu -->
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <div class="mobile-menu-inner">
+      <a href="#especialidades" class="mobile-nav-item">
+        <span class="material-symbols-outlined">home_repair_service</span>
+        <span>Especialidades</span>
+      </a>
+      <a href="#metodologia" class="mobile-nav-item">
+        <i class="bi bi-kanban"></i>
+        <span>Como Atuamos</span>
+      </a>
+      <a href="#obras" class="mobile-nav-item">
+        <span class="material-symbols-outlined">photo_camera</span>
+        <span>Obras & Portfólio</span>
+      </a>
+      <a href="#sobre" class="mobile-nav-item">
+        <i class="bi bi-building-check"></i>
+        <span>A Empresa</span>
+      </a>
+      <a href="#avaliacoes" class="mobile-nav-item">
+        <i class="bi bi-star-fill"></i>
+        <span>Depoimentos</span>
+      </a>
+      <a href="#faq" class="mobile-nav-item">
+        <i class="bi bi-question-circle"></i>
+        <span>Dúvidas Frequentes</span>
+      </a>
+      <a href="#contato" class="mobile-nav-item mobile-nav-cta">
+        <i class="bi bi-whatsapp"></i>
+        <span>Pedir Orçamento no WhatsApp</span>
       </a>
     </div>
   </div>
@@ -1495,9 +1647,7 @@ footer {
 
       <div class="hero-actions">
         <a id="hero-wa" href="#contato" class="btn btn-wa">
-          <svg class="svg-wa" viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2ZM12.04 3.67C14.24 3.67 16.31 4.53 17.87 6.08C19.42 7.64 20.28 9.71 20.28 11.92C20.28 16.46 16.59 20.16 12.04 20.16C10.59 20.16 9.17 19.78 7.92 19.04L7.62 18.86L4.5 19.68L5.33 16.64L5.13 16.32C4.33 15.04 3.8 13.5 3.8 11.91C3.8 7.37 7.5 3.67 12.04 3.67ZM8.97 7.42C8.76 7.42 8.51 7.5 8.3 7.73C8.08 7.96 7.49 8.52 7.49 9.65C7.49 10.78 8.32 11.87 8.44 12.02C8.56 12.18 10.03 14.47 12.33 15.42C14.24 16.2 14.63 16.05 15.06 16.01C15.48 15.97 16.42 15.45 16.61 14.91C16.8 14.37 16.8 13.91 16.74 13.82C16.68 13.73 16.53 13.67 16.31 13.56C16.1 13.45 15.06 12.94 14.87 12.87C14.67 12.8 14.53 12.76 14.39 12.98C14.24 13.2 13.83 13.68 13.7 13.83C13.58 13.98 13.46 14 13.25 13.89C13.03 13.78 12.34 13.55 11.52 12.82C10.88 12.25 10.45 11.54 10.33 11.33C10.21 11.11 10.31 10.99 10.42 10.88C10.52 10.78 10.64 10.62 10.76 10.48C10.88 10.34 10.92 10.23 11 10.07C11.08 9.91 11.04 9.77 10.98 9.65C10.92 9.53 10.47 8.42 10.28 7.96C10.1 7.52 9.91 7.58 9.77 7.57L9.34 7.56C9.13 7.56 8.97 7.42 8.97 7.42Z"/>
-          </svg>
+          <i class="bi bi-whatsapp"></i>
           <span>Falar com a Equipe Vivaz</span>
         </a>
         <a href="#especialidades" class="btn btn-ghost">
@@ -2179,9 +2329,7 @@ footer {
         </div>
 
         <button class="btn btn-wa" id="sendBtn" type="button" style="width: 100%;">
-          <svg class="svg-wa" viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2ZM12.04 3.67C14.24 3.67 16.31 4.53 17.87 6.08C19.42 7.64 20.28 9.71 20.28 11.92C20.28 16.46 16.59 20.16 12.04 20.16C10.59 20.16 9.17 19.78 7.92 19.04L7.62 18.86L4.5 19.68L5.33 16.64L5.13 16.32C4.33 15.04 3.8 13.5 3.8 11.91C3.8 7.37 7.5 3.67 12.04 3.67ZM8.97 7.42C8.76 7.42 8.51 7.5 8.3 7.73C8.08 7.96 7.49 8.52 7.49 9.65C7.49 10.78 8.32 11.87 8.44 12.02C8.56 12.18 10.03 14.47 12.33 15.42C14.24 16.2 14.63 16.05 15.06 16.01C15.48 15.97 16.42 15.45 16.61 14.91C16.8 14.37 16.8 13.91 16.74 13.82C16.68 13.73 16.53 13.67 16.31 13.56C16.1 13.45 15.06 12.94 14.87 12.87C14.67 12.8 14.53 12.76 14.39 12.98C14.24 13.2 13.83 13.68 13.7 13.83C13.58 13.98 13.46 14 13.25 13.89C13.03 13.78 12.34 13.55 11.52 12.82C10.88 12.25 10.45 11.54 10.33 11.33C10.21 11.11 10.31 10.99 10.42 10.88C10.52 10.78 10.64 10.62 10.76 10.48C10.88 10.34 10.92 10.23 11 10.07C11.08 9.91 11.04 9.77 10.98 9.65C10.92 9.53 10.47 8.42 10.28 7.96C10.1 7.52 9.91 7.58 9.77 7.57L9.34 7.56C9.13 7.56 8.97 7.42 8.97 7.42Z"/>
-          </svg>
+          <i class="bi bi-whatsapp"></i>
           <span>Iniciar Atendimento no WhatsApp</span>
         </button>
       </form>
@@ -2231,9 +2379,7 @@ footer {
      BOTÃO FLUTUANTE DO WHATSAPP
 ══════════════════════════════════════════════════════════ -->
 <a class="fab-whatsapp" id="fab-wa" href="#contato" aria-label="Falar com a Vivaz no WhatsApp">
-  <svg class="svg-wa" viewBox="0 0 24 24" aria-hidden="true">
-    <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2ZM12.04 3.67C14.24 3.67 16.31 4.53 17.87 6.08C19.42 7.64 20.28 9.71 20.28 11.92C20.28 16.46 16.59 20.16 12.04 20.16C10.59 20.16 9.17 19.78 7.92 19.04L7.62 18.86L4.5 19.68L5.33 16.64L5.13 16.32C4.33 15.04 3.8 13.5 3.8 11.91C3.8 7.37 7.5 3.67 12.04 3.67ZM8.97 7.42C8.76 7.42 8.51 7.5 8.3 7.73C8.08 7.96 7.49 8.52 7.49 9.65C7.49 10.78 8.32 11.87 8.44 12.02C8.56 12.18 10.03 14.47 12.33 15.42C14.24 16.2 14.63 16.05 15.06 16.01C15.48 15.97 16.42 15.45 16.61 14.91C16.8 14.37 16.8 13.91 16.74 13.82C16.68 13.73 16.53 13.67 16.31 13.56C16.1 13.45 15.06 12.94 14.87 12.87C14.67 12.8 14.53 12.76 14.39 12.98C14.24 13.2 13.83 13.68 13.7 13.83C13.58 13.98 13.46 14 13.25 13.89C13.03 13.78 12.34 13.55 11.52 12.82C10.88 12.25 10.45 11.54 10.33 11.33C10.21 11.11 10.31 10.99 10.42 10.88C10.52 10.78 10.64 10.62 10.76 10.48C10.88 10.34 10.92 10.23 11 10.07C11.08 9.91 11.04 9.77 10.98 9.65C10.92 9.53 10.47 8.42 10.28 7.96C10.1 7.52 9.91 7.58 9.77 7.57L9.34 7.56C9.13 7.56 8.97 7.42 8.97 7.42Z"/>
-  </svg>
+  <i class="bi bi-whatsapp"></i>
 </a>
 
 <!-- ══════════════════════════════════════════════════════════
@@ -2337,6 +2483,43 @@ if (window.matchMedia) {
         applyTheme(e.matches ? "dark" : "light");
       }
     } catch(err) {}
+  });
+}
+
+/* ── Menu Mobile Drawer Interativo ────────────────────── */
+const menuToggle = document.getElementById("menu-toggle");
+const mobileMenu = document.getElementById("mobileMenu");
+
+if (menuToggle && mobileMenu) {
+  const toggleMobileNav = (forceState) => {
+    const willOpen = typeof forceState === "boolean" ? forceState : !mobileMenu.classList.contains("is-open");
+    mobileMenu.classList.toggle("is-open", willOpen);
+    menuToggle.classList.toggle("is-active", willOpen);
+    menuToggle.setAttribute("aria-expanded", willOpen ? "true" : "false");
+    mobileMenu.setAttribute("aria-hidden", willOpen ? "false" : "true");
+  };
+
+  menuToggle.addEventListener("click", (e) => {
+    e.stopPropagation();
+    toggleMobileNav();
+  });
+
+  mobileMenu.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", () => {
+      toggleMobileNav(false);
+    });
+  });
+
+  document.addEventListener("click", (e) => {
+    if (mobileMenu.classList.contains("is-open") && !mobileMenu.contains(e.target) && !menuToggle.contains(e.target)) {
+      toggleMobileNav(false);
+    }
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && mobileMenu.classList.contains("is-open")) {
+      toggleMobileNav(false);
+    }
   });
 }
 </script>
