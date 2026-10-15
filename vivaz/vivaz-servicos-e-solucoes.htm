@@ -1,0 +1,2344 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+
+<!-- Reconhecimento Imediato de Tema do Sistema (Zero FOUT) -->
+<script>
+  (function() {
+    try {
+      var saved = localStorage.getItem("vivaz_theme");
+      var prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+      var activeTheme = saved ? saved : (prefersDark ? "dark" : "light");
+      document.documentElement.setAttribute("data-theme", activeTheme);
+    } catch(e) {}
+  })();
+</script>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+
+<!-- SEO Primário & Metadados -->
+<title>Vivaz Serviços & Soluções · Construção, Manutenção e Reformas Residenciais e Comerciais</title>
+<meta name="description" content="Empresa especializada em construção, manutenção e soluções residenciais e comerciais. Atuamos com elétrica, hidráulica, pintura, alvenaria, mármores e reparos especializados com padrão superior.">
+<meta name="keywords" content="vivaz servicos e solucoes, construcao residencial, manutencao comercial, eletrica predial, hidraulica, pintura residencial, alvenaria, reformas sjc, marmores e granitos, servicos gerais">
+<meta name="author" content="Vivaz Serviços & Soluções">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#09090b">
+
+<!-- Geo Tags para Rankeamento Local -->
+<meta name="geo.region" content="BR-SP">
+<meta name="geo.placename" content="São Paulo">
+
+<!-- OpenGraph / Redes Sociais -->
+<meta property="og:type" content="business.business">
+<meta property="og:title" content="Vivaz Serviços & Soluções · Construção, Manutenção & Reformas">
+<meta property="og:description" content="Empresa especializada em construção, manutenção e soluções residenciais e comerciais. Elétrica, hidráulica, pintura, mármores e afins.">
+<meta property="og:image" content="imgs/obra-suite-luxo.png">
+<meta property="og:locale" content="pt_BR">
+
+<!-- Favicon & Brand Icons -->
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="imgs/favicon-32.png">
+<link rel="icon" type="image/png" sizes="64x64" href="imgs/favicon-64.png">
+<link rel="apple-touch-icon" href="imgs/logo-vivaz-transparent.png">
+
+<!-- Tipografia: Anton + Instrument Serif + Montserrat + Plus Jakarta Sans -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Instrument+Serif:ital@0;1&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- ══════════════════════════════════════════════════════════
+     BIBLIOTECAS DE ÍCONES (Google Material Symbols + Bootstrap Icons + Phosphor)
+══════════════════════════════════════════════════════════ -->
+<!-- 1. Google Material Symbols Outlined -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+
+<!-- 2. Bootstrap Icons -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+<!-- 3. Phosphor Icons -->
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/bold/style.css">
+
+<!-- Structured Schema.org SEO -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "HomeAndConstructionBusiness",
+      "@id": "https://raphaelolima.com.br/vivaz/#empresa",
+      "name": "Vivaz Serviços & Soluções",
+      "image": "https://raphaelolima.com.br/vivaz/imgs/obra-suite-luxo.png",
+      "description": "Empresa especializada em construção, manutenção e soluções residenciais e comerciais. Atuamos com elétrica, hidráulica, pintura, mármores e afins.",
+      "telephone": "+5512999999999",
+      "priceRange": "$$",
+      "address": {
+        "@type": "PostalAddress",
+        "addressRegion": "SP",
+        "addressCountry": "BR"
+      },
+      "openingHours": "Mo-Sa 07:00-19:00",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5.0",
+        "reviewCount": "68"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://raphaelolima.com.br/vivaz/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "A Vivaz atende tanto obras residenciais quanto empresas comerciais?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sim! Desenvolvemos soluções completas para residências, condomínios, escritórios, consultórios e estabelecimentos comerciais."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Quais são as principais áreas de atuação da Vivaz?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Atuamos com manutenção residencial e comercial, instalações elétricas, serviços hidráulicos, pintura fina e texturas, alvenaria e assentamento de mármores e granitos."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Como solicito um orçamento?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Basta clicar em qualquer botão do WhatsApp na página ou preencher o formulário para falar diretamente com nossa equipe e agendar uma visita técnica sem compromisso."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+<style>
+/* ══════════════════════════════════════════════════════════
+   DESIGN SYSTEM MONOCHROME / PRETO E BRANCO DE ALTO PADRÃO
+   Escala Fibonacci & Proporção Áurea
+══════════════════════════════════════════════════════════ */
+:root {
+  /* DARK MODE (Preto Nobre / Obsidian / Prata) */
+  --bg: #09090b;
+  --bg-subtle: #121215;
+  --card: #16161a;
+  --card-hover: #1f1f25;
+  --border: rgba(255, 255, 255, 0.12);
+  --border-focus: rgba(255, 255, 255, 0.6);
+
+  --ink: #fafafa;
+  --soft: #a1a1aa;
+  --muted: #71717a;
+
+  /* Acentos Monocromáticos */
+  --mono-accent: #ffffff;
+  --mono-light: #f4f4f5;
+  --mono-tint: rgba(255, 255, 255, 0.08);
+  --mono-dark: #27272a;
+
+  /* Botão Primário Monocromático de Alto Contraste */
+  --btn-pri-bg: #ffffff;
+  --btn-pri-color: #09090b;
+  --btn-pri-hover: #e4e4e7;
+  --btn-pri-border: rgba(255, 255, 255, 0.2);
+
+  /* WhatsApp Oficial (Alta Conversão) */
+  --wa: #15803d;
+  --wa-hover: #166534;
+  --wa-tint: rgba(21, 128, 61, 0.18);
+
+  --font-display: "Anton", "Montserrat", sans-serif;
+  --font-heading: "Montserrat", sans-serif;
+  --font-body: "Montserrat", "Plus Jakarta Sans", system-ui, sans-serif;
+  --font-serif: "Instrument Serif", Georgia, serif;
+
+  --r-sm: 8px;
+  --r-md: 14px;
+  --r-lg: 20px;
+  --r-full: 9999px;
+
+  --shadow-subtle: 0 4px 20px -4px rgba(0, 0, 0, 0.45);
+  --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.5), 0 16px 36px -12px rgba(0, 0, 0, 0.75);
+}
+
+[data-theme="light"] {
+  /* LIGHT MODE (Branco Arquitetural / Jet Black) */
+  --bg: #ffffff;
+  --bg-subtle: #f4f4f5;
+  --card: #ffffff;
+  --card-hover: #fafafa;
+  --border: rgba(9, 9, 11, 0.12);
+  --border-focus: rgba(9, 9, 11, 0.6);
+
+  --ink: #09090b;
+  --soft: #52525b;
+  --muted: #71717a;
+
+  --mono-accent: #09090b;
+  --mono-light: #18181b;
+  --mono-tint: rgba(9, 9, 11, 0.06);
+  --mono-dark: #f4f4f5;
+
+  --btn-pri-bg: #09090b;
+  --btn-pri-color: #ffffff;
+  --btn-pri-hover: #27272a;
+  --btn-pri-border: rgba(9, 9, 11, 0.2);
+
+  --shadow-subtle: 0 4px 20px -4px rgba(9, 9, 11, 0.06);
+  --shadow-card: 0 1px 3px rgba(9, 9, 11, 0.05), 0 16px 32px -12px rgba(9, 9, 11, 0.10);
+}
+
+/* ── Base ─────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
+body {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.7;
+  background: var(--bg);
+  color: var(--ink);
+  overflow-x: hidden;
+  transition: background 0.25s ease, color 0.25s ease;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Tipografia Proporção Áurea ──────────────────────── */
+h1 {
+  font-family: var(--font-display);
+  font-size: clamp(34px, 6vw, 64px);
+  line-height: 1.12;
+  letter-spacing: 0.02em;
+  color: var(--ink);
+  text-transform: uppercase;
+}
+
+h2 {
+  font-family: var(--font-heading);
+  font-size: clamp(26px, 4.2vw, 40px);
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+
+h3 {
+  font-family: var(--font-heading);
+  font-size: clamp(20px, 3vw, 24px);
+  font-weight: 700;
+  line-height: 1.28;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+}
+
+h4 {
+  font-family: var(--font-heading);
+  font-size: 17.5px;
+  font-weight: 700;
+  line-height: 1.35;
+  color: var(--ink);
+}
+
+em {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0.02em;
+  text-decoration: underline;
+  text-decoration-color: var(--border);
+  text-underline-offset: 6px;
+}
+
+a { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; height: auto; }
+
+:focus-visible {
+  outline: 2px solid var(--mono-accent);
+  outline-offset: 3px;
+  border-radius: var(--r-sm);
+}
+
+.wrap {
+  width: 100%;
+  max-width: 1200px;
+  padding-inline: 1.5rem;
+  margin-inline: auto;
+}
+@media (min-width: 768px) {
+  .wrap { padding-inline: 2.25rem; }
+}
+
+/* ── Ícones do Google / Bootstrap / Phosphor ─────────── */
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  vertical-align: middle;
+  line-height: 1;
+}
+
+.svg-wa {
+  width: 1.25em;
+  height: 1.25em;
+  flex: none;
+  fill: currentColor;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* ── Eyebrow Badge (Monochrome Sleek) ────────────────── */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.45rem 1rem;
+  border-radius: var(--r-full);
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.eyebrow .dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--mono-accent);
+  box-shadow: 0 0 0 3px var(--mono-tint);
+}
+
+.sec-head {
+  margin-bottom: 2.8rem;
+}
+@media (min-width: 768px) {
+  .sec-head { margin-bottom: 3.8rem; }
+}
+.sec-head .eyebrow { margin-bottom: 0.95rem; }
+.sec-head h2 { margin-top: 0.35rem; }
+.sec-head p {
+  color: var(--soft);
+  margin-top: 0.95rem;
+  max-width: 48rem;
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+/* ── Buttons (Monochrome Premium + High Conversion) ─── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  min-height: 52px;
+  padding: 0.85rem 1.4rem;
+  border-radius: var(--r-full);
+  font-family: var(--font-body);
+  font-size: 14.5px;
+  font-weight: 700;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), background 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  white-space: normal;
+  text-align: center;
+  width: 100%;
+  box-sizing: border-box;
+}
+@media (min-width: 480px) {
+  .btn {
+    padding: 0.85rem 1.75rem;
+    font-size: 15px;
+    white-space: nowrap;
+  }
+}
+@media (min-width: 640px) {
+  .btn { width: auto; }
+}
+.btn:hover { transform: translateY(-2px); }
+.btn:active { transform: translateY(0); }
+
+/* Monochromatic Black/White Main Button */
+.btn-primary {
+  background: var(--btn-pri-bg);
+  color: var(--btn-pri-color);
+  border-color: var(--btn-pri-border);
+  box-shadow: 0 4px 20px -4px rgba(255, 255, 255, 0.25);
+}
+[data-theme="light"] .btn-primary {
+  box-shadow: 0 4px 18px -4px rgba(0, 0, 0, 0.35);
+}
+.btn-primary:hover {
+  background: var(--btn-pri-hover);
+  box-shadow: 0 6px 24px -4px rgba(255, 255, 255, 0.35);
+}
+
+.btn-wa {
+  background: var(--wa);
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15), 0 8px 24px -6px rgba(21, 128, 61, 0.45);
+}
+.btn-wa:hover {
+  background: var(--wa-hover);
+  box-shadow: 0 12px 28px -6px rgba(21, 128, 61, 0.6);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--ink);
+  border-color: var(--border);
+}
+.btn-ghost:hover {
+  background: var(--card);
+  border-color: var(--mono-accent);
+}
+
+.btn-sm { min-height: 42px; padding: 0.6rem 1.15rem; font-size: 13.5px; }
+
+/* ── Minimal Glass Header ────────────────────────────── */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: color-mix(in srgb, var(--bg) 90%, transparent);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-bottom: 1px solid var(--border);
+}
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 74px;
+  gap: 1.25rem;
+}
+@media (min-width: 768px) {
+  .topbar { height: 82px; }
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  min-width: 0;
+}
+.brand-logo-frame {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+  padding: 4px;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease;
+}
+.brand:hover .brand-logo-frame {
+  transform: scale(1.05);
+  border-color: var(--mono-accent);
+}
+
+/* Troca de Logo via CSS Puro sem FOUT */
+.brand-logo-dark { display: block; width: 100%; height: 100%; object-fit: contain; }
+.brand-logo-light { display: none; width: 100%; height: 100%; object-fit: contain; }
+[data-theme="light"] .brand-logo-dark { display: none; }
+[data-theme="light"] .brand-logo-light { display: block; }
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+}
+.brand-name {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 17px;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+  line-height: 1.15;
+  white-space: nowrap;
+}
+.brand-sub {
+  font-size: 11.5px;
+  color: var(--soft);
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.nav-links {
+  display: none;
+  align-items: center;
+  gap: 1.6rem;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--soft);
+}
+@media (min-width: 980px) {
+  .nav-links { display: flex; }
+}
+.nav-links a:hover {
+  color: var(--ink);
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+#theme-btn {
+  width: 42px;
+  height: 42px;
+  border-radius: var(--r-full);
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--ink);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+  flex: none;
+}
+#theme-btn:hover {
+  background: var(--card-hover);
+  border-color: var(--mono-accent);
+  transform: rotate(15deg);
+}
+.ph-sun { display: none; }
+[data-theme="dark"] .ph-moon { display: none; }
+[data-theme="dark"] .ph-sun { display: block; }
+
+/* ── Hero: Alto Padrão Preto e Branco ───────────────── */
+.hero {
+  position: relative;
+  padding: 3.5rem 0 3.2rem;
+  border-bottom: 1px solid var(--border);
+  background: radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.03) 0%, transparent 60%);
+}
+@media (min-width: 768px) {
+  .hero { padding: clamp(4.5rem, 7.5vw, 6.5rem) 0; }
+}
+
+.hero-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 3.2rem;
+}
+@media (min-width: 960px) {
+  .hero-inner {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 4.5rem;
+    align-items: center;
+  }
+}
+
+.hero h1 {
+  margin: 1.3rem 0 1.4rem;
+}
+
+.hero-quote {
+  font-size: clamp(16.5px, 2vw, 19px);
+  line-height: 1.7;
+  color: var(--soft);
+  margin-bottom: 2rem;
+  border-left: 3px solid var(--mono-accent);
+  padding-left: 1.25rem;
+  font-style: normal;
+}
+.hero-quote strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+/* Checklist em Destaque Obrigatório */
+.hero-checklist {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  margin-bottom: 2.5rem;
+}
+.hero-checklist-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 15.5px;
+  color: var(--ink);
+  font-weight: 600;
+}
+.hero-checklist-item i {
+  color: var(--mono-accent);
+  font-size: 1.3rem;
+  flex: none;
+}
+[data-theme="light"] .hero-checklist-item i {
+  color: #09090b;
+}
+
+.hero-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.95rem;
+  margin-bottom: 2.6rem;
+}
+@media (min-width: 520px) {
+  .hero-actions {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+.hero-badges {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding-top: 1.8rem;
+  border-top: 1px solid var(--border);
+}
+@media (min-width: 640px) {
+  .hero-badges {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+}
+.hero-badge-item {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-size: 13.5px;
+  color: var(--soft);
+}
+.hero-badge-item .material-symbols-outlined,
+.hero-badge-item i {
+  color: var(--mono-accent);
+  font-size: 1.25rem;
+  flex: none;
+}
+[data-theme="light"] .hero-badge-item .material-symbols-outlined,
+[data-theme="light"] .hero-badge-item i {
+  color: #09090b;
+}
+.hero-badge-item strong { color: var(--ink); }
+
+/* Hero Visual Frame (Foto Obra Suíte Luxo) */
+.hero-frame {
+  position: relative;
+  border-radius: var(--r-lg);
+  padding: 10px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-card);
+  max-width: 480px;
+  width: 100%;
+  margin-inline: auto;
+}
+.hero-media {
+  position: relative;
+  border-radius: calc(var(--r-lg) - 6px);
+  overflow: hidden;
+  aspect-ratio: 4 / 4.8;
+  background: var(--bg-subtle);
+}
+.hero-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.hero-frame:hover .hero-media img {
+  transform: scale(1.04);
+}
+.hero-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 3rem 1.4rem 1.4rem;
+  background: linear-gradient(to top, rgba(9, 9, 11, 0.95) 0%, rgba(9, 9, 11, 0.6) 60%, transparent 100%);
+  color: #ffffff;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.hero-caption-txt strong {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 16.5px;
+  font-weight: 700;
+  color: #ffffff;
+}
+.hero-caption-txt span {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.75);
+}
+.hero-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.4rem 0.85rem;
+  border-radius: var(--r-full);
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  font-size: 11.5px;
+  font-weight: 700;
+  color: #ffffff;
+  backdrop-filter: blur(8px);
+  white-space: nowrap;
+}
+
+/* ══════════════════════════════════════════════════════════
+   MARQUEE EM LOOP CONTÍNUO (Monocromático Refinado)
+══════════════════════════════════════════════════════════ */
+.marquee-wrap {
+  overflow: hidden;
+  user-select: none;
+  background: var(--bg-subtle);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  width: 100%;
+  white-space: nowrap;
+}
+.marquee-track {
+  display: flex;
+  flex-shrink: 0;
+  width: max-content;
+  animation: marquee-scroll 34s linear infinite;
+  padding: 1.1rem 0;
+  will-change: transform;
+}
+.marquee-wrap:hover .marquee-track {
+  animation-play-state: paused;
+}
+.marquee-group {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  gap: 2.8rem;
+  padding-right: 2.8rem;
+}
+.marquee-group span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 13.5px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--soft);
+}
+.marquee-group span i,
+.marquee-group span .material-symbols-outlined {
+  color: var(--mono-accent);
+  font-size: 1.2rem;
+  flex: none;
+}
+[data-theme="light"] .marquee-group span i,
+[data-theme="light"] .marquee-group span .material-symbols-outlined {
+  color: #09090b;
+}
+
+@keyframes marquee-scroll {
+  0% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(-50%, 0, 0); }
+}
+
+/* ── Metrics Strip ───────────────────────────────────── */
+.metrics-strip {
+  padding: clamp(3.5rem, 6vw, 4.8rem) 0;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg);
+}
+.metrics-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.2rem;
+}
+@media (min-width: 540px) {
+  .metrics-grid { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+}
+@media (min-width: 900px) {
+  .metrics-grid { grid-template-columns: repeat(4, 1fr); gap: 3rem; }
+}
+
+.metric-item {
+  border-left: 2px solid var(--border);
+  padding-left: 1.5rem;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+.metric-item:hover {
+  border-color: var(--mono-accent);
+  transform: translateX(4px);
+}
+.metric-val {
+  font-family: var(--font-display);
+  font-size: clamp(38px, 5.5vw, 48px);
+  font-weight: 800;
+  color: var(--ink);
+  line-height: 1;
+  letter-spacing: 0.02em;
+  display: flex;
+  align-items: baseline;
+  gap: 0.25rem;
+}
+.metric-val .acc { color: var(--mono-accent); font-size: 0.65em; }
+[data-theme="light"] .metric-val .acc { color: #09090b; }
+.metric-label {
+  font-family: var(--font-heading);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-top: 0.6rem;
+}
+.metric-sub {
+  font-size: 13.5px;
+  color: var(--soft);
+  margin-top: 0.25rem;
+  line-height: 1.55;
+}
+
+/* ══════════════════════════════════════════════════════════
+   BENTO GRID DE ESPECIALIDADES VIVAZ (6 PILARES ESTRUTURADOS)
+══════════════════════════════════════════════════════════ */
+.bento-section {
+  padding: clamp(4rem, 7vw, 6.5rem) 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.bento-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+@media (min-width: 900px) {
+  .bento-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 1.8rem;
+  }
+}
+
+.bento-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: 1.8rem;
+  box-shadow: var(--shadow-card);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+@media (min-width: 768px) {
+  .bento-card { padding: 2.4rem; }
+}
+.bento-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--mono-accent);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4), 0 22px 44px -12px rgba(0, 0, 0, 0.7);
+}
+
+.bento-col-8 { grid-column: span 12; }
+.bento-col-4 { grid-column: span 12; }
+.bento-col-6 { grid-column: span 12; }
+@media (min-width: 900px) {
+  .bento-col-8 { grid-column: span 7; }
+  .bento-col-4 { grid-column: span 5; }
+  .bento-col-6 { grid-column: span 4; }
+}
+
+.bento-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 11.5px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--mono-accent);
+  margin-bottom: 1rem;
+}
+[data-theme="light"] .bento-tag {
+  color: #09090b;
+}
+.bento-tag i,
+.bento-tag .material-symbols-outlined {
+  font-size: 1.25rem;
+}
+
+.bento-card h3 {
+  font-size: 22px;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.85rem;
+}
+@media (min-width: 768px) {
+  .bento-card h3 { font-size: 24px; }
+}
+.bento-card p {
+  color: var(--soft);
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.bento-checklist {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.85rem;
+  margin: 1.6rem 0 2rem;
+}
+@media (min-width: 560px) {
+  .bento-checklist { grid-template-columns: 1fr 1fr; }
+}
+.bento-checklist li {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-size: 14px;
+  color: var(--ink);
+  font-weight: 500;
+}
+.bento-checklist li i {
+  color: var(--mono-accent);
+  font-size: 1.15rem;
+  flex: none;
+}
+[data-theme="light"] .bento-checklist li i {
+  color: #09090b;
+}
+
+.spec-box {
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  padding: 1.25rem;
+  margin-top: 1.6rem;
+  display: grid;
+  gap: 0.65rem;
+  font-size: 13px;
+}
+.spec-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border);
+}
+.spec-row:last-child { border-bottom: none; padding-bottom: 0; }
+.spec-row span { color: var(--soft); }
+.spec-row strong { color: var(--ink); font-weight: 700; }
+
+.bento-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-top: 1.8rem;
+  transition: gap 0.2s ease, opacity 0.2s ease;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 2px;
+  width: fit-content;
+}
+.bento-link:hover {
+  gap: 0.8rem;
+  border-color: var(--mono-accent);
+}
+
+/* ── Stepper Metodologia 4 Etapas ───────────────────── */
+.stepper-section {
+  padding: clamp(4rem, 7vw, 6.5rem) 0;
+  border-bottom: 1px solid var(--border);
+}
+.stepper-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+@media (min-width: 768px) {
+  .stepper-grid { grid-template-columns: repeat(4, 1fr); gap: 2rem; }
+}
+
+.step-card {
+  position: relative;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: 2rem 1.6rem;
+  box-shadow: var(--shadow-card);
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+.step-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--mono-accent);
+}
+.step-num {
+  font-family: var(--font-display);
+  font-size: 2.2rem;
+  line-height: 1;
+  color: var(--soft);
+  margin-bottom: 1.2rem;
+  letter-spacing: 0.02em;
+}
+.step-card h4 {
+  font-size: 17px;
+  margin-bottom: 0.65rem;
+}
+.step-card p {
+  color: var(--soft);
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+/* ── Portfólio de Obras e Instalações (6 Imagens) ───── */
+.portfolio-section {
+  padding: clamp(4rem, 7vw, 6.5rem) 0;
+  border-bottom: 1px solid var(--border);
+}
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.6rem;
+}
+@media (min-width: 640px) {
+  .portfolio-grid { grid-template-columns: repeat(2, 1fr); gap: 1.8rem; }
+}
+@media (min-width: 980px) {
+  .portfolio-grid { grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+}
+
+.portfolio-card {
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  background: var(--card);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-card);
+  cursor: pointer;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+  display: flex;
+  flex-direction: column;
+}
+.portfolio-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--mono-accent);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4), 0 20px 40px -12px rgba(0, 0, 0, 0.7);
+}
+
+.portfolio-media {
+  position: relative;
+  aspect-ratio: 16 / 11;
+  overflow: hidden;
+  background: var(--bg-subtle);
+}
+.portfolio-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+.portfolio-card:hover .portfolio-media img {
+  transform: scale(1.05);
+}
+.portfolio-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  padding: 0.35rem 0.75rem;
+  border-radius: var(--r-full);
+  background: rgba(9, 9, 11, 0.75);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.portfolio-info {
+  padding: 1.4rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: space-between;
+}
+.portfolio-info h4 {
+  font-size: 16.5px;
+  margin-bottom: 0.4rem;
+}
+.portfolio-info p {
+  color: var(--soft);
+  font-size: 13.5px;
+  line-height: 1.6;
+}
+.portfolio-action {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 1.2rem;
+  padding-top: 0.9rem;
+  border-top: 1px solid var(--border);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+/* ── Seção Sobre a Empresa Vivaz ─────────────────────── */
+.about-section {
+  padding: clamp(4rem, 7vw, 6.5rem) 0;
+  border-bottom: 1px solid var(--border);
+}
+.about-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 3.5rem;
+}
+@media (min-width: 900px) {
+  .about-grid {
+    display: grid;
+    grid-template-columns: 0.95fr 1.05fr;
+    gap: 4.8rem;
+    align-items: center;
+  }
+}
+
+.about-card-frame {
+  position: relative;
+  border-radius: var(--r-lg);
+  border: 1px solid var(--border);
+  padding: 10px;
+  background: var(--card);
+  box-shadow: var(--shadow-card);
+  max-width: 480px;
+  margin-inline: auto;
+  width: 100%;
+}
+.about-media {
+  border-radius: calc(var(--r-lg) - 5px);
+  overflow: hidden;
+  aspect-ratio: 4 / 4.8;
+}
+.about-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.credentials-list {
+  list-style: none;
+  display: grid;
+  gap: 1rem;
+  margin: 2rem 0 2.2rem;
+}
+.credential-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.25rem;
+  border-radius: var(--r-md);
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
+}
+.credential-item i,
+.credential-item .material-symbols-outlined {
+  color: var(--mono-accent);
+  font-size: 1.5rem;
+  flex: none;
+  margin-top: 0.1rem;
+}
+[data-theme="light"] .credential-item i,
+[data-theme="light"] .credential-item .material-symbols-outlined {
+  color: #09090b;
+}
+.credential-item strong { display: block; font-size: 15px; color: var(--ink); }
+.credential-item span { font-size: 13.5px; color: var(--soft); margin-top: 0.2rem; display: block; }
+
+/* ── Avaliações / Prova Social ───────────────────────── */
+.reviews-section {
+  padding: clamp(4rem, 7vw, 6.5rem) 0;
+  border-bottom: 1px solid var(--border);
+}
+.reviews-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.6rem;
+}
+@media (min-width: 768px) {
+  .reviews-grid { grid-template-columns: repeat(3, 1fr); gap: 1.8rem; }
+}
+
+.review-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: 2rem 1.8rem;
+  box-shadow: var(--shadow-card);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.review-stars {
+  display: flex;
+  gap: 0.25rem;
+  margin-bottom: 1rem;
+  color: var(--mono-accent);
+  font-size: 1.1rem;
+}
+[data-theme="light"] .review-stars {
+  color: #09090b;
+}
+.review-text {
+  font-size: 14.5px;
+  line-height: 1.7;
+  color: var(--soft);
+  margin-bottom: 1.5rem;
+}
+.review-author strong {
+  display: block;
+  font-size: 14.5px;
+  color: var(--ink);
+}
+.review-author span {
+  font-size: 12.5px;
+  color: var(--soft);
+}
+
+/* ── FAQ Acordeão ────────────────────────────────────── */
+.faq-section {
+  padding: clamp(4rem, 7vw, 6.5rem) 0;
+  border-bottom: 1px solid var(--border);
+}
+.faq-list {
+  max-width: 820px;
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+details.faq-item {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  overflow: hidden;
+  transition: border-color 0.2s ease;
+}
+details.faq-item[open] {
+  border-color: var(--mono-accent);
+}
+summary.faq-summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 1.4rem 1.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--ink);
+  user-select: none;
+}
+summary.faq-summary::-webkit-details-marker { display: none; }
+.faq-icon {
+  font-size: 1.2rem;
+  transition: transform 0.2s ease;
+}
+details[open] .faq-icon {
+  transform: rotate(45deg);
+}
+.faq-answer {
+  padding: 0 1.6rem 1.4rem;
+  color: var(--soft);
+  font-size: 14.5px;
+  line-height: 1.7;
+}
+
+/* ── Formulário de Contato Rápido no WhatsApp ────────── */
+.contact-section {
+  padding: clamp(4.5rem, 8vw, 7rem) 0;
+  background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.02) 0%, transparent 70%);
+}
+.contact-card {
+  max-width: 760px;
+  margin-inline: auto;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: 2.2rem 1.8rem;
+  box-shadow: var(--shadow-card);
+}
+@media (min-width: 768px) {
+  .contact-card { padding: 3.2rem 3rem; }
+}
+
+.contact-form {
+  display: grid;
+  gap: 1.4rem;
+  margin-top: 2rem;
+}
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.form-group label {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--ink);
+}
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 0.95rem 1.15rem;
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
+  border-radius: var(--r-sm);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 14.5px;
+  transition: border-color 0.2s ease, outline 0.2s ease;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--mono-accent);
+}
+
+/* ── Footer Moderno Monocromático ────────────────────── */
+footer {
+  border-top: 1px solid var(--border);
+  padding: 3.5rem 0 2.5rem;
+  background: var(--bg);
+  color: var(--soft);
+  font-size: 13.5px;
+}
+.footer-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+  text-align: center;
+}
+@media (min-width: 768px) {
+  .footer-inner {
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
+  }
+}
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: var(--ink);
+  font-size: 15px;
+}
+.footer-links {
+  display: flex;
+  gap: 1.6rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.footer-links a:hover { color: var(--ink); }
+.dev-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: var(--r-full);
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
+  font-size: 12.5px;
+  color: var(--soft);
+}
+.dev-badge strong { color: var(--ink); }
+.dev-badge:hover { border-color: var(--mono-accent); }
+
+/* ── Botão Flutuante Isolado do WhatsApp ─────────────── */
+.fab-whatsapp {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: var(--wa);
+  color: #ffffff;
+  display: grid;
+  place-items: center;
+  z-index: 99;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4), 0 0 0 0 rgba(21, 128, 61, 0.7);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease;
+  animation: pulse-wa 2.5s infinite;
+}
+.fab-whatsapp:hover {
+  transform: scale(1.1);
+  background: var(--wa-hover);
+}
+.fab-whatsapp svg {
+  width: 32px;
+  height: 32px;
+}
+
+@keyframes pulse-wa {
+  0% { box-shadow: 0 0 0 0 rgba(21, 128, 61, 0.6); }
+  70% { box-shadow: 0 0 0 16px rgba(21, 128, 61, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(21, 128, 61, 0); }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ══════════════════════════════════════════════════════════
+     HEADER MINIMALISTA DE ALTO PADRÃO (P&B)
+══════════════════════════════════════════════════════════ -->
+<header>
+  <div class="wrap topbar">
+    <a href="#hero" class="brand" aria-label="Vivaz Serviços e Soluções Início">
+      <div class="brand-logo-frame">
+        <img src="imgs/logo-vivaz-white.png" alt="Logo Vivaz Serviços e Soluções" class="brand-logo-dark" width="38" height="38">
+        <img src="imgs/logo-vivaz-transparent.png" alt="Logo Vivaz Serviços e Soluções" class="brand-logo-light" width="38" height="38">
+      </div>
+      <div class="brand-text">
+        <span class="brand-name">Vivaz</span>
+        <span class="brand-sub">Serviços & Soluções</span>
+      </div>
+    </a>
+
+    <nav class="nav-links" aria-label="Navegação Principal">
+      <a href="#especialidades">Especialidades</a>
+      <a href="#metodologia">Como Atuamos</a>
+      <a href="#obras">Obras & Portfólio</a>
+      <a href="#sobre">A Empresa</a>
+      <a href="#avaliacoes">Depoimentos</a>
+      <a href="#faq">Dúvidas</a>
+    </nav>
+
+    <div class="header-right">
+      <button id="theme-btn" type="button" aria-label="Alternar tema claro e escuro">
+        <i class="ph-bold ph-sun"></i>
+        <i class="ph-bold ph-moon"></i>
+      </button>
+
+      <a id="hdr-wa" href="#contato" class="btn btn-sm btn-wa">
+        <svg class="svg-wa" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2ZM12.04 3.67C14.24 3.67 16.31 4.53 17.87 6.08C19.42 7.64 20.28 9.71 20.28 11.92C20.28 16.46 16.59 20.16 12.04 20.16C10.59 20.16 9.17 19.78 7.92 19.04L7.62 18.86L4.5 19.68L5.33 16.64L5.13 16.32C4.33 15.04 3.8 13.5 3.8 11.91C3.8 7.37 7.5 3.67 12.04 3.67ZM8.97 7.42C8.76 7.42 8.51 7.5 8.3 7.73C8.08 7.96 7.49 8.52 7.49 9.65C7.49 10.78 8.32 11.87 8.44 12.02C8.56 12.18 10.03 14.47 12.33 15.42C14.24 16.2 14.63 16.05 15.06 16.01C15.48 15.97 16.42 15.45 16.61 14.91C16.8 14.37 16.8 13.91 16.74 13.82C16.68 13.73 16.53 13.67 16.31 13.56C16.1 13.45 15.06 12.94 14.87 12.87C14.67 12.8 14.53 12.76 14.39 12.98C14.24 13.2 13.83 13.68 13.7 13.83C13.58 13.98 13.46 14 13.25 13.89C13.03 13.78 12.34 13.55 11.52 12.82C10.88 12.25 10.45 11.54 10.33 11.33C10.21 11.11 10.31 10.99 10.42 10.88C10.52 10.78 10.64 10.62 10.76 10.48C10.88 10.34 10.92 10.23 11 10.07C11.08 9.91 11.04 9.77 10.98 9.65C10.92 9.53 10.47 8.42 10.28 7.96C10.1 7.52 9.91 7.58 9.77 7.57L9.34 7.56C9.13 7.56 8.97 7.42 8.97 7.42Z"/>
+        </svg>
+        <span>Solicitar Orçamento</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<main id="hero">
+
+<!-- ══════════════════════════════════════════════════════════
+     HERO SECTION COM O TEXTO E BULLETS ESPECIFICADOS
+══════════════════════════════════════════════════════════ -->
+<section class="hero">
+  <div class="wrap hero-inner">
+    <div class="hero-content">
+      <div class="eyebrow">
+        <span class="dot"></span>
+        <span>Construção · Manutenção · Soluções Integradas</span>
+      </div>
+
+      <h1>
+        SOLUÇÕES COMPLETAS EM CONSTRUÇÃO E MANUTENÇÃO COM <em>PADRÃO DE EXCELÊNCIA</em>
+      </h1>
+
+      <p class="hero-quote">
+        <strong>“Empresa especializada em construção, manutenção e soluções residenciais e comerciais. Atuamos com elétrica, hidráulica, pintura, mármores e afins.”</strong>
+      </p>
+
+      <!-- Checklist em Destaque Obrigatório -->
+      <ul class="hero-checklist">
+        <li class="hero-checklist-item">
+          <i class="bi bi-check2-circle"></i>
+          <span><strong>Manutenção residencial e comercial</strong></span>
+        </li>
+        <li class="hero-checklist-item">
+          <i class="bi bi-check2-circle"></i>
+          <span><strong>Elétrica • Hidráulica • Pintura • Alvenaria</strong></span>
+        </li>
+        <li class="hero-checklist-item">
+          <i class="bi bi-check2-circle"></i>
+          <span><strong>Serviços gerais e reparos especializados</strong></span>
+        </li>
+      </ul>
+
+      <div class="hero-actions">
+        <a id="hero-wa" href="#contato" class="btn btn-wa">
+          <svg class="svg-wa" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2ZM12.04 3.67C14.24 3.67 16.31 4.53 17.87 6.08C19.42 7.64 20.28 9.71 20.28 11.92C20.28 16.46 16.59 20.16 12.04 20.16C10.59 20.16 9.17 19.78 7.92 19.04L7.62 18.86L4.5 19.68L5.33 16.64L5.13 16.32C4.33 15.04 3.8 13.5 3.8 11.91C3.8 7.37 7.5 3.67 12.04 3.67ZM8.97 7.42C8.76 7.42 8.51 7.5 8.3 7.73C8.08 7.96 7.49 8.52 7.49 9.65C7.49 10.78 8.32 11.87 8.44 12.02C8.56 12.18 10.03 14.47 12.33 15.42C14.24 16.2 14.63 16.05 15.06 16.01C15.48 15.97 16.42 15.45 16.61 14.91C16.8 14.37 16.8 13.91 16.74 13.82C16.68 13.73 16.53 13.67 16.31 13.56C16.1 13.45 15.06 12.94 14.87 12.87C14.67 12.8 14.53 12.76 14.39 12.98C14.24 13.2 13.83 13.68 13.7 13.83C13.58 13.98 13.46 14 13.25 13.89C13.03 13.78 12.34 13.55 11.52 12.82C10.88 12.25 10.45 11.54 10.33 11.33C10.21 11.11 10.31 10.99 10.42 10.88C10.52 10.78 10.64 10.62 10.76 10.48C10.88 10.34 10.92 10.23 11 10.07C11.08 9.91 11.04 9.77 10.98 9.65C10.92 9.53 10.47 8.42 10.28 7.96C10.1 7.52 9.91 7.58 9.77 7.57L9.34 7.56C9.13 7.56 8.97 7.42 8.97 7.42Z"/>
+          </svg>
+          <span>Falar com a Equipe Vivaz</span>
+        </a>
+        <a href="#especialidades" class="btn btn-ghost">
+          <i class="bi bi-arrow-down-circle"></i>
+          <span>Ver Especialidades</span>
+        </a>
+      </div>
+
+      <div class="hero-badges">
+        <div class="hero-badge-item">
+          <span class="material-symbols-outlined">verified</span>
+          <span>Garantia & <strong>Rigor Técnico</strong></span>
+        </div>
+        <div class="hero-badge-item">
+          <span class="material-symbols-outlined">schedule</span>
+          <span>Pontualidade <strong>em Cada Etapa</strong></span>
+        </div>
+        <div class="hero-badge-item">
+          <span class="material-symbols-outlined">engineering</span>
+          <span>Equipe <strong>Multidisciplinar</strong></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Imagem em Destaque no Hero (Suíte de Luxo com Iluminação Sanca LED) -->
+    <div class="hero-frame">
+      <div class="hero-media">
+        <img src="imgs/obra-suite-luxo.png" alt="Obra de Alto Padrão Vivaz - Suíte Master com Iluminação e Acabamento Nobre" width="860" height="536" fetchpriority="high">
+        <div class="hero-caption">
+          <div class="hero-caption-txt">
+            <strong>Obra Residencial de Alto Padrão</strong>
+            <span>Iluminação em Sanca de LED, Marcenaria e Acabamentos Nobres</span>
+          </div>
+          <span class="hero-pill">
+            <i class="bi bi-shield-check"></i>
+            <span>Execução Vivaz</span>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     MARQUEE CONTÍNUO (MONOCROMÁTICO REFINADO)
+══════════════════════════════════════════════════════════ -->
+<div class="marquee-wrap" aria-hidden="true">
+  <div class="marquee-track">
+    <div class="marquee-group">
+      <span><span class="material-symbols-outlined">home_repair_service</span> Manutenção Residencial & Comercial</span>
+      <span><i class="bi bi-lightning-charge-fill"></i> Instalações Elétricas de Alta Precisão</span>
+      <span><span class="material-symbols-outlined">plumbing</span> Hidráulica & Desentupimento</span>
+      <span><span class="material-symbols-outlined">format_paint</span> Pintura Fina & Texturas</span>
+      <span><span class="material-symbols-outlined">countertops</span> Mármores, Granitos & Bancadas</span>
+      <span><span class="material-symbols-outlined">construction</span> Alvenaria Estrutural & Reformas</span>
+      <span><i class="bi bi-shield-check"></i> Reparos Especializados com Garantia</span>
+    </div>
+    <div class="marquee-group">
+      <span><span class="material-symbols-outlined">home_repair_service</span> Manutenção Residencial & Comercial</span>
+      <span><i class="bi bi-lightning-charge-fill"></i> Instalações Elétricas de Alta Precisão</span>
+      <span><span class="material-symbols-outlined">plumbing</span> Hidráulica & Desentupimento</span>
+      <span><span class="material-symbols-outlined">format_paint</span> Pintura Fina & Texturas</span>
+      <span><span class="material-symbols-outlined">countertops</span> Mármores, Granitos & Bancadas</span>
+      <span><span class="material-symbols-outlined">construction</span> Alvenaria Estrutural & Reformas</span>
+      <span><i class="bi bi-shield-check"></i> Reparos Especializados com Garantia</span>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════
+     MÉTRICAS & INDICADORES DE CONFIANÇA
+══════════════════════════════════════════════════════════ -->
+<section class="metrics-strip">
+  <div class="wrap">
+    <div class="metrics-grid">
+      <div class="metric-item">
+        <div class="metric-val">+10 <span class="acc">Anos</span></div>
+        <div class="metric-label">Experiência Consolidada</div>
+        <div class="metric-sub">Em obras civis, manutenções e reparos completos.</div>
+      </div>
+      <div class="metric-item">
+        <div class="metric-val">100% <span class="acc">Prazo</span></div>
+        <div class="metric-label">Compromisso com o Cronograma</div>
+        <div class="metric-sub">Planejamento e entrega sem atrasos indesejados.</div>
+      </div>
+      <div class="metric-item">
+        <div class="metric-val">5.0 <span class="acc">★</span></div>
+        <div class="metric-label">Satisfação Comprovada</div>
+        <div class="metric-sub">Avaliações de excelência em residências e comércios.</div>
+      </div>
+      <div class="metric-item">
+        <div class="metric-val">Zero <span class="acc">Dor de Cabeça</span></div>
+        <div class="metric-label">Obra Limpa & Segura</div>
+        <div class="metric-sub">Proteção do ambiente e limpeza diária durante a execução.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     BENTO GRID DE ESPECIALIDADES VIVAZ
+══════════════════════════════════════════════════════════ -->
+<section id="especialidades" class="bento-section">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">
+        <span class="material-symbols-outlined" style="font-size: 16px;">handyman</span>
+        <span>Nossas Soluções Especializadas</span>
+      </div>
+      <h2>Construção, Manutenção e Acabamentos com Padrão Superior</h2>
+      <p>
+        Atuamos em todas as etapas da sua obra ou reforma. Desde a infraestrutura pesada até os acabamentos finos de iluminação, mármore e pintura, oferecemos soluções integradas com um único ponto de contato.
+      </p>
+    </div>
+
+    <div class="bento-grid">
+      <!-- 1. Manutenção Residencial & Comercial (Destaque Principal) -->
+      <div class="bento-card bento-col-8">
+        <div>
+          <div class="bento-tag">
+            <span class="material-symbols-outlined">home_repair_service</span>
+            <span>Gestão Preventiva e Corretiva</span>
+          </div>
+          <h3>Manutenção Residencial e Comercial Completa</h3>
+          <p>
+            Atendimento especializado para casas, apartamentos, condomínios, escritórios, consultórios e redes comerciais. Realizamos vistorias técnicas periódicas, reparos de emergência e programas contínuos de conservação predial para valorizar seu imóvel.
+          </p>
+
+          <ul class="bento-checklist">
+            <li><i class="bi bi-check2-circle"></i> Vistorias prediais e diagnósticos de conformidade</li>
+            <li><i class="bi bi-check2-circle"></i> Suporte ágil a comércios e empresas</li>
+            <li><i class="bi bi-check2-circle"></i> Reparos corretivos e manutenções preventivas</li>
+            <li><i class="bi bi-check2-circle"></i> Equipe técnica uniformizada e qualificada</li>
+          </ul>
+        </div>
+
+        <a href="#contato" class="bento-link" data-wa="Olá Vivaz! Gostaria de um orçamento para Manutenção Residencial/Comercial.">
+          <span>Solicitar proposta de manutenção</span>
+          <i class="bi bi-arrow-right"></i>
+        </a>
+      </div>
+
+      <!-- 2. Elétrica de Alto Padrão -->
+      <div class="bento-card bento-col-4">
+        <div>
+          <div class="bento-tag">
+            <i class="bi bi-lightning-charge-fill"></i>
+            <span>Instalações & Iluminação</span>
+          </div>
+          <h3>Elétrica & Iluminação de Alto Padrão</h3>
+          <p>
+            Quadros de distribuição (QDC), balanceamento de cargas, reparo de curto-circuitos, iluminação cênica de LED, sancas, lustres de luxo e cabeamento estruturado com conformidade NBR 5410.
+          </p>
+
+          <div class="spec-box">
+            <div class="spec-row">
+              <span>Normas Técnicas</span>
+              <strong>NBR 5410 & NR 10</strong>
+            </div>
+            <div class="spec-row">
+              <span>Proteção</span>
+              <strong>Disjuntores DIN, DR e DPS</strong>
+            </div>
+            <div class="spec-row">
+              <span>Iluminação</span>
+              <strong>Perfis de LED e Lustres</strong>
+            </div>
+          </div>
+        </div>
+
+        <a href="#contato" class="bento-link" data-wa="Olá Vivaz! Preciso de serviços de Elétrica e Iluminação de Alto Padrão.">
+          <span>Falar sobre elétrica</span>
+          <i class="bi bi-arrow-right"></i>
+        </a>
+      </div>
+
+      <!-- 3. Hidráulica Completa -->
+      <div class="bento-card bento-col-6">
+        <div>
+          <div class="bento-tag">
+            <span class="material-symbols-outlined">plumbing</span>
+            <span>Instalações Hidrossanitárias</span>
+          </div>
+          <h3>Hidráulica & Encanamentos</h3>
+          <p>
+            Localização e conserto de vazamentos, substituição de tubulações de água fria e quente, válvulas de descarga, registros gerais, desentupimentos e instalação de metais nobres.
+          </p>
+        </div>
+
+        <a href="#contato" class="bento-link" data-wa="Olá Vivaz! Preciso de um especialista em Hidráulica para meu imóvel.">
+          <span>Pedir orçamento hidráulico</span>
+          <i class="bi bi-arrow-right"></i>
+        </a>
+      </div>
+
+      <!-- 4. Pintura & Acabamentos Finos -->
+      <div class="bento-card bento-col-6">
+        <div>
+          <div class="bento-tag">
+            <span class="material-symbols-outlined">format_paint</span>
+            <span>Estética & Proteção</span>
+          </div>
+          <h3>Pintura & Texturas Nobres</h3>
+          <p>
+            Pintura residencial e predial de alto padrão. Aplicação de massa corrida, cimento queimado, textura projetada, pintura acetinada e restauração de esquadrias com acabamento liso e sem marcas.
+          </p>
+        </div>
+
+        <a href="#contato" class="bento-link" data-wa="Olá Vivaz! Gostaria de um orçamento para Pintura e Acabamentos.">
+          <span>Consultar serviço de pintura</span>
+          <i class="bi bi-arrow-right"></i>
+        </a>
+      </div>
+
+      <!-- 5. Alvenaria & Reformas -->
+      <div class="bento-card bento-col-6">
+        <div>
+          <div class="bento-tag">
+            <span class="material-symbols-outlined">construction</span>
+            <span>Construção & Reformas</span>
+          </div>
+          <h3>Alvenaria & Obras Civis</h3>
+          <p>
+            Demolição controlada, construção de paredes de alvenaria e drywall, contrapiso nivelado, assentamento de porcelanatos de grande formato, impermeabilização e reformas integradas.
+          </p>
+        </div>
+
+        <a href="#contato" class="bento-link" data-wa="Olá Vivaz! Gostaria de um orçamento para Alvenaria e Reforma.">
+          <span>Orçar reforma civil</span>
+          <i class="bi bi-arrow-right"></i>
+        </a>
+      </div>
+
+      <!-- 6. Mármores, Granitos & Afins -->
+      <div class="bento-card bento-col-8">
+        <div>
+          <div class="bento-tag">
+            <span class="material-symbols-outlined">countertops</span>
+            <span>Pedras Nobres & Acabamentos</span>
+          </div>
+          <h3>Mármores, Granitos e Pedras Naturais</h3>
+          <p>
+            Instalação e assentamento milimétrico de bancadas para cozinhas gourmet, pias esculpidas em mármore para banheiros, soleiras, peitoris, nichos embutidos e pisos em pedras de luxo. Tratamento com resinas selantes contra manchas e desgastes.
+          </p>
+
+          <ul class="bento-checklist">
+            <li><i class="bi bi-check2-circle"></i> Bancadas sob medida para cozinhas e banheiros</li>
+            <li><i class="bi bi-check2-circle"></i> Pias esculpidas e nichos de alta precisão</li>
+            <li><i class="bi bi-check2-circle"></i> Assentamento de soleiras, rodapés e escadas</li>
+            <li><i class="bi bi-check2-circle"></i> Impermeabilização e polimento especializado</li>
+          </ul>
+        </div>
+
+        <a href="#contato" class="bento-link" data-wa="Olá Vivaz! Gostaria de um orçamento para Mármores, Granitos e afins.">
+          <span>Ver soluções em mármores</span>
+          <i class="bi bi-arrow-right"></i>
+        </a>
+      </div>
+
+      <!-- 7. Serviços Gerais & Reparos Especializados -->
+      <div class="bento-card bento-col-4">
+        <div>
+          <div class="bento-tag">
+            <i class="bi bi-tools"></i>
+            <span>Agilidade & Precisão</span>
+          </div>
+          <h3>Serviços Gerais e Reparos Especializados</h3>
+          <p>
+            Soluções ágeis para pequenos reparos do dia a dia, fixação de espelhos, suportes de TV, ajustes em portas, fechaduras, vedação de silicone e ajustes pós-mudança.
+          </p>
+        </div>
+
+        <a href="#contato" class="bento-link" data-wa="Olá Vivaz! Preciso de Serviços Gerais e Reparos Especializados.">
+          <span>Agendar reparo</span>
+          <i class="bi bi-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     METODOLOGIA EM 4 ETAPAS
+══════════════════════════════════════════════════════════ -->
+<section id="metodologia" class="stepper-section">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">
+        <i class="bi bi-kanban"></i>
+        <span>Como Trabalhamos</span>
+      </div>
+      <h2>Metodologia Transparente do Briefing à Entrega</h2>
+      <p>Nosso processo foi desenhado para eliminar surpresas, garantir cumprimento rigoroso do prazo e entregar acabamentos com padrão de excelência.</p>
+    </div>
+
+    <div class="stepper-grid">
+      <div class="step-card">
+        <div class="step-num">01</div>
+        <h4>Contato & Briefing</h4>
+        <p>Você nos envia fotos, vídeos ou descreve sua necessidade via WhatsApp para uma triagem inicial imediata.</p>
+      </div>
+
+      <div class="step-card">
+        <div class="step-num">02</div>
+        <h4>Visita Técnica & Proposta</h4>
+        <p>Avaliamos o local, mapeamos os insumos e enviamos uma proposta detalhada com cronograma claro e preço fechado.</p>
+      </div>
+
+      <div class="step-card">
+        <div class="step-num">03</div>
+        <h4>Execução com Obra Limpa</h4>
+        <p>Nossa equipe executa os serviços protegendo móveis e pisos, seguindo rigor técnico e mantendo o espaço sempre organizado.</p>
+      </div>
+
+      <div class="step-card">
+        <div class="step-num">04</div>
+        <h4>Entrega com Garantia</h4>
+        <p>Realizamos a vistoria final junto com você e emitimos o termo de garantia por escrito do serviço executado.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     PORTFÓLIO DE OBRAS & PROJETOS REAIS (6 CARDS)
+══════════════════════════════════════════════════════════ -->
+<section id="obras" class="portfolio-section">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">
+        <span class="material-symbols-outlined" style="font-size: 16px;">photo_camera</span>
+        <span>Galeria de Obras Recentes</span>
+      </div>
+      <h2>Projetos e Reformas Executados pela Vivaz</h2>
+      <p>Veja registros reais de obras, reformas e instalações entregues com acabamento nobre, rigor estético e durabilidade.</p>
+    </div>
+
+    <div class="portfolio-grid">
+      <!-- Obra 1: Suíte Master Luxo -->
+      <div class="portfolio-card port-click" data-service="Suíte Master com Iluminação em LED e Acabamento Nobre">
+        <div class="portfolio-media">
+          <img src="imgs/obra-suite-luxo.png" alt="Reforma de Suíte Master de Alto Padrão - Vivaz" loading="lazy">
+          <span class="portfolio-badge">Iluminação & Reforma</span>
+        </div>
+        <div class="portfolio-info">
+          <div>
+            <h4>Suíte Master de Alto Padrão</h4>
+            <p>Iluminação cênica em sanca de LED embutida, cabeceira ripada de madeira e pintura acetinada impecável.</p>
+          </div>
+          <div class="portfolio-action">
+            <span>Quero projeto similar</span>
+            <i class="bi bi-whatsapp"></i>
+          </div>
+        </div>
+      </div>
+
+      <!-- Obra 2: Instalação de Lustre Pendente -->
+      <div class="portfolio-card port-click" data-service="Instalação de Lustre Pendente Artesanal e Iluminação de Design">
+        <div class="portfolio-media">
+          <img src="imgs/obra-luminaria.png" alt="Instalação de Lustre Pendente de Design - Vivaz" loading="lazy">
+          <span class="portfolio-badge">Iluminação & Design</span>
+        </div>
+        <div class="portfolio-info">
+          <div>
+            <h4>Instalação de Lustre Pendente</h4>
+            <p>Fixação estrutural em teto rebaixado com passagem de fiação limpa e iluminação com lâmpada filamento decorativa.</p>
+          </div>
+          <div class="portfolio-action">
+            <span>Quero projeto similar</span>
+            <i class="bi bi-whatsapp"></i>
+          </div>
+        </div>
+      </div>
+
+      <!-- Obra 3: Reforma e Infraestrutura Técnica -->
+      <div class="portfolio-card port-click" data-service="Reforma Civil e Infraestrutura Técnica">
+        <div class="portfolio-media">
+          <img src="imgs/shutterstock_1192486429-1.jpg" alt="Reforma Civil e Estrutura Técnica Vivaz" loading="lazy">
+          <span class="portfolio-badge">Construção Civil</span>
+        </div>
+        <div class="portfolio-info">
+          <div>
+            <h4>Infraestrutura Civil & Reformas</h4>
+            <p>Reestruturação de tubulações, passagem de eletrodutos e preparação estrutural para acabamentos finos.</p>
+          </div>
+          <div class="portfolio-action">
+            <span>Quero projeto similar</span>
+            <i class="bi bi-whatsapp"></i>
+          </div>
+        </div>
+      </div>
+
+      <!-- Obra 4: Quadro de Distribuição & Proteção NBR 5410 -->
+      <div class="portfolio-card port-click" data-service="Montagem de Quadro de Distribuição NBR 5410">
+        <div class="portfolio-media">
+          <img src="imgs/66612799-eletricista-maos-as-trabalhos-com-isolado-ferramentas-dentro-molhado-clima-foto.jpg" alt="Instalação de Quadro Elétrico e Manutenção" loading="lazy">
+          <span class="portfolio-badge">Elétrica Técnica</span>
+        </div>
+        <div class="portfolio-info">
+          <div>
+            <h4>Quadro Elétrico & Proteção Total</h4>
+            <p>Instalação de disjuntores termomagnéticos, DR bipolar contra choques e DPS protetor de surtos atmosféricos.</p>
+          </div>
+          <div class="portfolio-action">
+            <span>Quero projeto similar</span>
+            <i class="bi bi-whatsapp"></i>
+          </div>
+        </div>
+      </div>
+
+      <!-- Obra 5: Manutenção Hidráulica e Predial -->
+      <div class="portfolio-card port-click" data-service="Manutenção Hidráulica Predial e Residencial">
+        <div class="portfolio-media">
+          <img src="imgs/curso-eletricista-residencial-sao-jose-dos-pinhais-10.webp" alt="Manutenção Hidráulica e Instalações Prediais" loading="lazy">
+          <span class="portfolio-badge">Hidráulica</span>
+        </div>
+        <div class="portfolio-info">
+          <div>
+            <h4>Instalações Hidráulicas & Redes</h4>
+            <p>Substituição de conexões, adequação de pressão em chuveiros e revisão preventiva em prumadas de condomínio.</p>
+          </div>
+          <div class="portfolio-action">
+            <span>Quero projeto similar</span>
+            <i class="bi bi-whatsapp"></i>
+          </div>
+        </div>
+      </div>
+
+      <!-- Obra 6: Manutenção e Reparos Especializados -->
+      <div class="portfolio-card port-click" data-service="Manutenção Comercial e Reparos Corporativos">
+        <div class="portfolio-media">
+          <img src="imgs/eletricista.jpg" alt="Manutenção Comercial e Reparos Especializados Vivaz" loading="lazy">
+          <span class="portfolio-badge">Comercial & Geral</span>
+        </div>
+        <div class="portfolio-info">
+          <div>
+            <h4>Manutenção Comercial & Corporativa</h4>
+            <p>Atendimento programado a clínicas, escritórios e lojas comerciais com rapidez e mínimo impacto na operação.</p>
+          </div>
+          <div class="portfolio-action">
+            <span>Quero projeto similar</span>
+            <i class="bi bi-whatsapp"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     SOBRE A VIVAZ SERVIÇOS & SOLUÇÕES
+══════════════════════════════════════════════════════════ -->
+<section id="sobre" class="about-section">
+  <div class="wrap about-grid">
+    <div class="about-card-frame">
+      <div class="about-media">
+        <img src="imgs/obra-suite-luxo.png" alt="Vivaz Serviços e Soluções Compromisso com a Qualidade" loading="lazy">
+      </div>
+    </div>
+
+    <div class="about-content">
+      <div class="eyebrow">
+        <i class="bi bi-building-check"></i>
+        <span>Autoridade & Compromisso</span>
+      </div>
+      <h2>Construção e Manutenção com Respeito ao Seu Patrimônio</h2>
+      <p>
+        A <strong>Vivaz Serviços & Soluções</strong> nasceu com o propósito de redefinir o setor de prestação de serviços civis e manutenção predial. Unimos capacidade técnica multidisciplinar, pontualidade britânica e acabamento refinado para que você nunca mais precise se preocupar com obras inacabadas ou profissionais desqualificados.
+      </p>
+
+      <ul class="credentials-list">
+        <li class="credential-item">
+          <span class="material-symbols-outlined">shield_with_heart</span>
+          <div>
+            <strong>Garantia Contratual por Escrito</strong>
+            <span>Todos os nossos serviços contam com garantia documentada para total tranquilidade.</span>
+          </div>
+        </li>
+        <li class="credential-item">
+          <span class="material-symbols-outlined">cleaning_services</span>
+          <div>
+            <strong>Compromisso de Obra Limpa</strong>
+            <span>Ambiente envelopado, móveis protegidos e descarte ambientalmente adequado de resíduos.</span>
+          </div>
+        </li>
+        <li class="credential-item">
+          <span class="material-symbols-outlined">receipt_long</span>
+          <div>
+            <strong>Orçamento Transparente e Sem Surpresas</strong>
+            <span>Detalhamento minucioso de mão de obra e insumos recomendados antes de iniciar o trabalho.</span>
+          </div>
+        </li>
+      </ul>
+
+      <a id="about-wa" href="#contato" class="btn btn-primary">
+        <i class="bi bi-whatsapp"></i>
+        <span>Conhecer Nossos Diferenciais</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     AVALIAÇÕES & DEPOIMENTOS
+══════════════════════════════════════════════════════════ -->
+<section id="avaliacoes" class="reviews-section">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">
+        <i class="bi bi-star-fill"></i>
+        <span>Prova Social 5.0 Estrelas</span>
+      </div>
+      <h2>O Que Nossos Clientes Dizem Sobre a Vivaz</h2>
+      <p>A confiança de nossos clientes é nosso maior patrimônio. Veja depoimentos reais de quem contratou a Vivaz.</p>
+    </div>
+
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div>
+          <div class="review-stars">
+            <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+          </div>
+          <p class="review-text">
+            “A Vivaz fez toda a reforma elétrica e a iluminação em LED da nossa casa. A qualidade da sanca e dos pendentes superou tudo que imaginávamos. Extremamente pontuais e deixaram a casa limpa no final!”
+          </p>
+        </div>
+        <div class="review-author">
+          <strong>Mariana & Carlos Silveira</strong>
+          <span>Residencial Alto Padrão</span>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div>
+          <div class="review-stars">
+            <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+          </div>
+          <p class="review-text">
+            “Temos um escritório com 15 salas e contratamos a Vivaz para a manutenção preventiva hidráulica, elétrica e pintura das paredes. A agilidade e a organização da equipe nos poupou muito tempo e dinheiro.”
+          </p>
+        </div>
+        <div class="review-author">
+          <strong>Rodrigo Antunes</strong>
+          <span>Gestor Comercial</span>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div>
+          <div class="review-stars">
+            <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+          </div>
+          <p class="review-text">
+            “Instalação milimétrica da bancada de mármore e torneiras na cozinha gourmet. Acabamento perfeito, sem desníveis ou vazamentos. Nota 10 pelo capricho e atendimento atencioso.”
+          </p>
+        </div>
+        <div class="review-author">
+          <strong>Fernanda Castro</strong>
+          <span>Apartamento Decorado</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     FAQ — DÚVIDAS FREQUENTES
+══════════════════════════════════════════════════════════ -->
+<section id="faq" class="faq-section">
+  <div class="wrap">
+    <div class="sec-head" style="text-align: center;">
+      <div class="eyebrow">
+        <i class="bi bi-question-circle"></i>
+        <span>Perguntas Frequentes</span>
+      </div>
+      <h2>Dúvidas Comuns Sobre Nossos Serviços</h2>
+      <p style="margin-inline: auto;">Transparência antes, durante e após a execução de cada projeto.</p>
+    </div>
+
+    <div class="faq-list">
+      <details class="faq-item" open>
+        <summary class="faq-summary">
+          <span>A Vivaz atende tanto obras residenciais quanto empresas comerciais?</span>
+          <i class="bi bi-plus-lg faq-icon"></i>
+        </summary>
+        <div class="faq-answer">
+          Sim! Desenvolvemos soluções completas para residências unifamiliares, apartamentos, condomínios fechados, lojas de shopping, clínicas, consultórios e edifícios comerciais.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-summary">
+          <span>Como funciona o pedido de visita técnica e orçamento?</span>
+          <i class="bi bi-plus-lg faq-icon"></i>
+        </summary>
+        <div class="faq-answer">
+          É muito simples: basta clicar em qualquer botão de WhatsApp na página ou preencher o formulário abaixo. Conversamos sobre as suas prioridades, avaliamos o escopo e apresentamos uma proposta transparente sem compromisso.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-summary">
+          <span>Vocês emitem nota fiscal e fornecem garantia dos serviços?</span>
+          <i class="bi bi-plus-lg faq-icon"></i>
+        </summary>
+        <div class="faq-answer">
+          Com certeza! Emitimos nota fiscal completa e fornecemos termo de garantia formal para todos os serviços executados pela nossa equipe.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-summary">
+          <span>Vocês realizam pequenos reparos ou apenas reformas completas?</span>
+          <i class="bi bi-plus-lg faq-icon"></i>
+        </summary>
+        <div class="faq-answer">
+          Atendemos desde pequenos reparos emergenciais (como troca de disjuntores, conserto de vazamentos, pintura pontual e fixação de peças) até reformas completas do chão ao teto.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-summary">
+          <span>Quais as formas de pagamento aceitas pela Vivaz?</span>
+          <i class="bi bi-plus-lg faq-icon"></i>
+        </summary>
+        <div class="faq-answer">
+          Aceitamos Pix com condições especiais, transferência bancária e cartões de crédito parcelados de acordo com o cronograma da sua obra.
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     FORMULÁRIO DE CONTATO DIRETO PARA O WHATSAPP
+══════════════════════════════════════════════════════════ -->
+<section id="contato" class="contact-section">
+  <div class="wrap">
+    <div class="contact-card">
+      <div style="text-align: center;">
+        <div class="eyebrow" style="margin-bottom: 0.8rem;">
+          <i class="bi bi-chat-dots-fill"></i>
+          <span>Atendimento Imediato</span>
+        </div>
+        <h2>Solicite Seu Orçamento com a Vivaz</h2>
+        <p style="color: var(--soft); font-size: 15px; margin-top: 0.5rem;">
+          Preencha os campos abaixo para abrir a conversa no WhatsApp já com todos os detalhes formatados.
+        </p>
+      </div>
+
+      <form id="contactForm" class="contact-form" onsubmit="return false;">
+        <div class="form-group">
+          <label for="fn">Seu Nome ou Nome da Empresa</label>
+          <input id="fn" name="n" required placeholder="Ex: Roberto Silva" autocomplete="name">
+        </div>
+
+        <div class="form-group">
+          <label for="fb">Cidade / Bairro do Imóvel</label>
+          <input id="fb" name="b" placeholder="Ex: São Paulo, São José dos Campos, etc." autocomplete="address-level2">
+        </div>
+
+        <div class="form-group">
+          <label for="fs">Qual área você deseja contratar?</label>
+          <select id="fs" name="s">
+            <option value="Manutenção Residencial e Comercial">🛠️ Manutenção Residencial e Comercial</option>
+            <option value="Elétrica de Alto Padrão & Iluminação">⚡ Elétrica de Alto Padrão & Iluminação</option>
+            <option value="Hidráulica & Encanamento Especializado">🚿 Hidráulica & Encanamento Especializado</option>
+            <option value="Pintura Fina, Massa Corrida & Textura">🎨 Pintura Fina, Massa Corrida & Textura</option>
+            <option value="Alvenaria, Reformas & Construção Civil">🧱 Alvenaria, Reformas & Construção Civil</option>
+            <option value="Mármores, Granitos & Pedras Nobres">💎 Mármores, Granitos & Pedras Nobres</option>
+            <option value="Serviços Gerais e Reparos Especializados">🔧 Serviços Gerais e Reparos Especializados</option>
+            <option value="Reforma Completa Integrada">🏢 Reforma Completa Integrada</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="fm">Descreva rapidamente sua necessidade</label>
+          <textarea id="fm" name="m" rows="3" placeholder="Ex: Gostaria de orçar a instalação de sanca de LED na suíte e revisão do quadro de disjuntores…"></textarea>
+        </div>
+
+        <button class="btn btn-wa" id="sendBtn" type="button" style="width: 100%;">
+          <svg class="svg-wa" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2ZM12.04 3.67C14.24 3.67 16.31 4.53 17.87 6.08C19.42 7.64 20.28 9.71 20.28 11.92C20.28 16.46 16.59 20.16 12.04 20.16C10.59 20.16 9.17 19.78 7.92 19.04L7.62 18.86L4.5 19.68L5.33 16.64L5.13 16.32C4.33 15.04 3.8 13.5 3.8 11.91C3.8 7.37 7.5 3.67 12.04 3.67ZM8.97 7.42C8.76 7.42 8.51 7.5 8.3 7.73C8.08 7.96 7.49 8.52 7.49 9.65C7.49 10.78 8.32 11.87 8.44 12.02C8.56 12.18 10.03 14.47 12.33 15.42C14.24 16.2 14.63 16.05 15.06 16.01C15.48 15.97 16.42 15.45 16.61 14.91C16.8 14.37 16.8 13.91 16.74 13.82C16.68 13.73 16.53 13.67 16.31 13.56C16.1 13.45 15.06 12.94 14.87 12.87C14.67 12.8 14.53 12.76 14.39 12.98C14.24 13.2 13.83 13.68 13.7 13.83C13.58 13.98 13.46 14 13.25 13.89C13.03 13.78 12.34 13.55 11.52 12.82C10.88 12.25 10.45 11.54 10.33 11.33C10.21 11.11 10.31 10.99 10.42 10.88C10.52 10.78 10.64 10.62 10.76 10.48C10.88 10.34 10.92 10.23 11 10.07C11.08 9.91 11.04 9.77 10.98 9.65C10.92 9.53 10.47 8.42 10.28 7.96C10.1 7.52 9.91 7.58 9.77 7.57L9.34 7.56C9.13 7.56 8.97 7.42 8.97 7.42Z"/>
+          </svg>
+          <span>Iniciar Atendimento no WhatsApp</span>
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ══════════════════════════════════════════════════════════
+     FOOTER MONOCROMÁTICO
+══════════════════════════════════════════════════════════ -->
+<footer>
+  <div class="wrap footer-inner">
+    <div class="footer-brand">
+      <div class="brand-logo-frame" style="width: 32px; height: 32px; border-radius: 8px; padding: 2px;">
+        <img src="imgs/logo-vivaz-white.png" alt="Logo Vivaz" class="brand-logo-dark" width="26" height="26">
+        <img src="imgs/logo-vivaz-transparent.png" alt="Logo Vivaz" class="brand-logo-light" width="26" height="26">
+      </div>
+      <span>Vivaz Serviços & Soluções</span>
+    </div>
+
+    <div class="footer-links">
+      <a href="#especialidades">Especialidades</a>
+      <a href="#metodologia">Metodologia</a>
+      <a href="#obras">Obras</a>
+      <a href="#sobre">A Empresa</a>
+      <a href="#avaliacoes">Depoimentos</a>
+      <a href="#faq">Dúvidas</a>
+      <a href="#contato">Contato</a>
+    </div>
+
+    <div class="footer-dev">
+      <a href="https://raphaelolima.com.br/" target="_blank" rel="noopener noreferrer" class="dev-badge">
+        <span>Desenvolvido por <strong>Raphael de Oliveira Lima</strong></span>
+        <i class="ph-bold ph-arrow-up-right"></i>
+      </a>
+    </div>
+  </div>
+
+  <div class="wrap" style="text-align: center; margin-top: 2rem; font-size: 12px; color: var(--muted); border-top: 1px solid var(--border); padding-top: 1.5rem;">
+    &copy; 2026 Vivaz Serviços & Soluções. Construção, Manutenção, Elétrica, Hidráulica, Pintura e Mármores. Todos os direitos reservados.
+  </div>
+</footer>
+
+<!-- ══════════════════════════════════════════════════════════
+     BOTÃO FLUTUANTE DO WHATSAPP
+══════════════════════════════════════════════════════════ -->
+<a class="fab-whatsapp" id="fab-wa" href="#contato" aria-label="Falar com a Vivaz no WhatsApp">
+  <svg class="svg-wa" viewBox="0 0 24 24" aria-hidden="true">
+    <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2ZM12.04 3.67C14.24 3.67 16.31 4.53 17.87 6.08C19.42 7.64 20.28 9.71 20.28 11.92C20.28 16.46 16.59 20.16 12.04 20.16C10.59 20.16 9.17 19.78 7.92 19.04L7.62 18.86L4.5 19.68L5.33 16.64L5.13 16.32C4.33 15.04 3.8 13.5 3.8 11.91C3.8 7.37 7.5 3.67 12.04 3.67ZM8.97 7.42C8.76 7.42 8.51 7.5 8.3 7.73C8.08 7.96 7.49 8.52 7.49 9.65C7.49 10.78 8.32 11.87 8.44 12.02C8.56 12.18 10.03 14.47 12.33 15.42C14.24 16.2 14.63 16.05 15.06 16.01C15.48 15.97 16.42 15.45 16.61 14.91C16.8 14.37 16.8 13.91 16.74 13.82C16.68 13.73 16.53 13.67 16.31 13.56C16.1 13.45 15.06 12.94 14.87 12.87C14.67 12.8 14.53 12.76 14.39 12.98C14.24 13.2 13.83 13.68 13.7 13.83C13.58 13.98 13.46 14 13.25 13.89C13.03 13.78 12.34 13.55 11.52 12.82C10.88 12.25 10.45 11.54 10.33 11.33C10.21 11.11 10.31 10.99 10.42 10.88C10.52 10.78 10.64 10.62 10.76 10.48C10.88 10.34 10.92 10.23 11 10.07C11.08 9.91 11.04 9.77 10.98 9.65C10.92 9.53 10.47 8.42 10.28 7.96C10.1 7.52 9.91 7.58 9.77 7.57L9.34 7.56C9.13 7.56 8.97 7.42 8.97 7.42Z"/>
+  </svg>
+</a>
+
+<!-- ══════════════════════════════════════════════════════════
+     SCRIPTS & INTEGRAÇÕES
+══════════════════════════════════════════════════════════ -->
+<script>
+/* ── Configuração de Contato ──────────────────────────── */
+const NUM = "5512999999999";
+const waUrl = msg => `https://wa.me/${NUM}?text=${encodeURIComponent(msg)}`;
+
+/* ── Mapeamento dos Links Globais de WhatsApp ────────── */
+const linksMap = {
+  "hdr-wa":   "Olá Vivaz! Vi o site de vocês e gostaria de solicitar um orçamento para um serviço residencial/comercial.",
+  "hero-wa":  "Olá Vivaz! Gostaria de um orçamento para serviços de construção/manutenção.",
+  "about-wa": "Olá Vivaz! Quero conhecer mais sobre os serviços e solicitar uma proposta para meu imóvel.",
+  "fab-wa":   "Olá Vivaz! Vi o site de vocês e gostaria de um atendimento especializado."
+};
+
+Object.entries(linksMap).forEach(([id, text]) => {
+  const el = document.getElementById(id);
+  if (el) {
+    el.href = waUrl(text);
+    el.target = "_blank";
+    el.rel = "noopener noreferrer";
+  }
+});
+
+// Links dos Cards de Especialidades
+document.querySelectorAll("[data-wa]").forEach(el => {
+  el.href = waUrl(el.dataset.wa);
+  el.target = "_blank";
+  el.rel = "noopener noreferrer";
+});
+
+// Cliques nos Cards do Portfólio
+document.querySelectorAll(".port-click").forEach(card => {
+  card.addEventListener("click", () => {
+    const serviceName = card.dataset.service || "serviço de construção e acabamento";
+    const msg = `Olá Vivaz! Vi o projeto de "${serviceName}" no site e gostaria de um orçamento similar para meu imóvel.`;
+    window.open(waUrl(msg), "_blank", "noopener");
+  });
+});
+
+/* ── Formulário de Contato Direto ────────────────────── */
+document.getElementById("sendBtn").addEventListener("click", () => {
+  const nome   = document.getElementById("fn").value.trim() || "(Nome não informado)";
+  const cidade = document.getElementById("fb").value.trim() || "Minha Região";
+  const serv   = document.getElementById("fs").value;
+  const desc   = document.getElementById("fm").value.trim();
+
+  let msg = `Olá Vivaz Serviços & Soluções!\nMeu nome é ${nome}.\n`;
+  msg += `📍 Localização/Bairro: ${cidade}\n`;
+  msg += `🛠️ Serviço de Interesse: ${serv}\n`;
+  if (desc) msg += `📝 Detalhes: ${desc}`;
+
+  window.open(waUrl(msg), "_blank", "noopener");
+});
+
+/* ── Alternador de Tema Claro / Escuro (P&B) ─────────── */
+const root = document.documentElement;
+
+function applyTheme(theme) {
+  root.setAttribute("data-theme", theme);
+  const metaTheme = document.querySelector('meta[name="theme-color"]');
+  if (metaTheme) {
+    metaTheme.setAttribute("content", theme === "dark" ? "#09090b" : "#ffffff");
+  }
+}
+
+function updateThemeFromPref() {
+  try {
+    const stored = localStorage.getItem("vivaz_theme");
+    if (stored) {
+      applyTheme(stored);
+    } else {
+      const prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+      applyTheme(prefersDark ? "dark" : "light");
+    }
+  } catch(e) {
+    applyTheme("dark");
+  }
+}
+
+updateThemeFromPref();
+
+const themeBtn = document.getElementById("theme-btn");
+if (themeBtn) {
+  themeBtn.addEventListener("click", () => {
+    const current = root.getAttribute("data-theme") || "dark";
+    const nextTheme = current === "dark" ? "light" : "dark";
+    applyTheme(nextTheme);
+    try { localStorage.setItem("vivaz_theme", nextTheme); } catch(e) {}
+  });
+}
+
+// Escuta mudanças de tema no Sistema Operacional
+if (window.matchMedia) {
+  window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", (e) => {
+    try {
+      if (!localStorage.getItem("vivaz_theme")) {
+        applyTheme(e.matches ? "dark" : "light");
+      }
+    } catch(err) {}
+  });
+}
+</script>
+</body>
+</html>
