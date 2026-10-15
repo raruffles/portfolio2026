@@ -878,25 +878,22 @@ header {
 
 /* ── Metrics Strip ───────────────────────────────────── */
 .metrics-strip {
-  padding: clamp(3.5rem, 6vw, 4.8rem) 0;
+  padding: clamp(3rem, 5vw, 4.5rem) 0;
   border-bottom: 1px solid var(--border);
   background: var(--bg);
 }
 .metrics-grid {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 2.2rem;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
 }
-@media (min-width: 540px) {
-  .metrics-grid { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
-}
-@media (min-width: 900px) {
-  .metrics-grid { grid-template-columns: repeat(4, 1fr); gap: 3rem; }
+@media (min-width: 768px) {
+  .metrics-grid { grid-template-columns: repeat(4, 1fr); gap: 2.5rem; }
 }
 
 .metric-item {
   border-left: 2px solid var(--border);
-  padding-left: 1.5rem;
+  padding-left: 1.25rem;
   transition: border-color 0.2s ease, transform 0.2s ease;
 }
 .metric-item:hover {
@@ -905,29 +902,30 @@ header {
 }
 .metric-val {
   font-family: var(--font-display);
-  font-size: clamp(38px, 5.5vw, 48px);
+  font-size: clamp(38px, 5.5vw, 52px);
   font-weight: 800;
   color: var(--ink);
   line-height: 1;
   letter-spacing: 0.02em;
-  display: flex;
-  align-items: baseline;
-  gap: 0.25rem;
+  display: block;
+  margin-bottom: 0.35rem;
 }
-.metric-val .acc { color: var(--mono-accent); font-size: 0.65em; }
-[data-theme="light"] .metric-val .acc { color: #09090b; }
 .metric-label {
   font-family: var(--font-heading);
-  font-size: 15px;
-  font-weight: 700;
-  color: var(--ink);
-  margin-top: 0.6rem;
-}
-.metric-sub {
-  font-size: 13.5px;
+  font-size: clamp(16px, 2.2vw, 19px);
+  font-weight: 600;
   color: var(--soft);
-  margin-top: 0.25rem;
-  line-height: 1.55;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+}
+.metric-label i.bi-star-fill {
+  font-size: 1.35rem;
+  color: var(--mono-accent);
+  display: inline-block;
+  vertical-align: middle;
+}
+[data-theme="light"] .metric-label i.bi-star-fill {
+  color: #09090b;
 }
 
 /* ══════════════════════════════════════════════════════════
@@ -1724,24 +1722,20 @@ footer {
   <div class="wrap">
     <div class="metrics-grid">
       <div class="metric-item">
-        <div class="metric-val">+10 <span class="acc">Anos</span></div>
-        <div class="metric-label">Experiência Consolidada</div>
-        <div class="metric-sub">Em obras civis, manutenções e reparos completos.</div>
+        <div class="metric-val">+10</div>
+        <div class="metric-label">anos</div>
       </div>
       <div class="metric-item">
-        <div class="metric-val">100% <span class="acc">Prazo</span></div>
-        <div class="metric-label">Compromisso com o Cronograma</div>
-        <div class="metric-sub">Planejamento e entrega sem atrasos indesejados.</div>
+        <div class="metric-val">100%</div>
+        <div class="metric-label">compromisso</div>
       </div>
       <div class="metric-item">
-        <div class="metric-val">5.0 <span class="acc">★</span></div>
-        <div class="metric-label">Satisfação Comprovada</div>
-        <div class="metric-sub">Avaliações de excelência em residências e comércios.</div>
+        <div class="metric-val">5</div>
+        <div class="metric-label"><i class="bi bi-star-fill" aria-label="5 estrelas"></i></div>
       </div>
       <div class="metric-item">
-        <div class="metric-val">Zero <span class="acc">Dor de Cabeça</span></div>
-        <div class="metric-label">Obra Limpa & Segura</div>
-        <div class="metric-sub">Proteção do ambiente e limpeza diária durante a execução.</div>
+        <div class="metric-val">Zero</div>
+        <div class="metric-label">dor de cabeça</div>
       </div>
     </div>
   </div>
