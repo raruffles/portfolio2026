@@ -652,15 +652,83 @@ header {
 .hero-inner {
   display: flex;
   flex-direction: column;
-  gap: 3.2rem;
+  gap: 2.8rem;
 }
-@media (min-width: 960px) {
+@media (min-width: 980px) {
   .hero-inner {
     display: grid;
-    grid-template-columns: 1.15fr 0.85fr;
-    gap: 4.5rem;
-    align-items: center;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 3.8rem;
+    align-items: flex-start;
   }
+}
+
+.hero-form-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: 1.8rem 1.5rem;
+  box-shadow: var(--shadow-card);
+  width: 100%;
+  max-width: 520px;
+  margin-inline: auto;
+}
+@media (min-width: 480px) {
+  .hero-form-card {
+    padding: 2.4rem 2.2rem;
+  }
+}
+.hero-form-card .eyebrow {
+  margin-bottom: 0.8rem;
+}
+.hero-form-card h3 {
+  font-size: clamp(22px, 3vw, 28px);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.45rem;
+  color: var(--ink);
+}
+.hero-form-card p {
+  color: var(--soft);
+  font-size: 14px;
+  line-height: 1.6;
+}
+.hero-form-card .contact-form {
+  margin-top: 1.4rem;
+  gap: 1.1rem;
+}
+
+.hero-proof-strip {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.65rem 0.95rem;
+  border-radius: var(--r-md);
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
+  margin-bottom: 1.8rem;
+  max-width: 460px;
+}
+.hero-proof-strip img {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--r-sm);
+  object-fit: cover;
+  flex: none;
+  border: 1px solid var(--border);
+}
+.hero-proof-text strong {
+  display: block;
+  font-size: 13.5px;
+  color: var(--ink);
+  font-weight: 700;
+  line-height: 1.25;
+}
+.hero-proof-text span {
+  font-size: 12px;
+  color: var(--soft);
+  line-height: 1.35;
+  display: block;
 }
 
 .hero h1 {
@@ -1643,8 +1711,16 @@ footer {
         </li>
       </ul>
 
+      <div class="hero-proof-strip">
+        <img src="imgs/obra-suite-luxo.png" alt="Obra de Alto Padrão Vivaz" width="48" height="48" loading="eager">
+        <div class="hero-proof-text">
+          <strong>Projetos Reais de Alto Padrão</strong>
+          <span>Iluminação em sanca de LED, marcenaria e acabamentos nobres.</span>
+        </div>
+      </div>
+
       <div class="hero-actions">
-        <a id="hero-wa" href="#contato" class="btn btn-wa">
+        <a id="hero-wa" href="#orcamento-topo" class="btn btn-wa">
           <i class="bi bi-whatsapp"></i>
           <span>Falar com a Equipe Vivaz</span>
         </a>
@@ -1670,21 +1746,52 @@ footer {
       </div>
     </div>
 
-    <!-- Imagem em Destaque no Hero (Suíte de Luxo com Iluminação Sanca LED) -->
-    <div class="hero-frame">
-      <div class="hero-media">
-        <img src="imgs/obra-suite-luxo.png" alt="Obra de Alto Padrão Vivaz - Suíte Master com Iluminação e Acabamento Nobre" width="860" height="536" fetchpriority="high">
-        <div class="hero-caption">
-          <div class="hero-caption-txt">
-            <strong>Obra Residencial de Alto Padrão</strong>
-            <span>Iluminação em Sanca de LED, Marcenaria e Acabamentos Nobres</span>
-          </div>
-          <span class="hero-pill">
-            <i class="bi bi-shield-check"></i>
-            <span>Execução Vivaz</span>
-          </span>
+    <!-- FORMULÁRIO DE CONVERSÃO IMEDIATA NO HERO (SITE DE CONVERSÃO CRO) -->
+    <div class="hero-form-card" id="orcamento-topo">
+      <div style="text-align: center;">
+        <div class="eyebrow">
+          <i class="bi bi-chat-dots-fill"></i>
+          <span>Atendimento Imediato</span>
         </div>
+        <h3>Solicite Seu Orçamento com a Vivaz</h3>
+        <p>Preencha os campos abaixo para abrir a conversa no WhatsApp já com todos os detalhes formatados.</p>
       </div>
+
+      <form id="heroContactForm" class="contact-form" onsubmit="return false;">
+        <div class="form-group">
+          <label for="fn-hero">Seu Nome ou Nome da Empresa</label>
+          <input id="fn-hero" name="n" required placeholder="Ex: Roberto Silva" autocomplete="name">
+        </div>
+
+        <div class="form-group">
+          <label for="fb-hero">Cidade / Bairro do Imóvel</label>
+          <input id="fb-hero" name="b" placeholder="Ex: São Paulo, São José dos Campos, etc." autocomplete="address-level2">
+        </div>
+
+        <div class="form-group">
+          <label for="fs-hero">Qual área você deseja contratar?</label>
+          <select id="fs-hero" name="s">
+            <option value="Manutenção Residencial e Comercial">🛠️ Manutenção Residencial e Comercial</option>
+            <option value="Elétrica de Alto Padrão & Iluminação">⚡ Elétrica de Alto Padrão & Iluminação</option>
+            <option value="Hidráulica & Encanamento Especializado">🚿 Hidráulica & Encanamento Especializado</option>
+            <option value="Pintura Fina, Massa Corrida & Textura">🎨 Pintura Fina, Massa Corrida & Textura</option>
+            <option value="Alvenaria, Reformas & Construção Civil">🧱 Alvenaria, Reformas & Construção Civil</option>
+            <option value="Mármores, Granitos & Pedras Nobres">💎 Mármores, Granitos & Pedras Nobres</option>
+            <option value="Serviços Gerais e Reparos Especializados">🔧 Serviços Gerais e Reparos Especializados</option>
+            <option value="Reforma Completa Integrada">🏢 Reforma Completa Integrada</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="fm-hero">Descreva rapidamente sua necessidade</label>
+          <textarea id="fm-hero" name="m" rows="3" placeholder="Ex: Gostaria de orçar a instalação de sanca de LED na suíte e revisão do quadro de disjuntores…"></textarea>
+        </div>
+
+        <button class="btn btn-wa" id="heroSendBtn" type="button" style="width: 100%;">
+          <i class="bi bi-whatsapp"></i>
+          <span>Iniciar Atendimento no WhatsApp</span>
+        </button>
+      </form>
     </div>
   </div>
 </section>
@@ -2417,20 +2524,41 @@ document.querySelectorAll(".port-click").forEach(card => {
   });
 });
 
-/* ── Formulário de Contato Direto ────────────────────── */
-document.getElementById("sendBtn").addEventListener("click", () => {
-  const nome   = document.getElementById("fn").value.trim() || "(Nome não informado)";
-  const cidade = document.getElementById("fb").value.trim() || "Minha Região";
-  const serv   = document.getElementById("fs").value;
-  const desc   = document.getElementById("fm").value.trim();
+/* ── Formulário do Hero (Topo / Conversão Imediata) ──── */
+const heroSendBtn = document.getElementById("heroSendBtn");
+if (heroSendBtn) {
+  heroSendBtn.addEventListener("click", () => {
+    const nome   = document.getElementById("fn-hero").value.trim() || "(Nome não informado)";
+    const cidade = document.getElementById("fb-hero").value.trim() || "Minha Região";
+    const serv   = document.getElementById("fs-hero").value;
+    const desc   = document.getElementById("fm-hero").value.trim();
 
-  let msg = `Olá Vivaz Serviços & Soluções!\nMeu nome é ${nome}.\n`;
-  msg += `📍 Localização/Bairro: ${cidade}\n`;
-  msg += `🛠️ Serviço de Interesse: ${serv}\n`;
-  if (desc) msg += `📝 Detalhes: ${desc}`;
+    let msg = `Olá Vivaz Serviços & Soluções!\nMeu nome é ${nome}.\n`;
+    msg += `📍 Localização/Bairro: ${cidade}\n`;
+    msg += `🛠️ Serviço de Interesse: ${serv}\n`;
+    if (desc) msg += `📝 Detalhes: ${desc}`;
 
-  window.open(waUrl(msg), "_blank", "noopener");
-});
+    window.open(waUrl(msg), "_blank", "noopener");
+  });
+}
+
+/* ── Formulário de Contato Direto (Rodapé) ────────────── */
+const sendBtn = document.getElementById("sendBtn");
+if (sendBtn) {
+  sendBtn.addEventListener("click", () => {
+    const nome   = document.getElementById("fn").value.trim() || "(Nome não informado)";
+    const cidade = document.getElementById("fb").value.trim() || "Minha Região";
+    const serv   = document.getElementById("fs").value;
+    const desc   = document.getElementById("fm").value.trim();
+
+    let msg = `Olá Vivaz Serviços & Soluções!\nMeu nome é ${nome}.\n`;
+    msg += `📍 Localização/Bairro: ${cidade}\n`;
+    msg += `🛠️ Serviço de Interesse: ${serv}\n`;
+    if (desc) msg += `📝 Detalhes: ${desc}`;
+
+    window.open(waUrl(msg), "_blank", "noopener");
+  });
+}
 
 /* ── Alternador de Tema Claro / Escuro (P&B) ─────────── */
 const root = document.documentElement;
