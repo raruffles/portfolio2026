@@ -1,0 +1,1248 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vivaz Serviços e Soluções | Excelência em Elétrica, Hidráulica e Obras em SJC e Vale do Paraíba</title>
+  <meta name="description" content="Serviços técnicos e reformas de excelência da Vivaz Serviços e Soluções em São José dos Campos, Jacareí, Taubaté e Vale do Paraíba. Elétrica, hidráulica, pintura, alvenaria, drywall e mais." />
+  
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <!-- Bootstrap Icons CDN Oficial (Sem ícones simulados) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              yellow: '#F59E0B',
+              'yellow-bright': '#FACC15',
+              'yellow-contrast': '#B45309',
+              dark: '#111318',
+              'dark-card': '#181A20',
+              'dark-border': '#2A2E39',
+              wa: '#25D366',
+            }
+          },
+          keyframes: {
+            float: {
+              '0%, 100%': { transform: 'translateY(0px)' },
+              '50%': { transform: 'translateY(-8px)' },
+            },
+            pulseSubtle: {
+              '0%, 100%': { opacity: '1', transform: 'scale(1)' },
+              '50%': { opacity: '0.9', transform: 'scale(1.02)' },
+            }
+          },
+          animation: {
+            float: 'float 4s ease-in-out infinite',
+            'float-delayed': 'float 4.5s ease-in-out 1.5s infinite',
+            'pulse-subtle': 'pulseSubtle 2.5s infinite ease-in-out',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Padrão Google Material e Acessibilidade (Base 16px estrita) */
+    html {
+      font-size: 16px;
+    }
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #FFFFFF;
+      color: #0F172A;
+      font-size: 16px;
+      line-height: 1.75;
+      overflow-x: hidden;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Recorte dinâmico no Hero com entalhe em V sob os botões centrais */
+    .hero-cutout-banner {
+      clip-path: polygon(
+        0% 0%,
+        calc(50% - 160px) 0%,
+        50% 32px,
+        calc(50% + 160px) 0%,
+        100% 0%,
+        100% 100%,
+        0% 100%
+      );
+    }
+    @media (max-width: 640px) {
+      .hero-cutout-banner {
+        clip-path: none;
+        border-radius: 24px;
+      }
+    }
+
+    /* Recorte dinâmico Bento Escuro (Why choose us / FAQ) */
+    .bento-cutout-top {
+      clip-path: polygon(
+        0% 24px,
+        calc(50% - 160px) 24px,
+        calc(50% - 120px) 0px,
+        calc(50% + 120px) 0px,
+        calc(50% + 160px) 24px,
+        100% 24px,
+        100% 100%,
+        0% 100%
+      );
+    }
+    @media (max-width: 640px) {
+      .bento-cutout-top {
+        clip-path: none;
+        border-radius: 32px;
+      }
+    }
+
+    /* Anel de foco acessível para teclado (WCAG 2.4.7) */
+    a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+      outline: 4px solid #F59E0B !important;
+      outline-offset: 3px !important;
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 12px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #F1F5F9;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #94A3B8;
+      border-radius: 6px;
+      border: 3px solid #F1F5F9;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #64748B;
+    }
+  </style>
+</head>
+<body class="bg-white text-slate-900 antialiased selection:bg-amber-200 selection:text-slate-950">
+
+  <!-- Acessibilidade: Link para pular direto ao conteúdo principal -->
+  <a href="#conteudo-principal" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:px-6 focus:py-3 focus:bg-amber-400 focus:text-slate-950 focus:font-extrabold focus:rounded-xl focus:shadow-2xl">
+    Pular para o conteúdo principal
+  </a>
+
+  <!-- ========================================================================= -->
+  <!-- 1. HEADER (Espaçamento Amplo, Sem Sobreposição, Bootstrap Icons) -->
+  <!-- ========================================================================= -->
+  <header class="fixed top-0 left-0 right-0 z-50 pt-3 md:pt-4 px-3 sm:px-6 md:px-8 pointer-events-none" role="banner">
+    <div class="max-w-7xl mx-auto flex items-center justify-between pointer-events-auto bg-white/95 backdrop-blur-md border-2 border-slate-200 shadow-xl shadow-slate-900/5 px-3.5 sm:px-7 py-2 sm:py-2.5 rounded-full transition-all duration-300 min-h-[58px] sm:min-h-[64px]">
+      
+      <!-- Brand Logo com margem dedicada à direita -->
+      <a href="#inicio" class="flex items-center gap-2.5 sm:gap-3 flex-shrink-0 mr-2 sm:mr-4 xl:mr-10 group" aria-label="Vivaz Serviços e Soluções - Página Inicial">
+        <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-slate-950 flex items-center justify-center p-1.5 shadow-sm group-hover:scale-105 transition-transform flex-shrink-0 border border-slate-800" aria-hidden="true">
+          <img src="vivaz/imgs/logo-vivaz-white.png" alt="Logo Vivaz" class="w-full h-full object-contain" />
+        </div>
+        <div class="flex flex-col">
+          <span class="font-black text-[15px] sm:text-[17px] tracking-tight text-slate-950 uppercase leading-none whitespace-nowrap">Vivaz</span>
+          <span class="text-[12px] sm:text-[13px] text-slate-600 font-bold leading-tight whitespace-nowrap">Serviços e Soluções</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav Links (5 links estratégicos, espaçamento amplo, sem apertar o logo) -->
+      <nav class="hidden lg:flex items-center gap-6 xl:gap-8 text-[16px] font-extrabold text-slate-700" aria-label="Navegação Principal">
+        <a href="#inicio" class="hover:text-amber-600 transition-colors py-2 whitespace-nowrap">Início</a>
+        <a href="#quem-somos" class="hover:text-amber-600 transition-colors py-2 whitespace-nowrap">Quem Somos</a>
+        <a href="#servicos" class="hover:text-amber-600 transition-colors py-2 whitespace-nowrap">Serviços</a>
+        <a href="#portfolio" class="hover:text-amber-600 transition-colors py-2 whitespace-nowrap">Portfólio</a>
+        <a href="#contato" class="hover:text-amber-600 transition-colors py-2 whitespace-nowrap">Contato</a>
+      </nav>
+
+      <!-- Right Action CTA com Bootstrap Icons Oficial -->
+      <div class="flex items-center gap-2 sm:gap-4 flex-shrink-0 ml-auto lg:ml-0">
+        <a href="tel:11978466278" class="hidden xl:flex items-center gap-2 text-[16px] font-extrabold text-slate-900 hover:text-amber-700 transition-colors px-2 py-2 min-h-[48px] rounded-xl whitespace-nowrap" aria-label="Ligue para nossa central">
+          <i class="bi bi-telephone-fill text-amber-600 text-base" aria-hidden="true"></i>
+          <span class="whitespace-nowrap">(11) 97846-6278</span>
+        </a>
+
+        <!-- Botão com Bootstrap Icon Oficial e Alto Contraste no Hover -->
+        <a href="https://wa.me/5511978466278?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20Vivaz%20Servi%C3%A7os%20e%20Solu%C3%A7%C3%B5es%20e%20gostaria%20de%20um%20or%C3%A7amento." target="_blank" rel="noopener noreferrer" class="bg-amber-400 hover:bg-slate-950 text-slate-950 hover:text-amber-400 border-2 border-amber-400 hover:border-slate-950 font-black text-[14px] sm:text-[16px] px-3.5 sm:px-6 py-2 sm:py-3 min-h-[44px] sm:min-h-[48px] rounded-full shadow-md hover:shadow-xl active:scale-95 transition-all duration-200 flex items-center justify-center gap-1.5 sm:gap-2 whitespace-nowrap" aria-label="Solicitar Orçamento via WhatsApp">
+          <i class="bi bi-whatsapp text-[16px] sm:text-[18px] flex-shrink-0" aria-hidden="true"></i>
+          <span class="hidden sm:inline whitespace-nowrap">Solicitar Orçamento</span>
+          <span class="sm:hidden whitespace-nowrap">Orçamento</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========================================================================= -->
+  <!-- 2. HERO SECTION (Título na Esquerda, Texto de Alta Conversão na Direita) -->
+  <!-- ========================================================================= -->
+  <main id="conteudo-principal">
+    <section id="inicio" class="relative pt-28 sm:pt-36 md:pt-40 pb-20 md:pb-28 overflow-hidden" aria-labelledby="hero-heading">
+      <div class="max-w-7xl mx-auto px-4 md:px-8">
+        
+        <!-- Top Row: Título à Esquerda + Bloco de Conversão à Direita (Aproximado e sem quebra de texto) -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center mb-10 md:mb-12">
+          
+          <!-- Lado Esquerdo: Título Principal Expandido (Alinhado à esquerda) -->
+          <div class="lg:col-span-7 xl:col-span-7 text-left">
+            <div class="flex items-center gap-3 mb-4">
+              <span class="w-10 h-[3px] bg-amber-500 rounded-full flex-shrink-0" aria-hidden="true"></span>
+              <span class="text-[16px] font-black tracking-wider text-amber-600 uppercase flex items-center gap-2">
+                <i class="bi bi-geo-alt-fill text-amber-500 text-base flex-shrink-0" aria-hidden="true"></i>
+                Plantão em São José dos Campos & Região
+              </span>
+            </div>
+
+            <h1 id="hero-heading" class="text-[34px] sm:text-[48px] md:text-[55px] lg:text-[62px] xl:text-[74px] font-black text-slate-950 tracking-tight leading-[1.06]">
+              Excelência em <span class="text-amber-500">Serviços Técnicos</span><br />
+              Começando <span class="text-amber-500">Hoje</span>
+            </h1>
+          </div>
+
+          <!-- Lado Direito: Texto de Alta Conversão & Ações com Bootstrap Icons -->
+          <div class="lg:col-span-5 xl:col-span-5 flex flex-col justify-center text-left">
+            <p class="text-[17px] md:text-[18px] text-slate-700 font-medium leading-relaxed mb-6">
+              Atendimento emergencial 24h para residências, condomínios e empresas. Chegamos em até 40 minutos com garantia formal por escrito e orçamento sem surpresas.
+            </p>
+
+            <!-- Ações em Pilha Vertical: Um botão abaixo do outro, sem quebrar o texto -->
+            <div class="flex flex-col gap-3 mb-5 w-full max-w-md">
+              <a href="https://wa.me/5511978466278?text=Ol%C3%A1%21%20Gostaria%20de%20um%20or%C3%A7amento%20para%20minha%20obra/reforma%20com%20a%20Vivaz%20Servi%C3%A7os%20e%20Solu%C3%A7%C3%B5es." target="_blank" rel="noopener noreferrer" class="min-h-[56px] w-full bg-amber-400 hover:bg-slate-950 text-slate-950 hover:text-amber-400 border-2 border-amber-400 hover:border-slate-950 font-black text-[17px] sm:text-[18px] px-8 py-3.5 rounded-full shadow-xl hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 flex items-center justify-center gap-3 whitespace-nowrap" aria-label="Solicitar Orçamento via WhatsApp">
+                <i class="bi bi-whatsapp text-2xl flex-shrink-0" aria-hidden="true"></i>
+                <span class="whitespace-nowrap">Solicitar Orçamento</span>
+              </a>
+              <a href="#servicos" class="min-h-[52px] w-full bg-slate-100 hover:bg-slate-200 text-slate-900 font-extrabold text-[16px] px-6 py-3 rounded-full border-2 border-slate-300 hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center gap-2 whitespace-nowrap">
+                <i class="bi bi-grid-3x3-gap-fill text-slate-700 flex-shrink-0" aria-hidden="true"></i>
+                <span class="whitespace-nowrap">Nossos Serviços</span>
+              </a>
+            </div>
+
+            <!-- Micro Trust Badges com Bootstrap Icons -->
+            <div class="flex items-center gap-5 text-[15px] sm:text-[16px] font-bold text-slate-700">
+              <span class="flex items-center gap-2 whitespace-nowrap">
+                <i class="bi bi-clock-history text-emerald-600 text-base flex-shrink-0" aria-hidden="true"></i>
+                Plantão 24 Horas
+              </span>
+              <span class="flex items-center gap-2 whitespace-nowrap">
+                <i class="bi bi-shield-fill-check text-amber-500 text-base flex-shrink-0" aria-hidden="true"></i>
+                Garantia Total 100%
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- ===================================================================== -->
+        <!-- Banner Hero com Corte Dinâmico e Imagem HD -->
+        <!-- ===================================================================== -->
+        <div class="relative w-full rounded-[32px] md:rounded-[48px] overflow-hidden shadow-2xl border-2 border-slate-200 bg-slate-950">
+          
+          <div class="relative h-[420px] sm:h-[500px] md:h-[620px] w-full hero-cutout-banner overflow-hidden group">
+            
+            <img 
+              src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=2000&q=85" 
+              alt="Profissional Especializado da Vivaz Serviços e Soluções em obra com equipamentos de proteção e ferramentas" 
+              class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
+            />
+
+            <!-- Gradient Overlays for High Contrast & Readability -->
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/30 to-transparent"></div>
+            <div class="absolute inset-0 bg-gradient-to-r from-slate-950/50 via-transparent to-slate-950/50"></div>
+
+            <!-- Top-Center Floating SAC Badge com Bootstrap Icon Oficial -->
+            <div class="absolute top-8 left-1/2 -translate-x-1/2 hidden md:flex items-center gap-3 bg-slate-900/95 backdrop-blur-md border-2 border-amber-400 text-white px-6 py-2.5 rounded-full text-[16px] font-bold shadow-2xl min-h-[48px]">
+              <span class="w-3 h-3 rounded-full bg-emerald-400 animate-ping" aria-hidden="true"></span>
+              <i class="bi bi-headset text-amber-400 text-lg" aria-hidden="true"></i>
+              <span class="text-amber-400 font-black">SAC Plantão 24h:</span>
+              <span class="font-extrabold">(11) 97846-6278</span>
+            </div>
+
+            <!-- Bottom Left Floating Pill: Avatars + Satisfied Clients Count -->
+            <div class="absolute bottom-6 left-6 md:bottom-10 md:left-10 bg-white/95 backdrop-blur-md border-2 border-slate-300 shadow-2xl px-6 py-3 rounded-full flex items-center gap-4 animate-float min-h-[56px]">
+              <div class="flex -space-x-3" aria-hidden="true">
+                <img class="w-9 h-9 rounded-full border-2 border-white object-cover" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80" alt="" />
+                <img class="w-9 h-9 rounded-full border-2 border-white object-cover" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=120&q=80" alt="" />
+                <img class="w-9 h-9 rounded-full border-2 border-white object-cover" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=120&q=80" alt="" />
+              </div>
+              <div class="flex flex-col text-left">
+                <span class="text-[18px] md:text-[21px] font-black text-slate-950 leading-tight">+1.500 Atendimentos</span>
+                <span class="text-[16px] text-slate-700 font-bold leading-tight">SJC e Vale do Paraíba</span>
+              </div>
+            </div>
+
+            <!-- Bottom Right Floating Pill: Presence in 4 Regional Poles -->
+            <div class="absolute bottom-6 right-6 md:bottom-10 md:right-10 bg-white/95 backdrop-blur-md border-2 border-slate-300 shadow-2xl px-6 py-3 rounded-full flex items-center gap-4 animate-float-delayed min-h-[56px]">
+              <div class="w-10 h-10 rounded-full bg-amber-400 text-slate-950 flex items-center justify-center font-black" aria-hidden="true">
+                <i class="bi bi-geo-alt-fill text-lg"></i>
+              </div>
+              <div class="flex flex-col text-left">
+                <span class="text-[18px] md:text-[21px] font-black text-slate-950 leading-tight">Presente em 4 Polos</span>
+                <span class="text-[16px] text-slate-700 font-bold leading-tight">SJC • Jacareí • Taubaté • Caçapava</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Quick Metrics Bar Below Banner (Cards Limpos, Fundo Branco, Alto Contraste) -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8 pt-6 border-t-2 border-slate-200">
+          <div class="text-center p-5 bg-white rounded-2xl border-2 border-slate-200 shadow-sm hover:border-amber-400 hover:shadow-md transition-all">
+            <div class="text-[34px] font-black text-slate-950 leading-none">40 min</div>
+            <div class="text-[16px] text-slate-700 font-bold mt-2">Tempo Médio de Chegada</div>
+          </div>
+          <div class="text-center p-5 bg-white rounded-2xl border-2 border-slate-200 shadow-sm hover:border-amber-400 hover:shadow-md transition-all">
+            <div class="text-[34px] font-black text-slate-950 leading-none">100%</div>
+            <div class="text-[16px] text-slate-700 font-bold mt-2">Garantia por Escrito</div>
+          </div>
+          <div class="text-center p-5 bg-white rounded-2xl border-2 border-slate-200 shadow-sm hover:border-amber-400 hover:shadow-md transition-all">
+            <div class="text-[34px] font-black text-slate-950 leading-none">+5.000</div>
+            <div class="text-[16px] text-slate-700 font-bold mt-2">Serviços Executados</div>
+          </div>
+          <div class="text-center p-5 bg-white rounded-2xl border-2 border-slate-200 shadow-sm hover:border-amber-400 hover:shadow-md transition-all">
+            <div class="text-[34px] font-black text-slate-950 leading-none flex items-center justify-center gap-1.5">
+              <span>4.9</span>
+              <i class="bi bi-star-fill text-amber-500 text-2xl" aria-hidden="true"></i>
+            </div>
+            <div class="text-[16px] text-slate-700 font-bold mt-2">Avaliação dos Clientes</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- 3. QUEM SOMOS? (Linha e Texto sem Tag, Imagem NR-10/NR-35) -->
+    <!-- ========================================================================= -->
+    <section id="quem-somos" class="py-20 bg-slate-50/80 border-t-2 border-slate-200" aria-labelledby="quem-somos-heading">
+      <div class="max-w-7xl mx-auto px-4 md:px-8">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
+          
+          <!-- Left Column: Who we are narrative -->
+          <div class="lg:col-span-4 flex flex-col justify-center">
+            <div class="flex items-center gap-3 mb-4">
+              <span class="w-10 h-[3px] bg-amber-500 rounded-full" aria-hidden="true"></span>
+              <span class="text-[16px] font-black tracking-widest text-amber-600 uppercase">Sobre Nós</span>
+            </div>
+            <h2 id="quem-somos-heading" class="text-[34px] md:text-[44px] lg:text-[55px] font-black text-slate-950 tracking-tight leading-[1.1] mb-6">
+              Quem somos?
+            </h2>
+            <p class="text-[16px] text-slate-700 leading-relaxed mb-6 font-medium">
+              A <strong class="text-slate-950 font-extrabold">Vivaz Serviços e Soluções</strong> nasceu em São José dos Campos com uma missão clara: erradicar atrasos crônicos, orçamentos surpresa e serviços amadores no setor de construção, manutenção e reformas.
+            </p>
+            <p class="text-[16px] text-slate-700 leading-relaxed mb-8 font-medium">
+              Com equipes especializadas e ferramentas de ponta, atendemos desde pequenos reparos emergenciais residenciais até reformas prediais e corporativas complexas em todo o Vale do Paraíba.
+            </p>
+            
+            <!-- Leader Profile Micro Card -->
+            <div class="flex items-center gap-4 pt-6 border-t-2 border-slate-200">
+              <img class="w-14 h-14 rounded-full object-cover border-2 border-amber-500 shadow-md" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80" alt="Foto do Coordenador Operacional" />
+              <div>
+                <h3 class="font-black text-[18px] text-slate-950">Coordenação Operacional</h3>
+                <p class="text-[16px] text-slate-600 font-semibold">Vivaz Serviços e Soluções • Região SJC</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Middle Column: Imagem Corrigida 100% Funcional -->
+          <div class="lg:col-span-4">
+            <div class="relative rounded-[32px] overflow-hidden shadow-2xl border-2 border-slate-300 h-[520px] group bg-slate-900">
+              <img 
+                src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1000&q=80" 
+                alt="Técnico da Vivaz Serviços e Soluções trabalhando com equipamentos de segurança certificados pelas normas NR-10 e NR-35" 
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-transparent to-transparent"></div>
+              
+              <div class="absolute bottom-6 left-6 right-6 bg-white/95 backdrop-blur-md rounded-2xl p-5 shadow-2xl border-2 border-slate-200">
+                <div class="flex items-center gap-2 mb-1">
+                  <i class="bi bi-shield-shaded text-amber-600 text-xl" aria-hidden="true"></i>
+                  <span class="text-[18px] font-black text-slate-950 block">Normas NR-10 e NR-35</span>
+                </div>
+                <span class="text-[16px] text-slate-700 font-bold">Segurança total e conformidade em cada obra</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: Mission, Vision, Values with Bootstrap Icons -->
+          <div class="lg:col-span-4 flex flex-col justify-center space-y-4">
+            
+            <div class="bg-white p-5 rounded-2xl border-2 border-slate-200 shadow-sm">
+              <div class="w-12 h-1.5 bg-amber-500 rounded-full mb-3" aria-hidden="true"></div>
+              <h3 class="text-[21px] font-black text-slate-950 mb-1 flex items-center gap-2">
+                <i class="bi bi-bullseye text-amber-600 text-lg"></i>
+                <span>Nossa Missão</span>
+              </h3>
+              <p class="text-[16px] text-slate-700 leading-relaxed font-medium">
+                Entregar serviços técnicos e reformas com pontualidade cirúrgica, transparência absoluta nos custos e qualidade estrutural inquestionável.
+              </p>
+            </div>
+
+            <div class="bg-white p-5 rounded-2xl border-2 border-slate-200 shadow-sm">
+              <div class="w-12 h-1.5 bg-amber-500 rounded-full mb-3" aria-hidden="true"></div>
+              <h3 class="text-[21px] font-black text-slate-950 mb-1 flex items-center gap-2">
+                <i class="bi bi-eye-fill text-amber-600 text-lg"></i>
+                <span>Nossa Visão</span>
+              </h3>
+              <p class="text-[16px] text-slate-700 leading-relaxed font-medium">
+                Ser a principal referência em agilidade e confiança em serviços técnicos e manutenção preventiva em todo o Vale do Paraíba.
+              </p>
+            </div>
+
+            <div class="bg-white p-5 rounded-2xl border-2 border-slate-200 shadow-sm">
+              <div class="w-12 h-1.5 bg-amber-500 rounded-full mb-3" aria-hidden="true"></div>
+              <h3 class="text-[21px] font-black text-slate-950 mb-1 flex items-center gap-2">
+                <i class="bi bi-patch-check-fill text-amber-600 text-lg"></i>
+                <span>Nosso Compromisso</span>
+              </h3>
+              <p class="text-[16px] text-slate-700 leading-relaxed font-medium">
+                Atendimento ágil em até 40 minutos nas cidades polo, garantia formal por escrito e facilidade de pagamento em até 12x.
+              </p>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- 4. NOSSOS SERVIÇOS (Grid Moderno Web de 12 Colunas - 3 Quebras Responsivas) -->
+    <!-- Distância Estrita de 16px (gap-4) Padrão Google -->
+    <!-- ========================================================================= -->
+    <section id="servicos" class="py-24 bg-white" aria-labelledby="servicos-heading">
+      <div class="max-w-7xl mx-auto px-4 md:px-8">
+        
+        <!-- Section Header -->
+        <div class="text-center max-w-3xl mx-auto mb-12">
+          <div class="flex items-center justify-center gap-3 mb-3">
+            <span class="w-8 h-[3px] bg-amber-500 rounded-full" aria-hidden="true"></span>
+            <span class="text-[16px] font-black tracking-widest text-amber-600 uppercase">Catálogo Completo</span>
+            <span class="w-8 h-[3px] bg-amber-500 rounded-full" aria-hidden="true"></span>
+          </div>
+          <h2 id="servicos-heading" class="text-[34px] sm:text-[44px] lg:text-[55px] font-black text-slate-950 tracking-tight leading-[1.1]">
+            Nossos <span class="text-amber-500">Serviços</span>
+          </h2>
+          <p class="text-[18px] text-slate-700 font-semibold mt-3">
+            Técnicos certificados para solucionar desde pequenas emergências até projetos complexos de reforma.
+          </p>
+        </div>
+
+        <!-- ===================================================================== -->
+        <!-- GRID MODERNO WEB 12 COLUNAS (3 Quebras Responsivas: Celular, Tablet, PC) -->
+        <!-- Celular: col-span-12 (1 card) | Tablet: sm:col-span-6 (2 cards) | PC: lg:col-span-4 (3 cards) -->
+        <!-- Distância estrita de 16px: gap-4 (16px) padrão Google -->
+        <!-- ===================================================================== -->
+        <div class="grid grid-cols-12 gap-4">
+          
+          <!-- Card 1: Elétrica Técnica (3 quebras: 1 col celular, 2 col tablet, 3 col PC) -->
+          <div class="col-span-12 sm:col-span-6 lg:col-span-4">
+            <a href="https://wa.me/5511978466278?text=Ol%C3%A1%21%20Gostaria%20de%20um%20or%C3%A7amento%20para%20servi%C3%A7o%20de%20*El%C3%A9trica*." target="_blank" rel="noopener noreferrer" class="group relative rounded-[24px] overflow-hidden shadow-md hover:shadow-2xl border-2 border-slate-200 h-[480px] bg-slate-900 flex flex-col justify-end p-5 hover:-translate-y-2 transition-all duration-300 block" aria-label="Solicitar orçamento para Elétrica">
+              <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=800&q=80" alt="Eletricista trabalhando em quadro elétrico" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/30 to-transparent"></div>
+              
+              <div class="relative z-10 w-full bg-white/95 backdrop-blur-md rounded-2xl p-5 shadow-2xl border-2 border-slate-200 group-hover:border-amber-400 transition-colors flex flex-col justify-between h-[180px]">
+                <div class="h-10 flex items-center justify-between">
+                  <span class="text-[18px] md:text-[20px] font-black text-slate-950 truncate pr-2">1. Elétrica Técnica</span>
+                  <span class="w-10 h-10 rounded-full bg-amber-400 text-slate-950 flex items-center justify-center flex-shrink-0 shadow-sm">
+                    <i class="bi bi-lightning-charge-fill text-lg"></i>
+                  </span>
+                </div>
+                <div class="h-12 flex items-center">
+                  <p class="text-[15px] md:text-[16px] text-slate-700 font-medium leading-snug line-clamp-2">Troca de disjuntores, fiação, QDC, laudos e iluminação.</p>
+                </div>
+                <div class="h-8 flex items-center justify-between text-[16px] font-black text-amber-700 group-hover:text-amber-800">
+                  <span class="flex items-center gap-1.5"><i class="bi bi-whatsapp"></i> Solicitar Orçamento</span>
+                  <i class="bi bi-arrow-right text-lg"></i>
+                </div>
+              </div>
+            </a>
+          </div>
+
+          <!-- Card 2: Hidráulica Geral -->
+          <div class="col-span-12 sm:col-span-6 lg:col-span-4">
+            <a href="https://wa.me/5511978466278?text=Ol%C3%A1%21%20Gostaria%20de%20um%20or%C3%A7amento%20para%20servi%C3%A7o%20de%20*Hidr%C3%A1ulica*." target="_blank" rel="noopener noreferrer" class="group relative rounded-[24px] overflow-hidden shadow-md hover:shadow-2xl border-2 border-slate-200 h-[480px] bg-slate-900 flex flex-col justify-end p-5 hover:-translate-y-2 transition-all duration-300 block" aria-label="Solicitar orçamento para Hidráulica">
+              <img src="https://images.unsplash.com/photo-1585704032915-c3400ca199e7?auto=format&fit=crop&w=800&q=80" alt="Encanador instalando tubulação de água" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/30 to-transparent"></div>
+              
+              <div class="relative z-10 w-full bg-white/95 backdrop-blur-md rounded-2xl p-5 shadow-2xl border-2 border-slate-200 group-hover:border-amber-400 transition-colors flex flex-col justify-between h-[180px]">
+                <div class="h-10 flex items-center justify-between">
+                  <span class="text-[18px] md:text-[20px] font-black text-slate-950 truncate pr-2">2. Hidráulica Geral</span>
+                  <span class="w-10 h-10 rounded-full bg-amber-400 text-slate-950 flex items-center justify-center flex-shrink-0 shadow-sm">
+                    <i class="bi bi-droplet-fill text-lg"></i>
+                  </span>
+                </div>
+                <div class="h-12 flex items-center">
+                  <p class="text-[15px] md:text-[16px] text-slate-700 font-medium leading-snug line-clamp-2">Geofone digital, válvula Hydra, registros e desentupimento.</p>
+                </div>
+                <div class="h-8 flex items-center justify-between text-[16px] font-black text-amber-700 group-hover:text-amber-800">
+                  <span class="flex items-center gap-1.5"><i class="bi bi-whatsapp"></i> Solicitar Orçamento</span>
+                  <i class="bi bi-arrow-right text-lg"></i>
+                </div>
+              </div>
+            </a>
+          </div>
+
+          <!-- Card 3: Pintura & Textura -->
+          <div class="col-span-12 sm:col-span-6 lg:col-span-4">
+            <a href="https://wa.me/5511978466278?text=Ol%C3%A1%21%20Gostaria%20de%20um%20or%C3%A7amento%20para%20servi%C3%A7o%20de%20*Pintura*." target="_blank" rel="noopener noreferrer" class="group relative rounded-[24px] overflow-hidden shadow-md hover:shadow-2xl border-2 border-slate-200 h-[480px] bg-slate-900 flex flex-col justify-end p-5 hover:-translate-y-2 transition-all duration-300 block" aria-label="Solicitar orçamento para Pintura">
+              <img src="https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&w=800&q=80" alt="Pintor aplicando tinta com acabamento fino" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/30 to-transparent"></div>
+              
+              <div class="relative z-10 w-full bg-white/95 backdrop-blur-md rounded-2xl p-5 shadow-2xl border-2 border-slate-200 group-hover:border-amber-400 transition-colors flex flex-col justify-between h-[180px]">
+                <div class="h-10 flex items-center justify-between">
+                  <span class="text-[18px] md:text-[20px] font-black text-slate-950 truncate pr-2">3. Pintura & Textura</span>
+                  <span class="w-10 h-10 rounded-full bg-amber-400 text-slate-950 flex items-center justify-center flex-shrink-0 shadow-sm">
+                    <i class="bi bi-paint-bucket text-lg"></i>
+                  </span>
+                </div>
+                <div class="h-12 flex items-center">
+                  <p class="text-[15px] md:text-[16px] text-slate-700 font-medium leading-snug line-clamp-2">Massa corrida, textura, grafiato, pintura predial e residencial.</p>
+                </div>
+                <div class="h-8 flex items-center justify-between text-[16px] font-black text-amber-700 group-hover:text-amber-800">
+                  <span class="flex items-center gap-1.5"><i class="bi bi-whatsapp"></i> Solicitar Orçamento</span>
+                  <i class="bi bi-arrow-right text-lg"></i>
+                </div>
+              </div>
+            </a>
+          </div>
+
+          <!-- Card 4: Construção Civil -->
+          <div class="col-span-12 sm:col-span-6 lg:col-span-4">
+            <a href="https://wa.me/5511978466278?text=Ol%C3%A1%21%20Gostaria%20de%20um%20or%C3%A7amento%20para%20servi%C3%A7o%20de%20*Constru%C3%A7%C3%A3o%20Civil*." target="_blank" rel="noopener noreferrer" class="group relative rounded-[24px] overflow-hidden shadow-md hover:shadow-2xl border-2 border-slate-200 h-[480px] bg-slate-900 flex flex-col justify-end p-5 hover:-translate-y-2 transition-all duration-300 block" aria-label="Solicitar orçamento para Construção Civil">
+              <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=800&q=80" alt="Obra de construção e projeto arquitetônico" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/30 to-transparent"></div>
+              
+              <div class="relative z-10 w-full bg-white/95 backdrop-blur-md rounded-2xl p-5 shadow-2xl border-2 border-slate-200 group-hover:border-amber-400 transition-colors flex flex-col justify-between h-[180px]">
+                <div class="h-10 flex items-center justify-between">
+                  <span class="text-[18px] md:text-[20px] font-black text-slate-950 truncate pr-2">4. Construção Civil</span>
+                  <span class="w-10 h-10 rounded-full bg-amber-400 text-slate-950 flex items-center justify-center flex-shrink-0 shadow-sm">
+                    <i class="bi bi-building-fill text-lg"></i>
+                  </span>
+                </div>
+                <div class="h-12 flex items-center">
+                  <p class="text-[15px] md:text-[16px] text-slate-700 font-medium leading-snug line-clamp-2">Fundação ao acabamento, ampliações, lajes e reformas completas.</p>
+                </div>
+                <div class="h-8 flex items-center justify-between text-[16px] font-black text-amber-700 group-hover:text-amber-800">
+                  <span class="flex items-center gap-1.5"><i class="bi bi-whatsapp"></i> Solicitar Orçamento</span>
+                  <i class="bi bi-arrow-right text-lg"></i>
+                </div>
+              </div>
+            </a>
+          </div>
+
+          <!-- Card 5: Pisos & Alvenaria -->
+          <div class="col-span-12 sm:col-span-6 lg:col-span-4">
+            <a href="https://wa.me/5511978466278?text=Ol%C3%A1%21%20Gostaria%20de%20um%20or%C3%A7amento%20para%20servi%C3%A7o%20de%20*Alvenaria%20e%20Pedreiro*." target="_blank" rel="noopener noreferrer" class="group relative rounded-[24px] overflow-hidden shadow-md hover:shadow-2xl border-2 border-slate-200 h-[480px] bg-slate-900 flex flex-col justify-end p-5 hover:-translate-y-2 transition-all duration-300 block" aria-label="Solicitar orçamento para Pisos e Alvenaria">
+              <img src="https://images.unsplash.com/photo-1590381105924-c72589b9ef3f?auto=format&fit=crop&w=800&q=80" alt="Assentamento de porcelanato e acabamento fino" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/30 to-transparent"></div>
+              
+              <div class="relative z-10 w-full bg-white/95 backdrop-blur-md rounded-2xl p-5 shadow-2xl border-2 border-slate-200 group-hover:border-amber-400 transition-colors flex flex-col justify-between h-[180px]">
+                <div class="h-10 flex items-center justify-between">
+                  <span class="text-[18px] md:text-[20px] font-black text-slate-950 truncate pr-2">5. Pisos & Alvenaria</span>
+                  <span class="w-10 h-10 rounded-full bg-amber-400 text-slate-950 flex items-center justify-center flex-shrink-0 shadow-sm">
+                    <i class="bi bi-layers-fill text-lg"></i>
+                  </span>
+                </div>
+                <div class="h-12 flex items-center">
+                  <p class="text-[15px] md:text-[16px] text-slate-700 font-medium leading-snug line-clamp-2">Assentamento de porcelanatos, pisos, contrapiso, reboco e muros.</p>
+                </div>
+                <div class="h-8 flex items-center justify-between text-[16px] font-black text-amber-700 group-hover:text-amber-800">
+                  <span class="flex items-center gap-1.5"><i class="bi bi-whatsapp"></i> Solicitar Orçamento</span>
+                  <i class="bi bi-arrow-right text-lg"></i>
+                </div>
+              </div>
+            </a>
+          </div>
+
+          <!-- Card 6: Gesso & Drywall -->
+          <div class="col-span-12 sm:col-span-6 lg:col-span-4">
+            <a href="https://wa.me/5511978466278?text=Ol%C3%A1%21%20Gostaria%20de%20um%20or%C3%A7amento%20para%20servi%C3%A7o%20de%20*Drywall*." target="_blank" rel="noopener noreferrer" class="group relative rounded-[24px] overflow-hidden shadow-md hover:shadow-2xl border-2 border-slate-200 h-[480px] bg-slate-900 flex flex-col justify-end p-5 hover:-translate-y-2 transition-all duration-300 block" aria-label="Solicitar orçamento para Gesso e Drywall">
+              <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=800&q=80" alt="Instalação de forro de drywall rebaixado" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/30 to-transparent"></div>
+              
+              <div class="relative z-10 w-full bg-white/95 backdrop-blur-md rounded-2xl p-5 shadow-2xl border-2 border-slate-200 group-hover:border-amber-400 transition-colors flex flex-col justify-between h-[180px]">
+                <div class="h-10 flex items-center justify-between">
+                  <span class="text-[18px] md:text-[20px] font-black text-slate-950 truncate pr-2">6. Gesso & Drywall</span>
+                  <span class="w-10 h-10 rounded-full bg-amber-400 text-slate-950 flex items-center justify-center flex-shrink-0 shadow-sm">
+                    <i class="bi bi-rulers text-lg"></i>
+                  </span>
+                </div>
+                <div class="h-12 flex items-center">
+                  <p class="text-[15px] md:text-[16px] text-slate-700 font-medium leading-snug line-clamp-2">Paredes acústicas, forros rebaixados, sancas e iluminação embutida.</p>
+                </div>
+                <div class="h-8 flex items-center justify-between text-[16px] font-black text-amber-700 group-hover:text-amber-800">
+                  <span class="flex items-center gap-1.5"><i class="bi bi-whatsapp"></i> Solicitar Orçamento</span>
+                  <i class="bi bi-arrow-right text-lg"></i>
+                </div>
+              </div>
+            </a>
+          </div>
+
+          <!-- Card 7: Ar-Condicionado -->
+          <div class="col-span-12 sm:col-span-6 lg:col-span-4">
+            <a href="https://wa.me/5511978466278?text=Ol%C3%A1%21%20Gostaria%20de%20um%20or%C3%A7amento%20para%20servi%C3%A7o%20de%20*Ar-Condicionado*." target="_blank" rel="noopener noreferrer" class="group relative rounded-[24px] overflow-hidden shadow-md hover:shadow-2xl border-2 border-slate-200 h-[480px] bg-slate-900 flex flex-col justify-end p-5 hover:-translate-y-2 transition-all duration-300 block" aria-label="Solicitar orçamento para Ar-Condicionado">
+              <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=800&q=80" alt="Instalação e manutenção de ar condicionado" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/30 to-transparent"></div>
+              
+              <div class="relative z-10 w-full bg-white/95 backdrop-blur-md rounded-2xl p-5 shadow-2xl border-2 border-slate-200 group-hover:border-amber-400 transition-colors flex flex-col justify-between h-[180px]">
+                <div class="h-10 flex items-center justify-between">
+                  <span class="text-[18px] md:text-[20px] font-black text-slate-950 truncate pr-2">7. Ar-Condicionado</span>
+                  <span class="w-10 h-10 rounded-full bg-amber-400 text-slate-950 flex items-center justify-center flex-shrink-0 shadow-sm">
+                    <i class="bi bi-snow2 text-lg"></i>
+                  </span>
+                </div>
+                <div class="h-12 flex items-center">
+                  <p class="text-[15px] md:text-[16px] text-slate-700 font-medium leading-snug line-clamp-2">Instalação Split, higienização profunda, recarga de gás e preventiva.</p>
+                </div>
+                <div class="h-8 flex items-center justify-between text-[16px] font-black text-amber-700 group-hover:text-amber-800">
+                  <span class="flex items-center gap-1.5"><i class="bi bi-whatsapp"></i> Solicitar Orçamento</span>
+                  <i class="bi bi-arrow-right text-lg"></i>
+                </div>
+              </div>
+            </a>
+          </div>
+
+          <!-- Card 8: Solda & Portões -->
+          <div class="col-span-12 sm:col-span-6 lg:col-span-4">
+            <a href="https://wa.me/5511978466278?text=Ol%C3%A1%21%20Gostaria%20de%20um%20or%C3%A7amento%20para%20servi%C3%A7o%20de%20*Solda%20e%20Serralheria*." target="_blank" rel="noopener noreferrer" class="group relative rounded-[24px] overflow-hidden shadow-md hover:shadow-2xl border-2 border-slate-200 h-[480px] bg-slate-900 flex flex-col justify-end p-5 hover:-translate-y-2 transition-all duration-300 block" aria-label="Solicitar orçamento para Solda e Portões">
+              <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=800&q=80" alt="Profissional executando solda e serralheria técnica" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/30 to-transparent"></div>
+              
+              <div class="relative z-10 w-full bg-white/95 backdrop-blur-md rounded-2xl p-5 shadow-2xl border-2 border-slate-200 group-hover:border-amber-400 transition-colors flex flex-col justify-between h-[180px]">
+                <div class="h-10 flex items-center justify-between">
+                  <span class="text-[18px] md:text-[20px] font-black text-slate-950 truncate pr-2">8. Solda & Portões</span>
+                  <span class="w-10 h-10 rounded-full bg-amber-400 text-slate-950 flex items-center justify-center flex-shrink-0 shadow-sm">
+                    <i class="bi bi-fire text-lg"></i>
+                  </span>
+                </div>
+                <div class="h-12 flex items-center">
+                  <p class="text-[15px] md:text-[16px] text-slate-700 font-medium leading-snug line-clamp-2">Conserto de portões, grades, corrimãos, solda MIG, TIG e elétrica.</p>
+                </div>
+                <div class="h-8 flex items-center justify-between text-[16px] font-black text-amber-700 group-hover:text-amber-800">
+                  <span class="flex items-center gap-1.5"><i class="bi bi-whatsapp"></i> Solicitar Orçamento</span>
+                  <i class="bi bi-arrow-right text-lg"></i>
+                </div>
+              </div>
+            </a>
+          </div>
+
+          <!-- Card 9: Projetos Especiais & Sob Medida (Completa o Grid de 3x3 Perfeito no Desktop!) -->
+          <div class="col-span-12 sm:col-span-12 lg:col-span-4">
+            <a href="https://wa.me/5511978466278?text=Ol%C3%A1%21%20Preciso%20de%20um%20or%C3%A7amento%20para%20um%20projeto%20sob%20medida." target="_blank" rel="noopener noreferrer" class="group relative rounded-[24px] overflow-hidden shadow-md hover:shadow-2xl border-2 border-amber-400 h-[480px] bg-slate-950 flex flex-col justify-end p-5 hover:-translate-y-2 transition-all duration-300 block" aria-label="Solicitar projeto sob medida">
+              <img src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?auto=format&fit=crop&w=800&q=80" alt="Equipe de engenheiros e técnicos planejando projeto sob medida" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 opacity-60" />
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950/95 via-slate-950/60 to-transparent"></div>
+              
+              <div class="relative z-10 w-full bg-slate-900/95 backdrop-blur-md rounded-2xl p-5 shadow-2xl border-2 border-amber-400 flex flex-col justify-between h-[180px]">
+                <div class="h-10 flex items-center justify-between">
+                  <span class="text-[18px] md:text-[20px] font-black text-white truncate pr-2">9. Projetos Sob Medida</span>
+                  <span class="w-10 h-10 rounded-full bg-amber-400 text-slate-950 flex items-center justify-center flex-shrink-0 shadow-sm">
+                    <i class="bi bi-tools text-lg"></i>
+                  </span>
+                </div>
+                <div class="h-12 flex items-center">
+                  <p class="text-[15px] md:text-[16px] text-slate-300 font-medium leading-snug line-clamp-2">Obras comerciais, laudos técnicos, condomínios e manutenção preventiva.</p>
+                </div>
+                <div class="h-8 flex items-center justify-between text-[16px] font-black text-amber-400 group-hover:text-amber-300">
+                  <span class="flex items-center gap-1.5"><i class="bi bi-whatsapp"></i> Falar com Supervisor</span>
+                  <i class="bi bi-arrow-right text-lg"></i>
+                </div>
+              </div>
+            </a>
+          </div>
+
+        </div>
+
+        <!-- Action Button Below Services com Alto Contraste e Bootstrap Icons -->
+        <div class="text-center mt-12">
+          <a href="https://wa.me/5511978466278?text=Ol%C3%A1%21%20Preciso%20de%20um%20or%C3%A7amento%20para%20um%20servi%C3%A7o." target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-3 bg-slate-950 hover:bg-amber-400 text-amber-400 hover:text-slate-950 font-black text-[16px] md:text-[20px] px-10 py-4 min-h-[56px] rounded-full border-2 border-slate-950 hover:border-amber-400 shadow-2xl hover:scale-105 active:scale-95 transition-all duration-200" aria-label="Falar com especialista para qualquer serviço técnico">
+            <i class="bi bi-whatsapp text-2xl"></i>
+            <span>QUERO REALIZAR UM SERVIÇO</span>
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- 5. POR QUE ESCOLHER A VIVAZ? (Dark Bento: Bootstrap Icons Oficiais) -->
+    <!-- ========================================================================= -->
+    <section id="por-que-nos" class="py-20 bg-white" aria-labelledby="por-que-heading">
+      <div class="max-w-7xl mx-auto px-4 md:px-8">
+        
+        <div class="relative bg-[#111318] text-white rounded-[32px] md:rounded-[48px] bento-cutout-top p-6 sm:p-12 md:p-16 border-2 border-slate-800 shadow-2xl overflow-hidden">
+          
+          <div class="text-center max-w-3xl mx-auto mb-12 pt-4">
+            <h2 id="por-que-heading" class="text-[34px] sm:text-[44px] lg:text-[55px] font-black text-white tracking-tight leading-[1.1]">
+              Por que escolher a <span class="text-amber-400">Vivaz Serviços e Soluções</span>?
+            </h2>
+            <p class="text-[18px] text-slate-300 font-medium mt-3 leading-relaxed">
+              Nossa organização combina precisão técnica, equipes qualificadas e ferramentas de última geração para que você nunca fique na mão.
+            </p>
+          </div>
+
+          <!-- 12-Column Grid com gap de 16px (gap-4) -->
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            
+            <div class="flex flex-col items-start p-6 rounded-2xl bg-white/[0.04] border-2 border-white/10 hover:border-amber-400/50 transition-colors">
+              <div class="w-14 h-14 rounded-2xl bg-amber-500/20 border-2 border-amber-400 flex items-center justify-center text-amber-400 mb-5" aria-hidden="true">
+                <i class="bi bi-person-badge-fill text-2xl"></i>
+              </div>
+              <h3 class="text-[21px] font-black text-white mb-2">Equipe Técnica Especializada</h3>
+              <p class="text-[16px] text-slate-300 leading-relaxed font-normal">
+                Técnicos treinados e certificados pelas normas NR-10 e NR-35, uniformizados e monitorados para total segurança da sua família ou empresa.
+              </p>
+            </div>
+
+            <div class="flex flex-col items-start p-6 rounded-2xl bg-white/[0.04] border-2 border-white/10 hover:border-amber-400/50 transition-colors">
+              <div class="w-14 h-14 rounded-2xl bg-amber-500/20 border-2 border-amber-400 flex items-center justify-center text-amber-400 mb-5" aria-hidden="true">
+                <i class="bi bi-award-fill text-2xl"></i>
+              </div>
+              <h3 class="text-[21px] font-black text-white mb-2">Obras e Reformas de Alto Padrão</h3>
+              <p class="text-[16px] text-slate-300 leading-relaxed font-normal">
+                Garantia formal por escrito de 100% dos serviços executados. Materiais homologados e sem surpresas no valor final do orçamento.
+              </p>
+            </div>
+
+            <div class="flex flex-col items-start p-6 rounded-2xl bg-white/[0.04] border-2 border-white/10 hover:border-amber-400/50 transition-colors">
+              <div class="w-14 h-14 rounded-2xl bg-amber-500/20 border-2 border-amber-400 flex items-center justify-center text-amber-400 mb-5" aria-hidden="true">
+                <i class="bi bi-tools text-2xl"></i>
+              </div>
+              <h3 class="text-[21px] font-black text-white mb-2">Ferramental de Última Geração</h3>
+              <p class="text-[16px] text-slate-300 leading-relaxed font-normal">
+                Aparelho Geofone digital para caça-vazamentos não destrutivo, maquinário de solda industrial e instrumentos calibrados para diagnóstico rápido.
+              </p>
+            </div>
+
+          </div>
+
+          <div class="text-center mt-12">
+            <a href="https://wa.me/5511978466278?text=Ol%C3%A1%21%20Quero%20agendar%20uma%20visita%20t%C3%A9cnica%20com%20a%20Vivaz%20Servi%C3%A7os%20e%20Solu%C3%A7%C3%B5es." target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-3 bg-amber-400 hover:bg-white text-slate-950 font-black text-[16px] md:text-[20px] px-10 py-4 min-h-[56px] rounded-full border-2 border-amber-400 hover:border-white shadow-2xl hover:scale-105 active:scale-95 transition-all duration-200" aria-label="Solicitar Visita Técnica com nossa equipe">
+              <i class="bi bi-whatsapp text-2xl"></i>
+              <span>Solicitar Visita Técnica</span>
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- 6. NOSSO PORTFÓLIO (Grid de 12 Colunas com gap de 16px) -->
+    <!-- ========================================================================= -->
+    <section id="portfolio" class="py-20 bg-slate-50/80 border-y-2 border-slate-200" aria-labelledby="portfolio-heading">
+      <div class="max-w-7xl mx-auto px-4 md:px-8">
+        
+        <div class="text-center max-w-3xl mx-auto mb-12">
+          <h2 id="portfolio-heading" class="text-[34px] sm:text-[44px] lg:text-[55px] font-black text-slate-950 tracking-tight leading-[1.1]">
+            Nosso <span class="text-amber-500">Portfólio</span>
+          </h2>
+          <p class="text-[18px] text-slate-700 font-semibold mt-3">
+            Veja alguns dos projetos residenciais e corporativos entregues com perfeição no Vale do Paraíba.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-12 gap-4">
+          
+          <!-- Project 1 -->
+          <div class="col-span-12 sm:col-span-6 lg:col-span-3 group relative rounded-[24px] overflow-hidden shadow-lg hover:shadow-2xl border-2 border-slate-200 h-[420px] bg-slate-900 flex flex-col justify-end p-5 transition-all duration-300">
+            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80" alt="Reforma Residencial de Luxo entregue no Urbanova" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/30 to-transparent"></div>
+            
+            <div class="relative z-10 bg-white/95 backdrop-blur-md rounded-2xl p-4 shadow-xl border-2 border-slate-200">
+              <span class="text-[15px] font-extrabold text-amber-700 uppercase tracking-wider block flex items-center gap-1.5">
+                <i class="bi bi-geo-alt-fill text-amber-700"></i>
+                Urbanova • SJC
+              </span>
+              <h3 class="text-[19px] font-black text-slate-950 mt-1">Reforma Completa & LED</h3>
+              <p class="text-[15px] text-slate-700 mt-1 font-medium">Elétrica técnica, fitas de LED e forro de gesso rebaixado.</p>
+            </div>
+          </div>
+
+          <!-- Project 2 -->
+          <div class="col-span-12 sm:col-span-6 lg:col-span-3 group relative rounded-[24px] overflow-hidden shadow-lg hover:shadow-2xl border-2 border-slate-200 h-[420px] bg-slate-900 flex flex-col justify-end p-5 transition-all duration-300">
+            <img src="https://images.unsplash.com/photo-1600565193348-f74bd3c7ccdf?auto=format&fit=crop&w=800&q=80" alt="Assentamento de Porcelanato na Vila Ema" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/30 to-transparent"></div>
+            
+            <div class="relative z-10 bg-white/95 backdrop-blur-md rounded-2xl p-4 shadow-xl border-2 border-slate-200">
+              <span class="text-[15px] font-extrabold text-amber-700 uppercase tracking-wider block flex items-center gap-1.5">
+                <i class="bi bi-geo-alt-fill text-amber-700"></i>
+                Vila Ema • SJC
+              </span>
+              <h3 class="text-[19px] font-black text-slate-950 mt-1">Piso Porcelanato 180m²</h3>
+              <p class="text-[15px] text-slate-700 mt-1 font-medium">Nivelamento a laser e acabamento fino com rejunte epóxi.</p>
+            </div>
+          </div>
+
+          <!-- Project 3 -->
+          <div class="col-span-12 sm:col-span-6 lg:col-span-3 group relative rounded-[24px] overflow-hidden shadow-lg hover:shadow-2xl border-2 border-slate-200 h-[420px] bg-slate-900 flex flex-col justify-end p-5 transition-all duration-300">
+            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80" alt="Reforma Corporativa com divisórias drywall em Jacareí" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/30 to-transparent"></div>
+            
+            <div class="relative z-10 bg-white/95 backdrop-blur-md rounded-2xl p-5 shadow-xl border-2 border-slate-200">
+              <span class="text-[15px] font-extrabold text-amber-700 uppercase tracking-wider block flex items-center gap-1.5">
+                <i class="bi bi-geo-alt-fill text-amber-700"></i>
+                Jacareí • SP
+              </span>
+              <h3 class="text-[19px] font-black text-slate-950 mt-1">Obra Comercial & Drywall</h3>
+              <p class="text-[15px] text-slate-700 mt-1 font-medium">Divisórias acústicas, cabeamento de rede e ar-condicionado.</p>
+            </div>
+          </div>
+
+          <!-- Project 4 -->
+          <div class="col-span-12 sm:col-span-6 lg:col-span-3 group relative rounded-[24px] overflow-hidden shadow-lg hover:shadow-2xl border-2 border-slate-200 h-[420px] bg-slate-900 flex flex-col justify-end p-5 transition-all duration-300">
+            <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80" alt="Pintura de Fachada e impermeabilização em Taubaté" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/30 to-transparent"></div>
+            
+            <div class="relative z-10 bg-white/95 backdrop-blur-md rounded-2xl p-5 shadow-xl border-2 border-slate-200">
+              <span class="text-[15px] font-extrabold text-amber-700 uppercase tracking-wider block flex items-center gap-1.5">
+                <i class="bi bi-geo-alt-fill text-amber-700"></i>
+                Taubaté • SP
+              </span>
+              <h3 class="text-[19px] font-black text-slate-950 mt-1">Fachada & Impermeabilização</h3>
+              <p class="text-[15px] text-slate-700 mt-1 font-medium">Textura projetada e isolamento térmico de cobertura.</p>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="text-center mt-12">
+          <a href="https://wa.me/5511978466278?text=Ol%C3%A1%21%20Vi%20o%20portf%C3%B3lio%20no%20site%20da%20Vivaz%20Servi%C3%A7os%20e%20Solu%C3%A7%C3%B5es%20e%20gostaria%20de%20um%20projeto%20similar." target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-3 bg-amber-400 hover:bg-slate-950 text-slate-950 hover:text-amber-400 font-black text-[16px] md:text-[20px] px-10 py-4 min-h-[56px] rounded-full border-2 border-amber-400 hover:border-slate-950 shadow-xl hover:scale-105 active:scale-95 transition-all duration-200" aria-label="Solicitar projeto similar ao portfólio">
+            <i class="bi bi-whatsapp text-2xl"></i>
+            <span>Solicitar Projeto Similar</span>
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- 7. CIDADES ATENDIDAS NO VALE DO PARAÍBA (Bootstrap Icons) -->
+    <!-- ========================================================================= -->
+    <section id="atendimento" class="py-20 bg-white" aria-labelledby="cidades-heading">
+      <div class="max-w-7xl mx-auto px-4 md:px-8">
+        
+        <div class="text-center max-w-3xl mx-auto mb-12">
+          <div class="flex items-center justify-center gap-3 mb-3">
+            <span class="w-8 h-[3px] bg-amber-500 rounded-full" aria-hidden="true"></span>
+            <span class="text-[16px] font-black tracking-widest text-amber-600 uppercase">Cobertura Regional</span>
+            <span class="w-8 h-[3px] bg-amber-500 rounded-full" aria-hidden="true"></span>
+          </div>
+          <h2 id="cidades-heading" class="text-[34px] sm:text-[44px] lg:text-[55px] font-black text-slate-950 tracking-tight leading-[1.1]">
+            Áreas de Atendimento no <span class="text-amber-500">Vale do Paraíba</span>
+          </h2>
+          <p class="text-[18px] text-slate-700 font-semibold mt-3">
+            Unidades móveis posicionadas estrategicamente para chegada rápida em até 40 minutos.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+          
+          <div class="p-6 rounded-2xl bg-white border-2 border-amber-400 text-center flex flex-col items-center shadow-md">
+            <span class="w-12 h-12 rounded-full bg-amber-400 text-slate-950 flex items-center justify-center font-black text-[21px] mb-3" aria-hidden="true">
+              <i class="bi bi-star-fill text-xl"></i>
+            </span>
+            <h3 class="font-black text-slate-950 text-[20px] leading-tight">São José dos Campos</h3>
+            <span class="text-[16px] text-amber-800 font-extrabold mt-2">Base Central • 24h</span>
+            <span class="text-[15px] text-slate-600 font-medium mt-1">Tempo médio: 30 min</span>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-slate-50 border-2 border-slate-200 text-center flex flex-col items-center hover:border-amber-400 transition-colors shadow-sm">
+            <span class="w-12 h-12 rounded-full bg-slate-200 text-slate-800 flex items-center justify-center font-bold text-[21px] mb-3" aria-hidden="true">
+              <i class="bi bi-geo-alt-fill text-xl"></i>
+            </span>
+            <h3 class="font-black text-slate-950 text-[20px] leading-tight">Jacareí</h3>
+            <span class="text-[16px] text-slate-700 font-extrabold mt-2">Atendimento Diário</span>
+            <span class="text-[15px] text-slate-600 font-medium mt-1">Tempo médio: 35 min</span>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-slate-50 border-2 border-slate-200 text-center flex flex-col items-center hover:border-amber-400 transition-colors shadow-sm">
+            <span class="w-12 h-12 rounded-full bg-slate-200 text-slate-800 flex items-center justify-center font-bold text-[21px] mb-3" aria-hidden="true">
+              <i class="bi bi-geo-alt-fill text-xl"></i>
+            </span>
+            <h3 class="font-black text-slate-950 text-[20px] leading-tight">Taubaté</h3>
+            <span class="text-[16px] text-slate-700 font-extrabold mt-2">Plantão Ativo</span>
+            <span class="text-[15px] text-slate-600 font-medium mt-1">Tempo médio: 40 min</span>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-slate-50 border-2 border-slate-200 text-center flex flex-col items-center hover:border-amber-400 transition-colors shadow-sm">
+            <span class="w-12 h-12 rounded-full bg-slate-200 text-slate-800 flex items-center justify-center font-bold text-[21px] mb-3" aria-hidden="true">
+              <i class="bi bi-geo-alt-fill text-xl"></i>
+            </span>
+            <h3 class="font-black text-slate-950 text-[20px] leading-tight">Caçapava</h3>
+            <span class="text-[16px] text-slate-700 font-extrabold mt-2">Eixo Dutra</span>
+            <span class="text-[15px] text-slate-600 font-medium mt-1">Tempo médio: 30 min</span>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-slate-50 border-2 border-slate-200 text-center flex flex-col items-center hover:border-amber-400 transition-colors shadow-sm">
+            <span class="w-12 h-12 rounded-full bg-slate-200 text-slate-800 flex items-center justify-center font-bold text-[21px] mb-3" aria-hidden="true">
+              <i class="bi bi-geo-alt-fill text-xl"></i>
+            </span>
+            <h3 class="font-black text-slate-950 text-[20px] leading-tight">Pinda & Região</h3>
+            <span class="text-[16px] text-slate-700 font-extrabold mt-2">Sob Agendamento</span>
+            <span class="text-[15px] text-slate-600 font-medium mt-1">Tempo médio: 45 min</span>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- 8. PERGUNTAS FREQUENTES (FAQ Bento Escuro) -->
+    <!-- ========================================================================= -->
+    <section id="faq" class="py-20 bg-white" aria-labelledby="faq-heading">
+      <div class="max-w-7xl mx-auto px-4 md:px-8">
+        
+        <div class="relative bg-[#111318] text-white rounded-[32px] md:rounded-[48px] p-6 sm:p-12 md:p-16 border-2 border-slate-800 shadow-2xl">
+          
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+            
+            <div class="lg:col-span-5">
+              <div class="flex items-center gap-3 mb-4">
+                <span class="w-10 h-[3px] bg-amber-400 rounded-full" aria-hidden="true"></span>
+                <span class="text-[16px] font-black tracking-widest text-amber-400 uppercase">Dúvidas Comuns</span>
+              </div>
+              <h2 id="faq-heading" class="text-[34px] md:text-[44px] lg:text-[55px] font-black text-white tracking-tight leading-[1.1] mb-5">
+                Perguntas <span class="text-amber-400">Frequentes</span>
+              </h2>
+              <p class="text-[18px] text-slate-300 leading-relaxed font-normal mb-8">
+                Confira as respostas para as principais dúvidas sobre atendimento, prazos e garantia de serviço resolvido.
+              </p>
+
+              <a href="https://wa.me/5511978466278?text=Ol%C3%A1%21%20Tenho%20uma%20d%C3%BAvida%20sobre%20os%20servi%C3%A7os%20da%20Vivaz%20Servi%C3%A7os%20e%20Solu%C3%A7%C3%B5es." target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-3 bg-amber-400 hover:bg-white text-slate-950 font-black text-[16px] px-8 py-4 min-h-[56px] rounded-full border-2 border-amber-400 hover:border-white transition-all duration-200 hover:scale-105 active:scale-95" aria-label="Tirar Dúvida via WhatsApp">
+                <i class="bi bi-whatsapp text-2xl"></i>
+                <span>Tirar Dúvida no WhatsApp</span>
+              </a>
+            </div>
+
+            <div class="lg:col-span-7 space-y-3.5" id="faq-accordion">
+              
+              <!-- Item 1 -->
+              <div class="bg-white/[0.05] border-2 border-white/10 rounded-2xl overflow-hidden transition-all duration-200">
+                <button class="w-full text-left px-6 py-5 flex items-center justify-between font-black text-[18px] md:text-[21px] text-white hover:text-amber-400 transition-colors min-h-[56px]" onclick="toggleFaq(this)" aria-expanded="false">
+                  <span>Qual o tempo de chegada para emergências?</span>
+                  <span class="text-amber-400 text-[24px] font-black transition-transform duration-200 icon" aria-hidden="true">+</span>
+                </button>
+                <div class="px-6 pb-6 text-[16px] text-slate-200 font-medium hidden content leading-relaxed">
+                  Em São José dos Campos, Jacareí e Taubaté, nosso tempo médio de deslocamento é de aproximadamente 30 a 45 minutos para chamados de emergência de elétrica e vazamentos.
+                </div>
+              </div>
+
+              <!-- Item 2 -->
+              <div class="bg-white/[0.05] border-2 border-white/10 rounded-2xl overflow-hidden transition-all duration-200">
+                <button class="w-full text-left px-6 py-5 flex items-center justify-between font-black text-[18px] md:text-[21px] text-white hover:text-amber-400 transition-colors min-h-[56px]" onclick="toggleFaq(this)" aria-expanded="false">
+                  <span>Quais são as formas de pagamento disponíveis?</span>
+                  <span class="text-amber-400 text-[24px] font-black transition-transform duration-200 icon" aria-hidden="true">+</span>
+                </button>
+                <div class="px-6 pb-6 text-[16px] text-slate-200 font-medium hidden content leading-relaxed">
+                  Aceitamos Pix com desconto, cartões de crédito em até 12x sem burocracia, cartão de débito e faturamento via boleto para condomínios e empresas cadastradas.
+                </div>
+              </div>
+
+              <!-- Item 3 -->
+              <div class="bg-white/[0.05] border-2 border-white/10 rounded-2xl overflow-hidden transition-all duration-200">
+                <button class="w-full text-left px-6 py-5 flex items-center justify-between font-black text-[18px] md:text-[21px] text-white hover:text-amber-400 transition-colors min-h-[56px]" onclick="toggleFaq(this)" aria-expanded="false">
+                  <span>Os serviços contam com garantia formal?</span>
+                  <span class="text-amber-400 text-[24px] font-black transition-transform duration-200 icon" aria-hidden="true">+</span>
+                </button>
+                <div class="px-6 pb-6 text-[16px] text-slate-200 font-medium hidden content leading-relaxed">
+                  Sim! Todos os nossos serviços contam com garantia legal e contratual por escrito. Se houver qualquer anormalidade após a entrega, nossa equipe retorna sem custos adicionais.
+                </div>
+              </div>
+
+              <!-- Item 4 -->
+              <div class="bg-white/[0.05] border-2 border-white/10 rounded-2xl overflow-hidden transition-all duration-200">
+                <button class="w-full text-left px-6 py-5 flex items-center justify-between font-black text-[18px] md:text-[21px] text-white hover:text-amber-400 transition-colors min-h-[56px]" onclick="toggleFaq(this)" aria-expanded="false">
+                  <span>Vocês emitem nota fiscal e laudo técnico?</span>
+                  <span class="text-amber-400 text-[24px] font-black transition-transform duration-200 icon" aria-hidden="true">+</span>
+                </button>
+                <div class="px-6 pb-6 text-[16px] text-slate-200 font-medium hidden content leading-relaxed">
+                  Sim. Emitimos Nota Fiscal Eletrônica de Serviços para pessoas físicas e jurídicas, além de laudos técnicos de conformidade para seguro ou aprovação condominial.
+                </div>
+              </div>
+
+              <!-- Item 5 -->
+              <div class="bg-white/[0.05] border-2 border-white/10 rounded-2xl overflow-hidden transition-all duration-200">
+                <button class="w-full text-left px-6 py-5 flex items-center justify-between font-black text-[18px] md:text-[21px] text-white hover:text-amber-400 transition-colors min-h-[56px]" onclick="toggleFaq(this)" aria-expanded="false">
+                  <span>Como solicitar um orçamento expresso?</span>
+                  <span class="text-amber-400 text-[24px] font-black transition-transform duration-200 icon" aria-hidden="true">+</span>
+                </button>
+                <div class="px-6 pb-6 text-[16px] text-slate-200 font-medium hidden content leading-relaxed">
+                  Basta clicar em qualquer botão de WhatsApp nesta página, informar seu bairro/cidade e descrever o serviço. Nossa equipe técnica responde em menos de 5 minutos!
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- 9. FALE CONOSCO (Formulário com Bootstrap Icons) -->
+    <!-- ========================================================================= -->
+    <section id="contato" class="py-20 bg-slate-50 border-t-2 border-slate-200" aria-labelledby="contato-heading">
+      <div class="max-w-7xl mx-auto px-4 md:px-8">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+          
+          <div class="lg:col-span-5">
+            <div class="flex items-center gap-3 mb-4">
+              <span class="w-10 h-[3px] bg-amber-500 rounded-full" aria-hidden="true"></span>
+              <span class="text-[16px] font-black tracking-widest text-amber-600 uppercase">Atendimento Rápido</span>
+            </div>
+            <h2 id="contato-heading" class="text-[34px] md:text-[44px] lg:text-[55px] font-black text-slate-950 tracking-tight leading-[1.1] mb-5">
+              Solicite sua visita técnica sem compromisso.
+            </h2>
+            <p class="text-[18px] text-slate-700 leading-relaxed font-medium mb-8">
+              Preencha o formulário ao lado para direcionarmos o técnico certo na sua cidade, ou ligue direto na nossa central 24h.
+            </p>
+
+            <div class="space-y-4">
+              <a href="tel:11978466278" class="flex items-center gap-4 p-5 bg-white rounded-2xl border-2 border-slate-200 hover:border-amber-400 transition-colors shadow-md min-h-[64px]" aria-label="Ligue para Central de Atendimento 24 horas">
+                <div class="w-12 h-12 rounded-full bg-amber-100 text-amber-700 flex items-center justify-center font-black" aria-hidden="true">
+                  <i class="bi bi-telephone-fill text-2xl text-amber-700"></i>
+                </div>
+                <div>
+                  <span class="text-[16px] text-slate-600 font-bold block">Central de Atendimento 24h</span>
+                  <span class="text-[21px] font-black text-slate-950">(11) 97846-6278</span>
+                </div>
+              </a>
+
+              <a href="https://wa.me/5511978466278" target="_blank" rel="noopener noreferrer" class="flex items-center gap-4 p-5 bg-white rounded-2xl border-2 border-slate-200 hover:border-emerald-400 transition-colors shadow-md min-h-[64px]" aria-label="Fale conosco no WhatsApp de Plantão">
+                <div class="w-12 h-12 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center font-black" aria-hidden="true">
+                  <i class="bi bi-whatsapp text-2xl text-emerald-700"></i>
+                </div>
+                <div>
+                  <span class="text-[16px] text-slate-600 font-bold block">WhatsApp de Plantão</span>
+                  <span class="text-[21px] font-black text-emerald-700">(11) 97846-6278</span>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <div class="lg:col-span-7 bg-white p-6 md:p-10 rounded-[28px] border-2 border-slate-200 shadow-2xl">
+            <h3 class="text-[26px] md:text-[34px] font-black text-slate-950 mb-1">Envie sua Mensagem</h3>
+            <p class="text-[16px] text-slate-600 font-bold mb-6">Receba resposta técnica em poucos minutos no seu WhatsApp.</p>
+
+            <form id="express-form" onsubmit="handleFormSubmit(event)" class="space-y-4">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label for="form-name" class="block text-[16px] font-extrabold text-slate-800 mb-1">Seu Nome Completo:</label>
+                  <input type="text" id="form-name" required placeholder="Ex: Carlos Silva" class="w-full text-[16px] font-semibold px-4 py-3.5 min-h-[56px] bg-slate-50 border-2 border-slate-300 rounded-xl focus:bg-white focus:border-amber-500 focus:outline-none transition-colors" />
+                </div>
+                <div>
+                  <label for="form-phone" class="block text-[16px] font-extrabold text-slate-800 mb-1">Seu WhatsApp (com DDD):</label>
+                  <input type="tel" id="form-phone" required placeholder="(12) 99999-9999" class="w-full text-[16px] font-semibold px-4 py-3.5 min-h-[56px] bg-slate-50 border-2 border-slate-300 rounded-xl focus:bg-white focus:border-amber-500 focus:outline-none transition-colors" />
+                </div>
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label for="form-city" class="block text-[16px] font-extrabold text-slate-800 mb-1">Sua Cidade:</label>
+                  <select id="form-city" class="w-full text-[16px] font-bold px-4 py-3.5 min-h-[56px] bg-slate-50 border-2 border-slate-300 rounded-xl focus:bg-white focus:border-amber-500 focus:outline-none transition-colors">
+                    <option value="São José dos Campos">São José dos Campos</option>
+                    <option value="Jacareí">Jacareí</option>
+                    <option value="Taubaté">Taubaté</option>
+                    <option value="Caçapava">Caçapava</option>
+                    <option value="Outra Cidade do Vale">Outra Cidade do Vale</option>
+                  </select>
+                </div>
+                <div>
+                  <label for="form-service" class="block text-[16px] font-extrabold text-slate-800 mb-1">Serviço Necessário:</label>
+                  <select id="form-service" class="w-full text-[16px] font-bold px-4 py-3.5 min-h-[56px] bg-slate-50 border-2 border-slate-300 rounded-xl focus:bg-white focus:border-amber-500 focus:outline-none transition-colors">
+                    <option value="Elétrica">Elétrica</option>
+                    <option value="Hidráulica">Hidráulica</option>
+                    <option value="Pintura">Pintura</option>
+                    <option value="Construção Civil">Construção Civil</option>
+                    <option value="Alvenaria e Porcelanato">Alvenaria e Porcelanato</option>
+                    <option value="Drywall e Gesso">Drywall e Gesso</option>
+                    <option value="Ar-Condicionado">Ar-Condicionado</option>
+                    <option value="Solda e Serralheria">Solda e Serralheria</option>
+                    <option value="Projeto Sob Medida">Projeto Sob Medida</option>
+                  </select>
+                </div>
+              </div>
+
+              <div>
+                <label for="form-details" class="block text-[16px] font-extrabold text-slate-800 mb-1">Descreva o que precisa:</label>
+                <textarea id="form-details" rows="3" placeholder="Ex: Preciso de troca de disjuntores no quadro e fiação do chuveiro..." class="w-full text-[16px] font-semibold px-4 py-3 bg-slate-50 border-2 border-slate-300 rounded-xl focus:bg-white focus:border-amber-500 focus:outline-none transition-colors"></textarea>
+              </div>
+
+              <button type="submit" class="w-full min-h-[64px] bg-amber-400 hover:bg-slate-950 text-slate-950 hover:text-amber-400 border-2 border-amber-400 hover:border-slate-950 font-black text-[18px] md:text-[21px] py-4 rounded-xl shadow-xl hover:scale-[1.01] active:scale-[0.99] transition-all duration-200 flex items-center justify-center gap-3" aria-label="Enviar formulário e abrir conversa no WhatsApp">
+                <i class="bi bi-whatsapp text-2xl"></i>
+                <span>ENVIAR SOLICITAÇÃO VIA WHATSAPP</span>
+              </button>
+            </form>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- ========================================================================= -->
+  <!-- 10. FOOTER (Design Estruturado, Sem Quebras Desalinhadas, Tema Escuro de Alto Padrão) -->
+  <!-- ========================================================================= -->
+  <footer class="bg-[#111318] text-white pt-14 pb-10 border-t-2 border-slate-800" role="contentinfo">
+    <div class="max-w-7xl mx-auto px-4 md:px-8">
+      
+      <!-- Top Tier: 3 Colunas Perfeitamente Distribuídas -->
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12 pb-10 border-b border-slate-800">
+        
+        <!-- Brand & Bio (5 cols) -->
+        <div class="md:col-span-5">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-12 h-12 rounded-full bg-slate-950 border border-slate-700 flex items-center justify-center p-1.5 shadow-md flex-shrink-0" aria-hidden="true">
+              <img src="vivaz/imgs/logo-vivaz-white.png" alt="Logo Vivaz" class="w-full h-full object-contain" />
+            </div>
+            <div>
+              <span class="font-black text-[20px] tracking-tight text-white uppercase block leading-none">Vivaz</span>
+              <span class="text-[14px] text-slate-400 font-bold block mt-1">Serviços e Soluções</span>
+            </div>
+          </div>
+          <p class="text-[16px] text-slate-300 font-medium leading-relaxed max-w-md">
+            A Vivaz Serviços e Soluções é referência no Vale do Paraíba em engenharia de manutenção, reformas e instalações prediais, comerciais e residenciais com conformidade NR-10 e NR-35.
+          </p>
+        </div>
+
+        <!-- Links Rápidos (3 cols) -->
+        <div class="md:col-span-3">
+          <h4 class="text-[18px] font-black text-amber-400 uppercase tracking-wider mb-4">Navegação</h4>
+          <ul class="space-y-2.5 text-[16px] font-bold text-slate-300">
+            <li><a href="#inicio" class="hover:text-amber-400 transition-colors flex items-center gap-2"><i class="bi bi-chevron-right text-xs text-amber-500"></i> Início</a></li>
+            <li><a href="#quem-somos" class="hover:text-amber-400 transition-colors flex items-center gap-2"><i class="bi bi-chevron-right text-xs text-amber-500"></i> Quem Somos</a></li>
+            <li><a href="#servicos" class="hover:text-amber-400 transition-colors flex items-center gap-2"><i class="bi bi-chevron-right text-xs text-amber-500"></i> Nossos Serviços</a></li>
+            <li><a href="#portfolio" class="hover:text-amber-400 transition-colors flex items-center gap-2"><i class="bi bi-chevron-right text-xs text-amber-500"></i> Portfólio de Obras</a></li>
+            <li><a href="#faq" class="hover:text-amber-400 transition-colors flex items-center gap-2"><i class="bi bi-chevron-right text-xs text-amber-500"></i> Perguntas Frequentes</a></li>
+            <li><a href="#contato" class="hover:text-amber-400 transition-colors flex items-center gap-2"><i class="bi bi-chevron-right text-xs text-amber-500"></i> Fale Conosco</a></li>
+          </ul>
+        </div>
+
+        <!-- Plantão 24h & WhatsApp (4 cols) -->
+        <div class="md:col-span-4">
+          <h4 class="text-[18px] font-black text-amber-400 uppercase tracking-wider mb-4">Plantão Vale do Paraíba</h4>
+          <div class="space-y-3 mb-5">
+            <div class="flex items-center gap-3 text-slate-200">
+              <i class="bi bi-geo-alt-fill text-amber-400 text-lg flex-shrink-0"></i>
+              <span class="text-[16px] font-medium">SJC • Jacareí • Taubaté • Caçapava</span>
+            </div>
+            <div class="flex items-center gap-3 text-slate-200">
+              <i class="bi bi-clock-fill text-amber-400 text-lg flex-shrink-0"></i>
+              <span class="text-[16px] font-medium">Atendimento Emergencial 24 Horas</span>
+            </div>
+            <div class="flex items-center gap-3 text-slate-200">
+              <i class="bi bi-telephone-fill text-amber-400 text-lg flex-shrink-0"></i>
+              <span class="text-[16px] font-bold text-white">(11) 97846-6278</span>
+            </div>
+          </div>
+          <a href="https://wa.me/5511978466278?text=Ol%C3%A1%21%20Vim%20pelo%20rodap%C3%A9%20do%20site%20da%20Vivaz%20Servi%C3%A7os%20e%20Solu%C3%A7%C3%B5es%20e%20preciso%20de%20um%20or%C3%A7amento." target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2.5 bg-amber-400 hover:bg-white text-slate-950 font-black text-[16px] px-6 py-3 rounded-full transition-all duration-200 shadow-lg hover:scale-105 active:scale-95">
+            <i class="bi bi-whatsapp text-lg"></i>
+            <span>Solicitar pelo WhatsApp</span>
+          </a>
+        </div>
+
+      </div>
+
+      <!-- Bottom Tier: Copyright Bar Completa e Alinhada -->
+      <div class="pt-6 flex flex-col md:flex-row items-center justify-between gap-4 text-[15px] md:text-[16px] text-slate-400 font-semibold text-center md:text-left">
+        <div>
+          © 2026 Vivaz Serviços e Soluções. Todos os direitos reservados.
+        </div>
+        <div class="flex items-center gap-4 text-slate-400">
+          <span>São José dos Campos & Região</span>
+          <span>•</span>
+          <span>Garantia de Serviço Resolvido</span>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ========================================================================= -->
+  <!-- 11. PERSISTENT FLOATING WHATSAPP BUTTON (Ícone Oficial Bootstrap Icons) -->
+  <!-- ========================================================================= -->
+  <div class="fixed bottom-6 right-6 z-50 flex items-center gap-4">
+    
+    <div class="hidden sm:flex bg-slate-900 text-white text-[16px] font-extrabold px-5 py-3 rounded-full shadow-2xl border-2 border-slate-700 animate-pulse-subtle min-h-[48px] items-center">
+      <span>Técnico online no WhatsApp</span>
+    </div>
+
+    <!-- Botão Oficial com Ícone Real bi-whatsapp -->
+    <a 
+      href="https://wa.me/5511978466278?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20Vivaz%20Servi%C3%A7os%20e%20Solu%C3%A7%C3%B5es%20e%20preciso%20de%20um%20or%C3%A7amento%20r%C3%A1pido." 
+      target="_blank" 
+      rel="noopener noreferrer" 
+      class="w-16 h-16 rounded-full bg-[#25D366] hover:bg-[#20ba59] text-white flex items-center justify-center shadow-2xl hover:scale-110 active:scale-95 transition-all relative group border-2 border-white/80"
+      aria-label="Iniciar conversa com técnico de plantão no WhatsApp"
+    >
+      <span class="absolute inset-0 rounded-full bg-[#25D366] opacity-40 animate-ping pointer-events-none" aria-hidden="true"></span>
+      
+      <!-- Ícone Oficial do Bootstrap Icons (Não simulado) -->
+      <i class="bi bi-whatsapp text-[32px] text-white relative z-10" aria-hidden="true"></i>
+      
+      <span class="absolute top-0 right-0 w-5 h-5 bg-red-600 text-white rounded-full text-[12px] font-black flex items-center justify-center border-2 border-white shadow-md" aria-hidden="true">1</span>
+    </a>
+  </div>
+
+  <!-- Vanilla Scripts (Accordion Acessível & Redirecionamento WhatsApp) -->
+  <script>
+    function toggleFaq(button) {
+      const container = button.parentElement;
+      const content = container.querySelector('.content');
+      const icon = button.querySelector('.icon');
+      
+      const isOpen = !content.classList.contains('hidden');
+      
+      // Close all in this accordion
+      document.querySelectorAll('#faq-accordion .content').forEach(c => c.classList.add('hidden'));
+      document.querySelectorAll('#faq-accordion button').forEach(b => b.setAttribute('aria-expanded', 'false'));
+      document.querySelectorAll('#faq-accordion .icon').forEach(i => {
+        i.textContent = '+';
+        i.style.transform = 'rotate(0deg)';
+      });
+      
+      if (!isOpen) {
+        content.classList.remove('hidden');
+        button.setAttribute('aria-expanded', 'true');
+        icon.textContent = '−';
+        icon.style.transform = 'rotate(180deg)';
+      }
+    }
+
+    function handleFormSubmit(e) {
+      e.preventDefault();
+      const name = document.getElementById('form-name').value;
+      const phone = document.getElementById('form-phone').value;
+      const city = document.getElementById('form-city').value;
+      const service = document.getElementById('form-service').value;
+      const details = document.getElementById('form-details').value;
+
+      const message = `*SOLICITAÇÃO DE ORÇAMENTO - VIVAZ SERVIÇOS E SOLUÇÕES*\n\n` +
+                      `👤 *Nome:* ${name}\n` +
+                      `📱 *WhatsApp:* ${phone}\n` +
+                      `📍 *Cidade:* ${city}\n` +
+                      `🛠️ *Serviço:* ${service}\n` +
+                      `📝 *Descrição:* ${details || 'Solicito contato para orçamento.'}`;
+
+      const waUrl = `https://wa.me/5511978466278?text=${encodeURIComponent(message)}`;
+      window.open(waUrl, '_blank');
+    }
+  </script>
+</body>
+</html>
