@@ -2,7 +2,9 @@
 node_modules/
 **/node_modules/
 
-# Build artifacts in source folder
+# Build artifacts
+dist/
+**/dist/
 guuhsc-source/**/dist/
 
 # Environment
@@ -22,3 +24,12 @@ Thumbs.db
 links_eletricistas.txt
 tabulacao*.txt
 *.tsv
+
+# Large design source files (CorelDRAW & raw PDFs/videos exceeding GitHub 100MB limit)
+*.cdr
+*.cdrt
+*.CDR
+*.CDRT
+xandy-alves-artes/src/arquivos_portfolio/**/MANUAL DA MARCA/*.pdf
+xandy-alves-artes/src/arquivos_portfolio/**/Manual de Identidade Visual Black Pet.pdf
+xandy-alves-artes/src/arquivos_portfolio/Videos/
