@@ -21,13 +21,29 @@ export const PORTFOLIO_CATEGORIES: PortfolioCategory[] = [
   { id: 'autoral', label: 'Projetos Autorais', description: 'Séries pessoais, fine art e estudos conceituais' }
 ];
 
-export const ALL_PORTFOLIO_PROJECTS: PortfolioProject[] = [
+function normalizeAssetUrl(url: string): string {
+  if (!url || url.startsWith('http://') || url.startsWith('https://') || url.startsWith('data:')) {
+    return url;
+  }
+  const base = import.meta.env.BASE_URL || './';
+  const prefix = base.endsWith('/') ? base : `${base}/`;
+  const clean = url.startsWith('/') ? url.slice(1) : url;
+  return `${prefix}${clean}`;
+}
+
+const rawProjects: PortfolioProject[] = [
   ...identidadeVisualProjects,
   ...ilustracaoProjects,
   ...socialMediaProjects,
   ...publicidadeProjects,
   ...projetosAutoraisProjects
 ];
+
+export const ALL_PORTFOLIO_PROJECTS: PortfolioProject[] = rawProjects.map((p) => ({
+  ...p,
+  coverImage: normalizeAssetUrl(p.coverImage),
+  gallery: p.gallery.map(normalizeAssetUrl)
+}));
 
 export const FEATURED_PORTFOLIO_PROJECTS: PortfolioProject[] = ALL_PORTFOLIO_PROJECTS.filter(
   (p) => p.isFeatured
