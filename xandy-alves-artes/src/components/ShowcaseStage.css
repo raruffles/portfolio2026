@@ -23,7 +23,8 @@
   height: 100%;
   z-index: 10;
   overflow: hidden;
-  pointer-events: none;
+  pointer-events: auto;
+  cursor: pointer;
 }
 
 .p-works__preview-track {
@@ -190,10 +191,29 @@
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--cl-muted);
+  cursor: pointer;
+  transition: color var(--transition-fast), transform var(--transition-fast);
+  width: fit-content;
+  user-select: none;
+}
+
+.p-works__caption-meta:hover {
+  color: var(--cl-white);
+  transform: translateX(4px);
+}
+
+.p-works__caption-meta:hover .p-works__caption-client {
+  color: var(--accent-gold);
+}
+
+.p-works__caption-meta:hover .p-works__caption-category {
+  color: var(--cl-white);
+  text-decoration: underline;
 }
 
 .p-works__caption-client {
   color: var(--cl-linen);
+  transition: color var(--transition-fast);
 }
 
 .p-works__caption-slash {
@@ -202,6 +222,7 @@
 
 .p-works__caption-category {
   color: var(--accent-gold);
+  transition: color var(--transition-fast);
 }
 
 .p-works__caption-year {

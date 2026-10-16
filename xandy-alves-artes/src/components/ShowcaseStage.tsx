@@ -204,8 +204,13 @@ export const ShowcaseStage: React.FC<ShowcaseStageProps> = ({
       onTouchEnd={handleTouchEnd}
       aria-label="Projetos em Destaque — Navegação Cinematográfica"
     >
-      {/* 1. Track de Previews com Parallax (ao fundo) */}
-      <div className="p-works__preview" id="works-preview">
+      {/* 1. Track de Previews com Parallax (ao fundo) — Clicável direto para o projeto */}
+      <div
+        className="p-works__preview"
+        id="works-preview"
+        onClick={() => onSelectProject(activeProject)}
+        title={`Clique na imagem para ver o projeto ${activeProject.title}`}
+      >
         <div ref={trackRef} className="p-works__preview-track">
           {projects.map((proj, idx) => (
             <div
@@ -214,7 +219,10 @@ export const ShowcaseStage: React.FC<ShowcaseStageProps> = ({
               style={{
                 top: `calc(${idx} * (100% + ${GAP_RATIO * 100}%))`
               }}
-              onClick={() => onSelectProject(proj)}
+              onClick={(e) => {
+                e.stopPropagation();
+                onSelectProject(proj);
+              }}
             >
               <div className="p-works__preview-inner">
                 <img
@@ -235,7 +243,7 @@ export const ShowcaseStage: React.FC<ShowcaseStageProps> = ({
         </div>
       </div>
 
-      {/* 2. Lista Interativa Central (Corre para baixo ao rolar o mouse) */}
+      {/* 2. Lista Interativa Central (Corre para baixo ao rolar o mouse / Clicar no ativo abre o projeto) */}
       <div className="p-works__stage-overlay">
         <ul ref={listRef} className="p-works__list" id="works-list">
           {projects.map((proj, idx) => {
@@ -244,10 +252,16 @@ export const ShowcaseStage: React.FC<ShowcaseStageProps> = ({
               <li
                 key={proj.id}
                 className={`p-works__row ${isActive ? 'is-active' : ''}`}
-                onClick={() => {
-                  targetY.current = idx * ROW_H;
+                onClick={(e) => {
+                  e.stopPropagation();
+                  if (isActive) {
+                    onSelectProject(proj);
+                  } else {
+                    targetY.current = idx * ROW_H;
+                  }
                 }}
                 data-index={idx}
+                title={isActive ? `Clique para abrir ${proj.title}` : `Rolar para ${proj.title}`}
               >
                 <span className="p-works__arrow">{isActive ? '▶' : ''}</span>
                 <span className="p-works__num">{proj.number}</span>
@@ -260,9 +274,22 @@ export const ShowcaseStage: React.FC<ShowcaseStageProps> = ({
           })}
         </ul>
 
-        {/* 3. Legenda Inferior (Caption com Tipografia Monumental e Roll) */}
+        {/* 3. Legenda Inferior (Texto de suporte e título com clique direto para o projeto) */}
         <div ref={captionRef} className="p-works__caption" id="works-caption">
-          <div className="p-works__caption-meta">
+          <div
+            className="p-works__caption-meta"
+            onClick={(e) => {
+              e.stopPropagation();
+              onSelectProject(activeProject);
+            }}
+            role="button"
+            tabIndex={0}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter') onSelectProject(activeProject);
+            }}
+            title="Clique para abrir detalhes do projeto"
+            aria-label={`Ver projeto ${activeProject.title}: ${activeProject.client} - ${activeProject.categoryLabel}`}
+          >
             <span className="p-works__caption-client">{activeProject.client}</span>
             <span className="p-works__caption-slash">/</span>
             <span className="p-works__caption-category">{activeProject.categoryLabel}</span>
@@ -273,7 +300,10 @@ export const ShowcaseStage: React.FC<ShowcaseStageProps> = ({
           <div className="p-works__caption-bottom">
             <h1
               className="p-works__caption-title"
-              onClick={() => onSelectProject(activeProject)}
+              onClick={(e) => {
+                e.stopPropagation();
+                onSelectProject(activeProject);
+              }}
               title="Clique para abrir detalhes"
             >
               {activeProject.title}
