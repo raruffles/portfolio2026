@@ -1,54 +1,61 @@
 :root {
   /* ==========================================================================
-     Design Tokens — Janousek Photos (Clean & Luminous Fine Art Edition)
-     Princípios Modernos de Katsuhiko Kuwamoto & Minimalismo Editorial Japonês
-     Paleta Clara, Aérea, Elegante e de Altíssima Legibilidade
+     Design Tokens — Janousek Photos (Apple Clean Design System)
+     Inspirado na Arquitetura Visual da Apple (Clean, Airy, Pristine Minimalism)
+     Paleta Ultra-Leve, Zero Degradês Escuros, Contraste de Alta Precisão
      Tipografia: Mínimo 14px, Ideal 16px ou 18px
-     Sistema Espacial 4pt/8pt (4, 8, 12, 16, 24, 32, 40, 48, 64, 80, 96, 128)
+     Sistema Espacial Apple HIG (4, 8, 12, 16, 20, 24, 32, 40, 48, 64, 80, 96)
      ========================================================================== */
 
-  /* Cores Base — Clean, Warm Alabaster, Fine Art Paper & Crisp White */
-  --cl-paper: #FBFBF9;          /* Papel fine art / tela primária suave e luminosa */
-  --cl-bone: #F4F3EE;           /* Fundo secundário suave e acolhedor */
-  --cl-white: #FFFFFF;          /* Branco puro editorial para cards elevados */
-  --cl-surface-hover: #F0EFEB;  /* Hover suave em superfícies */
-  --cl-graphite: #141416;       /* Grafite profundo de alta precisão para títulos e textos */
-  --cl-charcoal: #36373D;       /* Carvão elegante para corpo de texto (contraste > 10:1) */
-  --cl-muted: #636570;          /* Neutro para apoio e metadados com alta legibilidade */
-  --cl-subtle: #8A8C96;         /* Detalhes complementares */
-  --cl-lightgray: #E2E0D8;      /* Linhas e separadores suaves */
+  /* Cores Base — Apple Signature Whites & Grays */
+  --cl-canvas: #FFFFFF;         /* Branco puro, tela primária Apple */
+  --cl-subtle-gray: #F5F5F7;    /* Cinza característico Apple para seções alternadas e cards */
+  --cl-surface: #FFFFFF;        /* Superfície dos cards elevados */
+  --cl-surface-hover: #F0F0F2;  /* Hover sutil */
+  --cl-graphite: #1D1D1F;       /* Grafite assinatura da Apple para títulos e textos principais */
+  --cl-charcoal: #515154;       /* Cinza escuro para corpo de texto (contraste excelente) */
+  --cl-muted: #86868B;          /* Cinza clássico da Apple para legendas, metadados e apoio */
+  --cl-border-hairline: rgba(0, 0, 0, 0.08); /* Borda ultra-limpa Apple */
+  --cl-border-subtle: rgba(0, 0, 0, 0.05);   /* Linhas quase imperceptíveis */
 
   /* Mapeamento Semântico */
-  --bg-primary: var(--cl-paper);
-  --bg-secondary: var(--cl-bone);
-  --bg-surface: var(--cl-white);
+  --bg-primary: var(--cl-canvas);
+  --bg-secondary: var(--cl-subtle-gray);
+  --bg-surface: var(--cl-surface);
   --bg-surface-hover: var(--cl-surface-hover);
-  --bg-glass: rgba(251, 251, 249, 0.94);
+  --bg-glass: rgba(255, 255, 255, 0.82);
 
   --text-primary: var(--cl-graphite);
   --text-secondary: var(--cl-charcoal);
   --text-muted: var(--cl-muted);
   --text-inverse: #FFFFFF;
 
-  /* Cores de Acento — Ouro Champanhe Galeria & Esmeralda Botânica */
-  --accent-gold: #A27B2C;       /* Ouro bronze quente, refinado e visível em fundos claros */
-  --accent-gold-hover: #88651E; /* Hover nobre */
-  --accent-gold-soft: rgba(162, 123, 44, 0.12);
-  --accent-champagne: #C8BA9F;  /* Champanhe sutil */
-  --accent-emerald: #0D8F62;    /* Esmeralda nítido para WhatsApp e status */
-  --accent-emerald-soft: rgba(13, 143, 98, 0.12);
+  /* Cores de Acento — Titanium Gold & Apple Botanical Green */
+  --accent-gold: #9E7431;       /* Ouro bronze titânio refinado */
+  --accent-gold-hover: #7D5C24; /* Hover nobre */
+  --accent-gold-soft: rgba(158, 116, 49, 0.1);
+  --accent-blue: #0071E3;       /* Azul clássico Apple */
+  --accent-emerald: #1B7A38;    /* Verde suave Apple */
+  --accent-emerald-soft: rgba(52, 199, 89, 0.14);
 
-  /* Bordas Estruturais Hairline (Precisão e Sutileza) */
-  --border-subtle: rgba(20, 20, 22, 0.08);
-  --border-medium: rgba(20, 20, 22, 0.16);
-  --border-strong: rgba(162, 123, 44, 0.45);
+  /* Bordas Estruturais Apple (Sem escurecimento artificial) */
+  --border-subtle: rgba(0, 0, 0, 0.06);
+  --border-medium: rgba(0, 0, 0, 0.12);
+  --border-strong: rgba(158, 116, 49, 0.4);
 
-  /* Sombras Elegantes e Arejadas */
-  --shadow-sm: 0 2px 8px rgba(20, 20, 22, 0.04);
-  --shadow-md: 0 8px 24px rgba(20, 20, 22, 0.06);
-  --shadow-lg: 0 20px 48px rgba(20, 20, 22, 0.08);
+  /* Sombras Apple Suaves e Difusas (Zero manchas pretas) */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.03);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.05);
+  --shadow-lg: 0 20px 48px rgba(0, 0, 0, 0.07);
 
-  /* Sistema Espacial Rigoroso (4pt / 8pt Scale) */
+  /* Bordas Arredondadas Apple (Squircle Look) */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --radius-pill: 9999px;
+
+  /* Sistema Espacial (4pt / 8pt Scale) */
   --space-1: 4px;
   --space-2: 8px;
   --space-3: 12px;
@@ -63,7 +70,7 @@
   --space-24: 96px;
   --space-32: 128px;
 
-  /* Nomenclatura explícita por pixel (4pt/8pt) */
+  /* Nomenclatura explícita por pixel */
   --px-4: 4px;
   --px-8: 8px;
   --px-12: 12px;
@@ -85,24 +92,24 @@
   --grid-gutter-tablet: 16px;
   --grid-gutter-mobile: 12px;
 
-  --container-max: 1440px;
-  --container-max-width: 1440px;
-  --container-padding: 48px;
-  --container-padding-desktop: 48px;
-  --container-padding-tablet: 32px;
+  --container-max: 1360px;
+  --container-max-width: 1360px;
+  --container-padding: 40px;
+  --container-padding-desktop: 40px;
+  --container-padding-tablet: 28px;
   --container-padding-mobile: 16px;
 
-  /* Alturas e Métricas Alinhadas à Escala */
-  --navbar-height: 72px;
+  /* Alturas e Métricas */
+  --navbar-height: 68px;
   --touch-target-min: 44px;
-  --row-h: 36px;
+  --row-h: 44px;
   --input-height: 52px;
   --button-height: 48px;
 
-  /* Tipografia Editorial Kuwamoto & Grotesque */
+  /* Tipografia: Apple Pro Grotesque & Haute Editorial */
   --font-display: 'Cinzel', serif;
   --font-editorial: 'Italiana', 'Cinzel', serif;
-  --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif;
 
   /* Tamanhos e Line-Heights: MÍNIMO 14px, IDEAL 16px ou 18px */
   --text-2xs: 14px;
@@ -126,21 +133,21 @@
   --text-2xl: 26px;
   --line-2xl: 36px;
 
-  --text-3xl: clamp(32px, 2rem + 1.4vw, 42px);
-  --line-3xl: 48px;
+  --text-3xl: clamp(32px, 2rem + 1.4vw, 44px);
+  --line-3xl: 50px;
 
   --text-4xl: clamp(40px, 2.6rem + 2.2vw, 56px);
   --line-4xl: 64px;
 
-  --text-5xl: clamp(52px, 3.2rem + 3.8vw, 84px);
-  --line-5xl: 92px;
+  --text-5xl: clamp(50px, 3.2rem + 3.5vw, 80px);
+  --line-5xl: 90px;
 
-  /* Transições Mecânicas e Suaves */
-  --ease-mechanical: cubic-bezier(0.65, 0, 0.35, 1);
-  --ease-smooth: cubic-bezier(0.16, 1, 0.3, 1);
-  --transition-fast: 150ms var(--ease-mechanical);
-  --transition-normal: 250ms var(--ease-mechanical);
-  --transition-slow: 450ms var(--ease-smooth);
+  /* Transições Mecânicas e Suaves Apple */
+  --ease-apple: cubic-bezier(0.28, 0.11, 0.32, 1);
+  --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-fast: 160ms var(--ease-apple);
+  --transition-normal: 300ms var(--ease-apple);
+  --transition-slow: 500ms var(--ease-spring);
 
   /* Z-Index */
   --z-base: 1;
@@ -150,7 +157,7 @@
 
 @media (max-width: 1024px) {
   :root {
-    --container-padding: var(--container-padding-tablet, 32px);
+    --container-padding: var(--container-padding-tablet, 28px);
     --grid-gutter: var(--grid-gutter-tablet, 16px);
   }
 }
