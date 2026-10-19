@@ -53,24 +53,25 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({ project,
           <span>ESC</span>
         </button>
 
-        {/* Hero do Case */}
+        {/* Hero do Case — Foto 100% Pura sem Degradê Escuro */}
         <div className="project-modal__hero">
           <img
             src={project.coverImage}
             alt={project.title}
             className="project-modal__hero-image"
           />
-          <div className="project-modal__hero-gradient" />
-          <div className="project-modal__hero-content">
-            <div className="project-modal__badge-row">
-              <span className="badge badge--active">{project.categoryLabel}</span>
-              <span className="badge">PROJETO {project.number}</span>
-            </div>
-            <h2 id="modal-project-title" className="project-modal__title">
-              {project.title}
-            </h2>
-            <p className="project-modal__summary">{project.summary}</p>
+        </div>
+
+        {/* Informações Principais Apple Clean */}
+        <div className="project-modal__header-content">
+          <div className="project-modal__badge-row">
+            <span className="badge badge--active">{project.categoryLabel}</span>
+            <span className="badge">PROJETO {project.number}</span>
           </div>
+          <h2 id="modal-project-title" className="project-modal__title">
+            {project.title}
+          </h2>
+          <p className="project-modal__summary">{project.summary}</p>
         </div>
 
         {/* Corpo do Estudo de Caso */}

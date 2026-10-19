@@ -1,7 +1,7 @@
 .contact-section {
   padding: var(--space-24) 0;
   background-color: var(--bg-primary);
-  border-top: 1px solid var(--border-subtle);
+  border-top: 1px solid var(--cl-border-hairline);
 }
 
 /* 12-Column Grid (5 cols info + 7 cols form) */
@@ -21,28 +21,29 @@
 
 .contact-section__form-wrap {
   grid-column: span 12;
-  background: var(--bg-surface);
-  border: 1px solid var(--border-subtle);
-  border-radius: 6px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--cl-border-subtle);
+  border-radius: var(--radius-xl);
   padding: var(--space-8);
   box-shadow: var(--shadow-sm);
 }
 
 @media (min-width: 960px) {
   .contact-section__info {
-    grid-column: span 5; /* 5 colunas */
+    grid-column: span 5;
   }
 
   .contact-section__form-wrap {
-    grid-column: span 7; /* 7 colunas: 5 + 7 = 12 */
+    grid-column: span 7;
   }
 }
 
 .contact-section__title {
+  font-family: var(--font-display);
   font-size: var(--text-3xl);
-  font-weight: 800;
+  font-weight: 700;
   color: var(--text-primary);
-  letter-spacing: -0.01em;
+  letter-spacing: -0.02em;
 }
 
 .contact-section__desc {
@@ -63,43 +64,43 @@
   align-items: center;
   gap: var(--space-4);
   padding: var(--space-6);
-  background: var(--bg-surface);
-  border: 1px solid var(--border-subtle);
-  border-radius: 6px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--cl-border-subtle);
+  border-radius: var(--radius-xl);
   box-shadow: var(--shadow-sm);
-  transition: all var(--transition-fast);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
 }
 
 .contact-channel-card:hover {
   transform: translateX(4px);
-  border-color: var(--accent-gold);
   box-shadow: var(--shadow-md);
 }
 
 .contact-channel-card--whatsapp {
-  border-color: rgba(13, 143, 98, 0.35);
-  background: linear-gradient(135deg, var(--accent-emerald-soft) 0%, var(--bg-surface) 100%);
+  border-color: rgba(52, 199, 89, 0.3);
+  background: rgba(52, 199, 89, 0.08);
 }
 
 .contact-channel-card--whatsapp:hover {
-  border-color: var(--accent-emerald);
+  border-color: rgba(52, 199, 89, 0.5);
 }
 
 .contact-channel-card__icon {
   width: 52px;
   height: 52px;
   border-radius: 50%;
-  background: var(--bg-secondary);
+  background: #FFFFFF;
   display: flex;
   align-items: center;
   justify-content: center;
   color: var(--accent-gold);
   flex-shrink: 0;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
 }
 
 .contact-channel-card--whatsapp .contact-channel-card__icon {
-  color: var(--accent-emerald);
-  background: rgba(13, 143, 98, 0.16);
+  color: #1B7A38;
+  background: rgba(52, 199, 89, 0.18);
 }
 
 .contact-channel-card__content {
@@ -109,7 +110,7 @@
 }
 
 .contact-channel-card__label {
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -125,12 +126,12 @@
 .contact-channel-card__action {
   font-size: 14px;
   color: var(--accent-gold);
-  font-weight: 700;
+  font-weight: 600;
   margin-top: 2px;
 }
 
 .contact-channel-card--whatsapp .contact-channel-card__action {
-  color: var(--accent-emerald);
+  color: #1B7A38;
 }
 
 .contact-channel-card__subval {
@@ -139,18 +140,18 @@
   margin-top: 4px;
 }
 
-/* Redes Sociais */
+/* Redes Sociais Apple Pills */
 .contact-section__socials {
   display: flex;
   align-items: center;
   gap: var(--space-4);
   margin-top: var(--space-4);
   padding-top: var(--space-6);
-  border-top: 1px solid var(--border-subtle);
+  border-top: 1px solid var(--cl-border-hairline);
 }
 
 .contact-section__socials-label {
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -159,36 +160,35 @@
 
 .contact-section__socials-list {
   display: flex;
-  gap: var(--space-3);
+  gap: 10px;
 }
 
 .social-btn {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 8px 16px;
-  background: var(--bg-surface);
-  border: 1px solid var(--border-medium);
-  border-radius: 4px;
+  padding: 8px 18px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--cl-border-subtle);
+  border-radius: var(--radius-pill);
   font-size: 14px;
-  font-weight: 600;
+  font-weight: 500;
   color: var(--text-secondary);
-  box-shadow: var(--shadow-sm);
   transition: all var(--transition-fast);
 }
 
 .social-btn:hover {
-  background: var(--bg-secondary);
+  background: #EAEAEF;
   color: var(--text-primary);
-  border-color: var(--accent-gold);
 }
 
-/* Form */
+/* Form Apple */
 .contact-form__title {
+  font-family: var(--font-display);
   font-size: 24px;
   font-weight: 700;
   color: var(--text-primary);
-  margin-bottom: var(--space-2);
+  margin-bottom: 4px;
 }
 
 .contact-form__subtitle {
@@ -210,7 +210,7 @@
 }
 
 .form-group label {
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 600;
   color: var(--text-primary);
 }
@@ -219,47 +219,45 @@
 .form-group select,
 .form-group textarea {
   width: 100%;
-  padding: 12px 16px;
-  background: var(--bg-secondary);
-  border: 1px solid var(--border-medium);
-  border-radius: 4px;
+  padding: 12px 18px;
+  background: #FFFFFF;
+  border: 1px solid var(--cl-border-hairline);
+  border-radius: var(--radius-md);
   color: var(--text-primary);
   font-family: inherit;
   font-size: 16px;
   outline: none;
-  transition: border-color var(--transition-fast), background var(--transition-fast), box-shadow var(--transition-fast);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+  transition: all var(--transition-fast);
 }
 
 .form-group input:focus,
 .form-group select:focus,
 .form-group textarea:focus {
-  background: var(--bg-surface);
-  border-color: var(--accent-gold);
-  box-shadow: 0 0 0 3px var(--accent-gold-soft);
+  border-color: var(--text-primary);
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.05);
 }
 
 .contact-form__submit {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: var(--space-2);
+  gap: 8px;
   width: 100%;
-  padding: var(--space-4);
-  background: var(--accent-gold);
+  padding: 14px 24px;
+  background: var(--text-primary);
   color: #FFFFFF;
   font-size: 16px;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  border-radius: 4px;
+  font-weight: 600;
+  border-radius: var(--radius-pill);
   margin-top: var(--space-2);
-  box-shadow: var(--shadow-sm);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   transition: all var(--transition-fast);
 }
 
 .contact-form__submit:hover {
-  background: var(--accent-gold-hover);
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
+  background: #000000;
+  transform: scale(1.01);
 }
 
 .contact-form__privacy {
@@ -280,6 +278,7 @@
 }
 
 .contact-form__success h4 {
+  font-family: var(--font-display);
   font-size: 24px;
   font-weight: 700;
   color: var(--text-primary);
@@ -292,11 +291,10 @@
 }
 
 .contact-form__reset-btn {
-  padding: 10px 22px;
-  background: var(--accent-gold);
-  border: 1px solid var(--accent-gold);
-  border-radius: 4px;
+  padding: 10px 24px;
+  background: var(--text-primary);
+  border-radius: var(--radius-pill);
   color: #FFFFFF;
-  font-size: 16px;
-  font-weight: 700;
+  font-size: 15px;
+  font-weight: 600;
 }

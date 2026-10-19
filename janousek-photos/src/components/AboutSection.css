@@ -1,7 +1,7 @@
 .about-section {
   padding: var(--space-24) 0;
-  background-color: var(--bg-primary);
-  border-top: 1px solid var(--border-subtle);
+  background-color: var(--bg-secondary);
+  border-top: 1px solid var(--cl-border-hairline);
 }
 
 .about-section__header {
@@ -13,7 +13,7 @@
   font-size: var(--text-3xl);
   font-weight: 700;
   margin-top: var(--space-3);
-  letter-spacing: -0.01em;
+  letter-spacing: -0.02em;
   color: var(--text-primary);
 }
 
@@ -41,22 +41,22 @@
 
 @media (min-width: 960px) {
   .about-section__portrait-wrap {
-    grid-column: span 5; /* 5 colunas */
+    grid-column: span 5;
   }
 
   .about-section__content {
-    grid-column: span 7; /* 7 colunas: 5 + 7 = 12 */
+    grid-column: span 7;
   }
 }
 
-/* Moldura Fotográfica Kuwamoto */
+/* Moldura Fotográfica Apple (Sem Degradês Escuros) */
 .about-section__portrait-frame {
   position: relative;
   width: 100%;
   aspect-ratio: 4 / 5;
-  background: var(--bg-surface);
-  border: 1px solid var(--border-medium);
-  border-radius: 6px;
+  background: #FFFFFF;
+  border: 1px solid var(--cl-border-subtle);
+  border-radius: var(--radius-xl);
   overflow: hidden;
   box-shadow: var(--shadow-sm);
 }
@@ -66,47 +66,53 @@
   height: 100%;
   object-fit: cover;
   object-position: center top;
-  filter: contrast(1.05) saturate(1.05);
-  transition: filter var(--transition-normal);
+  filter: contrast(1.02) saturate(1.04);
+  transition: transform var(--transition-normal);
 }
 
 .about-section__portrait-frame:hover .about-section__portrait-img {
-  filter: contrast(1.08) saturate(1.1);
+  transform: scale(1.02);
 }
 
+/* Badge Apple de Autoria Flutuante em Vidro Fosco */
 .about-section__portrait-tag {
   position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: var(--space-6);
-  background: linear-gradient(180deg, transparent 0%, rgba(20, 20, 22, 0.9) 100%);
+  bottom: 16px;
+  left: 16px;
+  right: 16px;
+  padding: 14px 20px;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 2px;
 }
 
 .about-section__portrait-role {
   font-family: var(--font-display);
   font-size: 16px;
   font-weight: 700;
-  letter-spacing: 0.08em;
-  color: #FFFFFF;
+  letter-spacing: 0.06em;
+  color: var(--text-primary);
 }
 
 .about-section__portrait-since {
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 600;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.1em;
   color: var(--accent-gold);
 }
 
-/* Quick Card */
+/* Quick Card Apple */
 .about-section__quick-card {
   padding: var(--space-6);
-  background: var(--bg-surface);
-  border: 1px solid var(--border-subtle);
-  border-radius: 6px;
+  background: #FFFFFF;
+  border: 1px solid var(--cl-border-subtle);
+  border-radius: var(--radius-xl);
   box-shadow: var(--shadow-sm);
   display: flex;
   flex-direction: column;
@@ -125,7 +131,7 @@
   display: block;
   color: var(--text-muted);
   font-size: 14px;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
   margin-bottom: 2px;
 }
@@ -137,11 +143,11 @@
 
 .about-section__lead {
   font-family: var(--font-editorial);
-  font-size: clamp(22px, 1.4rem + 0.6vw, 28px);
+  font-size: clamp(24px, 1.4rem + 0.8vw, 30px);
   font-weight: 400;
   font-style: italic;
   color: var(--text-primary);
-  line-height: 1.5;
+  line-height: 1.45;
   border-left: 3px solid var(--accent-gold);
   padding-left: var(--space-4);
 }
@@ -163,7 +169,7 @@
   font-weight: 700;
 }
 
-/* Credenciais Grid */
+/* Credenciais Grid — Apple Bento Cards */
 .about-section__credentials-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -172,27 +178,26 @@
 }
 
 .cred-card {
-  padding: var(--space-5);
-  background: var(--bg-surface);
-  border: 1px solid var(--border-subtle);
-  border-radius: 6px;
+  padding: var(--space-6);
+  background: #FFFFFF;
+  border: 1px solid var(--cl-border-subtle);
+  border-radius: var(--radius-lg);
   box-shadow: var(--shadow-sm);
   display: flex;
   flex-direction: column;
   gap: var(--space-2);
-  transition: border-color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
 }
 
 .cred-card:hover {
-  border-color: var(--accent-gold);
   transform: translateY(-2px);
   box-shadow: var(--shadow-md);
 }
 
 .cred-card__tag {
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 700;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--accent-gold);
 }
@@ -211,7 +216,7 @@
   line-height: 1.6;
 }
 
-/* Pilares do Método - 4 cards */
+/* Pilares do Método Apple */
 .about-section__process {
   margin-bottom: var(--space-20);
 }
@@ -234,15 +239,14 @@
 .pillar-card {
   grid-column: span 12;
   padding: var(--space-8);
-  background: var(--bg-surface);
-  border: 1px solid var(--border-subtle);
-  border-radius: 6px;
+  background: #FFFFFF;
+  border: 1px solid var(--cl-border-subtle);
+  border-radius: var(--radius-xl);
   box-shadow: var(--shadow-sm);
   display: flex;
   flex-direction: column;
   gap: var(--space-3);
-  position: relative;
-  transition: border-color var(--transition-normal), box-shadow var(--transition-normal);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
 }
 
 @media (min-width: 640px) {
@@ -253,12 +257,12 @@
 
 @media (min-width: 1024px) {
   .pillar-card {
-    grid-column: span 3; /* 4 cards x 3 colunas = 12 */
+    grid-column: span 3;
   }
 }
 
 .pillar-card:hover {
-  border-color: var(--accent-gold);
+  transform: translateY(-3px);
   box-shadow: var(--shadow-md);
 }
 
@@ -274,7 +278,6 @@
   font-size: 18px;
   font-weight: 700;
   color: var(--text-primary);
-  letter-spacing: 0.01em;
 }
 
 .pillar-card__desc {
@@ -286,9 +289,9 @@
 /* Grandes Marcas */
 .about-section__brands {
   padding: var(--space-8);
-  background: var(--bg-surface);
-  border: 1px solid var(--border-subtle);
-  border-radius: 6px;
+  background: #FFFFFF;
+  border: 1px solid var(--cl-border-subtle);
+  border-radius: var(--radius-xl);
   box-shadow: var(--shadow-sm);
 }
 
@@ -311,23 +314,22 @@
 .about-section__brands-list {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--space-3);
+  gap: 10px;
 }
 
 .brand-pill {
-  padding: 8px 16px;
+  padding: 8px 18px;
   background: var(--bg-secondary);
-  border: 1px solid var(--border-subtle);
-  border-radius: 4px;
+  border: 1px solid transparent;
+  border-radius: var(--radius-pill);
   font-size: 14px;
   font-weight: 600;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.04em;
   color: var(--text-primary);
   transition: all var(--transition-fast);
 }
 
 .brand-pill:hover {
-  border-color: var(--accent-gold);
+  background: #EAEAEF;
   color: var(--accent-gold);
-  background: var(--accent-gold-soft);
 }
