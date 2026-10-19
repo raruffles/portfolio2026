@@ -10,7 +10,7 @@ interface ShowcaseStageProps {
   onExploreMore: () => void;
 }
 
-const ROW_H = 28; // Altura rigorosa de 28px (múltiplo de 4: 7 * 4px) alinhada à grade web
+const ROW_H = 36; // Altura rigorosa de 36px (múltiplo de 4: 9 * 4px) para leitura confortável a 16px
 const FOLLOW_EASE = 0.12; // Suavização inercial Lerp
 const GAP_RATIO = 0.2; // Espaçamento entre os previews no track
 
@@ -231,12 +231,7 @@ export const ShowcaseStage: React.FC<ShowcaseStageProps> = ({
                   className="showcase__preview-img"
                   loading={idx < 2 ? 'eager' : 'lazy'}
                 />
-                <div
-                  className="p-works__preview-tint"
-                  style={{
-                    background: `radial-gradient(circle at 55% 45%, rgba(8, 8, 10, 0.2) 0%, rgba(8, 8, 10, 0.78) 90%)`
-                  }}
-                />
+                <div className="p-works__preview-tint" />
               </div>
             </div>
           ))}
@@ -329,7 +324,7 @@ export const ShowcaseStage: React.FC<ShowcaseStageProps> = ({
                 }}
                 title="Avançar projeto ou rolar a página"
               >
-                <ArrowDown size={14} />
+                <ArrowDown size={18} />
               </button>
             </div>
           </div>
@@ -345,7 +340,7 @@ export const ShowcaseStage: React.FC<ShowcaseStageProps> = ({
             disabled={activeIndex === 0}
             aria-label="Projeto anterior"
           >
-            <ArrowUp size={14} />
+            <ArrowUp size={18} />
           </button>
           <div className="p-works__nav-progress">
             <div
@@ -363,7 +358,7 @@ export const ShowcaseStage: React.FC<ShowcaseStageProps> = ({
             disabled={activeIndex === total - 1}
             aria-label="Próximo projeto"
           >
-            <ArrowDown size={14} />
+            <ArrowDown size={18} />
           </button>
         </div>
       </div>

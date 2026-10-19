@@ -1,51 +1,54 @@
 :root {
   /* ==========================================================================
-     Design Tokens — Janousek Photos
+     Design Tokens — Janousek Photos (Clean & Luminous Fine Art Edition)
      Princípios Modernos de Katsuhiko Kuwamoto & Minimalismo Editorial Japonês
+     Paleta Clara, Aérea, Elegante e de Altíssima Legibilidade
+     Tipografia: Mínimo 14px, Ideal 16px ou 18px
      Sistema Espacial 4pt/8pt (4, 8, 12, 16, 24, 32, 40, 48, 64, 80, 96, 128)
-     Grid 12 Colunas & Hierarquia Tipográfica de Alta Costura
      ========================================================================== */
 
-  /* Cores Base — Obsidian & High-Contrast Monochrome */
-  --cl-dark: #08080A;           /* Preto obsidiana puro com profundidade */
-  --cl-blackgray: #0D0D11;      /* Superfície primária da Home */
-  --cl-black: #121217;          /* Superfície elevada */
-  --cl-surface: #181820;        /* Cards, painéis e caixas */
-  --cl-surface-hover: #22222C;  /* Hover em superfícies */
-  --cl-white: #FFFFFF;          /* Branco puro editorial */
-  --cl-linen: #F5F3EE;          /* Texto principal quente (Bone/Linen) */
-  --cl-muted: #8E8D96;          /* Texto secundário e microtipografia */
-  --cl-subtle: #4D4C54;         /* Detalhes terciários */
-  --cl-lightgray: #BDBBB6;      /* Bordas suaves */
+  /* Cores Base — Clean, Warm Alabaster, Fine Art Paper & Crisp White */
+  --cl-paper: #FBFBF9;          /* Papel fine art / tela primária suave e luminosa */
+  --cl-bone: #F4F3EE;           /* Fundo secundário suave e acolhedor */
+  --cl-white: #FFFFFF;          /* Branco puro editorial para cards elevados */
+  --cl-surface-hover: #F0EFEB;  /* Hover suave em superfícies */
+  --cl-graphite: #141416;       /* Grafite profundo de alta precisão para títulos e textos */
+  --cl-charcoal: #36373D;       /* Carvão elegante para corpo de texto (contraste > 10:1) */
+  --cl-muted: #636570;          /* Neutro para apoio e metadados com alta legibilidade */
+  --cl-subtle: #8A8C96;         /* Detalhes complementares */
+  --cl-lightgray: #E2E0D8;      /* Linhas e separadores suaves */
 
   /* Mapeamento Semântico */
-  --bg-primary: var(--cl-blackgray);
-  --bg-secondary: var(--cl-dark);
-  --bg-surface: var(--cl-surface);
+  --bg-primary: var(--cl-paper);
+  --bg-secondary: var(--cl-bone);
+  --bg-surface: var(--cl-white);
   --bg-surface-hover: var(--cl-surface-hover);
-  --bg-glass: rgba(8, 8, 10, 0.92);
+  --bg-glass: rgba(251, 251, 249, 0.94);
 
-  --text-primary: var(--cl-linen);
-  --text-secondary: #CCC8BF;
+  --text-primary: var(--cl-graphite);
+  --text-secondary: var(--cl-charcoal);
   --text-muted: var(--cl-muted);
-  --text-inverse: #08080A;
+  --text-inverse: #FFFFFF;
 
-  /* Cores de Acento — Champagne Gold & Platina */
-  --accent-gold: #D4AF37;       /* Ouro clássico editorial */
-  --accent-champagne: #D8CBB5;  /* Champanhe sutil Kuwamoto */
-  --accent-platinum: #EAE6DF;   /* Platina pura */
-  --accent-blue: #4E8DBF;
-  --accent-emerald: #10B981;
+  /* Cores de Acento — Ouro Champanhe Galeria & Esmeralda Botânica */
+  --accent-gold: #A27B2C;       /* Ouro bronze quente, refinado e visível em fundos claros */
+  --accent-gold-hover: #88651E; /* Hover nobre */
+  --accent-gold-soft: rgba(162, 123, 44, 0.12);
+  --accent-champagne: #C8BA9F;  /* Champanhe sutil */
+  --accent-emerald: #0D8F62;    /* Esmeralda nítido para WhatsApp e status */
+  --accent-emerald-soft: rgba(13, 143, 98, 0.12);
 
-  /* Bordas Estruturais Hairline (Precisão Japonesa) */
-  --border-subtle: rgba(255, 255, 255, 0.08);
-  --border-medium: rgba(255, 255, 255, 0.16);
-  --border-strong: rgba(212, 175, 55, 0.4);
+  /* Bordas Estruturais Hairline (Precisão e Sutileza) */
+  --border-subtle: rgba(20, 20, 22, 0.08);
+  --border-medium: rgba(20, 20, 22, 0.16);
+  --border-strong: rgba(162, 123, 44, 0.45);
 
-  /* ==========================================================================
-     Sistema Espacial Rigoroso (4pt / 8pt Scale)
-     Multiplos de 4px e 8px para harmonia dimensional em UX/UI
-     ========================================================================== */
+  /* Sombras Elegantes e Arejadas */
+  --shadow-sm: 0 2px 8px rgba(20, 20, 22, 0.04);
+  --shadow-md: 0 8px 24px rgba(20, 20, 22, 0.06);
+  --shadow-lg: 0 20px 48px rgba(20, 20, 22, 0.08);
+
+  /* Sistema Espacial Rigoroso (4pt / 8pt Scale) */
   --space-1: 4px;
   --space-2: 8px;
   --space-3: 12px;
@@ -75,64 +78,62 @@
   --px-96: 96px;
   --px-128: 128px;
 
-  /* ==========================================================================
-     Sistema de Grid 12 Colunas (Padrão Web de Design System)
-     ========================================================================== */
+  /* Grid 12 Colunas */
   --grid-columns: 12;
   --grid-gutter: 24px;
   --grid-gutter-desktop: 24px;
   --grid-gutter-tablet: 16px;
   --grid-gutter-mobile: 12px;
 
-  --container-max-width: 1440px;
   --container-max: 1440px;
+  --container-max-width: 1440px;
   --container-padding: 48px;
   --container-padding-desktop: 48px;
   --container-padding-tablet: 32px;
   --container-padding-mobile: 16px;
 
-  /* Alturas e Métricas Alinhadas à Escala de 4/8 */
-  --navbar-height: 64px;        /* 16 * 4 */
-  --touch-target-min: 44px;     /* Acessibilidade WCAG */
-  --row-h: 32px;                /* 4 * 8 */
-  --input-height: 48px;         /* 16 * 3 */
-  --button-height: 44px;
+  /* Alturas e Métricas Alinhadas à Escala */
+  --navbar-height: 72px;
+  --touch-target-min: 44px;
+  --row-h: 36px;
+  --input-height: 52px;
+  --button-height: 48px;
 
   /* Tipografia Editorial Kuwamoto & Grotesque */
   --font-display: 'Cinzel', serif;
   --font-editorial: 'Italiana', 'Cinzel', serif;
   --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 
-  /* Tamanhos e Line-Heights Múltiplos da Grade */
-  --text-2xs: 11px;
-  --line-2xs: 16px;
+  /* Tamanhos e Line-Heights: MÍNIMO 14px, IDEAL 16px ou 18px */
+  --text-2xs: 14px;
+  --line-2xs: 20px;
 
-  --text-xs: 13px;
-  --line-xs: 18px;
+  --text-xs: 14px;
+  --line-xs: 22px;
 
-  --text-sm: 14px;
-  --line-sm: 22px;
+  --text-sm: 16px;
+  --line-sm: 24px;
 
-  --text-base: 16px;
-  --line-base: 24px;
+  --text-base: 18px;
+  --line-base: 28px;
 
-  --text-lg: 18px;
-  --line-lg: 28px;
+  --text-lg: 20px;
+  --line-lg: 30px;
 
-  --text-xl: 20px;
-  --line-xl: 28px;
+  --text-xl: 22px;
+  --line-xl: 32px;
 
-  --text-2xl: 24px;
-  --line-2xl: 32px;
+  --text-2xl: 26px;
+  --line-2xl: 36px;
 
-  --text-3xl: clamp(28px, 1.8rem + 1.2vw, 36px);
-  --line-3xl: 44px;
+  --text-3xl: clamp(32px, 2rem + 1.4vw, 42px);
+  --line-3xl: 48px;
 
-  --text-4xl: clamp(36px, 2.2rem + 2vw, 48px);
-  --line-4xl: 56px;
+  --text-4xl: clamp(40px, 2.6rem + 2.2vw, 56px);
+  --line-4xl: 64px;
 
-  --text-5xl: clamp(48px, 2.8rem + 3.5vw, 76px);
-  --line-5xl: 84px;
+  --text-5xl: clamp(52px, 3.2rem + 3.8vw, 84px);
+  --line-5xl: 92px;
 
   /* Transições Mecânicas e Suaves */
   --ease-mechanical: cubic-bezier(0.65, 0, 0.35, 1);

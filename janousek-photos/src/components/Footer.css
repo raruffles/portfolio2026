@@ -1,8 +1,8 @@
 .footer {
   padding: var(--space-8) 0;
-  background: var(--bg-primary);
+  background: var(--bg-secondary);
   border-top: 1px solid var(--border-subtle);
-  font-size: var(--text-2xs);
+  font-size: 14px;
   color: var(--text-muted);
 }
 
@@ -26,16 +26,18 @@
   display: flex;
   align-items: center;
   gap: var(--space-2);
+  font-size: 14px;
 }
 
 .footer__brand {
   font-weight: 700;
   color: var(--text-primary);
-  letter-spacing: 0.05em;
+  letter-spacing: 0.04em;
+  font-size: 16px;
 }
 
 .footer__sep {
-  color: var(--border-strong);
+  color: var(--border-medium);
 }
 
 .footer__center {
@@ -46,24 +48,28 @@
   .footer__center {
     display: block;
     color: var(--text-secondary);
+    font-size: 14px;
   }
 }
 
 .footer__top-btn {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  color: var(--text-secondary);
+  gap: 8px;
+  color: var(--text-primary);
   font-weight: 700;
-  letter-spacing: 0.08em;
-  padding: 4px 10px;
-  border-radius: 2px;
-  border: 1px solid var(--border-subtle);
+  letter-spacing: 0.06em;
+  padding: 6px 14px;
+  border-radius: 4px;
+  border: 1px solid var(--border-medium);
+  background: var(--bg-surface);
+  font-size: 14px;
+  box-shadow: var(--shadow-sm);
   transition: all var(--transition-fast);
 }
 
 .footer__top-btn:hover {
   background: var(--accent-gold);
-  color: var(--text-inverse);
+  color: #FFFFFF;
   border-color: var(--accent-gold);
 }

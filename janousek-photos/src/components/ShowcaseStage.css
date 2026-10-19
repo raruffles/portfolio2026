@@ -1,6 +1,8 @@
 /* ==========================================================================
-   ShowcaseStage (Inspirado estritamente em EAST 64 Films)
+   ShowcaseStage (Clean Fine Art Edition)
    Estágio Cinematográfico Full-Viewport com Scroll Contínuo de Projetos
+   Paleta Clara, Aérea, Contraste de Alta Legibilidade
+   Tipografia: Mínimo 14px, Ideal 16px ou 18px
    ========================================================================== */
 
 .p-works {
@@ -9,8 +11,8 @@
   height: 100vh;
   height: 100dvh;
   overflow: hidden;
-  background-color: var(--cl-blackgray);
-  color: var(--cl-linen);
+  background-color: var(--cl-paper);
+  color: var(--text-primary);
   user-select: none;
 }
 
@@ -60,7 +62,7 @@
   height: 100%;
   object-fit: cover;
   object-position: center;
-  filter: brightness(0.68) contrast(1.1);
+  filter: contrast(1.02) saturate(1.06) brightness(0.96);
   will-change: transform;
 }
 
@@ -68,6 +70,16 @@
   position: absolute;
   inset: 0;
   pointer-events: none;
+  background: 
+    linear-gradient(90deg, rgba(251, 251, 249, 0.96) 0%, rgba(251, 251, 249, 0.88) 35%, rgba(251, 251, 249, 0.35) 75%, rgba(251, 251, 249, 0.65) 100%),
+    linear-gradient(0deg, rgba(251, 251, 249, 0.98) 0%, rgba(251, 251, 249, 0.85) 140px, transparent 280px);
+}
+
+@media (max-width: 768px) {
+  .p-works__preview-tint {
+    background: 
+      linear-gradient(180deg, rgba(251, 251, 249, 0.85) 0%, rgba(251, 251, 249, 0.6) 45%, rgba(251, 251, 249, 0.96) 80%, rgba(251, 251, 249, 1) 100%);
+  }
 }
 
 /* 2. Overlay do Estágio (Conteúdo Frontal) */
@@ -82,7 +94,7 @@
   pointer-events: none;
 }
 
-/* 3. Lista Central que Corre para Baixo ao Rolar o Mouse */
+/* 3. Lista Central que Corre para Baixo ao Rolar o Mouse - 16px */
 .p-works__list {
   position: absolute;
   left: var(--container-padding);
@@ -92,46 +104,46 @@
   pointer-events: auto;
   will-change: transform;
   font-family: var(--font-body);
-  font-size: 13px;
+  font-size: 16px;
   font-weight: 500;
-  letter-spacing: 0.02em;
-  color: var(--cl-linen);
-  line-height: var(--row-h);
+  letter-spacing: 0.01em;
+  color: var(--text-secondary);
+  line-height: var(--row-h, 36px);
 }
 
 .p-works__row {
   display: flex;
   align-items: center;
-  height: var(--row-h);
-  gap: 16px;
+  height: var(--row-h, 36px);
+  gap: 20px;
   cursor: pointer;
   white-space: nowrap;
   transition: color var(--transition-fast);
 }
 
 .p-works__row:hover {
-  color: var(--cl-white);
-  text-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
+  color: var(--text-primary);
 }
 
 .p-works__row.is-active {
-  color: var(--cl-white);
-  font-weight: 600;
+  color: var(--text-primary);
+  font-weight: 700;
 }
 
 .p-works__arrow {
   display: inline-block;
-  width: 12px;
-  font-size: 10px;
+  width: 14px;
+  font-size: 14px;
   color: var(--accent-gold);
   line-height: 1;
 }
 
 .p-works__num {
   font-family: var(--font-editorial);
-  font-size: 12px;
-  color: var(--cl-muted);
-  width: 18px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-muted);
+  width: 22px;
 }
 
 .p-works__row.is-active .p-works__num {
@@ -139,58 +151,62 @@
 }
 
 .p-works__title {
-  min-width: 200px;
-  max-width: 280px;
+  min-width: 240px;
+  max-width: 340px;
   overflow: hidden;
   text-overflow: ellipsis;
+  font-size: 16px;
 }
 
 .p-works__client {
-  color: var(--cl-muted);
-  min-width: 140px;
-  max-width: 200px;
+  color: var(--text-muted);
+  min-width: 160px;
+  max-width: 220px;
   overflow: hidden;
   text-overflow: ellipsis;
+  font-size: 16px;
 }
 
 .p-works__cat {
-  color: var(--cl-muted);
-  min-width: 120px;
+  color: var(--text-muted);
+  min-width: 140px;
+  font-size: 14px;
+  font-weight: 500;
 }
 
 .p-works__year {
   font-family: var(--font-editorial);
-  color: var(--cl-muted);
-  font-size: 12px;
+  color: var(--text-muted);
+  font-size: 14px;
 }
 
 .p-works__row.is-active .p-works__client,
 .p-works__row.is-active .p-works__cat,
 .p-works__row.is-active .p-works__year {
-  color: #a8a49c;
+  color: var(--text-secondary);
 }
 
 /* 4. Legenda Inferior (Caption) */
 .p-works__caption {
   position: absolute;
-  bottom: 48px;
+  bottom: 44px;
   left: var(--container-padding);
   right: var(--container-padding);
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 10px;
   pointer-events: auto;
 }
 
 .p-works__caption-meta {
   display: flex;
   align-items: center;
-  gap: 8px;
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.08em;
+  gap: 10px;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--cl-muted);
+  color: var(--text-muted);
   cursor: pointer;
   transition: color var(--transition-fast), transform var(--transition-fast);
   width: fit-content;
@@ -198,7 +214,7 @@
 }
 
 .p-works__caption-meta:hover {
-  color: var(--cl-white);
+  color: var(--text-primary);
   transform: translateX(4px);
 }
 
@@ -207,12 +223,12 @@
 }
 
 .p-works__caption-meta:hover .p-works__caption-category {
-  color: var(--cl-white);
+  color: var(--text-primary);
   text-decoration: underline;
 }
 
 .p-works__caption-client {
-  color: var(--cl-linen);
+  color: var(--text-primary);
   transition: color var(--transition-fast);
 }
 
@@ -227,13 +243,14 @@
 
 .p-works__caption-year {
   font-family: var(--font-editorial);
-  color: var(--cl-muted);
+  color: var(--text-muted);
+  font-size: 16px;
 }
 
 .p-works__caption-bottom {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 16px;
 }
 
 @media (min-width: 768px) {
@@ -249,15 +266,15 @@
   font-size: var(--text-3xl);
   font-weight: 800;
   letter-spacing: -0.01em;
-  color: var(--cl-linen);
+  color: var(--text-primary);
   cursor: pointer;
   transition: color var(--transition-fast), transform var(--transition-fast);
-  text-shadow: 0 4px 24px rgba(0, 0, 0, 0.9);
-  max-width: 850px;
+  max-width: 880px;
+  line-height: 1.15;
 }
 
 .p-works__caption-title:hover {
-  color: var(--cl-white);
+  color: var(--accent-gold);
   transform: translateX(4px);
 }
 
@@ -267,17 +284,17 @@
   gap: 16px;
 }
 
-/* Botão Decorado com Seta Triangular (Fiel a .c-button-decorate de EAST 64 Films) */
+/* Botão Decorado com Seta Triangular - 16px */
 .c-button-decorate {
   position: relative;
   display: inline-flex;
   align-items: center;
-  padding-left: 14px;
+  padding-left: 18px;
   font-family: var(--font-body);
-  font-size: 13px;
+  font-size: 16px;
   font-weight: 700;
-  letter-spacing: 0.1em;
-  color: var(--cl-linen);
+  letter-spacing: 0.08em;
+  color: var(--text-primary);
   background: none;
   cursor: pointer;
   transition: color var(--transition-fast);
@@ -289,45 +306,48 @@
   left: 0;
   top: 50%;
   transform: translateY(-50%);
-  width: 7px;
-  height: 7px;
+  width: 9px;
+  height: 9px;
   background-color: var(--accent-gold);
-  clip-path: polygon(7px 50%, 0% 0%, 0% 7px);
+  clip-path: polygon(9px 50%, 0% 0%, 0% 9px);
   transition: transform var(--transition-fast), background-color var(--transition-fast);
 }
 
 .c-button-decorate:hover {
-  color: var(--cl-white);
+  color: var(--accent-gold);
 }
 
 .c-button-decorate:hover::before {
   transform: translateY(-50%) scale(1.2);
-  background-color: var(--cl-white);
+  background-color: var(--accent-gold-hover);
 }
 
 .p-works__scroll-down-hint {
-  width: 32px;
-  height: 32px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
-  border: 1px solid var(--border-subtle);
-  background: rgba(21, 21, 21, 0.6);
-  color: var(--cl-linen);
+  border: 1px solid var(--border-medium);
+  background: var(--bg-surface);
+  color: var(--text-primary);
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  box-shadow: var(--shadow-sm);
   transition: all var(--transition-fast);
-  animation: bounceHint 2s infinite;
+  animation: bounceHint 2.4s infinite;
 }
 
 .p-works__scroll-down-hint:hover {
   border-color: var(--accent-gold);
-  color: var(--accent-gold);
+  color: #FFFFFF;
+  background: var(--accent-gold);
+  box-shadow: var(--shadow-md);
 }
 
 @keyframes bounceHint {
   0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(4px); }
+  50% { transform: translateY(5px); }
 }
 
 /* 5. Navegação Lateral Discreta */
@@ -339,7 +359,7 @@
   display: none;
   flex-direction: column;
   align-items: center;
-  gap: 12px;
+  gap: 14px;
   pointer-events: auto;
 }
 
@@ -350,34 +370,36 @@
 }
 
 .p-works__nav-arrow {
-  width: 32px;
-  height: 32px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
-  border: 1px solid var(--border-subtle);
-  background: rgba(21, 21, 21, 0.6);
-  color: var(--cl-linen);
+  border: 1px solid var(--border-medium);
+  background: var(--bg-surface);
+  color: var(--text-primary);
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  box-shadow: var(--shadow-sm);
   transition: all var(--transition-fast);
 }
 
 .p-works__nav-arrow:hover:not(:disabled) {
   background: var(--accent-gold);
-  color: var(--cl-dark);
+  color: #FFFFFF;
   border-color: var(--accent-gold);
+  box-shadow: var(--shadow-md);
 }
 
 .p-works__nav-arrow:disabled {
-  opacity: 0.2;
+  opacity: 0.25;
   cursor: not-allowed;
 }
 
 .p-works__nav-progress {
-  width: 2px;
-  height: 64px;
-  background: rgba(236, 233, 226, 0.1);
+  width: 3px;
+  height: 72px;
+  background: rgba(20, 20, 22, 0.1);
   border-radius: 2px;
   overflow: hidden;
 }
@@ -399,12 +421,13 @@
     display: none;
   }
   .p-works__title {
-    max-width: 240px;
+    max-width: 260px;
+    font-size: 16px;
   }
   .p-works__caption-title {
     font-size: var(--text-2xl);
   }
   .p-works__caption {
-    bottom: 32px;
+    bottom: 28px;
   }
 }
