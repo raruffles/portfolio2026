@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import type { Project } from '../data/portfolioData';
 import { PROFILE } from '../data/profileData';
-import { X, ArrowUpRight, CheckCircle2, Camera, MapPin, Calendar, UserCheck } from 'lucide-react';
+import { ArrowLeft, ArrowUpRight, X, MessageCircle } from 'lucide-react';
 import './ProjectDetailModal.css';
 
 interface ProjectDetailModalProps {
@@ -28,6 +28,11 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({ project,
 
   if (!project) return null;
 
+  // Garante galeria completa sem imagens duplicadas
+  const galleryImages = Array.from(
+    new Set([project.coverImage, ...(project.gallery || [])].filter(Boolean))
+  );
+
   const whatsappMessage = encodeURIComponent(
     `Olá Márcio Janousek! Vi a série fotográfica "${project.title}" (${project.categoryLabel}) no seu site e gostaria de solicitar um orçamento para um projeto similar.`
   );
@@ -35,161 +40,148 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({ project,
 
   return (
     <div
-      className="project-modal"
+      className="project-page"
       role="dialog"
       aria-modal="true"
-      aria-labelledby="modal-project-title"
+      aria-labelledby="project-page-title"
     >
-      <div className="project-modal__backdrop" onClick={onClose} />
+      {/* 1. Barra Superior Fixa (Sticky Header Apple) com Ação Imediata de Voltar à Tela Inicial */}
+      <header className="project-page__header">
+        <div className="project-page__header-inner">
+          <button
+            className="project-page__back-btn"
+            onClick={onClose}
+            aria-label="Voltar à tela inicial"
+            title="Voltar à tela inicial (ESC)"
+          >
+            <ArrowLeft size={18} />
+            <span>Voltar à Tela Inicial</span>
+          </button>
 
-      <div className="project-modal__content">
-        {/* Botão de Fechar Fixo */}
-        <button
-          className="project-modal__close-btn"
-          onClick={onClose}
-          aria-label="Fechar estudo de caso"
-        >
-          <X size={20} />
-          <span>ESC</span>
-        </button>
-
-        {/* Hero do Case */}
-        <div className="project-modal__hero">
-          <img
-            src={project.coverImage}
-            alt={project.title}
-            className="project-modal__hero-image"
-          />
-          <div className="project-modal__hero-gradient" />
-          <div className="project-modal__hero-content">
-            <div className="project-modal__badge-row">
-              <span className="badge badge--active">{project.categoryLabel}</span>
-              <span className="badge">PROJETO {project.number}</span>
-            </div>
-            <h2 id="modal-project-title" className="project-modal__title">
-              {project.title}
-            </h2>
-            <p className="project-modal__summary">{project.summary}</p>
-          </div>
-        </div>
-
-        {/* Corpo do Estudo de Caso */}
-        <div className="project-modal__body">
-          {/* Ficha Técnica Fotográfica (Kuwamoto Credits Style) */}
-          <div className="project-modal__specs-grid">
-            <div className="project-modal__spec-card">
-              <div className="project-modal__spec-icon">
-                <UserCheck size={18} />
-              </div>
-              <div>
-                <span className="project-modal__spec-label">CLIENTE / EVENTO</span>
-                <p className="project-modal__spec-value">{project.client}</p>
-              </div>
-            </div>
-
-            <div className="project-modal__spec-card">
-              <div className="project-modal__spec-icon">
-                <Calendar size={18} />
-              </div>
-              <div>
-                <span className="project-modal__spec-label">ANO DE PRODUÇÃO</span>
-                <p className="project-modal__spec-value">{project.year}</p>
-              </div>
-            </div>
-
-            {project.location && (
-              <div className="project-modal__spec-card">
-                <div className="project-modal__spec-icon">
-                  <MapPin size={18} />
-                </div>
-                <div>
-                  <span className="project-modal__spec-label">LOCAÇÃO</span>
-                  <p className="project-modal__spec-value">{project.location}</p>
-                </div>
-              </div>
-            )}
-
-            {project.technicalSpecs && (
-              <div className="project-modal__spec-card">
-                <div className="project-modal__spec-icon">
-                  <Camera size={18} />
-                </div>
-                <div>
-                  <span className="project-modal__spec-label">ÓPTICA &amp; ILUMINAÇÃO</span>
-                  <p className="project-modal__spec-value">
-                    {project.technicalSpecs.camera} {project.technicalSpecs.lens ? `· ${project.technicalSpecs.lens}` : ''}
-                  </p>
-                </div>
-              </div>
-            )}
+          <div className="project-page__brand">
+            <span className="project-page__brand-title">Janousek Photos</span>
+            <span className="project-page__brand-sep">/</span>
+            <span className="project-page__brand-cat">{project.categoryLabel}</span>
           </div>
 
-          {/* Narrativa do Case: Objetivo, Processo e Resultados */}
-          <div className="project-modal__narrative">
-            <section className="project-modal__section">
-              <h3 className="project-modal__section-title">01. O Conceito &amp; Objetivo</h3>
-              <p className="project-modal__section-text">{project.objective}</p>
-            </section>
-
-            <section className="project-modal__section">
-              <h3 className="project-modal__section-title">02. Direção de Cena &amp; Abordagem da Luz</h3>
-              <p className="project-modal__section-text">{project.process}</p>
-            </section>
-
-            <section className="project-modal__section">
-              <h3 className="project-modal__section-title">03. O Legado Afetivo &amp; Reconhecimento</h3>
-              <p className="project-modal__section-text">{project.result}</p>
-            </section>
-          </div>
-
-          {/* Entregáveis Concretos */}
-          <div className="project-modal__deliverables">
-            <h4 className="project-modal__deliverables-title">Entregáveis Oficiais do Trabalho</h4>
-            <div className="project-modal__deliverables-list">
-              {project.deliverables.map((item, idx) => (
-                <div key={idx} className="project-modal__deliverable-item">
-                  <CheckCircle2 size={16} className="text-gold" />
-                  <span>{item}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Galeria de Alta Resolução */}
-          <div className="project-modal__gallery">
-            <h4 className="project-modal__gallery-title">Galeria de Imagens da Série</h4>
-            <div className="project-modal__gallery-grid">
-              {project.gallery.map((imgUrl, idx) => (
-                <div key={idx} className="project-modal__gallery-item">
-                  <img
-                    src={imgUrl}
-                    alt={`${project.title} - Registro ${idx + 1}`}
-                    loading="lazy"
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Box de Conversão Comercial Direta */}
-          <div className="project-modal__cta-box">
-            <div className="project-modal__cta-text">
-              <h3>Deseja uma cobertura fotográfica com este nível de sensibilidade?</h3>
-              <p>
-                Converse diretamente com Márcio Janousek pelo WhatsApp para verificar disponibilidade de data e receber um orçamento detalhado.
-              </p>
-            </div>
+          <div className="project-page__actions">
             <a
               href={whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="project-modal__cta-btn"
+              className="project-page__cta-btn"
+              title="Solicitar orçamento pelo WhatsApp"
             >
-              <span>SOLICITAR ORÇAMENTO NO WHATSAPP</span>
-              <ArrowUpRight size={16} />
+              <MessageCircle size={15} />
+              <span>Orçamento</span>
+              <ArrowUpRight size={14} />
             </a>
+
+            <button
+              className="project-page__close-btn"
+              onClick={onClose}
+              aria-label="Fechar galeria"
+              title="Voltar à tela inicial"
+            >
+              <X size={18} />
+            </button>
           </div>
         </div>
+      </header>
+
+      {/* 2. Conteúdo da Página Completa */}
+      <div className="project-page__container">
+        {/* Breve Introdução (Sem textos longos sobre conceito) */}
+        <section className="project-page__intro">
+          <div className="project-page__meta-badge">
+            <span className="project-page__badge-cat">{project.categoryLabel}</span>
+            <span className="project-page__badge-dot">•</span>
+            <span className="project-page__badge-client">{project.client}</span>
+            <span className="project-page__badge-dot">•</span>
+            <span className="project-page__badge-year">{project.year}</span>
+            {project.location && (
+              <>
+                <span className="project-page__badge-dot">•</span>
+                <span className="project-page__badge-loc">{project.location}</span>
+              </>
+            )}
+          </div>
+
+          <h1 id="project-page-title" className="project-page__title">
+            {project.title}
+          </h1>
+
+          {project.summary && (
+            <p className="project-page__summary">{project.summary}</p>
+          )}
+
+          <div className="project-page__gallery-counter">
+            <span>{galleryImages.length} Fotografias em Alta Resolução</span>
+          </div>
+        </section>
+
+        {/* 3. Galeria Completa em Grid (Arredondamento 16px, espaçamento 16px / 24px) */}
+        <section className="project-page__gallery" aria-label="Galeria completa do projeto">
+          <div className="project-page__grid">
+            {galleryImages.map((imgUrl, idx) => {
+              // Layout editorial em 12 colunas: Primeira foto 12 cols, pares 6 cols, trios 4 cols
+              const isHero = idx === 0;
+              const isEvenPair = idx % 3 !== 0;
+
+              return (
+                <div
+                  key={idx}
+                  className={`project-page__item ${
+                    isHero ? 'project-page__item--hero' : isEvenPair ? 'project-page__item--half' : 'project-page__item--full'
+                  }`}
+                >
+                  <img
+                    src={imgUrl}
+                    alt={`${project.title} — Registro ${idx + 1}`}
+                    className="project-page__img"
+                    loading={idx < 2 ? 'eager' : 'lazy'}
+                  />
+                  <div className="project-page__item-tag">
+                    <span>{String(idx + 1).padStart(2, '0')}</span>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </section>
+
+        {/* 4. Rodapé da Página: Opção Clara de Voltar à Tela Inicial */}
+        <footer className="project-page__footer">
+          <div className="project-page__footer-card">
+            <div className="project-page__footer-text">
+              <h3>Gostou deste trabalho?</h3>
+              <p>
+                Agende uma sessão fotográfica exclusiva ou solicite uma cotação sob medida diretamente com Márcio Janousek.
+              </p>
+            </div>
+
+            <div className="project-page__footer-buttons">
+              <button
+                className="project-page__footer-back-btn"
+                onClick={onClose}
+              >
+                <ArrowLeft size={16} />
+                <span>Voltar à Tela Inicial</span>
+              </button>
+
+              <a
+                href={whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="project-page__footer-whatsapp-btn"
+              >
+                <MessageCircle size={16} />
+                <span>Solicitar Orçamento no WhatsApp</span>
+                <ArrowUpRight size={16} />
+              </a>
+            </div>
+          </div>
+        </footer>
       </div>
     </div>
   );
