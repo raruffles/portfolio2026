@@ -1,0 +1,162 @@
+:root {
+  /* ==========================================================================
+     Design Tokens — Janousek Photos
+     Princípios Modernos de Katsuhiko Kuwamoto & Minimalismo Editorial Japonês
+     Sistema Espacial 4pt/8pt (4, 8, 12, 16, 24, 32, 40, 48, 64, 80, 96, 128)
+     Grid 12 Colunas & Hierarquia Tipográfica de Alta Costura
+     ========================================================================== */
+
+  /* Cores Base — Obsidian & High-Contrast Monochrome */
+  --cl-dark: #08080A;           /* Preto obsidiana puro com profundidade */
+  --cl-blackgray: #0D0D11;      /* Superfície primária da Home */
+  --cl-black: #121217;          /* Superfície elevada */
+  --cl-surface: #181820;        /* Cards, painéis e caixas */
+  --cl-surface-hover: #22222C;  /* Hover em superfícies */
+  --cl-white: #FFFFFF;          /* Branco puro editorial */
+  --cl-linen: #F5F3EE;          /* Texto principal quente (Bone/Linen) */
+  --cl-muted: #8E8D96;          /* Texto secundário e microtipografia */
+  --cl-subtle: #4D4C54;         /* Detalhes terciários */
+  --cl-lightgray: #BDBBB6;      /* Bordas suaves */
+
+  /* Mapeamento Semântico */
+  --bg-primary: var(--cl-blackgray);
+  --bg-secondary: var(--cl-dark);
+  --bg-surface: var(--cl-surface);
+  --bg-surface-hover: var(--cl-surface-hover);
+  --bg-glass: rgba(8, 8, 10, 0.92);
+
+  --text-primary: var(--cl-linen);
+  --text-secondary: #CCC8BF;
+  --text-muted: var(--cl-muted);
+  --text-inverse: #08080A;
+
+  /* Cores de Acento — Champagne Gold & Platina */
+  --accent-gold: #D4AF37;       /* Ouro clássico editorial */
+  --accent-champagne: #D8CBB5;  /* Champanhe sutil Kuwamoto */
+  --accent-platinum: #EAE6DF;   /* Platina pura */
+  --accent-blue: #4E8DBF;
+  --accent-emerald: #10B981;
+
+  /* Bordas Estruturais Hairline (Precisão Japonesa) */
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-medium: rgba(255, 255, 255, 0.16);
+  --border-strong: rgba(212, 175, 55, 0.4);
+
+  /* ==========================================================================
+     Sistema Espacial Rigoroso (4pt / 8pt Scale)
+     Multiplos de 4px e 8px para harmonia dimensional em UX/UI
+     ========================================================================== */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+  --space-24: 96px;
+  --space-32: 128px;
+
+  /* Nomenclatura explícita por pixel (4pt/8pt) */
+  --px-4: 4px;
+  --px-8: 8px;
+  --px-12: 12px;
+  --px-16: 16px;
+  --px-20: 20px;
+  --px-24: 24px;
+  --px-32: 32px;
+  --px-40: 40px;
+  --px-48: 48px;
+  --px-64: 64px;
+  --px-80: 80px;
+  --px-96: 96px;
+  --px-128: 128px;
+
+  /* ==========================================================================
+     Sistema de Grid 12 Colunas (Padrão Web de Design System)
+     ========================================================================== */
+  --grid-columns: 12;
+  --grid-gutter: 24px;
+  --grid-gutter-desktop: 24px;
+  --grid-gutter-tablet: 16px;
+  --grid-gutter-mobile: 12px;
+
+  --container-max-width: 1440px;
+  --container-max: 1440px;
+  --container-padding: 48px;
+  --container-padding-desktop: 48px;
+  --container-padding-tablet: 32px;
+  --container-padding-mobile: 16px;
+
+  /* Alturas e Métricas Alinhadas à Escala de 4/8 */
+  --navbar-height: 64px;        /* 16 * 4 */
+  --touch-target-min: 44px;     /* Acessibilidade WCAG */
+  --row-h: 32px;                /* 4 * 8 */
+  --input-height: 48px;         /* 16 * 3 */
+  --button-height: 44px;
+
+  /* Tipografia Editorial Kuwamoto & Grotesque */
+  --font-display: 'Cinzel', serif;
+  --font-editorial: 'Italiana', 'Cinzel', serif;
+  --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* Tamanhos e Line-Heights Múltiplos da Grade */
+  --text-2xs: 11px;
+  --line-2xs: 16px;
+
+  --text-xs: 13px;
+  --line-xs: 18px;
+
+  --text-sm: 14px;
+  --line-sm: 22px;
+
+  --text-base: 16px;
+  --line-base: 24px;
+
+  --text-lg: 18px;
+  --line-lg: 28px;
+
+  --text-xl: 20px;
+  --line-xl: 28px;
+
+  --text-2xl: 24px;
+  --line-2xl: 32px;
+
+  --text-3xl: clamp(28px, 1.8rem + 1.2vw, 36px);
+  --line-3xl: 44px;
+
+  --text-4xl: clamp(36px, 2.2rem + 2vw, 48px);
+  --line-4xl: 56px;
+
+  --text-5xl: clamp(48px, 2.8rem + 3.5vw, 76px);
+  --line-5xl: 84px;
+
+  /* Transições Mecânicas e Suaves */
+  --ease-mechanical: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-smooth: cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-fast: 150ms var(--ease-mechanical);
+  --transition-normal: 250ms var(--ease-mechanical);
+  --transition-slow: 450ms var(--ease-smooth);
+
+  /* Z-Index */
+  --z-base: 1;
+  --z-header: 100;
+  --z-modal: 500;
+}
+
+@media (max-width: 1024px) {
+  :root {
+    --container-padding: var(--container-padding-tablet, 32px);
+    --grid-gutter: var(--grid-gutter-tablet, 16px);
+  }
+}
+
+@media (max-width: 640px) {
+  :root {
+    --container-padding: var(--container-padding-mobile, 16px);
+    --grid-gutter: var(--grid-gutter-mobile, 12px);
+  }
+}

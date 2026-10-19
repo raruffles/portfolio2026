@@ -1,0 +1,322 @@
+.about-section {
+  padding: var(--space-24) 0;
+  background-color: var(--bg-primary);
+  border-top: 1px solid var(--border-subtle);
+}
+
+.about-section__header {
+  margin-bottom: var(--space-12);
+}
+
+.about-section__title {
+  font-family: var(--font-display);
+  font-size: var(--text-3xl);
+  font-weight: 700;
+  margin-top: var(--space-3);
+  letter-spacing: 0.04em;
+}
+
+/* 12-Column Grid Layout: Retrato à esquerda (5 cols) + Bio e Credenciais à direita (7 cols) */
+.about-section__bio-layout {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: var(--grid-gutter, 24px);
+  margin-bottom: var(--space-24);
+}
+
+.about-section__portrait-wrap {
+  grid-column: span 12;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.about-section__content {
+  grid-column: span 12;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+@media (min-width: 960px) {
+  .about-section__portrait-wrap {
+    grid-column: span 5; /* 5 colunas */
+  }
+
+  .about-section__content {
+    grid-column: span 7; /* 7 colunas: 5 + 7 = 12 */
+  }
+}
+
+/* Moldura Fotográfica Kuwamoto */
+.about-section__portrait-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.about-section__portrait-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  filter: contrast(1.05) grayscale(0.15);
+  transition: filter var(--transition-normal);
+}
+
+.about-section__portrait-frame:hover .about-section__portrait-img {
+  filter: contrast(1.1) grayscale(0);
+}
+
+.about-section__portrait-tag {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: var(--space-4);
+  background: linear-gradient(180deg, transparent 0%, rgba(8, 8, 10, 0.95) 100%);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.about-section__portrait-role {
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--cl-white);
+}
+
+.about-section__portrait-since {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  color: var(--accent-gold);
+}
+
+/* Quick Card */
+.about-section__quick-card {
+  padding: var(--space-6);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.about-quick-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  font-size: var(--text-xs);
+  line-height: 1.5;
+}
+
+.about-quick-item strong {
+  display: block;
+  color: var(--text-primary);
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.about-quick-item span {
+  color: var(--text-secondary);
+}
+
+.about-section__lead {
+  font-family: var(--font-editorial);
+  font-size: clamp(20px, 1.4rem + 0.5vw, 26px);
+  font-weight: 400;
+  font-style: italic;
+  color: var(--cl-linen);
+  line-height: 1.4;
+  border-left: 2px solid var(--accent-gold);
+  padding-left: var(--space-4);
+}
+
+.about-section__paragraphs {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.about-section__p {
+  font-size: var(--text-base);
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+.about-section__p strong {
+  color: var(--cl-white);
+  font-weight: 600;
+}
+
+/* Credenciais Grid */
+.about-section__credentials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: var(--space-4);
+  margin-top: var(--space-4);
+}
+
+.cred-card {
+  padding: var(--space-5);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  transition: border-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.cred-card:hover {
+  border-color: var(--border-strong);
+  transform: translateY(-2px);
+}
+
+.cred-card__tag {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--accent-gold);
+}
+
+.cred-card__title {
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--cl-white);
+}
+
+.cred-card__desc {
+  font-size: 12px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* Pilares do Método - 4 cards */
+.about-section__process {
+  margin-bottom: var(--space-20);
+}
+
+.about-section__process-title {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  font-weight: 700;
+  margin-bottom: var(--space-8);
+  letter-spacing: 0.04em;
+}
+
+.about-section__pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: var(--grid-gutter, 24px);
+}
+
+.pillar-card {
+  grid-column: span 12;
+  padding: var(--space-8);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  position: relative;
+  transition: border-color var(--transition-normal);
+}
+
+@media (min-width: 640px) {
+  .pillar-card {
+    grid-column: span 6;
+  }
+}
+
+@media (min-width: 1024px) {
+  .pillar-card {
+    grid-column: span 3; /* 4 cards x 3 colunas = 12 */
+  }
+}
+
+.pillar-card:hover {
+  border-color: var(--accent-gold);
+}
+
+.pillar-card__num {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  font-weight: 800;
+  color: var(--accent-gold);
+}
+
+.pillar-card__title {
+  font-family: var(--font-display);
+  font-size: var(--text-base);
+  font-weight: 700;
+  color: var(--cl-white);
+  letter-spacing: 0.02em;
+}
+
+.pillar-card__desc {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+
+/* Grandes Marcas */
+.about-section__brands {
+  padding: var(--space-8);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  border-radius: 4px;
+}
+
+.about-section__brands-header h4 {
+  font-family: var(--font-display);
+  font-size: var(--text-base);
+  font-weight: 700;
+  color: var(--cl-white);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.about-section__brands-header p {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  margin-top: 2px;
+  margin-bottom: var(--space-6);
+}
+
+.about-section__brands-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.brand-pill {
+  padding: var(--space-2) var(--space-4);
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 2px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: var(--cl-linen);
+  transition: all var(--transition-fast);
+}
+
+.brand-pill:hover {
+  border-color: var(--accent-gold);
+  color: var(--cl-white);
+  background: rgba(212, 175, 55, 0.08);
+}
