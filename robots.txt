@@ -1,12 +1,5 @@
 User-agent: *
 Allow: /
 
-# Bloquear pastas de desenvolvimento ou scripts internos (se houver)
-Disallow: /src/assets/config/
-Disallow: /admin/
-Disallow: /eletricistas/
-Disallow: /13-10-2026-eletricistas/
-Disallow: /sites-13/
-
-# Caminho do seu Sitemap
+# Caminho do Sitemap Oficial
 Sitemap: https://raphaelolima.com.br/sitemap.xml

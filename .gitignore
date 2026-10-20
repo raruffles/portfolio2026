@@ -1,3 +1,7 @@
+# ==============================================================================
+# .gitignore — Raphael Lima Portfólio (raphaelolima.com.br)
+# ==============================================================================
+
 # Node dependencies
 node_modules/
 **/node_modules/
@@ -5,14 +9,60 @@ node_modules/
 # Build artifacts
 dist/
 **/dist/
-guuhsc-source/**/dist/
 
-# Environment
+# Segurança: Chaves de API, variáveis de ambiente e credenciais (NUNCA SUBIR)
 .env
-.env.local
+.env*
+*.env
+*.env.*
 *.local
+*api_key*
+*apikey*
+*.key
+*.pem
+*.cert
+*.secret
+*.token
+credentials.json
 
-# IDE & system
+# Registros, anotações de clientes, leads e tabulações (confidenciais / privados)
+observacoes_clientes_removidos.txt
+links_eletricistas.txt
+tabulacao*.txt
+*.tsv
+*.csv
+
+# Diretórios e arquivos de clientes / prévias / fontes externas (fora do portfólio oficial)
+13-10-2026-eletricistas/
+cleintes/
+clientes/
+docs/
+eletricistas/
+janousek-photos/
+musica/
+nail-designer/
+sites-13/
+sites-clientes/
+tf-servicos-tecnicos/
+vivaz/
+xandy-alves-artes/
+guuhsc-source/
+assets/
+logo/
+
+# Arquivos avulsos de prévias de clientes (fora do portfólio oficial)
+anelise-oreilly.html
+dra-anelise-oreilly.html
+nail-designer.html
+tf-servicos-tecnicos.htm
+tf-servicos-tecnicos.html
+vivaz-servicos-e-solucoes.htm
+vivaz-servicos-e-solucoes.html
+vivaz.htm
+vivaz.html
+GuuhSC.html
+
+# IDE & Sistema Operacional
 .vscode/
 **/.vscode/
 .antigravity/
@@ -21,15 +71,9 @@ guuhsc-source/**/dist/
 Thumbs.db
 *.log
 .playwright-mcp/
-links_eletricistas.txt
-tabulacao*.txt
-*.tsv
 
-# Large design source files (CorelDRAW & raw PDFs/videos exceeding GitHub 100MB limit)
+# Arquivos gráficos pesados (CorelDRAW / PDFs brutos)
 *.cdr
 *.cdrt
 *.CDR
 *.CDRT
-xandy-alves-artes/src/arquivos_portfolio/**/MANUAL DA MARCA/*.pdf
-xandy-alves-artes/src/arquivos_portfolio/**/Manual de Identidade Visual Black Pet.pdf
-xandy-alves-artes/src/arquivos_portfolio/Videos/
