@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "npx -y http-server . -p 3000",
-    "build": "mkdir -p dist && cp index.html style.css script.js 404.html robots.txt sitemap.xml CNAME mask.svg mais-solidario.html mais-solidario-case.css mais-solidario-case.js guuh-sc.html blog-admin.html *.png dist/ && cp -r src dist/ && cp -r guuhsc dist/ && cp -r previa dist/",
+    "build": "node build.js",
     "start": "npx -y http-server dist -p 3000"
   },
   "dependencies": {},

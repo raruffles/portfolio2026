@@ -1,79 +1,67 @@
-# ==============================================================================
-# .gitignore — Raphael Lima Portfólio (raphaelolima.com.br)
-# ==============================================================================
+# ============================================================
+# REPOSITÓRIO OFICIAL: RAPHAEL LIMA (raphaelolima.com.br)
+# Contém exclusivamente: Mais Solidário, Guuh SC e O Que Me Tira O Sono
+# ============================================================
 
-# Node dependencies
+# 1. Dependências e builds
 node_modules/
 **/node_modules/
-
-# Build artifacts
 dist/
 **/dist/
 
-# Segurança: Chaves de API, variáveis de ambiente e credenciais (NUNCA SUBIR)
+# 2. Segurança, chaves e credenciais (NUNCA SUBIR API KEYS OU SEGREDO)
 .env
-.env*
+.env.*
 *.env
-*.env.*
-*.local
-*api_key*
-*apikey*
 *.key
 *.pem
 *.cert
-*.secret
-*.token
-credentials.json
+*.crt
+*token*
+*secret*
+credentials*.json
+service-account*.json
+id_rsa
+id_rsa.pub
 
-# Registros, anotações de clientes, leads e tabulações (confidenciais / privados)
-observacoes_clientes_removidos.txt
+# 3. Sites, protótipos e prévias de clientes (MANTIDOS APENAS LOCALMENTE)
+previa/
+**/previa/
+janousek-photos/
+xandy-alves-artes/
+guuhsc-source/
+arquitetura.html
+arquitetura.css
+arquitetura.js
+projeto-corporativo.html
+projeto-horizonte.html
+projeto-monolito.html
+projeto-valle.html
+projeto-*.html
+*dump*.html
+vivaz*
+
+# 4. Observações internas, prospecções e listas de contatos locais
+CLIENTES_PREVIAS_OBSERVACOES.txt
+*observac*.txt
 links_eletricistas.txt
 tabulacao*.txt
 *.tsv
-*.csv
 
-# Diretórios e arquivos de clientes / prévias / fontes externas (fora do portfólio oficial)
-13-10-2026-eletricistas/
-cleintes/
-clientes/
-docs/
-eletricistas/
-janousek-photos/
-musica/
-nail-designer/
-sites-13/
-sites-clientes/
-tf-servicos-tecnicos/
-vivaz/
-xandy-alves-artes/
-guuhsc-source/
-assets/
-logo/
-
-# Arquivos avulsos de prévias de clientes (fora do portfólio oficial)
-anelise-oreilly.html
-dra-anelise-oreilly.html
-nail-designer.html
-tf-servicos-tecnicos.htm
-tf-servicos-tecnicos.html
-vivaz-servicos-e-solucoes.htm
-vivaz-servicos-e-solucoes.html
-vivaz.htm
-vivaz.html
-GuuhSC.html
-
-# IDE & Sistema Operacional
-.vscode/
-**/.vscode/
-.antigravity/
-**/.antigravity/
-.DS_Store
-Thumbs.db
-*.log
-.playwright-mcp/
-
-# Arquivos gráficos pesados (CorelDRAW / PDFs brutos)
+# 5. Arquivos de design pesados (CorelDRAW & mídias raw)
 *.cdr
 *.cdrt
 *.CDR
 *.CDRT
+
+# 6. IDEs, logs e sistema operacional
+.agents/
+.vscode/
+**/.vscode/
+.antigravity/
+**/.antigravity/
+.playwright-mcp/
+.DS_Store
+Thumbs.db
+*.log
+screenshot_*.png
