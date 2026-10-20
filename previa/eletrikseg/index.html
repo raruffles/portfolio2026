@@ -1,0 +1,2221 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+
+<!-- Reconhecimento Imediato de Tema do Sistema (Zero FOUT) -->
+<script>
+  (function() {
+    try {
+      var saved = localStorage.getItem("eletrikseg_theme");
+      var prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+      var activeTheme = saved ? saved : (prefersDark ? "dark" : "light");
+      document.documentElement.setAttribute("data-theme", activeTheme);
+    } catch(e) {}
+  })();
+</script>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+
+<!-- SEO Primário & Metadados -->
+<title>EletrikSeg · Instalação de Carregadores WallBox, Elétrica & Segurança Eletrônica em Taubaté</title>
+<meta name="description" content="EletrikSeg em Taubaté e Vale do Paraíba: especialistas em instalação de Carregadores WallBox para Veículos Elétricos (NBR 17019), elétrica residencial e comercial, e segurança eletrônica completa (CFTV, cercas elétricas, alarmes).">
+<meta name="keywords" content="eletrikseg, eletrikseg taubate, carregador wallbox taubate, instalacao wallbox nbr 17019, eletricista taubate, seguranca eletronica taubate, cftv taubate, cerca eletrica taubate, conserto eletrico taubate">
+<meta name="author" content="EletrikSeg Soluções Elétricas e Segurança">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#09090b">
+
+<!-- Geo Tags para Rankeamento Local -->
+<meta name="geo.region" content="BR-SP">
+<meta name="geo.placename" content="Taubaté">
+<meta name="geo.position" content="-23.0135;-45.5458">
+<meta name="ICBM" content="-23.0135, -45.5458">
+
+<!-- OpenGraph / Redes Sociais -->
+<meta property="og:type" content="business.business">
+<meta property="og:title" content="EletrikSeg · Instalação de Carregadores WallBox & Elétrica em Taubaté">
+<meta property="og:description" content="Especialistas em Carregadores WallBox para Carros Elétricos, Elétrica Residencial e Comercial, CFTV e Cercas Elétricas em Taubaté e Região.">
+<meta property="og:locale" content="pt_BR">
+
+<!-- Favicon & Brand Icons -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23f59e0b'><path d='M13 2L3 14h9l-1 8 10-12h-9l1-8z'/></svg>">
+<link rel="icon" type="image/png" sizes="32x32" href="imgs/favicon-32.png">
+<link rel="shortcut icon" href="imgs/favicon-32.png">
+
+<!-- Tipografia: Anton + Instrument Serif + Montserrat + Plus Jakarta Sans -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Instrument+Serif:ital@0;1&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!-- Bibliotecas de Ícones Oficiais (Bootstrap Icons + Google Material Symbols + Phosphor) -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/bold/style.css">
+
+<!-- Structured Schema.org SEO -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Electrician",
+      "@id": "https://www.eletrikseg.com.br/#empresa",
+      "name": "EletrikSeg - Soluções Elétricas e Segurança Eletrônica",
+      "description": "Especialistas em instalação de carregadores veiculares WallBox (NBR 17019), elétrica residencial e predial, CFTV e segurança eletrônica em Taubaté e Vale do Paraíba.",
+      "telephone": "+5512992162944",
+      "priceRange": "$$",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "R. Luís Augusto de Gouvêia, 1345 - Chácara São Silvestre",
+        "addressLocality": "Taubaté",
+        "addressRegion": "SP",
+        "postalCode": "12085-000",
+        "addressCountry": "BR"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": -23.0135,
+        "longitude": -45.5458
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "07:30",
+          "closes": "19:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Saturday"],
+          "opens": "07:30",
+          "closes": "13:00"
+        }
+      ],
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5.0",
+        "reviewCount": "32"
+      }
+    }
+  ]
+}
+</script>
+
+<style>
+/* ══════════════════════════════════════════════════════════
+   DESIGN SYSTEM MONOCHROME COM ACENTO ENERGÉTICO (PREMIUM P&B)
+   Inspirado no Template Vivaz com Otimizações EletrikSeg
+══════════════════════════════════════════════════════════ */
+:root {
+  /* DARK MODE (Preto Nobre / Carbono / Prata / Acento Âmbar) */
+  --bg: #09090b;
+  --bg-subtle: #121215;
+  --card: #16161a;
+  --card-hover: #1f1f25;
+  --border: rgba(255, 255, 255, 0.12);
+  --border-focus: rgba(255, 255, 255, 0.6);
+
+  --ink: #fafafa;
+  --soft: #a1a1aa;
+  --muted: #71717a;
+
+  /* Acentos Elétricos */
+  --mono-accent: #ffffff;
+  --mono-light: #f4f4f5;
+  --mono-tint: rgba(255, 255, 255, 0.08);
+  --mono-dark: #27272a;
+
+  /* Toque Elétrico Sutil (Âmbar Elétrico de Precisão) */
+  --electric-amber: #f59e0b;
+  --electric-amber-glow: rgba(245, 158, 11, 0.25);
+
+  /* Botão Primário Monocromático */
+  --btn-pri-bg: #ffffff;
+  --btn-pri-color: #09090b;
+  --btn-pri-hover: #e4e4e7;
+  --btn-pri-border: rgba(255, 255, 255, 0.2);
+
+  /* WhatsApp Oficial (Alta Conversão) */
+  --wa: #15803d;
+  --wa-hover: #166534;
+  --wa-tint: rgba(21, 128, 61, 0.22);
+
+  --font-display: "Anton", "Montserrat", sans-serif;
+  --font-heading: "Montserrat", sans-serif;
+  --font-body: "Montserrat", "Plus Jakarta Sans", system-ui, sans-serif;
+  --font-serif: "Instrument Serif", Georgia, serif;
+
+  --r-sm: 8px;
+  --r-md: 14px;
+  --r-lg: 20px;
+  --r-full: 9999px;
+
+  --shadow-subtle: 0 4px 20px -4px rgba(0, 0, 0, 0.45);
+  --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.5), 0 16px 36px -12px rgba(0, 0, 0, 0.75);
+}
+
+[data-theme="light"] {
+  /* LIGHT MODE (Branco Arquitetural / Jet Black) */
+  --bg: #ffffff;
+  --bg-subtle: #f4f4f5;
+  --card: #ffffff;
+  --card-hover: #fafafa;
+  --border: rgba(9, 9, 11, 0.12);
+  --border-focus: rgba(9, 9, 11, 0.6);
+
+  --ink: #09090b;
+  --soft: #52525b;
+  --muted: #71717a;
+
+  --mono-accent: #09090b;
+  --mono-light: #18181b;
+  --mono-tint: rgba(9, 9, 11, 0.06);
+  --mono-dark: #f4f4f5;
+
+  --electric-amber: #d97706;
+  --electric-amber-glow: rgba(217, 119, 6, 0.2);
+
+  --btn-pri-bg: #09090b;
+  --btn-pri-color: #ffffff;
+  --btn-pri-hover: #27272a;
+  --btn-pri-border: rgba(9, 9, 11, 0.2);
+
+  --shadow-subtle: 0 4px 20px -4px rgba(9, 9, 11, 0.06);
+  --shadow-card: 0 1px 3px rgba(9, 9, 11, 0.05), 0 16px 32px -12px rgba(9, 9, 11, 0.10);
+}
+
+/* ── Base ─────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
+body {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.7;
+  background: var(--bg);
+  color: var(--ink);
+  overflow-x: hidden;
+  transition: background 0.25s ease, color 0.25s ease;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Tipografia Proporção Áurea ──────────────────────── */
+h1 {
+  font-family: var(--font-display);
+  font-size: clamp(34px, 5.8vw, 62px);
+  line-height: 1.12;
+  letter-spacing: 0.02em;
+  color: var(--ink);
+  text-transform: uppercase;
+}
+
+h2 {
+  font-family: var(--font-heading);
+  font-size: clamp(26px, 4.2vw, 40px);
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+
+h3 {
+  font-family: var(--font-heading);
+  font-size: clamp(20px, 3vw, 24px);
+  font-weight: 700;
+  line-height: 1.28;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+}
+
+h4 {
+  font-family: var(--font-heading);
+  font-size: 17.5px;
+  font-weight: 700;
+  line-height: 1.35;
+  color: var(--ink);
+}
+
+em {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0.02em;
+  text-decoration: underline;
+  text-decoration-color: var(--border);
+  text-underline-offset: 6px;
+}
+
+a { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; height: auto; }
+
+:focus-visible {
+  outline: 2px solid var(--mono-accent);
+  outline-offset: 3px;
+  border-radius: var(--r-sm);
+}
+
+.wrap {
+  width: 100%;
+  max-width: 1200px;
+  padding-inline: 1.5rem;
+  margin-inline: auto;
+}
+@media (min-width: 768px) {
+  .wrap { padding-inline: 2.25rem; }
+}
+
+/* ── Eyebrow Badge ───────────────────────────────────── */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.45rem 1rem;
+  border-radius: var(--r-full);
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.eyebrow .dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--electric-amber);
+  box-shadow: 0 0 8px var(--electric-amber);
+}
+
+.sec-head {
+  margin-bottom: 2.8rem;
+}
+@media (min-width: 768px) {
+  .sec-head { margin-bottom: 3.8rem; }
+}
+.sec-head .eyebrow { margin-bottom: 0.95rem; }
+.sec-head h2 { margin-top: 0.35rem; }
+.sec-head p {
+  color: var(--soft);
+  margin-top: 0.95rem;
+  max-width: 48rem;
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+/* ── Buttons ─────────────────────────────────────────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  min-height: 52px;
+  padding: 0.85rem 1.4rem;
+  border-radius: var(--r-full);
+  font-family: var(--font-body);
+  font-size: 14.5px;
+  font-weight: 700;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), background 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  white-space: normal;
+  text-align: center;
+  width: 100%;
+  box-sizing: border-box;
+}
+@media (min-width: 480px) {
+  .btn {
+    padding: 0.85rem 1.75rem;
+    font-size: 15px;
+    white-space: nowrap;
+  }
+}
+@media (min-width: 640px) {
+  .btn { width: auto; }
+}
+.btn:hover { transform: translateY(-2px); }
+.btn:active { transform: translateY(0); }
+
+.btn-primary {
+  background: var(--btn-pri-bg);
+  color: var(--btn-pri-color);
+  border-color: var(--btn-pri-border);
+  box-shadow: 0 4px 20px -4px rgba(255, 255, 255, 0.25);
+}
+[data-theme="light"] .btn-primary {
+  box-shadow: 0 4px 18px -4px rgba(0, 0, 0, 0.35);
+}
+.btn-primary:hover {
+  background: var(--btn-pri-hover);
+  box-shadow: 0 6px 24px -4px rgba(255, 255, 255, 0.35);
+}
+
+.btn-wa {
+  background: var(--wa);
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15), 0 8px 24px -6px rgba(21, 128, 61, 0.45);
+}
+.btn-wa:hover {
+  background: var(--wa-hover);
+  box-shadow: 0 12px 28px -6px rgba(21, 128, 61, 0.6);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--ink);
+  border-color: var(--border);
+}
+.btn-ghost:hover {
+  background: var(--card);
+  border-color: var(--mono-accent);
+}
+
+.btn-sm { min-height: 42px; padding: 0.6rem 1.15rem; font-size: 13.5px; }
+
+/* ── Minimal Glass Header ────────────────────────────── */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: color-mix(in srgb, var(--bg) 92%, transparent);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-bottom: 1px solid var(--border);
+}
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 74px;
+  gap: 1rem;
+}
+@media (min-width: 768px) {
+  .topbar { height: 82px; }
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  flex-shrink: 0;
+  min-width: max-content;
+}
+.brand-logo-frame {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--r-md);
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
+  color: var(--electric-amber);
+  font-size: 1.5rem;
+  box-shadow: 0 0 12px var(--electric-amber-glow);
+}
+.brand-text { display: flex; flex-direction: column; }
+.brand-name {
+  font-family: var(--font-heading);
+  font-size: 18px;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+.brand-name span { color: var(--electric-amber); }
+.brand-sub {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: var(--soft);
+  text-transform: uppercase;
+}
+
+.nav-menu {
+  display: none;
+  align-items: center;
+  gap: 1.8rem;
+}
+@media (min-width: 960px) {
+  .nav-menu { display: flex; }
+}
+.nav-item {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--soft);
+  transition: color 0.2s ease;
+  position: relative;
+  padding: 0.4rem 0;
+}
+.nav-item:hover { color: var(--ink); }
+.nav-item::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--mono-accent);
+  transition: width 0.25s ease;
+}
+.nav-item:hover::after { width: 100%; }
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+#theme-btn {
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
+  color: var(--ink);
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.15rem;
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+#theme-btn:hover {
+  background: var(--card-hover);
+  border-color: var(--mono-accent);
+  transform: rotate(15deg);
+}
+[data-theme="dark"] #theme-btn .ph-sun { display: block; }
+[data-theme="dark"] #theme-btn .ph-moon { display: none; }
+[data-theme="light"] #theme-btn .ph-sun { display: none; }
+[data-theme="light"] #theme-btn .ph-moon { display: block; }
+
+.menu-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: var(--r-sm);
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
+  color: var(--ink);
+  font-size: 1.35rem;
+  cursor: pointer;
+}
+@media (min-width: 960px) {
+  .menu-toggle { display: none; }
+}
+.menu-toggle .icon-close { display: none; }
+.menu-toggle.is-active .icon-open { display: none; }
+.menu-toggle.is-active .icon-close { display: block; }
+
+/* Mobile Menu Drawer */
+.mobile-menu {
+  position: fixed;
+  top: 74px;
+  left: 0;
+  width: 100%;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  padding: 1.5rem 1.5rem 2rem;
+  display: none;
+  flex-direction: column;
+  gap: 1.2rem;
+  box-shadow: var(--shadow-card);
+  z-index: 49;
+}
+.mobile-menu.is-active { display: flex; }
+.mobile-nav-item {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.85rem 1rem;
+  border-radius: var(--r-md);
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--ink);
+}
+.mobile-nav-item:hover { border-color: var(--mono-accent); }
+.mobile-nav-item i { color: var(--electric-amber); font-size: 1.25rem; }
+
+/* ── Hero Section ────────────────────────────────────── */
+.hero {
+  position: relative;
+  padding: clamp(3rem, 6vw, 5.5rem) 0 clamp(4rem, 7vw, 6.5rem);
+  border-bottom: 1px solid var(--border);
+  background: radial-gradient(circle at 80% 20%, var(--mono-tint) 0%, transparent 60%);
+}
+.hero-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+@media (min-width: 960px) {
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 3.5rem;
+    align-items: center;
+  }
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.hero-title {
+  margin: 1.2rem 0 1.2rem;
+}
+.hero-desc {
+  font-size: clamp(16px, 2vw, 18px);
+  color: var(--soft);
+  max-width: 38rem;
+  margin-bottom: 1.8rem;
+  line-height: 1.7;
+}
+
+.hero-checklist {
+  list-style: none;
+  display: grid;
+  gap: 0.85rem;
+  margin-bottom: 2rem;
+}
+.hero-check-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  font-size: 14.5px;
+  color: var(--ink);
+}
+.hero-check-item i {
+  color: var(--electric-amber);
+  font-size: 1.15rem;
+  flex-shrink: 0;
+  margin-top: 0.15rem;
+}
+
+.hero-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  width: 100%;
+}
+@media (min-width: 480px) {
+  .hero-actions {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+.hero-proof-strip {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  border-radius: var(--r-md);
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
+  margin-top: 2rem;
+  width: 100%;
+}
+.hero-proof-stars {
+  color: var(--electric-amber);
+  font-size: 1.15rem;
+  display: flex;
+  gap: 0.15rem;
+}
+.hero-proof-text {
+  font-size: 13px;
+  color: var(--soft);
+  line-height: 1.45;
+}
+.hero-proof-text strong {
+  display: block;
+  color: var(--ink);
+  font-size: 14px;
+}
+
+/* Hero Conversion Form (CRO) */
+.hero-form-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: 2rem 1.6rem;
+  box-shadow: var(--shadow-card);
+  position: relative;
+}
+@media (min-width: 768px) {
+  .hero-form-card { padding: 2.4rem 2.2rem; }
+}
+.hero-form-card .form-head {
+  text-align: center;
+  margin-bottom: 1.6rem;
+}
+.hero-form-card .form-head h3 {
+  font-size: 21px;
+  margin: 0.5rem 0 0.4rem;
+}
+.hero-form-card .form-head p {
+  font-size: 13.5px;
+  color: var(--soft);
+}
+
+.contact-form {
+  display: grid;
+  gap: 1.15rem;
+}
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+.form-group label {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--ink);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
+  border-radius: var(--r-sm);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 14.5px;
+  transition: border-color 0.2s ease, outline 0.2s ease;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--mono-accent);
+}
+
+/* ── Continuous Marquee Strip ────────────────────────── */
+.marquee-strip {
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-subtle);
+  overflow: hidden;
+  white-space: nowrap;
+  padding: 0.9rem 0;
+}
+.marquee-track {
+  display: inline-flex;
+  gap: 3rem;
+  animation: marquee 30s linear infinite;
+}
+.marquee-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: var(--font-heading);
+  font-size: 13.5px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--soft);
+}
+.marquee-item i {
+  color: var(--electric-amber);
+  font-size: 1rem;
+}
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ── Metrics Strip ───────────────────────────────────── */
+.metrics-strip {
+  padding: 3rem 0;
+  border-bottom: 1px solid var(--border);
+}
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+@media (min-width: 768px) {
+  .metrics-grid { grid-template-columns: repeat(4, 1fr); gap: 2rem; }
+}
+.metric-box {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  padding: 1.5rem 1.25rem;
+  text-align: center;
+  box-shadow: var(--shadow-subtle);
+}
+.metric-num {
+  font-family: var(--font-display);
+  font-size: clamp(28px, 4vw, 38px);
+  color: var(--ink);
+  line-height: 1;
+  margin-bottom: 0.4rem;
+}
+.metric-box p {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--soft);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* ── Bento Grid Especialidades ───────────────────────── */
+.bento-section {
+  padding: clamp(4rem, 7vw, 6.5rem) 0;
+  border-bottom: 1px solid var(--border);
+}
+.bento-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+@media (min-width: 768px) {
+  .bento-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.8rem;
+  }
+}
+@media (min-width: 1024px) {
+  .bento-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.bento-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: 2rem 1.8rem;
+  box-shadow: var(--shadow-card);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.25s ease, border-color 0.25s ease;
+  position: relative;
+  overflow: hidden;
+}
+.bento-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--mono-accent);
+}
+.bento-featured {
+  grid-column: 1 / -1;
+  background: linear-gradient(135deg, var(--card) 0%, var(--bg-subtle) 100%);
+  border-color: rgba(245, 158, 11, 0.35);
+}
+@media (min-width: 1024px) {
+  .bento-featured {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 2.5rem;
+    align-items: center;
+  }
+}
+
+.bento-icon-frame {
+  width: 52px;
+  height: 52px;
+  border-radius: var(--r-md);
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--electric-amber);
+  font-size: 1.65rem;
+  margin-bottom: 1.4rem;
+}
+.bento-card h3 {
+  font-size: 20px;
+  margin-bottom: 0.75rem;
+}
+.bento-card p {
+  color: var(--soft);
+  font-size: 14.5px;
+  line-height: 1.65;
+  margin-bottom: 1.4rem;
+}
+.bento-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: auto;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+}
+.bento-tag {
+  font-size: 11.5px;
+  font-weight: 700;
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--r-full);
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
+  color: var(--soft);
+  text-transform: uppercase;
+}
+
+/* ── Wallbox Showcase Section ────────────────────────── */
+.wallbox-section {
+  padding: clamp(4rem, 7vw, 6.5rem) 0;
+  border-bottom: 1px solid var(--border);
+  background: radial-gradient(circle at 20% 50%, var(--electric-amber-glow) 0%, transparent 50%);
+}
+.wallbox-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+@media (min-width: 900px) {
+  .wallbox-grid {
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 4rem;
+    align-items: center;
+  }
+}
+.wallbox-spec-list {
+  list-style: none;
+  display: grid;
+  gap: 1.15rem;
+  margin: 2rem 0;
+}
+.wallbox-spec-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.15rem 1.35rem;
+  border-radius: var(--r-md);
+  background: var(--card);
+  border: 1px solid var(--border);
+}
+.wallbox-spec-item i {
+  color: var(--electric-amber);
+  font-size: 1.45rem;
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+}
+.wallbox-spec-item strong {
+  display: block;
+  font-size: 15px;
+  color: var(--ink);
+}
+.wallbox-spec-item span {
+  display: block;
+  font-size: 13.5px;
+  color: var(--soft);
+  margin-top: 0.2rem;
+}
+
+.wallbox-card-visual {
+  border-radius: var(--r-lg);
+  border: 1px solid var(--border);
+  padding: 12px;
+  background: var(--card);
+  box-shadow: var(--shadow-card);
+}
+.wallbox-media {
+  border-radius: calc(var(--r-lg) - 4px);
+  overflow: hidden;
+  aspect-ratio: 4/3;
+  position: relative;
+  background: #000;
+}
+.wallbox-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.wallbox-badge-overlay {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  padding: 0.5rem 1rem;
+  border-radius: var(--r-full);
+  background: rgba(9, 9, 11, 0.85);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* ── Stepper Metodologia ─────────────────────────────── */
+.stepper-section {
+  padding: clamp(4rem, 7vw, 6.5rem) 0;
+  border-bottom: 1px solid var(--border);
+}
+.stepper-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+@media (min-width: 768px) {
+  .stepper-grid { grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+}
+@media (min-width: 1024px) {
+  .stepper-grid { grid-template-columns: repeat(4, 1fr); }
+}
+.step-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  padding: 2rem 1.6rem;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.step-num {
+  font-family: var(--font-display);
+  font-size: 32px;
+  color: var(--electric-amber);
+  margin-bottom: 0.75rem;
+}
+.step-card h3 {
+  font-size: 18px;
+  margin-bottom: 0.6rem;
+}
+.step-card p {
+  color: var(--soft);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* ── Portfolio / Obras ───────────────────────────────── */
+.portfolio-section {
+  padding: clamp(4rem, 7vw, 6.5rem) 0;
+  border-bottom: 1px solid var(--border);
+}
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.8rem;
+}
+@media (min-width: 768px) {
+  .portfolio-grid { grid-template-columns: repeat(3, 1fr); }
+}
+.portfolio-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow-card);
+}
+.portfolio-thumb {
+  aspect-ratio: 16/10;
+  overflow: hidden;
+  background: #000;
+}
+.portfolio-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+.portfolio-card:hover .portfolio-thumb img {
+  transform: scale(1.06);
+}
+.portfolio-body {
+  padding: 1.4rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: space-between;
+}
+.portfolio-body h4 {
+  font-size: 17px;
+  margin-bottom: 0.4rem;
+}
+.portfolio-body p {
+  font-size: 13.5px;
+  color: var(--soft);
+  line-height: 1.6;
+}
+
+/* ── Reviews / Google Prova Social ───────────────────── */
+.reviews-section {
+  padding: clamp(4rem, 7vw, 6.5rem) 0;
+  border-bottom: 1px solid var(--border);
+  background: radial-gradient(circle at 50% 0%, var(--mono-tint) 0%, transparent 60%);
+}
+.reviews-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.6rem;
+}
+@media (min-width: 768px) {
+  .reviews-grid { grid-template-columns: repeat(3, 1fr); gap: 1.8rem; }
+}
+
+.review-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: 2.2rem 1.8rem;
+  box-shadow: var(--shadow-card);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-top: 3px solid var(--electric-amber);
+}
+.review-stars {
+  display: flex;
+  gap: 0.25rem;
+  margin-bottom: 1.2rem;
+  color: var(--electric-amber);
+  font-size: 1.15rem;
+}
+.review-text {
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--ink);
+  font-weight: 500;
+  margin-bottom: 1.6rem;
+  font-style: italic;
+}
+.review-author {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+}
+.review-avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--ink);
+}
+.review-author-info strong {
+  display: block;
+  font-size: 14px;
+  color: var(--ink);
+}
+.review-author-info span {
+  font-size: 12px;
+  color: var(--soft);
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+.review-author-info span i { color: #1a73e8; }
+
+/* ── FAQ Acordeão ────────────────────────────────────── */
+.faq-section {
+  padding: clamp(4rem, 7vw, 6.5rem) 0;
+  border-bottom: 1px solid var(--border);
+}
+.faq-list {
+  max-width: 840px;
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+details.faq-item {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  overflow: hidden;
+  transition: border-color 0.2s ease;
+}
+details.faq-item[open] {
+  border-color: var(--mono-accent);
+}
+summary.faq-summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 1.35rem 1.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--ink);
+  user-select: none;
+}
+summary.faq-summary::-webkit-details-marker { display: none; }
+.faq-icon {
+  font-size: 1.25rem;
+  color: var(--electric-amber);
+  transition: transform 0.2s ease;
+}
+details[open] .faq-icon {
+  transform: rotate(45deg);
+}
+.faq-answer {
+  padding: 0 1.6rem 1.4rem;
+  color: var(--soft);
+  font-size: 14.5px;
+  line-height: 1.7;
+}
+
+/* ── Seção Contato / Mapa ────────────────────────────── */
+.contact-section {
+  padding: clamp(4.5rem, 8vw, 7rem) 0;
+  border-bottom: 1px solid var(--border);
+}
+.contact-grid-main {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+}
+@media (min-width: 960px) {
+  .contact-grid-main {
+    grid-template-columns: 1fr 1fr;
+    gap: 3.5rem;
+    align-items: flex-start;
+  }
+}
+.contact-info-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: 2.2rem 1.8rem;
+  box-shadow: var(--shadow-card);
+}
+.contact-info-list {
+  list-style: none;
+  display: grid;
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+.contact-info-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.15rem;
+}
+.contact-info-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--r-md);
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
+  display: grid;
+  place-items: center;
+  color: var(--electric-amber);
+  font-size: 1.35rem;
+  flex-shrink: 0;
+}
+.contact-info-text strong {
+  display: block;
+  font-size: 15px;
+  color: var(--ink);
+}
+.contact-info-text p, .contact-info-text a {
+  font-size: 14px;
+  color: var(--soft);
+  line-height: 1.6;
+}
+.contact-info-text a:hover { color: var(--ink); }
+
+.map-frame {
+  width: 100%;
+  height: 280px;
+  border-radius: var(--r-md);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  margin-top: 1.5rem;
+}
+.map-frame iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* ── Footer ─────────────────────────────────────────── */
+footer {
+  padding: 3.5rem 0 2.5rem;
+  background: var(--bg);
+  color: var(--soft);
+  font-size: 13.5px;
+}
+.footer-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+  text-align: center;
+}
+@media (min-width: 768px) {
+  .footer-inner {
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
+  }
+}
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: var(--ink);
+  font-size: 16px;
+}
+.footer-links {
+  display: flex;
+  gap: 1.6rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.footer-links a:hover { color: var(--ink); }
+
+/* ── Botão Flutuante Isolado do WhatsApp ─────────────── */
+.fab-whatsapp {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: var(--wa);
+  color: #ffffff;
+  display: grid;
+  place-items: center;
+  z-index: 99;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4), 0 0 0 0 rgba(21, 128, 61, 0.7);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease;
+  animation: pulse-wa 2.5s infinite;
+}
+.fab-whatsapp:hover {
+  transform: scale(1.1);
+  background: var(--wa-hover);
+}
+.fab-whatsapp i.bi-whatsapp {
+  font-size: 30px;
+  line-height: 1;
+}
+
+@keyframes pulse-wa {
+  0% { box-shadow: 0 0 0 0 rgba(21, 128, 61, 0.6); }
+  70% { box-shadow: 0 0 0 16px rgba(21, 128, 61, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(21, 128, 61, 0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ══════════════════════════════════════════════════════════
+     HEADER MINIMALISTA DE ALTO PADRÃO (P&B)
+══════════════════════════════════════════════════════════ -->
+<header>
+  <div class="wrap topbar">
+    <a href="#hero" class="brand" aria-label="EletrikSeg Início">
+      <div class="brand-logo-frame">
+        <i class="ph-bold ph-lightning"></i>
+      </div>
+      <div class="brand-text">
+        <span class="brand-name">Eletrik<span>Seg</span></span>
+        <span class="brand-sub">Elétrica &amp; Segurança</span>
+      </div>
+    </a>
+
+    <!-- Menu Superior Desktop -->
+    <nav class="nav-menu" id="navMenu" aria-label="Navegação Principal">
+      <a href="#especialidades" class="nav-item">Especialidades</a>
+      <a href="#wallbox" class="nav-item">Carregadores WallBox</a>
+      <a href="#metodologia" class="nav-item">Metodologia</a>
+      <a href="#obras" class="nav-item">Serviços</a>
+      <a href="#avaliacoes" class="nav-item">Avaliações Google</a>
+      <a href="#faq" class="nav-item">Dúvidas</a>
+      <a href="#contato" class="nav-item">Contato</a>
+    </nav>
+
+    <div class="header-right">
+      <button id="theme-btn" type="button" aria-label="Alternar tema claro e escuro">
+        <i class="ph-bold ph-sun"></i>
+        <i class="ph-bold ph-moon"></i>
+      </button>
+
+      <a id="hdr-wa" href="https://wa.me/5512992162944?text=Ol%C3%A1%21+Vim+pelo+site+e+gostaria+de+um+or%C3%A7amento+para+servi%C3%A7os+el%C3%A9tricos%2Fseguran%C3%A7a." target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-wa" aria-label="Solicitar Orçamento no WhatsApp">
+        <i class="bi bi-whatsapp"></i>
+        <span>(12) 99216-2944</span>
+      </a>
+
+      <!-- Botão Hambúrguer Mobile -->
+      <button id="menu-toggle" class="menu-toggle" aria-label="Abrir menu de navegação" aria-expanded="false" aria-controls="mobileMenu">
+        <i class="bi bi-list icon-open" aria-hidden="true"></i>
+        <i class="bi bi-x-lg icon-close" aria-hidden="true"></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Drawer Menu -->
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <a href="#especialidades" class="mobile-nav-item">
+      <i class="bi bi-lightning-charge"></i>
+      <span>Especialidades</span>
+    </a>
+    <a href="#wallbox" class="mobile-nav-item">
+      <i class="bi bi-ev-station"></i>
+      <span>Carregadores WallBox (EV)</span>
+    </a>
+    <a href="#metodologia" class="mobile-nav-item">
+      <i class="bi bi-list-check"></i>
+      <span>Metodologia &amp; Normas</span>
+    </a>
+    <a href="#obras" class="mobile-nav-item">
+      <i class="bi bi-tools"></i>
+      <span>Serviços Realizados</span>
+    </a>
+    <a href="#avaliacoes" class="mobile-nav-item">
+      <i class="bi bi-star-fill"></i>
+      <span>Avaliações no Google (5.0)</span>
+    </a>
+    <a href="#faq" class="mobile-nav-item">
+      <i class="bi bi-question-circle"></i>
+      <span>Dúvidas Frequentes</span>
+    </a>
+    <a href="#contato" class="mobile-nav-item">
+      <i class="bi bi-geo-alt"></i>
+      <span>Localização &amp; Contato</span>
+    </a>
+  </div>
+</header>
+
+<!-- ══════════════════════════════════════════════════════════
+     HERO SECTION DE ALTA CONVERSÃO
+══════════════════════════════════════════════════════════ -->
+<section class="hero" id="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-content">
+      <div class="eyebrow">
+        <span class="dot"></span>
+        <span>Taubaté &amp; Região do Vale do Paraíba</span>
+      </div>
+
+      <h1 class="hero-title">
+        ELÉTRICA, CARREGADORES WALLBOX &amp; <em>SEGURANÇA</em> ELETRÔNICA
+      </h1>
+
+      <p class="hero-desc">
+        Infraestrutura elétrica especializada para carros elétricos (NBR 17019), manutenções residenciais e comerciais de alta precisão, e proteção perimétrica inteligente em Taubaté.
+      </p>
+
+      <ul class="hero-checklist">
+        <li class="hero-check-item">
+          <i class="bi bi-check-circle-fill"></i>
+          <span><strong>Instalação de WallBox com Circuito Dedicado:</strong> Segurança total para baterias de veículos elétricos e híbridos.</span>
+        </li>
+        <li class="hero-check-item">
+          <i class="bi bi-check-circle-fill"></i>
+          <span><strong>Quadros de Distribuição &amp; Padrão ABNT / NR-10:</strong> Adequação de disjuntores, barramentos, DPS e DR.</span>
+        </li>
+        <li class="hero-check-item">
+          <i class="bi bi-check-circle-fill"></i>
+          <span><strong>CFTV, Cercas Elétricas &amp; Alarmes:</strong> Câmeras com acesso remoto em tempo real pelo seu smartphone.</span>
+        </li>
+      </ul>
+
+      <div class="hero-actions">
+        <a href="https://wa.me/5512992162944?text=Ol%C3%A1%21+Vim+pelo+site+da+EletrikSeg+e+gostaria+de+solicitar+um+or%C3%A7amento+sem+compromisso." target="_blank" rel="noopener noreferrer" class="btn btn-wa">
+          <i class="bi bi-whatsapp"></i>
+          <span>Falar com Técnico no WhatsApp</span>
+        </a>
+        <a href="#wallbox" class="btn btn-ghost">
+          <i class="bi bi-ev-station"></i>
+          <span>Ver Carregador WallBox</span>
+        </a>
+      </div>
+
+      <div class="hero-proof-strip">
+        <div class="hero-proof-stars">
+          <i class="bi bi-star-fill"></i>
+          <i class="bi bi-star-fill"></i>
+          <i class="bi bi-star-fill"></i>
+          <i class="bi bi-star-fill"></i>
+          <i class="bi bi-star-fill"></i>
+        </div>
+        <div class="hero-proof-text">
+          <strong>Avaliação 5.0 Estrelas no Google Maps</strong>
+          <span>"Trabalho rápido e orçamento justo. Serviço de qualidade e profissional qualificado."</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- FORMULÁRIO DE CONVERSÃO IMEDIATA NO HERO -->
+    <div class="hero-form-card" id="orcamento-topo">
+      <div class="form-head">
+        <div class="eyebrow">
+          <i class="bi bi-lightning-charge-fill" style="color: var(--electric-amber);"></i>
+          <span>Atendimento Direto</span>
+        </div>
+        <h3>Orçamento Rápido sem Compromisso</h3>
+        <p>Preencha abaixo para iniciar o atendimento já com os dados do seu imóvel formatados.</p>
+      </div>
+
+      <form id="heroContactForm" class="contact-form" onsubmit="return false;">
+        <div class="form-group">
+          <label for="fn-hero">Seu Nome / Empresa</label>
+          <input id="fn-hero" name="n" required placeholder="Ex: Carlos Mendonça" autocomplete="name">
+        </div>
+
+        <div class="form-group">
+          <label for="fb-hero">Bairro / Cidade em Taubaté</label>
+          <input id="fb-hero" name="b" placeholder="Ex: Chácara São Silvestre, Taubaté" autocomplete="address-level2">
+        </div>
+
+        <div class="form-group">
+          <label for="fs-hero">Qual serviço você precisa?</label>
+          <select id="fs-hero" name="s">
+            <option value="Instalação de Carregador WallBox (Carro Elétrico)">⚡ Instalação de Carregador WallBox (Carro Elétrico)</option>
+            <option value="Reforma de Quadro de Distribuição / Disjuntores">🔌 Reforma de Quadro de Distribuição / Disjuntores</option>
+            <option value="Elétrica Residencial ou Comercial Completa">🏠 Elétrica Residencial ou Comercial Completa</option>
+            <option value="Câmeras de Segurança (CFTV com Acesso no Celular)">📹 Câmeras de Segurança (CFTV no Celular)</option>
+            <option value="Cerca Elétrica / Concertina / Alarme">🛡️ Cerca Elétrica / Concertina / Alarme</option>
+            <option value="Curto-Circuito / Diagnóstico de Urgência">🚨 Curto-Circuito / Diagnóstico de Urgência</option>
+            <option value="Instalação de Iluminação Técnica & LED">💡 Instalação de Iluminação Técnica & LED</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="fm-hero">Detalhes da sua necessidade</label>
+          <textarea id="fm-hero" name="m" rows="3" placeholder="Ex: Comprei um carro elétrico e preciso dimensionar o circuito para o WallBox..."></textarea>
+        </div>
+
+        <button class="btn btn-wa" id="heroSendBtn" type="button">
+          <i class="bi bi-whatsapp"></i>
+          <span>Solicitar no WhatsApp Agora</span>
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     MARQUEE CONTÍNUO (ENERGIA & SEGURANÇA)
+══════════════════════════════════════════════════════════ -->
+<div class="marquee-strip" aria-hidden="true">
+  <div class="marquee-track">
+    <div class="marquee-item"><i class="bi bi-lightning-fill"></i> CARREGADORES VEICULARES NBR 17019</div>
+    <div class="marquee-item"><i class="bi bi-shield-check"></i> CFTV EM ALTA DEFINIÇÃO</div>
+    <div class="marquee-item"><i class="bi bi-cpu"></i> QUADROS DE DISTRIBUIÇÃO MODERNOS</div>
+    <div class="marquee-item"><i class="bi bi-shield-shaded"></i> CERCAS ELÉTRICAS DE ALTA POTÊNCIA</div>
+    <div class="marquee-item"><i class="bi bi-tools"></i> NORMAS ABNT E NR-10</div>
+    <div class="marquee-item"><i class="bi bi-geo-alt-fill"></i> TAUBATÉ, TREMEMBÉ &amp; VALE DO PARAÍBA</div>
+    <div class="marquee-item"><i class="bi bi-star-fill"></i> NOTA 5.0 NO GOOGLE</div>
+    <!-- Repetição para fluxo infinito contínuo -->
+    <div class="marquee-item"><i class="bi bi-lightning-fill"></i> CARREGADORES VEICULARES NBR 17019</div>
+    <div class="marquee-item"><i class="bi bi-shield-check"></i> CFTV EM ALTA DEFINIÇÃO</div>
+    <div class="marquee-item"><i class="bi bi-cpu"></i> QUADROS DE DISTRIBUIÇÃO MODERNOS</div>
+    <div class="marquee-item"><i class="bi bi-shield-shaded"></i> CERCAS ELÉTRICAS DE ALTA POTÊNCIA</div>
+    <div class="marquee-item"><i class="bi bi-tools"></i> NORMAS ABNT E NR-10</div>
+    <div class="marquee-item"><i class="bi bi-geo-alt-fill"></i> TAUBATÉ, TREMEMBÉ &amp; VALE DO PARAÍBA</div>
+    <div class="marquee-item"><i class="bi bi-star-fill"></i> NOTA 5.0 NO GOOGLE</div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════
+     METRICS STRIP
+══════════════════════════════════════════════════════════ -->
+<section class="metrics-strip">
+  <div class="wrap metrics-grid">
+    <div class="metric-box">
+      <div class="metric-num">5.0 ★</div>
+      <p>Avaliação Máxima Google</p>
+    </div>
+    <div class="metric-box">
+      <div class="metric-num">+500</div>
+      <p>Pontos e Projetos Entregues</p>
+    </div>
+    <div class="metric-box">
+      <div class="metric-num">100%</div>
+      <p>Conforme Normas ABNT / NR10</p>
+    </div>
+    <div class="metric-box">
+      <div class="metric-num">Taubaté</div>
+      <p>Sede Local e Agilidade</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     BENTO SECTION: ESPECIALIDADES
+══════════════════════════════════════════════════════════ -->
+<section id="especialidades" class="bento-section">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">
+        <span class="dot"></span>
+        <span>Soluções Completas</span>
+      </div>
+      <h2>Engenharia Prática para Residências, Condomínios e Empresas</h2>
+      <p>Executamos projetos elétricos e sistemas de segurança com rigor milimétrico, eliminando riscos de sobrecarga e protegendo o seu patrimônio.</p>
+    </div>
+
+    <div class="bento-grid">
+      <!-- Card Destaque: Wallbox -->
+      <div class="bento-card bento-featured">
+        <div>
+          <div class="bento-icon-frame">
+            <i class="bi bi-ev-station-fill"></i>
+          </div>
+          <span class="bento-tag" style="background: var(--electric-amber); color: #000; font-weight: 800; margin-bottom: 0.8rem; display: inline-block;">Especialidade Referência</span>
+          <h3>Instalação de Carregadores WallBox para Veículos Elétricos</h3>
+          <p>Instalação homologada seguindo rigorosamente a norma <strong>NBR 17019</strong>. Dimensionamos fiação exclusiva desde o relógio medidor até a vaga, com quadro auxiliar dotado de disjuntor dedicado, DPS Classe II contra surtos e Dispositivo Diferencial Residual (DR).</p>
+          <div class="bento-tags">
+            <span class="bento-tag">Circuito Dedicado</span>
+            <span class="bento-tag">NBR 17019</span>
+            <span class="bento-tag">Proteção DPS &amp; DR</span>
+            <span class="bento-tag">Residencial &amp; Condominial</span>
+          </div>
+        </div>
+        <div style="text-align: right; margin-top: 1rem;">
+          <a href="#wallbox" class="btn btn-primary" style="width: auto;">
+            <span>Conhecer Detalhes do WallBox</span>
+            <i class="bi bi-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Card 2: Elétrica Residencial e Predial -->
+      <div class="bento-card">
+        <div>
+          <div class="bento-icon-frame">
+            <i class="bi bi-lightning-charge"></i>
+          </div>
+          <h3>Elétrica Residencial &amp; Comercial</h3>
+          <p>Montagem e reorganização de Quadros de Distribuição (QDC), balanceamento de fases, substituição de disjuntores obsoletos e eliminação definitiva de quedas de energia.</p>
+        </div>
+        <div class="bento-tags">
+          <span class="bento-tag">Quadros QDC</span>
+          <span class="bento-tag">Disjuntores DIN</span>
+          <span class="bento-tag">Tomadas 10A/20A</span>
+        </div>
+      </div>
+
+      <!-- Card 3: Segurança Eletrônica & CFTV -->
+      <div class="bento-card">
+        <div>
+          <div class="bento-icon-frame">
+            <i class="bi bi-camera-video"></i>
+          </div>
+          <h3>Câmeras de Segurança (CFTV)</h3>
+          <p>Instalação de câmeras Full HD e tecnologia IP com visão noturna inteligente. Monitore sua residência ou empresa de qualquer lugar do mundo pelo celular com áudio e alertas.</p>
+        </div>
+        <div class="bento-tags">
+          <span class="bento-tag">Acesso no Smartphone</span>
+          <span class="bento-tag">Visão Noturna</span>
+          <span class="bento-tag">Gravação Contínua</span>
+        </div>
+      </div>
+
+      <!-- Card 4: Cercas Elétricas e Concertinas -->
+      <div class="bento-card">
+        <div>
+          <div class="bento-icon-frame">
+            <i class="bi bi-shield-shaded"></i>
+          </div>
+          <h3>Cercas Elétricas &amp; Perímetro</h3>
+          <p>Centrais de choque pulsativo de alta potência com certificação Inmetro, hastes em alumínio reforçado, sirenes de alto decibéis e concertinas duplas de contenção.</p>
+        </div>
+        <div class="bento-tags">
+          <span class="bento-tag">Inmetro Homologado</span>
+          <span class="bento-tag">Baixo Consumo</span>
+          <span class="bento-tag">Inibição Ativa</span>
+        </div>
+      </div>
+
+      <!-- Card 5: Alarmes e Sensores Inteligentes -->
+      <div class="bento-card">
+        <div>
+          <div class="bento-icon-frame">
+            <i class="bi bi-broadcast-pin"></i>
+          </div>
+          <h3>Alarmes &amp; Sensores</h3>
+          <p>Sensores infravermelhos passivos anti-pet, barreiras óticas perimétricas para muros e centrais integradas com aviso imediato no seu aplicativo.</p>
+        </div>
+        <div class="bento-tags">
+          <span class="bento-tag">Anti-Falso Disparo</span>
+          <span class="bento-tag">Sirenes Estridentes</span>
+          <span class="bento-tag">Monitoramento Próprio</span>
+        </div>
+      </div>
+
+      <!-- Card 6: Iluminação Técnica & Laudos -->
+      <div class="bento-card">
+        <div>
+          <div class="bento-icon-frame">
+            <i class="bi bi-lightbulb"></i>
+          </div>
+          <h3>Iluminação LED &amp; Vistorias</h3>
+          <p>Instalação de perfis e fitas LED de alto rendimento, automação de iluminação residencial, laudos de conformidade técnica e detecção de fugas de corrente.</p>
+        </div>
+        <div class="bento-tags">
+          <span class="bento-tag">Perfis de LED</span>
+          <span class="bento-tag">Economia de Energia</span>
+          <span class="bento-tag">Vistoria Preventiva</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     WALLBOX SHOWCASE (CARREGADORES ELÉTRICOS)
+══════════════════════════════════════════════════════════ -->
+<section id="wallbox" class="wallbox-section">
+  <div class="wrap wallbox-grid">
+    <div>
+      <div class="eyebrow">
+        <span class="dot"></span>
+        <span>Norma NBR 17019</span>
+      </div>
+      <h2>Carregamento Seguro para seu Veículo Elétrico em Casa ou no Condomínio</h2>
+      <p style="color: var(--soft); margin-top: 1rem; font-size: 16px; line-height: 1.7;">
+        Carregar um carro elétrico exige potências equivalentes ou superiores a 2 chuveiros elétricos ligados continuamente por várias horas. <strong>Nunca utilize tomadas comuns sem dimensionamento técnico.</strong> A EletrikSeg projeta a linha de alimentação exclusiva para garantir velocidade de carga e proteger a fiação do seu imóvel.
+      </p>
+
+      <ul class="wallbox-spec-list">
+        <li class="wallbox-spec-item">
+          <i class="bi bi-shield-check"></i>
+          <div>
+            <strong>Instalação 100% em Conformidade com a NBR 17019</strong>
+            <span>Dimensionamento milimétrico da bitola dos cabos conforme distância e amperagem do carregador (7,4kW, 11kW ou 22kW).</span>
+          </div>
+        </li>
+        <li class="wallbox-spec-item">
+          <i class="bi bi-lightning-charge"></i>
+          <div>
+            <strong>Quadro de Proteção Exclusivo com DPS e DR</strong>
+            <span>Dispositivo contra surtos de raios na rede e interruptor diferencial residual que desliga instantaneamente caso haja qualquer anomalia.</span>
+          </div>
+        </li>
+        <li class="wallbox-spec-item">
+          <i class="bi bi-buildings"></i>
+          <div>
+            <strong>Soluções para Casas e Garagens de Condomínio</strong>
+            <span>Instalação individualizada com medição de consumo para condomínios fechados ou prédios residenciais em Taubaté.</span>
+          </div>
+        </li>
+      </ul>
+
+      <div style="margin-top: 2rem;">
+        <a href="https://wa.me/5512992162944?text=Ol%C3%A1%21+Gostaria+de+um+or%C3%A7amento+para+instala%C3%A7%C3%A3o+de+Carregador+WallBox+em+Taubat%C3%A9." target="_blank" rel="noopener noreferrer" class="btn btn-wa">
+          <i class="bi bi-whatsapp"></i>
+          <span>Agendar Avaliação do WallBox</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="wallbox-card-visual">
+      <div class="wallbox-media">
+        <img src="imgs/66612799-eletricista-maos-as-trabalhos-com-isolado-ferramentas-dentro-molhado-clima-foto.jpg" alt="Instalação Elétrica Especializada EletrikSeg" loading="lazy">
+        <div class="wallbox-badge-overlay">
+          <i class="bi bi-patch-check-fill" style="color: var(--electric-amber); margin-right: 4px;"></i>
+          Padrão NBR 17019
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     STEPPER: METODOLOGIA DE TRABALHO
+══════════════════════════════════════════════════════════ -->
+<section id="metodologia" class="stepper-section">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">
+        <span class="dot"></span>
+        <span>Processo Transparente</span>
+      </div>
+      <h2>Como Funciona Nosso Atendimento</h2>
+      <p>Do primeiro contato no WhatsApp até a entrega final com testes e garantia documentada, você acompanha cada etapa com clareza.</p>
+    </div>
+
+    <div class="stepper-grid">
+      <div class="step-card">
+        <div class="step-num">01</div>
+        <h3>Contato &amp; Diagnóstico</h3>
+        <p>Você nos envia uma mensagem informando a necessidade em Taubaté ou região. Realizamos a triagem imediata para entender o escopo.</p>
+      </div>
+
+      <div class="step-card">
+        <div class="step-num">02</div>
+        <h3>Orçamento Transparente</h3>
+        <p>Apresentamos a proposta com orçamento justo e sem custos ocultos, detalhando materiais recomendados e tempo de execução.</p>
+      </div>
+
+      <div class="step-card">
+        <div class="step-num">03</div>
+        <h3>Execução Técnica</h3>
+        <p>Trabalho limpo, organizado e dentro das normas de segurança (EPIs e ferramentas adequadas), com proteção ao seu imóvel.</p>
+      </div>
+
+      <div class="step-card">
+        <div class="step-num">04</div>
+        <h3>Testes &amp; Garantia</h3>
+        <p>Realizamos testes de carga, ensinamos o funcionamento dos equipamentos ao cliente e entregamos garantia dos serviços executados.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     SERVIÇOS REALIZADOS / PROJETOS
+══════════════════════════════════════════════════════════ -->
+<section id="obras" class="portfolio-section">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">
+        <span class="dot"></span>
+        <span>Galeria Prática</span>
+      </div>
+      <h2>Qualidade Visível em Cada Detalhe</h2>
+      <p>Confira amostras de instalações executadas pela nossa equipe técnica com foco em acabamento, organização e segurança.</p>
+    </div>
+
+    <div class="portfolio-grid">
+      <div class="portfolio-card">
+        <div class="portfolio-thumb">
+          <img src="imgs/eletricista.jpg" alt="Instalação Elétrica Residencial e Manutenção" loading="lazy">
+        </div>
+        <div class="portfolio-body">
+          <h4>Montagem &amp; Reforma de Quadros QDC</h4>
+          <p>Identificação de circuitos, barramentos tipo pente e instalação de DR e DPS contra queima de eletrodomésticos.</p>
+        </div>
+      </div>
+
+      <div class="portfolio-card">
+        <div class="portfolio-thumb">
+          <img src="imgs/Eletricista_.jpg" alt="Manutenção e Adequação Elétrica Predial" loading="lazy">
+        </div>
+        <div class="portfolio-body">
+          <h4>Manutenção Preventiva Comercial</h4>
+          <p>Revisão de fiações antigas, eliminação de pontos quentes com termografia e readequação de cargas elétricas.</p>
+        </div>
+      </div>
+
+      <div class="portfolio-card">
+        <div class="portfolio-thumb">
+          <img src="imgs/obra-luminaria.png" alt="Iluminação LED e Acabamento de Alto Padrão" loading="lazy">
+        </div>
+        <div class="portfolio-body">
+          <h4>Iluminação de Alto Padrão &amp; LED</h4>
+          <p>Instalação de perfis embutidos, sancas iluminadas e circuitos inteligentes para ambientes modernos.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     AVALIAÇÕES REAIS DO GOOGLE (PROVA SOCIAL)
+══════════════════════════════════════════════════════════ -->
+<section id="avaliacoes" class="reviews-section">
+  <div class="wrap">
+    <div class="sec-head" style="text-align: center; max-width: 680px; margin-inline: auto;">
+      <div class="eyebrow">
+        <span class="dot"></span>
+        <span>Opiniões Verificadas</span>
+      </div>
+      <h2>O Que Nossos Clientes Dizem no Google Maps</h2>
+      <p>Avaliações 100% autênticas registradas por clientes atendidos pela EletrikSeg em Taubaté e cidades vizinhas.</p>
+    </div>
+
+    <div class="reviews-grid">
+      <!-- Avaliação 1 -->
+      <div class="review-card">
+        <div>
+          <div class="review-stars">
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+          </div>
+          <p class="review-text">
+            "Trabalho rápido e orçamento justo."
+          </p>
+        </div>
+        <div class="review-author">
+          <div class="review-avatar">TR</div>
+          <div class="review-author-info">
+            <strong>Cliente Google</strong>
+            <span><i class="bi bi-google"></i> Avaliação Verificada · Taubaté</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Avaliação 2 -->
+      <div class="review-card">
+        <div>
+          <div class="review-stars">
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+          </div>
+          <p class="review-text">
+            "Serviço de qualidade , profissional qualificado ."
+          </p>
+        </div>
+        <div class="review-author">
+          <div class="review-avatar">PQ</div>
+          <div class="review-author-info">
+            <strong>Cliente Google</strong>
+            <span><i class="bi bi-google"></i> Avaliação Verificada · Taubaté</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Avaliação 3 -->
+      <div class="review-card">
+        <div>
+          <div class="review-stars">
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+          </div>
+          <p class="review-text">
+            "Organizado, explica muito bem sobre o funcionamento dos equipamentos."
+          </p>
+        </div>
+        <div class="review-author">
+          <div class="review-avatar">EQ</div>
+          <div class="review-author-info">
+            <strong>Cliente Google</strong>
+            <span><i class="bi bi-google"></i> Avaliação Verificada · Taubaté</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Google Badge Strip -->
+    <div style="margin-top: 3rem; text-align: center;">
+      <a href="https://www.google.com/search?q=EletrikSeg+taubate" target="_blank" rel="noopener noreferrer" class="btn btn-ghost" style="display: inline-flex; width: auto;">
+        <i class="bi bi-google" style="color: #4285F4;"></i>
+        <span>Ver Perfil e Avaliações no Google Maps (5.0 de 5 estrelas)</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     FAQ: DÚVIDAS FREQUENTES
+══════════════════════════════════════════════════════════ -->
+<section id="faq" class="faq-section">
+  <div class="wrap">
+    <div class="sec-head" style="text-align: center; max-width: 680px; margin-inline: auto;">
+      <div class="eyebrow">
+        <span class="dot"></span>
+        <span>Tire suas Dúvidas</span>
+      </div>
+      <h2>Perguntas Frequentes</h2>
+      <p>Entenda como funcionam nossos serviços, prazos, orçamentos e garantias.</p>
+    </div>
+
+    <div class="faq-list">
+      <details class="faq-item" open>
+        <summary class="faq-summary">
+          <span>Quanto tempo leva a instalação de um Carregador WallBox?</span>
+          <i class="bi bi-plus-lg faq-icon"></i>
+        </summary>
+        <div class="faq-answer">
+          Na maioria das residências e garagens de condomínio, a instalação da infraestrutura completa (passagem de cabos reforçados, montagem do quadro de proteção auxiliar com DPS/DR e fixação do WallBox) é concluída em um único dia útil, pronta para uso imediato.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-summary">
+          <span>A EletrikSeg atende quais bairros e cidades da região?</span>
+          <i class="bi bi-plus-lg faq-icon"></i>
+        </summary>
+        <div class="faq-answer">
+          Nossa sede está localizada no bairro Chácara São Silvestre, em Taubaté - SP. Atendemos todos os bairros de Taubaté e cidades vizinhas como Tremembé, Pindamonhangaba, Caçapava e cidades próximas do Vale do Paraíba.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-summary">
+          <span>Como funciona a visualização das câmeras de segurança no celular?</span>
+          <i class="bi bi-plus-lg faq-icon"></i>
+        </summary>
+        <div class="faq-answer">
+          Configuramos o aplicativo oficial no seu smartphone (Android ou iPhone). Você poderá ver as imagens ao vivo, reproduzir gravações passadas, receber alertas de movimento e interagir com áudio de onde estiver, usando sua conexão 4G/5G ou Wi-Fi.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-summary">
+          <span>Os serviços possuem garantia e nota fiscal?</span>
+          <i class="bi bi-plus-lg faq-icon"></i>
+        </summary>
+        <div class="faq-answer">
+          Sim! Todos os nossos serviços são executados de acordo com as normas técnicas vigentes (ABNT NBR 5410 para instalações elétricas e NBR 17019 para recarga de veículos), acompanhando garantia de mão de obra e suporte pós-instalação.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-summary">
+          <span>Vocês atendem chamados elétricos de urgência?</span>
+          <i class="bi bi-plus-lg faq-icon"></i>
+        </summary>
+        <div class="faq-answer">
+          Sim. Em casos de cheiro de queimado, disjuntor desarmando sem parar, curto-circuito ou falta de energia em pontos essenciais, você pode nos contatar pelo WhatsApp para priorizarmos o seu diagnóstico.
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     SEÇÃO DE CONTATO & LOCALIZAÇÃO
+══════════════════════════════════════════════════════════ -->
+<section id="contato" class="contact-section">
+  <div class="wrap contact-grid-main">
+    <div class="contact-info-card">
+      <div class="eyebrow">
+        <span class="dot"></span>
+        <span>Canais de Atendimento</span>
+      </div>
+      <h3 style="margin: 0.8rem 0 0.5rem; font-size: 24px;">Fale Diretamente com a EletrikSeg</h3>
+      <p style="color: var(--soft); font-size: 14.5px;">Estamos à disposição para agendar sua visita técnica ou esclarecer qualquer dúvida sobre sua instalação elétrica ou de segurança.</p>
+
+      <ul class="contact-info-list">
+        <li class="contact-info-item">
+          <div class="contact-info-icon">
+            <i class="bi bi-telephone-fill"></i>
+          </div>
+          <div class="contact-info-text">
+            <strong>Telefone &amp; WhatsApp Oficial</strong>
+            <a href="https://wa.me/5512992162944?text=Ol%C3%A1%21+Vim+pelo+site+da+EletrikSeg." target="_blank" rel="noopener noreferrer">(12) 99216-2944</a>
+          </div>
+        </li>
+
+        <li class="contact-info-item">
+          <div class="contact-info-icon">
+            <i class="bi bi-geo-alt-fill"></i>
+          </div>
+          <div class="contact-info-text">
+            <strong>Endereço em Taubaté</strong>
+            <p>R. Luís Augusto de Gouvêia, 1345 - Chácara São Silvestre, Taubaté - SP, 12085-000</p>
+          </div>
+        </li>
+
+        <li class="contact-info-item">
+          <div class="contact-info-icon">
+            <i class="bi bi-clock-fill"></i>
+          </div>
+          <div class="contact-info-text">
+            <strong>Horário de Funcionamento</strong>
+            <p>Segunda a Sexta: 07:30 às 19:00<br>Sábado: 07:30 às 13:00</p>
+            <span style="display: inline-block; margin-top: 0.3rem; font-size: 12px; font-weight: 700; color: var(--electric-amber);">
+              ● Aberto · Fecha às 19:00
+            </span>
+          </div>
+        </li>
+      </ul>
+
+      <!-- Mapa Integrado do Google Maps -->
+      <div class="map-frame">
+        <iframe title="Localização EletrikSeg Taubaté" src="https://maps.google.com/maps?q=R.+Lu%C3%ADs+Augusto+de+Gouv%C3%AAia,+1345+-+Ch%C3%A1cara+S%C3%A3o+Silvestre,+Taubat%C3%A9+-+SP,+12085-000&t=&z=15&ie=UTF8&iwloc=&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+
+    <!-- Formulário Final -->
+    <div class="contact-info-card">
+      <div class="eyebrow">
+        <i class="bi bi-send-fill" style="color: var(--electric-amber);"></i>
+        <span>Envio Direto</span>
+      </div>
+      <h3 style="margin: 0.8rem 0 0.5rem; font-size: 24px;">Solicite seu Orçamento</h3>
+      <p style="color: var(--soft); font-size: 14.5px;">Preencha para enviar a mensagem formatada para o técnico responsável no WhatsApp.</p>
+
+      <form id="bottomContactForm" class="contact-form" style="margin-top: 1.5rem;" onsubmit="return false;">
+        <div class="form-group">
+          <label for="fn-bot">Seu Nome / Empresa</label>
+          <input id="fn-bot" name="n" required placeholder="Ex: Patrícia Alves" autocomplete="name">
+        </div>
+
+        <div class="form-group">
+          <label for="fb-bot">Bairro ou Cidade</label>
+          <input id="fb-bot" name="b" placeholder="Ex: Taubaté, Tremembé, etc." autocomplete="address-level2">
+        </div>
+
+        <div class="form-group">
+          <label for="fs-bot">Tipo de Serviço</label>
+          <select id="fs-bot" name="s">
+            <option value="Carregador WallBox Veicular">⚡ Carregador WallBox Veicular</option>
+            <option value="Quadro Elétrico e Disjuntores">🔌 Quadro Elétrico e Disjuntores</option>
+            <option value="Elétrica Residencial Geral">🏠 Elétrica Residencial Geral</option>
+            <option value="Câmeras e CFTV">📹 Câmeras e CFTV</option>
+            <option value="Cerca Elétrica / Alarme">🛡️ Cerca Elétrica / Alarme</option>
+            <option value="Outro Serviço Técnico">🔧 Outro Serviço Técnico</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="fm-bot">Observações ou Necessidade</label>
+          <textarea id="fm-bot" name="m" rows="4" placeholder="Descreva brevemente sua necessidade..."></textarea>
+        </div>
+
+        <button class="btn btn-wa" id="botSendBtn" type="button" style="width: 100%;">
+          <i class="bi bi-whatsapp"></i>
+          <span>Enviar pelo WhatsApp</span>
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     FOOTER
+══════════════════════════════════════════════════════════ -->
+<footer>
+  <div class="wrap footer-inner">
+    <div class="footer-brand">
+      <i class="ph-bold ph-lightning" style="color: var(--electric-amber); font-size: 1.3rem;"></i>
+      <span>EletrikSeg · Soluções Elétricas &amp; Segurança Eletrônica</span>
+    </div>
+
+    <div class="footer-links">
+      <a href="#hero">Início</a>
+      <a href="#especialidades">Especialidades</a>
+      <a href="#wallbox">Carregadores WallBox</a>
+      <a href="#obras">Serviços</a>
+      <a href="#avaliacoes">Avaliações Google</a>
+      <a href="#contato">Contato</a>
+    </div>
+
+    <div style="font-size: 12.5px; color: var(--muted);">
+      &copy; 2026 EletrikSeg Taubaté · R. Luís Augusto de Gouvêia, 1345 · Todos os direitos reservados.
+    </div>
+  </div>
+</footer>
+
+<!-- ══════════════════════════════════════════════════════════
+     BOTÃO FLUTUANTE DE WHATSAPP (FAB)
+══════════════════════════════════════════════════════════ -->
+<a href="https://wa.me/5512992162944?text=Ol%C3%A1%21+Vim+pelo+site+da+EletrikSeg+e+gostaria+de+um+or%C3%A7amento." class="fab-whatsapp" target="_blank" rel="noopener noreferrer" aria-label="Abrir conversa no WhatsApp">
+  <i class="bi bi-whatsapp"></i>
+</a>
+
+<!-- ══════════════════════════════════════════════════════════
+     SCRIPTS: TEMA, MENU MOBILE E DISPARO DE WHATSAPP
+══════════════════════════════════════════════════════════ -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  // 1. Controle de Tema Claro / Escuro
+  var themeBtn = document.getElementById("theme-btn");
+  if (themeBtn) {
+    themeBtn.addEventListener("click", function() {
+      var current = document.documentElement.getAttribute("data-theme") || "dark";
+      var next = current === "dark" ? "light" : "dark";
+      document.documentElement.setAttribute("data-theme", next);
+      try {
+        localStorage.setItem("eletrikseg_theme", next);
+      } catch(e) {}
+    });
+  }
+
+  // 2. Menu Mobile Drawer
+  var menuToggle = document.getElementById("menu-toggle");
+  var mobileMenu = document.getElementById("mobileMenu");
+
+  function closeMenu() {
+    if (menuToggle && mobileMenu) {
+      menuToggle.classList.remove("is-active");
+      menuToggle.setAttribute("aria-expanded", "false");
+      mobileMenu.classList.remove("is-active");
+      mobileMenu.setAttribute("aria-hidden", "true");
+    }
+  }
+
+  if (menuToggle && mobileMenu) {
+    menuToggle.addEventListener("click", function() {
+      var isOpen = menuToggle.classList.toggle("is-active");
+      menuToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+      mobileMenu.classList.toggle("is-active", isOpen);
+      mobileMenu.setAttribute("aria-hidden", isOpen ? "false" : "true");
+    });
+
+    mobileMenu.querySelectorAll("a").forEach(function(link) {
+      link.addEventListener("click", closeMenu);
+    });
+
+    document.addEventListener("keydown", function(e) {
+      if (e.key === "Escape") closeMenu();
+    });
+  }
+
+  // 3. Helper de Disparo WhatsApp Formatado
+  function sendWa(nameId, bairroId, servicoId, msgId) {
+    var name = (document.getElementById(nameId)?.value || "").trim();
+    var bairro = (document.getElementById(bairroId)?.value || "").trim();
+    var servico = (document.getElementById(servicoId)?.value || "").trim();
+    var msg = (document.getElementById(msgId)?.value || "").trim();
+
+    var text = "⚡ *Contato via Site EletrikSeg - Taubaté* ⚡\n\n";
+    if (name) text += "👤 *Nome:* " + name + "\n";
+    if (bairro) text += "📍 *Localização:* " + bairro + "\n";
+    if (servico) text += "🛠️ *Serviço:* " + servico + "\n";
+    if (msg) text += "📝 *Detalhes:* " + msg + "\n";
+    text += "\n_Gostaria de agendar uma visita técnica ou solicitar um orçamento sem compromisso._";
+
+    var url = "https://wa.me/5512992162944?text=" + encodeURIComponent(text);
+    window.open(url, "_blank");
+  }
+
+  var heroBtn = document.getElementById("heroSendBtn");
+  if (heroBtn) {
+    heroBtn.addEventListener("click", function() {
+      sendWa("fn-hero", "fb-hero", "fs-hero", "fm-hero");
+    });
+  }
+
+  var botBtn = document.getElementById("botSendBtn");
+  if (botBtn) {
+    botBtn.addEventListener("click", function() {
+      sendWa("fn-bot", "fb-bot", "fs-bot", "fm-bot");
+    });
+  }
+});
+</script>
+
+</body>
+</html>
