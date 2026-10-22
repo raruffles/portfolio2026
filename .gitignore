@@ -27,6 +27,8 @@ id_rsa.pub
 # 3. Sites, protótipos e prévias de clientes (MANTIDOS APENAS LOCALMENTE)
 previa/
 **/previa/
+clientes/
+**/clientes/
 janousek-photos/
 xandy-alves-artes/
 guuhsc-source/
