@@ -62,9 +62,6 @@ tabulacao*.txt
 *.CDR
 *.CDRT
 clones/**/*.mp4
-!clones/nutri.marinaturzi/3465707989036344824_6210726821.mp4
-!clones/nutri.marinaturzi/3865961647861525303_6210726821.mp4
-!clones/nutri.marinaturzi/3916763564674996217_6210726821.mp4
 
 # 6. IDEs, logs e sistema operacional
 .agents/
