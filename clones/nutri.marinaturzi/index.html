@@ -27,64 +27,7 @@
   rel="stylesheet"
   href="assets/style_1.css"
 />
-<style>
-  .loader {
-    position: fixed;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 9999;
-    background-color: rgba(182,203,165, 0.99);
-    display: grid;
-    place-content: flex-end;
-    padding-right: 2.5em;
-    padding-bottom: 2.5em;
 
-    html.has-seq-ready.fonts-loaded.is-ready & {
-      opacity: 0;
-      visibility: hidden;
-      pointer-events: none;
-    }
-  }
-  
-  .loader::before {
-  	content: "";
-    z-index: 1;
-    pointer-events: none;
-    mix-blend-mode: color-burn;
-    background-image: url(assets/image_67.png);
-    background-position: 0 0;
-    background-size: 7rem 7rem;
-    position: absolute;
-    inset: 0%;
-  }
-  
-  .loader::after {
-  	content: "";
-    height: 1.25em;
-    width: 1.25em;
-    border: 0.125em solid #335c30;
-    border-bottom-color: transparent;
-    border-radius: 50%;
-    display: inline-block;
-    box-sizing: border-box;
-    animation: rotation 1s linear infinite;
-    transition: opacity 0.25s ease;
-  }
-  
-  html.has-seq-ready .loader::after {
-  	opacity: 0;
-  }
-  
-  @keyframes rotation {
-    0% {
-      transform: rotate(0deg);
-    }
-    100% {
-      transform: rotate(360deg);
-    }
-  } 
-</style>
 
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous"/>
@@ -174,7 +117,7 @@
 <script src="assets/nutrition_3d.js"></script>
 <script src="assets/marina_interactive.js"></script>
 
-<style>.loader { display: none !important; }</style>
+
 
 <style>
 @media (max-width: 991px) {
@@ -194,49 +137,108 @@
 
 
 <style id="marina-refinements">
-  /* 1. Hero Alignment & Facts Arc */
+  /* 1. Hero Alignment & Facts Arc (Faithful to More Nutrition) */
+  .stage-left {
+    position: relative !important;
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+  }
+
   .stage-deco {
-    display: none !important; /* Remove "Real Matcha" sketch underneath */
+    display: grid !important;
+    grid-area: 1/1 !important;
+    z-index: 6 !important;
+    pointer-events: none !important;
+  }
+
+  .stage-deco-text-wrap {
+    display: grid !important;
+    position: absolute !important;
+    top: 2% !important;
+    left: 2% !important;
+  }
+
+  .stage-deco-arrow-wrap {
+    display: grid !important;
+    position: absolute !important;
+    top: 10% !important;
+    left: 11% !important;
   }
 
   .stage-visual {
-    margin-left: 55px !important;
-    transform: translateX(35px) !important;
+    pointer-events: none !important;
+    z-index: 2 !important;
+    grid-area: 1/1 !important;
     justify-content: flex-end !important;
+    align-items: center !important;
+    margin-left: auto !important;
+    display: flex !important;
+    width: 100% !important;
+    padding-right: 2% !important;
   }
 
   .stage-marina-img {
+    width: 29.5em !important;
     max-width: 440px !important;
-    max-height: 440px !important;
-    aspect-ratio: 1 / 1 !important;
+    height: auto !important;
+    aspect-ratio: 1 / 1.15 !important;
+    object-fit: cover !important;
+    border-radius: 40% 40% 48% 48% / 36% 36% 54% 54% !important;
+    box-shadow: 0 24px 50px rgba(18, 51, 28, 0.22) !important;
+    border: 6px solid #FFFFFF !important;
   }
 
-  /* Arc positions around left perimeter of photo */
-  .stage-fact.is-first {
-    top: 2% !important;
-    left: 8% !important;
+  /* 3 Circular Badges along the White Circular Arc */
+  .stage-facts {
+    grid-area: 1/1 !important;
     z-index: 5 !important;
+    pointer-events: none !important;
+  }
+
+  .stage-fact {
+    background-color: var(--bg-pale, #E8F0E4) !important;
+    border-radius: 100% !important;
+    border: 1.5px solid #C6DBBD !important;
+    box-shadow: 0 10px 24px rgba(18, 51, 28, 0.12) !important;
+  }
+
+  .stage-fact.is-first {
+    position: absolute !important;
+    top: 4% !important;
+    left: 22% !important;
   }
 
   .stage-fact.is-second {
-    top: 24% !important;
-    left: -2% !important;
-    z-index: 5 !important;
+    position: absolute !important;
+    top: 17% !important;
+    left: 8% !important;
   }
 
   .stage-fact.is-third {
-    top: 50% !important;
-    left: -5% !important;
-    z-index: 5 !important;
+    position: absolute !important;
+    top: 34% !important;
+    left: 0% !important;
   }
 
-  .stage-fact.is-fourth {
-    top: 74% !important;
-    left: 6% !important;
-    z-index: 5 !important;
+  .stage-bg {
+    grid-area: 1/1 !important;
+    z-index: 1 !important;
+    pointer-events: none !important;
   }
 
-  /* 2. Insider CTA & Doctoralia Rating */
+  .stage-bg-svg path {
+    color: #FFFFFF !important;
+    stroke: #FFFFFF !important;
+  }
+
+  /* 2. Marquee Styling */
+  .marquee {
+    overflow: hidden !important;
+    position: relative !important;
+    margin-top: 1.5em !important;
+  }
+
+  /* 3. Insider CTA & Doctoralia Rating */
   .insider-cta {
     display: flex !important;
     align-items: center !important;
@@ -270,7 +272,7 @@
     color: #12331C !important;
   }
 
-  /* 3. Sequence Micro-Sections & Pinned 3D Apple Stage */
+  /* 4. Sequence Micro-Sections & Pinned 3D Apple Stage */
   .sequence-scroll-wrap {
     height: 380vh !important;
     position: relative !important;
@@ -378,14 +380,13 @@
     pointer-events: auto !important;
   }
 
-  /* 4. High-Contrast Testimonial Section & Polished UX */
+  /* 5. High-Contrast Testimonial Section */
   .testimonial-big-heading {
     color: #0A2612 !important;
     font-weight: 900 !important;
     font-size: clamp(2.4rem, 4.2vw, 4.2rem) !important;
     line-height: 1.15 !important;
     text-align: center !important;
-    text-shadow: none !important;
   }
 
   .testimonial-heading {
@@ -393,7 +394,6 @@
     font-weight: 850 !important;
     font-size: clamp(1.8rem, 3vw, 2.5rem) !important;
     line-height: 1.2 !important;
-    text-shadow: none !important;
   }
 
   .testimonial-slider-inner {
@@ -430,37 +430,39 @@
     font-weight: 850 !important;
     font-size: 1.35rem !important;
     margin-bottom: 12px !important;
-    font-family: 'Plus Jakarta Sans', sans-serif !important;
   }
 
   .testimonial-item-text {
     color: #2D4A34 !important;
     font-size: 0.98rem !important;
     line-height: 1.6 !important;
-    font-family: 'Plus Jakarta Sans', sans-serif !important;
   }
 
-  .testimonial-line {
-    background-color: #E2ECE0 !important;
-    margin: 20px 0 16px !important;
-    height: 1px !important;
-  }
-
-  .testimonial-client-name {
-    color: #0F2D18 !important;
-    font-weight: 850 !important;
-    font-size: 0.95rem !important;
-  }
-
-  /* Mobile adjustments */
+  /* Responsive Mobile */
   @media (max-width: 991px) {
     .stage-visual {
       margin-left: 0 !important;
       transform: none !important;
       justify-content: center !important;
     }
+    .stage-marina-img {
+      width: 100% !important;
+      max-width: 320px !important;
+    }
     .stage-facts {
       position: relative !important;
+    }
+    .stage-fact.is-first {
+      top: auto !important;
+      left: 10% !important;
+    }
+    .stage-fact.is-second {
+      top: auto !important;
+      left: 45% !important;
+    }
+    .stage-fact.is-third {
+      top: auto !important;
+      left: 80% !important;
     }
     .sequence-scroll-wrap {
       height: auto !important;
@@ -476,7 +478,6 @@
       display: flex !important;
       flex-direction: column !important;
       gap: 32px !important;
-      margin-top: 0 !important;
       padding: 32px 16px !important;
       height: auto !important;
     }
@@ -547,7 +548,7 @@ body {
 .container.small {
   max-width: calc(var(--size-container) * 0.7);
 }
-</style></div></div><div class="loader"></div><div data-load-nav="" data-animation="default" data-collapse="medium" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" class="navbar w-nav"><div class="nav-container"><div class="grid-layout"><div id="w-node-_084a53a4-1315-9fde-31ee-e99a4811c28c-4811c289" class="nav-social-media-inner"><a href="https://www.instagram.com/nutri.marinaturzi/" target="_blank" class="social-media-link w-inline-block"><div class="social-media-circle"><img src="assets/image_1.svg" loading="eager" width="24" height="24" alt="Instagram" class="social-media-icon"/></div></a><a href="https://wa.me/5512997000000?text=Ol%C3%A1%2C%20Dra.%20Marina!%20Gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20o%20agendamento%20de%20consulta." target="_blank" class="social-media-link w-inline-block"><div class="social-media-circle"><img src="assets/image_2.svg" loading="eager" width="24" height="24" alt="TikTok" class="social-media-icon"/></div></a><a href="https://institutoproctogastro.com.br" target="_blank" class="social-media-link w-inline-block"><div class="social-media-circle"><img src="assets/image_3.svg" loading="eager" width="24" height="24" alt="youtube" class="social-media-icon"/></div></a></div><div id="w-node-_084a53a4-1315-9fde-31ee-e99a4811c293-4811c289" class="nav-link-inner"><a href="#nutrition" class="nav-link w-inline-block"><div class="nav-text">Metodologia</div></a><a href="#benefits" class="nav-link w-inline-block"><div class="nav-text">Diferenciais</div></a><a href="#reviews" class="nav-link w-inline-block"><div class="nav-text">Depoimentos</div></a></div><a id="w-node-c4e2d712-b9aa-e56d-102b-73576293bdd9-4811c289" href="https://wa.me/5512997000000?text=Ol%C3%A1%2C%20Dra.%20Marina!%20Gostaria%20de%20agendar%20uma%20consulta." target="_blank" class="button is-white w-inline-block"><div class="button-cycle is-first"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 10" width="100%" class="button-arrow"><path fill="currentColor" fill-rule="evenodd" d="M0 1.827 1.71 0H10v8.22L8.11 10V5.93c0-.992.009-1.89.03-2.695l-6.642 6.58-1.316-1.44 6.641-6.58c-.787.022-1.67.032-2.647.032H0Z" clip-rule="evenodd"></path></svg><div class="button-cycle-bg white-bg"></div></div><div class="button-bg white-bg"><div class="button-text dark-font">Agendar</div></div><div class="button-cycle is-second"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 10" width="100%" class="button-arrow"><path fill="currentColor" fill-rule="evenodd" d="M0 1.827 1.71 0H10v8.22L8.11 10V5.93c0-.992.009-1.89.03-2.695l-6.642 6.58-1.316-1.44 6.641-6.58c-.787.022-1.67.032-2.647.032H0Z" clip-rule="evenodd"></path></svg><div class="button-cycle-bg white-bg"></div></div></a></div></div></div><div class="page-wrapper"><section data-load-stage="" data-inertia="" class="stage"><div class="stage-overlay"></div><div class="stage-container"><div class="stage-inner"><div class="stage-content">
+</style></div></div><div data-load-nav="" data-animation="default" data-collapse="medium" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" class="navbar w-nav"><div class="nav-container"><div class="grid-layout"><div id="w-node-_084a53a4-1315-9fde-31ee-e99a4811c28c-4811c289" class="nav-social-media-inner"><a href="https://www.instagram.com/nutri.marinaturzi/" target="_blank" class="social-media-link w-inline-block"><div class="social-media-circle"><img src="assets/image_1.svg" loading="eager" width="24" height="24" alt="Instagram" class="social-media-icon"/></div></a><a href="https://wa.me/5512997000000?text=Ol%C3%A1%2C%20Dra.%20Marina!%20Gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20o%20agendamento%20de%20consulta." target="_blank" class="social-media-link w-inline-block"><div class="social-media-circle"><img src="assets/image_2.svg" loading="eager" width="24" height="24" alt="TikTok" class="social-media-icon"/></div></a><a href="https://institutoproctogastro.com.br" target="_blank" class="social-media-link w-inline-block"><div class="social-media-circle"><img src="assets/image_3.svg" loading="eager" width="24" height="24" alt="youtube" class="social-media-icon"/></div></a></div><div id="w-node-_084a53a4-1315-9fde-31ee-e99a4811c293-4811c289" class="nav-link-inner"><a href="#nutrition" class="nav-link w-inline-block"><div class="nav-text">Metodologia</div></a><a href="#benefits" class="nav-link w-inline-block"><div class="nav-text">Diferenciais</div></a><a href="#reviews" class="nav-link w-inline-block"><div class="nav-text">Depoimentos</div></a></div><a id="w-node-c4e2d712-b9aa-e56d-102b-73576293bdd9-4811c289" href="https://wa.me/5512997000000?text=Ol%C3%A1%2C%20Dra.%20Marina!%20Gostaria%20de%20agendar%20uma%20consulta." target="_blank" class="button is-white w-inline-block"><div class="button-cycle is-first"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 10" width="100%" class="button-arrow"><path fill="currentColor" fill-rule="evenodd" d="M0 1.827 1.71 0H10v8.22L8.11 10V5.93c0-.992.009-1.89.03-2.695l-6.642 6.58-1.316-1.44 6.641-6.58c-.787.022-1.67.032-2.647.032H0Z" clip-rule="evenodd"></path></svg><div class="button-cycle-bg white-bg"></div></div><div class="button-bg white-bg"><div class="button-text dark-font">Agendar</div></div><div class="button-cycle is-second"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 10" width="100%" class="button-arrow"><path fill="currentColor" fill-rule="evenodd" d="M0 1.827 1.71 0H10v8.22L8.11 10V5.93c0-.992.009-1.89.03-2.695l-6.642 6.58-1.316-1.44 6.641-6.58c-.787.022-1.67.032-2.647.032H0Z" clip-rule="evenodd"></path></svg><div class="button-cycle-bg white-bg"></div></div></a></div></div></div><div class="page-wrapper"><section data-load-stage="" data-inertia="" class="stage"><div class="stage-overlay"></div><div class="stage-container"><div class="stage-inner"><div class="stage-content">
 
 <div class="stage-logo" data-load-stage-logo="" style="display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding: 24px 0 10px; width:100%;">
   <lottie-player src="https://cdn.prod.website-files.com/686c09a33211842a0ac0183d/68bf4595ca06155170fa0b3f_fee5b51503049a55da64bfd6a8ed744f_more-logo-animation.json" background="transparent" speed="1" data-load-stage-logo-lottie="" class="stage-logo-svg" style="display:none;"></lottie-player>
@@ -560,17 +561,19 @@ body {
   </div>
 </div>
 
-<div data-load-stage-cta="" class="stage-cta"><a href="https://wa.me/5512997000000?text=Ol%C3%A1%2C%20Dra.%20Marina!%20Gostaria%20de%20agendar%20uma%20consulta." target="_blank" class="button w-inline-block"><div class="button-cycle is-first"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 10" width="100%" class="button-arrow"><path fill="currentColor" fill-rule="evenodd" d="M0 1.827 1.71 0H10v8.22L8.11 10V5.93c0-.992.009-1.89.03-2.695l-6.642 6.58-1.316-1.44 6.641-6.58c-.787.022-1.67.032-2.647.032H0Z" clip-rule="evenodd"></path></svg><div class="button-cycle-bg"></div></div><div class="button-bg"><div class="button-text">Agendar consulta</div></div><div class="button-cycle is-second"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 10" width="100%" class="button-arrow"><path fill="currentColor" fill-rule="evenodd" d="M0 1.827 1.71 0H10v8.22L8.11 10V5.93c0-.992.009-1.89.03-2.695l-6.642 6.58-1.316-1.44 6.641-6.58c-.787.022-1.67.032-2.647.032H0Z" clip-rule="evenodd"></path></svg><div class="button-cycle-bg"></div></div></a></div><div class="stage-wrap"><div class="stage-left"><div class="stage-deco"><div data-load-stage-deco-text="" style="--animation-delay: .05s;" class="stage-deco-text-wrap"><img src="assets/image_4.svg" loading="lazy" width="300" height="112" alt="Real Nutrition" class="stage-deco-text"/><img src="assets/image_4.svg" loading="eager" width="300" height="112" alt="Real Nutrition" class="stage-deco-text is-wiggle"/></div><div data-load-stage-deco-arrow="" style="--animation-delay: .15s;" class="stage-deco-arrow-wrap"><img src="assets/image_5.svg" loading="eager" width="150" height="150" alt="stage-sketch-arrow" class="stage-deco-arrow"/><img src="assets/image_5.svg" loading="eager" width="150" height="150" alt="stage-sketch-arrow" class="stage-deco-arrow is-wiggle"/></div></div>
+<div data-load-stage-cta="" class="stage-cta"><a href="https://wa.me/5512997000000?text=Ol%C3%A1%2C%20Dra.%20Marina!%20Gostaria%20de%20agendar%20uma%20consulta." target="_blank" class="button w-inline-block"><div class="button-cycle is-first"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 10" width="100%" class="button-arrow"><path fill="currentColor" fill-rule="evenodd" d="M0 1.827 1.71 0H10v8.22L8.11 10V5.93c0-.992.009-1.89.03-2.695l-6.642 6.58-1.316-1.44 6.641-6.58c-.787.022-1.67.032-2.647.032H0Z" clip-rule="evenodd"></path></svg><div class="button-cycle-bg"></div></div><div class="button-bg"><div class="button-text">Agendar consulta</div></div><div class="button-cycle is-second"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 10" width="100%" class="button-arrow"><path fill="currentColor" fill-rule="evenodd" d="M0 1.827 1.71 0H10v8.22L8.11 10V5.93c0-.992.009-1.89.03-2.695l-6.642 6.58-1.316-1.44 6.641-6.58c-.787.022-1.67.032-2.647.032H0Z" clip-rule="evenodd"></path></svg><div class="button-cycle-bg"></div></div></a></div><div class="stage-wrap"><div class="stage-left"><div class="stage-deco"><div data-load-stage-deco-text="" style="--animation-delay: .05s;" class="stage-deco-text-wrap"><img src="assets/sketch_nutricao_real.svg" loading="lazy" width="180" height="70" alt="Nutrição Real, Resultados Reais" class="stage-deco-text"/><img src="assets/sketch_nutricao_real.svg" loading="eager" width="180" height="70" alt="Nutrição Real, Resultados Reais" class="stage-deco-text is-wiggle"/></div><div data-load-stage-deco-arrow="" style="--animation-delay: .15s;" class="stage-deco-arrow-wrap"><img src="assets/image_5.svg" loading="eager" width="150" height="150" alt="stage-sketch-arrow" class="stage-deco-arrow"/><img src="assets/image_5.svg" loading="eager" width="150" height="150" alt="stage-sketch-arrow" class="stage-deco-arrow is-wiggle"/></div></div>
 
 <div class="stage-visual">
-  <canvas data-load-stage-canvas="" data-load-stage-canvas-img-path="" class="stage-visual-canvas" style="display:none !important; width:0; height:0; pointer-events:none;"></canvas>
-  <!-- Foto de Alta Resolução da Dra. Marina Turzi SOMENTE -->
-  <img src="3867381322389979318_6210726821.jpg" alt="Dra. Marina Turzi Nutricionista" class="stage-marina-img" style="position:relative; width:92%; height:92%; object-fit:cover; border-radius:50% 50% 48% 48% / 44% 44% 54% 54%; box-shadow:0 24px 50px rgba(18,51,28,0.26); border:5px solid #FFFFFF; z-index:2;" />
+  <img src="3867381322389979318_6210726821.jpg" alt="Dra. Marina Turzi Nutricionista" class="stage-marina-img" />
 </div>
 
-<div class="stage-facts"><div data-inertia-item="" class="stage-fact-outer"><div data-load-stage-fact="" data-inertia-item-child="" class="stage-fact is-first"><div class="stage-fact-wrap"><div class="stage-fact-number" style="font-size:1.15em;">UNESP</div><div class="stage-fact-unit"></div></div><div class="stage-fact-text">Botucatu</div></div></div><div data-inertia-item="" class="stage-fact-outer"><div data-load-stage-fact="" data-inertia-item-child="" class="stage-fact is-second"><div class="stage-fact-wrap"><div class="stage-fact-number">0</div><div class="stage-fact-unit">%</div></div><div class="stage-fact-text">Terrorismo</div></div></div><div data-inertia-item="" class="stage-fact-outer"><div data-load-stage-fact="" data-inertia-item-child="" class="stage-fact is-third"><div class="stage-fact-wrap"><div class="stage-fact-number" style="font-size:1.05em;">CRN3</div><div class="stage-fact-unit"></div></div><div class="stage-fact-text">56877 Ativa</div></div></div>
-<div data-inertia-item="" class="stage-fact-outer"><div data-load-stage-fact="" data-inertia-item-child="" class="stage-fact is-fourth" style="background:#FDE047; border:2px solid #CA8A04; box-shadow:0 12px 28px rgba(202,138,4,0.35);"><div class="stage-fact-wrap"><div class="stage-fact-number" style="color:#854D0E;">-8</div><div class="stage-fact-unit" style="color:#854D0E;">cm</div></div><div class="stage-fact-text" style="color:#854D0E; font-weight:800;">Cintura</div></div></div>
-</div><div class="stage-bg"><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 731 818" fill="none" data-load-stage-svg="" class="stage-bg-svg"><path d="M542.941 42.7702C707.951 122.986 766.918 351.375 667.592 555.698C568.265 760.021 352.233 854.727 187.223 774.512C22.2122 694.296 -36.7556 465.905 62.5711 261.582C161.898 57.2593 377.93 -37.4456 542.941 42.7702Z" stroke="currentColor" stroke-width="28"></path></svg></div></div><div class="stage-right"><div class="stage-text-wrap"><h1 data-load-stage-title="" class="hero-heading"><span class="white-span">Saúde</span><br/>&amp;<br/>Equilíbrio</h1><div class="stage-paragraph-wrap"><p data-load-stage-text="" class="paragraph is-stage-paragraph">Sua última nutricionista: emagrecimento sem sofrer e saúde intestinal de raiz, com atendimento acolhedor presencial em SJC e online pelo mundo.</p><div data-load-stage-underline="" style="--animation-delay: .2s;" class="stage-subline-wrap"><img src="assets/image_6.svg" loading="eager" width="152" height="42" alt="Underline" class="subline-img"/><img src="assets/image_6.svg" loading="eager" width="152" height="42" alt="Underline" class="subline-img is-wiggle"/></div></div></div></div></div></div></div></div><div data-marquee="" class="marquee"><div class="marquee-inner"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 1440 442" width="100%" STYLE="overflow: visible;" class="marquee-bg-svg"><path stroke="currentColor" stroke-width="160" d="M-71 371.6C126.3 260 593.5 65.8 934.5 80.8c313 13.8 497 136 572 200"></path></svg><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 1440 293" width="100%" STYLE="overflow: visible;" data-marquee-svg="" class="marquee-text-svg"><path d="M-68 300C173 173 515.5 1 937.2 1 1254.5 1 1468 183.3 1543 246.9" id="curve"></path><text width="100%" STYLE="transform:translate3d(0,0,0);"><textPath STYLE="transform:translate3d(0,0,0);" alignment-baseline="top" href="#curve" startOffset="0%">emagreça sem sofrer · emagreça sem sofrer · emagreça sem sofrer · emagreça sem sofrer · emagreça sem sofrer · emagreça sem sofrer · emagreça sem sofrer · </textPath></text></svg><div class="marquee-overlay"></div></div></div></section>
+<div class="stage-facts">
+  <div data-inertia-item="" class="stage-fact-outer"><div data-load-stage-fact="" data-inertia-item-child="" class="stage-fact is-first"><div class="stage-fact-wrap"><div class="stage-fact-number">100</div><div class="stage-fact-unit">%</div></div><div class="stage-fact-text">Sem Sofrer</div></div></div>
+  <div data-inertia-item="" class="stage-fact-outer"><div data-load-stage-fact="" data-inertia-item-child="" class="stage-fact is-second"><div class="stage-fact-wrap"><div class="stage-fact-number">0</div><div class="stage-fact-unit">%</div></div><div class="stage-fact-text">Terrorismo</div></div></div>
+  <div data-inertia-item="" class="stage-fact-outer"><div data-load-stage-fact="" data-inertia-item-child="" class="stage-fact is-third"><div class="stage-fact-wrap"><div class="stage-fact-number">-8</div><div class="stage-fact-unit">cm</div></div><div class="stage-fact-text">Cintura</div></div></div>
+</div>
+
+<div class="stage-bg"><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 731 818" fill="none" data-load-stage-svg="" class="stage-bg-svg"><path d="M542.941 42.7702C707.951 122.986 766.918 351.375 667.592 555.698C568.265 760.021 352.233 854.727 187.223 774.512C22.2122 694.296 -36.7556 465.905 62.5711 261.582C161.898 57.2593 377.93 -37.4456 542.941 42.7702Z" stroke="currentColor" stroke-width="28"></path></svg></div></div><div class="stage-right"><div class="stage-text-wrap"><h1 data-load-stage-title="" class="hero-heading"><span class="white-span">Saúde</span><br/>&amp;<br/>Equilíbrio</h1><div class="stage-paragraph-wrap"><p data-load-stage-text="" class="paragraph is-stage-paragraph">Sua última nutricionista: emagrecimento sem sofrer e saúde intestinal de raiz, com atendimento acolhedor presencial em SJC e online pelo mundo.</p><div data-load-stage-underline="" style="--animation-delay: .2s;" class="stage-subline-wrap"><img src="assets/image_6.svg" loading="eager" width="152" height="42" alt="Underline" class="subline-img"/><img src="assets/image_6.svg" loading="eager" width="152" height="42" alt="Underline" class="subline-img is-wiggle"/></div></div></div></div></div></div></div></div><div data-marquee="" class="marquee"><div class="marquee-inner"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 1440 442" width="100%" STYLE="overflow: visible;" class="marquee-bg-svg"><path stroke="currentColor" stroke-width="160" d="M-71 371.6C126.3 260 593.5 65.8 934.5 80.8c313 13.8 497 136 572 200"></path></svg><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 1440 293" width="100%" STYLE="overflow: visible;" data-marquee-svg="" class="marquee-text-svg"><path d="M-68 300C173 173 515.5 1 937.2 1 1254.5 1 1468 183.3 1543 246.9" id="curve"></path><text width="100%" STYLE="transform:translate3d(0,0,0);"><textPath style="transform:translate3d(0,0,0); font-family:'Plus Jakarta Sans',sans-serif; font-weight:900; letter-spacing:-0.02em; fill:#12331C; font-size:2.4rem;" alignment-baseline="top" href="#curve" startOffset="0%">Emagreça sem sofrer • Dra. Marina Turzi • Emagreça sem sofrer • Dra. Marina Turzi • Emagreça sem sofrer • Dra. Marina Turzi • Emagreça sem sofrer • Dra. Marina Turzi • </textPath></text></svg><div class="marquee-overlay"></div></div></div></section>
 
 <div data-inertia="" class="insider-section"><div class="insider-container"><div class="grid-layout"><h2 id="w-node-_3e09cbcc-bb63-d8d5-fc92-5249d862c0ff-0ac01850" class="insider-heading">Você merece o melhor.<br/>Você merece a sua:<br/><span class="light-green-span">Última Nutricionista.</span></h2><div id="w-node-e1fee9ee-097a-d41e-6a8c-8fb81a411381-0ac01850" class="insider-wrapper"><div id="w-node-_93a09ee3-b180-b755-d23e-d7d2b5f676da-0ac01850" class="testimonial-wrapper"><div data-inertia-item="" class="testimonial-inner-wrap is-first"><div data-inertia-item-child="" class="testimonial-inner _1"><div class="testimonial-media w-embed"><video playsinline="true" loop muted disablepictureinpicture disableremoteplayback controlslist="nodownload nofullscreen noremoteplayback" preload="metadata" data-wf-ignore="true" data-object-fit="cover" data-video>
   <source src="3465707989036344824_6210726821.mp4" data-wf-ignore="true"/>
