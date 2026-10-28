@@ -21,10 +21,7 @@
   onerror="this.onerror=null;this.href='assets/style_1.css'"
 />
 -->
-<script
-  defer
-  src="https://morematcha.vercel.app/scripts/app.js"
-></script>
+
 
 <link
   rel="stylesheet"
@@ -175,6 +172,7 @@
 </style>
 <script src="assets/three.min.js"></script>
 <script src="assets/nutrition_3d.js"></script>
+<script src="assets/marina_interactive.js"></script>
 
 <style>.loader { display: none !important; }</style>
 
@@ -192,6 +190,305 @@
     padding: 16px !important;
   }
 }
+</style>
+
+
+<style id="marina-refinements">
+  /* 1. Hero Alignment & Facts Arc */
+  .stage-deco {
+    display: none !important; /* Remove "Real Matcha" sketch underneath */
+  }
+
+  .stage-visual {
+    margin-left: 55px !important;
+    transform: translateX(35px) !important;
+    justify-content: flex-end !important;
+  }
+
+  .stage-marina-img {
+    max-width: 440px !important;
+    max-height: 440px !important;
+    aspect-ratio: 1 / 1 !important;
+  }
+
+  /* Arc positions around left perimeter of photo */
+  .stage-fact.is-first {
+    top: 2% !important;
+    left: 8% !important;
+    z-index: 5 !important;
+  }
+
+  .stage-fact.is-second {
+    top: 24% !important;
+    left: -2% !important;
+    z-index: 5 !important;
+  }
+
+  .stage-fact.is-third {
+    top: 50% !important;
+    left: -5% !important;
+    z-index: 5 !important;
+  }
+
+  .stage-fact.is-fourth {
+    top: 74% !important;
+    left: 6% !important;
+    z-index: 5 !important;
+  }
+
+  /* 2. Insider CTA & Doctoralia Rating */
+  .insider-cta {
+    display: flex !important;
+    align-items: center !important;
+    gap: 28px !important;
+    flex-wrap: wrap !important;
+    margin-top: 32px !important;
+  }
+
+  .rating-inner {
+    display: flex !important;
+    align-items: center !important;
+  }
+
+  .rating-link {
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+    text-decoration: none !important;
+  }
+
+  .rating-star-wrap {
+    display: flex !important;
+    gap: 4px !important;
+    align-items: center !important;
+  }
+
+  .rating-text {
+    white-space: nowrap !important;
+    font-size: 0.92rem !important;
+    font-weight: 800 !important;
+    color: #12331C !important;
+  }
+
+  /* 3. Sequence Micro-Sections & Pinned 3D Apple Stage */
+  .sequence-scroll-wrap {
+    height: 380vh !important;
+    position: relative !important;
+  }
+
+  .sequence-sticky {
+    position: sticky !important;
+    top: 0 !important;
+    height: 100vh !important;
+    height: 100lvh !important;
+    overflow: hidden !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    z-index: 5 !important;
+  }
+
+  .sequence-canvas {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    z-index: 2 !important;
+    pointer-events: none !important;
+  }
+
+  .sequence-cards {
+    display: flex !important;
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    pointer-events: none !important;
+    z-index: 10 !important;
+  }
+
+  .statement-card {
+    position: absolute !important;
+    pointer-events: auto !important;
+    width: clamp(320px, 32vw, 440px) !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    transition: opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1), transform 0.45s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    box-shadow: 0 20px 48px rgba(18,51,28,0.12) !important;
+    border-radius: 20px !important;
+  }
+
+  .statement-card.is-first {
+    right: 8% !important;
+    top: 50% !important;
+    left: auto !important;
+    transform: translateY(-50%) translateY(35px) scale(0.96) !important;
+  }
+
+  .statement-card.is-second {
+    left: 8% !important;
+    top: 50% !important;
+    right: auto !important;
+    transform: translateY(-50%) translateY(35px) scale(0.96) !important;
+  }
+
+  .statement-card.is-third {
+    right: 8% !important;
+    top: 50% !important;
+    left: auto !important;
+    transform: translateY(-50%) translateY(35px) scale(0.96) !important;
+  }
+
+  .statement-card.is-fourth {
+    left: 8% !important;
+    top: 50% !important;
+    right: auto !important;
+    transform: translateY(-50%) translateY(35px) scale(0.96) !important;
+  }
+
+  .statement-card.is-active {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: translateY(-50%) translateY(0) scale(1) !important;
+  }
+
+  .sequence-final {
+    position: absolute !important;
+    inset: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    text-align: center !important;
+    z-index: 12 !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    transition: opacity 0.5s ease, transform 0.5s ease !important;
+    transform: scale(0.92) !important;
+    pointer-events: none !important;
+    background: rgba(182, 203, 165, 0.85) !important;
+    backdrop-filter: blur(8px) !important;
+    padding: 0 24px !important;
+  }
+
+  .sequence-final.is-active {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: scale(1) !important;
+    pointer-events: auto !important;
+  }
+
+  /* 4. High-Contrast Testimonial Section & Polished UX */
+  .testimonial-big-heading {
+    color: #0A2612 !important;
+    font-weight: 900 !important;
+    font-size: clamp(2.4rem, 4.2vw, 4.2rem) !important;
+    line-height: 1.15 !important;
+    text-align: center !important;
+    text-shadow: none !important;
+  }
+
+  .testimonial-heading {
+    color: #12331C !important;
+    font-weight: 850 !important;
+    font-size: clamp(1.8rem, 3vw, 2.5rem) !important;
+    line-height: 1.2 !important;
+    text-shadow: none !important;
+  }
+
+  .testimonial-slider-inner {
+    display: flex !important;
+    overflow-x: auto !important;
+    scroll-behavior: smooth !important;
+    scroll-snap-type: x mandatory !important;
+    gap: 24px !important;
+    padding: 24px 16px !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+
+  .testimonial-slider-item-wrap {
+    scroll-snap-align: center !important;
+    flex: 0 0 clamp(320px, 34vw, 420px) !important;
+    width: clamp(320px, 34vw, 420px) !important;
+  }
+
+  .testimonial-slider-item {
+    background: #FFFFFF !important;
+    border: 1.5px solid #D1E3C8 !important;
+    border-radius: 24px !important;
+    padding: 32px 28px !important;
+    box-shadow: 0 12px 30px rgba(18,51,28,0.06) !important;
+    color: #12331C !important;
+    height: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+  }
+
+  .testimonial-item-heading {
+    color: #0F2D18 !important;
+    font-weight: 850 !important;
+    font-size: 1.35rem !important;
+    margin-bottom: 12px !important;
+    font-family: 'Plus Jakarta Sans', sans-serif !important;
+  }
+
+  .testimonial-item-text {
+    color: #2D4A34 !important;
+    font-size: 0.98rem !important;
+    line-height: 1.6 !important;
+    font-family: 'Plus Jakarta Sans', sans-serif !important;
+  }
+
+  .testimonial-line {
+    background-color: #E2ECE0 !important;
+    margin: 20px 0 16px !important;
+    height: 1px !important;
+  }
+
+  .testimonial-client-name {
+    color: #0F2D18 !important;
+    font-weight: 850 !important;
+    font-size: 0.95rem !important;
+  }
+
+  /* Mobile adjustments */
+  @media (max-width: 991px) {
+    .stage-visual {
+      margin-left: 0 !important;
+      transform: none !important;
+      justify-content: center !important;
+    }
+    .stage-facts {
+      position: relative !important;
+    }
+    .sequence-scroll-wrap {
+      height: auto !important;
+    }
+    .sequence-sticky {
+      position: relative !important;
+      height: 380px !important;
+    }
+    .sequence-cards {
+      display: none !important;
+    }
+    .sequence-cards-mobile {
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 32px !important;
+      margin-top: 0 !important;
+      padding: 32px 16px !important;
+      height: auto !important;
+    }
+    .sequence-cards-mobile .statement-card {
+      position: relative !important;
+      opacity: 1 !important;
+      visibility: visible !important;
+      transform: none !important;
+      width: 100% !important;
+      max-width: 100% !important;
+    }
+  }
 </style>
 
 </head><body class="body"><div class="w-embed"><!--<link rel="stylesheet" href="assets/style_1.css">-->
@@ -402,7 +699,7 @@ body {
   </div>
 </div>
 <div id="reviews"
- class="testimonial-section"><div data-testimonial-parallax="" class="bg-img-wrapper"></div><div class="testimonial-container"><div class="grid-layout"><div id="w-node-_188a35c2-2913-dd29-6c54-5bf8cbbe64f3-0ac01850" class="big-title-wrapper"><div class="testimonial-signature"><img src="assets/image_31.svg" loading="lazy" width="300" height="27" alt="testimonial-signature" class="testimonial-signature-img"/><img src="assets/image_31.svg" loading="lazy" width="300" height="27" alt="testimonial-signature" class="testimonial-signature-img is-wiggle"/></div><h2 class="testimonial-big-heading">Dieta leve,<br/>saudável, definitiva.</h2></div><div id="w-node-d56024cf-9b70-fc24-7ba0-e2b3ea8d1769-0ac01850" class="testimonial-slider"><h3 class="testimonial-heading">Veja quem já <br/>transformou a vida</h3><div data-testimonial-inview="" class="testimonial-slider-wrapper"><div data-slider-interface="" class="testimonial-slider-interface"><div data-slider-arrows="" class="testimonial-slider-button-wrapper"><button type="button" data-slider-left-button="" class="testimonial-slider-button is-left"><img src="assets/image_32.svg" loading="lazy" width="20" height="20" alt="icon-arrow-left" class="testimonial-slider-button-arrow"/></button><button type="button" data-slider-right-button="" class="testimonial-slider-button is-right"><img src="assets/image_33.svg" loading="lazy" width="20" height="20" alt="icon-arrow-right" class="testimonial-slider-button-arrow"/></button></div></div><div data-slider="" class="testimonial-slider-inner"><div class="testimonial-slider-item-wrap"><div data-slider-item-inner="" class="testimonial-slider-item"><div class="testimonial-star-wrap"><img src="assets/image_34.svg" loading="lazy" width="20" height="20" alt="icon-testimonial-star" class="testimonial-star"/><img src="assets/image_34.svg" loading="lazy" width="20" height="20" alt="icon-testimonial-star" class="testimonial-star"/><img src="assets/image_34.svg" loading="lazy" width="20" height="20" alt="icon-testimonial-star" class="testimonial-star"/><img src="assets/image_34.svg" loading="lazy" width="20" height="20" alt="icon-testimonial-star" class="testimonial-star"/><img src="assets/image_34.svg" loading="lazy" width="20" height="20" alt="icon-testimonial-star" class="testimonial-star"/></div><div class="testimonial-item-inner-text"><h3 class="testimonial-item-heading">Melhor decisão da vida!</h3><p class="testimonial-item-text">Sofria com estufamento e dores quase todo dia. A Dra. Marina tratou meu intestino e hoje perdi 6kg naturalmente sem passar fome!</p></div><div class="testimonial-line"></div><div class="testimonial-item-bottom"><div class="testimonial-client-name">Fernanda A. (SJC)</div></div></div></div></div><div class="testimonial-slider-item-wrap"><div data-slider-item-inner="" class="testimonial-slider-item"><div class="testimonial-star-wrap"><img src="assets/image_34.svg" loading="lazy" width="20" height="20" alt="icon-testimonial-star" class="testimonial-star"/><img src="assets/image_34.svg" loading="lazy" width="20" height="20" alt="icon-testimonial-star" class="testimonial-star"/><img src="assets/image_34.svg" loading="lazy" width="20" height="20" alt="icon-testimonial-star" class="testimonial-star"/><img src="assets/image_34.svg" loading="lazy" width="20" height="20" alt="icon-testimonial-star" class="testimonial-star"/><img src="assets/image_34.svg" loading="lazy" width="20" height="20" alt="icon-testimonial-star" class="testimonial-star"/></div><div class="testimonial-item-inner-text"><h3 class="testimonial-item-heading">Minha última nutri mesmo!</h3><p class="testimonial-item-text">Pela primeira vez em anos tenho paz ao comer em família sem culpa. O aplicativo WebDiet é maravilhoso e o suporte dela é incrível!</p></div><div class="testimonial-line"></div><div class="testimonial-item-bottom"><div class="testimonial-client-name">Mariana S. (Online)</div></div></div></div></div><div class="testimonial-slider-item-wrap"><div data-slider-item-inner="" class="testimonial-slider-item"><div class="testimonial-star-wrap"><img src="assets/image_34.svg" loading="lazy" width="20" height="20" alt="icon-testimonial-star" class="testimonial-star"/><img src="assets/image_34.svg" loading="lazy" width="20" height="20" alt="icon-testimonial-star" class="testimonial-star"/><img src="assets/image_34.svg" loading="lazy" width="20" height="20" alt="icon-testimonial-star" class="testimonial-star"/><img src="assets/image_34.svg" loading="lazy" width="20" height="20" alt="icon-testimonial-star" class="testimonial-star"/><img src="assets/image_34.svg" loading="lazy" width="20" height="20" alt="icon-testimonial-star" class="testimonial-star"/></div><div class="testimonial-item-inner-text"><h3 class="testimonial-item-heading">Profissional impecável!</h3><p class="testimonial-item-text">A consulta presencial no Proctogastro é super completa. Ela analisa cada detalhe com carinho e sem julgamentos. Nota 1000!</p></div><div class="testimonial-line"></div><div class="testimonial-item-bottom"><div class="testimonial-client-name">Rafael M. (SJC)</div></div></div></div></div><div class="testimonial-slider-item-wrap"><div data-slider-item-inner="" class="testimonial-slider-item"><div class="testimonial-star-wrap"><img src="assets/image_34.svg" loading="lazy" width="20" height="20" alt="icon-testimonial-star" class="testimonial-star"/><img src="assets/image_34.svg" loading="lazy" width="20" height="20" alt="icon-testimonial-star" class="testimonial-star"/><img src="assets/image_34.svg" loading="lazy" width="20" height="20" alt="icon-testimonial-star" class="testimonial-star"/><img src="assets/image_34.svg" loading="lazy" width="20" height="20" alt="icon-testimonial-star" class="testimonial-star"/><img src="assets/image_34.svg" loading="lazy" width="20" height="20" alt="icon-testimonial-star" class="testimonial-star"/></div><div class="testimonial-item-inner-text"><h3 class="testimonial-item-heading">Desinchei já no 1º mês</h3><p class="testimonial-item-text">Meu intestino funcionava uma vez por semana. Hoje funciona todo dia e minha disposição aumentou muito. Recomendo de olhos fechados!</p></div><div class="testimonial-line"></div><div class="testimonial-item-bottom"><div class="testimonial-client-name">Beatriz C. (Online)</div></div></div></div></div><div class="testimonial-slider-item-wrap"><div data-slider-item-inner="" class="testimonial-slider-item"><div class="testimonial-star-wrap"><img src="assets/image_34.svg" loading="lazy" width="20" height="20" alt="icon-testimonial-star" class="testimonial-star"/><img src="assets/image_34.svg" loading="lazy" width="20" height="20" alt="icon-testimonial-star" class="testimonial-star"/><img src="assets/image_34.svg" loading="lazy" width="20" height="20" alt="icon-testimonial-star" class="testimonial-star"/><img src="assets/image_34.svg" loading="lazy" width="20" height="20" alt="icon-testimonial-star" class="testimonial-star"/><img src="assets/image_34.svg" loading="lazy" width="20" height="20" alt="icon-testimonial-star" class="testimonial-star"/></div><div class="testimonial-item-inner-text"><h3 class="testimonial-item-heading">Emagreci 8kg sem neuras</h3><p class="testimonial-item-text">Não precisei cortar o pão francês nem o chocolate. A Marina me ensinou a ter equilíbrio e constância. Foi transformador!</p></div><div class="testimonial-line"></div><div class="testimonial-item-bottom"><div class="testimonial-client-name">Camila R. (SJC)</div></div></div></div></div><div class="testimonial-slider-item-wrap"><div data-slider-item-inner="" class="testimonial-slider-item"><div class="testimonial-star-wrap"><img src="assets/image_34.svg" loading="lazy" width="20" height="20" alt="icon-testimonial-star" class="testimonial-star"/><img src="assets/image_34.svg" loading="lazy" width="20" height="20" alt="icon-testimonial-star" class="testimonial-star"/><img src="assets/image_34.svg" loading="lazy" width="20" height="20" alt="icon-testimonial-star" class="testimonial-star"/><img src="assets/image_34.svg" loading="lazy" width="20" height="20" alt="icon-testimonial-star" class="testimonial-star"/><img src="assets/image_34.svg" loading="lazy" width="20" height="20" alt="icon-testimonial-star" class="testimonial-star"/></div><div class="testimonial-item-inner-text"><h3 class="testimonial-item-heading">Atendimento acolhedor</h3><p class="testimonial-item-text">A consulta com a Marina foi um divisor de águas. Ela não foca só na balança, mas na saúde e na nossa mente. Maravilhosa!</p></div><div class="testimonial-line"></div><div class="testimonial-item-bottom"><div class="testimonial-client-name">Juliana T. (Online)</div></div></div></div></div></div></div></div></div></div></div><section data-inertia="" class="flavour"><div class="flavour-container"><div class="flavour-header"><div class="flavour-heading-wrap"><h2 class="flavour-title">Consultório &amp; Online</h2><h3 data-highlight-text="" class="flavour-subline">Atendimento Presencial em SJC e Online Global</h3></div><p class="flavour-paragraph">Escolha o atendimento presencial no renomado Instituto Proctogastro (Aquarius, SJC) ou por teleconsulta segura de qualquer lugar do mundo.</p></div><div data-flavour-content="" class="flavour-content">
+ class="testimonial-section"><div data-testimonial-parallax="" class="bg-img-wrapper"></div><div class="testimonial-container"><div class="grid-layout"><div id="w-node-_188a35c2-2913-dd29-6c54-5bf8cbbe64f3-0ac01850" class="big-title-wrapper"><div class="testimonial-signature"><img src="assets/image_31.svg" loading="lazy" width="300" height="27" alt="testimonial-signature" class="testimonial-signature-img"/><img src="assets/image_31.svg" loading="lazy" width="300" height="27" alt="testimonial-signature" class="testimonial-signature-img is-wiggle"/></div><h2 class="testimonial-big-heading">Dieta leve,<br/>saudável, definitiva.</h2></div><div id="w-node-d56024cf-9b70-fc24-7ba0-e2b3ea8d1769-0ac01850" class="testimonial-slider"><h3 class="testimonial-heading">Veja quem já <br/>transformou a vida</h3><div data-testimonial-inview="" class="testimonial-slider-wrapper"><div data-slider-interface="" class="testimonial-slider-interface"><div data-slider-arrows="" class="testimonial-slider-button-wrapper"><button type="button" data-slider-left-button="" class="testimonial-slider-button is-left"><img src="assets/image_32.svg" loading="lazy" width="20" height="20" alt="icon-arrow-left" class="testimonial-slider-button-arrow"/></button><button type="button" data-slider-right-button="" class="testimonial-slider-button is-right"><img src="assets/image_33.svg" loading="lazy" width="20" height="20" alt="icon-arrow-right" class="testimonial-slider-button-arrow"/></button></div></div><div data-slider="" class="testimonial-slider-inner"><div class="testimonial-slider-item-wrap"><div data-slider-item-inner="" class="testimonial-slider-item"><div class="testimonial-star-wrap"><img src="assets/image_34.svg" loading="lazy" width="20" height="20" alt="icon-testimonial-star" class="testimonial-star"/><img src="assets/image_34.svg" loading="lazy" width="20" height="20" alt="icon-testimonial-star" class="testimonial-star"/><img src="assets/image_34.svg" loading="lazy" width="20" height="20" alt="icon-testimonial-star" class="testimonial-star"/><img src="assets/image_34.svg" loading="lazy" width="20" height="20" alt="icon-testimonial-star" class="testimonial-star"/><img src="assets/image_34.svg" loading="lazy" width="20" height="20" alt="icon-testimonial-star" class="testimonial-star"/></div><div class="testimonial-item-inner-text"><h3 class="testimonial-item-heading">Melhor decisão da vida!</h3><p class="testimonial-item-text">Sofria com estufamento e dores quase todo dia. A Dra. Marina tratou meu intestino e hoje perdi 6kg naturalmente sem passar fome!</p></div><div class="testimonial-line"></div><div class="testimonial-item-bottom"><div class="testimonial-client-name">Fernanda A. (SJC)</div></div></div></div><div class="testimonial-slider-item-wrap"><div data-slider-item-inner="" class="testimonial-slider-item"><div class="testimonial-star-wrap"><img src="assets/image_34.svg" loading="lazy" width="20" height="20" alt="icon-testimonial-star" class="testimonial-star"/><img src="assets/image_34.svg" loading="lazy" width="20" height="20" alt="icon-testimonial-star" class="testimonial-star"/><img src="assets/image_34.svg" loading="lazy" width="20" height="20" alt="icon-testimonial-star" class="testimonial-star"/><img src="assets/image_34.svg" loading="lazy" width="20" height="20" alt="icon-testimonial-star" class="testimonial-star"/><img src="assets/image_34.svg" loading="lazy" width="20" height="20" alt="icon-testimonial-star" class="testimonial-star"/></div><div class="testimonial-item-inner-text"><h3 class="testimonial-item-heading">Minha última nutri mesmo!</h3><p class="testimonial-item-text">Pela primeira vez em anos tenho paz ao comer em família sem culpa. O aplicativo WebDiet é maravilhoso e o suporte dela é incrível!</p></div><div class="testimonial-line"></div><div class="testimonial-item-bottom"><div class="testimonial-client-name">Mariana S. (Online)</div></div></div></div><div class="testimonial-slider-item-wrap"><div data-slider-item-inner="" class="testimonial-slider-item"><div class="testimonial-star-wrap"><img src="assets/image_34.svg" loading="lazy" width="20" height="20" alt="icon-testimonial-star" class="testimonial-star"/><img src="assets/image_34.svg" loading="lazy" width="20" height="20" alt="icon-testimonial-star" class="testimonial-star"/><img src="assets/image_34.svg" loading="lazy" width="20" height="20" alt="icon-testimonial-star" class="testimonial-star"/><img src="assets/image_34.svg" loading="lazy" width="20" height="20" alt="icon-testimonial-star" class="testimonial-star"/><img src="assets/image_34.svg" loading="lazy" width="20" height="20" alt="icon-testimonial-star" class="testimonial-star"/></div><div class="testimonial-item-inner-text"><h3 class="testimonial-item-heading">Profissional impecável!</h3><p class="testimonial-item-text">A consulta presencial no Proctogastro é super completa. Ela analisa cada detalhe com carinho e sem julgamentos. Nota 1000!</p></div><div class="testimonial-line"></div><div class="testimonial-item-bottom"><div class="testimonial-client-name">Rafael M. (SJC)</div></div></div></div></div><div class="testimonial-slider-item-wrap"><div data-slider-item-inner="" class="testimonial-slider-item"><div class="testimonial-star-wrap"><img src="assets/image_34.svg" loading="lazy" width="20" height="20" alt="icon-testimonial-star" class="testimonial-star"/><img src="assets/image_34.svg" loading="lazy" width="20" height="20" alt="icon-testimonial-star" class="testimonial-star"/><img src="assets/image_34.svg" loading="lazy" width="20" height="20" alt="icon-testimonial-star" class="testimonial-star"/><img src="assets/image_34.svg" loading="lazy" width="20" height="20" alt="icon-testimonial-star" class="testimonial-star"/><img src="assets/image_34.svg" loading="lazy" width="20" height="20" alt="icon-testimonial-star" class="testimonial-star"/></div><div class="testimonial-item-inner-text"><h3 class="testimonial-item-heading">Desinchei já no 1º mês</h3><p class="testimonial-item-text">Meu intestino funcionava uma vez por semana. Hoje funciona todo dia e minha disposição aumentou muito. Recomendo de olhos fechados!</p></div><div class="testimonial-line"></div><div class="testimonial-item-bottom"><div class="testimonial-client-name">Beatriz C. (Online)</div></div></div></div></div><div class="testimonial-slider-item-wrap"><div data-slider-item-inner="" class="testimonial-slider-item"><div class="testimonial-star-wrap"><img src="assets/image_34.svg" loading="lazy" width="20" height="20" alt="icon-testimonial-star" class="testimonial-star"/><img src="assets/image_34.svg" loading="lazy" width="20" height="20" alt="icon-testimonial-star" class="testimonial-star"/><img src="assets/image_34.svg" loading="lazy" width="20" height="20" alt="icon-testimonial-star" class="testimonial-star"/><img src="assets/image_34.svg" loading="lazy" width="20" height="20" alt="icon-testimonial-star" class="testimonial-star"/><img src="assets/image_34.svg" loading="lazy" width="20" height="20" alt="icon-testimonial-star" class="testimonial-star"/></div><div class="testimonial-item-inner-text"><h3 class="testimonial-item-heading">Emagreci 8kg sem neuras</h3><p class="testimonial-item-text">Não precisei cortar o pão francês nem o chocolate. A Marina me ensinou a ter equilíbrio e constância. Foi transformador!</p></div><div class="testimonial-line"></div><div class="testimonial-item-bottom"><div class="testimonial-client-name">Camila R. (SJC)</div></div></div></div></div><div class="testimonial-slider-item-wrap"><div data-slider-item-inner="" class="testimonial-slider-item"><div class="testimonial-star-wrap"><img src="assets/image_34.svg" loading="lazy" width="20" height="20" alt="icon-testimonial-star" class="testimonial-star"/><img src="assets/image_34.svg" loading="lazy" width="20" height="20" alt="icon-testimonial-star" class="testimonial-star"/><img src="assets/image_34.svg" loading="lazy" width="20" height="20" alt="icon-testimonial-star" class="testimonial-star"/><img src="assets/image_34.svg" loading="lazy" width="20" height="20" alt="icon-testimonial-star" class="testimonial-star"/><img src="assets/image_34.svg" loading="lazy" width="20" height="20" alt="icon-testimonial-star" class="testimonial-star"/></div><div class="testimonial-item-inner-text"><h3 class="testimonial-item-heading">Atendimento acolhedor</h3><p class="testimonial-item-text">A consulta com a Marina foi um divisor de águas. Ela não foca só na balança, mas na saúde e na nossa mente. Maravilhosa!</p></div><div class="testimonial-line"></div><div class="testimonial-item-bottom"><div class="testimonial-client-name">Juliana T. (Online)</div></div></div></div></div></div></div></div></div></div></div><section data-inertia="" class="flavour"><div class="flavour-container"><div class="flavour-header"><div class="flavour-heading-wrap"><h2 class="flavour-title">Consultório &amp; Online</h2><h3 data-highlight-text="" class="flavour-subline">Atendimento Presencial em SJC e Online Global</h3></div><p class="flavour-paragraph">Escolha o atendimento presencial no renomado Instituto Proctogastro (Aquarius, SJC) ou por teleconsulta segura de qualquer lugar do mundo.</p></div><div data-flavour-content="" class="flavour-content">
 <div class="flavour-left" style="display:flex; justify-content:center; align-items:center;">
   <div style="position:relative; width:100%; max-width:380px; border-radius:28px; overflow:hidden; box-shadow:0 16px 40px rgba(18,51,28,0.18); border:4px solid #FFFFFF;">
     <img src="3263642764061301598_6210726821.jpg" alt="Atendimento Dra. Marina Turzi" style="width:100%; height:auto; display:block; object-fit:cover;" />

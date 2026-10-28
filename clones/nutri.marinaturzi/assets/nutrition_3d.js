@@ -1,20 +1,21 @@
-// 3D Nutrition Interactive Canvas for Dra. Marina Turzi Landing Page
-// Powered by Three.js (assets/three.min.js)
+// 3D Apple & Sequence Micro-Sections Controller for Dra. Marina Turzi
+// Powered by Three.js
 
 (function () {
   'use strict';
 
-  function initNutrition3D() {
+  function initNutritionSequence() {
     const canvas = document.getElementById('nutrition3DCanvas');
     if (!canvas || typeof THREE === 'undefined') return;
 
     const parent = canvas.parentElement || canvas;
-    const width = parent.clientWidth || window.innerWidth;
-    const height = parent.clientHeight || window.innerHeight;
+    let width = parent.clientWidth || window.innerWidth;
+    let height = parent.clientHeight || window.innerHeight;
 
+    // 1. Scene, Camera, Renderer Setup
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 1000);
-    camera.position.set(0, 0, 7);
+    camera.position.set(0, 0, 7.2);
 
     const renderer = new THREE.WebGLRenderer({
       canvas: canvas,
@@ -25,101 +26,147 @@
     renderer.setSize(width, height);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
-    // Iluminação elegante e suave (estética clínica/consultório)
-    const ambientLight = new THREE.AmbientLight(0xffffff, 0.85);
+    // Iluminação de estúdio limpa e sofisticada
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.95);
     scene.add(ambientLight);
 
-    const dirLight1 = new THREE.DirectionalLight(0xeaf3e6, 1.2);
-    dirLight1.position.set(5, 8, 6);
-    scene.add(dirLight1);
+    const keyLight = new THREE.DirectionalLight(0xf2faeb, 1.4);
+    keyLight.position.set(5, 7, 6);
+    scene.add(keyLight);
 
-    const dirLight2 = new THREE.DirectionalLight(0xdbe7d2, 0.6);
-    dirLight2.position.set(-5, -4, -4);
-    scene.add(dirLight2);
+    const fillLight = new THREE.DirectionalLight(0xd9ecd0, 0.8);
+    fillLight.position.set(-6, -2, -3);
+    scene.add(fillLight);
+
+    const rimLight = new THREE.DirectionalLight(0xffffff, 0.9);
+    rimLight.position.set(0, 8, -5);
+    scene.add(rimLight);
 
     const rootGroup = new THREE.Group();
     scene.add(rootGroup);
 
-    // 1. Objeto Principal: Maçã Verde / Pera Suave Orgânica
-    const appleGeo = new THREE.SphereGeometry(1.35, 64, 64);
-    // Deformar sutilmente para formato orgânico natural
-    const posAttr = appleGeo.attributes.position;
-    for (let i = 0; i < posAttr.count; i++) {
-      let x = posAttr.getX(i);
-      let y = posAttr.getY(i);
-      let z = posAttr.getZ(i);
-      let factor = 1 - 0.12 * Math.pow(Math.abs(y / 1.35), 2);
-      if (y > 0.8) factor -= 0.08 * (y - 0.8);
-      posAttr.setXYZ(i, x * factor, y * 1.05, z * factor);
+    // 2. Modelo 3D da Maçã Verde Realista (Granny Smith Orgânica)
+    // Geometria orgânica com covinha no topo (haste) e base
+    const appleGeo = new THREE.SphereGeometry(1.4, 64, 64);
+    const pos = appleGeo.attributes.position;
+    for (let i = 0; i < pos.count; i++) {
+      let x = pos.getX(i);
+      let y = pos.getY(i);
+      let z = pos.getZ(i);
+
+      // Distorção orgânica sutil
+      let r = Math.sqrt(x * x + z * z);
+      let factor = 1.0;
+
+      // Covinha no topo
+      if (y > 0.8) {
+        let topDepth = (y - 0.8) / 0.6;
+        factor -= topDepth * 0.22;
+        y -= Math.pow(topDepth, 2) * 0.18;
+      }
+      // Covinha na base
+      if (y < -0.8) {
+        let btmDepth = (-y - 0.8) / 0.6;
+        factor -= btmDepth * 0.18;
+        y += Math.pow(btmDepth, 2) * 0.12;
+      }
+
+      // Proporção de maçã: ombro ligeiramente mais largo que a base
+      if (y > 0) {
+        factor *= (1 + y * 0.08);
+      } else {
+        factor *= (1 + y * 0.12);
+      }
+
+      pos.setXYZ(i, x * factor, y * 1.08, z * factor);
     }
     appleGeo.computeVertexNormals();
 
+    // Material de alta fidelidade: casca brilhante e fresca com clearcoat
     const appleMat = new THREE.MeshPhysicalMaterial({
-      color: 0x82b56b,
-      roughness: 0.32,
-      metalness: 0.08,
-      clearcoat: 0.45,
-      clearcoatRoughness: 0.2,
-      reflectivity: 0.5
+      color: 0x6eab45,       // Verde maçã saudável vibrante
+      roughness: 0.24,
+      metalness: 0.04,
+      clearcoat: 0.75,       // Brilho lustroso de maçã fresca lavada
+      clearcoatRoughness: 0.18,
+      reflectivity: 0.65
     });
+
     const appleMesh = new THREE.Mesh(appleGeo, appleMat);
     rootGroup.add(appleMesh);
 
-    // Folha Verde Fresca
-    const leafGeo = new THREE.ConeGeometry(0.35, 0.8, 16);
-    leafGeo.scale(1, 0.2, 1);
-    const leafMat = new THREE.MeshStandardMaterial({
-      color: 0x3d7036,
-      roughness: 0.4
-    });
-    const leafMesh = new THREE.Mesh(leafGeo, leafMat);
-    leafMesh.position.set(0.1, 1.45, 0);
-    leafMesh.rotation.set(0.2, 0.3, 0.8);
-    rootGroup.add(leafMesh);
-
-    // Caule Pequeno
-    const stemGeo = new THREE.CylinderGeometry(0.04, 0.03, 0.35, 12);
-    const stemMat = new THREE.MeshStandardMaterial({ color: 0x4a3728 });
-    const stemMesh = new THREE.Mesh(stemGeo, stemMat);
-    stemMesh.position.set(0, 1.4, 0);
-    stemMesh.rotation.z = -0.15;
-    rootGroup.add(stemMesh);
-
-    // 2. Fita Métrica 3D Elegante (Amarelo Dourado Ouro) Espiralando
-    class SpiralCurve extends THREE.Curve {
-      constructor(scale = 1) {
-        super();
-        this.scale = scale;
-      }
+    // Caule Natural Curvo em Madeira Marrom
+    class StemCurve extends THREE.Curve {
       getPoint(t, optionalTarget = new THREE.Vector3()) {
-        const theta = t * Math.PI * 4.2;
-        const radius = 1.75 + Math.sin(t * Math.PI) * 0.25;
-        const tx = Math.cos(theta) * radius;
-        const ty = (t - 0.5) * 3.4;
-        const tz = Math.sin(theta) * radius;
-        return optionalTarget.set(tx, ty, tz).multiplyScalar(this.scale);
+        const tx = Math.sin(t * 0.8) * 0.12;
+        const ty = 1.25 + t * 0.55;
+        const tz = Math.cos(t * 0.5) * 0.08 - 0.08;
+        return optionalTarget.set(tx, ty, tz);
       }
     }
+    const stemPath = new StemCurve();
+    const stemGeo = new THREE.TubeGeometry(stemPath, 24, 0.05, 12, false);
+    const stemMat = new THREE.MeshStandardMaterial({
+      color: 0x3d2b1f,
+      roughness: 0.75,
+      metalness: 0.05
+    });
+    const stemMesh = new THREE.Mesh(stemGeo, stemMat);
+    rootGroup.add(stemMesh);
 
-    const path = new SpiralCurve(1);
-    const tapeGeo = new THREE.TubeGeometry(path, 120, 0.08, 12, false);
+    // Folha Verde Fresca e Delicada
+    const leafShape = new THREE.Shape();
+    leafShape.moveTo(0, 0);
+    leafShape.bezierCurveTo(0.2, 0.1, 0.45, 0.35, 0.4, 0.75);
+    leafShape.bezierCurveTo(0.25, 0.85, 0.05, 0.8, 0, 0.95);
+    leafShape.bezierCurveTo(-0.05, 0.8, -0.25, 0.85, -0.4, 0.75);
+    leafShape.bezierCurveTo(-0.45, 0.35, -0.2, 0.1, 0, 0);
+
+    const leafExtrudeSettings = { depth: 0.02, bevelEnabled: true, bevelSegments: 3, steps: 1, bevelSize: 0.015, bevelThickness: 0.015 };
+    const leafGeo = new THREE.ExtrudeGeometry(leafShape, leafExtrudeSettings);
+    const leafMat = new THREE.MeshStandardMaterial({
+      color: 0x3b7d2f,
+      roughness: 0.35,
+      metalness: 0.05,
+      side: THREE.DoubleSide
+    });
+    const leafMesh = new THREE.Mesh(leafGeo, leafMat);
+    leafMesh.scale.set(0.85, 0.85, 0.85);
+    leafMesh.position.set(0.06, 1.42, 0.02);
+    leafMesh.rotation.set(0.65, 0.4, -0.75);
+    rootGroup.add(leafMesh);
+
+    // Fita Métrica Antropométrica Dourada Espiralando Suavemente
+    class TapeSpiral extends THREE.Curve {
+      getPoint(t, optionalTarget = new THREE.Vector3()) {
+        const turns = 3.6;
+        const theta = t * Math.PI * 2 * turns;
+        const radius = 1.72 + Math.sin(t * Math.PI) * 0.22;
+        const tx = Math.cos(theta) * radius;
+        const ty = (t - 0.5) * 3.6;
+        const tz = Math.sin(theta) * radius;
+        return optionalTarget.set(tx, ty, tz);
+      }
+    }
+    const tapePath = new TapeSpiral();
+    const tapeGeo = new THREE.TubeGeometry(tapePath, 140, 0.065, 12, false);
     const tapeMat = new THREE.MeshStandardMaterial({
-      color: 0xe2a123,
+      color: 0xf59e0b,       // Dourado nutricional
       metalness: 0.35,
-      roughness: 0.35
+      roughness: 0.32
     });
     const tapeMesh = new THREE.Mesh(tapeGeo, tapeMat);
     rootGroup.add(tapeMesh);
 
-    // 3. Pequenas partículas de vitalidade/água orbitando
-    const dropletsCount = 18;
-    const dropletGeo = new THREE.SphereGeometry(0.06, 16, 16);
+    // Gotículas de Vitalidade/Água orbitando
+    const dropletsCount = 14;
+    const dropletGeo = new THREE.SphereGeometry(0.055, 16, 16);
     const dropletMat = new THREE.MeshPhysicalMaterial({
       color: 0xffffff,
-      transmission: 0.85,
-      opacity: 0.85,
+      transmission: 0.9,
+      opacity: 0.9,
       transparent: true,
-      roughness: 0.1,
+      roughness: 0.08,
       ior: 1.33
     });
 
@@ -127,35 +174,86 @@
     for (let i = 0; i < dropletsCount; i++) {
       const mesh = new THREE.Mesh(dropletGeo, dropletMat);
       const angle = (i / dropletsCount) * Math.PI * 2;
-      const dist = 2.0 + (i % 3) * 0.45;
+      const dist = 2.1 + (i % 3) * 0.35;
       mesh.position.set(
         Math.cos(angle) * dist,
-        ((i / dropletsCount) - 0.5) * 3.0,
+        ((i / dropletsCount) - 0.5) * 3.2,
         Math.sin(angle) * dist
       );
-      mesh.userData = { angle: angle, speed: 0.005 + Math.random() * 0.005, dist: dist };
+      mesh.userData = { angle: angle, speed: 0.006 + (i % 4) * 0.002, dist: dist };
       rootGroup.add(mesh);
       droplets.push(mesh);
     }
 
-    // Scroll binding para transição fluida descendo na tela
-    let scrollProgress = 0;
+    // 3. Gerenciamento das Micro-seções (Cards 1 a 4) com Base no Scroll
     const triggerSection = document.getElementById('nutrition');
+    const scrollWrap = triggerSection ? triggerSection.querySelector('.sequence-scroll-wrap') : null;
+    const desktopCards = triggerSection ? triggerSection.querySelectorAll('.sequence-cards .statement-card') : [];
+    const finalSignature = triggerSection ? triggerSection.querySelector('.sequence-final') : null;
 
-    function updateScrollProgress() {
-      if (!triggerSection) return;
-      const rect = triggerSection.getBoundingClientRect();
-      const totalH = triggerSection.offsetHeight - window.innerHeight;
+    let scrollProgress = 0;
+    let currentCardIndex = -1;
+
+    function handleSequenceScroll() {
+      if (!scrollWrap) return;
+      const rect = scrollWrap.getBoundingClientRect();
+      const totalH = scrollWrap.offsetHeight - window.innerHeight;
       if (totalH > 0) {
         const scrolled = -rect.top;
         scrollProgress = Math.max(0, Math.min(1, scrolled / totalH));
       }
+
+      // Definir qual micro-seção (card) está ativa
+      // 0.00 - 0.05: entrada inicial
+      // 0.05 - 0.28: Card 1 (Mais Sabor) - direita
+      // 0.28 - 0.52: Card 2 (Mais Energia) - esquerda
+      // 0.52 - 0.76: Card 3 (Mais Leveza) - direita
+      // 0.76 - 0.92: Card 4 (Zero Neura) - esquerda
+      // 0.92 - 1.00: Final Title / Callout no centro
+      let activeIdx = -1;
+      if (scrollProgress >= 0.04 && scrollProgress < 0.27) {
+        activeIdx = 0;
+      } else if (scrollProgress >= 0.27 && scrollProgress < 0.51) {
+        activeIdx = 1;
+      } else if (scrollProgress >= 0.51 && scrollProgress < 0.75) {
+        activeIdx = 2;
+      } else if (scrollProgress >= 0.75 && scrollProgress < 0.93) {
+        activeIdx = 3;
+      } else if (scrollProgress >= 0.93) {
+        activeIdx = 4; // Final
+      }
+
+      if (activeIdx !== currentCardIndex) {
+        currentCardIndex = activeIdx;
+        updateActiveCards(currentCardIndex);
+      }
     }
 
-    window.addEventListener('scroll', updateScrollProgress, { passive: true });
-    updateScrollProgress();
+    function updateActiveCards(idx) {
+      if (!desktopCards || desktopCards.length === 0) return;
 
-    // Loop de Animação 60fps suave
+      desktopCards.forEach((card, i) => {
+        if (i === idx) {
+          card.classList.add('is-active');
+        } else {
+          card.classList.remove('is-active');
+        }
+      });
+
+      if (finalSignature) {
+        if (idx === 4) {
+          finalSignature.classList.add('is-active');
+        } else {
+          finalSignature.classList.remove('is-active');
+        }
+      }
+    }
+
+    window.addEventListener('scroll', handleSequenceScroll, { passive: true });
+    handleSequenceScroll();
+
+    // 4. Loop de Animação Fluido (60 FPS)
+    let targetX = 0;
     let targetY = 0;
     let targetRotY = 0;
     let clock = new THREE.Clock();
@@ -164,14 +262,31 @@
       requestAnimationFrame(animate);
       const elapsedTime = clock.getElapsedTime();
 
-      // Translação e rotação em resposta ao scroll
-      targetY = (scrollProgress - 0.5) * -2.4;
-      targetRotY = scrollProgress * Math.PI * 2.8 + elapsedTime * 0.25;
+      // Ajuste de posição 3D dependendo do card ativo
+      // Se card da direita está ativo (0 ou 2), a maçã vai ligeiramente para a esquerda (-1.4)
+      // Se card da esquerda está ativo (1 ou 3), a maçã vai para a direita (+1.4)
+      if (currentCardIndex === 0 || currentCardIndex === 2) {
+        targetX = -1.25;
+      } else if (currentCardIndex === 1 || currentCardIndex === 3) {
+        targetX = 1.25;
+      } else {
+        targetX = 0;
+      }
 
+      // Em telas menores que 991px (mobile), a maçã fica centralizada no topo
+      if (window.innerWidth <= 991) {
+        targetX = 0;
+      }
+
+      targetY = Math.sin(elapsedTime * 1.2) * 0.12;
+      targetRotY = scrollProgress * Math.PI * 4.2 + (elapsedTime * 0.18);
+
+      // Interpolação suave (lerp)
+      rootGroup.position.x += (targetX - rootGroup.position.x) * 0.08;
       rootGroup.position.y += (targetY - rootGroup.position.y) * 0.08;
       rootGroup.rotation.y += (targetRotY - rootGroup.rotation.y) * 0.06;
-      rootGroup.rotation.x = Math.sin(elapsedTime * 0.8) * 0.08 + (scrollProgress * 0.2);
-      rootGroup.rotation.z = Math.cos(elapsedTime * 0.6) * 0.06;
+      rootGroup.rotation.x = Math.sin(elapsedTime * 0.8) * 0.08 + (scrollProgress * 0.25);
+      rootGroup.rotation.z = Math.cos(elapsedTime * 0.6) * 0.05;
 
       // Animar gotículas sutis
       for (let i = 0; i < droplets.length; i++) {
@@ -179,7 +294,7 @@
         d.userData.angle += d.userData.speed;
         d.position.x = Math.cos(d.userData.angle) * d.userData.dist;
         d.position.z = Math.sin(d.userData.angle) * d.userData.dist;
-        d.position.y += Math.sin(elapsedTime * 1.5 + i) * 0.002;
+        d.position.y += Math.sin(elapsedTime * 1.5 + i) * 0.003;
       }
 
       renderer.render(scene, camera);
@@ -188,19 +303,20 @@
     animate();
 
     function onResize() {
-      const w = parent.clientWidth || window.innerWidth;
-      const h = parent.clientHeight || window.innerHeight;
-      camera.aspect = w / h;
+      width = parent.clientWidth || window.innerWidth;
+      height = parent.clientHeight || window.innerHeight;
+      camera.aspect = width / height;
       camera.updateProjectionMatrix();
-      renderer.setSize(w, h);
+      renderer.setSize(width, height);
+      handleSequenceScroll();
     }
 
     window.addEventListener('resize', onResize);
   }
 
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initNutrition3D);
+    document.addEventListener('DOMContentLoaded', initNutritionSequence);
   } else {
-    initNutrition3D();
+    initNutritionSequence();
   }
 })();
