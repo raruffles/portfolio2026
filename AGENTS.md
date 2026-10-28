@@ -19,7 +19,7 @@ Para qualquer alteração, criação ou refatoração no projeto, siga estritame
 ### FASE 3 — Implementar
 - Escrever código limpo, semântico, performático e compatível com navegadores modernos.
 - Garantir que animações e transições respeitem `prefers-reduced-motion: reduce`.
-- Nunca commitar chaves de API, credenciais ou segredos.
+- Nunca commitar chaves de API, credenciais ou segredos (ver `.agents/rules/security-and-secrets.md`).
 
 ### FASE 4 — Executar
 - Iniciar o servidor local via `npm run dev` (`npx -y http-server . -p 3000`).

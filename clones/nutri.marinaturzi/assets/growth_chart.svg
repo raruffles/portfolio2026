@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 340" fill="none" width="100%" height="100%">
+  <defs>
+    <linearGradient id="areaGreen" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#335C30" stop-opacity="0.25" />
+      <stop offset="100%" stop-color="#335C30" stop-opacity="0.0" />
+    </linearGradient>
+    <linearGradient id="curveGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#E2A123" />
+      <stop offset="50%" stop-color="#82A769" />
+      <stop offset="100%" stop-color="#1E4324" />
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="4" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Background Card -->
+  <rect x="2" y="2" width="596" height="336" rx="20" fill="#FFFFFF" stroke="rgba(30,67,36,0.12)" stroke-width="2" />
+
+  <!-- Grid lines -->
+  <line x1="50" y1="60" x2="550" y2="60" stroke="#E2E8F0" stroke-dasharray="4 4" />
+  <line x1="50" y1="120" x2="550" y2="120" stroke="#E2E8F0" stroke-dasharray="4 4" />
+  <line x1="50" y1="180" x2="550" y2="180" stroke="#E2E8F0" stroke-dasharray="4 4" />
+  <line x1="50" y1="240" x2="550" y2="240" stroke="#E2E8F0" stroke-dasharray="4 4" />
+
+  <!-- Y-Axis Labels -->
+  <text x="38" y="64" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="700" fill="#64748B" text-anchor="end">100%</text>
+  <text x="38" y="124" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="700" fill="#64748B" text-anchor="end">75%</text>
+  <text x="38" y="184" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="700" fill="#64748B" text-anchor="end">50%</text>
+  <text x="38" y="244" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="700" fill="#64748B" text-anchor="end">25%</text>
+
+  <!-- X-Axis Labels -->
+  <text x="80" y="280" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="800" fill="#1E4324" text-anchor="middle">Semana 1</text>
+  <text x="235" y="280" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="800" fill="#1E4324" text-anchor="middle">Semana 4</text>
+  <text x="390" y="280" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="800" fill="#1E4324" text-anchor="middle">Semana 8</text>
+  <text x="520" y="280" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="800" fill="#1E4324" text-anchor="middle">Semana 12</text>
+
+  <!-- Shaded Area Under Disposição Curve -->
+  <path d="M 80,240 C 160,200 280,110 390,75 L 520,50 L 520,250 L 80,250 Z" fill="url(#areaGreen)" />
+
+  <!-- Curve 1: Disposição & Saúde Intestinal (Ascending) -->
+  <path class="chart-line-up" d="M 80,240 C 160,200 280,110 390,75 L 520,50" 
+        fill="none" 
+        stroke="#1E4324" 
+        stroke-width="4.5" 
+        stroke-linecap="round" />
+
+  <!-- Curve 2: Circunferência Abdominal & Inchaço (Descending) -->
+  <path class="chart-line-down" d="M 80,70 C 180,100 280,180 390,225 L 520,242" 
+        fill="none" 
+        stroke="#E2A123" 
+        stroke-width="3.5" 
+        stroke-dasharray="6 4" 
+        stroke-linecap="round" />
+
+  <!-- Point 1 (Start) -->
+  <circle cx="80" cy="240" r="7" fill="#FFFFFF" stroke="#1E4324" stroke-width="4" />
+  <circle cx="80" cy="70" r="7" fill="#FFFFFF" stroke="#E2A123" stroke-width="4" />
+
+  <!-- Point 2 (Semana 4) -->
+  <circle cx="235" cy="140" r="7" fill="#FFFFFF" stroke="#1E4324" stroke-width="4" />
+  <circle cx="235" cy="145" r="7" fill="#FFFFFF" stroke="#E2A123" stroke-width="4" />
+
+  <!-- Point 3 (Semana 8 - Goal Achieved) -->
+  <circle cx="390" cy="75" r="9" fill="#1E4324" stroke="#C6E0AD" stroke-width="4" filter="url(#glow)" />
+  <circle cx="390" cy="225" r="8" fill="#E2A123" stroke="#FFFFFF" stroke-width="3" />
+
+  <!-- Floating Callout Badge on Goal Point -->
+  <rect x="330" y="15" width="120" height="34" rx="17" fill="#1E4324" />
+  <text x="390" y="36" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="800" fill="#FFFFFF" text-anchor="middle">−8cm de Cintura</text>
+
+  <!-- Legend at Bottom -->
+  <circle cx="160" cy="312" r="5" fill="#1E4324" />
+  <text x="175" y="316" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="700" fill="#334155">Energia &amp; Microbiota (100%)</text>
+
+  <circle cx="380" cy="312" r="5" fill="#E2A123" />
+  <text x="395" y="316" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="700" fill="#334155">Inchaço &amp; Gordura Visceral (−)</text>
+</svg>

@@ -17,16 +17,24 @@ dist/
 *.pem
 *.cert
 *.crt
+*.p12
+*.keystore
 *token*
 *secret*
+*apikey*
+*password*
 credentials*.json
 service-account*.json
 id_rsa
 id_rsa.pub
+id_ed25519
+id_ed25519.pub
 
 # 3. Sites, protótipos e prévias de clientes
 clientes/
 **/clientes/
+previa/
+**/previa/
 janousek-photos/
 xandy-alves-artes/
 guuhsc-source/
@@ -53,6 +61,10 @@ tabulacao*.txt
 *.cdrt
 *.CDR
 *.CDRT
+clones/**/*.mp4
+!clones/nutri.marinaturzi/3465707989036344824_6210726821.mp4
+!clones/nutri.marinaturzi/3865961647861525303_6210726821.mp4
+!clones/nutri.marinaturzi/3916763564674996217_6210726821.mp4
 
 # 6. IDEs, logs e sistema operacional
 .agents/
