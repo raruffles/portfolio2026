@@ -218,6 +218,62 @@
         if (video) {
           video.muted = !video.muted;
           btn.classList.toggle('is-unmuted', !video.muted);
+          if (video.paused) {
+            video.play().catch(e => console.log(e));
+          }
+        }
+      });
+    });
+
+    // 5. Instagram Posts / Flavour Slider Controls
+    const flavourLeftBtn = document.querySelector('[data-flavour-slider-left-button]');
+    const flavourRightBtn = document.querySelector('[data-flavour-slider-right-button]');
+    const flavourDoseSlides = document.querySelectorAll('.flavour-swiper .flavour-slide');
+    const flavourContentSlides = document.querySelectorAll('.flavour-content-swiper .flavour-content-slide');
+    let flavourActiveIndex = 0;
+
+    function updateFlavourCarousel(index) {
+      if (flavourDoseSlides.length === 0) return;
+      flavourActiveIndex = (index + flavourDoseSlides.length) % flavourDoseSlides.length;
+
+      flavourDoseSlides.forEach((slide, i) => {
+        if (i === flavourActiveIndex) {
+          slide.style.display = 'block';
+          slide.style.opacity = '1';
+          slide.style.transition = 'opacity 0.4s ease';
+        } else {
+          slide.style.display = 'none';
+          slide.style.opacity = '0';
+        }
+      });
+
+      flavourContentSlides.forEach((slide, i) => {
+        if (i === flavourActiveIndex) {
+          slide.style.display = 'block';
+          slide.style.opacity = '1';
+          slide.style.transition = 'opacity 0.4s ease';
+        } else {
+          slide.style.display = 'none';
+          slide.style.opacity = '0';
+        }
+      });
+    }
+
+    if (flavourLeftBtn && flavourRightBtn && flavourDoseSlides.length > 0) {
+      updateFlavourCarousel(0);
+      flavourLeftBtn.addEventListener('click', () => updateFlavourCarousel(flavourActiveIndex - 1));
+      flavourRightBtn.addEventListener('click', () => updateFlavourCarousel(flavourActiveIndex + 1));
+    }
+
+    // 6. Smooth anchor scrolling
+    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+      anchor.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+        if (href === '#' || !href) return;
+        const target = document.querySelector(href);
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth' });
         }
       });
     });
