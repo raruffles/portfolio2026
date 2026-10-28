@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="180" height="70" viewBox="0 0 180 70" fill="none">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@700&amp;display=swap');
+      .sketch-title {
+        font-family: 'Caveat', 'Segoe Script', cursive, sans-serif;
+        font-size: 26px;
+        font-weight: 700;
+        fill: #12331C;
+        letter-spacing: -0.5px;
+      }
+    </style>
+  </defs>
+  <text x="10" y="28" class="sketch-title" transform="rotate(-4 10 28)">Nutrição Real,</text>
+  <text x="22" y="56" class="sketch-title" transform="rotate(-4 22 56)">Resultados Reais</text>
+</svg>

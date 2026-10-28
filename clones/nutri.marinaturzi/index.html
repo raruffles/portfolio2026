@@ -1,0 +1,1700 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Dra. Marina Turzi | Nutricionista • Sua Última Nutri • SJC e Online</title>
+  <meta name="description" content="Dra. Marina Turzi (CRN3 56877). Sua última nutricionista: te ajudo a emagrecer sem sofrer. Foco em saúde intestinal e nutrição comportamental. Atendimento presencial no Instituto Proctogastro (Aquarius, SJC) e online pelo mundo."/>
+  
+  <!-- Open Graph / Redes Sociais -->
+  <meta property="og:type" content="website"/>
+  <meta property="og:title" content="Dra. Marina Turzi | Nutricionista • Sua Última Nutri"/>
+  <meta property="og:description" content="Te ajudo a emagrecer sem sofrer. Saúde intestinal e nutrição comportamental com atendimento presencial no Instituto Proctogastro (Aquarius, SJC) e online."/>
+  <meta property="og:image" content="3867381322389979318_6210726821.jpg"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="Dra. Marina Turzi | Nutricionista"/>
+  <meta name="twitter:description" content="Sua última nutricionista: emagreça sem sofrer, cuide do seu intestino e viva em paz com a comida."/>
+  
+  <link rel="shortcut icon" href="3867381322389979318_6210726821.jpg" type="image/jpeg"/>
+  <link rel="apple-touch-icon" href="3867381322389979318_6210726821.jpg"/>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous"/>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,800&family=Syne:wght@700;800;900&display=swap" rel="stylesheet"/>
+
+  <!-- Stylesheets Originais do More Nutrition -->
+  <link href="assets/style_3.css" rel="stylesheet" type="text/css"/>
+  <link href="assets/style_1.css" rel="stylesheet" type="text/css"/>
+
+  <!-- Refinamentos Visuais para Marina Turzi -->
+  <style>
+    /* Reset de loader indesejado */
+    .loader { display: none !important; }
+
+    /* Paleta e Tipografia */
+    :root {
+      --matcha-bg: #EAF0E5;
+      --forest-dark: #12331C;
+      --forest-deep: #0B2212;
+      --matcha-accent: #78A75A;
+      --matcha-badge: #C6E0AD;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--matcha-bg);
+      color: var(--forest-dark);
+      overflow-x: hidden;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* 1. Hero Brand Display (Substituindo o Logo MORE) */
+    .brand-hero-giant-wrap {
+      width: 100%;
+      max-width: 1100px;
+      margin: 0 auto;
+      text-align: center;
+      padding: 10px 0;
+    }
+    .brand-hero-svg {
+      display: block;
+      width: 100%;
+      max-height: 80px;
+      overflow: visible;
+    }
+    .brand-hero-svg-text {
+      font-family: 'Syne', 'Plus Jakarta Sans', sans-serif;
+      font-weight: 900;
+      font-size: 76px;
+      fill: #0F2D18;
+      letter-spacing: -2px;
+      stroke: #0F2D18;
+      stroke-width: 1.2px;
+      stroke-dasharray: 800;
+      stroke-dashoffset: 800;
+      animation: strokeDraw 1.6s cubic-bezier(0.16, 1, 0.3, 1) forwards, fillIn 1s ease 0.6s forwards;
+    }
+    .hero-brand-tagline {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: clamp(0.75rem, 1.2vw, 0.98rem);
+      font-weight: 800;
+      color: #1A4423;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      margin-top: 6px;
+      opacity: 0;
+      animation: fadeInTagline 1s ease 0.8s forwards;
+    }
+    @keyframes strokeDraw { to { stroke-dashoffset: 0; } }
+    @keyframes fillIn { from { fill-opacity: 0; } to { fill-opacity: 1; } }
+    @keyframes fadeInTagline { to { opacity: 1; } }
+
+    /* 2. Hero Left Alignment & Visuals */
+    .stage-left {
+      position: relative !important;
+      display: grid !important;
+      grid-template-columns: 1fr !important;
+    }
+    .stage-deco {
+      display: grid !important;
+      grid-area: 1/1 !important;
+      z-index: 6 !important;
+      pointer-events: none !important;
+    }
+    .stage-deco-text-wrap {
+      display: grid !important;
+      position: absolute !important;
+      top: 2% !important;
+      left: 2% !important;
+    }
+    .stage-deco-arrow-wrap {
+      display: grid !important;
+      position: absolute !important;
+      top: 10% !important;
+      left: 11% !important;
+    }
+    .stage-visual {
+      pointer-events: none !important;
+      z-index: 2 !important;
+      grid-area: 1/1 !important;
+      justify-content: flex-end !important;
+      align-items: center !important;
+      margin-left: auto !important;
+      display: flex !important;
+      width: 100% !important;
+      padding-right: 2% !important;
+    }
+    .stage-marina-img {
+      width: 29.5em !important;
+      max-width: 440px !important;
+      height: auto !important;
+      aspect-ratio: 1 / 1.15 !important;
+      object-fit: cover !important;
+      border-radius: 40% 40% 48% 48% / 36% 36% 54% 54% !important;
+      box-shadow: 0 24px 50px rgba(18, 51, 28, 0.22) !important;
+      border: 6px solid #FFFFFF !important;
+    }
+    .stage-facts {
+      grid-area: 1/1 !important;
+      z-index: 5 !important;
+      pointer-events: none !important;
+    }
+    .stage-fact {
+      background-color: var(--bg-pale, #E8F0E4) !important;
+      border-radius: 100% !important;
+      border: 1.5px solid #C6DBBD !important;
+      box-shadow: 0 10px 24px rgba(18, 51, 28, 0.12) !important;
+    }
+    .stage-fact.is-first {
+      position: absolute !important;
+      top: 4% !important;
+      left: 22% !important;
+    }
+    .stage-fact.is-second {
+      position: absolute !important;
+      top: 17% !important;
+      left: 8% !important;
+    }
+    .stage-fact.is-third {
+      position: absolute !important;
+      top: 34% !important;
+      left: 0% !important;
+    }
+    .stage-bg {
+      grid-area: 1/1 !important;
+      z-index: 1 !important;
+      pointer-events: none !important;
+    }
+    .stage-bg-svg path {
+      color: #FFFFFF !important;
+      stroke: #FFFFFF !important;
+    }
+
+    /* 3. Marquee Semi-Circle */
+    .marquee {
+      overflow: hidden !important;
+      position: relative !important;
+      margin-top: 1.5em !important;
+    }
+
+    /* 4. Insider Videos & Rating */
+    .insider-cta {
+      display: flex !important;
+      align-items: center !important;
+      gap: 28px !important;
+      flex-wrap: wrap !important;
+      margin-top: 32px !important;
+    }
+    .rating-inner {
+      display: flex !important;
+      align-items: center !important;
+    }
+    .rating-link {
+      display: flex !important;
+      align-items: center !important;
+      gap: 12px !important;
+      text-decoration: none !important;
+    }
+    .rating-star-wrap {
+      display: flex !important;
+      gap: 4px !important;
+      align-items: center !important;
+    }
+    .rating-text {
+      white-space: nowrap !important;
+      font-size: 0.92rem !important;
+      font-weight: 800 !important;
+      color: #12331C !important;
+    }
+    .testimonial-inner video {
+      width: 100% !important;
+      height: 100% !important;
+      object-fit: cover !important;
+      border-radius: 24px !important;
+    }
+
+    /* 5. Sequence Micro-Sections & 3D Canvas Stage */
+    .sequence-scroll-wrap {
+      height: 380vh !important;
+      position: relative !important;
+    }
+    .sequence-sticky {
+      position: sticky !important;
+      top: 0 !important;
+      height: 100vh !important;
+      height: 100lvh !important;
+      overflow: hidden !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      z-index: 5 !important;
+    }
+    .sequence-canvas {
+      position: absolute !important;
+      inset: 0 !important;
+      width: 100% !important;
+      height: 100% !important;
+      z-index: 2 !important;
+      pointer-events: none !important;
+    }
+    .sequence-cards {
+      display: flex !important;
+      position: absolute !important;
+      inset: 0 !important;
+      width: 100% !important;
+      height: 100% !important;
+      pointer-events: none !important;
+      z-index: 10 !important;
+    }
+    .statement-card {
+      position: absolute !important;
+      pointer-events: auto !important;
+      width: clamp(320px, 32vw, 440px) !important;
+      opacity: 0 !important;
+      visibility: hidden !important;
+      transition: opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1), transform 0.45s cubic-bezier(0.16, 1, 0.3, 1) !important;
+      box-shadow: 0 20px 48px rgba(18,51,28,0.12) !important;
+      border-radius: 20px !important;
+    }
+    .statement-card.is-first {
+      right: 8% !important;
+      top: 50% !important;
+      left: auto !important;
+      transform: translateY(-50%) translateY(35px) scale(0.96) !important;
+    }
+    .statement-card.is-second {
+      left: 8% !important;
+      top: 50% !important;
+      right: auto !important;
+      transform: translateY(-50%) translateY(35px) scale(0.96) !important;
+    }
+    .statement-card.is-third {
+      right: 8% !important;
+      top: 50% !important;
+      left: auto !important;
+      transform: translateY(-50%) translateY(35px) scale(0.96) !important;
+    }
+    .statement-card.is-fourth {
+      left: 8% !important;
+      top: 50% !important;
+      right: auto !important;
+      transform: translateY(-50%) translateY(35px) scale(0.96) !important;
+    }
+    .statement-card.is-active {
+      opacity: 1 !important;
+      visibility: visible !important;
+      transform: translateY(-50%) translateY(0) scale(1) !important;
+    }
+    .sequence-final {
+      position: absolute !important;
+      inset: 0 !important;
+      display: flex !important;
+      flex-direction: column !important;
+      justify-content: center !important;
+      align-items: center !important;
+      text-align: center !important;
+      z-index: 12 !important;
+      opacity: 0 !important;
+      visibility: hidden !important;
+      transition: opacity 0.5s ease, transform 0.5s ease !important;
+      transform: scale(0.92) !important;
+      pointer-events: none !important;
+      background: rgba(182, 203, 165, 0.88) !important;
+      backdrop-filter: blur(8px) !important;
+      padding: 0 24px !important;
+    }
+    .sequence-final.is-active {
+      opacity: 1 !important;
+      visibility: visible !important;
+      transform: scale(1) !important;
+      pointer-events: auto !important;
+    }
+
+    /* 6. Testimonial Section */
+    .testimonial-big-heading {
+      color: #0A2612 !important;
+      font-weight: 900 !important;
+      font-size: clamp(2.4rem, 4.2vw, 4.2rem) !important;
+      line-height: 1.15 !important;
+      text-align: center !important;
+    }
+    .testimonial-heading {
+      color: #12331C !important;
+      font-weight: 850 !important;
+      font-size: clamp(1.8rem, 3vw, 2.5rem) !important;
+      line-height: 1.2 !important;
+    }
+    .testimonial-slider-inner {
+      display: flex !important;
+      overflow-x: auto !important;
+      scroll-behavior: smooth !important;
+      scroll-snap-type: x mandatory !important;
+      gap: 24px !important;
+      padding: 24px 16px !important;
+      -webkit-overflow-scrolling: touch !important;
+    }
+    .testimonial-slider-item-wrap {
+      scroll-snap-align: center !important;
+      flex: 0 0 clamp(320px, 34vw, 420px) !important;
+      width: clamp(320px, 34vw, 420px) !important;
+    }
+    .testimonial-slider-item {
+      background: #FFFFFF !important;
+      border: 1.5px solid #D1E3C8 !important;
+      border-radius: 24px !important;
+      padding: 32px 28px !important;
+      box-shadow: 0 12px 30px rgba(18,51,28,0.06) !important;
+      color: #12331C !important;
+      height: 100% !important;
+      display: flex !important;
+      flex-direction: column !important;
+      justify-content: space-between !important;
+    }
+    .testimonial-item-heading {
+      color: #0F2D18 !important;
+      font-weight: 850 !important;
+      font-size: 1.35rem !important;
+      margin-bottom: 12px !important;
+    }
+    .testimonial-item-text {
+      color: #2D4A34 !important;
+      font-size: 0.98rem !important;
+      line-height: 1.6 !important;
+    }
+
+    /* 7. Comparison Table */
+    .benefit-table-title {
+      color: #0F2D18 !important;
+      font-weight: 850 !important;
+    }
+    .benefit-item-title {
+      color: #12331C !important;
+      font-weight: 700 !important;
+    }
+    .benefit-table-title-wrapper,
+    .benefit-table-item {
+      display: grid !important;
+      grid-template-columns: 2fr 1.2fr 1.2fr !important;
+      align-items: center !important;
+    }
+    .marina-col-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-weight: 800;
+      color: #12331C;
+      font-size: 0.95rem;
+    }
+
+    /* 8. Instagram Carousel Section */
+    .flavour-slide-custom {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .insta-post-img {
+      width: 100%;
+      max-width: 440px;
+      border-radius: 24px;
+      box-shadow: 0 16px 40px rgba(18,51,28,0.14);
+      border: 4px solid #FFFFFF;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+    }
+    .insta-profile-card {
+      background: #FFFFFF;
+      border-radius: 28px;
+      padding: 32px 28px;
+      border: 2px solid #D2E4CA;
+      box-shadow: 0 20px 48px rgba(18,51,28,0.08);
+      max-width: 400px;
+    }
+    .insta-stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      text-align: center;
+      margin-top: 18px;
+      padding-top: 18px;
+      border-top: 1px solid #E8F0E4;
+    }
+    .insta-stat-num {
+      font-size: 1.2rem;
+      font-weight: 900;
+      color: #12331C;
+    }
+    .insta-stat-lbl {
+      font-size: 0.76rem;
+      color: #4B6353;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    /* 9. Trust & Modalities */
+    .trust-card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      width: 100%;
+      margin-top: 36px;
+    }
+    .trust-card {
+      background: #FFFFFF;
+      border-radius: 20px;
+      padding: 24px 22px;
+      border: 1.5px solid #D2E4CA;
+      box-shadow: 0 8px 24px rgba(18,51,28,0.05);
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+    }
+    .trust-icon-wrap {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      background: #E8F0E4;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      flex-shrink: 0;
+    }
+    .trust-title {
+      font-weight: 850;
+      font-size: 1.05rem;
+      color: #12331C;
+      margin-bottom: 4px;
+    }
+    .trust-desc {
+      font-size: 0.88rem;
+      color: #3D5A44;
+      line-height: 1.45;
+    }
+
+    /* 10. Footer Card */
+    .footer-marina-card {
+      position: relative;
+      background: #12331C;
+      border-radius: 36px;
+      overflow: hidden;
+      padding: 48px 40px;
+      color: #FFFFFF;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 440px;
+      box-shadow: 0 24px 60px rgba(18,51,28,0.25);
+    }
+    .footer-marina-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.28;
+      mix-blend-mode: luminosity;
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 991px) {
+      .stage-visual {
+        margin-left: 0 !important;
+        transform: none !important;
+        justify-content: center !important;
+      }
+      .stage-marina-img {
+        width: 100% !important;
+        max-width: 320px !important;
+      }
+      .stage-facts {
+        position: relative !important;
+      }
+      .stage-fact.is-first {
+        top: auto !important;
+        left: 10% !important;
+      }
+      .stage-fact.is-second {
+        top: auto !important;
+        left: 45% !important;
+      }
+      .stage-fact.is-third {
+        top: auto !important;
+        left: 80% !important;
+      }
+      .sequence-scroll-wrap {
+        height: auto !important;
+      }
+      .sequence-sticky {
+        position: relative !important;
+        height: 380px !important;
+      }
+      .sequence-cards {
+        display: none !important;
+      }
+      .sequence-cards-mobile {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 24px !important;
+        padding: 32px 16px !important;
+        height: auto !important;
+      }
+      .sequence-cards-mobile .statement-card {
+        position: relative !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: none !important;
+        width: 100% !important;
+        max-width: 100% !important;
+      }
+      .benefit-table-title-wrapper,
+      .benefit-table-item {
+        grid-template-columns: 1.8fr 1fr 1fr !important;
+        font-size: 0.88rem !important;
+      }
+    }
+  </style>
+</head>
+
+<body class="body">
+
+  <!-- NAVBAR -->
+  <div data-load-nav="" data-animation="default" data-collapse="medium" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" class="navbar w-nav">
+    <div class="nav-container">
+      <div class="grid-layout">
+        <!-- Redes Sociais & Links Oficiais -->
+        <div id="w-node-_084a53a4-1315-9fde-31ee-e99a4811c28c-4811c289" class="nav-social-media-inner">
+          <a href="https://www.instagram.com/nutri.marinaturzi/" target="_blank" rel="noopener noreferrer" class="social-media-link w-inline-block" aria-label="Instagram da Dra. Marina Turzi">
+            <div class="social-media-circle">
+              <img src="assets/image_1.svg" loading="eager" width="24" height="24" alt="Instagram" class="social-media-icon"/>
+            </div>
+          </a>
+          <a href="https://wa.me/5512997000000?text=Ol%C3%A1%2C%20Dra.%20Marina!%20Gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20o%20agendamento%20de%20consulta." target="_blank" rel="noopener noreferrer" class="social-media-link w-inline-block" aria-label="WhatsApp da Dra. Marina Turzi">
+            <div class="social-media-circle">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="20" height="20" style="color:#12331C;">
+                <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 15 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67M9.53 7.34C9.36 7.34 9.09 7.41 8.87 7.65C8.65 7.89 8.02 8.48 8.02 9.7C8.02 10.92 8.91 12.09 9.03 12.26C9.16 12.43 10.74 14.86 13.16 15.91C13.73 16.15 14.18 16.3 14.52 16.41C15.1 16.59 15.62 16.57 16.03 16.51C16.5 16.44 17.46 15.93 17.66 15.36C17.86 14.8 17.86 14.31 17.8 14.21C17.74 14.11 17.58 14.05 17.33 13.93C17.08 13.8 15.86 13.2 15.63 13.12C15.41 13.04 15.24 13 15.08 13.25C14.91 13.49 14.44 14.05 14.3 14.21C14.16 14.38 14.02 14.4 13.77 14.27C13.52 14.15 12.72 13.88 11.78 13.04C11.04 12.38 10.54 11.57 10.4 11.32C10.25 11.07 10.38 10.94 10.51 10.82C10.62 10.71 10.75 10.53 10.88 10.39C11.01 10.24 11.05 10.14 11.13 9.97C11.21 9.81 11.17 9.66 11.11 9.54C11.05 9.42 10.58 8.26 10.38 7.78C10.19 7.31 9.99 7.37 9.85 7.36C9.72 7.35 9.53 7.34 9.53 7.34Z"/>
+              </svg>
+            </div>
+          </a>
+          <a href="https://institutoproctogastro.com.br" target="_blank" rel="noopener noreferrer" class="social-media-link w-inline-block" aria-label="Instituto Proctogastro">
+            <div class="social-media-circle">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18" style="color:#12331C;">
+                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+              </svg>
+            </div>
+          </a>
+        </div>
+
+        <!-- Links de Navegação -->
+        <div id="w-node-_084a53a4-1315-9fde-31ee-e99a4811c293-4811c289" class="nav-link-inner">
+          <a href="#nutrition" class="nav-link w-inline-block"><div class="nav-text">Metodologia</div></a>
+          <a href="#benefits" class="nav-link w-inline-block"><div class="nav-text">Diferenciais</div></a>
+          <a href="#reviews" class="nav-link w-inline-block"><div class="nav-text">Depoimentos</div></a>
+          <a href="#flavour" class="nav-link w-inline-block"><div class="nav-text">Dicas &amp; Posts</div></a>
+        </div>
+
+        <!-- Botão CTA Navbar -->
+        <a id="w-node-c4e2d712-b9aa-e56d-102b-73576293bdd9-4811c289" href="https://wa.me/5512997000000?text=Ol%C3%A1%2C%20Dra.%20Marina!%20Gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20o%20agendamento%20de%20consulta." target="_blank" rel="noopener noreferrer" class="button is-white w-inline-block">
+          <div class="button-cycle is-first">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 10" width="100%" class="button-arrow"><path fill="currentColor" fill-rule="evenodd" d="M0 1.827 1.71 0H10v8.22L8.11 10V5.93c0-.992.009-1.89.03-2.695l-6.642 6.58-1.316-1.44 6.641-6.58c-.787.022-1.67.032-2.647.032H0Z" clip-rule="evenodd"></path></svg>
+            <div class="button-cycle-bg white-bg"></div>
+          </div>
+          <div class="button-bg white-bg">
+            <div class="button-text dark-font">Agendar Consulta</div>
+          </div>
+          <div class="button-cycle is-second">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 10" width="100%" class="button-arrow"><path fill="currentColor" fill-rule="evenodd" d="M0 1.827 1.71 0H10v8.22L8.11 10V5.93c0-.992.009-1.89.03-2.695l-6.642 6.58-1.316-1.44 6.641-6.58c-.787.022-1.67.032-2.647.032H0Z" clip-rule="evenodd"></path></svg>
+            <div class="button-cycle-bg white-bg"></div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-wrapper">
+
+    <!-- HERO STAGE SECTION -->
+    <section data-load-stage="" data-inertia="" class="stage">
+      <div class="stage-overlay"></div>
+      <div class="stage-container">
+        <div class="stage-inner">
+          <div class="stage-content">
+
+            <!-- Logo / Nome Display com Animação Stroke -->
+            <div class="stage-logo">
+              <div class="brand-hero-giant-wrap">
+                <svg viewBox="0 0 980 90" fill="none" xmlns="http://www.w3.org/2000/svg" class="brand-hero-svg">
+                  <text x="50%" y="68" text-anchor="middle" class="brand-hero-svg-text">MARINA TURZI</text>
+                </svg>
+                <div class="hero-brand-tagline">Nutrição Clínica, Funcional &amp; Comportamental • CRN3 56877</div>
+              </div>
+            </div>
+
+            <!-- CTA Superior -->
+            <div data-load-stage-cta="" class="stage-cta">
+              <a href="https://wa.me/5512997000000?text=Ol%C3%A1%2C%20Dra.%20Marina!%20Gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20o%20agendamento%20de%20consulta." target="_blank" rel="noopener noreferrer" class="button w-inline-block">
+                <div class="button-cycle is-first">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 10" width="100%" class="button-arrow"><path fill="currentColor" fill-rule="evenodd" d="M0 1.827 1.71 0H10v8.22L8.11 10V5.93c0-.992.009-1.89.03-2.695l-6.642 6.58-1.316-1.44 6.641-6.58c-.787.022-1.67.032-2.647.032H0Z" clip-rule="evenodd"></path></svg>
+                  <div class="button-cycle-bg"></div>
+                </div>
+                <div class="button-bg"><div class="button-text">Agendar Consulta</div></div>
+                <div class="button-cycle is-second">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 10" width="100%" class="button-arrow"><path fill="currentColor" fill-rule="evenodd" d="M0 1.827 1.71 0H10v8.22L8.11 10V5.93c0-.992.009-1.89.03-2.695l-6.642 6.58-1.316-1.44 6.641-6.58c-.787.022-1.67.032-2.647.032H0Z" clip-rule="evenodd"></path></svg>
+                  <div class="button-cycle-bg"></div>
+                </div>
+              </a>
+            </div>
+
+            <div class="stage-wrap">
+              <!-- Visual Esquerda com Foto da Marina + Badges Circulares Flutuantes -->
+              <div class="stage-left">
+                <div class="stage-deco">
+                  <div data-load-stage-deco-text="" style="--animation-delay: .05s;" class="stage-deco-text-wrap">
+                    <img src="assets/sketch_nutricao_real.svg" loading="lazy" width="180" height="70" alt="Nutrição Real, Resultados Reais" class="stage-deco-text"/>
+                    <img src="assets/sketch_nutricao_real.svg" loading="eager" width="180" height="70" alt="Nutrição Real, Resultados Reais" class="stage-deco-text is-wiggle"/>
+                  </div>
+                  <div data-load-stage-deco-arrow="" style="--animation-delay: .15s;" class="stage-deco-arrow-wrap">
+                    <img src="assets/image_5.svg" loading="eager" width="150" height="150" alt="Seta" class="stage-deco-arrow"/>
+                    <img src="assets/image_5.svg" loading="eager" width="150" height="150" alt="Seta" class="stage-deco-arrow is-wiggle"/>
+                  </div>
+                </div>
+
+                <div class="stage-visual">
+                  <img src="3867381322389979318_6210726821.jpg" alt="Dra. Marina Turzi Nutricionista" class="stage-marina-img"/>
+                </div>
+
+                <!-- 3 Badges de Destaque Clínico -->
+                <div class="stage-facts">
+                  <div data-inertia-item="" class="stage-fact-outer">
+                    <div data-load-stage-fact="" data-inertia-item-child="" class="stage-fact is-first">
+                      <div class="stage-fact-wrap">
+                        <div class="stage-fact-number">100</div>
+                        <div class="stage-fact-unit">%</div>
+                      </div>
+                      <div class="stage-fact-text">Sem Sofrer</div>
+                    </div>
+                  </div>
+                  <div data-inertia-item="" class="stage-fact-outer">
+                    <div data-load-stage-fact="" data-inertia-item-child="" class="stage-fact is-second">
+                      <div class="stage-fact-wrap">
+                        <div class="stage-fact-number">0</div>
+                        <div class="stage-fact-unit">%</div>
+                      </div>
+                      <div class="stage-fact-text">Terrorismo</div>
+                    </div>
+                  </div>
+                  <div data-inertia-item="" class="stage-fact-outer">
+                    <div data-load-stage-fact="" data-inertia-item-child="" class="stage-fact is-third">
+                      <div class="stage-fact-wrap">
+                        <div class="stage-fact-number">-8</div>
+                        <div class="stage-fact-unit">cm</div>
+                      </div>
+                      <div class="stage-fact-text">Cintura</div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Arco Circular Branco Contínuo -->
+                <div class="stage-bg">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 731 818" fill="none" data-load-stage-svg="" class="stage-bg-svg">
+                    <path d="M542.941 42.7702C707.951 122.986 766.918 351.375 667.592 555.698C568.265 760.021 352.233 854.727 187.223 774.512C22.2122 694.296 -36.7556 465.905 62.5711 261.582C161.898 57.2593 377.93 -37.4456 542.941 42.7702Z" stroke="currentColor" stroke-width="28"></path>
+                  </svg>
+                </div>
+              </div>
+
+              <!-- Direita: Título & Promessa Clara -->
+              <div class="stage-right">
+                <div class="stage-text-wrap">
+                  <h1 data-load-stage-title="" class="hero-heading">
+                    <span class="white-span">Sua Última</span><br/>Nutri.<br/>Emagreça.
+                  </h1>
+                  <div class="stage-paragraph-wrap">
+                    <p data-load-stage-text="" class="paragraph is-stage-paragraph">
+                      Te ajudo a emagrecer sem sofrer. Foco em saúde intestinal, modulação da microbiota e nutrição comportamental. Atendimento presencial no Instituto Proctogastro (Aquarius, SJC) e online pelo mundo.
+                    </p>
+                    <div data-load-stage-underline="" style="--animation-delay: .2s;" class="stage-subline-wrap">
+                      <img src="assets/image_6.svg" loading="eager" width="152" height="42" alt="Destaque" class="subline-img"/>
+                      <img src="assets/image_6.svg" loading="eager" width="152" height="42" alt="Destaque" class="subline-img is-wiggle"/>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- MARQUEE RIBBON CURVO CONTÍNUO -->
+      <div data-marquee="" class="marquee">
+        <div class="marquee-inner">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 1440 442" width="100%" style="overflow: visible;" class="marquee-bg-svg">
+            <path stroke="currentColor" stroke-width="160" d="M-71 371.6C126.3 260 593.5 65.8 934.5 80.8c313 13.8 497 136 572 200"></path>
+          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 1440 293" width="100%" style="overflow: visible;" data-marquee-svg="" class="marquee-text-svg">
+            <path d="M-68 300C173 173 515.5 1 937.2 1 1254.5 1 1468 183.3 1543 246.9" id="curve"></path>
+            <text width="100%" style="transform:translate3d(0,0,0);">
+              <textPath style="transform:translate3d(0,0,0); font-family:'Plus Jakarta Sans',sans-serif; font-weight:900; letter-spacing:-0.02em; fill:#12331C; font-size:2.3rem;" alignment-baseline="top" href="#curve" startOffset="0%">
+                Sua Última Nutri • Emagreça Sem Sofrer • Saúde Intestinal • Nutrição Comportamental • Atendimento Presencial &amp; Online • Dra. Marina Turzi • Sua Última Nutri • Emagreça Sem Sofrer • Dra. Marina Turzi •
+              </textPath>
+            </text>
+          </svg>
+          <div class="marquee-overlay"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INSIDER SECTION (REELS INTERATIVOS & AUTORIDADE CLÍNICA) -->
+    <div data-inertia="" class="insider-section">
+      <div class="insider-container">
+        <div class="grid-layout">
+          <h2 id="w-node-_3e09cbcc-bb63-d8d5-fc92-5249d862c0ff-0ac01850" class="insider-heading">
+            Você merece o melhor.<br/>Você merece viver em paz:<br/><span class="light-green-span">com seu corpo e a comida.</span>
+          </h2>
+
+          <div id="w-node-e1fee9ee-097a-d41e-6a8c-8fb81a411381-0ac01850" class="insider-wrapper">
+            <div id="w-node-_93a09ee3-b180-b755-d23e-d7d2b5f676da-0ac01850" class="testimonial-wrapper">
+              
+              <!-- Reel Card 1 -->
+              <div data-inertia-item="" class="testimonial-inner-wrap is-first">
+                <div data-inertia-item-child="" class="testimonial-inner _1">
+                  <div class="testimonial-media w-embed">
+                    <video playsinline loop muted autoplay disablepictureinpicture disableremoteplayback controlslist="nodownload nofullscreen noremoteplayback" preload="metadata" data-video>
+                      <source src="3465707989036344824_6210726821.mp4" type="video/mp4"/>
+                    </video>
+                  </div>
+                  <button type="button" data-video-button="" aria-label="Som on/off" class="testimonial-sound-btn is-top">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 16" width="100%" class="testimonial-sound-button-icon is-first"><path fill="currentColor" d="M10.5 2v12a.5.5 0 0 1-.807.394L5.328 11H2.5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h2.828l4.365-3.394A.5.5 0 0 1 10.5 2Zm2 4a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 1 0v-3a.5.5 0 0 0-.5-.5Zm2-1a.5.5 0 0 0-.5.5v5a.5.5 0 0 0 1 0v-5a.5.5 0 0 0-.5-.5Z"></path></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 16" width="100%" class="testimonial-sound-button-icon is-second"><path fill="currentColor" d="M13.87 13.164a.5.5 0 1 1-.74.672l-2.63-2.893v3.038a.518.518 0 0 1-.244.448.5.5 0 0 1-.563-.035L5.328 11H2.5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h2.597L3.13 2.836a.5.5 0 0 1 .74-.672l10 11ZM12.533 10A.51.51 0 0 0 13 9.484V6.517A.51.51 0 0 0 12.533 6a.5.5 0 0 0-.533.5v3a.499.499 0 0 0 .533.5Zm-2.47-2.508a.25.25 0 0 0 .437-.169V2.015a.515.515 0 0 0-.18-.4.5.5 0 0 0-.625-.01L6.989 3.709a.25.25 0 0 0-.03.366l3.104 3.418ZM14.466 5a.51.51 0 0 0-.467.517v4.966a.51.51 0 0 0 .467.516.498.498 0 0 0 .533-.5V5.5a.499.499 0 0 0-.533-.5Z"></path></svg>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Reel Card 2 -->
+              <div data-inertia-item="" id="w-node-_72dd306a-13a2-73bb-8c1c-84b760924bbc-0ac01850" class="testimonial-inner-wrap is-second">
+                <div data-inertia-item-child="" class="testimonial-inner _2">
+                  <div class="testimonial-media w-embed">
+                    <video playsinline loop muted autoplay disablepictureinpicture disableremoteplayback controlslist="nodownload nofullscreen noremoteplayback" preload="metadata" data-video>
+                      <source src="3865961647861525303_6210726821.mp4" type="video/mp4"/>
+                    </video>
+                  </div>
+                  <button type="button" data-video-button="" aria-label="Som on/off" class="testimonial-sound-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 16" width="100%" class="testimonial-sound-button-icon is-first"><path fill="currentColor" d="M10.5 2v12a.5.5 0 0 1-.807.394L5.328 11H2.5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h2.828l4.365-3.394A.5.5 0 0 1 10.5 2Zm2 4a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 1 0v-3a.5.5 0 0 0-.5-.5Zm2-1a.5.5 0 0 0-.5.5v5a.5.5 0 0 0 1 0v-5a.5.5 0 0 0-.5-.5Z"></path></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 16" width="100%" class="testimonial-sound-button-icon is-second"><path fill="currentColor" d="M13.87 13.164a.5.5 0 1 1-.74.672l-2.63-2.893v3.038a.518.518 0 0 1-.244.448.5.5 0 0 1-.563-.035L5.328 11H2.5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h2.597L3.13 2.836a.5.5 0 0 1 .74-.672l10 11ZM12.533 10A.51.51 0 0 0 13 9.484V6.517A.51.51 0 0 0 12.533 6a.5.5 0 0 0-.533.5v3a.499.499 0 0 0 .533.5Zm-2.47-2.508a.25.25 0 0 0 .437-.169V2.015a.515.515 0 0 0-.18-.4.5.5 0 0 0-.625-.01L6.989 3.709a.25.25 0 0 0-.03.366l3.104 3.418ZM14.466 5a.51.51 0 0 0-.467.517v4.966a.51.51 0 0 0 .467.516.498.498 0 0 0 .533-.5V5.5a.499.499 0 0 0-.533-.5Z"></path></svg>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Reel Card 3 -->
+              <div data-inertia-item="" id="w-node-_4a36f3f0-5bbd-c32e-0ae6-c281e3e49136-0ac01850" class="testimonial-inner-wrap is-third">
+                <div data-inertia-item-child="" class="testimonial-inner _3">
+                  <div class="testimonial-media w-embed">
+                    <video playsinline loop muted autoplay disablepictureinpicture disableremoteplayback controlslist="nodownload nofullscreen noremoteplayback" preload="metadata" data-video>
+                      <source src="3916763564674996217_6210726821.mp4" type="video/mp4"/>
+                    </video>
+                  </div>
+                  <button type="button" data-video-button="" aria-label="Som on/off" class="testimonial-sound-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 16" width="100%" class="testimonial-sound-button-icon is-first"><path fill="currentColor" d="M10.5 2v12a.5.5 0 0 1-.807.394L5.328 11H2.5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h2.828l4.365-3.394A.5.5 0 0 1 10.5 2Zm2 4a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 1 0v-3a.5.5 0 0 0-.5-.5Zm2-1a.5.5 0 0 0-.5.5v5a.5.5 0 0 0 1 0v-5a.5.5 0 0 0-.5-.5Z"></path></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 16" width="100%" class="testimonial-sound-button-icon is-second"><path fill="currentColor" d="M13.87 13.164a.5.5 0 1 1-.74.672l-2.63-2.893v3.038a.518.518 0 0 1-.244.448.5.5 0 0 1-.563-.035L5.328 11H2.5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h2.597L3.13 2.836a.5.5 0 0 1 .74-.672l10 11ZM12.533 10A.51.51 0 0 0 13 9.484V6.517A.51.51 0 0 0 12.533 6a.5.5 0 0 0-.533.5v3a.499.499 0 0 0 .533.5Zm-2.47-2.508a.25.25 0 0 0 .437-.169V2.015a.515.515 0 0 0-.18-.4.5.5 0 0 0-.625-.01L6.989 3.709a.25.25 0 0 0-.03.366l3.104 3.418ZM14.466 5a.51.51 0 0 0-.467.517v4.966a.51.51 0 0 0 .467.516.498.498 0 0 0 .533-.5V5.5a.499.499 0 0 0-.533-.5Z"></path></svg>
+                  </button>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Texto de Autoridade & Avaliação -->
+            <div id="w-node-_1ac78251-f73b-1f50-5984-75b855ef30eb-0ac01850" class="insider-text-inner">
+              <h3 class="insider-subheading">
+                Nutrição baseada em evidências, sem dietas malucas de 800kcal e sem proibições de tudo o que você ama comer.
+              </h3>
+              <p class="paragraph">
+                Mais de 2.140 pessoas acompanham diariamente as orientações da Dra. Marina Turzi no Instagram. Acompanhamento humanizado, focado na raiz metabólica e na modulação da saúde intestinal para você emagrecer com leveza e sem efeito sanfona.
+              </p>
+              
+              <div class="insider-cta">
+                <a href="https://wa.me/5512997000000?text=Ol%C3%A1%2C%20Dra.%20Marina!%20Gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20o%20agendamento%20de%20consulta." target="_blank" rel="noopener noreferrer" class="button w-inline-block">
+                  <div class="button-cycle is-first">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 10" width="100%" class="button-arrow"><path fill="currentColor" fill-rule="evenodd" d="M0 1.827 1.71 0H10v8.22L8.11 10V5.93c0-.992.009-1.89.03-2.695l-6.642 6.58-1.316-1.44 6.641-6.58c-.787.022-1.67.032-2.647.032H0Z" clip-rule="evenodd"></path></svg>
+                    <div class="button-cycle-bg"></div>
+                  </div>
+                  <div class="button-bg"><div class="button-text">Agendar no WhatsApp</div></div>
+                  <div class="button-cycle is-second">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 10" width="100%" class="button-arrow"><path fill="currentColor" fill-rule="evenodd" d="M0 1.827 1.71 0H10v8.22L8.11 10V5.93c0-.992.009-1.89.03-2.695l-6.642 6.58-1.316-1.44 6.641-6.58c-.787.022-1.67.032-2.647.032H0Z" clip-rule="evenodd"></path></svg>
+                    <div class="button-cycle-bg"></div>
+                  </div>
+                </a>
+
+                <div class="rating-inner">
+                  <a href="https://www.instagram.com/nutri.marinaturzi/" target="_blank" rel="noopener noreferrer" class="rating-link w-inline-block">
+                    <div class="rating-star-wrap">
+                      <img src="assets/image_7.svg" loading="lazy" width="20" height="20" alt="Estrela" class="rating-star"/>
+                      <img src="assets/image_7.svg" loading="lazy" width="20" height="20" alt="Estrela" class="rating-star"/>
+                      <img src="assets/image_7.svg" loading="lazy" width="20" height="20" alt="Estrela" class="rating-star"/>
+                      <img src="assets/image_7.svg" loading="lazy" width="20" height="20" alt="Estrela" class="rating-star"/>
+                      <img src="assets/image_7.svg" loading="lazy" width="20" height="20" alt="Estrela" class="rating-star"/>
+                    </div>
+                    <div class="rating-text-wrap">
+                      <div class="rating-text">2.148 seguidores &amp; Vidas Transformadas</div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SEQUENCE SECTION (SCROLLYTELLING INTERATIVO COM 3D CANVAS) -->
+    <div id="nutrition" data-sequence="" class="sequence-section">
+      <div class="sequence-signature">
+        <div class="sequence-signature-text">
+          <img src="assets/image_9.svg" loading="lazy" width="300" height="104" alt="Por que as pessoas me escolhem" class="sequence-signature-text-img"/>
+          <img src="assets/image_9.svg" loading="lazy" width="300" height="104" alt="Por que as pessoas me escolhem" class="sequence-signature-text-img is-wiggle"/>
+        </div>
+        <div class="sequence-signature-arrow">
+          <img src="assets/image_10.svg" loading="lazy" width="150" height="150" alt="Seta" class="sequence-signature-arrow-img"/>
+          <img src="assets/image_10.svg" loading="lazy" width="150" height="150" alt="Seta" class="sequence-signature-arrow-img is-wiggle"/>
+        </div>
+      </div>
+
+      <div data-sequence-trigger="" class="sequence-scroll-wrap">
+        <div data-sequence-stage="" class="sequence-sticky">
+          <!-- Canvas 3D (Maçã Verde & Fita Métrica procedural via Three.js) -->
+          <canvas class="sequence-canvas" id="nutrition3DCanvas"></canvas>
+
+          <!-- Cards Desktop com Transição por Scroll -->
+          <div class="sequence-cards">
+            <!-- Card 1 -->
+            <div data-sequence-card="" id="w-node-_2b1d1553-2e40-4f8e-6012-8b41219152b8-0ac01850" class="statement-card is-first">
+              <div class="statement-card-wrapper">
+                <div data-sequence-smiley="" class="top-smiley is-card"><img src="assets/image_11.svg" loading="lazy" alt="Smiley"/></div>
+                <h2 class="statement-heading">Mais<br/> Sabor</h2>
+                <div class="statement-card-paragraph-wrap">
+                  <div class="first-statement-icon">
+                    <img src="assets/image_12.svg" loading="lazy" alt="Círculo" class="first-statement-icon-img"/>
+                    <img src="assets/image_12.svg" loading="lazy" alt="Círculo" class="first-statement-icon-img is-wiggle"/>
+                  </div>
+                  <p class="paragraph center-align">
+                    Coma o que ama sem culpa.<br/>
+                    Cardápio gostoso e individualizado,<br/>
+                    sem passar fome com 800kcal.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div data-sequence-card-left="" data-sequence-card="" id="w-node-b2188393-b808-fcc5-146f-a5ea982f9c7e-0ac01850" class="statement-card is-second">
+              <div class="statement-card-wrapper left">
+                <div data-sequence-smiley-left="" data-sequence-smiley="" class="top-smiley is-card"><img src="assets/image_11.svg" loading="lazy" alt="Smiley"/></div>
+                <h2 class="statement-heading">Mais<br/> Energia</h2>
+                <div class="statement-card-paragraph-wrap">
+                  <div class="second-icon">
+                    <img src="assets/image_13.svg" loading="lazy" alt="Raio" class="second-icon-img"/>
+                    <img src="assets/image_13.svg" loading="lazy" alt="Raio" class="second-icon-img is-wiggle"/>
+                  </div>
+                  <p class="paragraph center-align">
+                    Modulação do eixo intestino-cérebro.<br/>
+                    Adeus estufamento, gases<br/>
+                    e cansaço crônico após comer.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div data-sequence-card="" class="statement-card is-third">
+              <div class="statement-card-wrapper">
+                <div data-sequence-smiley="" class="top-smiley is-card"><img src="assets/image_11.svg" loading="lazy" alt="Smiley"/></div>
+                <h2 class="statement-heading">Mais<br/> Leveza</h2>
+                <div class="statement-card-paragraph-wrap">
+                  <div class="third-statement-icon">
+                    <img src="assets/image_14.svg" loading="lazy" alt="Seta" class="third-statement-icon-img"/>
+                    <img src="assets/image_14.svg" loading="lazy" alt="Seta" class="third-statement-icon-img is-wiggle"/>
+                  </div>
+                  <p class="paragraph center-align">
+                    Emagrecimento consciente e definitivo.<br/>
+                    Elimine o efeito sanfona<br/>
+                    para o resto da sua vida.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div data-sequence-card-left="" data-sequence-card="" id="w-node-e73f88c6-bfeb-1639-4b8f-4b8fdd41da6c-0ac01850" class="statement-card is-fourth">
+              <div class="statement-card-wrapper left">
+                <div data-sequence-smiley-left="" data-sequence-smiley="" class="top-smiley is-card"><img src="assets/image_11.svg" loading="lazy" alt="Smiley"/></div>
+                <h2 class="statement-heading">Zero<br/> Terrorismo</h2>
+                <div class="statement-card-paragraph-wrap">
+                  <div class="fourth-statement-icon">
+                    <img src="assets/image_15.svg" loading="lazy" alt="Círculo" class="fourth-statement-icon-img"/>
+                    <img src="assets/image_15.svg" loading="lazy" alt="Círculo" class="fourth-statement-icon-img is-wiggle"/>
+                  </div>
+                  <p class="paragraph center-align">
+                    Graduada UNESP Botucatu e especialista funcional.<br/>
+                    Sem proibições radicais.<br/>
+                    Autonomia alimentar com ciência.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tela Final da Sequência -->
+          <div class="sequence-final">
+            <h2 data-sequence-title="" class="sequence-title">
+              Nutrição, exatamente<br/>como deve ser.<br/>
+              <span data-sequence-title-split="" class="light-green-span">Qual é o seu objetivo?</span>
+            </h2>
+            <div style="display:flex; flex-wrap:wrap; gap:16px; justify-content:center; max-width:760px; margin-top:28px;">
+              <div style="background:#FFFFFF; border:2px solid #C6E0AD; border-radius:9999px; padding:12px 26px; box-shadow:0 8px 24px rgba(18,51,28,0.1); font-weight:800; font-size:1.05rem; color:#12331C;">🍏 Nutrição Funcional</div>
+              <div style="background:#FFFFFF; border:2px solid #C6E0AD; border-radius:9999px; padding:12px 26px; box-shadow:0 8px 24px rgba(18,51,28,0.1); font-weight:800; font-size:1.05rem; color:#12331C;">✨ Emagrecimento Sem Sofrer</div>
+              <div style="background:#FFFFFF; border:2px solid #C6E0AD; border-radius:9999px; padding:12px 26px; box-shadow:0 8px 24px rgba(18,51,28,0.1); font-weight:800; font-size:1.05rem; color:#12331C;">🧬 Saúde Intestinal</div>
+              <div style="background:#FFFFFF; border:2px solid #C6E0AD; border-radius:9999px; padding:12px 26px; box-shadow:0 8px 24px rgba(18,51,28,0.1); font-weight:800; font-size:1.05rem; color:#12331C;">👩🏽💻 Presencial e Online</div>
+            </div>
+          </div>
+
+          <!-- Linhas Orgânicas SVG de Fundo -->
+          <div class="sequence-lines">
+            <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 1440 691" fill="none" data-sequence-svg="" style="overflow: visible" class="sequence-line-svg is-first"><path d="M-11 627.781C31.2318 652.606 151.814 698.642 199.05 645.884C264.5 572.781 199.05 472.107 47.547 363.054C-103.956 254 -52.529 150.083 24.5115 108.595C210.583 8.39218 434.763 502.251 720.049 329.362C981.436 170.957 1134 -69.7188 1490 2.78121" stroke="currentColor" stroke-width="40"></path></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 1440 682" fill="none" data-sequence-svg="" style="overflow: visible" class="sequence-line-svg is-second"><path d="M1442.05 19.9995C1346.05 34.4995 1170.99 110.452 1098.05 191.999C975.047 329.499 1257.15 515.709 1159 626.498C1027 775.498 571.87 408.445 484.498 347.293C244.047 178.999 15 -12.5016 -102 87.9984" stroke="currentColor" stroke-width="40"></path></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 1440 750" fill="none" data-sequence-svg="" style="overflow: visible" class="sequence-line-svg is-third"><path d="M-918.224 5.00043C-948.225 142 -730.728 264 -473.726 252.501C-271.374 243.446 29.7721 170.716 170.275 135.501C1143.77 -108.499 460.741 462.659 570.773 634.5C651.773 761 1056.77 396 1392.27 396C1513.27 396 1835.87 454.857 2022.77 607.501C2178.27 734.5 2312.44 743.001 2363.77 718.001" stroke="currentColor" stroke-width="40"></path></svg>
+          </div>
+        </div>
+
+        <!-- Cards Mobile para Viewports Estreitos -->
+        <div class="sequence-cards-mobile">
+          <div class="statement-card is-first">
+            <div class="statement-card-wrapper">
+              <div class="top-smiley is-card"><img src="assets/image_11.svg" loading="lazy" alt="Smiley"/></div>
+              <h2 class="statement-heading">Mais Sabor</h2>
+              <div class="statement-card-paragraph-wrap">
+                <p class="paragraph center-align">Coma o que ama sem culpa. Cardápio gostoso e individualizado, sem passar fome com 800kcal.</p>
+              </div>
+            </div>
+          </div>
+          <div class="statement-card is-second">
+            <div class="statement-card-wrapper left">
+              <div class="top-smiley is-card"><img src="assets/image_11.svg" loading="lazy" alt="Smiley"/></div>
+              <h2 class="statement-heading">Mais Energia</h2>
+              <div class="statement-card-paragraph-wrap">
+                <p class="paragraph center-align">Modulação do eixo intestino-cérebro. Adeus estufamento, gases e cansaço crônico após comer.</p>
+              </div>
+            </div>
+          </div>
+          <div class="statement-card is-third">
+            <div class="statement-card-wrapper">
+              <div class="top-smiley is-card"><img src="assets/image_11.svg" loading="lazy" alt="Smiley"/></div>
+              <h2 class="statement-heading">Mais Leveza</h2>
+              <div class="statement-card-paragraph-wrap">
+                <p class="paragraph center-align">Emagrecimento consciente e definitivo. Elimine o efeito sanfona para o resto da vida.</p>
+              </div>
+            </div>
+          </div>
+          <div class="statement-card is-fourth">
+            <div class="statement-card-wrapper left">
+              <div class="top-smiley is-card"><img src="assets/image_11.svg" loading="lazy" alt="Smiley"/></div>
+              <h2 class="statement-heading">Zero Terrorismo</h2>
+              <div class="statement-card-paragraph-wrap">
+                <p class="paragraph center-align">Graduada UNESP e especialista funcional. Sem proibições radicais ou dietas de gaveta.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DIFERENCIAIS / COMPARISON TABLE SECTION -->
+    <div id="benefits" class="benefit-section">
+      <div data-smiley="" class="top-smiley is-benefit"><img src="assets/image_11.svg" loading="lazy" alt="Smiley"/></div>
+      <div class="container smaller">
+        <div class="grid-layout">
+          <!-- Visual da Especialista -->
+          <div id="w-node-_6f3e86b5-5cf7-4a62-19af-d6d71a8517d6-0ac01850" class="img-wrapper">
+            <img src="3422169198304662652_6210726821.jpg" loading="lazy" alt="Dra. Marina Turzi em Atendimento" class="top-img" style="border-radius:32px; box-shadow:0 20px 48px rgba(18,51,28,0.16); border:4px solid #FFFFFF;"/>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 575 559" width="100%" data-fill-line="" class="benefit-svg">
+              <path stroke="currentColor" stroke-width="27" d="M-56.447 495.508C-26.61 513.052 53.628 569.352 87 532.069c46.24-51.66 4.952-146.571-102.084-223.636-107.035-77.065-70.703-150.5-16.274-179.818C100.1 57.804 196.947 412.744 398.5 290.569 583.168 178.628 665-36.931 945 24.953"></path>
+            </svg>
+            <img src="3263642764061301598_6210726821.jpg" loading="lazy" alt="Consultório Dra. Marina Turzi" class="img" style="border-radius:28px; box-shadow:0 16px 36px rgba(18,51,28,0.12);"/>
+          </div>
+
+          <!-- Tabela de Comparação -->
+          <div id="w-node-_32be253f-aa6e-8103-6d3f-40e63162832f-0ac01850" class="benefit-wrapper">
+            <h2 class="benefit-heading">
+              <span data-highlight-text="" class="light-green-span">Mais para você.</span><br/>Veja os diferenciais.
+            </h2>
+            <div data-benefit-table="" class="benefit-table">
+              
+              <!-- Título das Colunas -->
+              <div id="w-node-_244ca70f-4fb8-4324-7d1f-6e5cebd97f1e-0ac01850" class="benefit-table-title-wrapper">
+                <div id="w-node-da33aad3-e9be-fd6f-a8b0-79237ed37994-0ac01850" class="benefit-table-title">Diferenciais</div>
+                <div class="marina-col-badge">
+                  <span>✨ Dra. Marina</span>
+                </div>
+                <div id="w-node-_78d70ec8-c380-1f74-9296-fa312e5af0f4-0ac01850" class="benefit-table-title">Dietas Tradicionais</div>
+              </div>
+              <div data-benefit-table-line="" id="w-node-dabaf014-7b8f-d5cf-7507-3b9733e65ad8-0ac01850" class="sub-line"></div>
+
+              <div id="w-node-_89929daf-28b9-a774-1cdd-9d54c6ee4049-0ac01850" class="benefit-item-wrapper">
+                
+                <!-- Linha 1 -->
+                <div class="benefit-table-item">
+                  <div class="benefit-item-title">Cardápio com o que você gosta de comer</div>
+                  <div class="benefit-checker-inner">
+                    <div class="benefit-item-check"><img src="assets/image_27.svg" loading="lazy" alt="Check" class="check"/></div>
+                  </div>
+                  <div class="benefit-checker-inner">
+                    <div class="benefit-item-x"><img src="assets/image_28.svg" loading="lazy" alt="X" class="check"/></div>
+                  </div>
+                </div>
+                <div data-benefit-table-line="" class="line"></div>
+
+                <!-- Linha 2 -->
+                <div class="benefit-table-item">
+                  <div class="benefit-item-title">Tratamento do intestino e desinflamação</div>
+                  <div class="benefit-checker-inner">
+                    <div class="benefit-item-check"><img src="assets/image_27.svg" loading="lazy" alt="Check" class="check"/></div>
+                  </div>
+                  <div class="benefit-checker-inner">
+                    <div class="benefit-item-x"><img src="assets/image_28.svg" loading="lazy" alt="X" class="check"/></div>
+                  </div>
+                </div>
+                <div data-benefit-table-line="" class="line"></div>
+
+                <!-- Linha 3 -->
+                <div class="benefit-table-item">
+                  <div class="benefit-item-title">Sem passar fome ou cortar grupos alimentares</div>
+                  <div class="benefit-checker-inner">
+                    <div class="benefit-item-check"><img src="assets/image_27.svg" loading="lazy" alt="Check" class="check"/></div>
+                  </div>
+                  <div class="benefit-checker-inner">
+                    <div class="benefit-item-x"><img src="assets/image_28.svg" loading="lazy" alt="X" class="check"/></div>
+                  </div>
+                </div>
+                <div data-benefit-table-line="" class="line"></div>
+
+                <!-- Linha 4 -->
+                <div class="benefit-table-item">
+                  <div class="benefit-item-title">Emagrecimento sustentável (zero efeito sanfona)</div>
+                  <div class="benefit-checker-inner">
+                    <div class="benefit-item-check"><img src="assets/image_27.svg" loading="lazy" alt="Check" class="check"/></div>
+                  </div>
+                  <div class="benefit-checker-inner">
+                    <div class="benefit-item-x"><img src="assets/image_28.svg" loading="lazy" alt="X" class="check"/></div>
+                  </div>
+                </div>
+                <div data-benefit-table-line="" class="line"></div>
+
+                <!-- Linha 5 -->
+                <div class="benefit-table-item">
+                  <div class="benefit-item-title">Suporte contínuo e aplicativo WebDiet incluso</div>
+                  <div class="benefit-checker-inner">
+                    <div class="benefit-item-check"><img src="assets/image_27.svg" loading="lazy" alt="Check" class="check"/></div>
+                  </div>
+                  <div class="benefit-checker-inner">
+                    <div class="benefit-item-x"><img src="assets/image_28.svg" loading="lazy" alt="X" class="check"/></div>
+                  </div>
+                </div>
+                <div data-benefit-table-line="" class="line"></div>
+
+                <!-- Linha 6 -->
+                <div class="benefit-table-item">
+                  <div class="benefit-item-title">Avaliação física e metabólica completa</div>
+                  <div class="benefit-checker-inner">
+                    <div class="benefit-item-check"><img src="assets/image_27.svg" loading="lazy" alt="Check" class="check"/></div>
+                  </div>
+                  <div class="benefit-checker-inner">
+                    <div class="benefit-item-x"><img src="assets/image_28.svg" loading="lazy" alt="X" class="check"/></div>
+                  </div>
+                </div>
+                <div data-benefit-table-line="" class="line"></div>
+
+                <!-- Linha 7 -->
+                <div class="benefit-table-item">
+                  <div class="benefit-item-title">Atendimento acolhedor (Presencial SJC &amp; Online)</div>
+                  <div class="benefit-checker-inner">
+                    <div class="benefit-item-check"><img src="assets/image_27.svg" loading="lazy" alt="Check" class="check"/></div>
+                  </div>
+                  <div class="benefit-checker-inner">
+                    <div class="benefit-item-x"><img src="assets/image_28.svg" loading="lazy" alt="X" class="check"/></div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DEPOIMENTOS / TESTIMONIALS SLIDER SECTION -->
+    <div id="reviews" class="testimonial-section">
+      <div data-testimonial-parallax="" class="bg-img-wrapper">
+        <img class="testimonial-top-img" src="assets/image_29.webp" width="2048" alt="Fundo" sizes="100vw" data-testimonial-parallax-item="" loading="lazy"/>
+        <img class="bg-img" src="assets/image_30.webp" width="2048" alt="Fundo" sizes="100vw" data-testimonial-parallax-item="" loading="lazy"/>
+      </div>
+      <div class="testimonial-container">
+        <div class="grid-layout">
+          <div id="w-node-_188a35c2-2913-dd29-6c54-5bf8cbbe64f3-0ac01850" class="big-title-wrapper">
+            <div class="testimonial-signature">
+              <img src="assets/image_31.svg" loading="lazy" width="300" height="27" alt="Assinatura" class="testimonial-signature-img"/>
+              <img src="assets/image_31.svg" loading="lazy" width="300" height="27" alt="Assinatura" class="testimonial-signature-img is-wiggle"/>
+            </div>
+            <h2 class="testimonial-big-heading">Resultados Reais. <br/>Sem Sofrimento.</h2>
+          </div>
+
+          <div id="w-node-d56024cf-9b70-fc24-7ba0-e2b3ea8d1769-0ac01850" class="testimonial-slider">
+            <h3 class="testimonial-heading">o que dizem <br/>as pacientes</h3>
+            
+            <div data-testimonial-inview="" class="testimonial-slider-wrapper">
+              <div data-slider-interface="" class="testimonial-slider-interface">
+                <div data-slider-arrows="" class="testimonial-slider-button-wrapper">
+                  <button type="button" data-slider-left-button="" aria-label="Anterior" class="testimonial-slider-button is-left">
+                    <img src="assets/image_32.svg" loading="lazy" width="20" height="20" alt="Esquerda" class="testimonial-slider-button-arrow"/>
+                  </button>
+                  <button type="button" data-slider-right-button="" aria-label="Próximo" class="testimonial-slider-button is-right">
+                    <img src="assets/image_33.svg" loading="lazy" width="20" height="20" alt="Direita" class="testimonial-slider-button-arrow"/>
+                  </button>
+                </div>
+              </div>
+
+              <div data-slider="" class="testimonial-slider-inner">
+                <!-- Depoimento 1 -->
+                <div class="testimonial-slider-item-wrap">
+                  <div data-slider-item-inner="" class="testimonial-slider-item">
+                    <div class="testimonial-star-wrap">
+                      <img src="assets/image_34.svg" loading="lazy" width="20" height="20" alt="Estrela" class="testimonial-star"/>
+                      <img src="assets/image_34.svg" loading="lazy" width="20" height="20" alt="Estrela" class="testimonial-star"/>
+                      <img src="assets/image_34.svg" loading="lazy" width="20" height="20" alt="Estrela" class="testimonial-star"/>
+                      <img src="assets/image_34.svg" loading="lazy" width="20" height="20" alt="Estrela" class="testimonial-star"/>
+                      <img src="assets/image_34.svg" loading="lazy" width="20" height="20" alt="Estrela" class="testimonial-star"/>
+                    </div>
+                    <div class="testimonial-item-inner-text">
+                      <h4 class="testimonial-item-heading">Melhor decisão da minha vida!</h4>
+                      <p class="testimonial-item-text">
+                        Sofria com estufamento e dores quase todo dia. A Marina tratou meu intestino e hoje perdi 7kg naturalmente sem passar fome!
+                      </p>
+                    </div>
+                    <div class="testimonial-line"></div>
+                    <div class="testimonial-item-bottom">
+                      <div class="testimonial-client-name">Camila R. (São José dos Campos)</div>
+                      <div class="testimonial-verified-wrap">
+                        <img src="assets/image_35.svg" loading="lazy" width="20" height="20" alt="Verificado" class="testimonial-verified-icon"/>
+                        <div class="testimonial-verified-text">Paciente Verificada</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Depoimento 2 -->
+                <div class="testimonial-slider-item-wrap">
+                  <div data-slider-item-inner="" class="testimonial-slider-item">
+                    <div class="testimonial-star-wrap">
+                      <img src="assets/image_34.svg" loading="lazy" width="20" height="20" alt="Estrela" class="testimonial-star"/>
+                      <img src="assets/image_34.svg" loading="lazy" width="20" height="20" alt="Estrela" class="testimonial-star"/>
+                      <img src="assets/image_34.svg" loading="lazy" width="20" height="20" alt="Estrela" class="testimonial-star"/>
+                      <img src="assets/image_34.svg" loading="lazy" width="20" height="20" alt="Estrela" class="testimonial-star"/>
+                      <img src="assets/image_34.svg" loading="lazy" width="20" height="20" alt="Estrela" class="testimonial-star"/>
+                    </div>
+                    <div class="testimonial-item-inner-text">
+                      <h4 class="testimonial-item-heading">Adeus ao efeito sanfona!</h4>
+                      <p class="testimonial-item-text">
+                        Depois de anos tentando dietas restritivas que me deixavam fraca e sem ânimo, aprendi a comer com a Dra. Marina e mantenho meu peso há 1 ano.
+                      </p>
+                    </div>
+                    <div class="testimonial-line"></div>
+                    <div class="testimonial-item-bottom">
+                      <div class="testimonial-client-name">Mariana S. (Consulta Online)</div>
+                      <div class="testimonial-verified-wrap">
+                        <img src="assets/image_35.svg" loading="lazy" width="20" height="20" alt="Verificado" class="testimonial-verified-icon"/>
+                        <div class="testimonial-verified-text">Paciente Verificada</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Depoimento 3 -->
+                <div class="testimonial-slider-item-wrap">
+                  <div data-slider-item-inner="" class="testimonial-slider-item">
+                    <div class="testimonial-star-wrap">
+                      <img src="assets/image_34.svg" loading="lazy" width="20" height="20" alt="Estrela" class="testimonial-star"/>
+                      <img src="assets/image_34.svg" loading="lazy" width="20" height="20" alt="Estrela" class="testimonial-star"/>
+                      <img src="assets/image_34.svg" loading="lazy" width="20" height="20" alt="Estrela" class="testimonial-star"/>
+                      <img src="assets/image_34.svg" loading="lazy" width="20" height="20" alt="Estrela" class="testimonial-star"/>
+                      <img src="assets/image_34.svg" loading="lazy" width="20" height="20" alt="Estrela" class="testimonial-star"/>
+                    </div>
+                    <div class="testimonial-item-inner-text">
+                      <h4 class="testimonial-item-heading">Intestino funcionando todo dia!</h4>
+                      <p class="testimonial-item-text">
+                        Eu tinha dores e inchaço constante. Com o protocolo de saúde intestinal da Marina, ganhei uma disposição que não sentia há anos.
+                      </p>
+                    </div>
+                    <div class="testimonial-line"></div>
+                    <div class="testimonial-item-bottom">
+                      <div class="testimonial-client-name">Beatriz M. (São José dos Campos)</div>
+                      <div class="testimonial-verified-wrap">
+                        <img src="assets/image_35.svg" loading="lazy" width="20" height="20" alt="Verificado" class="testimonial-verified-icon"/>
+                        <div class="testimonial-verified-text">Paciente Verificada</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Depoimento 4 -->
+                <div class="testimonial-slider-item-wrap">
+                  <div data-slider-item-inner="" class="testimonial-slider-item">
+                    <div class="testimonial-star-wrap">
+                      <img src="assets/image_34.svg" loading="lazy" width="20" height="20" alt="Estrela" class="testimonial-star"/>
+                      <img src="assets/image_34.svg" loading="lazy" width="20" height="20" alt="Estrela" class="testimonial-star"/>
+                      <img src="assets/image_34.svg" loading="lazy" width="20" height="20" alt="Estrela" class="testimonial-star"/>
+                      <img src="assets/image_34.svg" loading="lazy" width="20" height="20" alt="Estrela" class="testimonial-star"/>
+                      <img src="assets/image_34.svg" loading="lazy" width="20" height="20" alt="Estrela" class="testimonial-star"/>
+                    </div>
+                    <div class="testimonial-item-inner-text">
+                      <h4 class="testimonial-item-heading">Sem terrorismo de verdade</h4>
+                      <p class="testimonial-item-text">
+                        A consulta presencial no Instituto Proctogastro foi maravilhosa. Ela escuta você de verdade e monta algo viável para sua rotina real.
+                      </p>
+                    </div>
+                    <div class="testimonial-line"></div>
+                    <div class="testimonial-item-bottom">
+                      <div class="testimonial-client-name">Juliana F. (São José dos Campos)</div>
+                      <div class="testimonial-verified-wrap">
+                        <img src="assets/image_35.svg" loading="lazy" width="20" height="20" alt="Verificado" class="testimonial-verified-icon"/>
+                        <div class="testimonial-verified-text">Paciente Verificada</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Depoimento 5 -->
+                <div class="testimonial-slider-item-wrap">
+                  <div data-slider-item-inner="" class="testimonial-slider-item">
+                    <div class="testimonial-star-wrap">
+                      <img src="assets/image_34.svg" loading="lazy" width="20" height="20" alt="Estrela" class="testimonial-star"/>
+                      <img src="assets/image_34.svg" loading="lazy" width="20" height="20" alt="Estrela" class="testimonial-star"/>
+                      <img src="assets/image_34.svg" loading="lazy" width="20" height="20" alt="Estrela" class="testimonial-star"/>
+                      <img src="assets/image_34.svg" loading="lazy" width="20" height="20" alt="Estrela" class="testimonial-star"/>
+                      <img src="assets/image_34.svg" loading="lazy" width="20" height="20" alt="Estrela" class="testimonial-star"/>
+                    </div>
+                    <div class="testimonial-item-inner-text">
+                      <h4 class="testimonial-item-heading">Recuperei minha auto-estima</h4>
+                      <p class="testimonial-item-text">
+                        Pela primeira vez em anos eu me sinto bem no espelho e com energia para treinar e brincar com meus filhos. A Marina é impecável!
+                      </p>
+                    </div>
+                    <div class="testimonial-line"></div>
+                    <div class="testimonial-item-bottom">
+                      <div class="testimonial-client-name">Patricia L. (Consulta Online)</div>
+                      <div class="testimonial-verified-wrap">
+                        <img src="assets/image_35.svg" loading="lazy" width="20" height="20" alt="Verificado" class="testimonial-verified-icon"/>
+                        <div class="testimonial-verified-text">Paciente Verificada</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARROSSEL DE POSTS & DICAS NO INSTAGRAM (ADAPTAÇÃO DA SEÇÃO FLAVOUR) -->
+    <section id="flavour" data-inertia="" class="flavour">
+      <div class="flavour-container">
+        <div class="flavour-header">
+          <div class="flavour-heading-wrap">
+            <h2 class="flavour-title">Dicas &amp; Conteúdo</h2>
+            <h3 data-highlight-text="" class="flavour-subline">@nutri.marinaturzi no Instagram</h3>
+          </div>
+          <p class="flavour-paragraph">
+            Acompanhe diariamente orientações práticas sobre saúde intestinal, emagrecimento consciente e como manter uma relação saudável com a comida.
+          </p>
+        </div>
+
+        <div data-flavour-content="" class="flavour-content">
+          
+          <!-- Esquerda: Perfil & Métricas do Instagram -->
+          <div class="flavour-left">
+            <div class="flavour-signature-wrap">
+              <div class="flavour-signature">
+                <img src="assets/image_36.svg" loading="lazy" width="300" height="90" alt="Destaque" class="flavour-signature-img"/>
+                <img src="assets/image_36.svg" loading="lazy" width="300" height="90" alt="Destaque" class="flavour-signature-img is-wiggle"/>
+              </div>
+              <div style="--animation-delay: .15s;" class="flavour-signature-arrow">
+                <img src="assets/image_37.svg" loading="lazy" width="147" height="150" alt="Seta" class="flavour-signature-arrow-img"/>
+                <img src="assets/image_37.svg" loading="lazy" width="147" height="150" alt="Seta" class="flavour-signature-arrow-img is-wiggle"/>
+              </div>
+            </div>
+
+            <!-- Card de Perfil Instagram -->
+            <div class="insta-profile-card">
+              <div style="display:flex; align-items:center; gap:16px;">
+                <img src="3867381322389979318_6210726821.jpg" alt="Dra. Marina Turzi" style="width:68px; height:68px; border-radius:50%; object-fit:cover; border:3px solid #78A75A;"/>
+                <div>
+                  <h4 style="margin:0; font-size:1.15rem; font-weight:850; color:#12331C;">nutri.marinaturzi</h4>
+                  <p style="margin:4px 0 0; font-size:0.86rem; color:#4B6353; font-weight:600;">MARINA TURZI | Nutricionista</p>
+                </div>
+              </div>
+              <div class="insta-stats-grid">
+                <div>
+                  <div class="insta-stat-num">244</div>
+                  <div class="insta-stat-lbl">posts</div>
+                </div>
+                <div>
+                  <div class="insta-stat-num">2.148</div>
+                  <div class="insta-stat-lbl">seguidores</div>
+                </div>
+                <div>
+                  <div class="insta-stat-num">1.175</div>
+                  <div class="insta-stat-lbl">seguindo</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="flavour-plus">
+            <img src="assets/image_40.svg" loading="lazy" width="146" height="150" alt="Plus" class="flavour-plus-img"/>
+          </div>
+
+          <!-- Direita: Slider dos Posts Reais -->
+          <div class="flavour-right">
+            <div data-flavour-slider="" class="flavour-swiper swiper">
+              <div class="flavour-swiper-wrapper swiper-wrapper">
+                
+                <!-- Slide 1 -->
+                <div class="flavour-slide swiper-slide">
+                  <div class="flavour-slide-inner flavour-slide-custom">
+                    <img src="3673648763965657740_6210726821_1.jpg" alt="Dica de Nutrição Dra. Marina Turzi" class="insta-post-img"/>
+                  </div>
+                </div>
+
+                <!-- Slide 2 -->
+                <div class="flavour-slide swiper-slide" style="display:none;">
+                  <div class="flavour-slide-inner flavour-slide-custom">
+                    <img src="3715041784384992638_6210726821_1.jpg" alt="Saúde Intestinal e Emagrecimento" class="insta-post-img"/>
+                  </div>
+                </div>
+
+                <!-- Slide 3 -->
+                <div class="flavour-slide swiper-slide" style="display:none;">
+                  <div class="flavour-slide-inner flavour-slide-custom">
+                    <img src="3932628137000509920_6210726821_1.jpg" alt="Como Emagrecer Sem Sofrer" class="insta-post-img"/>
+                  </div>
+                </div>
+
+                <!-- Slide 4 -->
+                <div class="flavour-slide swiper-slide" style="display:none;">
+                  <div class="flavour-slide-inner flavour-slide-custom">
+                    <img src="4013169975603402907_6210726821_1.jpg" alt="Construindo Autonomia Alimentar" class="insta-post-img"/>
+                  </div>
+                </div>
+
+                <!-- Slide 5 -->
+                <div class="flavour-slide swiper-slide" style="display:none;">
+                  <div class="flavour-slide-inner flavour-slide-custom">
+                    <img src="3199924461162573371_6210726821_1.jpg" alt="Refeições Equilibradas e Sem Culpa" class="insta-post-img"/>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <div class="flavour-right-bg">
+              <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 769 691" fill="none" data-flavour-content-svg="" class="flavour-right-bg-svg">
+                <path d="M245.813 59.5015C54.1619 152.668 -34.1186 356.234 41.6525 512.101C117.424 667.969 332.042 724.289 523.692 631.123C715.343 537.957 803.624 334.39 727.852 178.522C652.081 22.6546 437.463 -33.6648 245.813 59.5015Z" stroke="currentColor" stroke-width="28"></path>
+              </svg>
+            </div>
+          </div>
+
+          <!-- Controles do Slider -->
+          <div class="flavour-navigation">
+            <button type="button" data-flavour-slider-left-button="" aria-label="Post Anterior" class="flavour-slider-button is-left">
+              <img src="assets/image_32.svg" loading="lazy" width="20" height="20" alt="Esquerda" class="flavour-slider-button-arrow"/>
+            </button>
+            <button type="button" data-flavour-slider-right-button="" aria-label="Próximo Post" class="flavour-slider-button is-right">
+              <img src="assets/image_33.svg" loading="lazy" width="20" height="20" alt="Direita" class="flavour-slider-button-arrow"/>
+            </button>
+          </div>
+
+          <!-- Centro: Descrição Dinâmica do Post -->
+          <div class="flavour-center">
+            <div data-flavour-content-slider="" class="flavour-content-swiper swiper">
+              <div class="flavour-content-swiper-wrapper swiper-wrapper">
+                
+                <div class="flavour-content-slide swiper-slide">
+                  <div class="flavour-content-slide-inner">
+                    <div class="flavour-content-slide-header">
+                      <h3 class="flavour-content-slider-title">Emagrecer<br/>Sem Sofrer</h3>
+                      <p class="flavour-content-slider-subline">@nutri.marinaturzi</p>
+                    </div>
+                    <a href="https://www.instagram.com/nutri.marinaturzi/" target="_blank" rel="noopener noreferrer" class="button w-inline-block">
+                      <div class="button-cycle is-first">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 10" width="100%" class="button-arrow"><path fill="currentColor" fill-rule="evenodd" d="M0 1.827 1.71 0H10v8.22L8.11 10V5.93c0-.992.009-1.89.03-2.695l-6.642 6.58-1.316-1.44 6.641-6.58c-.787.022-1.67.032-2.647.032H0Z" clip-rule="evenodd"></path></svg>
+                        <div class="button-cycle-bg"></div>
+                      </div>
+                      <div class="button-bg"><div class="button-text">Ver no Instagram</div></div>
+                      <div class="button-cycle is-second">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 10" width="100%" class="button-arrow"><path fill="currentColor" fill-rule="evenodd" d="M0 1.827 1.71 0H10v8.22L8.11 10V5.93c0-.992.009-1.89.03-2.695l-6.642 6.58-1.316-1.44 6.641-6.58c-.787.022-1.67.032-2.647.032H0Z" clip-rule="evenodd"></path></svg>
+                        <div class="button-cycle-bg"></div>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+
+                <div class="flavour-content-slide swiper-slide" style="display:none;">
+                  <div class="flavour-content-slide-inner">
+                    <div class="flavour-content-slide-header">
+                      <h3 class="flavour-content-slider-title">Saúde<br/>Intestinal</h3>
+                      <p class="flavour-content-slider-subline">@nutri.marinaturzi</p>
+                    </div>
+                    <a href="https://www.instagram.com/nutri.marinaturzi/" target="_blank" rel="noopener noreferrer" class="button w-inline-block">
+                      <div class="button-cycle is-first"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 10" width="100%" class="button-arrow"><path fill="currentColor" fill-rule="evenodd" d="M0 1.827 1.71 0H10v8.22L8.11 10V5.93c0-.992.009-1.89.03-2.695l-6.642 6.58-1.316-1.44 6.641-6.58c-.787.022-1.67.032-2.647.032H0Z" clip-rule="evenodd"></path></svg><div class="button-cycle-bg"></div></div>
+                      <div class="button-bg"><div class="button-text">Ver no Instagram</div></div>
+                      <div class="button-cycle is-second"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 10" width="100%" class="button-arrow"><path fill="currentColor" fill-rule="evenodd" d="M0 1.827 1.71 0H10v8.22L8.11 10V5.93c0-.992.009-1.89.03-2.695l-6.642 6.58-1.316-1.44 6.641-6.58c-.787.022-1.67.032-2.647.032H0Z" clip-rule="evenodd"></path></svg><div class="button-cycle-bg"></div></div>
+                    </a>
+                  </div>
+                </div>
+
+                <div class="flavour-content-slide swiper-slide" style="display:none;">
+                  <div class="flavour-content-slide-inner">
+                    <div class="flavour-content-slide-header">
+                      <h3 class="flavour-content-slider-title">Sem Efeito<br/>Sanfona</h3>
+                      <p class="flavour-content-slider-subline">@nutri.marinaturzi</p>
+                    </div>
+                    <a href="https://www.instagram.com/nutri.marinaturzi/" target="_blank" rel="noopener noreferrer" class="button w-inline-block">
+                      <div class="button-cycle is-first"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 10" width="100%" class="button-arrow"><path fill="currentColor" fill-rule="evenodd" d="M0 1.827 1.71 0H10v8.22L8.11 10V5.93c0-.992.009-1.89.03-2.695l-6.642 6.58-1.316-1.44 6.641-6.58c-.787.022-1.67.032-2.647.032H0Z" clip-rule="evenodd"></path></svg><div class="button-cycle-bg"></div></div>
+                      <div class="button-bg"><div class="button-text">Ver no Instagram</div></div>
+                      <div class="button-cycle is-second"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 10" width="100%" class="button-arrow"><path fill="currentColor" fill-rule="evenodd" d="M0 1.827 1.71 0H10v8.22L8.11 10V5.93c0-.992.009-1.89.03-2.695l-6.642 6.58-1.316-1.44 6.641-6.58c-.787.022-1.67.032-2.647.032H0Z" clip-rule="evenodd"></path></svg><div class="button-cycle-bg"></div></div>
+                    </a>
+                  </div>
+                </div>
+
+                <div class="flavour-content-slide swiper-slide" style="display:none;">
+                  <div class="flavour-content-slide-inner">
+                    <div class="flavour-content-slide-header">
+                      <h3 class="flavour-content-slider-title">Autonomia<br/>Alimentar</h3>
+                      <p class="flavour-content-slider-subline">@nutri.marinaturzi</p>
+                    </div>
+                    <a href="https://www.instagram.com/nutri.marinaturzi/" target="_blank" rel="noopener noreferrer" class="button w-inline-block">
+                      <div class="button-cycle is-first"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 10" width="100%" class="button-arrow"><path fill="currentColor" fill-rule="evenodd" d="M0 1.827 1.71 0H10v8.22L8.11 10V5.93c0-.992.009-1.89.03-2.695l-6.642 6.58-1.316-1.44 6.641-6.58c-.787.022-1.67.032-2.647.032H0Z" clip-rule="evenodd"></path></svg><div class="button-cycle-bg"></div></div>
+                      <div class="button-bg"><div class="button-text">Ver no Instagram</div></div>
+                      <div class="button-cycle is-second"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 10" width="100%" class="button-arrow"><path fill="currentColor" fill-rule="evenodd" d="M0 1.827 1.71 0H10v8.22L8.11 10V5.93c0-.992.009-1.89.03-2.695l-6.642 6.58-1.316-1.44 6.641-6.58c-.787.022-1.67.032-2.647.032H0Z" clip-rule="evenodd"></path></svg><div class="button-cycle-bg"></div></div>
+                    </a>
+                  </div>
+                </div>
+
+                <div class="flavour-content-slide swiper-slide" style="display:none;">
+                  <div class="flavour-content-slide-inner">
+                    <div class="flavour-content-slide-header">
+                      <h3 class="flavour-content-slider-title">Sem Culpa<br/>À Mesa</h3>
+                      <p class="flavour-content-slider-subline">@nutri.marinaturzi</p>
+                    </div>
+                    <a href="https://www.instagram.com/nutri.marinaturzi/" target="_blank" rel="noopener noreferrer" class="button w-inline-block">
+                      <div class="button-cycle is-first"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 10" width="100%" class="button-arrow"><path fill="currentColor" fill-rule="evenodd" d="M0 1.827 1.71 0H10v8.22L8.11 10V5.93c0-.992.009-1.89.03-2.695l-6.642 6.58-1.316-1.44 6.641-6.58c-.787.022-1.67.032-2.647.032H0Z" clip-rule="evenodd"></path></svg><div class="button-cycle-bg"></div></div>
+                      <div class="button-bg"><div class="button-text">Ver no Instagram</div></div>
+                      <div class="button-cycle is-second"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 10" width="100%" class="button-arrow"><path fill="currentColor" fill-rule="evenodd" d="M0 1.827 1.71 0H10v8.22L8.11 10V5.93c0-.992.009-1.89.03-2.695l-6.642 6.58-1.316-1.44 6.641-6.58c-.787.022-1.67.032-2.647.032H0Z" clip-rule="evenodd"></path></svg><div class="button-cycle-bg"></div></div>
+                    </a>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CONSULTÓRIO, ATENDIMENTO & CREDENCIAIS (SUBSTITUINDO PAYMENT SECTION) -->
+    <div data-inertia="" class="payment-section">
+      <div class="payment-container">
+        <div class="grid-layout">
+          <div id="w-node-_041f45d4-47b7-9fbf-98ee-78b1c2254fcb-0ac01850" class="payment-wrapper">
+            
+            <div id="w-node-_358aeb55-90b6-f7e1-a5ad-3d95f312e343-0ac01850" class="payment-signature-days is-desktop">
+              <div style="background:var(--matcha-badge); border-radius:9999px; padding:8px 20px; font-weight:800; font-size:0.92rem; color:#12331C; display:inline-flex; align-items:center; gap:8px;">
+                <span>📍 Presencial &amp; Online</span>
+              </div>
+            </div>
+
+            <h2 id="w-node-_5aa7990f-3909-960f-ff04-09bf6fbaf58f-0ac01850" class="insider-heading">
+              Não adie sua saúde.<br/><span class="light-green-span">Comece hoje.</span>
+            </h2>
+
+            <!-- Grid de Credenciais & Confiança -->
+            <div class="trust-card-grid">
+              
+              <div class="trust-card">
+                <div class="trust-icon-wrap">🏥</div>
+                <div>
+                  <div class="trust-title">Instituto Proctogastro</div>
+                  <div class="trust-desc">Atendimento presencial no bairro Aquarius, em São José dos Campos / SP. Estrutura médica completa.</div>
+                </div>
+              </div>
+
+              <div class="trust-card">
+                <div class="trust-icon-wrap">💻</div>
+                <div>
+                  <div class="trust-title">Consulta Online Global</div>
+                  <div class="trust-desc">Atendimento por videoconferência com o mesmo acolhimento e suporte direto para pacientes de todo o Brasil e exterior.</div>
+                </div>
+              </div>
+
+              <div class="trust-card">
+                <div class="trust-icon-wrap">🎓</div>
+                <div>
+                  <div class="trust-title">Graduada UNESP Botucatu</div>
+                  <div class="trust-desc">Formação de elite em uma das melhores universidades de saúde do país, com especialização funcional.</div>
+                </div>
+              </div>
+
+              <div class="trust-card">
+                <div class="trust-icon-wrap">📜</div>
+                <div>
+                  <div class="trust-title">CRN3 56877</div>
+                  <div class="trust-desc">Nutricionista devidamente registrada no Conselho Regional de Nutricionistas da 3ª Região (SP/MS).</div>
+                </div>
+              </div>
+
+              <div class="trust-card">
+                <div class="trust-icon-wrap">📱</div>
+                <div>
+                  <div class="trust-title">Aplicativo WebDiet</div>
+                  <div class="trust-desc">Cardápio interativo, lista de compras, receitas e chat direto na palma da sua mão para facilitar sua rotina.</div>
+                </div>
+              </div>
+
+              <div class="trust-card">
+                <div class="trust-icon-wrap">💬</div>
+                <div>
+                  <div class="trust-title">Suporte Contínuo</div>
+                  <div class="trust-desc">Canal aberto no WhatsApp entre consultas para tirar dúvidas de pratos, compras e cardápio sem complicação.</div>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+      
+      <!-- Ponte Visual do Footer -->
+      <div class="footer-bridge">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 1440 362" data-fill-line="" class="footer-line">
+          <path stroke="currentColor" stroke-width="40" d="M-18.71 5c-13.946 63.747 87.162 120.514 206.635 115.163 94.068-4.213 234.063-38.055 299.378-54.44C939.856-47.813 622.333 217.95 673.484 297.908c37.655 58.861 225.928-110.975 381.896-110.975 56.25 0 206.21 27.386 293.1 98.412 72.29 59.093 134.66 63.049 158.52 51.416"></path>
+        </svg>
+      </div>
+    </div>
+
+    <!-- FOOTER INSTITUCIONAL -->
+    <div class="footer">
+      <div id="w-node-_01191fa0-2abf-23ff-44da-acbdf6476df4-0ac01850" class="footer-full-height-container">
+        
+        <!-- Cartão de Agendamento da Especialista -->
+        <div id="w-node-f35c7284-aa91-03b1-62fc-d15dd1353c80-0ac01850" class="footer-product">
+          <div class="footer-marina-card">
+            <img src="3867381322389979318_6210726821.jpg" alt="Dra. Marina Turzi" class="footer-marina-bg"/>
+            <div style="position:relative; z-index:2;">
+              <span style="background:#78A75A; color:#FFFFFF; padding:6px 16px; border-radius:9999px; font-weight:800; font-size:0.82rem; text-transform:uppercase; letter-spacing:1px;">CRN3 56877</span>
+              <h3 style="font-family:'Syne',sans-serif; font-size:clamp(2rem, 3.5vw, 3rem); font-weight:900; line-height:1.15; margin:16px 0;">Sua última<br/>nutricionista.</h3>
+              <p style="font-size:1.05rem; color:#D2E4CA; max-width:400px; line-height:1.5;">
+                Recupere seu bem-estar, melhore sua digestão e alcance o corpo que você quer sem passar fome.
+              </p>
+            </div>
+            
+            <div style="position:relative; z-index:2; margin-top:28px;">
+              <div aria-hidden="true" class="button is-light">
+                <div class="button-cycle is-first"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 10" width="100%" class="button-arrow"><path fill="currentColor" fill-rule="evenodd" d="M0 1.827 1.71 0H10v8.22L8.11 10V5.93c0-.992.009-1.89.03-2.695l-6.642 6.58-1.316-1.44 6.641-6.58c-.787.022-1.67.032-2.647.032H0Z" clip-rule="evenodd"></path></svg><div class="button-cycle-bg light-bg"></div></div>
+                <div class="button-bg light-bg"><div class="button-text dark-font">Agendar Consulta</div></div>
+                <div class="button-cycle is-second"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 10" width="100%" class="button-arrow"><path fill="currentColor" fill-rule="evenodd" d="M0 1.827 1.71 0H10v8.22L8.11 10V5.93c0-.992.009-1.89.03-2.695l-6.642 6.58-1.316-1.44 6.641-6.58c-.787.022-1.67.032-2.647.032H0Z" clip-rule="evenodd"></path></svg><div class="button-cycle-bg light-bg"></div></div>
+              </div>
+            </div>
+            
+            <a aria-label="Agendar Consulta no WhatsApp" href="https://wa.me/5512997000000?text=Ol%C3%A1%2C%20Dra.%20Marina!%20Gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20o%20agendamento%20de%20consulta." target="_blank" rel="noopener noreferrer" class="footer-product-link w-inline-block"></a>
+          </div>
+        </div>
+
+        <!-- Conteúdo do Rodapé -->
+        <div id="w-node-_52f3956c-463e-cf84-00da-ec073fe306cc-0ac01850" class="footer-content">
+          
+          <div id="w-node-_103e8af5-3d0c-0c66-5f7b-cd9c707fa04f-0ac01850" class="footer-fact-wrapper">
+            <a href="https://institutoproctogastro.com.br" target="_blank" rel="noopener noreferrer" class="footer-info is-first w-inline-block">
+              <div style="font-size:1.8rem; margin-bottom:6px;">🏥</div>
+              <div class="footer-info-text">Instituto<br/>Proctogastro</div>
+            </a>
+            <a href="https://wa.me/5512997000000?text=Ol%C3%A1%2C%20Dra.%20Marina!%20Gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20o%20agendamento%20de%20consulta." target="_blank" rel="noopener noreferrer" class="footer-info is-second w-inline-block">
+              <div style="font-size:1.8rem; margin-bottom:6px;">💬</div>
+              <div class="footer-info-text">WhatsApp<br/>Direto</div>
+            </a>
+          </div>
+
+          <div id="w-node-d7a8f3ad-3299-e0db-d6e1-45b4c5d40c53-0ac01850" class="footer-content-wrapper">
+            <h4 class="footer-heading">
+              <span data-highlight-text="" class="heading-line">Dra. Marina Turzi</span> <br/>Nutrição Funcional &amp; Comportamental
+            </h4>
+            
+            <div class="footer-shipping-wrapper">
+              <div class="shipping-link-wrap">
+                <div class="shipping-link-text">Av. Cassiano Ricardo, 319 - Aquarius, SJC / SP</div>
+              </div>
+              <div class="shipping-link-wrap">
+                <div class="shipping-link-text">Atendimento Online para todo o Brasil e Exterior</div>
+              </div>
+            </div>
+
+            <!-- Redes Sociais Footer -->
+            <div class="footer-social-media-wrap">
+              <a href="https://www.instagram.com/nutri.marinaturzi/" target="_blank" rel="noopener noreferrer" class="social-media-link w-inline-block" aria-label="Instagram">
+                <div class="social-media-circle is-white"><img src="assets/image_1.svg" loading="lazy" width="24" height="24" alt="Instagram" class="social-media-icon"/></div>
+              </a>
+              <a href="https://wa.me/5512997000000?text=Ol%C3%A1%2C%20Dra.%20Marina!%20Gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20o%20agendamento%20de%20consulta." target="_blank" rel="noopener noreferrer" class="social-media-link w-inline-block" aria-label="WhatsApp">
+                <div class="social-media-circle is-white">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="20" height="20" style="color:#12331C;">
+                    <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 15 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67M9.53 7.34C9.36 7.34 9.09 7.41 8.87 7.65C8.65 7.89 8.02 8.48 8.02 9.7C8.02 10.92 8.91 12.09 9.03 12.26C9.16 12.43 10.74 14.86 13.16 15.91C13.73 16.15 14.18 16.3 14.52 16.41C15.1 16.59 15.62 16.57 16.03 16.51C16.5 16.44 17.46 15.93 17.66 15.36C17.86 14.8 17.86 14.31 17.8 14.21C17.74 14.11 17.58 14.05 17.33 13.93C17.08 13.8 15.86 13.2 15.63 13.12C15.41 13.04 15.24 13 15.08 13.25C14.91 13.49 14.44 14.05 14.3 14.21C14.16 14.38 14.02 14.4 13.77 14.27C13.52 14.15 12.72 13.88 11.78 13.04C11.04 12.38 10.54 11.57 10.4 11.32C10.25 11.07 10.38 10.94 10.51 10.82C10.62 10.71 10.75 10.53 10.88 10.39C11.01 10.24 11.05 10.14 11.13 9.97C11.21 9.81 11.17 9.66 11.11 9.54C11.05 9.42 10.58 8.26 10.38 7.78C10.19 7.31 9.99 7.37 9.85 7.36C9.72 7.35 9.53 7.34 9.53 7.34Z"/>
+                  </svg>
+                </div>
+              </a>
+              <a href="https://institutoproctogastro.com.br" target="_blank" rel="noopener noreferrer" class="social-media-link w-inline-block" aria-label="Localização">
+                <div class="social-media-circle is-white">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18" style="color:#12331C;">
+                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                  </svg>
+                </div>
+              </a>
+            </div>
+
+          </div>
+        </div>
+
+        <div id="w-node-_440e9322-e28d-ad9e-9ab8-9d51f2096f5d-0ac01850" class="footer-bottom">
+          <div class="footer-bottom-text">© Dra. Marina Turzi • CRN3 56877. Todos os direitos reservados.</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Scripts: GSAP + Three.js + Controladores Interativos -->
+  <script src="https://cdn.prod.website-files.com/gsap/3.15.0/gsap.min.js"></script>
+  <script src="https://cdn.prod.website-files.com/gsap/3.15.0/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.prod.website-files.com/gsap/3.15.0/CustomEase.min.js"></script>
+  <script src="https://cdn.prod.website-files.com/gsap/3.15.0/DrawSVGPlugin.min.js"></script>
+  <script src="https://cdn.prod.website-files.com/gsap/3.15.0/InertiaPlugin.min.js"></script>
+  <script>
+    if (typeof gsap !== 'undefined') {
+      gsap.registerPlugin(ScrollTrigger, CustomEase, DrawSVGPlugin, InertiaPlugin);
+    }
+  </script>
+  <script src="assets/three.min.js"></script>
+  <script src="assets/nutrition_3d.js"></script>
+  <script src="assets/marina_interactive.js"></script>
+</body>
+</html>
