@@ -1,0 +1,10 @@
+{
+  "name": "more-nutrition-clone",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Clone local e independente do site More Nutrition",
+  "scripts": {
+    "dev": "npx -y http-server . -p 3005 -c-1",
+    "start": "npx -y http-server . -p 3005 -c-1"
+  }
+}
