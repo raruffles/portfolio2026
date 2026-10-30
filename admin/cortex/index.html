@@ -449,7 +449,7 @@
       </button>
       <button class="tab-btn" id="tab-kanban-btn" onclick="switchTab('kanban')">
         <i class="fa-solid fa-columns"></i>
-        <span>Kanban Geral (123 Leads)</span>
+        <span>Kanban Geral (<span id="top-total-kanban">173</span> Leads)</span>
       </button>
     </nav>
 
@@ -663,6 +663,11 @@
       if (elSim) elSim.textContent = sim;
       const elConv = document.getElementById('top-count-conv');
       if (elConv) elConv.textContent = conv;
+
+      const topTotalKanban = document.getElementById('top-total-kanban');
+      if (topTotalKanban && decryptedPayload && decryptedPayload.kanbanLeads) {
+        topTotalKanban.textContent = decryptedPayload.kanbanLeads.length;
+      }
     }
 
     // Tab switcher
