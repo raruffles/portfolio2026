@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+  <title>Cortex HL — Secure Vault & CRM Hub</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <style>
+    :root {
+      --bg: #07090e;
+      --card-bg: rgba(18, 22, 34, 0.75);
+      --card-border: rgba(255, 255, 255, 0.08);
+      --accent: #6366f1;
+      --accent-hover: #4f46e5;
+      --accent-glow: rgba(99, 102, 241, 0.25);
+      --success: #10b981;
+      --warning: #f59e0b;
+      --danger: #ef4444;
+      --text: #f1f5f9;
+      --text-muted: #94a3b8;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      overflow-x: hidden;
+      background-image: 
+        radial-gradient(circle at 15% 15%, rgba(99, 102, 241, 0.08) 0%, transparent 40%),
+        radial-gradient(circle at 85% 85%, rgba(16, 185, 129, 0.05) 0%, transparent 40%);
+    }
+
+    /* Topbar */
+    .topbar {
+      height: 64px;
+      background: rgba(11, 15, 25, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--card-border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 24px;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-logo {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      background: linear-gradient(135deg, #6366f1, #3b82f6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-weight: 800;
+      font-size: 16px;
+      box-shadow: 0 0 16px var(--accent-glow);
+    }
+
+    .brand-title {
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .badge-secure {
+      font-size: 11px;
+      font-family: 'JetBrains Mono', monospace;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(16, 185, 129, 0.12);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      color: #34d399;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .badge-secure::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      background: #10b981;
+      border-radius: 50%;
+      box-shadow: 0 0 8px #10b981;
+    }
+
+    /* Tabs */
+    .tabs-nav {
+      display: flex;
+      background: rgba(0, 0, 0, 0.3);
+      border: 1px solid var(--card-border);
+      border-radius: 10px;
+      padding: 4px;
+      gap: 4px;
+    }
+
+    .tab-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      font-family: inherit;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 8px 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+    }
+
+    .tab-btn:hover {
+      color: var(--text);
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .tab-btn.active {
+      background: var(--accent);
+      color: #fff;
+      box-shadow: 0 2px 10px var(--accent-glow);
+    }
+
+    .topbar-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .btn-action {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--card-border);
+      color: var(--text-muted);
+      padding: 8px 14px;
+      font-size: 12px;
+      font-weight: 600;
+      border-radius: 8px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s;
+    }
+
+    .btn-action:hover {
+      background: rgba(255, 255, 255, 0.1);
+      color: var(--text);
+    }
+
+    .btn-lock {
+      color: #f87171;
+      border-color: rgba(239, 68, 68, 0.2);
+    }
+    .btn-lock:hover {
+      background: rgba(239, 68, 68, 0.1);
+      color: #fca5a5;
+    }
+
+    /* Content Area */
+    .content-area {
+      height: calc(100vh - 64px);
+      width: 100%;
+      position: relative;
+    }
+
+    .crm-frame {
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: none;
+      background: transparent;
+    }
+
+    .crm-frame.active {
+      display: block;
+    }
+
+    /* Authentication Overlay */
+    .auth-overlay {
+      position: fixed;
+      inset: 0;
+      background: radial-gradient(circle at 50% 30%, #151a2d 0%, #06080d 80%);
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      transition: opacity 0.4s ease, visibility 0.4s ease;
+    }
+
+    .auth-overlay.hidden {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    .auth-card {
+      width: 100%;
+      max-width: 440px;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      backdrop-filter: blur(20px);
+      border-radius: 20px;
+      padding: 36px 32px;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+      text-align: center;
+      position: relative;
+    }
+
+    .auth-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(59, 130, 246, 0.2));
+      border: 1px solid rgba(99, 102, 241, 0.3);
+      color: #818cf8;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      margin-bottom: 20px;
+      box-shadow: 0 0 24px rgba(99, 102, 241, 0.2);
+    }
+
+    .auth-title {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      letter-spacing: -0.02em;
+    }
+
+    .auth-desc {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+      line-height: 1.5;
+    }
+
+    .auth-status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--card-border);
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .auth-input-group {
+      margin-bottom: 16px;
+      text-align: left;
+    }
+
+    .auth-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+      font-weight: 700;
+      margin-bottom: 6px;
+      display: block;
+    }
+
+    .auth-input {
+      width: 100%;
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px solid var(--card-border);
+      border-radius: 10px;
+      padding: 12px 14px;
+      color: #fff;
+      font-size: 14px;
+      outline: none;
+      transition: all 0.2s;
+    }
+
+    .auth-input:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+    }
+
+    .btn-submit {
+      width: 100%;
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      padding: 12px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: all 0.2s;
+      box-shadow: 0 4px 14px var(--accent-glow);
+    }
+
+    .btn-submit:hover {
+      background: var(--accent-hover);
+      transform: translateY(-1px);
+    }
+
+    .auth-divider {
+      display: flex;
+      align-items: center;
+      margin: 20px 0;
+      color: var(--text-muted);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .auth-divider::before, .auth-divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--card-border);
+    }
+
+    .auth-divider span {
+      padding: 0 12px;
+    }
+
+    .btn-github {
+      width: 100%;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid var(--card-border);
+      color: #fff;
+      border-radius: 10px;
+      padding: 12px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      transition: all 0.2s;
+    }
+
+    .btn-github:hover {
+      background: rgba(255, 255, 255, 0.12);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    /* Loader Pulse */
+    .pulse-ring {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #6366f1;
+      animation: pulse 1.5s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(99, 102, 241, 0.7); }
+      70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(99, 102, 241, 0); }
+      100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(99, 102, 241, 0); }
+    }
+
+    /* Alert / Error */
+    .auth-msg {
+      margin-top: 14px;
+      font-size: 12px;
+      border-radius: 8px;
+      padding: 10px;
+      display: none;
+    }
+    .auth-msg.error {
+      display: block;
+      background: rgba(239, 68, 68, 0.12);
+      border: 1px solid rgba(239, 68, 68, 0.3);
+      color: #fca5a5;
+    }
+    .auth-msg.success {
+      display: block;
+      background: rgba(16, 185, 129, 0.12);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      color: #6ee7b7;
+    }
+
+    @media (max-width: 768px) {
+      .topbar {
+        padding: 0 12px;
+        height: auto;
+        min-height: 56px;
+        flex-wrap: wrap;
+        gap: 10px;
+        padding-top: 8px;
+        padding-bottom: 8px;
+      }
+      .brand-title { display: none; }
+      .tab-btn span { font-size: 12px; }
+      .content-area { height: calc(100vh - 100px); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Navigation Bar -->
+  <header class="topbar" id="app-topbar">
+    <div class="brand">
+      <div class="brand-logo"><i class="fa-solid fa-brain"></i></div>
+      <div class="brand-title">CORTEX OS</div>
+      <div class="badge-secure" id="auth-status-badge">
+        <span id="badge-auth-text">AES-256-GCM Ativo</span>
+      </div>
+    </div>
+
+    <!-- Switcher Tabs -->
+    <nav class="tabs-nav">
+      <button class="tab-btn active" id="tab-pessoal-btn" onclick="switchTab('pessoal')">
+        <i class="fa-solid fa-sparkles"></i>
+        <span>CRM Pessoal Maria (15 Leads)</span>
+      </button>
+      <button class="tab-btn" id="tab-kanban-btn" onclick="switchTab('kanban')">
+        <i class="fa-solid fa-columns"></i>
+        <span>Kanban Geral (123 Leads)</span>
+      </button>
+    </nav>
+
+    <!-- Actions -->
+    <div class="topbar-actions">
+      <button class="btn-action" onclick="exportBackupJson()" title="Baixar backup completo de todos os leads em JSON">
+        <i class="fa-solid fa-download"></i>
+        <span>Backup JSON</span>
+      </button>
+      <button class="btn-action btn-lock" onclick="lockVault()" title="Bloquear vault e encerrar sessão">
+        <i class="fa-solid fa-lock"></i>
+        <span>Bloquear</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Iframes Container -->
+  <main class="content-area">
+    <iframe id="frame-pessoal" class="crm-frame active" sandbox="allow-scripts allow-forms allow-same-origin allow-popups allow-modals allow-downloads"></iframe>
+    <iframe id="frame-kanban" class="crm-frame" sandbox="allow-scripts allow-forms allow-same-origin allow-popups allow-modals allow-downloads"></iframe>
+  </main>
+
+  <!-- Authentication Modal Overlay -->
+  <div class="auth-overlay" id="auth-overlay">
+    <div class="auth-card">
+      <div class="auth-icon">
+        <i class="fa-solid fa-shield-halved"></i>
+      </div>
+      <h2 class="auth-title">Cortex Vault</h2>
+      <p class="auth-desc">Os dados e interfaces operacionais estão protegidos por criptografia de ponta a ponta (AES-256-GCM).</p>
+
+      <div class="auth-status-pill" id="ip-check-status">
+        <span class="pulse-ring"></span>
+        <span id="ip-status-text">Verificando IP e Chave de Sessão...</span>
+      </div>
+
+      <!-- Password Form -->
+      <form id="password-form" onsubmit="handlePasswordSubmit(event)">
+        <div class="auth-input-group">
+          <label class="auth-label" for="vault-password">Senha Mestra</label>
+          <input type="password" id="vault-password" class="auth-input" placeholder="Digite sua senha de acesso" autocomplete="current-password" autofocus>
+        </div>
+        <button type="submit" class="btn-submit" id="btn-submit-pwd">
+          <i class="fa-solid fa-unlock"></i>
+          <span>Desbloquear Vault</span>
+        </button>
+      </form>
+
+      <div class="auth-divider">
+        <span>OU</span>
+      </div>
+
+      <!-- GitHub Unlock -->
+      <button type="button" class="btn-github" onclick="handleGitHubAuth()">
+        <i class="fa-brands fa-github"></i>
+        <span>Acessar via GitHub (raruffles)</span>
+      </button>
+
+      <div class="auth-msg" id="auth-message"></div>
+    </div>
+  </div>
+
+  <!-- Vault Encrypted Data Package -->
+  <script src="vault_data.js"></script>
+
+  <script>
+    let activeTab = 'pessoal';
+    let decryptedPayload = null;
+    let masterKeyHex = null;
+    let currentAuthMethod = '';
+
+    // Helpers: Base64 / Hex / Uint8Array
+    function hexToBytes(hex) {
+      const bytes = new Uint8Array(hex.length / 2);
+      for (let i = 0; i < hex.length; i += 2) {
+        bytes[i / 2] = parseInt(hex.substr(i, 2), 16);
+      }
+      return bytes;
+    }
+
+    function base64ToBytes(base64) {
+      const binary = atob(base64);
+      const bytes = new Uint8Array(binary.length);
+      for (let i = 0; i < binary.length; i++) {
+        bytes[i] = binary.charCodeAt(i);
+      }
+      return bytes;
+    }
+
+    // Crypto: Unwrap key with PBKDF2 + AES-256-GCM
+    async function unwrapKeyWithSecret(secret, wrapper) {
+      const salt = base64ToBytes(wrapper.salt);
+      const iv = base64ToBytes(wrapper.iv);
+      const ciphertext = base64ToBytes(wrapper.ciphertext);
+
+      const enc = new TextEncoder();
+      const baseKey = await crypto.subtle.importKey(
+        'raw',
+        enc.encode(secret),
+        'PBKDF2',
+        false,
+        ['deriveKey']
+      );
+
+      const derivedKey = await crypto.subtle.deriveKey(
+        {
+          name: 'PBKDF2',
+          salt: salt,
+          iterations: 100000,
+          hash: 'SHA-256'
+        },
+        baseKey,
+        { name: 'AES-GCM', length: 256 },
+        false,
+        ['decrypt']
+      );
+
+      const decrypted = await crypto.subtle.decrypt(
+        { name: 'AES-GCM', iv: iv },
+        derivedKey,
+        ciphertext
+      );
+
+      return new TextDecoder().decode(decrypted);
+    }
+
+    // Crypto: Decrypt main vault using 32-byte master key
+    async function decryptVaultPayload(keyHex) {
+      const pkg = window.__CORTEX_VAULT_PACKAGE__;
+      if (!pkg || !pkg.vault) throw new Error('Pacote do Vault não encontrado.');
+
+      const keyBytes = hexToBytes(keyHex);
+      const iv = base64ToBytes(pkg.vault.iv);
+      const ciphertext = base64ToBytes(pkg.vault.ciphertext);
+
+      const cryptoKey = await crypto.subtle.importKey(
+        'raw',
+        keyBytes,
+        { name: 'AES-GCM' },
+        false,
+        ['decrypt']
+      );
+
+      const decryptedBuffer = await crypto.subtle.decrypt(
+        { name: 'AES-GCM', iv: iv },
+        cryptoKey,
+        ciphertext
+      );
+
+      const jsonStr = new TextDecoder().decode(decryptedBuffer);
+      return JSON.parse(jsonStr);
+    }
+
+    // Renders the unlocked CRMs into iframes
+    function renderUnlockedDashboards(payload, method) {
+      decryptedPayload = payload;
+      currentAuthMethod = method;
+
+      // Update badge
+      document.getElementById('badge-auth-text').textContent = `Conectado: ${method}`;
+
+      // Injeta os dados decriptografados diretamente no HTML dos iframes
+      const framePessoal = document.getElementById('frame-pessoal');
+      const frameKanban = document.getElementById('frame-kanban');
+
+      // Inject data script in pessoal
+      const injectedPessoalHtml = payload.pessoalHtml.replace(
+        '<script>',
+        `<script>
+          window.INITIAL_LEADS_PESSOAL = ${JSON.stringify(payload.pessoalLeads)};
+        `
+      );
+      framePessoal.srcdoc = injectedPessoalHtml;
+
+      // Inject data script in kanban
+      const injectedKanbanHtml = payload.kanbanHtml.replace(
+        '<script>',
+        `<script>
+          window.INITIAL_LEADS_KANBAN = ${JSON.stringify(payload.kanbanLeads)};
+        `
+      );
+      frameKanban.srcdoc = injectedKanbanHtml;
+
+      // Hide auth overlay
+      document.getElementById('auth-overlay').classList.add('hidden');
+    }
+
+    // Tab switcher
+    function switchTab(tab) {
+      activeTab = tab;
+      const btnPessoal = document.getElementById('tab-pessoal-btn');
+      const btnKanban = document.getElementById('tab-kanban-btn');
+      const framePessoal = document.getElementById('frame-pessoal');
+      const frameKanban = document.getElementById('frame-kanban');
+
+      if (tab === 'pessoal') {
+        btnPessoal.classList.add('active');
+        btnKanban.classList.remove('active');
+        framePessoal.classList.add('active');
+        frameKanban.classList.remove('active');
+      } else {
+        btnPessoal.classList.remove('active');
+        btnKanban.classList.add('active');
+        framePessoal.classList.remove('active');
+        frameKanban.classList.add('active');
+      }
+    }
+
+    // Export JSON Backup
+    function exportBackupJson() {
+      if (!decryptedPayload) return;
+      const backup = {
+        exportedAt: new Date().toISOString(),
+        pessoalLeads: JSON.parse(localStorage.getItem('crm_pessoal_maria_leads_v2') || JSON.stringify(decryptedPayload.pessoalLeads)),
+        kanbanLeads: JSON.parse(localStorage.getItem('cortex_kanban_instagram_leads_v2') || JSON.stringify(decryptedPayload.kanbanLeads))
+      };
+
+      const blob = new Blob([JSON.stringify(backup, null, 2)], { type: 'application/json' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = `cortex_crm_backup_${new Date().toISOString().slice(0, 10)}.json`;
+      a.click();
+    }
+
+    // Lock Vault
+    function lockVault() {
+      sessionStorage.removeItem('cortex_master_key_v2');
+      localStorage.removeItem('cortex_master_key_v2');
+      window.location.hash = '';
+      window.location.reload();
+    }
+
+    // Show Message
+    function showAuthMessage(msg, isError = true) {
+      const el = document.getElementById('auth-message');
+      el.textContent = msg;
+      el.className = 'auth-msg ' + (isError ? 'error' : 'success');
+    }
+
+    // Submit Password
+    async function handlePasswordSubmit(e) {
+      e.preventDefault();
+      const pwd = document.getElementById('vault-password').value.trim();
+      if (!pwd) return;
+
+      const btn = document.getElementById('btn-submit-pwd');
+      btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Descriptografando...';
+      btn.disabled = true;
+
+      try {
+        const pkg = window.__CORTEX_VAULT_PACKAGE__;
+        const keyHex = await unwrapKeyWithSecret(pwd, pkg.wrappers.password);
+        const payload = await decryptVaultPayload(keyHex);
+
+        masterKeyHex = keyHex;
+        sessionStorage.setItem('cortex_master_key_v2', keyHex);
+        localStorage.setItem('cortex_master_key_v2', keyHex);
+
+        renderUnlockedDashboards(payload, 'Senha Mestra');
+      } catch (err) {
+        showAuthMessage('Senha incorreta ou falha de autenticação.');
+        btn.innerHTML = '<i class="fa-solid fa-unlock"></i> Desbloquear Vault';
+        btn.disabled = false;
+      }
+    }
+
+    // GitHub Authentication
+    async function handleGitHubAuth() {
+      const token = prompt('Insira seu Personal Access Token do GitHub (raruffles):');
+      if (!token) return;
+
+      showAuthMessage('Autenticando via API do GitHub...', false);
+
+      try {
+        // 1. Verify user identity
+        const userRes = await fetch('https://api.github.com/user', {
+          headers: { 'Authorization': `token ${token}` }
+        });
+
+        if (!userRes.ok) throw new Error('Token inválido ou não autorizado no GitHub.');
+        const userData = await userRes.json();
+
+        if (userData.login !== 'raruffles') {
+          throw new Error(`Acesso negado: o usuário @${userData.login} não é o proprietário autorizado (@raruffles).`);
+        }
+
+        // 2. Fetch secret vault key from private repo
+        const repoRes = await fetch('https://api.github.com/repos/raruffles/crm-cortex/contents/.vault_key', {
+          headers: {
+            'Authorization': `token ${token}`,
+            'Accept': 'application/vnd.github.v3+json'
+          }
+        });
+
+        if (!repoRes.ok) throw new Error('Não foi possível ler a chave do repositório privado crm-cortex.');
+        const fileData = await repoRes.json();
+        const keyHex = atob(fileData.content.replace(/\\s/g, '')).trim();
+
+        const payload = await decryptVaultPayload(keyHex);
+        masterKeyHex = keyHex;
+        sessionStorage.setItem('cortex_master_key_v2', keyHex);
+        localStorage.setItem('cortex_master_key_v2', keyHex);
+
+        renderUnlockedDashboards(payload, `GitHub (@${userData.login})`);
+      } catch (err) {
+        showAuthMessage(err.message, true);
+      }
+    }
+
+    // Auto-Unlock Orchestrator on Page Load
+    async function initAutoUnlock() {
+      const pkg = window.__CORTEX_VAULT_PACKAGE__;
+      const statusText = document.getElementById('ip-status-text');
+
+      // 1. Check URL Hash (#k=...)
+      const hash = window.location.hash;
+      if (hash && hash.includes('k=')) {
+        const m = hash.match(/k=([0-9a-fA-F]{64})/);
+        if (m && m[1]) {
+          try {
+            statusText.textContent = 'Autenticando via Link Direto...';
+            const payload = await decryptVaultPayload(m[1]);
+            masterKeyHex = m[1];
+            sessionStorage.setItem('cortex_master_key_v2', m[1]);
+            localStorage.setItem('cortex_master_key_v2', m[1]);
+            renderUnlockedDashboards(payload, 'Link Direto (Chat)');
+            return;
+          } catch(e) {
+            console.warn('Hash key invalid:', e);
+          }
+        }
+      }
+
+      // 2. Check Saved Key in Storage
+      const savedKey = sessionStorage.getItem('cortex_master_key_v2') || localStorage.getItem('cortex_master_key_v2');
+      if (savedKey) {
+        try {
+          statusText.textContent = 'Restaurando sessão segura...';
+          const payload = await decryptVaultPayload(savedKey);
+          masterKeyHex = savedKey;
+          renderUnlockedDashboards(payload, 'Sessão Salva');
+          return;
+        } catch(e) {
+          sessionStorage.removeItem('cortex_master_key_v2');
+          localStorage.removeItem('cortex_master_key_v2');
+        }
+      }
+
+      // 3. Check IP Whitelist (143.137.38.43)
+      try {
+        statusText.textContent = 'Verificando IP de rede autorizada...';
+        const ipRes = await fetch('https://api.ipify.org?format=json', { cache: 'no-store' });
+        if (ipRes.ok) {
+          const { ip } = await ipRes.json();
+          document.getElementById('ip-check-status').title = `Seu IP detectado: ${ip}`;
+
+          if (ip === '143.137.38.43') {
+            statusText.textContent = `IP Seguro reconhecido (${ip}). Descriptografando...`;
+            const keyHex = await unwrapKeyWithSecret(ip, pkg.wrappers.ip);
+            const payload = await decryptVaultPayload(keyHex);
+            masterKeyHex = keyHex;
+            sessionStorage.setItem('cortex_master_key_v2', keyHex);
+            localStorage.setItem('cortex_master_key_v2', keyHex);
+            renderUnlockedDashboards(payload, `IP Seguro (${ip})`);
+            return;
+          } else {
+            statusText.textContent = `IP Externo (${ip}) — Autenticação necessária`;
+          }
+        }
+      } catch (err) {
+        console.warn('IP verification service unavailable:', err);
+        statusText.textContent = 'Autenticação necessária';
+      }
+    }
+
+    // Listen to messages from child iframes to persist edits
+    window.addEventListener('message', (event) => {
+      if (event.data && event.data.type === 'CRM_SAVED') {
+        console.log(`[Cortex Vault] Dados sincronizados de: ${event.data.source}`);
+      }
+    });
+
+    // Start auto-unlock on load
+    window.addEventListener('DOMContentLoaded', initAutoUnlock);
+  </script>
+</body>
+</html>
