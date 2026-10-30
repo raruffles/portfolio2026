@@ -434,6 +434,13 @@
       </div>
     </div>
 
+    <!-- Live Status Indicators -->
+    <div class="topbar-kpis" id="topbar-kpis" style="display: flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 700;">
+      <span style="background: rgba(245, 158, 11, 0.15); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.3); padding: 4px 10px; border-radius: 6px;">🟡 Não Contatados: <b id="top-count-nao">0</b></span>
+      <span style="background: rgba(59, 130, 246, 0.15); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.3); padding: 4px 10px; border-radius: 6px;">🔵 Contatados: <b id="top-count-sim">0</b></span>
+      <span style="background: rgba(139, 92, 246, 0.15); color: #c084fc; border: 1px solid rgba(139, 92, 246, 0.3); padding: 4px 10px; border-radius: 6px;">🟣 Em Conversa: <b id="top-count-conv">0</b></span>
+    </div>
+
     <!-- Switcher Tabs -->
     <nav class="tabs-nav">
       <button class="tab-btn active" id="tab-pessoal-btn" onclick="switchTab('pessoal')">
@@ -506,7 +513,7 @@
   </div>
 
   <!-- Vault Encrypted Data Package (Cache Busted) -->
-  <script src="vault_data.js?v=2.0.1"></script>
+  <script src="vault_data.js?v=2.0.2"></script>
 
   <script>
     let activeTab = 'pessoal';
@@ -628,6 +635,34 @@
 
       // Hide auth overlay
       document.getElementById('auth-overlay').classList.add('hidden');
+      updateTopBarKpis();
+    }
+
+    // Live KPI Counters in Topbar
+    function updateTopBarKpis() {
+      if (!decryptedPayload) return;
+      let nao = 0, sim = 0, conv = 0;
+
+      if (activeTab === 'pessoal') {
+        const saved = localStorage.getItem('crm_pessoal_maria_leads_v3');
+        const list = saved ? JSON.parse(saved) : decryptedPayload.pessoalLeads;
+        nao = list.filter(l => (l.stage || 'a_enviar_pessoal') === 'a_enviar_pessoal').length;
+        sim = list.filter(l => l.stage === 'enviado_pessoal' || l.stage === 'pessoal_enviado').length;
+        conv = list.filter(l => l.stage === 'respondeu_conversa' || l.stage === 'amostra_enviada').length;
+      } else {
+        const saved = localStorage.getItem('cortex_instagram_kanban_state_v3');
+        const list = saved ? JSON.parse(saved) : decryptedPayload.kanbanLeads;
+        nao = list.filter(l => (l.stage || 'nao_contatado') === 'nao_contatado').length;
+        sim = list.filter(l => l.stage === 'contatado').length;
+        conv = list.filter(l => l.stage === 'em_conversa' || l.stage === 'proposta').length;
+      }
+
+      const elNao = document.getElementById('top-count-nao');
+      if (elNao) elNao.textContent = nao;
+      const elSim = document.getElementById('top-count-sim');
+      if (elSim) elSim.textContent = sim;
+      const elConv = document.getElementById('top-count-conv');
+      if (elConv) elConv.textContent = conv;
     }
 
     // Tab switcher
@@ -649,6 +684,7 @@
         framePessoal.classList.remove('active');
         frameKanban.classList.add('active');
       }
+      updateTopBarKpis();
     }
 
     // Export JSON Backup
@@ -818,10 +854,18 @@
       }
     }
 
-    // Listen to messages from child iframes to persist edits
+    // Listen to messages from child iframes to persist edits and update live counters
     window.addEventListener('message', (event) => {
       if (event.data && event.data.type === 'CRM_SAVED') {
-        console.log(`[Cortex Vault] Dados sincronizados de: ${event.data.source}`);
+        console.log(`[Cortex Vault] Dados sincronizados de: ${event.data.source} (${event.data.count} leads)`);
+        if (event.data.leads && Array.isArray(event.data.leads)) {
+          if (event.data.source === 'kanban') {
+            localStorage.setItem('cortex_instagram_kanban_state_v3', JSON.stringify(event.data.leads));
+          } else if (event.data.source === 'pessoal') {
+            localStorage.setItem('crm_pessoal_maria_leads_v3', JSON.stringify(event.data.leads));
+          }
+        }
+        updateTopBarKpis();
       }
     });
 
