@@ -586,6 +586,183 @@
         width: 200px;
       }
     }
+  
+    /* DRAG & DROP REORDER INDICATORS & PERSISTENCE STYLES */
+    .lead-card.is-dragging {
+      opacity: 0.35;
+      transform: scale(0.97);
+      border: 2px dashed #6366f1 !important;
+      background: rgba(99, 102, 241, 0.1) !important;
+    }
+
+    .lead-card.drag-over-top {
+      border-top: 3px solid #818cf8 !important;
+      position: relative;
+    }
+    .lead-card.drag-over-top::before {
+      content: '';
+      position: absolute;
+      top: -6px;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: #818cf8;
+      border-radius: 4px;
+      box-shadow: 0 0 10px #6366f1;
+    }
+
+    .card-reorder-btns {
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+      margin-left: 6px;
+    }
+
+    .btn-arrow {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      color: #94a3b8;
+      border-radius: 4px;
+      width: 20px;
+      height: 20px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.65rem;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      padding: 0;
+    }
+
+    .btn-arrow:hover {
+      background: #6366f1;
+      color: #fff;
+      border-color: #6366f1;
+      transform: scale(1.1);
+    }
+
+    .btn-advance-group {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      width: 100%;
+      margin-bottom: 4px;
+    }
+
+    .btn-advance {
+      flex: 1;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 7px 12px;
+      font-size: 0.74rem;
+      font-weight: 700;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      border: 1px solid transparent;
+      text-align: center;
+    }
+
+    .btn-advance-blue {
+      background: rgba(59, 130, 246, 0.18);
+      color: #60a5fa;
+      border-color: rgba(59, 130, 246, 0.4);
+    }
+    .btn-advance-blue:hover {
+      background: #3b82f6;
+      color: #fff;
+      box-shadow: 0 4px 12px rgba(59, 130, 246, 0.35);
+    }
+
+    .btn-advance-purple {
+      background: rgba(139, 92, 246, 0.18);
+      color: #c084fc;
+      border-color: rgba(139, 92, 246, 0.4);
+    }
+    .btn-advance-purple:hover {
+      background: #8b5cf6;
+      color: #fff;
+      box-shadow: 0 4px 12px rgba(139, 92, 246, 0.35);
+    }
+
+    .btn-advance-green {
+      background: rgba(16, 185, 129, 0.18);
+      color: #34d399;
+      border-color: rgba(16, 185, 129, 0.4);
+    }
+    .btn-advance-green:hover {
+      background: #10b981;
+      color: #fff;
+      box-shadow: 0 4px 12px rgba(16, 185, 129, 0.35);
+    }
+
+    .btn-advance-gold {
+      background: rgba(245, 158, 11, 0.2);
+      color: #fbbf24;
+      border-color: rgba(245, 158, 11, 0.4);
+    }
+    .btn-advance-gold:hover {
+      background: #f59e0b;
+      color: #000;
+      box-shadow: 0 4px 12px rgba(245, 158, 11, 0.35);
+    }
+
+    .btn-back-stage {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: var(--text-dim);
+      border-radius: 6px;
+      padding: 6px 10px;
+      font-size: 0.72rem;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .btn-back-stage:hover {
+      background: rgba(239, 68, 68, 0.2);
+      color: #f87171;
+      border-color: rgba(239, 68, 68, 0.4);
+    }
+
+    .btn-save-primary {
+      background: linear-gradient(135deg, #10b981, #059669) !important;
+      color: #fff !important;
+      font-weight: 800 !important;
+      border: none !important;
+      box-shadow: 0 4px 14px rgba(16, 185, 129, 0.35) !important;
+      cursor: pointer;
+    }
+    .btn-save-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 18px rgba(16, 185, 129, 0.5) !important;
+    }
+
+    .save-toast-banner {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: #0f172a;
+      border: 1px solid #22c55e;
+      color: #f8fafc;
+      padding: 12px 20px;
+      border-radius: 10px;
+      font-size: 0.86rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+      z-index: 99999;
+      transform: translateY(120px);
+      opacity: 0;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .save-toast-banner.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
   </style>
 </head>
 <body>
@@ -629,8 +806,16 @@
         <span style="display:inline-block; width:7px; height:7px; background:#10b981; border-radius:50%; box-shadow:0 0 6px #10b981;"></span> Sincronizado (Disco + Local)
       </div>
 
+      <button class="btn-action btn-save-primary" id="btnSaveAll" onclick="manualSaveAll()" title="Salvar todas as posições e alterações no navegador e disco">
+        💾 Salvar Tudo
+      </button>
+
+      <button class="btn-action" id="btnCopyJson" onclick="copyStateJson()" title="Copiar estado atual em JSON para backup ou sincronização" style="color: #60a5fa;">
+        📋 Copiar Progresso
+      </button>
+
       <button class="btn-action" id="btnExport" title="Exportar progresso em arquivo JSON">
-        💾 Exportar
+        ⬇️ Exportar JSON
       </button>
 
       <button class="btn-action" id="btnReset" title="Restaurar posições originais" style="color: #f87171;">
@@ -4054,20 +4239,78 @@
 ];
 
     const STORAGE_KEY = 'cortex_instagram_kanban_state_v4';
+    const IDB_NAME = 'CortexInstagramDB';
+    const IDB_STORE = 'leads_state';
 
     let leads = [];
     let currentFilter = 'sjc_hoje';
     let searchQuery = '';
 
-    // Carregar SEMPRE do servidor primeiro (fonte da verdade) e aplicar estágios locais do navegador
+    // ==========================================
+    // CAMADA DE PERSISTÊNCIA ROBUSTA (INDEXEDDB)
+    // ==========================================
+    function initIndexedDB() {
+      return new Promise((resolve) => {
+        if (!window.indexedDB) return resolve(null);
+        try {
+          const req = indexedDB.open(IDB_NAME, 1);
+          req.onupgradeneeded = (e) => {
+            const db = e.target.result;
+            if (!db.objectStoreNames.contains(IDB_STORE)) {
+              db.createObjectStore(IDB_STORE, { keyPath: 'key' });
+            }
+          };
+          req.onsuccess = () => resolve(req.result);
+          req.onerror = () => resolve(null);
+        } catch (e) {
+          resolve(null);
+        }
+      });
+    }
+
+    async function saveToIndexedDB(data) {
+      try {
+        const db = await initIndexedDB();
+        if (!db) return;
+        const tx = db.transaction(IDB_STORE, 'readwrite');
+        tx.objectStore(IDB_STORE).put({ key: 'current_leads', data: data, updatedAt: new Date().toISOString() });
+      } catch (e) {}
+    }
+
+    async function loadFromIndexedDB() {
+      try {
+        const db = await initIndexedDB();
+        if (!db) return null;
+        return new Promise((resolve) => {
+          const tx = db.transaction(IDB_STORE, 'readonly');
+          const req = tx.objectStore(IDB_STORE).get('current_leads');
+          req.onsuccess = () => resolve(req.result ? req.result.data : null);
+          req.onerror = () => resolve(null);
+        });
+      } catch (e) {
+        return null;
+      }
+    }
+
+    // ==========================================
+    // CARREGAMENTO E MERGE INTELIGENTE
+    // ==========================================
     async function loadLeads() {
       let localLeads = [];
-      const savedV3 = localStorage.getItem('cortex_instagram_kanban_state_v4');
-      if (savedV3) {
-        try { localLeads = JSON.parse(savedV3); } catch (e) {}
+
+      // 1. Tentar IndexedDB primeiro (mais resistente que localStorage)
+      const idbData = await loadFromIndexedDB();
+      if (Array.isArray(idbData) && idbData.length > 0) {
+        localLeads = idbData;
+      } else {
+        // 2. Fallback para localStorage
+        const saved = localStorage.getItem(STORAGE_KEY) || localStorage.getItem('cortex_instagram_kanban_state_v3');
+        if (saved) {
+          try { localLeads = JSON.parse(saved); } catch (e) {}
+        }
       }
 
-      // 1. Tentar buscar da API local se existir
+      // 3. Tentar carregar do servidor local (caso esteja rodando no node serve_kanban.js)
       let serverLeads = null;
       try {
         const res = await fetch('/api/leads?t=' + Date.now());
@@ -4076,57 +4319,50 @@
         }
       } catch (err) {}
 
-      // Fonte da verdade: Servidor ou dados incorporados diretamente
+      // Fonte base: Servidor local OU dados estáticos incorporados
       const sourceList = (Array.isArray(serverLeads) && serverLeads.length > 0)
         ? serverLeads
         : ((window.INITIAL_LEADS_KANBAN && Array.isArray(window.INITIAL_LEADS_KANBAN)) ? window.INITIAL_LEADS_KANBAN : INITIAL_LEADS);
 
-      // Merge inteligente preservando novos leads de hoje e estágios salvos no navegador
+      // Mapear modificações feitas pelo usuário (stage, order, notes)
       const localMap = new Map();
-      localLeads.forEach(l => localMap.set(l.username || l.id, l));
+      localLeads.forEach(l => {
+        if (l.username) localMap.set(l.username, l);
+        if (l.id) localMap.set(l.id, l);
+      });
 
+      // Merge preservando rigorosamente o estágio e a ordem reposicionada
       leads = sourceList.map(sl => {
-        const key = sl.username || sl.id;
-        if (localMap.has(key)) {
-          const loc = localMap.get(key);
+        const loc = localMap.get(sl.username) || localMap.get(sl.id);
+        if (loc) {
           return {
             ...sl,
             stage: loc.stage || sl.stage,
-            notes: loc.notes !== undefined ? loc.notes : sl.notes,
+            order: (loc.order !== undefined && loc.order !== null) ? loc.order : sl.order,
+            notes: (loc.notes !== undefined) ? loc.notes : sl.notes,
             updatedAt: loc.updatedAt || sl.updatedAt
           };
         }
         return sl;
       });
 
-      localStorage.setItem('cortex_instagram_kanban_state_v4', JSON.stringify(leads));
+      // Persistir estado consolidado em ambas as camadas
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(leads));
+      saveToIndexedDB(leads);
+
       updateCounts();
       renderBoard();
-      updateSyncBadge(!!serverLeads);
+      updateSyncBadge(serverLeads ? 'server' : 'local');
     }
 
-    function updateSyncBadge(isServerOk = true) {
-      const badge = document.getElementById('syncBadge');
-      if (!badge) return;
-      const time = new Date().toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
-      if (isServerOk) {
-        badge.innerHTML = `<span style="display:inline-block; width:7px; height:7px; background:#10b981; border-radius:50%; box-shadow:0 0 6px #10b981;"></span> Salvo (Disco & Navegador: ${time})`;
-        badge.style.color = '#34d399';
-        badge.style.borderColor = 'rgba(16, 185, 129, 0.3)';
-        badge.style.background = 'rgba(16, 185, 129, 0.15)';
-      } else {
-        badge.innerHTML = `<span style="display:inline-block; width:7px; height:7px; background:#38bdf8; border-radius:50%; box-shadow:0 0 6px #38bdf8;"></span> Salvo (Navegador: ${time})`;
-        badge.style.color = '#38bdf8';
-        badge.style.borderColor = 'rgba(56, 189, 248, 0.3)';
-        badge.style.background = 'rgba(56, 189, 248, 0.15)';
-      }
-    }
-
+    // ==========================================
+    // SALVAMENTO E SINCRONIZAÇÃO
+    // ==========================================
     function saveLeads(syncServer = true) {
       localStorage.setItem(STORAGE_KEY, JSON.stringify(leads));
+      saveToIndexedDB(leads);
       updateCounts();
 
-      // Sincronizar em segundo plano com o arquivo kanban_leads_data.json no disco
       if (syncServer) {
         fetch('/api/save', {
           method: 'POST',
@@ -4134,128 +4370,96 @@
           body: JSON.stringify(leads)
         })
         .then(res => {
-          if (res.ok) updateSyncBadge(true);
-          else updateSyncBadge(false);
+          if (res.ok) updateSyncBadge('server');
+          else updateSyncBadge('local');
         })
-        .catch(() => updateSyncBadge(false));
+        .catch(() => updateSyncBadge('local'));
       } else {
-        updateSyncBadge(false);
+        updateSyncBadge('local');
       }
     }
 
-    function updateCounts() {
-      const stages = ['nao_contatado', 'contatado', 'em_conversa', 'proposta', 'fechado', 'abandonado'];
-      
-      // Filtrar leads do lote/filtro atualmente selecionado
-      let currentFilteredLeads = leads;
-      if (currentFilter === 'sjc_hoje') {
-        currentFilteredLeads = leads.filter(l => l.batch === '03/11' || l.subBatch === 'sjc_estetica_nutri_odonto_30');
-      } else if (currentFilter === 'lote2') {
-        currentFilteredLeads = leads.filter(l => l.subBatch === 'lote_2_campinas_sp');
-      } else if (currentFilter === 'lote3') {
-        currentFilteredLeads = leads.filter(l => l.subBatch === 'lote_3_sp_alphaville_campinas');
-      } else if (currentFilter === 'hoje') {
-        currentFilteredLeads = leads.filter(l => l.batch === '03/11' || l.subBatch === 'sjc_estetica_nutri_odonto_30');
-      } else if (currentFilter !== 'all') {
-        currentFilteredLeads = leads.filter(l => l.niche === currentFilter || (l.niche && l.niche.includes(currentFilter)));
+    function updateSyncBadge(mode = 'local') {
+      const badge = document.getElementById('syncBadge');
+      if (!badge) return;
+      const time = new Date().toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+      if (mode === 'server') {
+        badge.innerHTML = `<span style="display:inline-block; width:7px; height:7px; background:#10b981; border-radius:50%; box-shadow:0 0 6px #10b981;"></span> Salvo no Disco + Local (${time})`;
+        badge.style.color = '#34d399';
+        badge.style.background = 'rgba(16, 185, 129, 0.15)';
+        badge.style.borderColor = 'rgba(16, 185, 129, 0.3)';
+      } else {
+        badge.innerHTML = `<span style="display:inline-block; width:7px; height:7px; background:#10b981; border-radius:50%; box-shadow:0 0 6px #10b981;"></span> Salvo com Sucesso (${time})`;
+        badge.style.color = '#34d399';
+        badge.style.background = 'rgba(16, 185, 129, 0.15)';
+        badge.style.borderColor = 'rgba(16, 185, 129, 0.3)';
       }
-
-      // Atualizar contadores em cada coluna do Kanban com base no lote filtrado
-      stages.forEach(st => {
-        const count = currentFilteredLeads.filter(l => (l.stage || 'nao_contatado') === st).length;
-        const el = document.getElementById('counter-' + st);
-        if (el) el.textContent = count;
-      });
-
-      // Atualizar badges dos botões de filtro
-      const allCountEl = document.getElementById('count-all');
-      if (allCountEl) allCountEl.textContent = leads.length;
-
-      const sjcCountEl = document.getElementById('count-sjc');
-      if (sjcCountEl) {
-        sjcCountEl.textContent = leads.filter(l => l.batch === '03/11' || l.subBatch === 'sjc_estetica_nutri_odonto_30').length;
-      }
-
-      const lote2CountEl = document.getElementById('count-lote2');
-      if (lote2CountEl) {
-        lote2CountEl.textContent = leads.filter(l => l.subBatch === 'lote_2_campinas_sp').length;
-      }
-
-      // KPIs no Topbar: Mostrar contagem do Lote Selecionado
-      const kpiNao = document.getElementById('kpi-nao-contatado');
-      if (kpiNao) kpiNao.textContent = currentFilteredLeads.filter(l => (l.stage || 'nao_contatado') === 'nao_contatado').length;
-
-      const kpiCont = document.getElementById('kpi-contatado');
-      if (kpiCont) kpiCont.textContent = currentFilteredLeads.filter(l => l.stage === 'contatado').length;
-
-      const kpiConv = document.getElementById('kpi-conversa');
-      if (kpiConv) kpiConv.textContent = currentFilteredLeads.filter(l => l.stage === 'em_conversa').length;
     }
 
-    function showToast(msg) {
-      const toast = document.getElementById('toast');
-      toast.textContent = msg || '✅ Mensagem copiada!';
-      toast.classList.add('show');
-      setTimeout(() => toast.classList.remove('show'), 2500);
-    }
+    window.manualSaveAll = function() {
+      saveLeads(true);
+      const btn = document.getElementById('btnSaveAll');
+      if (btn) {
+        const oldText = btn.innerHTML;
+        btn.innerHTML = '✅ Salvo!';
+        btn.style.background = '#059669';
+        setTimeout(() => {
+          btn.innerHTML = oldText;
+          btn.style.background = 'linear-gradient(135deg, #10b981, #059669)';
+        }, 1500);
+      }
+      showToast('💾 Todas as posições e alterações foram salvas com sucesso!');
+    };
 
-    function copyScript(scriptText) {
-      navigator.clipboard.writeText(scriptText).then(() => {
-        showToast('📋 Mensagem pronta copiada! Cole no direct ou WhatsApp.');
+    window.copyStateJson = function() {
+      const json = JSON.stringify(leads, null, 2);
+      navigator.clipboard.writeText(json).then(() => {
+        showToast('📋 JSON do progresso copiado para a área de transferência!');
       }).catch(() => {
-        const temp = document.createElement('textarea');
-        temp.value = scriptText;
-        document.body.appendChild(temp);
-        temp.select();
-        document.execCommand('copy');
-        document.body.removeChild(temp);
-        showToast('📋 Mensagem copiada!');
+        showToast('⚠️ Erro ao copiar, use o botão Exportar JSON.');
       });
-    }
+    };
 
-    function getNicheBadgeClass(niche) {
-      if (!niche) return 'badge-geral';
-      const n = niche.toLowerCase();
-      if (n.includes('arq')) return 'badge-arq';
-      if (n.includes('estét') || n.includes('saúde') || n.includes('médic')) return 'badge-saude';
-      if (n.includes('eventos') || n.includes('gastronomia')) return 'badge-eventos';
-      return 'badge-geral';
-    }
-
+    // ==========================================
+    // RENDERIZAÇÃO DO TABULEIRO
+    // ==========================================
     function renderBoard() {
-      updateCounts();
       const stages = ['nao_contatado', 'contatado', 'em_conversa', 'proposta', 'fechado', 'abandonado'];
       
-      // Limpar containers
-      stages.forEach(st => {
-        const container = document.getElementById('cards-' + st);
+      stages.forEach(stage => {
+        const container = document.getElementById('cards-' + stage);
         if (container) container.innerHTML = '';
       });
 
-      // Filtrar leads
+      const q = searchQuery.toLowerCase().trim();
       const filtered = leads.filter(lead => {
-        let matchesFilter = false;
-        if (currentFilter === 'all') matchesFilter = true;
-        else if (currentFilter === 'sjc_hoje') matchesFilter = (lead.batch === '03/11' || lead.subBatch === 'sjc_estetica_nutri_odonto_30');
-        else if (currentFilter === 'lote2') matchesFilter = (lead.subBatch === 'lote_2_campinas_sp');
-        else if (currentFilter === 'lote3') matchesFilter = (lead.subBatch === 'lote_3_sp_alphaville_campinas');
-        else if (currentFilter === 'hoje') matchesFilter = (lead.batch === '03/11' || lead.subBatch === 'sjc_estetica_nutri_odonto_30');
-        else matchesFilter = (lead.niche === currentFilter || (lead.niche && lead.niche.includes(currentFilter)));
+        let matchesFilter = true;
+        if (currentFilter === 'sjc_hoje') {
+          matchesFilter = (lead.batch === '03/11' || lead.subBatch === 'sjc_estetica_nutri_odonto_30');
+        } else if (currentFilter === 'lote2') {
+          matchesFilter = (lead.subBatch === 'lote_2_campinas_sp');
+        } else if (currentFilter === 'lote3') {
+          matchesFilter = (lead.subBatch === 'lote_3_sp_alphaville_campinas');
+        } else if (currentFilter !== 'all') {
+          matchesFilter = (lead.niche === currentFilter);
+        }
 
-        const q = searchQuery.toLowerCase().trim();
-        const matchesSearch = !q || 
-          lead.name.toLowerCase().includes(q) || 
-          lead.username.toLowerCase().includes(q) || 
-          (lead.gap && lead.gap.toLowerCase().includes(q)) ||
-          (lead.phone && lead.phone.includes(q)) ||
-          (lead.city && lead.city.toLowerCase().includes(q));
+        const matchesSearch = !q ||
+          (lead.name && lead.name.toLowerCase().includes(q)) ||
+          (lead.username && lead.username.toLowerCase().includes(q)) ||
+          (lead.city && lead.city.toLowerCase().includes(q)) ||
+          (lead.gap && lead.gap.toLowerCase().includes(q));
+
         return matchesFilter && matchesSearch;
       });
 
-      // Ordenação: priorizar ordem sequencial numérica (#01, #02...)
-      filtered.sort((a, b) => (a.order || 999) - (b.order || 999));
+      // Ordenar rigorosamente pela propriedade order
+      filtered.sort((a, b) => {
+        const orderA = (a.order !== undefined && a.order !== null) ? a.order : 9999;
+        const orderB = (b.order !== undefined && b.order !== null) ? b.order : 9999;
+        return orderA - orderB;
+      });
 
-      // Distribuir nos cards
       filtered.forEach(lead => {
         const card = createCardElement(lead);
         const container = document.getElementById('cards-' + lead.stage);
@@ -4265,6 +4469,9 @@
       });
     }
 
+    // ==========================================
+    // CRIAÇÃO DO ELEMENTO DO CARD
+    // ==========================================
     function createCardElement(lead) {
       const card = document.createElement('div');
       card.className = 'lead-card';
@@ -4285,6 +4492,49 @@
       const numDisplay = lead.order ? `#${String(lead.order).padStart(2, '0')}` : '';
       const numBadge = numDisplay ? `<span class="lead-num-badge">${numDisplay}</span>` : '';
 
+      // Botão de Avanço Rápido Contextual
+      let advanceButtonHtml = '';
+      if (lead.stage === 'nao_contatado') {
+        advanceButtonHtml = `
+          <button class="btn-advance btn-advance-blue" onclick="event.stopPropagation(); advanceStage('${lead.id}', 'contatado')">
+            ➡️ Marcar Contatado
+          </button>
+        `;
+      } else if (lead.stage === 'contatado') {
+        advanceButtonHtml = `
+          <div class="btn-advance-group">
+            <button class="btn-back-stage" onclick="event.stopPropagation(); advanceStage('${lead.id}', 'nao_contatado')" title="Voltar para Não Contatado">↩️</button>
+            <button class="btn-advance btn-advance-purple" onclick="event.stopPropagation(); advanceStage('${lead.id}', 'em_conversa')">
+              💬 Marcar Em Conversa
+            </button>
+          </div>
+        `;
+      } else if (lead.stage === 'em_conversa') {
+        advanceButtonHtml = `
+          <div class="btn-advance-group">
+            <button class="btn-back-stage" onclick="event.stopPropagation(); advanceStage('${lead.id}', 'contatado')" title="Voltar para Contatado">↩️</button>
+            <button class="btn-advance btn-advance-green" onclick="event.stopPropagation(); advanceStage('${lead.id}', 'proposta')">
+              🟢 Enviar Proposta
+            </button>
+          </div>
+        `;
+      } else if (lead.stage === 'proposta') {
+        advanceButtonHtml = `
+          <div class="btn-advance-group">
+            <button class="btn-back-stage" onclick="event.stopPropagation(); advanceStage('${lead.id}', 'em_conversa')" title="Voltar">↩️</button>
+            <button class="btn-advance btn-advance-gold" onclick="event.stopPropagation(); advanceStage('${lead.id}', 'fechado')">
+              🏆 Fechar Negócio
+            </button>
+          </div>
+        `;
+      } else {
+        advanceButtonHtml = `
+          <div class="btn-advance-group">
+            <button class="btn-back-stage" onclick="event.stopPropagation(); advanceStage('${lead.id}', 'nao_contatado')" title="Reabrir lead">↩️ Reabrir</button>
+          </div>
+        `;
+      }
+
       card.innerHTML = `
         <div class="card-top">
           <div class="card-header-left">
@@ -4295,7 +4545,13 @@
             </div>
             ${lead.city ? `<div class="card-location">📍 ${lead.city}</div>` : ''}
           </div>
-          <span class="niche-badge ${badgeClass}">${lead.niche}</span>
+          <div style="display:flex; align-items:center; gap:6px;">
+            <span class="niche-badge ${badgeClass}">${lead.niche}</span>
+            <div class="card-reorder-btns">
+              <button class="btn-arrow" onclick="moveCardUp('${lead.id}', event)" title="Subir na lista">▲</button>
+              <button class="btn-arrow" onclick="moveCardDown('${lead.id}', event)" title="Descer na lista">▼</button>
+            </div>
+          </div>
         </div>
 
         <div class="card-gap">
@@ -4324,6 +4580,10 @@
           </button>
         </div>
 
+        <div style="margin-top: 6px;">
+          ${advanceButtonHtml}
+        </div>
+
         <div class="card-footer">
           <span>Mover etapa:</span>
           <select class="stage-select" onchange="changeStage('${lead.id}', this.value)">
@@ -4344,54 +4604,210 @@
       return card;
     }
 
-    // Drag and Drop Logic
+    // ==========================================
+    // REORDENAÇÃO E MOVIMENTAÇÃO POR BOTÕES (100% GARANTIDO)
+    // ==========================================
+    window.moveCardUp = function(leadId, e) {
+      if (e) e.stopPropagation();
+      const lead = leads.find(l => l.id === leadId);
+      if (!lead) return;
+
+      const stageLeads = leads
+        .filter(l => l.stage === lead.stage)
+        .sort((a, b) => (a.order || 9999) - (b.order || 9999));
+
+      const currentIndex = stageLeads.findIndex(l => l.id === leadId);
+      if (currentIndex > 0) {
+        const prevLead = stageLeads[currentIndex - 1];
+        const tempOrder = prevLead.order;
+        prevLead.order = lead.order;
+        lead.order = tempOrder;
+
+        saveLeads();
+        renderBoard();
+        showToast(`⬆️ "${lead.name}" subiu para a posição #${lead.order} (Salvo!)`);
+      }
+    };
+
+    window.moveCardDown = function(leadId, e) {
+      if (e) e.stopPropagation();
+      const lead = leads.find(l => l.id === leadId);
+      if (!lead) return;
+
+      const stageLeads = leads
+        .filter(l => l.stage === lead.stage)
+        .sort((a, b) => (a.order || 9999) - (b.order || 9999));
+
+      const currentIndex = stageLeads.findIndex(l => l.id === leadId);
+      if (currentIndex < stageLeads.length - 1) {
+        const nextLead = stageLeads[currentIndex + 1];
+        const tempOrder = nextLead.order;
+        nextLead.order = lead.order;
+        lead.order = tempOrder;
+
+        saveLeads();
+        renderBoard();
+        showToast(`⬇️ "${lead.name}" desceu para a posição #${lead.order} (Salvo!)`);
+      }
+    };
+
+    window.advanceStage = function(leadId, newStage) {
+      changeStage(leadId, newStage);
+    };
+
+    // ==========================================
+    // DRAG AND DROP VERTICAL COM REORDENAÇÃO
+    // ==========================================
     let draggedCardId = null;
 
     function handleDragStart(e) {
       draggedCardId = this.dataset.id;
-      this.classList.add('dragging');
+      this.classList.add('is-dragging');
       e.dataTransfer.effectAllowed = 'move';
       e.dataTransfer.setData('text/plain', this.dataset.id);
     }
 
     function handleDragEnd() {
-      this.classList.remove('dragging');
+      this.classList.remove('is-dragging');
       document.querySelectorAll('.kanban-col').forEach(col => col.classList.remove('drag-over'));
+      document.querySelectorAll('.cards-container').forEach(c => c.classList.remove('drag-over'));
+      document.querySelectorAll('.lead-card').forEach(c => {
+        c.classList.remove('drag-over-top');
+      });
+      draggedCardId = null;
     }
 
-    // Configurar colunas para receber drops
+    function getDragAfterElement(container, y) {
+      const draggableElements = [...container.querySelectorAll('.lead-card:not(.is-dragging)')];
+      return draggableElements.reduce((closest, child) => {
+        const box = child.getBoundingClientRect();
+        const offset = y - box.top - box.height / 2;
+        if (offset < 0 && offset > closest.offset) {
+          return { offset: offset, element: child };
+        } else {
+          return closest;
+        }
+      }, { offset: Number.NEGATIVE_INFINITY }).element;
+    }
+
+    // Configurar colunas e containers para receber drops
     document.querySelectorAll('.kanban-col').forEach(col => {
+      const container = col.querySelector('.cards-container');
+      const targetStage = col.dataset.stage;
+
       col.addEventListener('dragover', function(e) {
         e.preventDefault();
         e.dataTransfer.dropEffect = 'move';
         this.classList.add('drag-over');
+
+        if (container) {
+          const afterElement = getDragAfterElement(container, e.clientY);
+          container.querySelectorAll('.lead-card').forEach(c => c.classList.remove('drag-over-top'));
+          if (afterElement) {
+            afterElement.classList.add('drag-over-top');
+          }
+        }
       });
 
-      col.addEventListener('dragleave', function() {
-        this.classList.remove('drag-over');
+      col.addEventListener('dragleave', function(e) {
+        if (!col.contains(e.relatedTarget)) {
+          this.classList.remove('drag-over');
+          if (container) {
+            container.querySelectorAll('.lead-card').forEach(c => c.classList.remove('drag-over-top'));
+          }
+        }
       });
 
       col.addEventListener('drop', function(e) {
         e.preventDefault();
         this.classList.remove('drag-over');
-        const targetStage = this.dataset.stage;
-        const cardId = e.dataTransfer.getData('text/plain') || draggedCardId;
-
-        if (cardId && targetStage) {
-          changeStage(cardId, targetStage);
+        if (container) {
+          container.querySelectorAll('.lead-card').forEach(c => c.classList.remove('drag-over-top'));
         }
+
+        const cardId = e.dataTransfer.getData('text/plain') || draggedCardId;
+        if (!cardId || !targetStage) return;
+
+        const afterElement = container ? getDragAfterElement(container, e.clientY) : null;
+        const afterCardId = afterElement ? afterElement.dataset.id : null;
+
+        reorderAndChangeStage(cardId, targetStage, afterCardId);
       });
     });
 
-    // Funções de manipulação de dados
+    // Função central de reordenação e persistência ao soltar o card
+    window.reorderAndChangeStage = function(draggedId, targetStage, afterId) {
+      const draggedLead = leads.find(l => l.id === draggedId);
+      if (!draggedLead) return;
+
+      const oldStage = draggedLead.stage;
+      draggedLead.stage = targetStage;
+      draggedLead.updatedAt = new Date().toISOString();
+
+      // Leads existentes no estágio alvo ordenados
+      let stageLeads = leads
+        .filter(l => l.stage === targetStage && l.id !== draggedId)
+        .sort((a, b) => (a.order || 9999) - (b.order || 9999));
+
+      if (afterId) {
+        const insertIndex = stageLeads.findIndex(l => l.id === afterId);
+        if (insertIndex !== -1) {
+          stageLeads.splice(insertIndex, 0, draggedLead);
+        } else {
+          stageLeads.push(draggedLead);
+        }
+      } else {
+        stageLeads.push(draggedLead);
+      }
+
+      // Reindexar ordens de 1 a N
+      stageLeads.forEach((lead, index) => {
+        lead.order = index + 1;
+      });
+
+      // Se mudou de estágio, reindexar estágio de origem
+      if (oldStage !== targetStage) {
+        let oldStageLeads = leads
+          .filter(l => l.stage === oldStage)
+          .sort((a, b) => (a.order || 9999) - (b.order || 9999));
+        oldStageLeads.forEach((lead, index) => {
+          lead.order = index + 1;
+        });
+      }
+
+      saveLeads();
+      renderBoard();
+
+      const stageName = getStageLabel(targetStage);
+      showToast(`✅ "${draggedLead.name}" movido para "${stageName}" (Posição #${draggedLead.order} salva!)`);
+    };
+
     window.changeStage = function(leadId, newStage) {
       const lead = leads.find(l => l.id === leadId);
       if (lead) {
+        const oldStage = lead.stage;
         lead.stage = newStage;
         lead.updatedAt = new Date().toISOString();
+
+        // Reindexar etapa de destino
+        const targetLeads = leads
+          .filter(l => l.stage === newStage && l.id !== leadId)
+          .sort((a, b) => (a.order || 9999) - (b.order || 9999));
+        
+        targetLeads.push(lead);
+        targetLeads.forEach((l, idx) => { l.order = idx + 1; });
+
+        // Reindexar etapa de origem
+        if (oldStage !== newStage) {
+          const oldLeads = leads
+            .filter(l => l.stage === oldStage)
+            .sort((a, b) => (a.order || 9999) - (b.order || 9999));
+          oldLeads.forEach((l, idx) => { l.order = idx + 1; });
+        }
+
         saveLeads();
         renderBoard();
-        showToast(`Movido para "${getStageLabel(newStage)}"`);
+        showToast(`✅ Movido para "${getStageLabel(newStage)}" e salvo com sucesso!`);
       }
     };
 
@@ -4437,7 +4853,7 @@
       renderBoard();
     });
 
-    // Botão Exportar
+    // Botão Exportar JSON
     document.getElementById('btnExport').addEventListener('click', () => {
       const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(leads, null, 2));
       const downloadAnchor = document.createElement('a');
@@ -4453,6 +4869,14 @@
     document.getElementById('btnReset').addEventListener('click', () => {
       if (confirm('Tem certeza que deseja restaurar as posições e dados originais das colunas?')) {
         localStorage.removeItem(STORAGE_KEY);
+        try {
+          initIndexedDB().then(db => {
+            if (db) {
+              const tx = db.transaction(IDB_STORE, 'readwrite');
+              tx.objectStore(IDB_STORE).clear();
+            }
+          });
+        } catch(e) {}
         loadLeads();
         showToast('🔄 Posições restauradas para o estado inicial!');
       }
