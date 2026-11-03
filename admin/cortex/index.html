@@ -443,11 +443,11 @@
 
     <!-- Switcher Tabs -->
     <nav class="tabs-nav">
-      <button class="tab-btn active" id="tab-pessoal-btn" onclick="switchTab('pessoal')">
+      <button class="tab-btn" id="tab-pessoal-btn" onclick="switchTab('pessoal')">
         <i class="fa-solid fa-sparkles"></i>
         <span>CRM Pessoal Maria (15 Leads)</span>
       </button>
-      <button class="tab-btn" id="tab-kanban-btn" onclick="switchTab('kanban')">
+      <button class="tab-btn active" id="tab-kanban-btn" onclick="switchTab('kanban')">
         <i class="fa-solid fa-columns"></i>
         <span>Kanban Geral (<span id="top-total-kanban">200</span> Leads)</span>
       </button>
@@ -472,8 +472,8 @@
 
   <!-- Iframes Container -->
   <main class="content-area">
-    <iframe id="frame-pessoal" class="crm-frame active"></iframe>
-    <iframe id="frame-kanban" class="crm-frame"></iframe>
+    <iframe id="frame-pessoal" class="crm-frame"></iframe>
+    <iframe id="frame-kanban" class="crm-frame active"></iframe>
     <iframe id="frame-radar" class="crm-frame"></iframe>
   </main>
 
@@ -521,7 +521,7 @@
   <script src="vault_data.js?v=2.1.0_03_11"></script>
 
   <script>
-    let activeTab = 'pessoal';
+    let activeTab = 'kanban';
     let decryptedPayload = null;
     let masterKeyHex = null;
     let currentAuthMethod = '';
