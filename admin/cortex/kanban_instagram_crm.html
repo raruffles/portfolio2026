@@ -4472,12 +4472,16 @@
       leads = sourceList.map(sl => {
         const loc = localMap.get(sl.username) || localMap.get(sl.id);
         if (loc) {
+          const slTime = sl.updatedAt ? new Date(sl.updatedAt).getTime() : 0;
+          const locTime = loc.updatedAt ? new Date(loc.updatedAt).getTime() : 0;
+          const preferServer = (slTime > locTime && sl.stage && sl.stage !== 'nao_contatado');
+
           return {
             ...sl,
-            stage: loc.stage || sl.stage,
-            order: (loc.order !== undefined && loc.order !== null) ? loc.order : sl.order,
-            notes: (loc.notes !== undefined) ? loc.notes : sl.notes,
-            updatedAt: loc.updatedAt || sl.updatedAt
+            stage: preferServer ? sl.stage : (loc.stage || sl.stage),
+            order: preferServer ? (sl.order || loc.order) : ((loc.order !== undefined && loc.order !== null) ? loc.order : sl.order),
+            notes: (preferServer && sl.notes) ? sl.notes : ((loc.notes !== undefined) ? loc.notes : sl.notes),
+            updatedAt: preferServer ? sl.updatedAt : (loc.updatedAt || sl.updatedAt)
           };
         }
         return sl;
