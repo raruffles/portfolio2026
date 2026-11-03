@@ -281,21 +281,54 @@ body {
 window.addEventListener('load', function() {
   var canvas = document.querySelector('.sequence-canvas');
   var trigger = document.querySelector('[data-sequence-trigger]');
-  if (canvas && trigger && window.gsap && window.ScrollTrigger) {
-    gsap.fromTo(canvas, 
-      { y: -30, scale: 0.92, transformOrigin: 'center bottom' },
-      {
-        y: 175,
-        scale: 0.70,
-        ease: 'power1.inOut',
-        scrollTrigger: {
-          trigger: trigger,
-          start: 'top top',
-          end: 'bottom bottom',
-          scrub: true
+  if (!canvas || !trigger || !window.gsap || !window.ScrollTrigger) return;
+
+  ScrollTrigger.matchMedia({
+    // Desktop e Laptops (>= 992px)
+    "(min-width: 992px)": function() {
+      var vh = window.innerHeight;
+      var startY = -Math.round(vh * 0.035);
+      var endY = Math.min(115, Math.round(vh * 0.12));
+
+      gsap.fromTo(canvas, 
+        { y: startY, scale: 0.94, transformOrigin: 'center bottom' },
+        {
+          y: endY,
+          scale: 0.78,
+          ease: 'power1.inOut',
+          scrollTrigger: {
+            trigger: trigger,
+            start: 'top top',
+            end: 'bottom bottom',
+            scrub: true,
+            invalidateOnRefresh: true
+          }
         }
-      }
-    );
-  }
+      );
+    },
+
+    // Tablets e Mobile (< 992px)
+    "(max-width: 991px)": function() {
+      var vh = window.innerHeight;
+      var startY = -Math.round(vh * 0.02);
+      var endY = Math.min(30, Math.round(vh * 0.035));
+
+      gsap.fromTo(canvas,
+        { y: startY, scale: 0.95, transformOrigin: 'center bottom' },
+        {
+          y: endY,
+          scale: 0.88,
+          ease: 'power1.inOut',
+          scrollTrigger: {
+            trigger: trigger,
+            start: 'top top',
+            end: 'bottom bottom',
+            scrub: true,
+            invalidateOnRefresh: true
+          }
+        }
+      );
+    }
+  });
 });
 </script></body></html>
