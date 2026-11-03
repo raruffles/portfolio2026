@@ -1,0 +1,991 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cockpit de Prospecção — Método Posicionamento Digital (SJC)</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .copy-anim { transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1); }
+    .toast { animation: fadeIn 0.3s ease, fadeOut 0.3s ease 2.2s forwards; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes fadeOut { from { opacity: 1; transform: translateY(0); } to { opacity: 0; transform: translateY(-10px); } }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-100 antialiased min-h-screen p-4 md:p-8 font-sans">
+  <div class="max-w-6xl mx-auto space-y-6">
+    
+    <!-- Top Header -->
+    <header class="bg-slate-900/90 backdrop-blur border border-slate-800 rounded-2xl p-6 shadow-xl space-y-5">
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+        <div>
+          <div class="flex flex-wrap items-center gap-2">
+            <span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+              💎 MÉTODO POSICIONAMENTO DIGITAL
+            </span>
+            <span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-purple-500/10 text-purple-400 border border-purple-500/20">
+              🎬 ESTRATÉGIA DO VÍDEO (3 PASSOS)
+            </span>
+            <span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-blue-500/10 text-blue-400 border border-blue-500/20">
+              ⚡ SJC ALTO PADRÃO
+            </span>
+          </div>
+          <h1 class="text-2xl md:text-3xl font-extrabold text-white mt-2">Cockpit de Abordagem & Fechamento SJC</h1>
+          <p class="text-slate-400 text-sm mt-1 max-w-3xl">
+            Prospecção cirúrgica de alta conversão. Foco em <b class="text-slate-200">Posicionamento</b> perante concorrentes. NUNCA envie o link de cara: envie o script do vídeo, grave 45s de prévia e feche por áudio no WhatsApp (50% sinal).
+          </p>
+        </div>
+        
+        <!-- Progress Counter -->
+        <div class="bg-slate-950/80 border border-slate-800/80 rounded-xl p-4 flex items-center gap-4 self-start md:self-auto min-w-[240px]">
+          <div class="w-14 h-14 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center font-black text-emerald-400 text-2xl" id="progressPct">
+            0%
+          </div>
+          <div>
+            <div class="text-xs text-slate-400 font-medium uppercase tracking-wider">Disparos Realizados</div>
+            <div class="text-lg font-bold text-white"><span id="doneCount" class="text-emerald-400">0</span> de <span id="totalLeadsCount">37</span></div>
+            <button onclick="resetAllProgress()" class="text-[11px] text-slate-500 hover:text-rose-400 transition underline mt-0.5">Zerar histórico</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Guia Rápido Retrátil: O Que Fazer Depois que o Lead Responder -->
+      <div class="bg-slate-950/90 border border-emerald-500/30 rounded-xl overflow-hidden">
+        <button onclick="toggleGuide()" class="w-full px-4 py-3 bg-emerald-950/30 hover:bg-emerald-950/50 flex items-center justify-between text-left transition">
+          <div class="flex items-center gap-2.5">
+            <span class="text-emerald-400 font-bold text-sm">📖 GUIA PRÁTICO: O que fazer depois que o lead responde ao direct?</span>
+            <span class="text-[11px] px-2 py-0.5 bg-emerald-500/20 text-emerald-300 rounded font-semibold">Passo a Passo sem Atrito</span>
+          </div>
+          <span id="guideArrow" class="text-emerald-400 text-sm font-bold">▼</span>
+        </button>
+        <div id="guideContent" class="p-4 space-y-3 text-xs text-slate-300 border-t border-slate-800/80">
+          <div class="grid grid-cols-1 md:grid-cols-4 gap-3">
+            <div class="p-3 bg-slate-900/80 rounded-lg border border-slate-800 space-y-1">
+              <div class="font-bold text-emerald-400 flex items-center gap-1.5 text-xs"><span>1️⃣</span> O Lead Aceitou o CTA</div>
+              <p class="text-[11px] text-slate-300">Respondeu *"Pode mandar"* ou *"Quero ver"*. <b class="text-rose-300">NÃO mande o link ainda!</b> Grave um vídeo de 45-60s (celular na tela do PC ou Loom).</p>
+            </div>
+            <div class="p-3 bg-slate-900/80 rounded-lg border border-slate-800 space-y-1">
+              <div class="font-bold text-blue-400 flex items-center gap-1.5 text-xs"><span>2️⃣</span> Hipnose de Vendas</div>
+              <p class="text-[11px] text-slate-300">No vídeo mostre o topo com a autoridade dele e diferenciais vs concorrentes. No final fale: *"Se curtir e quiser navegar, me avisa que te mando o link!"*</p>
+            </div>
+            <div class="p-3 bg-slate-900/80 rounded-lg border border-slate-800 space-y-1">
+              <div class="font-bold text-purple-400 flex items-center gap-1.5 text-xs"><span>3️⃣</span> Fechamento Direto</div>
+              <p class="text-[11px] text-slate-300">Lead pediu o link? Mande o link. Feche por áudio de 40s no WhatsApp (sem call de vídeo): *"Para publicar no seu domínio próprio o valor é R$ [X]."*</p>
+            </div>
+            <div class="p-3 bg-slate-900/80 rounded-lg border border-slate-800 space-y-1">
+              <div class="font-bold text-amber-400 flex items-center gap-1.5 text-xs"><span>4️⃣</span> Sinal de 50% & Prazo</div>
+              <p class="text-[11px] text-slate-300">50% de entrada para iniciar refinamento + 50% na entrega. Contrato de 15 dias (Regra do 2x). Entregue em 5-7 dias para encantar!</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Filters & Search -->
+      <div class="pt-2 border-t border-slate-800/80 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
+        <!-- Niche Filter Tabs -->
+        <div class="flex flex-wrap items-center gap-2" id="nicheFilters">
+          <button onclick="setFilter('todos')" class="filter-btn px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-emerald-600 text-white shadow-sm transition" data-niche="todos">
+            Todos (37)
+          </button>
+          <button onclick="setFilter('estetica')" class="filter-btn px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-300 transition" data-niche="estetica">
+            ✨ Estética & Harmonização (10)
+          </button>
+          <button onclick="setFilter('nutri')" class="filter-btn px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-300 transition" data-niche="nutri">
+            🥗 Nutricionistas (10)
+          </button>
+          <button onclick="setFilter('odonto')" class="filter-btn px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-300 transition" data-niche="odonto">
+            🦷 Dentistas & Lentes (10)
+          </button>
+          <button onclick="setFilter('premium')" class="filter-btn px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-300 transition" data-niche="premium">
+            🌟 Top Conselhos & Médicos (7)
+          </button>
+        </div>
+
+        <!-- Search Input -->
+        <div class="relative min-w-[260px]">
+          <input type="text" id="searchInput" oninput="render()" placeholder="Buscar por nome, bairro, @ ou CRM/CRO..." class="w-full bg-slate-950/80 border border-slate-700/80 rounded-lg px-3 py-1.5 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-emerald-500 transition">
+        </div>
+      </div>
+    </header>
+
+    <!-- Cards Container -->
+    <div id="cardsList" class="space-y-4">
+      <!-- Injected via JavaScript -->
+    </div>
+
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div id="toastContainer" class="fixed bottom-6 right-6 z-50 pointer-events-none"></div>
+
+  <script>
+    const LEADS = [
+  {
+    "id": "sjc_01",
+    "category": "estetica",
+    "niche": "Estética & Harmonização",
+    "nicheLabel": "Estética & Harmonização",
+    "name": "Clínica Dra. Deyse Costa",
+    "handle": "@clinicadeyse.costa",
+    "url": "https://instagram.com/clinicadeyse.costa",
+    "location": "São José dos Campos - SP",
+    "followers": "Posicionamento Sólido (8/10)",
+    "council": "CRBM/CRM",
+    "focus": "Harmonização Facial, Preenchimento Labial e Planejamento Estético com foco em naturalidade (SJC).",
+    "gap": "Forte produção de conteúdo sobre naturalidade em procedimentos injetáveis, mas a jornada fora do Instagram não tem uma página de autoridade individualizando os protocolos antes do WhatsApp.",
+    "score": 8,
+    "script3steps": "Clínica Dra. Deyse Costa, tudo bem? Gostei muito do seu perfil! Os seus posts sobre naturalidade na harmonização facial e preenchimento labial me chamaram muita atenção, nunca tinha parado pra pensar por esse ângulo técnico e acho muito importante que você tenha esse posicionamento de colocar a naturalidade em pauta no mercado.\n\nO único ponto que observo de fora é que depender apenas do Instagram ou jogar o paciente direto no WhatsApp acaba misturando quem só quer preço com quem valoriza seus protocolos.\n\nEstruturei uma prévia visual desse posicionamento para destacar sua autoridade em SJC. Posso te enviar um vídeo rápido de 45 segundos mostrando como ficaria?",
+    "msg1": "Dra. Deyse, seu perfil é muito interessante! Os seus posts sobre naturalidade na harmonização facial e preenchimento labial me chamaram muita atenção, nunca tinha parado pra pensar por esse ângulo técnico e acho muito importante que você tenha esse posicionamento de colocar a naturalidade em pauta no mercado.",
+    "msg2": "Deyse, a única coisa que senti falta no teu perfil foi de um site à altura desse conteúdo. Já pensou como ter um link pra um site totalmente único e teu, apresentando seus protocolos antes do paciente ir pro WhatsApp, ajudaria a posicionar ainda mais você como referência em SJC e aumentaria tua autoridade?"
+  },
+  {
+    "id": "sjc_02",
+    "category": "estetica",
+    "niche": "Estética & Harmonização",
+    "nicheLabel": "Estética & Harmonização",
+    "name": "Dra. Isabelle Sant'Ana",
+    "handle": "@draisabellesantanaa",
+    "url": "https://instagram.com/draisabellesantanaa",
+    "location": "São José dos Campos - SP",
+    "followers": "Posicionamento Sólido (8/10)",
+    "council": "CRBM/CRM",
+    "focus": "Biomédica Esteta focada em Harmonização Avançada e detalhes faciais em SJC.",
+    "gap": "Excelente cuidado visual no feed e posicionamento premium, porém depende do link da bio para converter pacientes de procedimentos invasivos que exigem alta confiança.",
+    "score": 8,
+    "script3steps": "Dra. Isabelle Sant'Ana, tudo bem? Gostei muito do seu perfil! O seu conteúdo sobre gerenciamento de envelhecimento e detalhes na harmonização me chamou atenção, nunca tinha pensado sobre o assunto dessa forma e acho muito importante que você tenha esse posicionamento de colocar esse cuidado em pauta.\n\nO único ponto que observo de fora é que depender apenas do Instagram ou jogar o paciente direto no WhatsApp acaba misturando quem só quer preço com quem valoriza seus protocolos.\n\nEstruturei uma prévia visual desse posicionamento para destacar sua autoridade em SJC. Posso te enviar um vídeo rápido de 45 segundos mostrando como ficaria?",
+    "msg1": "Dra. Isabelle, seu perfil é muito interessante! O seu conteúdo sobre gerenciamento de envelhecimento e detalhes na harmonização me chamou atenção, nunca tinha pensado sobre o assunto dessa forma e acho muito importante que você tenha esse posicionamento de colocar esse cuidado em pauta.",
+    "msg2": "Isabelle, a única coisa que senti falta no teu perfil foi de um site próprio. Já pensou como ter um link pra um site totalmente único e teu ajudaria a posicionar você como profissional de elite em SJC e aumentaria tua autoridade na hora do paciente decidir fechar o procedimento?"
+  },
+  {
+    "id": "sjc_03",
+    "category": "estetica",
+    "niche": "Estética & Harmonização",
+    "nicheLabel": "Estética & Harmonização",
+    "name": "Moderna Estética Avançada",
+    "handle": "@modernaestetica_",
+    "url": "https://instagram.com/modernaestetica_",
+    "location": "Vila Adyana (SJC)",
+    "followers": "Posicionamento Sólido (8/10)",
+    "council": "",
+    "focus": "Estética avançada facial e corporal, toxina botulínica e remodelação (Vila Adyana - SJC).",
+    "gap": "**Gap de \"Muitas ofertas ou serviços\"** (página 3 do seu Radar) — quando a clínica oferece facial, corporal e injetáveis apenas pelo Instagram, a jornada do visitante fica dispersa sem um site estruturado por queixa (flacidez, gordura localizada, rejuvenescimento).",
+    "score": 8,
+    "script3steps": "Moderna Estética Avançada, tudo bem? Gostei muito do seu perfil! Os posts sobre protocolos integrados de estética facial e corporal me chamaram atenção, acho muito importante que vocês tenham esse posicionamento técnico de educar o paciente sobre o tratamento certo.\n\nO único ponto que observo de fora é que depender apenas do Instagram ou jogar o paciente direto no WhatsApp acaba misturando quem só quer preço com quem valoriza seus protocolos.\n\nEstruturei uma prévia visual desse posicionamento para destacar sua autoridade em SJC. Posso te enviar um vídeo rápido de 45 segundos mostrando como ficaria?",
+    "msg1": "Pessoal da Moderna, o perfil de vocês é muito interessante! Os posts sobre protocolos integrados de estética facial e corporal me chamaram atenção, acho muito importante que vocês tenham esse posicionamento técnico de educar o paciente sobre o tratamento certo.",
+    "msg2": "A única coisa que senti falta no perfil de vocês foi de um site exclusivo. Já pensaram como ter um link pra um site totalmente único de vocês, organizando os protocolos faciais e corporais pros pacientes da Vila Adyana, ajudaria a posicionar a clínica e aumentaria a autoridade de vocês?"
+  },
+  {
+    "id": "sjc_04",
+    "category": "estetica",
+    "niche": "Estética & Harmonização",
+    "nicheLabel": "Estética & Harmonização",
+    "name": "Avivah Estética Avançada",
+    "handle": "@avivahestetica",
+    "url": "https://instagram.com/avivahestetica",
+    "location": "São José dos Campos - SP",
+    "followers": "Alta Autoridade (9/10)",
+    "council": "",
+    "focus": "Rejuvenescimento, tecnologias não invasivas (Linear Z) e estímulo de colágeno em SJC.",
+    "gap": "Tecnologias de ponta (ultrassom/laser) exigem explicação visual do diferencial tecnológico; sem uma página de alta conversão dedicada, o paciente compara preço como se fosse estética comum.",
+    "score": 9,
+    "script3steps": "Avivah Estética Avançada, tudo bem? Gostei muito do seu perfil! O post sobre estímulo de colágeno e tecnologias não invasivas me chamou atenção, nunca tinha pensado sobre a diferença dessas tecnologias e acho muito importante que vocês tenham esse posicionamento de colocar o tema em pauta.\n\nO único ponto que observo de fora é que depender apenas do Instagram ou jogar o paciente direto no WhatsApp acaba misturando quem só quer preço com quem valoriza seus protocolos.\n\nEstruturei uma prévia visual desse posicionamento para destacar sua autoridade em SJC. Posso te enviar um vídeo rápido de 45 segundos mostrando como ficaria?",
+    "msg1": "Pessoal da Avivah, o perfil da clínica é muito interessante! O post sobre estímulo de colágeno e tecnologias não invasivas me chamou atenção, nunca tinha pensado sobre a diferença dessas tecnologias e acho muito importante que vocês tenham esse posicionamento de colocar o tema em pauta.",
+    "msg2": "A única coisa que senti falta no perfil da Avivah foi de um site à altura das tecnologias que vocês usam. Já pensaram como ter um link pra um site totalmente único de vocês ajudaria a posicionar a clínica como referência em SJC e aumentaria a percepção de valor antes mesmo do orçamento?"
+  },
+  {
+    "id": "sjc_05",
+    "category": "estetica",
+    "niche": "Estética & Harmonização",
+    "nicheLabel": "Estética & Harmonização",
+    "name": "Lilya Estética Avançada",
+    "handle": "@lilyaestetica",
+    "url": "https://instagram.com/lilyaestetica",
+    "location": "São José dos Campos - SP",
+    "followers": "Posicionamento Sólido (8/10)",
+    "council": "",
+    "focus": "Procedimentos faciais, corporais, injetáveis e bioestimuladores em SJC.",
+    "gap": "Conteúdo forte + link da bio que pode direcionar melhor a atenção criada nos Reels/posts para uma estrutura oficial própria.",
+    "score": 7,
+    "script3steps": "Lilya Estética Avançada, tudo bem? Gostei muito do seu perfil! O perfil da Lilya Estética é muito interessante, o post sobre bioestimuladores e prevenção da flacidez me chamou atenção. Nunca tinha pensado sobre o assunto por esse lado preventivo e acho muito importante que vocês tenham esse posicionamento de colocar o tema em pauta.\n\nO único ponto que observo de fora é que depender apenas do Instagram ou jogar o paciente direto no WhatsApp acaba misturando quem só quer preço com quem valoriza seus protocolos.\n\nEstruturei uma prévia visual desse posicionamento para destacar sua autoridade em SJC. Posso te enviar um vídeo rápido de 45 segundos mostrando como ficaria?",
+    "msg1": "Olá! O perfil da Lilya Estética é muito interessante, o post sobre bioestimuladores e prevenção da flacidez me chamou atenção. Nunca tinha pensado sobre o assunto por esse lado preventivo e acho muito importante que vocês tenham esse posicionamento de colocar o tema em pauta.",
+    "msg2": "A única coisa que senti falta no perfil de vocês foi de um site próprio e exclusivo. Já pensaram como ter um link pra um site totalmente único da clínica ajudaria a posicionar vocês no mercado de SJC e aumentaria ainda mais a autoridade diante de novos pacientes?"
+  },
+  {
+    "id": "sjc_06",
+    "category": "estetica",
+    "niche": "Estética & Harmonização",
+    "nicheLabel": "Estética & Harmonização",
+    "name": "Dra. Milena Espinha",
+    "handle": "@dra.milenaespinha",
+    "url": "https://instagram.com/dra.milenaespinha",
+    "location": "Jardim Aquarius (SJC)",
+    "followers": "Alta Autoridade (9/10)",
+    "council": "CRBM/CRM",
+    "focus": "Biomédica Esteta no Parque Residencial Aquarius (R. Dr. Orlando Feirabend Filho) — botox, ultrassom microfocado e estética avançada.",
+    "gap": "Atende em um dos metros quadrados mais valorizados de SJC; um site próprio de alto padrão consolida o posicionamento para o público exigente do Aquarius.",
+    "score": 9,
+    "script3steps": "Dra. Milena Espinha, tudo bem? Gostei muito do seu perfil! O post sobre associação de toxina botulínica e ultrassom microfocado me chamou atenção, nunca tinha pensado sobre como um complementa o outro e acho muito importante que você tenha esse posicionamento educativo.\n\nO único ponto que observo de fora é que depender apenas do Instagram ou jogar o paciente direto no WhatsApp acaba misturando quem só quer preço com quem valoriza seus protocolos.\n\nEstruturei uma prévia visual desse posicionamento para destacar sua autoridade em SJC. Posso te enviar um vídeo rápido de 45 segundos mostrando como ficaria?",
+    "msg1": "Dra. Milena, seu perfil é muito interessante! O post sobre associação de toxina botulínica e ultrassom microfocado me chamou atenção, nunca tinha pensado sobre como um complementa o outro e acho muito importante que você tenha esse posicionamento educativo.",
+    "msg2": "Milena, a única coisa que senti falta no teu perfil foi de um site. Já pensou como ter um link pra um site totalmente único e teu ajudaria a posicionar ainda mais você como referência aí no Aquarius e aumentaria tua autoridade?"
+  },
+  {
+    "id": "sjc_07",
+    "category": "estetica",
+    "niche": "Estética & Harmonização",
+    "nicheLabel": "Estética & Harmonização",
+    "name": "Clínica CorFace Estética Avançada",
+    "handle": "@corfaceestetica",
+    "url": "https://instagram.com/corfaceestetica",
+    "location": "Jardim Aquarius (SJC)",
+    "followers": "Posicionamento Sólido (8/10)",
+    "council": "",
+    "focus": "Estética avançada facial e corporal localizada no Jardim Aquarius (Rua das Arraias).",
+    "gap": "Bom Instagram + ausência de ecossistema digital próprio de alta conversão na bio para filtrar dúvidas repetidas antes do agendamento manual.",
+    "score": 8,
+    "script3steps": "Clínica CorFace Estética Avançada, tudo bem? Gostei muito do seu perfil! Os conteúdos sobre cuidados avançados com a pele e protocolos faciais me chamaram atenção, acho muito importante que a clínica tenha esse posicionamento de orientar com clareza.\n\nO único ponto que observo de fora é que depender apenas do Instagram ou jogar o paciente direto no WhatsApp acaba misturando quem só quer preço com quem valoriza seus protocolos.\n\nEstruturei uma prévia visual desse posicionamento para destacar sua autoridade em SJC. Posso te enviar um vídeo rápido de 45 segundos mostrando como ficaria?",
+    "msg1": "Pessoal da CorFace, o perfil de vocês é muito interessante! Os conteúdos sobre cuidados avançados com a pele e protocolos faciais me chamaram atenção, acho muito importante que a clínica tenha esse posicionamento de orientar com clareza.",
+    "msg2": "A única coisa que senti falta no perfil de vocês foi de um site próprio. Já pensaram como ter um link pra um site totalmente único da CorFace ajudaria a posicionar a clínica no Jardim Aquarius e aumentaria a autoridade de vocês?"
+  },
+  {
+    "id": "sjc_08",
+    "category": "estetica",
+    "niche": "Estética & Harmonização",
+    "nicheLabel": "Estética & Harmonização",
+    "name": "M&E Mais que Estética",
+    "handle": "@memaisqueestetica",
+    "url": "https://instagram.com/memaisqueestetica",
+    "location": "Jardim Satélite (SJC)",
+    "followers": "Posicionamento Sólido (8/10)",
+    "council": "",
+    "focus": "Atendimento humanizado e protocolos personalizados faciais e corporais no Jardim Satélite (SJC).",
+    "gap": "Forte apelo de atendimento humanizado, mas o primeiro ponto de contato digital fora do Instagram pode ser elevado com uma página própria que transmita a experiência da clínica.",
+    "score": 7,
+    "script3steps": "M&E Mais que Estética, tudo bem? Gostei muito do seu perfil! O post sobre protocolos personalizados e estética humanizada me chamou atenção, acho muito importante que vocês tenham esse posicionamento de tratar cada paciente de forma única.\n\nO único ponto que observo de fora é que depender apenas do Instagram ou jogar o paciente direto no WhatsApp acaba misturando quem só quer preço com quem valoriza seus protocolos.\n\nEstruturei uma prévia visual desse posicionamento para destacar sua autoridade em SJC. Posso te enviar um vídeo rápido de 45 segundos mostrando como ficaria?",
+    "msg1": "Pessoal da M&E, seu perfil é muito interessante! O post sobre protocolos personalizados e estética humanizada me chamou atenção, acho muito importante que vocês tenham esse posicionamento de tratar cada paciente de forma única.",
+    "msg2": "A única coisa que senti falta no perfil de vocês foi de um site. Já pensaram como ter um link pra um site totalmente único e com a identidade de vocês ajudaria a posicionar a clínica e aumentaria a autoridade na região?"
+  },
+  {
+    "id": "sjc_09",
+    "category": "estetica",
+    "niche": "Estética & Harmonização",
+    "nicheLabel": "Estética & Harmonização",
+    "name": "Dra. Júlia Magalhães",
+    "handle": "@drajuliamagalhaesl",
+    "url": "https://instagram.com/drajuliamagalhaesl",
+    "location": "São José dos Campos - SP",
+    "followers": "Posicionamento Sólido (8/10)",
+    "council": "CRBM/CRM",
+    "focus": "Biomédica Esteta especializada em Harmonização Facial em SJC.",
+    "gap": "Marca pessoal forte em construção; ter um domínio/site com o próprio nome (`drajuliamagalhaes.com.br`) destaca imediatamente das concorrentes que usam apenas WhatsApp direto.",
+    "score": 8,
+    "script3steps": "Dra. Júlia Magalhães, tudo bem? Gostei muito do seu perfil! O post sobre harmonização sem exageros me chamou atenção, nunca tinha pensado sobre esses critérios de proporção facial e acho muito importante que você tenha esse posicionamento de colocar o tema em pauta.\n\nO único ponto que observo de fora é que depender apenas do Instagram ou jogar o paciente direto no WhatsApp acaba misturando quem só quer preço com quem valoriza seus protocolos.\n\nEstruturei uma prévia visual desse posicionamento para destacar sua autoridade em SJC. Posso te enviar um vídeo rápido de 45 segundos mostrando como ficaria?",
+    "msg1": "Dra. Júlia, seu perfil é interessante! O post sobre harmonização sem exageros me chamou atenção, nunca tinha pensado sobre esses critérios de proporção facial e acho muito importante que você tenha esse posicionamento de colocar o tema em pauta.",
+    "msg2": "Júlia, a única coisa que senti falta no teu perfil foi de um site. Já pensou como ter um link pra um site totalmente único e teu ajudaria a posicionar você como profissional e aumentaria tua autoridade em SJC?"
+  },
+  {
+    "id": "sjc_10",
+    "category": "estetica",
+    "niche": "Estética & Harmonização",
+    "nicheLabel": "Estética & Harmonização",
+    "name": "Faccia Armonica",
+    "handle": "@facciaarmonica",
+    "url": "https://instagram.com/facciaarmonica",
+    "location": "Jardim Esplanada (SJC)",
+    "followers": "Posicionamento Sólido (8/10)",
+    "council": "",
+    "focus": "Clínica de estética premium no Jardim Esplanada focada em rejuvenescimento facial e corporal.",
+    "gap": "Mesmo clínicas que já têm presença web antiga costumam sofrer com o **Gap 1 do seu PDF (\"Bom Instagram + site amador/abaixo do posicionamento atual\")**.",
+    "score": 8,
+    "script3steps": "Faccia Armonica, tudo bem? Gostei muito do seu perfil! O post sobre rejuvenescimento e cuidado integrado me chamou atenção, acho muito importante que vocês tenham esse posicionamento sofisticado de colocar o tema em pauta.\n\nO único ponto que observo de fora é que depender apenas do Instagram ou jogar o paciente direto no WhatsApp acaba misturando quem só quer preço com quem valoriza seus protocolos.\n\nEstruturei uma prévia visual desse posicionamento para destacar sua autoridade em SJC. Posso te enviar um vídeo rápido de 45 segundos mostrando como ficaria?",
+    "msg1": "Pessoal da Faccia Armonica, o perfil de vocês é muito interessante! O post sobre rejuvenescimento e cuidado integrado me chamou atenção, acho muito importante que vocês tenham esse posicionamento sofisticado de colocar o tema em pauta.",
+    "msg2": "A única coisa que notei no perfil de vocês foi na parte de presença digital fora do Instagram. Já pensaram como ter um site totalmente único, moderno e alinhado ao nível do Jardim Esplanada ajudaria a posicionar ainda mais a clínica e aumentaria a conversão de pacientes?"
+  },
+  {
+    "id": "sjc_11",
+    "category": "nutri",
+    "niche": "Nutrição",
+    "nicheLabel": "Nutrição",
+    "name": "Dra. Kellen Souza",
+    "handle": "@nutrikellensouza",
+    "url": "https://instagram.com/nutrikellensouza",
+    "location": "Jardim Aquarius (SJC)",
+    "followers": "Alta Autoridade (9/10)",
+    "council": "CRN-SP",
+    "focus": "Nutricionista no Jardim Aquarius focada em Saúde da Mulher 40+, Climatério, Menopausa e Composição Corporal.",
+    "gap": "Público 40+ de alto poder aquisitivo valoriza credibilidade institucional e clareza de como funciona a consulta antes de chamar no WhatsApp.",
+    "score": 9,
+    "script3steps": "Dra. Kellen Souza, tudo bem? Gostei muito do seu trabalho! O post sobre metabolismo na menopausa e saúde da mulher 40+ me chamou atenção, nunca tinha pensado sobre como a nutrição impacta tanto nessa fase e acho muito importante que você tenha esse posicionamento de colocar o tema em pauta.\n\nA única coisa que senti falta na bio foi de um site próprio explicando seu método de acompanhamento antes do WhatsApp, para que o paciente entenda o valor da consulta antes de pedir preço.\n\nMontei um modelo visual prático pensado exatamente nisso. Posso te mandar um vídeo rápido de 45s para você dar uma olhada?",
+    "msg1": "Dra. Kellen, seu perfil é muito interessante! O post sobre metabolismo na menopausa e saúde da mulher 40+ me chamou atenção, nunca tinha pensado sobre como a nutrição impacta tanto nessa fase e acho muito importante que você tenha esse posicionamento de colocar o tema em pauta.",
+    "msg2": "Kellen, a única coisa que senti falta no teu perfil foi de um site próprio. Já pensou como ter um link pra um site totalmente único e teu, explicando teu método de acompanhamento pra mulheres 40+, ajudaria a posicionar você como profissional e aumentaria tua autoridade?"
+  },
+  {
+    "id": "sjc_12",
+    "category": "nutri",
+    "niche": "Nutrição",
+    "nicheLabel": "Nutrição",
+    "name": "Cristhian Brasil",
+    "handle": "@cristhianbrpersonal.nutri",
+    "url": "https://instagram.com/cristhianbrpersonal.nutri",
+    "location": "Jardim Aquarius (SJC)",
+    "followers": "Alta Autoridade (9/10)",
+    "council": "CRN-SP",
+    "focus": "Nutricionista Esportivo e Profissional de Educação Física no Edifício New Worker Tower (Jardim Aquarius) — Hipertrofia, Emagrecimento e Fisiologia.",
+    "gap": "Como une duas frentes (Fisiologia do Exercício + Nutrição Esportiva), um site único mostrando a metodologia integrada faz o cliente entender por que o acompanhamento dele vale muito mais que um nutricionista comum.",
+    "score": 9,
+    "script3steps": "Cristhian Brasil, tudo bem? Gostei muito do seu trabalho! O post sobre fisiologia aplicada ao emagrecimento e hipertrofia me chamou atenção, nunca tinha pensado sobre essa integração na prática e acho muito importante que você tenha esse posicionamento de colocar o tema em pauta.\n\nA única coisa que senti falta na bio foi de um site próprio explicando seu método de acompanhamento antes do WhatsApp, para que o paciente entenda o valor da consulta antes de pedir preço.\n\nMontei um modelo visual prático pensado exatamente nisso. Posso te mandar um vídeo rápido de 45s para você dar uma olhada?",
+    "msg1": "Cristhian, seu perfil é interessante! O post sobre fisiologia aplicada ao emagrecimento e hipertrofia me chamou atenção, nunca tinha pensado sobre essa integração na prática e acho muito importante que você tenha esse posicionamento de colocar o tema em pauta.",
+    "msg2": "Cristhian, a única coisa que senti falta no teu perfil foi de um site. Já pensou como ter um link pra um site totalmente único e teu ajudaria a posicionar seu acompanhamento aí no Aquarius e aumentaria tua autoridade?"
+  },
+  {
+    "id": "sjc_13",
+    "category": "nutri",
+    "niche": "Nutrição",
+    "nicheLabel": "Nutrição",
+    "name": "Jessica Felipe",
+    "handle": "@jessicafelipe___",
+    "url": "https://instagram.com/jessicafelipe___",
+    "location": "Urbanova (SJC)",
+    "followers": "Alta Autoridade (9/10)",
+    "council": "CRN-SP",
+    "focus": "Nutricionista Clínica e Esportiva no Urbanova II (SJC), especialista em Gastroenterologia Funcional, Nutrigenômica e Estética.",
+    "gap": "Especialidades de alto valor (Nutrigenômica e Gastro Funcional) precisam de um espaço digital próprio para educar o paciente de alto padrão do Urbanova e filtrar curiosos.",
+    "score": 9,
+    "script3steps": "Jessica Felipe, tudo bem? Gostei muito do seu trabalho! O conteúdo sobre saúde intestinal e nutrigenômica me chamou atenção, nunca tinha parado pra pensar sobre como o intestino manda em tudo e acho muito importante que você tenha esse posicionamento de colocar o tema em pauta.\n\nA única coisa que senti falta na bio foi de um site próprio explicando seu método de acompanhamento antes do WhatsApp, para que o paciente entenda o valor da consulta antes de pedir preço.\n\nMontei um modelo visual prático pensado exatamente nisso. Posso te mandar um vídeo rápido de 45s para você dar uma olhada?",
+    "msg1": "Jessica, seu perfil é muito interessante! O conteúdo sobre saúde intestinal e nutrigenômica me chamou atenção, nunca tinha parado pra pensar sobre como o intestino manda em tudo e acho muito importante que você tenha esse posicionamento de colocar o tema em pauta.",
+    "msg2": "Jessica, a única coisa que senti falta no teu perfil foi de um site próprio. Já pensou como ter um link pra um site totalmente único e teu ajudaria a posicionar você como especialista no Urbanova e aumentaria tua autoridade?"
+  },
+  {
+    "id": "sjc_14",
+    "category": "nutri",
+    "niche": "Nutrição",
+    "nicheLabel": "Nutrição",
+    "name": "Rossana Nutri",
+    "handle": "@rossana_nutri",
+    "url": "https://instagram.com/rossana_nutri",
+    "location": "São José dos Campos - SP",
+    "followers": "Posicionamento Sólido (8/10)",
+    "council": "CRN-SP",
+    "focus": "Nutrição Clínica, Comportamental e Estética em SJC (emagrecimento sem dietas restritivas extremas).",
+    "gap": "**Gap 2 do seu Radar (\"Conteúdo forte + link da bio genérico\")** — usar link padrão de sistema de agendamento não constrói marca pessoal nem explica os diferenciais da consulta comportamental.",
+    "score": 8,
+    "script3steps": "Rossana Nutri, tudo bem? Gostei muito do seu trabalho! O post sobre nutrição comportamental e emagrecer sem terrorismo alimentar me chamou atenção, nunca tinha pensado sobre o assunto por esse lado e acho muito importante que você tenha esse posicionamento de colocar o tema em pauta.\n\nA única coisa que senti falta na bio foi de um site próprio explicando seu método de acompanhamento antes do WhatsApp, para que o paciente entenda o valor da consulta antes de pedir preço.\n\nMontei um modelo visual prático pensado exatamente nisso. Posso te mandar um vídeo rápido de 45s para você dar uma olhada?",
+    "msg1": "Rossana, seu perfil é interessante! O post sobre nutrição comportamental e emagrecer sem terrorismo alimentar me chamou atenção, nunca tinha pensado sobre o assunto por esse lado e acho muito importante que você tenha esse posicionamento de colocar o tema em pauta.",
+    "msg2": "Rossana, a única coisa que senti falta no teu perfil foi de um site próprio (além do link de agendamento). Já pensou como ter um link pra um site totalmente único e teu ajudaria a posicionar você como profissional e aumentaria tua autoridade antes do paciente agendar?"
+  },
+  {
+    "id": "sjc_15",
+    "category": "nutri",
+    "niche": "Nutrição",
+    "nicheLabel": "Nutrição",
+    "name": "Poliana Moreira",
+    "handle": "@nutri.poligmoreira",
+    "url": "https://instagram.com/nutri.poligmoreira",
+    "location": "São José dos Campos - SP",
+    "followers": "Posicionamento Sólido (8/10)",
+    "council": "CRN-SP",
+    "focus": "Nutricionista focada em Emagrecimento e Nutrição Clínica em SJC.",
+    "gap": "Produz conteúdo constante e tem oferta clara, mas a jornada de agendamento depende de contato manual sem uma página de pré-qualificação do paciente.",
+    "score": 8,
+    "script3steps": "Poliana Moreira, tudo bem? Gostei muito do seu trabalho! O post sobre constância no emagrecimento na vida real me chamou atenção, acho muito importante que você tenha esse posicionamento prático de colocar o tema em pauta.\n\nA única coisa que senti falta na bio foi de um site próprio explicando seu método de acompanhamento antes do WhatsApp, para que o paciente entenda o valor da consulta antes de pedir preço.\n\nMontei um modelo visual prático pensado exatamente nisso. Posso te mandar um vídeo rápido de 45s para você dar uma olhada?",
+    "msg1": "Poliana, seu perfil é muito interessante! O post sobre constância no emagrecimento na vida real me chamou atenção, acho muito importante que você tenha esse posicionamento prático de colocar o tema em pauta.",
+    "msg2": "Poliana, a única coisa que senti falta no teu perfil foi de um site. Já pensou como ter um link pra um site totalmente único e teu ajudaria a posicionar você como profissional em SJC e aumentaria tua autoridade?"
+  },
+  {
+    "id": "sjc_16",
+    "category": "nutri",
+    "niche": "Nutrição",
+    "nicheLabel": "Nutrição",
+    "name": "Márcio Vasques Eiras",
+    "handle": "@nutri.marcio",
+    "url": "https://instagram.com/nutri.marcio",
+    "location": "Jardim Aquarius (SJC)",
+    "followers": "Posicionamento Sólido (8/10)",
+    "council": "CRN-SP",
+    "focus": "Nutricionista Clínico e Esportivo no Jardim Aquarius (R. Armando d'Oliveira Cobra, 50).",
+    "gap": "Atende em endereço premium no Jardim Aquarius, mas a presença própria fora do Instagram pode ser estruturada para captar quem busca nutricionista esportivo em SJC e converter direto com autoridade.",
+    "score": 8,
+    "script3steps": "Márcio Vasques Eiras, tudo bem? Gostei muito do seu trabalho! O post sobre nutrição esportiva aliada à saúde clínica e longevidade me chamou atenção, nunca tinha pensado sobre esse equilíbrio e acho muito importante que você tenha esse posicionamento de colocar o tema em pauta.\n\nA única coisa que senti falta na bio foi de um site próprio explicando seu método de acompanhamento antes do WhatsApp, para que o paciente entenda o valor da consulta antes de pedir preço.\n\nMontei um modelo visual prático pensado exatamente nisso. Posso te mandar um vídeo rápido de 45s para você dar uma olhada?",
+    "msg1": "Márcio, seu perfil é interessante! O post sobre nutrição esportiva aliada à saúde clínica e longevidade me chamou atenção, nunca tinha pensado sobre esse equilíbrio e acho muito importante que você tenha esse posicionamento de colocar o tema em pauta.",
+    "msg2": "Márcio, a única coisa que senti falta no teu perfil foi de um site. Já pensou como ter um link pra um site totalmente único e teu ajudaria a posicionar seu consultório aí no Aquarius e aumentaria tua autoridade?"
+  },
+  {
+    "id": "sjc_17",
+    "category": "nutri",
+    "niche": "Nutrição",
+    "nicheLabel": "Nutrição",
+    "name": "Marcela Goveia",
+    "handle": "@marcelagoveia.nutri",
+    "url": "https://instagram.com/marcelagoveia.nutri",
+    "location": "Jardim Satélite (SJC)",
+    "followers": "Posicionamento Sólido (8/10)",
+    "council": "CRN-SP",
+    "focus": "Nutrição Clínica, Emagrecimento e Estética no Jardim Satélite (Instituto Luvany - SJC).",
+    "gap": "Excelente apresentação visual e posicionamento claro em estética/emagrecimento, faltando uma página própria que centralize depoimentos, método de bioimpedância/avaliação e agendamento.",
+    "score": 8,
+    "script3steps": "Marcela Goveia, tudo bem? Gostei muito do seu trabalho! O post sobre construir uma relação equilibrada com a comida mesmo buscando resultado estético me chamou atenção, acho muito importante que você tenha esse posicionamento de colocar o tema em pauta.\n\nA única coisa que senti falta na bio foi de um site próprio explicando seu método de acompanhamento antes do WhatsApp, para que o paciente entenda o valor da consulta antes de pedir preço.\n\nMontei um modelo visual prático pensado exatamente nisso. Posso te mandar um vídeo rápido de 45s para você dar uma olhada?",
+    "msg1": "Marcela, seu perfil é muito interessante! O post sobre construir uma relação equilibrada com a comida mesmo buscando resultado estético me chamou atenção, acho muito importante que você tenha esse posicionamento de colocar o tema em pauta.",
+    "msg2": "Marcela, a única coisa que senti falta no teu perfil foi de um site próprio. Já pensou como ter um link pra um site totalmente único e teu ajudaria a posicionar você como profissional e aumentaria tua autoridade?"
+  },
+  {
+    "id": "sjc_18",
+    "category": "nutri",
+    "niche": "Nutrição",
+    "nicheLabel": "Nutrição",
+    "name": "Dra. Marlene Amaral",
+    "handle": "@dramarleneamaral",
+    "url": "https://instagram.com/dramarleneamaral",
+    "location": "São José dos Campos - SP",
+    "followers": "Posicionamento Sólido (8/10)",
+    "council": "CRN-SP",
+    "focus": "Emagrecimento sustentável, saúde 40+ e mudança de hábitos (SJC e Online).",
+    "gap": "Quem vende acompanhamento online + presencial precisa de uma página oficial para passar segurança a pacientes que ainda não conhecem o consultório físico.",
+    "score": 8,
+    "script3steps": "Dra. Marlene Amaral, tudo bem? Gostei muito do seu trabalho! O post sobre mudança de hábitos depois dos 40 anos sem dietas malucas me chamou atenção, nunca tinha pensado sobre o assunto por esse ângulo e acho muito importante que você tenha esse posicionamento.\n\nA única coisa que senti falta na bio foi de um site próprio explicando seu método de acompanhamento antes do WhatsApp, para que o paciente entenda o valor da consulta antes de pedir preço.\n\nMontei um modelo visual prático pensado exatamente nisso. Posso te mandar um vídeo rápido de 45s para você dar uma olhada?",
+    "msg1": "Dra. Marlene, seu perfil é interessante! O post sobre mudança de hábitos depois dos 40 anos sem dietas malucas me chamou atenção, nunca tinha pensado sobre o assunto por esse ângulo e acho muito importante que você tenha esse posicionamento.",
+    "msg2": "Marlene, a única coisa que senti falta no teu perfil foi de um site. Já pensou como ter um link pra um site totalmente único e teu ajudaria a posicionar tanto seu atendimento em SJC quanto o online e aumentaria tua autoridade?"
+  },
+  {
+    "id": "sjc_19",
+    "category": "nutri",
+    "niche": "Nutrição",
+    "nicheLabel": "Nutrição",
+    "name": "Matheus Pacheco",
+    "handle": "@nutricionistamatheuspdm",
+    "url": "https://instagram.com/nutricionistamatheuspdm",
+    "location": "Jardim Aquarius (SJC)",
+    "followers": "Posicionamento Sólido (8/10)",
+    "council": "CRN-SP",
+    "focus": "Nutrição com base científica, composição corporal e hipertrofia no Edifício New Worker Tower (Jardim Aquarius).",
+    "gap": "Profissionais que já entendem o valor do digital são os mais fáceis de abordar elogiando a estrutura ou propondo uma evolução visual/página de alta conversão para planos específicos.",
+    "score": 7,
+    "script3steps": "Matheus Pacheco, tudo bem? Gostei muito do seu trabalho! O post sobre composição corporal baseada em ciência sem achismos me chamou atenção, acho muito importante que você tenha esse posicionamento sério de colocar o tema em pauta.\n\nA única coisa que senti falta na bio foi de um site próprio explicando seu método de acompanhamento antes do WhatsApp, para que o paciente entenda o valor da consulta antes de pedir preço.\n\nMontei um modelo visual prático pensado exatamente nisso. Posso te mandar um vídeo rápido de 45s para você dar uma olhada?",
+    "msg1": "Matheus, seu perfil é interessante! O post sobre composição corporal baseada em ciência sem achismos me chamou atenção, acho muito importante que você tenha esse posicionamento sério de colocar o tema em pauta.",
+    "msg2": "Matheus, vi que você já cuida bem do teu posicionamento no digital, mas senti falta de uma página focada em conversão direta dos teus programas de acompanhamento na bio. Já pensou como uma estrutura visual totalmente única aumentaria ainda mais tua autoridade aí no Aquarius?"
+  },
+  {
+    "id": "sjc_20",
+    "category": "nutri",
+    "niche": "Nutrição",
+    "nicheLabel": "Nutrição",
+    "name": "Dra. Marina Turzi",
+    "handle": "@marinaturzi.nutri",
+    "url": "https://instagram.com/marinaturzi.nutri",
+    "location": "Jardim Aquarius (SJC)",
+    "followers": "Posicionamento Sólido (8/10)",
+    "council": "CRN-SP",
+    "focus": "Nutricionista Clínica e Funcional no Edifício Pátio das Américas (Jardim Aquarius).",
+    "gap": "Forte presença em diretórios médicos (Doctoralia), onde o paciente vê 10 concorrentes na mesma tela; ter um site próprio na bio evita que o paciente saia para comparar com outros profissionais da lista.",
+    "score": 8,
+    "script3steps": "Dra. Marina Turzi, tudo bem? Gostei muito do seu trabalho! O conteúdo sobre nutrição funcional aplicada à rotina me chamou atenção, nunca tinha pensado sobre o assunto dessa maneira e acho muito importante que você tenha esse posicionamento.\n\nA única coisa que senti falta na bio foi de um site próprio explicando seu método de acompanhamento antes do WhatsApp, para que o paciente entenda o valor da consulta antes de pedir preço.\n\nMontei um modelo visual prático pensado exatamente nisso. Posso te mandar um vídeo rápido de 45s para você dar uma olhada?",
+    "msg1": "Dra. Marina, seu perfil é muito interessante! O conteúdo sobre nutrição funcional aplicada à rotina me chamou atenção, nunca tinha pensado sobre o assunto dessa maneira e acho muito importante que você tenha esse posicionamento.",
+    "msg2": "Marina, a única coisa que senti falta no teu perfil foi de um site próprio. Já pensou como ter um link pra um site totalmente único e teu (sem depender só de diretórios ou WhatsApp cru) ajudaria a posicionar você como profissional e aumentaria tua autoridade?"
+  },
+  {
+    "id": "sjc_21",
+    "category": "odonto",
+    "niche": "Odontologia",
+    "nicheLabel": "Odontologia",
+    "name": "Dr. Fernando Freitas",
+    "handle": "@dr.fernando.freitas",
+    "url": "https://instagram.com/dr.fernando.freitas",
+    "location": "Jardim Aquarius (SJC)",
+    "followers": "Alta Autoridade (9/10)",
+    "council": "CRO-SP",
+    "focus": "Facetas e Lentes de Resina / Odontologia Estética no Jardim Aquarius (Av. Cassiano Ricardo, 319).",
+    "gap": "Paciente de facetas em resina quer ver casos clínicos detalhados, dúvidas sobre durabilidade/desgaste dental e segurança antes de agendar avaliação.",
+    "score": 9,
+    "script3steps": "Dr. Fernando Freitas, tudo bem? Parabéns pelos casos e pelo perfil! O post sobre naturalidade e cuidados nas facetas em resina me chamou atenção, nunca pensei sobre o assunto por esse lado técnico e acho muito importante que você tenha esse posicionamento de colocar o tema em pauta.\n\nO único detalhe é que direcionar pacientes de tratamentos de alto valor direto para o WhatsApp sem uma vitrine própria prévia acaba gerando muitas dúvidas repetidas antes do agendamento.\n\nDesenhei uma proposta visual para organizar esses casos clínicos com requinte. Posso te encaminhar um vídeo rápido de 45 segundos mostrando a ideia?",
+    "msg1": "Dr. Fernando, seu perfil é interessante! O post sobre naturalidade e cuidados nas facetas em resina me chamou atenção, nunca pensei sobre o assunto por esse lado técnico e acho muito importante que você tenha esse posicionamento de colocar o tema em pauta.",
+    "msg2": "Fernando, a única coisa que senti falta no teu perfil foi de um site. Já pensou como ter um link pra um site totalmente único e teu ajudaria a posicionar você como referência em lentes em SJC e aumentaria tua autoridade?"
+  },
+  {
+    "id": "sjc_22",
+    "category": "odonto",
+    "niche": "Odontologia",
+    "nicheLabel": "Odontologia",
+    "name": "Saizaki Odontologia",
+    "handle": "@saizaki_odontologia",
+    "url": "https://instagram.com/saizaki_odontologia",
+    "location": "Jardim Aquarius (SJC)",
+    "followers": "Alta Autoridade (9/10)",
+    "council": "CRO-SP",
+    "focus": "Cirurgia Bucomaxilofacial e Implantes Dentários no Jardim Aquarius (Rua dos Piquirões).",
+    "gap": "Em cirurgias e implantes, o paciente pesquisa o nome da clínica no Google e clica na bio para sentir segurança cirúrgica; ausência de um site institucional premium gera insegurança.",
+    "score": 9,
+    "script3steps": "Saizaki Odontologia, tudo bem? Parabéns pelos casos e pelo perfil! O post sobre reabilitação com implantes e segurança cirúrgica me chamou atenção, nunca pensei sobre o assunto com essa profundidade e acho muito importante que vocês tenham esse posicionamento de colocar o tema em pauta.\n\nO único detalhe é que direcionar pacientes de tratamentos de alto valor direto para o WhatsApp sem uma vitrine própria prévia acaba gerando muitas dúvidas repetidas antes do agendamento.\n\nDesenhei uma proposta visual para organizar esses casos clínicos com requinte. Posso te encaminhar um vídeo rápido de 45 segundos mostrando a ideia?",
+    "msg1": "Pessoal da Saizaki, o perfil de vocês é muito interessante! O post sobre reabilitação com implantes e segurança cirúrgica me chamou atenção, nunca pensei sobre o assunto com essa profundidade e acho muito importante que vocês tenham esse posicionamento de colocar o tema em pauta.",
+    "msg2": "A única coisa que senti falta no perfil de vocês foi de um site à altura da clínica. Já pensaram como ter um link pra um site totalmente único de vocês ajudaria a posicionar a clínica no Jardim Aquarius e aumentaria ainda mais a autoridade nos casos cirúrgicos?"
+  },
+  {
+    "id": "sjc_23",
+    "category": "odonto",
+    "niche": "Odontologia",
+    "nicheLabel": "Odontologia",
+    "name": "Dra. Thais Castro",
+    "handle": "@drathaisrcastro",
+    "url": "https://instagram.com/drathaisrcastro",
+    "location": "Vila Ema (SJC)",
+    "followers": "Alta Autoridade (9/10)",
+    "council": "CRO-SP",
+    "focus": "Ortodontia Especializada e Estética Facial com unidades na **Vila Ema** (Av. Heitor Villa-Lobos) e **Bosque dos Eucaliptos**.",
+    "gap": "Quem tem duas unidades (Vila Ema + Zona Sul) precisa de um site único que direcione o paciente para a unidade certa de forma elegante e profissional.",
+    "score": 9,
+    "script3steps": "Dra. Thais Castro, tudo bem? Parabéns pelos casos e pelo perfil! O post sobre como a ortodontia impacta na estética facial toda me chamou atenção, nunca pensei sobre o assunto dessa forma e acho muito importante que você tenha esse posicionamento de colocar o tema em pauta.\n\nO único detalhe é que direcionar pacientes de tratamentos de alto valor direto para o WhatsApp sem uma vitrine própria prévia acaba gerando muitas dúvidas repetidas antes do agendamento.\n\nDesenhei uma proposta visual para organizar esses casos clínicos com requinte. Posso te encaminhar um vídeo rápido de 45 segundos mostrando a ideia?",
+    "msg1": "Dra. Thais, seu perfil é interessante! O post sobre como a ortodontia impacta na estética facial toda me chamou atenção, nunca pensei sobre o assunto dessa forma e acho muito importante que você tenha esse posicionamento de colocar o tema em pauta.",
+    "msg2": "Thais, a única coisa que senti falta no teu perfil foi de um site. Já pensou como ter um link pra um site totalmente único e teu (integrando suas unidades da Vila Ema e do Bosque) ajudaria a posicionar você como profissional e aumentaria tua autoridade?"
+  },
+  {
+    "id": "sjc_24",
+    "category": "odonto",
+    "niche": "Odontologia",
+    "nicheLabel": "Odontologia",
+    "name": "Dra. Renata Cortez",
+    "handle": "@renatacortez",
+    "url": "https://instagram.com/renatacortez",
+    "location": "Vila Ema (SJC)",
+    "followers": "Posicionamento Sólido (8/10)",
+    "council": "CRO-SP",
+    "focus": "Endodontia (Tratamento de Canal) e Periodontia na Vila Ema (R. Comendador Remo Cesaroni).",
+    "gap": "Pacientes com dor de dente ou problema gengival buscam rapidez e confiança técnica; um site próprio passa muito mais credibilidade e ainda posiciona nas buscas locais da Vila Ema.",
+    "score": 8,
+    "script3steps": "Dra. Renata Cortez, tudo bem? Parabéns pelos casos e pelo perfil! O post sobre saúde da gengiva e mitos do tratamento de canal me chamou atenção, nunca pensei sobre o assunto sem aquele medo comum de dentista e acho muito importante que você tenha esse posicionamento de colocar o tema em pauta.\n\nO único detalhe é que direcionar pacientes de tratamentos de alto valor direto para o WhatsApp sem uma vitrine própria prévia acaba gerando muitas dúvidas repetidas antes do agendamento.\n\nDesenhei uma proposta visual para organizar esses casos clínicos com requinte. Posso te encaminhar um vídeo rápido de 45 segundos mostrando a ideia?",
+    "msg1": "Dra. Renata, seu perfil é interessante! O post sobre saúde da gengiva e mitos do tratamento de canal me chamou atenção, nunca pensei sobre o assunto sem aquele medo comum de dentista e acho muito importante que você tenha esse posicionamento de colocar o tema em pauta.",
+    "msg2": "Renata, a única coisa que senti falta no teu perfil foi de um site. Já pensou como ter um link pra um site totalmente único e teu ajudaria a posicionar você como especialista na Vila Ema e aumentaria tua autoridade?"
+  },
+  {
+    "id": "sjc_25",
+    "category": "odonto",
+    "niche": "Odontologia",
+    "nicheLabel": "Odontologia",
+    "name": "Dr. Luciano Faraco Rodrigues",
+    "handle": "@drlucianofaracorodrigues",
+    "url": "https://instagram.com/drlucianofaracorodrigues",
+    "location": "São José dos Campos - SP",
+    "followers": "Alta Autoridade (9/10)",
+    "council": "CRO-SP",
+    "focus": "Ortodontia Digital e Alinhadores Transparentes (Invisalign) em SJC.",
+    "gap": "Vender Ortodontia Digital sem uma experiência web digital impecável cria desconexão entre o discurso tecnológico (scanner 3D/Invisalign) e o link da bio.",
+    "score": 9,
+    "script3steps": "Dr. Luciano Faraco Rodrigues, tudo bem? Parabéns pelos casos e pelo perfil! O post sobre previsibilidade na ortodontia digital com alinhadores me chamou atenção, nunca pensei sobre quanta tecnologia envolve o sorriso hoje e acho muito importante que você tenha esse posicionamento de colocar o tema em pauta.\n\nO único detalhe é que direcionar pacientes de tratamentos de alto valor direto para o WhatsApp sem uma vitrine própria prévia acaba gerando muitas dúvidas repetidas antes do agendamento.\n\nDesenhei uma proposta visual para organizar esses casos clínicos com requinte. Posso te encaminhar um vídeo rápido de 45 segundos mostrando a ideia?",
+    "msg1": "Dr. Luciano, seu perfil é interessante! O post sobre previsibilidade na ortodontia digital com alinhadores me chamou atenção, nunca pensei sobre quanta tecnologia envolve o sorriso hoje e acho muito importante que você tenha esse posicionamento de colocar o tema em pauta.",
+    "msg2": "Luciano, a única coisa que senti falta no teu perfil foi de um site. Já pensou como ter um link pra um site totalmente único e teu ajudaria a posicionar você como referência em ortodontia digital em SJC e aumentaria tua autoridade?"
+  },
+  {
+    "id": "sjc_26",
+    "category": "odonto",
+    "niche": "Odontologia",
+    "nicheLabel": "Odontologia",
+    "name": "Caseli Odontologia",
+    "handle": "@caseliodontologia",
+    "url": "https://instagram.com/caseliodontologia",
+    "location": "São José dos Campos - SP",
+    "followers": "Posicionamento Sólido (8/10)",
+    "council": "CRO-SP",
+    "focus": "Odontologia Estética e Alinhadores Invisalign (Parque Industrial - SJC).",
+    "gap": "Forte atuação estética e ortodôntica na Zona Sul de SJC, onde um site exclusivo diferencia imediatamente das clínicas populares de franquia.",
+    "score": 8,
+    "script3steps": "Caseli Odontologia, tudo bem? Parabéns pelos casos e pelo perfil! O post sobre cuidados estéticos e alinhadores transparentes me chamou atenção, acho muito importante que vocês tenham esse posicionamento de colocar o tema em pauta com tanta clareza.\n\nO único detalhe é que direcionar pacientes de tratamentos de alto valor direto para o WhatsApp sem uma vitrine própria prévia acaba gerando muitas dúvidas repetidas antes do agendamento.\n\nDesenhei uma proposta visual para organizar esses casos clínicos com requinte. Posso te encaminhar um vídeo rápido de 45 segundos mostrando a ideia?",
+    "msg1": "Pessoal da Caseli Odontologia, o perfil de vocês é interessante! O post sobre cuidados estéticos e alinhadores transparentes me chamou atenção, acho muito importante que vocês tenham esse posicionamento de colocar o tema em pauta com tanta clareza.",
+    "msg2": "A única coisa que senti falta no perfil de vocês foi de um site próprio. Já pensaram como ter um link pra um site totalmente único da clínica ajudaria a posicionar vocês em SJC e aumentaria a autoridade antes do paciente agendar?"
+  },
+  {
+    "id": "sjc_27",
+    "category": "odonto",
+    "niche": "Odontologia",
+    "nicheLabel": "Odontologia",
+    "name": "Dra. Fabiana Borges (FG Odontologia Integrada)",
+    "handle": "@dra_fabiana_borges",
+    "url": "https://instagram.com/dra_fabiana_borges",
+    "location": "Vila Adyana (SJC)",
+    "followers": "Posicionamento Sólido (8/10)",
+    "council": "CRO-SP",
+    "focus": "Odontologia Integrada e Estética na Vila Adyana (SJC).",
+    "gap": "Perfil profissional cuidadoso, mas sem uma página exclusiva de alta conversão na bio para apresentar a estrutura da clínica na Vila Adyana.",
+    "score": 8,
+    "script3steps": "Dra. Fabiana Borges (FG Odontologia Integrada), tudo bem? Parabéns pelos casos e pelo perfil! O post sobre prevenção e odontologia integrada me chamou atenção, nunca pensei sobre o assunto por esse ângulo e acho muito importante que você tenha esse posicionamento de colocar o tema em pauta.\n\nO único detalhe é que direcionar pacientes de tratamentos de alto valor direto para o WhatsApp sem uma vitrine própria prévia acaba gerando muitas dúvidas repetidas antes do agendamento.\n\nDesenhei uma proposta visual para organizar esses casos clínicos com requinte. Posso te encaminhar um vídeo rápido de 45 segundos mostrando a ideia?",
+    "msg1": "Dra. Fabiana, seu perfil é interessante! O post sobre prevenção e odontologia integrada me chamou atenção, nunca pensei sobre o assunto por esse ângulo e acho muito importante que você tenha esse posicionamento de colocar o tema em pauta.",
+    "msg2": "Fabiana, a única coisa que senti falta no teu perfil foi de um site. Já pensou como ter um link pra um site totalmente único e teu ajudaria a posicionar você como profissional na Vila Adyana e aumentaria tua autoridade?"
+  },
+  {
+    "id": "sjc_28",
+    "category": "odonto",
+    "niche": "Odontologia",
+    "nicheLabel": "Odontologia",
+    "name": "Pró Clínica São José dos Campos",
+    "handle": "@proclinica.sjcampos",
+    "url": "https://instagram.com/proclinica.sjcampos",
+    "location": "Jardim Aquarius (SJC)",
+    "followers": "Posicionamento Sólido (8/10)",
+    "council": "CRO-SP",
+    "focus": "Odontologia multidisciplinar na Vila Adyana / região do Jardim Aquarius.",
+    "gap": "Clínicas que atendem várias especialidades se beneficiam enormemente de uma página enxuta e moderna no link da bio que guie o paciente por tratamento (Implantes, Estética, Urgência).",
+    "score": 8,
+    "script3steps": "Pró Clínica São José dos Campos, tudo bem? Parabéns pelos casos e pelo perfil! O post sobre cuidados preventivos e reabilitação bucal me chamou atenção, acho muito importante que vocês tenham esse posicionamento educativo.\n\nO único detalhe é que direcionar pacientes de tratamentos de alto valor direto para o WhatsApp sem uma vitrine própria prévia acaba gerando muitas dúvidas repetidas antes do agendamento.\n\nDesenhei uma proposta visual para organizar esses casos clínicos com requinte. Posso te encaminhar um vídeo rápido de 45 segundos mostrando a ideia?",
+    "msg1": "Pessoal da Pró Clínica, o perfil de vocês é interessante! O post sobre cuidados preventivos e reabilitação bucal me chamou atenção, acho muito importante que vocês tenham esse posicionamento educativo.",
+    "msg2": "A única coisa que notei no perfil de vocês foi na experiência do link da bio. Já pensaram como ter uma página totalmente única e moderna, guiando o paciente direto pro tratamento que ele procura, ajudaria a posicionar a clínica e aumentaria a conversão?"
+  },
+  {
+    "id": "sjc_29",
+    "category": "odonto",
+    "niche": "Odontologia",
+    "nicheLabel": "Odontologia",
+    "name": "Somensi & Castro Odontologia",
+    "handle": "@somensiecastro",
+    "url": "https://instagram.com/somensiecastro",
+    "location": "Jardim Aquarius (SJC)",
+    "followers": "Alta Autoridade (9/10)",
+    "council": "CRO-SP",
+    "focus": "Dentística, Lentes de Contato Dental e Invisalign Doctor no Parque Residencial Aquarius.",
+    "gap": "Duplas de sócios com foco em estética dental se destacam muito quando possuem uma vitrine digital própria apresentando o currículo dos dois doutores e a estrutura do consultório.",
+    "score": 9,
+    "script3steps": "Somensi & Castro Odontologia, tudo bem? Parabéns pelos casos e pelo perfil! O perfil da clínica é muito interessante, o post sobre lentes de contato dental e alinhadores me chamou atenção. Nunca pensei sobre como o planejamento digital muda tudo e acho muito importante que vocês tenham esse posicionamento de colocar o tema em pauta.\n\nO único detalhe é que direcionar pacientes de tratamentos de alto valor direto para o WhatsApp sem uma vitrine própria prévia acaba gerando muitas dúvidas repetidas antes do agendamento.\n\nDesenhei uma proposta visual para organizar esses casos clínicos com requinte. Posso te encaminhar um vídeo rápido de 45 segundos mostrando a ideia?",
+    "msg1": "Olá! O perfil da clínica é muito interessante, o post sobre lentes de contato dental e alinhadores me chamou atenção. Nunca pensei sobre como o planejamento digital muda tudo e acho muito importante que vocês tenham esse posicionamento de colocar o tema em pauta.",
+    "msg2": "A única coisa que senti falta no perfil de vocês foi de um site exclusivo. Já pensaram como ter um link pra um site totalmente único da clínica ajudaria a posicionar vocês aí no Aquarius e aumentaria ainda mais a autoridade?"
+  },
+  {
+    "id": "sjc_30",
+    "category": "odonto",
+    "niche": "Odontologia",
+    "nicheLabel": "Odontologia",
+    "name": "JMS Oral Clinic",
+    "handle": "@jmsoralclinic",
+    "url": "https://instagram.com/jmsoralclinic",
+    "location": "Jardim São Dimas (SJC)",
+    "followers": "Posicionamento Sólido (8/10)",
+    "council": "CRO-SP",
+    "focus": "Implantodontia, Alinhadores Invisalign e Odontologia Estética no Jardim São Dimas (SJC).",
+    "gap": "Conteúdo técnico e estético forte, com oportunidade clara de ter um site próprio focado em captação de pacientes de Implantes e Alinhadores.",
+    "score": 8,
+    "script3steps": "JMS Oral Clinic, tudo bem? Parabéns pelos casos e pelo perfil! O post sobre reabilitação oral e estética do sorriso me chamou atenção, nunca pensei sobre o assunto dessa forma e acho muito importante que vocês tenham esse posicionamento de colocar o tema em pauta.\n\nO único detalhe é que direcionar pacientes de tratamentos de alto valor direto para o WhatsApp sem uma vitrine própria prévia acaba gerando muitas dúvidas repetidas antes do agendamento.\n\nDesenhei uma proposta visual para organizar esses casos clínicos com requinte. Posso te encaminhar um vídeo rápido de 45 segundos mostrando a ideia?",
+    "msg1": "Pessoal da JMS Oral Clinic, o perfil de vocês é interessante! O post sobre reabilitação oral e estética do sorriso me chamou atenção, nunca pensei sobre o assunto dessa forma e acho muito importante que vocês tenham esse posicionamento de colocar o tema em pauta.",
+    "msg2": "A única coisa que senti falta no perfil de vocês foi de um site próprio. Já pensaram como ter um link pra um site totalmente único da clínica ajudaria a posicionar vocês em SJC e aumentaria a autoridade na hora do paciente fechar o tratamento?"
+  },
+  {
+    "id": "p1",
+    "category": "premium",
+    "nicheLabel": "Cirurgia Plástica & Face",
+    "name": "Dra. Michelle Bonfietti",
+    "handle": "@dramichellebonfietti",
+    "url": "https://instagram.com/dramichellebonfietti",
+    "location": "Jardim Aquarius (SJC)",
+    "followers": "14.8k seguidores",
+    "council": "CRM-SP",
+    "focus": "Cirurgia Plástica Facial, Blefaroplastia e Estética Médica",
+    "gap": "Feed com forte autoridade cirúrgica, mas o tráfego cai em link genérico sem uma página de posicionamento filtrando consultas particulares.",
+    "script3steps": "Dra. Michelle, tudo bem? Gostei muito do seu perfil! O cuidado visual e a clareza com que você explica a recuperação das cirurgias faciais transmitem muita segurança.\n\nA única coisa é que, olhando de fora, ainda é difícil para uma paciente nova entender o protocolo completo e o seu diferencial técnico antes de chamar no WhatsApp, o que faz muitas compararem por preço.\n\nEu estruturei uma ideia visual focada exatamente em resolver esse posicionamento e valorizar suas consultas no Aquarius. Posso te enviar um vídeo rápido de 45 segundos mostrando como ficaria?",
+    "msg1": "Dra. Michelle, seu perfil é impecável! Os conteúdos sobre pós-operatório e naturalidade na cirurgia facial passam uma segurança rara de ver no mercado.",
+    "msg2": "Michelle, a única coisa que senti falta foi de uma página exclusiva à altura dessa autoridade para apresentar os procedimentos antes do WhatsApp. Já pensou em ter essa estrutura própria?"
+  },
+  {
+    "id": "p2",
+    "category": "premium",
+    "nicheLabel": "Odontologia de Alto Padrão",
+    "name": "Dr. Fabrício Bervian",
+    "handle": "@drfabriciobervian",
+    "url": "https://instagram.com/drfabriciobervian",
+    "location": "São José dos Campos",
+    "followers": "12.2k seguidores",
+    "council": "CRO-SP",
+    "focus": "Reabilitação Oral, Lentes de Contato Dental e Implantes",
+    "gap": "Casos clínicos de transformação impressionantes, mas sem uma vitrine própria estruturada por queixa, dependendo apenas do direct e WhatsApp.",
+    "script3steps": "Dr. Fabrício, tudo bem? Seu perfil é excelente! As fotos de antes e depois dos casos de lentes e reabilitação mostram uma precisão estética fora da curva.\n\nO único ponto é que, para quem chega pelo Instagram, ainda não há uma estrutura clara organizando os tipos de tratamento por queixa do paciente antes do WhatsApp, deixando o valor do procedimento invisível até o orçamento.\n\nMontei uma estrutura visual de posicionamento pensada exatamente para valorizar esses casos clínicos perante a concorrência. Posso te mandar um vídeo rápido mostrando a ideia?",
+    "msg1": "Dr. Fabrício, parabéns pelos casos de reabilitação no perfil! A naturalidade e o alinhamento das lentes que você posta chamam muita atenção.",
+    "msg2": "Fabrício, a única coisa que senti falta foi de um site próprio organizando seus protocolos estéticos antes do WhatsApp. Já pensou no impacto disso na autoridade?"
+  },
+  {
+    "id": "p3",
+    "category": "premium",
+    "nicheLabel": "Arquitetura de Alto Padrão",
+    "name": "Studio Kaza Arquitetura",
+    "handle": "@studiokaza.arq",
+    "url": "https://instagram.com/studiokaza.arq",
+    "location": "Urbanova / Aquarius (SJC)",
+    "followers": "9.4k seguidores",
+    "council": "CAU-SP / CREA-SP",
+    "focus": "Arquitetura Residencial de Alto Luxo e Design de Interiores",
+    "gap": "Projetos impecáveis em carrossel, mas sem portfólio interativo estruturado por metragem e etapas de memorial descritivo.",
+    "script3steps": "Pessoal da Studio Kaza, tudo bem? Acompanho os projetos de vocês e o padrão de acabamento dos residenciais no Urbanova é impecável!\n\nA única coisa que reparei é que o escritório ainda não possui um portfólio digital exclusivo que organize os projetos por metragem e estilo antes do WhatsApp, o que dificulta o cliente de alto padrão entender o escopo completo do serviço de vocês.\n\nEstruturei uma prévia visual desse posicionamento em um protótipo rápido. Posso te enviar um vídeo curto de 45s mostrando como ficaria?",
+    "msg1": "Pessoal da Studio Kaza, os projetos residenciais que vocês postam no Urbanova têm uma linguagem estética refinadíssima!",
+    "msg2": "A única coisa que senti falta foi de um portfólio digital interativo para os clientes navegarem nos projetos antes de pedir orçamento. Já pensaram nisso?"
+  },
+  {
+    "id": "p7",
+    "category": "premium",
+    "nicheLabel": "Odontologia Digital & Invisalign",
+    "name": "Dr. Rodolfo Ribeiro",
+    "handle": "@drrodolforibeiro",
+    "url": "https://instagram.com/drrodolforibeiro",
+    "location": "Jardim Aquarius (SJC)",
+    "followers": "11.5k seguidores",
+    "council": "CRO-SP",
+    "focus": "Estética do Sorriso, Invisalign Doctor e Escaneamento 3D",
+    "gap": "Grande autoridade e tecnologia no consultório, mas o paciente novo não enxerga o diferencial tecnológico antes da consulta.",
+    "script3steps": "Dr. Rodolfo, tudo bem? Excelente o seu conteúdo sobre planejamento digital do sorriso e tecnologia no consultório!\n\nApenas sinto que, sem uma página oficial posicionando essa tecnologia de ponta perante os outros consultórios de SJC, o paciente acaba vendo apenas fotos de dentes sem perceber o investimento técnico por trás.\n\nMontei uma estrutura visual de posicionamento destacando essa tecnologia. Posso te mandar um vídeo rápido de 45 segundos para você ver?",
+    "msg1": "Dr. Rodolfo, o conteúdo educativo sobre planejamento 3D do sorriso no seu perfil é uma das melhores referências de SJC!",
+    "msg2": "Rodolfo, você já pensou em ter um site próprio posicionando esse diferencial tecnológico antes do paciente pedir avaliação?"
+  },
+  {
+    "id": "p8",
+    "category": "premium",
+    "nicheLabel": "Clínica Odontológica Premium",
+    "name": "Vivence Odontologia Integrada",
+    "handle": "@vivenceodontologia",
+    "url": "https://instagram.com/vivenceodontologia",
+    "location": "Jardim Esplanada (SJC)",
+    "followers": "7.2k seguidores",
+    "council": "CRO-SP",
+    "focus": "Implantodontia, Prótese e Estética Orofacial",
+    "gap": "Espaço requintado no Esplanada, mas sem uma vitrine digital que apresente a equipe e a experiência clínica antes da mensagem.",
+    "script3steps": "Equipe Vivence, tudo bem? O espaço da clínica no Jardim Esplanada é impressionante, transmite muito acolhimento e sofisticação.\n\nO único gap que percebo de fora é que a experiência impecável que vocês oferecem no consultório ainda não tem uma vitrine digital à altura, que apresente o corpo clínico e as especialidades antes da pessoa mandar mensagem no WhatsApp.\n\nEu estruturei uma prévia visual para resolver isso e posicionar a clínica como topo de mercado. Posso te enviar um vídeo rápido de 45 segundos mostrando?",
+    "msg1": "Pessoal da Vivence, a estrutura e a recepção da clínica no Jardim Esplanada são um exemplo de sofisticação!",
+    "msg2": "A única coisa que senti falta foi de um site oficial apresentando a equipe e a clínica antes do WhatsApp. Já pensaram em criar isso?"
+  },
+  {
+    "id": "p9",
+    "category": "premium",
+    "nicheLabel": "Arquitetura & Interiores",
+    "name": "Dra. Juliana Marcondes Arquitetura",
+    "handle": "@julianamarcondes.arq",
+    "url": "https://instagram.com/julianamarcondes.arq",
+    "location": "São José dos Campos",
+    "followers": "8.1k seguidores",
+    "council": "CAU-SP",
+    "focus": "Projetos Residenciais, Iluminação Cênica e Reformas Corporativas",
+    "gap": "Renders e fotos de alto luxo, mas sem detalhamento do processo de gestão e cronograma para clientes exigentes.",
+    "script3steps": "Juliana, tudo bem? Admiro muito seus projetos, a iluminação e a marcenaria que você especifica têm um nível de detalhe raríssimo de ver.\n\nUma coisa que senti falta no perfil é de um portfólio interativo que demonstre como você gerencia as fases da obra, para que o cliente de alto padrão perca o medo de reforma antes de pedir orçamento.\n\nEu criei uma proposta visual pensada exatamente nesse posicionamento. Posso te enviar um vídeo rápido de 45s mostrando como ficaria?",
+    "msg1": "Juliana, seus projetos residenciais em SJC têm uma harmonia de iluminação e marcenaria de tirar o chapéu!",
+    "msg2": "Juliana, já pensou em ter um portfólio interativo próprio mostrando suas etapas de projeto antes da primeira reunião?"
+  },
+  {
+    "id": "p10",
+    "category": "premium",
+    "nicheLabel": "Dermatologia & Laser",
+    "name": "Dra. Camila Rezende",
+    "handle": "@dracamilarezende",
+    "url": "https://instagram.com/dracamilarezende",
+    "location": "Vila Ema (SJC)",
+    "followers": "13.4k seguidores",
+    "council": "CRM-SP / SBD",
+    "focus": "Dermatologia Clínica, Cirúrgica e Tecnologias Estéticas",
+    "gap": "Conteúdo médico educativo excelente, mas sem separação clara entre doenças de pele e protocolos estéticos de alta tecnologia.",
+    "script3steps": "Dra. Camila, tudo bem? Seus posts explicando os cuidados com a barreira cutânea e uso consciente de tecnologias são das melhores aulas do Instagram médico.\n\nO único ponto que observo de fora é que, por falar tanto de parte clínica quanto de estética avançada, a paciente que busca rejuvenescimento na Vila Ema não encontra uma estrutura própria separando esses dois pilares antes de agendar.\n\nDesenhei uma proposta visual de posicionamento que divide essas áreas com elegância. Posso te mandar um vídeo de 45 segundos para você avaliar a visão?",
+    "msg1": "Dra. Camila, suas explicações sobre tecnologias dermatológicas na Vila Ema têm um rigor científico e didático exemplar!",
+    "msg2": "Camila, você já pensou em ter um site próprio separando a dermato clínica dos tratamentos a laser antes do WhatsApp?"
+  }
+];
+    let currentFilter = 'todos';
+
+    function setFilter(niche) {
+      currentFilter = niche;
+      document.querySelectorAll('.filter-btn').forEach(btn => {
+        if (btn.getAttribute('data-niche') === niche) {
+          btn.className = 'filter-btn px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-emerald-600 text-white shadow-sm transition';
+        } else {
+          btn.className = 'filter-btn px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-300 transition';
+        }
+      });
+      render();
+    }
+
+    function toggleGuide() {
+      const c = document.getElementById('guideContent');
+      const a = document.getElementById('guideArrow');
+      if (c.classList.contains('hidden')) {
+        c.classList.remove('hidden');
+        a.textContent = '▲';
+      } else {
+        c.classList.add('hidden');
+        a.textContent = '▼';
+      }
+    }
+
+    function isDone(id) {
+      return localStorage.getItem('sjc_lead_done_' + id) === 'true';
+    }
+
+    function toggleDone(id) {
+      const key = 'sjc_lead_done_' + id;
+      const current = localStorage.getItem(key) === 'true';
+      localStorage.setItem(key, current ? 'false' : 'true');
+      updateProgress();
+      render();
+      showToast(current ? 'Lead marcado como pendente' : '✔️ Lead marcado como enviado!');
+    }
+
+    function resetAllProgress() {
+      if (confirm('Deseja realmente zerar o progresso de disparos?')) {
+        LEADS.forEach(l => localStorage.removeItem('sjc_lead_done_' + l.id));
+        updateProgress();
+        render();
+        showToast('Progresso zerado!');
+      }
+    }
+
+    function updateProgress() {
+      let done = 0;
+      LEADS.forEach(l => {
+        if (isDone(l.id)) done++;
+      });
+      const pct = Math.round((done / LEADS.length) * 100);
+      document.getElementById('doneCount').innerText = done;
+      const elTotal = document.getElementById('totalLeadsCount');
+      if (elTotal) elTotal.innerText = LEADS.length;
+      document.getElementById('progressPct').innerText = pct + '%';
+    }
+
+    function showToast(text) {
+      const container = document.getElementById('toastContainer');
+      const toast = document.createElement('div');
+      toast.className = 'toast bg-emerald-500 text-slate-950 font-bold px-4 py-2.5 rounded-xl shadow-2xl flex items-center gap-2 text-xs border border-emerald-400 mb-2';
+      toast.innerHTML = '<span>⚡</span> <span>' + text + '</span>';
+      container.appendChild(toast);
+      setTimeout(() => toast.remove(), 2500);
+    }
+
+    function copyText(btn, text, label) {
+      navigator.clipboard.writeText(text).then(() => {
+        const orig = btn.innerHTML;
+        btn.innerHTML = '<span>✔️ Copiado!</span>';
+        btn.classList.add('bg-emerald-400', 'text-slate-950');
+        showToast(label || 'Texto copiado para a área de transferência!');
+        setTimeout(() => {
+          btn.innerHTML = orig;
+          btn.classList.remove('bg-emerald-400', 'text-slate-950');
+        }, 1800);
+      });
+    }
+
+    function render() {
+      const query = (document.getElementById('searchInput').value || '').toLowerCase().trim();
+      const list = document.getElementById('cardsList');
+
+      const filtered = LEADS.filter(l => {
+        const matchesNiche = (currentFilter === 'todos') || (l.category === currentFilter) || (l.niche === currentFilter);
+        const matchesQuery = !query || 
+          (l.name && l.name.toLowerCase().includes(query)) ||
+          (l.handle && l.handle.toLowerCase().includes(query)) ||
+          (l.location && l.location.toLowerCase().includes(query)) ||
+          (l.council && l.council.toLowerCase().includes(query)) ||
+          (l.focus && l.focus.toLowerCase().includes(query));
+        return matchesNiche && matchesQuery;
+      });
+
+      if (filtered.length === 0) {
+        list.innerHTML = '<div class="p-12 text-center text-slate-500 text-sm bg-slate-900/50 rounded-2xl border border-slate-800">Nenhum lead encontrado com esse filtro.</div>';
+        return;
+      }
+
+      list.innerHTML = filtered.map(l => {
+        const done = isDone(l.id);
+        const isPremier = l.category === 'premium' || String(l.id).startsWith('p');
+
+        return `
+          <div class="bg-slate-900/70 border ${done ? 'border-emerald-500/40 bg-emerald-950/10' : isPremier ? 'border-purple-500/40 bg-slate-900/90' : 'border-slate-800'} rounded-2xl p-5 md:p-6 shadow-md transition-all space-y-4">
+            
+            <!-- Lead Card Top Row -->
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-3">
+              <div class="space-y-1">
+                <div class="flex flex-wrap items-center gap-2">
+                  ${isPremier ? '<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-purple-500/20 text-purple-300 border border-purple-500/30">⭐ PREMIUM CONSELHO</span>' : ''}
+                  <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-800 text-slate-300 border border-slate-700">${l.nicheLabel || l.niche}</span>
+                  ${l.council ? `<span class="px-2 py-0.5 rounded text-[10px] font-semibold bg-blue-500/10 text-blue-400 border border-blue-500/20">${l.council}</span>` : ''}
+                  <span class="px-2 py-0.5 rounded text-[10px] font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">${l.followers || '4k+ seg'}</span>
+                  <span class="text-xs text-slate-400 flex items-center gap-1">📍 ${l.location}</span>
+                </div>
+                
+                <div class="flex items-baseline gap-3 pt-0.5">
+                  <h3 class="text-lg font-bold text-white tracking-tight">${l.name}</h3>
+                  <a href="${l.url}" target="_blank" rel="noopener noreferrer" class="text-emerald-400 hover:text-emerald-300 font-mono text-xs font-semibold hover:underline flex items-center gap-1 transition">
+                    ${l.handle}
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                  </a>
+                </div>
+              </div>
+
+              <!-- Action Status Checkbox -->
+              <div class="flex items-center gap-2">
+                <button onclick="toggleDone('${l.id}')" class="px-3 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 ${done ? 'bg-emerald-500 text-slate-950 shadow-lg shadow-emerald-500/20' : 'bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700'}">
+                  <span>${done ? '✔️ Enviado' : 'Marcar como Enviado'}</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Focus & Gap Info -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
+              <div class="bg-slate-950/60 p-3 rounded-xl border border-slate-800/80">
+                <span class="text-slate-400 font-semibold block mb-0.5">🎯 Foco & Procedimentos:</span>
+                <span class="text-slate-200">${l.focus}</span>
+              </div>
+              <div class="bg-slate-950/60 p-3 rounded-xl border border-slate-800/80">
+                <span class="text-amber-400 font-semibold block mb-0.5">🔍 Gap de Posicionamento Identificado:</span>
+                <span class="text-slate-200">${l.gap}</span>
+              </div>
+            </div>
+
+            <!-- SCRIPT PRINCIPAL: Método Posicionamento (Vídeo + 3 Passos) -->
+            <div class="bg-emerald-950/20 border border-emerald-500/30 rounded-xl p-4 space-y-2.5">
+              <div class="flex items-center justify-between gap-2">
+                <div class="flex items-center gap-2">
+                  <span class="px-2 py-0.5 bg-emerald-500/20 text-emerald-300 rounded text-[10px] font-bold uppercase tracking-wider">
+                    🚀 Script Recomendado (Método 3 Passos: Acerto + Gap + Vídeo)
+                  </span>
+                  <span class="text-[11px] text-slate-400 hidden sm:inline">Direct Único e Direto</span>
+                </div>
+                <span class="text-[10px] text-emerald-400 font-bold">Pronto para Colar</span>
+              </div>
+              
+              <div class="bg-slate-950/80 p-3 rounded-lg border border-emerald-500/20 text-xs text-slate-200 leading-relaxed font-sans whitespace-pre-line">
+${l.script3steps}
+              </div>
+
+              <div class="flex flex-col sm:flex-row items-center gap-2 pt-1">
+                <button onclick='copyText(this, ${JSON.stringify(l.script3steps)}, "Script 3 Passos copiado!")' class="copy-anim w-full sm:w-auto flex-1 py-2 px-4 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold shadow-md flex items-center justify-center gap-2 transition">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                  Copiar Script de Abordagem do Vídeo
+                </button>
+                <a href="${l.url}" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto py-2 px-4 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold flex items-center justify-center gap-1.5 transition border border-slate-700">
+                  Abrir Perfil ↗
+                </a>
+              </div>
+            </div>
+
+            <!-- Alternativa em 2 Mensagens (Quebra-gelo + Oferta) -->
+            <details class="text-xs text-slate-400 pt-1">
+              <summary class="cursor-pointer hover:text-slate-200 font-semibold select-none">
+                Ver opção alternativa de abordagem em 2 mensagens separadas...
+              </summary>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-3 pt-3">
+                <!-- Msg 1 -->
+                <div class="bg-slate-950/80 border border-slate-800 rounded-xl p-3 space-y-2 flex flex-col justify-between">
+                  <div>
+                    <div class="text-[11px] font-bold text-slate-300 mb-1">💬 Mensagem 1 — Quebra-gelo</div>
+                    <p class="text-xs text-slate-300 italic bg-slate-900/50 p-2 rounded border border-slate-800">"${l.msg1}"</p>
+                  </div>
+                  <button onclick='copyText(this, ${JSON.stringify(l.msg1)}, "Mensagem 1 copiada!")' class="copy-anim w-full py-1.5 px-3 rounded bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-bold transition">
+                    Copiar Mensagem 1
+                  </button>
+                </div>
+                <!-- Msg 2 -->
+                <div class="bg-slate-950/80 border border-slate-800 rounded-xl p-3 space-y-2 flex flex-col justify-between">
+                  <div>
+                    <div class="text-[11px] font-bold text-slate-300 mb-1">🎯 Mensagem 2 — Oferta de Posicionamento</div>
+                    <p class="text-xs text-slate-300 italic bg-slate-900/50 p-2 rounded border border-slate-800">"${l.msg2}"</p>
+                  </div>
+                  <button onclick='copyText(this, ${JSON.stringify(l.msg2)}, "Mensagem 2 copiada!")' class="copy-anim w-full py-1.5 px-3 rounded bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-bold transition">
+                    Copiar Mensagem 2
+                  </button>
+                </div>
+              </div>
+            </details>
+
+          </div>
+        `;
+      }).join('');
+    }
+
+    // Initialize
+    updateProgress();
+    render();
+  </script>
+</body>
+</html>

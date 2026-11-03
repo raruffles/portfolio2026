@@ -449,7 +449,11 @@
       </button>
       <button class="tab-btn" id="tab-kanban-btn" onclick="switchTab('kanban')">
         <i class="fa-solid fa-columns"></i>
-        <span>Kanban Geral (<span id="top-total-kanban">173</span> Leads)</span>
+        <span>Kanban Geral (<span id="top-total-kanban">200</span> Leads)</span>
+      </button>
+      <button class="tab-btn" id="tab-radar-btn" onclick="switchTab('radar')" style="color: #6ee7b7; border-color: rgba(52, 211, 153, 0.3);">
+        <i class="fa-solid fa-crosshairs"></i>
+        <span>Radar SJC (Cockpit 30 Leads)</span>
       </button>
     </nav>
 
@@ -470,6 +474,7 @@
   <main class="content-area">
     <iframe id="frame-pessoal" class="crm-frame active"></iframe>
     <iframe id="frame-kanban" class="crm-frame"></iframe>
+    <iframe id="frame-radar" class="crm-frame"></iframe>
   </main>
 
   <!-- Authentication Modal Overlay -->
@@ -513,7 +518,7 @@
   </div>
 
   <!-- Vault Encrypted Data Package (Cache Busted) -->
-  <script src="vault_data.js?v=2.0.3"></script>
+  <script src="vault_data.js?v=2.1.0_03_11"></script>
 
   <script>
     let activeTab = 'pessoal';
@@ -633,6 +638,12 @@
       );
       frameKanban.srcdoc = injectedKanbanHtml;
 
+      // Inject iframe radar (SJC 30 Leads Cockpit)
+      const frameRadar = document.getElementById('frame-radar');
+      if (frameRadar && payload.radarHtml) {
+        frameRadar.srcdoc = payload.radarHtml;
+      }
+
       // Hide auth overlay
       document.getElementById('auth-overlay').classList.add('hidden');
       updateTopBarKpis();
@@ -649,6 +660,10 @@
         nao = list.filter(l => (l.stage || 'a_enviar_pessoal') === 'a_enviar_pessoal').length;
         sim = list.filter(l => l.stage === 'enviado_pessoal' || l.stage === 'pessoal_enviado').length;
         conv = list.filter(l => l.stage === 'respondeu_conversa' || l.stage === 'amostra_enviada').length;
+      } else if (activeTab === 'radar') {
+        nao = 30; // Radar cockpit view
+        sim = 0;
+        conv = 0;
       } else {
         const saved = localStorage.getItem('cortex_instagram_kanban_state_v3');
         const list = saved ? JSON.parse(saved) : decryptedPayload.kanbanLeads;
@@ -675,19 +690,27 @@
       activeTab = tab;
       const btnPessoal = document.getElementById('tab-pessoal-btn');
       const btnKanban = document.getElementById('tab-kanban-btn');
+      const btnRadar = document.getElementById('tab-radar-btn');
       const framePessoal = document.getElementById('frame-pessoal');
       const frameKanban = document.getElementById('frame-kanban');
+      const frameRadar = document.getElementById('frame-radar');
+
+      btnPessoal.classList.remove('active');
+      btnKanban.classList.remove('active');
+      if (btnRadar) btnRadar.classList.remove('active');
+      framePessoal.classList.remove('active');
+      frameKanban.classList.remove('active');
+      if (frameRadar) frameRadar.classList.remove('active');
 
       if (tab === 'pessoal') {
         btnPessoal.classList.add('active');
-        btnKanban.classList.remove('active');
         framePessoal.classList.add('active');
-        frameKanban.classList.remove('active');
-      } else {
-        btnPessoal.classList.remove('active');
+      } else if (tab === 'kanban') {
         btnKanban.classList.add('active');
-        framePessoal.classList.remove('active');
         frameKanban.classList.add('active');
+      } else if (tab === 'radar') {
+        if (btnRadar) btnRadar.classList.add('active');
+        if (frameRadar) frameRadar.classList.add('active');
       }
       updateTopBarKpis();
     }
