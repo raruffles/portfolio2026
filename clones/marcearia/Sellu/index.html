@@ -264,12 +264,7 @@ setTimeout(() => {
   padding-right: var(--_layout---spacing--global-padding-rem, 2rem) !important;
 }
 
-.featured-heading,
-.featured-label-wrap {
-  top: 130px !important;
-  inset: 130px 0% auto !important;
-  z-index: 10 !important;
-}
+/* featured-heading positioned cleanly in responsive rules below */
 
 
 
@@ -1145,9 +1140,110 @@ p, a, span, button, .text-size-tiny, .text-size-regular, .menu-btn-text, .nav-bu
 
 
 /* ==========================================================================
-   DESKTOP FIX: AMBIENTES SELECIONADOS (ZERO OVERLAP WITH CENTER IMAGE)
-   Prevents center photo from colliding with the section subtitle text.
+   PERMANENT ARROW CLEANUP & UNIVERSAL RESPONSIVE ARCHITECTURE (ZERO OVERLAP)
    ========================================================================== */
+.words-controls {
+  display: none !important;
+}
+
+.testimonial-nav-arrows {
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.75rem !important;
+  margin-top: 1.5rem !important;
+  position: relative !important;
+  z-index: 10 !important;
+}
+
+.btn-testimonial-arrow {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 0.4rem !important;
+  padding: 0.5rem 1.15rem !important;
+  border-radius: 999px !important;
+  background: #ffffff !important;
+  border: 1px solid rgba(85, 72, 63, 0.25) !important;
+  color: #201b18 !important;
+  font-size: 13.5px !important;
+  font-weight: 600 !important;
+  cursor: pointer !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04) !important;
+  transition: all 0.2s ease !important;
+}
+
+.btn-testimonial-arrow:hover {
+  background: #201b18 !important;
+  color: #ffffff !important;
+  border-color: #201b18 !important;
+}
+
+/* Mobile & Tablet (< 992px): Natural stacked flow without overflow */
+@media screen and (max-width: 991px) {
+  .testimonial-nav-arrows,
+  .words-controls,
+  .arrow-container {
+    display: none !important;
+  }
+  .section-beidge {
+    display: block !important;
+  }
+  .featured-heading {
+    position: relative !important;
+    width: 100% !important;
+    top: auto !important;
+    inset: auto !important;
+    padding-top: 3rem !important;
+    padding-bottom: 1rem !important;
+  }
+  .featured-label-wrap {
+    position: relative !important;
+    top: auto !important;
+    inset: auto !important;
+    width: 100% !important;
+  }
+  .featured-label p {
+    max-width: 100% !important;
+    font-size: 14px !important;
+    line-height: 1.55 !important;
+  }
+}
+
+/* Desktop (>= 992px): 3-column architectural layout with zero collision */
+@media screen and (min-width: 992px) {
+  .section-beidge {
+    position: relative !important;
+  }
+  .featured-heading {
+    position: absolute !important;
+    top: 130px !important;
+    inset: 130px 0% auto !important;
+    width: 100% !important;
+    z-index: 10 !important;
+    pointer-events: none !important;
+  }
+  .featured-label-wrap {
+    position: relative !important;
+    top: auto !important;
+    inset: auto !important;
+    width: 100% !important;
+  }
+  .featured-label {
+    pointer-events: auto !important;
+  }
+  .featured-image {
+    max-width: min(34rem, 36vw) !important;
+    max-height: 72vh !important;
+  }
+  .featured-label p {
+    max-width: min(280px, 22vw) !important;
+    font-size: 14px !important;
+    line-height: 1.55 !important;
+    word-break: normal !important;
+    overflow-wrap: normal !important;
+  }
+}
+
 @media screen and (min-width: 992px) {
   .featured-heading {
     top: 130px !important;
@@ -1155,14 +1251,40 @@ p, a, span, button, .text-size-tiny, .text-size-regular, .menu-btn-text, .nav-bu
     z-index: 10 !important;
   }
 
+  .featured-image {
+    max-width: min(34rem, 36vw) !important;
+    max-height: 72vh !important;
+  }
+
   .featured-label p {
-    max-width: 360px !important;
-    font-size: 14.5px !important;
+    max-width: min(280px, 22vw) !important;
+    font-size: 14px !important;
     line-height: 1.55 !important;
     word-break: normal !important;
     overflow-wrap: normal !important;
   }
 }
+
+@media screen and (max-width: 991px) and (min-width: 768px) {
+  .featured-heading {
+    position: relative !important;
+    top: 0 !important;
+    inset: auto !important;
+    padding-top: 3rem !important;
+    padding-bottom: 1.5rem !important;
+  }
+  .featured-label p {
+    max-width: 100% !important;
+  }
+  .featured-image-wrap {
+    position: relative !important;
+    margin: 1.5rem 0 !important;
+  }
+  .featured-image {
+    max-width: 26rem !important;
+  }
+}
+
 
 /* Desktop safeguard: completely hide mobile drawer on >= 992px */
 @media screen and (min-width: 992px) {
@@ -1646,7 +1768,7 @@ Usage: add custom attribute ellipses="1", "2", "3", or "4" */
 </div><div class="arrow y-100 w-embed"><svg width="100%" height="100%" viewBox="0 0 17 11" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path fill-rule="evenodd" clip-rule="evenodd" d="M11.5447 0L10.7619 0.766191L14.9117 4.95H0V6.05H14.9117L10.7733 10.2223L11.5447 11C13.5419 8.98645 15.0885 7.4272 17 5.5L11.5447 0Z" fill="currentColor"/>
 </svg>
-</div></div></a></div></div></div><div id="w-node-_33a825c3-81c8-3b10-0d5d-609fba4ec7d0-3ac774a5" class="descritiption-logo-large" style="display:flex; justify-content:center; align-items:center; width:100%; padding:2.5rem 0;"><span style="font-family:'Cormorant Garamond', Georgia, serif; font-size:clamp(44px, 11vw, 150px); font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:#ffffff; line-height:1; text-align:center;">SELLU MARCENARIA</span></div></div></div></div><div data-wf--spacer--variant="xsmall" class="section_spacer w-variant-e0dff5ce-53d0-c405-e99c-6d1b9afe16a3"></div></div></section><section data-navbar-dark="true" class="section-beidge is-relative"><div class="featured-heading" style="top:130px !important; inset:130px 0% auto !important;"><div class="container"><div class="featured-label-wrap"><div class="featured-label"><h2 class="text-size-regular" id="projects"><span id="featuredHeading">Ambientes Selecionados</span></h2><p class="text-size-regular" style="color:#6e6259; font-size:14.5px; line-height:1.55; margin-top:0.35rem; max-width:360px;">Explorando uma variedade de estilos, nosso portfólio reflete a dedicação em transformar ideias em móveis que unem funcionalidade e beleza.</p></div></div></div></div><div class="featured-wrapper"><div data-wf--spacer--variant="bse" class="section_spacer"></div><div class="featured-spacer-tab"><div data-wf--spacer--variant="bse" class="section_spacer"></div></div><div class="padding-global higher-z"><div class="container"><div class="featured-wrap"><div class="featured-collection-wrapper w-dyn-list"><div role="list" class="featured-list w-dyn-items"><div role="listitem" class="featured-items w-dyn-item"><div class="featured-image-wrap"><div class="featured-image"><img src="assets/cozinhas-planejadas.png" loading="lazy" alt="Cozinhas Planejadas Sellu Marcenaria" class="image-cover"/></div></div><div class="featured-grid"><div class="site-grid"><div class="featured-text"><div featured-numbered="" class="text-size-regular">01</div></div><div id="w-node-_1edc6db0-03d4-9ab7-a2d5-7a6b25c4bbf0-3ac774a5" class="featured-text"><div class="text-size-regular"><span id="proj1Title">Cozinhas Planejadas</span></div></div><div id="w-node-a6d03eed-a6cc-8a16-7fe4-6abfefa27164-3ac774a5" class="featured-text"><div class="text-size-regular opac-40 w-dyn-bind-empty"></div><div class="text-size-regular"><span id="proj1Desc">Desenvolvemos cozinhas planejadas que unem funcionalidade e estilo, refletindo sua personalidade em cada detalhe.</span></div></div></div><div class="featured-divider"></div><div class="featured-divider-active"></div><a aria-label="Saiba Mais sobre este projeto" href="./residencia-alphaville.html" class="featured-link w-inline-block"></a></div></div><div role="listitem" class="featured-items w-dyn-item"><div class="featured-image-wrap"><div class="featured-image"><img src="assets/banheiros-exclusivos.png" loading="lazy" alt="Banheiros e Salas de Banho Sellu" class="image-cover"/></div></div><div class="featured-grid"><div class="site-grid"><div class="featured-text"><div featured-numbered="" class="text-size-regular">01</div></div><div id="w-node-_1edc6db0-03d4-9ab7-a2d5-7a6b25c4bbf0-3ac774a5" class="featured-text"><div class="text-size-regular"><span id="proj2Title">Banheiros &amp; Salas de Banho</span></div></div><div id="w-node-a6d03eed-a6cc-8a16-7fe4-6abfefa27164-3ac774a5" class="featured-text"><div class="text-size-regular opac-40 w-dyn-bind-empty"></div><div class="text-size-regular"><span id="proj2Desc">Transformamos banheiros em cenários únicos, onde cada elemento conta uma narrativa de elegância e conforto.</span></div></div></div><div class="featured-divider"></div><div class="featured-divider-active"></div><a aria-label="Saiba Mais sobre este projeto" href="https://wa.me/5512974127318?text=Ol%C3%A1%2C+D%C3%A9bora%21+Gostaria+de+conhecer+mais+detalhes+sobre+os+projetos+residenciais." target="_blank" class="featured-link w-inline-block"></a></div></div><div role="listitem" class="featured-items w-dyn-item"><div class="featured-image-wrap"><div class="featured-image"><img src="assets/home-theaters.png" loading="lazy" alt="Home Theaters e Painéis Ripados Sellu" class="image-cover"/></div></div><div class="featured-grid"><div class="site-grid"><div class="featured-text"><div featured-numbered="" class="text-size-regular">01</div></div><div id="w-node-_1edc6db0-03d4-9ab7-a2d5-7a6b25c4bbf0-3ac774a5" class="featured-text"><div class="text-size-regular"><span id="proj3Title">Home Theaters &amp; Livings</span></div></div><div id="w-node-a6d03eed-a6cc-8a16-7fe4-6abfefa27164-3ac774a5" class="featured-text"><div class="text-size-regular opac-40 w-dyn-bind-empty"></div><div class="text-size-regular"><span id="proj3Desc">Transformamos seus momentos de entretenimento com designs exclusivos para home theaters.</span></div></div></div><div class="featured-divider"></div><div class="featured-divider-active"></div><a aria-label="Saiba Mais sobre este projeto" href="https://wa.me/5512974127318?text=Ol%C3%A1%2C+D%C3%A9bora%21+Gostaria+de+conhecer+mais+detalhes+sobre+os+projetos+residenciais." target="_blank" class="featured-link w-inline-block"></a></div></div><div role="listitem" class="featured-items w-dyn-item"><div class="featured-image-wrap"><div class="featured-image"><img src="assets/home-office.png" loading="lazy" alt="Home Office Sob Medida Sellu" class="image-cover"/></div></div><div class="featured-grid"><div class="site-grid"><div class="featured-text"><div featured-numbered="" class="text-size-regular">01</div></div><div id="w-node-_1edc6db0-03d4-9ab7-a2d5-7a6b25c4bbf0-3ac774a5" class="featured-text"><div class="text-size-regular"><span id="proj4Title">Home Office &amp; Espaços Executivos</span></div></div><div id="w-node-a6d03eed-a6cc-8a16-7fe4-6abfefa27164-3ac774a5" class="featured-text"><div class="text-size-regular opac-40 w-dyn-bind-empty"></div><div class="text-size-regular"><span id="proj4Desc">Maximize sua produtividade com móveis planejados que atendam às demandas do seu home office.</span></div></div></div><div class="featured-divider"></div><div class="featured-divider-active"></div><a aria-label="Saiba Mais sobre este projeto" href="https://wa.me/5512974127318?text=Ol%C3%A1%2C+D%C3%A9bora%21+Gostaria+de+conhecer+mais+detalhes+sobre+os+projetos+residenciais." target="_blank" class="featured-link w-inline-block"></a></div></div><div role="listitem" class="featured-items w-dyn-item"><div class="featured-image-wrap"><div class="featured-image"><img src="assets/lavanderia.png" loading="lazy" alt="Lavanderias Funcionais Sellu" class="image-cover"/></div></div><div class="featured-grid"><div class="site-grid"><div class="featured-text"><div featured-numbered="" class="text-size-regular">01</div></div><div id="w-node-_1edc6db0-03d4-9ab7-a2d5-7a6b25c4bbf0-3ac774a5" class="featured-text"><div class="text-size-regular"><span id="proj5Title">Lavanderias Funcionais</span></div></div><div id="w-node-a6d03eed-a6cc-8a16-7fe4-6abfefa27164-3ac774a5" class="featured-text"><div class="text-size-regular opac-40 w-dyn-bind-empty"></div><div class="text-size-regular"><span id="proj5Desc">Otimize o espaço e a organização em suas áreas de serviço com nossos móveis planejados.</span></div></div></div><div class="featured-divider"></div><div class="featured-divider-active"></div><a aria-label="Saiba Mais sobre este projeto" href="https://wa.me/5512974127318?text=Ol%C3%A1%2C+D%C3%A9bora%21+Gostaria+de+conhecer+mais+detalhes+sobre+os+projetos+residenciais." target="_blank" class="featured-link w-inline-block"></a></div></div><div role="listitem" class="featured-items w-dyn-item"><div class="featured-image-wrap"><div class="featured-image"><img src="assets/ambientes-corporativos.png" loading="lazy" alt="Ambientes Corporativos Sellu" class="image-cover"/></div></div><div class="featured-grid"><div class="site-grid"><div class="featured-text"><div featured-numbered="" class="text-size-regular">01</div></div><div id="w-node-_1edc6db0-03d4-9ab7-a2d5-7a6b25c4bbf0-3ac774a5" class="featured-text"><div class="text-size-regular"><span id="proj6Title">Ambientes Corporativos &amp; Comerciais</span></div></div><div id="w-node-a6d03eed-a6cc-8a16-7fe4-6abfefa27164-3ac774a5" class="featured-text"><div class="text-size-regular opac-40 w-dyn-bind-empty"></div><div class="text-size-regular"><span id="proj6Desc">Elevamos o ambiente de trabalho com móveis planejados que traduzem a identidade da sua empresa.</span></div></div></div><div class="featured-divider"></div><div class="featured-divider-active"></div><a aria-label="Saiba Mais sobre este projeto" href="https://wa.me/5512974127318?text=Ol%C3%A1%2C+D%C3%A9bora%21+Gostaria+de+conhecer+mais+detalhes+sobre+os+projetos+residenciais." target="_blank" class="featured-link w-inline-block"></a></div></div></div></div></div></div></div><div class="featured-spacer-tab"><div data-wf--spacer--variant="bse" class="section_spacer"></div></div><div data-wf--spacer--variant="big" class="section_spacer w-variant-fd5b8090-3e41-fa78-ec10-87d9fbe73384"></div></div></section><section data-navbar-dark="true" id="process" class="section_approach"><div class="approach-wrapper"><div class="padding-global higher-z"><div class="container"><div class="site-grid">
+</div></div></a></div></div></div><div id="w-node-_33a825c3-81c8-3b10-0d5d-609fba4ec7d0-3ac774a5" class="descritiption-logo-large" style="display:flex; justify-content:center; align-items:center; width:100%; padding:2.5rem 0;"><span style="font-family:'Cormorant Garamond', Georgia, serif; font-size:clamp(44px, 11vw, 150px); font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:#ffffff; line-height:1; text-align:center;">SELLU MARCENARIA</span></div></div></div></div><div data-wf--spacer--variant="xsmall" class="section_spacer w-variant-e0dff5ce-53d0-c405-e99c-6d1b9afe16a3"></div></div></section><section data-navbar-dark="true" class="section-beidge is-relative"><div class="featured-heading"><div class="container"><div class="featured-label-wrap"><div class="featured-label"><h2 class="text-size-regular" id="projects"><span id="featuredHeading">Ambientes Selecionados</span></h2><p class="text-size-regular" style="color:#6e6259; font-size:14px; line-height:1.55; margin-top:0.35rem; max-width:min(280px, 22vw);">Explorando uma variedade de estilos, nosso portfólio reflete a dedicação em transformar ideias em móveis que unem funcionalidade e beleza.</p></div></div></div></div><div class="featured-wrapper"><div data-wf--spacer--variant="bse" class="section_spacer"></div><div class="featured-spacer-tab"><div data-wf--spacer--variant="bse" class="section_spacer"></div></div><div class="padding-global higher-z"><div class="container"><div class="featured-wrap"><div class="featured-collection-wrapper w-dyn-list"><div role="list" class="featured-list w-dyn-items"><div role="listitem" class="featured-items w-dyn-item"><div class="featured-image-wrap"><div class="featured-image"><img src="assets/cozinhas-planejadas.png" loading="lazy" alt="Cozinhas Planejadas Sellu Marcenaria" class="image-cover"/></div></div><div class="featured-grid"><div class="site-grid"><div class="featured-text"><div featured-numbered="" class="text-size-regular">01</div></div><div id="w-node-_1edc6db0-03d4-9ab7-a2d5-7a6b25c4bbf0-3ac774a5" class="featured-text"><div class="text-size-regular"><span id="proj1Title">Cozinhas Planejadas</span></div></div><div id="w-node-a6d03eed-a6cc-8a16-7fe4-6abfefa27164-3ac774a5" class="featured-text"><div class="text-size-regular opac-40 w-dyn-bind-empty"></div><div class="text-size-regular"><span id="proj1Desc">Desenvolvemos cozinhas planejadas que unem funcionalidade e estilo, refletindo sua personalidade em cada detalhe.</span></div></div></div><div class="featured-divider"></div><div class="featured-divider-active"></div><a aria-label="Saiba Mais sobre este projeto" href="./residencia-alphaville.html" class="featured-link w-inline-block"></a></div></div><div role="listitem" class="featured-items w-dyn-item"><div class="featured-image-wrap"><div class="featured-image"><img src="assets/banheiros-exclusivos.png" loading="lazy" alt="Banheiros e Salas de Banho Sellu" class="image-cover"/></div></div><div class="featured-grid"><div class="site-grid"><div class="featured-text"><div featured-numbered="" class="text-size-regular">01</div></div><div id="w-node-_1edc6db0-03d4-9ab7-a2d5-7a6b25c4bbf0-3ac774a5" class="featured-text"><div class="text-size-regular"><span id="proj2Title">Banheiros &amp; Salas de Banho</span></div></div><div id="w-node-a6d03eed-a6cc-8a16-7fe4-6abfefa27164-3ac774a5" class="featured-text"><div class="text-size-regular opac-40 w-dyn-bind-empty"></div><div class="text-size-regular"><span id="proj2Desc">Transformamos banheiros em cenários únicos, onde cada elemento conta uma narrativa de elegância e conforto.</span></div></div></div><div class="featured-divider"></div><div class="featured-divider-active"></div><a aria-label="Saiba Mais sobre este projeto" href="https://wa.me/5512974127318?text=Ol%C3%A1%2C+D%C3%A9bora%21+Gostaria+de+conhecer+mais+detalhes+sobre+os+projetos+residenciais." target="_blank" class="featured-link w-inline-block"></a></div></div><div role="listitem" class="featured-items w-dyn-item"><div class="featured-image-wrap"><div class="featured-image"><img src="assets/home-theaters.png" loading="lazy" alt="Home Theaters e Painéis Ripados Sellu" class="image-cover"/></div></div><div class="featured-grid"><div class="site-grid"><div class="featured-text"><div featured-numbered="" class="text-size-regular">01</div></div><div id="w-node-_1edc6db0-03d4-9ab7-a2d5-7a6b25c4bbf0-3ac774a5" class="featured-text"><div class="text-size-regular"><span id="proj3Title">Home Theaters &amp; Livings</span></div></div><div id="w-node-a6d03eed-a6cc-8a16-7fe4-6abfefa27164-3ac774a5" class="featured-text"><div class="text-size-regular opac-40 w-dyn-bind-empty"></div><div class="text-size-regular"><span id="proj3Desc">Transformamos seus momentos de entretenimento com designs exclusivos para home theaters.</span></div></div></div><div class="featured-divider"></div><div class="featured-divider-active"></div><a aria-label="Saiba Mais sobre este projeto" href="https://wa.me/5512974127318?text=Ol%C3%A1%2C+D%C3%A9bora%21+Gostaria+de+conhecer+mais+detalhes+sobre+os+projetos+residenciais." target="_blank" class="featured-link w-inline-block"></a></div></div><div role="listitem" class="featured-items w-dyn-item"><div class="featured-image-wrap"><div class="featured-image"><img src="assets/home-office.png" loading="lazy" alt="Home Office Sob Medida Sellu" class="image-cover"/></div></div><div class="featured-grid"><div class="site-grid"><div class="featured-text"><div featured-numbered="" class="text-size-regular">01</div></div><div id="w-node-_1edc6db0-03d4-9ab7-a2d5-7a6b25c4bbf0-3ac774a5" class="featured-text"><div class="text-size-regular"><span id="proj4Title">Home Office &amp; Espaços Executivos</span></div></div><div id="w-node-a6d03eed-a6cc-8a16-7fe4-6abfefa27164-3ac774a5" class="featured-text"><div class="text-size-regular opac-40 w-dyn-bind-empty"></div><div class="text-size-regular"><span id="proj4Desc">Maximize sua produtividade com móveis planejados que atendam às demandas do seu home office.</span></div></div></div><div class="featured-divider"></div><div class="featured-divider-active"></div><a aria-label="Saiba Mais sobre este projeto" href="https://wa.me/5512974127318?text=Ol%C3%A1%2C+D%C3%A9bora%21+Gostaria+de+conhecer+mais+detalhes+sobre+os+projetos+residenciais." target="_blank" class="featured-link w-inline-block"></a></div></div><div role="listitem" class="featured-items w-dyn-item"><div class="featured-image-wrap"><div class="featured-image"><img src="assets/lavanderia.png" loading="lazy" alt="Lavanderias Funcionais Sellu" class="image-cover"/></div></div><div class="featured-grid"><div class="site-grid"><div class="featured-text"><div featured-numbered="" class="text-size-regular">01</div></div><div id="w-node-_1edc6db0-03d4-9ab7-a2d5-7a6b25c4bbf0-3ac774a5" class="featured-text"><div class="text-size-regular"><span id="proj5Title">Lavanderias Funcionais</span></div></div><div id="w-node-a6d03eed-a6cc-8a16-7fe4-6abfefa27164-3ac774a5" class="featured-text"><div class="text-size-regular opac-40 w-dyn-bind-empty"></div><div class="text-size-regular"><span id="proj5Desc">Otimize o espaço e a organização em suas áreas de serviço com nossos móveis planejados.</span></div></div></div><div class="featured-divider"></div><div class="featured-divider-active"></div><a aria-label="Saiba Mais sobre este projeto" href="https://wa.me/5512974127318?text=Ol%C3%A1%2C+D%C3%A9bora%21+Gostaria+de+conhecer+mais+detalhes+sobre+os+projetos+residenciais." target="_blank" class="featured-link w-inline-block"></a></div></div><div role="listitem" class="featured-items w-dyn-item"><div class="featured-image-wrap"><div class="featured-image"><img src="assets/ambientes-corporativos.png" loading="lazy" alt="Ambientes Corporativos Sellu" class="image-cover"/></div></div><div class="featured-grid"><div class="site-grid"><div class="featured-text"><div featured-numbered="" class="text-size-regular">01</div></div><div id="w-node-_1edc6db0-03d4-9ab7-a2d5-7a6b25c4bbf0-3ac774a5" class="featured-text"><div class="text-size-regular"><span id="proj6Title">Ambientes Corporativos &amp; Comerciais</span></div></div><div id="w-node-a6d03eed-a6cc-8a16-7fe4-6abfefa27164-3ac774a5" class="featured-text"><div class="text-size-regular opac-40 w-dyn-bind-empty"></div><div class="text-size-regular"><span id="proj6Desc">Elevamos o ambiente de trabalho com móveis planejados que traduzem a identidade da sua empresa.</span></div></div></div><div class="featured-divider"></div><div class="featured-divider-active"></div><a aria-label="Saiba Mais sobre este projeto" href="https://wa.me/5512974127318?text=Ol%C3%A1%2C+D%C3%A9bora%21+Gostaria+de+conhecer+mais+detalhes+sobre+os+projetos+residenciais." target="_blank" class="featured-link w-inline-block"></a></div></div></div></div></div></div></div><div class="featured-spacer-tab"><div data-wf--spacer--variant="bse" class="section_spacer"></div></div><div data-wf--spacer--variant="big" class="section_spacer w-variant-fd5b8090-3e41-fa78-ec10-87d9fbe73384"></div></div></section><section data-navbar-dark="true" id="process" class="section_approach"><div class="approach-wrapper"><div class="padding-global higher-z"><div class="container"><div class="site-grid">
 
   <!-- 1. Heading Principal em Português (Posição estática acima da imagem, NUNCA sobreposta) -->
   <div id="w-node-_70bf6eb3-1c59-f86a-6d5a-bc1fe00f310c-3ac774a5" class="approach-heading">
@@ -1837,19 +1959,16 @@ Usage: add custom attribute ellipses="1", "2", "3", or "4" */
 
 </div></div>
 
-<!-- Controles com setas proeminentes -->
+<!-- Controles de depoimento com botoes elegantes e seguros -->
 <div class="testimonial-nav-arrows">
-  <button type="button" class="btn-testimonial-arrow" onclick="document.querySelector('[words-prev]').click();" aria-label="Depoimento Anterior">
+  <button type="button" words-prev="" class="btn-testimonial-arrow" aria-label="Depoimento Anterior">
     <span>←</span> <span id="lblPrevSlide">Anterior</span>
   </button>
-  <button type="button" class="btn-testimonial-arrow" onclick="document.querySelector('[words-next]').click();" aria-label="Próximo Depoimento">
+  <button type="button" words-next="" class="btn-testimonial-arrow" aria-label="Próximo Depoimento">
     <span id="lblNextSlide">Próximo</span> <span>→</span>
   </button>
 </div>
-
-<div class="words-controls">
-  <div words-prev="" class="words-prev"><div class="icon-embeds is-words w-embed"><svg width="100%" height="100%" viewBox="0 0 17 11" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M5.45534 11L6.23812 10.2338L2.08826 6.05L17 6.05V4.95L2.08826 4.95L6.22668 0.777708L5.45534 0C3.4581 2.01355 1.91146 3.5728 0 5.5L5.45534 11Z" fill="currentColor"/></svg></div></div>
-  <div words-next="" class="words-next"><div class="icon-embeds is-words w-embed"><svg width="100%" height="100%" viewBox="0 0 17 11" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M11.5447 0L10.7619 0.766191L14.9117 4.95H0V6.05H14.9117L10.7733 10.2223L11.5447 11C13.5419 8.98645 15.0885 7.4272 17 5.5L11.5447 0Z" fill="currentColor"/></svg></div></div>
+  
 </div>
 
 </div></div></div><div data-wf--spacer--variant="bse" class="section_spacer"></div></div></section><footer id="w-node-cd50c325-c607-fb29-48f4-1b9a966a37a0-966a37a0" class="section_footer"><div class="footer-line"></div><div class="footer-wrapper"><div data-wf--spacer--variant="medium" class="section_spacer w-variant-a40e01b6-5e03-6695-86cf-4f169739336e"></div><div class="padding-global higher-z"><div class="container"><div class="footer-container"><div class="site-grid is-footer"><div data-link-wrap="" id="w-node-a1d2eda9-629d-e00b-cd7c-da86bf7750f9-966a37a0" class="footer-blocks right-align-mob"><a data-link="" aria-label="goes to Instagram" href="https://api.whatsapp.com/send?phone=5512974127318&text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20quero%20um%20or%C3%A7amento" target="_blank" class="footer-links w-inline-block"><p class="text-size-regular-rem">Instagram</p></a><a data-link="" aria-label="goes to Facebook" href="https://api.whatsapp.com/send?phone=5512974127318&text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20quero%20um%20or%C3%A7amento" target="_blank" class="footer-links w-inline-block"><p class="text-size-regular-rem">Facebook</p></a><a data-link="" aria-label="goes to Linkedin" href="https://api.whatsapp.com/send?phone=5512974127318&text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20quero%20um%20or%C3%A7amento" target="_blank" class="footer-links w-inline-block"><p class="text-size-regular-rem">Linkedin</p></a><a data-link="" aria-label="goes to WhatsApp Oficial" href="https://wa.me/5512974127318" target="_blank" class="footer-links w-inline-block"><p class="text-size-regular-rem" style="color:#1f1a17;">WhatsApp Oficial</p></a></div><div data-link-wrap="" id="w-node-a1d2eda9-629d-e00b-cd7c-da86bf775106-966a37a0" class="footer-blocks"><a data-link="" aria-label="Telefone e WhatsApp Oficial" href="https://wa.me/5512974127318" target="_blank" class="footer-links w-inline-block"><p class="text-size-regular-rem" style="color:#1f1a17;">(12) 97412-7318 (WhatsApp)</p></a><a data-link="" aria-label="E-mail profissional Sellu Marcenaria" href="mailto:contato@sellumarcenaria.com.br" class="footer-links w-inline-block"><p class="text-size-regular-rem" style="color:#1f1a17;">contato@sellumarcenaria.com.br</p></a></div><div id="w-node-a1d2eda9-629d-e00b-cd7c-da86bf77510d-966a37a0" class="footer-cta-block"><h2 class="heading-style-h3-rem is-small" id="contato" style="color:#1f1a17;"><span id="footerH2">Inicie o projeto da sua marcenaria sob medida</span></h2><a href="https://wa.me/5512974127318?text=Ol%C3%A1%2C+D%C3%A9bora%21+Gostaria+de+apresentar+meu+projeto+residencial." target="_blank" data-project-transition="" data="hover" data-wf--button--variant="brown" class="button-link w-variant-008db1c5-1136-09cf-ea78-882642becaee w-inline-block"><div class="button-text-wrap"><div sym-bind="{&quot;children&quot;:{&quot;type&quot;:&quot;Select&quot;,&quot;val&quot;:{&quot;from&quot;:{&quot;type&quot;:&quot;Variable&quot;,&quot;val&quot;:&quot;data&quot;},&quot;prop&quot;:&quot;38383ae9-1aad-cbc6-b76a-f68b8fc59bbf&quot;}}}" class="button-text">Enquire about your project here</div><div id="footerBtnHover" class="button-text y-100">Consultar Marcenaria via WhatsApp</div></div><div class="animate-hover-line-container"><div class="animate-hover-line w-variant-008db1c5-1136-09cf-ea78-882642becaee _1"></div><div class="animate-hover-line w-variant-008db1c5-1136-09cf-ea78-882642becaee _2"></div></div><div class="arrow-container"><div class="arrow w-embed"><svg width="100%" height="100%" viewBox="0 0 17 11" fill="none" xmlns="http://www.w3.org/2000/svg">
