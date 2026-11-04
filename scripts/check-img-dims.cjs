@@ -2,30 +2,25 @@ const fs = require('fs');
 const path = require('path');
 
 function getDimensions(filePath) {
-  const buffer = fs.readFileSync(filePath);
-  if (buffer[0] === 0x89 && buffer[1] === 0x50) { // PNG
-    return { width: buffer.readUInt32BE(16), height: buffer.readUInt32BE(20), type: 'png' };
+  const buf = fs.readFileSync(filePath);
+  if (buf[0] === 0x89 && buf[1] === 0x50 && buf[2] === 0x4E && buf[3] === 0x47) {
+    return { width: buf.readUInt32BE(16), height: buf.readUInt32BE(20), type: 'png' };
   }
-  if (buffer[0] === 0xFF && buffer[1] === 0xD8) { // JPEG
+  if (buf[0] === 0xFF && buf[1] === 0xD8) {
     let offset = 2;
-    while (offset < buffer.length) {
-      const marker = buffer.readUInt16BE(offset);
+    while (offset < buf.length) {
+      const marker = buf.readUInt16BE(offset);
       offset += 2;
       if (marker === 0xFFC0 || marker === 0xFFC2) {
-        return { height: buffer.readUInt16BE(offset + 3), width: buffer.readUInt16BE(offset + 5), type: 'jpg' };
+        return { height: buf.readUInt16BE(offset + 1), width: buf.readUInt16BE(offset + 3), type: 'jpeg' };
       }
-      offset += buffer.readUInt16BE(offset);
+      offset += buf.readUInt16BE(offset);
     }
   }
-  return { type: 'unknown' };
+  return { unknown: true };
 }
 
-const dir = 'clones/facetasdental(dra.adrielipereira)/assets/client/img';
-function walk(d) {
-  for (const f of fs.readdirSync(d)) {
-    const full = path.join(d, f);
-    if (fs.statSync(full).isDirectory()) walk(full);
-    else console.log(full, getDimensions(full));
-  }
-}
-walk(dir);
+const dir = 'clones/estetica-e-beleza/dr.ricardo-andrade';
+fs.readdirSync(dir).filter(f => f.match(/\.(png|jpg|jpeg)$/i)).forEach(f => {
+  console.log(f, getDimensions(path.join(dir, f)));
+});
