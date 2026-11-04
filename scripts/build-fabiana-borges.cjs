@@ -61,6 +61,11 @@ html = html.replace(
   'Na Martins Clinic, nossa missão é <span class="h2-serif">cuidar das pessoas</span> com ética, zelo e arte, transformando vidas através de <span class="h2-serif">sorrisos únicos</span> e de máxima naturalidade.',
   'Na FG Odontologia Integrada, nossa missão é <span class="h2-serif">cuidar de cada paciente</span> com ética, prevenção e visão integrativa, promovendo <span class="h2-serif">saúde e estética</span> em perfeita harmonia.'
 );
+// Replace About section photo with Dra. Fabiana Borges photo
+html = html.replace(
+  /<img[^>]+class="intro__media-img"[^>]*\/?>/,
+  '<img src="assets/dra-fabiana-borges.png" alt="Dra. Fabiana Borges — FG Odontologia Integrada" loading="lazy" width="306" height="326" style="object-fit:cover;object-position:top;border-radius:16px;" class="intro__media-img"/>'
+);
 html = html.replace(
   'Dra. Adrieli Pereira (CROSP 106703) é cirurgiã-dentista há mais de 10 anos e responsável técnica da Martins Clinic Odontologia (CROSP 028690). Ao longo de sua carreira, desenvolveu uma técnica refinada de Lentes em Resina Estratificada, unindo estética e função sem desgastes agressivos, para devolver aos pacientes a alegria e a segurança de sorrir com plenitude.',
   'Dra. Fabiana Borges (CRO-SP 99524) lidera a FG Odontologia Integrada no Edifício Med Center, na Vila Adyana em São José dos Campos. Com abordagem humanizada e foco na prevenção, reabilitação funcional e estética dental, nossa clínica oferece atendimento personalizado em um ambiente acolhedor, seguro e equipado com tecnologia moderna.'
