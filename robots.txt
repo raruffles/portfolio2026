@@ -6,6 +6,7 @@ Disallow: /src/assets/config/
 Disallow: /admin/
 Disallow: /clones/
 Disallow: /previa/
+Disallow: /previas/
 Disallow: /previa-*.html
 
 # Caminho do seu Sitemap
