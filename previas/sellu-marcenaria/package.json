@@ -1,0 +1,9 @@
+{
+  "name": "sellu-marcenaria",
+  "version": "1.0.0",
+  "description": "Sellu Marcenaria — Móveis Planejados de Alto Padrão (São José dos Campos & São Paulo)",
+  "scripts": {
+    "dev": "npx -y http-server . -p 3004 -c-1",
+    "start": "npx -y http-server . -p 3004 -c-1"
+  }
+}

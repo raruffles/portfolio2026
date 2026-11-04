@@ -1,0 +1,10 @@
+{
+  "name": "bcg-building-design-clone",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Clone local e independente do site BCG Building Design",
+  "scripts": {
+    "dev": "npx -y http-server . -p 3001 -c-1",
+    "start": "npx -y http-server . -p 3001 -c-1"
+  }
+}
