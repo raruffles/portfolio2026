@@ -417,6 +417,647 @@ a, button, .button, input, select, label.booking-treatment-card, label.booking-d
 </style>
 
 
+
+<style id="ricardo-perfect-corrections">
+/* ==========================================================================
+   CORREÇÃO DEFINITIVA: GRID 3x3 LADO A LADO + CONTRASTE + ZERO DUPLICATAS
+   ========================================================================== */
+
+/* 1. ELIMINAR DUPLICIDADE GHOST DE TEXTO (TEXT-SHADOW) EM TODOS OS BOTÕES */
+.text-btn, .btn, .nav-btn, .nav-cta-btn, .custom-whatsapp-gold-btn,
+.service-card__top-caption, .service-card__top-text, .btn__text,
+.nav-list__link, .footer__link, [data-stagger-link], [data-stagger-link-text] {
+  text-shadow: none !important;
+}
+
+@media (min-width: 480px) and (hover: hover) {
+  .nav-list__link, .text-btn, .footer__link, .btn__text, .service-card__top-text {
+    text-shadow: none !important;
+  }
+}
+
+/* 2. MENU SUPERIOR RESPONSIVO & LIMPO */
+.nav-cta-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 10px 22px !important;
+  border-radius: 999px !important;
+  background: rgba(212,175,55,0.15) !important;
+  border: 1px solid rgba(212,175,55,0.4) !important;
+  color: #d4af37 !important;
+  font-weight: 600 !important;
+  font-size: 14px !important;
+  text-decoration: none !important;
+  transition: all 0.3s ease !important;
+  text-shadow: none !important;
+  white-space: nowrap !important;
+}
+
+.nav-cta-btn:hover {
+  background: #d4af37 !important;
+  color: #171614 !important;
+  box-shadow: 0 4px 15px rgba(212,175,55,0.3) !important;
+}
+
+.nav-list__link {
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  color: #e2e8f0 !important;
+  transition: color 0.25s ease !important;
+  text-shadow: none !important;
+}
+
+.nav-list__link:hover {
+  color: #d4af37 !important;
+}
+
+/* 3. GRID DE CIRURGIAS: 9 CARDS UM AO LADO DO OUTRO (3x3), IMAGENS MAIORES */
+.services__col-list {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 28px !important;
+  width: 100% !important;
+}
+
+@media screen and (max-width: 991px) {
+  .services__col-list {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 20px !important;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .services__col-list {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+}
+
+/* Card de Cirurgia redesenhado com imagem de destaque ampliada */
+.service-card {
+  display: flex !important;
+  flex-direction: column !important;
+  background: #ffffff !important;
+  border-radius: 20px !important;
+  overflow: hidden !important;
+  padding: 22px !important;
+  height: 100% !important;
+  min-height: 440px !important;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.06) !important;
+  border: 1px solid rgba(0,0,0,0.07) !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+  position: relative !important;
+}
+
+.service-card:hover {
+  transform: translateY(-5px) !important;
+  box-shadow: 0 20px 45px rgba(0,0,0,0.12) !important;
+}
+
+/* Topo do Card */
+.service-card__top {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  width: 100% !important;
+  position: static !important;
+  padding: 0 !important;
+  margin-bottom: 14px !important;
+  inset: auto !important;
+}
+
+.service-card__top-caption {
+  border: none !important;
+  background: transparent !important;
+  cursor: pointer !important;
+  font-family: inherit !important;
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.08em !important;
+  color: #8c733e !important;
+  padding: 0 !important;
+  text-shadow: none !important;
+}
+
+.service-card__top-text {
+  text-shadow: none !important;
+  transform: none !important;
+  display: inline-block !important;
+}
+
+.service-card__top-plus {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 32px !important;
+  height: 32px !important;
+  border-radius: 50% !important;
+  background: rgba(212,175,55,0.14) !important;
+  color: #8c733e !important;
+  font-weight: 700 !important;
+  font-size: 16px !important;
+  border: 1px solid rgba(212,175,55,0.25) !important;
+}
+
+/* IMAGENS MAIORES E PROEMINENTES */
+.service-card__media {
+  width: 100% !important;
+  height: 200px !important;
+  border-radius: 14px !important;
+  overflow: hidden !important;
+  margin-bottom: 18px !important;
+  position: relative !important;
+  top: auto !important;
+  left: auto !important;
+  background: #f1f5f9 !important;
+}
+
+.service-card__media-img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center !important;
+  transition: transform 0.4s ease !important;
+}
+
+.service-card:hover .service-card__media-img {
+  transform: scale(1.04) !important;
+}
+
+/* Informações do Card (sem quebras de texto desajeitadas) */
+.service-card__info {
+  padding: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  flex: 1 !important;
+}
+
+.service-card__number {
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  color: #8c733e !important;
+  letter-spacing: 0.12em !important;
+  margin-bottom: 4px !important;
+}
+
+.service-card__title h3 {
+  font-size: 1.32rem !important;
+  line-height: 1.28 !important;
+  color: #171614 !important;
+  margin: 0 0 6px 0 !important;
+  white-space: normal !important;
+  word-break: normal !important;
+}
+
+.service-card__tag {
+  font-size: 12.5px !important;
+  font-weight: 600 !important;
+  color: #8c733e !important;
+  margin-bottom: 10px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+}
+
+.service-card__descr p {
+  font-size: 0.92rem !important;
+  line-height: 1.55 !important;
+  color: #4b5563 !important;
+  margin: 0 !important;
+}
+
+/* 4. BLOCO OUTROS PROCEDIMENTOS (IMAGEM 3): ALTO CONTRASTE & SEM QUEBRAS */
+.other-procedures-wrapper {
+  margin-top: 56px !important;
+  padding: 44px 40px !important;
+  background: #181714 !important;
+  border: 1px solid rgba(212, 175, 55, 0.32) !important;
+  border-radius: 24px !important;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.45) !important;
+  color: #ffffff !important;
+}
+
+.other-procedures-badge {
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  margin-bottom: 14px !important;
+}
+
+.badge-dot {
+  width: 8px !important;
+  height: 8px !important;
+  border-radius: 50% !important;
+  background: #d4af37 !important;
+}
+
+.other-procedures-badge span {
+  text-transform: uppercase !important;
+  letter-spacing: 0.16em !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  color: #d4af37 !important;
+}
+
+.other-procedures-title {
+  color: #ffffff !important;
+  font-size: clamp(1.6rem, 3.2vw, 2.2rem) !important;
+  line-height: 1.25 !important;
+  margin-bottom: 12px !important;
+  letter-spacing: -0.01em !important;
+}
+
+.other-procedures-subtitle {
+  color: rgba(245, 243, 239, 0.85) !important;
+  font-size: 1.05rem !important;
+  line-height: 1.6 !important;
+  margin-bottom: 30px !important;
+  max-width: 850px !important;
+}
+
+/* Pills sem quebra feia de texto */
+.other-procedures-pills-grid {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)) !important;
+  gap: 12px !important;
+  margin-bottom: 34px !important;
+}
+
+.procedure-pill {
+  background: rgba(255, 255, 255, 0.06) !important;
+  border: 1px solid rgba(212, 175, 55, 0.28) !important;
+  border-left: 3px solid #d4af37 !important;
+  border-radius: 12px !important;
+  padding: 13px 18px !important;
+  color: #ffffff !important;
+  font-size: 14.5px !important;
+  font-weight: 600 !important;
+  white-space: nowrap !important;
+  display: flex !important;
+  align-items: center !important;
+  transition: all 0.25s ease !important;
+}
+
+.procedure-pill:hover {
+  background: rgba(212, 175, 55, 0.12) !important;
+  border-color: #d4af37 !important;
+  transform: translateX(3px) !important;
+}
+
+@media screen and (max-width: 640px) {
+  .other-procedures-wrapper {
+    padding: 28px 20px !important;
+    border-radius: 18px !important;
+  }
+  .other-procedures-pills-grid {
+    grid-template-columns: 1fr !important;
+    gap: 8px !important;
+  }
+  .procedure-pill {
+    white-space: normal !important;
+    padding: 12px 16px !important;
+  }
+}
+
+/* Botão Fale Conosco no WhatsApp (Zero duplicidade de texto) */
+.custom-whatsapp-gold-btn {
+  background: #d4af37 !important;
+  color: #171614 !important;
+  padding: 16px 36px !important;
+  border-radius: 999px !important;
+  text-decoration: none !important;
+  font-weight: 700 !important;
+  font-size: 15px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  text-shadow: none !important;
+  box-shadow: 0 10px 25px rgba(212, 175, 55, 0.25) !important;
+  transition: all 0.3s ease !important;
+}
+
+.custom-whatsapp-gold-btn:hover {
+  transform: translateY(-2px) !important;
+  background: #e5bd3c !important;
+  box-shadow: 0 15px 35px rgba(212, 175, 55, 0.4) !important;
+}
+
+.custom-whatsapp-gold-btn * {
+  text-shadow: none !important;
+}
+</style>
+
+
+<style id="dr-ricardo-master-custom-styles">
+  /* 1. Services 3x3 Grid: Side by side without empty slots */
+  .services__col-list {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    grid-column-gap: 1.5rem !important;
+    grid-row-gap: 1.5rem !important;
+    width: 100% !important;
+  }
+
+  @media screen and (max-width: 991px) {
+    .services__col-list {
+      grid-template-columns: repeat(2, 1fr) !important;
+      grid-column-gap: 1.25rem !important;
+      grid-row-gap: 1.25rem !important;
+    }
+  }
+
+  @media screen and (max-width: 640px) {
+    .services__col-list {
+      grid-template-columns: 1fr !important;
+      grid-column-gap: 1rem !important;
+      grid-row-gap: 1rem !important;
+    }
+  }
+
+  /* 2. Service Cards: Prominent, larger images, elegant proportions, no text squeeze */
+  .service-card {
+    height: auto !important;
+    min-height: 480px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+    align-items: stretch !important;
+    padding: 1.5rem !important;
+    background: #ffffff !important;
+    border-radius: 1.5rem !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04) !important;
+    position: relative !important;
+    overflow: hidden !important;
+    border: 1px solid rgba(0, 0, 0, 0.06) !important;
+    pointer-events: auto !important;
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease !important;
+  }
+
+  .service-card:hover {
+    transform: translateY(-6px) !important;
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.09) !important;
+  }
+
+  .service-card__top {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    width: 100% !important;
+    margin-bottom: 1.25rem !important;
+    z-index: 5 !important;
+  }
+
+  .service-card__top-caption {
+    cursor: pointer !important;
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    text-shadow: none !important;
+    font-family: inherit !important;
+  }
+
+  .service-card__top-text {
+    font-size: 0.85rem !important;
+    font-weight: 700 !important;
+    color: #1a1a18 !important;
+    letter-spacing: 0.04em !important;
+    text-transform: uppercase !important;
+    text-shadow: none !important;
+  }
+
+  .service-card__top-plus {
+    width: 32px !important;
+    height: 32px !important;
+    border-radius: 50% !important;
+    background: #f4f4f0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 1.1rem !important;
+    font-weight: 600 !important;
+    color: #1a1a18 !important;
+    transition: transform 0.3s ease, background-color 0.3s ease !important;
+  }
+
+  .service-card:hover .service-card__top-plus {
+    transform: rotate(90deg) !important;
+    background: #e2c054 !important;
+    color: #000 !important;
+  }
+
+  /* Large Images on Cards */
+  .service-card__media {
+    width: 100% !important;
+    height: 220px !important;
+    border-radius: 1rem !important;
+    overflow: hidden !important;
+    margin-bottom: 1.25rem !important;
+    background: #f8f8f6 !important;
+    position: relative !important;
+    flex-shrink: 0 !important;
+  }
+
+  .service-card__media-img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center !important;
+    display: block !important;
+    transition: transform 0.5s ease !important;
+  }
+
+  .service-card:hover .service-card__media-img {
+    transform: scale(1.05) !important;
+  }
+
+  .service-card__info {
+    display: flex !important;
+    flex-direction: column !important;
+    flex-grow: 1 !important;
+    width: 100% !important;
+    text-align: left !important;
+  }
+
+  .service-card__number {
+    font-size: 0.85rem !important;
+    font-weight: 600 !important;
+    color: #999990 !important;
+    margin-bottom: 0.4rem !important;
+  }
+
+  .service-card__title {
+    margin-bottom: 0.6rem !important;
+  }
+
+  .service-card__title h3 {
+    font-size: 1.35rem !important;
+    font-weight: 700 !important;
+    line-height: 1.28 !important;
+    color: #111110 !important;
+    white-space: normal !important;
+  }
+
+  .service-card__title h3 strong {
+    font-family: inherit !important;
+    font-style: italic !important;
+    font-weight: 600 !important;
+  }
+
+  .service-card__tag {
+    margin-bottom: 0.85rem !important;
+  }
+
+  .service-card__tag span {
+    font-size: 0.8rem !important;
+    font-weight: 600 !important;
+    color: #92752e !important;
+    background: rgba(212, 175, 55, 0.12) !important;
+    padding: 5px 12px !important;
+    border-radius: 6px !important;
+    display: inline-block !important;
+    white-space: nowrap !important;
+  }
+
+  .service-card__descr {
+    margin-top: auto !important;
+  }
+
+  .service-card__descr p {
+    font-size: 0.9rem !important;
+    line-height: 1.55 !important;
+    color: #555550 !important;
+  }
+
+  /* 3. Luxury Other Procedures Container (Image 3 Fixes) */
+  .other-procedures-luxury-box {
+    margin-top: clamp(40px, 6vw, 70px) !important;
+    background: #181715 !important;
+    border: 1px solid rgba(212, 175, 55, 0.4) !important;
+    border-radius: 24px !important;
+    padding: clamp(32px, 5vw, 56px) clamp(24px, 4vw, 48px) !important;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.35) !important;
+    text-align: left !important;
+    position: relative !important;
+    width: 100% !important;
+  }
+
+  .other-proc-badge {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    margin-bottom: 14px !important;
+  }
+
+  .badge-gold-dot {
+    width: 8px !important;
+    height: 8px !important;
+    border-radius: 50% !important;
+    background: #d4af37 !important;
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.8) !important;
+    display: inline-block !important;
+  }
+
+  .badge-gold-text {
+    font-size: 0.82rem !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.1em !important;
+    text-transform: uppercase !important;
+    color: #d4af37 !important;
+  }
+
+  .other-proc-title {
+    color: #ffffff !important;
+    font-size: clamp(1.6rem, 3.2vw, 2.3rem) !important;
+    font-weight: 700 !important;
+    line-height: 1.25 !important;
+    margin: 0 0 14px 0 !important;
+  }
+
+  .other-proc-subtitle {
+    color: #d1d5db !important;
+    font-size: clamp(0.95rem, 1.8vw, 1.1rem) !important;
+    line-height: 1.6 !important;
+    margin: 0 0 32px 0 !important;
+    max-width: 880px !important;
+  }
+
+  .other-proc-pills-wrap {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 12px !important;
+    margin-bottom: 36px !important;
+  }
+
+  .other-proc-pill {
+    display: inline-flex !important;
+    align-items: center !important;
+    background: #23221f !important;
+    border: 1px solid rgba(212, 175, 55, 0.35) !important;
+    border-left: 4px solid #d4af37 !important;
+    border-radius: 10px !important;
+    padding: 10px 18px !important;
+    color: #f3f4f6 !important;
+    font-size: 0.95rem !important;
+    font-weight: 500 !important;
+    white-space: nowrap !important;
+    transition: all 0.25s ease !important;
+  }
+
+  .other-proc-pill:hover {
+    background: #2c2a26 !important;
+    border-color: #d4af37 !important;
+    transform: translateY(-2px) !important;
+  }
+
+  .other-proc-cta-area {
+    margin-top: 10px !important;
+  }
+
+  .other-proc-whatsapp-btn {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+    background: #d4af37 !important;
+    color: #0d0c0a !important;
+    font-weight: 700 !important;
+    font-size: 1rem !important;
+    padding: 15px 32px !important;
+    border-radius: 999px !important;
+    text-decoration: none !important;
+    box-shadow: 0 10px 25px rgba(212, 175, 55, 0.35) !important;
+    transition: all 0.3s ease !important;
+    text-shadow: none !important;
+    border: none !important;
+    cursor: pointer !important;
+  }
+
+  .other-proc-whatsapp-btn:hover {
+    background: #e2c054 !important;
+    transform: translateY(-3px) !important;
+    box-shadow: 0 15px 30px rgba(212, 175, 55, 0.5) !important;
+  }
+
+  .other-proc-whatsapp-btn span,
+  .other-proc-whatsapp-btn svg {
+    text-shadow: none !important;
+  }
+
+  /* 4. ABSOLUTE KILL SWITCH FOR GHOST DUPLICATE TEXT SHADOWS */
+  .btn,
+  .btn__text,
+  .text-btn,
+  .service-card__top-text,
+  .service-card__top-caption,
+  .nav-list__link,
+  .footer__link,
+  .booking-form__support-link,
+  .other-proc-whatsapp-btn,
+  [data-stagger-link-text] {
+    text-shadow: none !important;
+  }
+</style>
+
 </head><body><div class="global-code"><div class="global-css w-embed"><style>
   /* Fluid responsive */
   html {
@@ -515,23 +1156,17 @@ a, button, .button, input, select, label.booking-treatment-card, label.booking-d
 
   /* LINKS */
   @media (min-width: 480px) and (hover: hover) {
-    .nav-list__link {
-      text-shadow: currentcolor 0px 1.75rem 0px;
-    }
-    .text-btn {
-      text-shadow: currentcolor 0px 1.7rem 0px;
-    }
-    .footer__link {
-      text-shadow: currentcolor 0px 1.65rem 0px;
-    }
+    .nav-list__link { text-shadow: none !important; }
+    .text-btn { text-shadow: none !important; }
+    .footer__link { text-shadow: none !important; }
     .btn {
-      text-shadow: currentcolor 0px 1.65rem 0px;
+      text-shadow: none !important;
     }
     .booking-form__support-link {
-      text-shadow: currentcolor 0px 1.5625rem 0px;
+      text-shadow: none !important;
     }
     .service-card__top-caption {
-      text-shadow: currentcolor 0px 1.7rem 0px;
+      text-shadow: none !important;
     }
   }
 
@@ -2424,7 +3059,23 @@ a, button, .button, input, select, label.booking-treatment-card, label.booking-d
       }
     })();
   });
-</script></div><div class="booking-treatment-card__icon booking-treatment-card__icon"></div><div class="booking-doctor-card__avatar booking-doctor-card__avatar"></div></div><div class="page-wrapper"><header data-header="" class="header"><div data-animation="over-right" class="nav w-nav" data-easing2="ease" fs-scrolldisable-element="smart-nav" data-easing="ease" data-collapse="tiny" role="banner" data-duration="400" data-doc-height="1"><div class="nav-overlay"></div><div class="container nav-container"><a href="/" data-header="logo" aria-label="nova dental logo" id="w-node-_61c5d706-432d-8a87-8710-e43e7b6f6fc7-7b6f6fc3" aria-current="page" class="logo w-nav-brand w--current"><div class="logo__img"><img src="assets/01-home-ricardo-andrade-logo-menu.png" alt="Dr. Ricardo Andrade — Cirurgia Plástica" /></div></a><nav role="navigation" class="nav-menu-wrap w-nav-menu"><div class="nav__menu-top"></div><div class="nav-menu"><ul role="list" class="nav-list"><li data-header="nav-item" class="nav-list__item"><a href="#about" data-stagger-link="" class="nav-list__link w-inline-block"><div data-stagger-link-text="">About</div></a></li><li data-header="nav-item" class="nav-list__item"><a href="#services" data-stagger-link="" class="nav-list__link w-inline-block"><div data-stagger-link-text="">Services</div></a></li><li data-header="nav-item" class="nav-list__item"><a href="#why-us" data-stagger-link="" class="nav-list__link w-inline-block"><div data-stagger-link-text="">Why Us?</div></a></li><li data-header="nav-item" class="nav-list__item"><a href="#testimonials" data-stagger-link="" class="nav-list__link w-inline-block"><div data-stagger-link-text="">Testimonials</div></a></li><li data-header="nav-item" class="nav-list__item"><a href="#team" data-stagger-link="" class="nav-list__link w-inline-block"><div data-stagger-link-text="">Team</div></a></li></ul><a data-header="cta" data-book-trigger="" data-stagger-link="" href="#" class="text-btn nav-btn w-inline-block"><div>(</div><div data-stagger-link-text="">Book an Appointment</div><div>)</div></a></div></nav><div data-header="cta" class="burger w-nav-button"><div class="burger-box"><div class="burger-open w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none">
+</script></div><div class="booking-treatment-card__icon booking-treatment-card__icon"></div><div class="booking-doctor-card__avatar booking-doctor-card__avatar"></div></div><div class="page-wrapper"><header data-header="" class="header"><div data-animation="over-right" class="nav w-nav" data-easing2="ease" fs-scrolldisable-element="smart-nav" data-easing="ease" data-collapse="tiny" role="banner" data-duration="400" data-doc-height="1"><div class="nav-overlay"></div><div class="container nav-container"><a href="/" data-header="logo" aria-label="nova dental logo" id="w-node-_61c5d706-432d-8a87-8710-e43e7b6f6fc7-7b6f6fc3" aria-current="page" class="logo w-nav-brand w--current"><div class="logo__img"><img src="assets/01-home-ricardo-andrade-logo-menu.png" alt="Dr. Ricardo Andrade — Cirurgia Plástica" /></div></a><nav role="navigation" class="nav-menu-wrap w-nav-menu">
+  <div class="nav__menu-top"></div>
+  <div class="nav-menu">
+    <ul role="list" class="nav-list">
+      <li data-header="nav-item" class="nav-list__item"><a href="#about" class="nav-list__link w-inline-block"><div>Dr. Ricardo</div></a></li>
+      <li data-header="nav-item" class="nav-list__item"><a href="#services" class="nav-list__link w-inline-block"><div>Cirurgias</div></a></li>
+      <li data-header="nav-item" class="nav-list__item"><a href="#why-us" class="nav-list__link w-inline-block"><div>Diferenciais</div></a></li>
+      <li data-header="nav-item" class="nav-list__item"><a href="#results" class="nav-list__link w-inline-block"><div>Resultados</div></a></li>
+      <li data-header="nav-item" class="nav-list__item"><a href="#youtube" class="nav-list__link w-inline-block"><div>Vídeos</div></a></li>
+      <li data-header="nav-item" class="nav-list__item"><a href="#team" class="nav-list__link w-inline-block"><div>Equipe</div></a></li>
+      <li data-header="nav-item" class="nav-list__item"><a href="#contato" class="nav-list__link w-inline-block"><div>Contato</div></a></li>
+    </ul>
+    <a data-header="cta" data-book-trigger="" href="#" class="nav-cta-btn w-inline-block">
+      <span>( Agendar Consulta )</span>
+    </a>
+  </div>
+</nav><div data-header="cta" class="burger w-nav-button"><div class="burger-box"><div class="burger-open w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none">
   <path d="M2 12H22M2 6H22M2 18H22" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
 </svg></div><div class="burger-close w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none">
   <path d="M21 3L3 21" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -2437,32 +3088,402 @@ a, button, .button, input, select, label.booking-treatment-card, label.booking-d
 • Especialização em Medicina Laser no Núcleo de Laser da Unicamp em 1995;<br/>
 • Professor na Universidade de Alfenas/MG (1995/2000);<br/>
 • Autor de mais de 70 artigos científicos publicados em periódicos da área e participante de mais de 200 cursos no Brasil e no exterior.<br/><br/>
-<em>Cuidados além da beleza:</em> Atua na área de cirurgias de prótese de recuperação rápida R24R, mamas, rinoplastia, blefaroplastia, frontoplastia, abdominoplastia e harmonização facial.</p></div></div></div></div></div></section><section data-services="" class="services"><div class="page-padding"><div class="container"><div class="wrap services__wrap"><div data-services="heading" class="heading global-heading"><div data-services="caption" id="w-node-_426bd1fb-ea67-e399-6145-dc6aff822ae7-0659a311" class="caption"><div class="caption__dot"></div><div class="text-b2--medium">Services</div></div><div id="w-node-_56b22703-0a0e-e84b-576b-8d8a63794d25-0659a311" class="g-title services__title"><h2 data-services="title" class="h1-grotesk">Transforming Smiles with <span class="h1-serif">Modern Treatments</span></h2><div class="g-title__subtitle"><p data-services="subtitle" class="text-b1--book">Whether you&#x27;re in need of a routine check-up, a cosmetic enhancement, or emergency care, we have the expertise and technology to give you the best possible care.</p></div></div></div><div class="services__col-wrap w-dyn-list"><div role="list" class="services__col-list w-dyn-items"><div data-dropdown="" role="listitem" class="services__col-item w-dyn-item"><a data-dropdown-toggle="" href="https://nova-dental-dev.webflow.io/services/aesthetic-dentistry" class="service-link w-inline-block"></a><article data-service-card="" class="service-card"><div class="service-card__top"><button type="button" data-book-trigger="" data-book-doctor="aesthetic-dentistry" data-stagger-link="" class="service-card__top-caption"><div data-stagger-link-text="" class="service-card__top-text">Book an Appointment</div></button><div class="service-card__top-plus"><div>(</div><div>+</div><div>)</div></div></div><div class="service-card__media"><img src="assets/11_KE_After_Side_Pro.jpg" loading="lazy" alt="Rinoplastia Estruturada e Preservadora — Dr. Ricardo Andrade" class="service-card__media-img"/></div><div class="service-card__info"><p class="service-card__number">(01)</p><div class="service-card__title w-richtext"><h3>Aesthetic <strong>dentistry</strong></h3></div><div data-dropdown-list="" class="service-card__descr-wrap"><div class="service-card__descr"><p class="text-b2--book">Is a harmonious combination of art, science and experience to create your perfect smile.</p></div></div></div><div class="service-card__active-bg"></div></article></div><div data-dropdown="" role="listitem" class="services__col-item w-dyn-item"><a data-dropdown-toggle="" href="#" class="service-link w-inline-block"></a><article data-service-card="empty" class="service-card"><div class="service-card__top"><button type="button" data-book-trigger="" data-book-doctor="empty-1" data-stagger-link="" class="service-card__top-caption"><div data-stagger-link-text="" class="service-card__top-text">Book an Appointment</div></button><div class="service-card__top-plus"><div>(</div><div>+</div><div>)</div></div></div><div class="service-card__media"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" loading="lazy" alt="Empty 1" class="service-card__media-img w-dyn-bind-empty"/></div><div class="service-card__info"><p class="service-card__number w-dyn-bind-empty"></p><div class="service-card__title w-dyn-bind-empty w-richtext"></div><div data-dropdown-list="" class="service-card__descr-wrap"><div class="service-card__descr"><p class="text-b2--book w-dyn-bind-empty"></p></div></div></div><div class="service-card__active-bg"></div></article></div><div data-dropdown="" role="listitem" class="services__col-item w-dyn-item"><a data-dropdown-toggle="" href="https://nova-dental-dev.webflow.io/services/veneers" class="service-link w-inline-block"></a><article data-service-card="" class="service-card"><div class="service-card__top"><button type="button" data-book-trigger="" data-book-doctor="veneers" data-stagger-link="" class="service-card__top-caption"><div data-stagger-link-text="" class="service-card__top-text">Book an Appointment</div></button><div class="service-card__top-plus"><div>(</div><div>+</div><div>)</div></div></div><div class="service-card__media"><img src="assets/3_EK_Side_Profile_Af.jpg" loading="lazy" alt="Perfilometria e Harmonia Nasal — Dr. Ricardo Andrade" class="service-card__media-img"/></div><div class="service-card__info"><p class="service-card__number">(02)</p><div class="service-card__title w-richtext"><h3>Veneers</h3></div><div data-dropdown-list="" class="service-card__descr-wrap"><div class="service-card__descr"><p class="text-b2--book">Elimination of aesthetic defects of the front teeth: correction of shape, color, elimination of gaps between the teeth.</p></div></div></div><div class="service-card__active-bg"></div></article></div><div data-dropdown="" role="listitem" class="services__col-item w-dyn-item"><a data-dropdown-toggle="" href="https://nova-dental-dev.webflow.io/services/wisdom-tooth-extraction" class="service-link w-inline-block"></a><article data-service-card="" class="service-card"><div class="service-card__top"><button type="button" data-book-trigger="" data-book-doctor="wisdom-tooth-extraction" data-stagger-link="" class="service-card__top-caption"><div data-stagger-link-text="" class="service-card__top-text">Book an Appointment</div></button><div class="service-card__top-plus"><div>(</div><div>+</div><div>)</div></div></div><div class="service-card__media"><img src="assets/13_SZ_Side_View_Afte.jpg" loading="lazy" alt="Blefaroplastia e Rejuvenescimento do Olhar" class="service-card__media-img"/></div><div class="service-card__info"><p class="service-card__number">(03)</p><div class="service-card__title w-richtext"><h3>Wisdom tooth <strong>extraction</strong></h3></div><div data-dropdown-list="" class="service-card__descr-wrap"><div class="service-card__descr"><p class="text-b2--book">Wisdom tooth extraction is not scary: doctors at Nova Dental offer professional help</p></div></div></div><div class="service-card__active-bg"></div></article></div><div data-dropdown="" role="listitem" class="services__col-item w-dyn-item"><a data-dropdown-toggle="" href="https://nova-dental-dev.webflow.io/services/implantation" class="service-link w-inline-block"></a><article data-service-card="" class="service-card"><div class="service-card__top"><button type="button" data-book-trigger="" data-book-doctor="implantation" data-stagger-link="" class="service-card__top-caption"><div data-stagger-link-text="" class="service-card__top-text">Book an Appointment</div></button><div class="service-card__top-plus"><div>(</div><div>+</div><div>)</div></div></div><div class="service-card__media"><img src="assets/procedimento-mamoplastia.jpg" loading="lazy" alt="Prótese de Mama R24R — Recuperação Rápida" class="service-card__media-img"/></div><div class="service-card__info"><p class="service-card__number">(04)</p><div class="service-card__title w-richtext"><h3>Implantation</h3></div><div data-dropdown-list="" class="service-card__descr-wrap"><div class="service-card__descr"><p class="text-b2--book">Solving the problem of missing one, several or all teeth. Maximum preservation of existing teeth.</p></div></div></div><div class="service-card__active-bg"></div></article></div><div data-dropdown="" role="listitem" class="services__col-item w-dyn-item"><a data-dropdown-toggle="" href="https://nova-dental-dev.webflow.io/services/orthodontic-treatment" class="service-link w-inline-block"></a><article data-service-card="" class="service-card"><div class="service-card__top"><button type="button" data-book-trigger="" data-book-doctor="orthodontic-treatment" data-stagger-link="" class="service-card__top-caption"><div data-stagger-link-text="" class="service-card__top-text">Book an Appointment</div></button><div class="service-card__top-plus"><div>(</div><div>+</div><div>)</div></div></div><div class="service-card__media"><img src="assets/centro-cirurgico.jpg" loading="lazy" alt="Mastopexia e Cirurgia da Mama" class="service-card__media-img"/></div><div class="service-card__info"><p class="service-card__number">(05)</p><div class="service-card__title w-richtext"><h3>Orthodontic <strong>treatment</strong></h3></div><div data-dropdown-list="" class="service-card__descr-wrap"><div class="service-card__descr"><p class="text-b2--book">Solving problems of the maxillofacial skeleton (teeth alignment, bite correction, joint dysfunction).</p></div></div></div><div class="service-card__active-bg"></div></article></div><div data-dropdown="" role="listitem" class="services__col-item w-dyn-item"><a data-dropdown-toggle="" href="#" class="service-link w-inline-block"></a><article data-service-card="empty" class="service-card"><div class="service-card__top"><button type="button" data-book-trigger="" data-book-doctor="empty-2" data-stagger-link="" class="service-card__top-caption"><div data-stagger-link-text="" class="service-card__top-text">Book an Appointment</div></button><div class="service-card__top-plus"><div>(</div><div>+</div><div>)</div></div></div><div class="service-card__media"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" loading="lazy" alt="Empty 2" class="service-card__media-img w-dyn-bind-empty"/></div><div class="service-card__info"><p class="service-card__number w-dyn-bind-empty"></p><div class="service-card__title w-dyn-bind-empty w-richtext"></div><div data-dropdown-list="" class="service-card__descr-wrap"><div class="service-card__descr"><p class="text-b2--book w-dyn-bind-empty"></p></div></div></div><div class="service-card__active-bg"></div></article></div><div data-dropdown="" role="listitem" class="services__col-item w-dyn-item"><a data-dropdown-toggle="" href="https://nova-dental-dev.webflow.io/services/professional-hygiene" class="service-link w-inline-block"></a><article data-service-card="" class="service-card"><div class="service-card__top"><button type="button" data-book-trigger="" data-book-doctor="professional-hygiene" data-stagger-link="" class="service-card__top-caption"><div data-stagger-link-text="" class="service-card__top-text">Book an Appointment</div></button><div class="service-card__top-plus"><div>(</div><div>+</div><div>)</div></div></div><div class="service-card__media"><img src="assets/clinica-foto-01.jpg" loading="lazy" alt="Ambiente Cirúrgico Hospitalar em Campinas" class="service-card__media-img"/></div><div class="service-card__info"><p class="service-card__number">(06)</p><div class="service-card__title w-richtext"><h3>Professional <strong>hygiene</strong></h3></div><div data-dropdown-list="" class="service-card__descr-wrap"><div class="service-card__descr"><p class="text-b2--book">Procedures designed to prevent the onset and progression of oral diseases.</p></div></div></div><div class="service-card__active-bg"></div></article></div><div data-dropdown="" role="listitem" class="services__col-item w-dyn-item"><a data-dropdown-toggle="" href="#" class="service-link w-inline-block"></a><article data-service-card="empty" class="service-card"><div class="service-card__top"><button type="button" data-book-trigger="" data-book-doctor="empty-3" data-stagger-link="" class="service-card__top-caption"><div data-stagger-link-text="" class="service-card__top-text">Book an Appointment</div></button><div class="service-card__top-plus"><div>(</div><div>+</div><div>)</div></div></div><div class="service-card__media"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" loading="lazy" alt="Empty 3" class="service-card__media-img w-dyn-bind-empty"/></div><div class="service-card__info"><p class="service-card__number w-dyn-bind-empty"></p><div class="service-card__title w-dyn-bind-empty w-richtext"></div><div data-dropdown-list="" class="service-card__descr-wrap"><div class="service-card__descr"><p class="text-b2--book w-dyn-bind-empty"></p></div></div></div><div class="service-card__active-bg"></div></article></div><div data-dropdown="" role="listitem" class="services__col-item w-dyn-item"><a data-dropdown-toggle="" href="https://nova-dental-dev.webflow.io/services/teeth-whitening" class="service-link w-inline-block"></a><article data-service-card="" class="service-card"><div class="service-card__top"><button type="button" data-book-trigger="" data-book-doctor="teeth-whitening" data-stagger-link="" class="service-card__top-caption"><div data-stagger-link-text="" class="service-card__top-text">Book an Appointment</div></button><div class="service-card__top-plus"><div>(</div><div>+</div><div>)</div></div></div><div class="service-card__media"><img src="assets/contorno-corporal.jpg" loading="lazy" alt="Contorno Corporal e Mini Lipo a Laser" class="service-card__media-img"/></div><div class="service-card__info"><p class="service-card__number">(07)</p><div class="service-card__title w-richtext"><h3>Teeth <strong>whitening</strong></h3></div><div data-dropdown-list="" class="service-card__descr-wrap"><div class="service-card__descr"><p class="text-b2--book">Hardware whitening, color improvement - by 1-2 tones, whitening with the Beyond system</p></div></div></div><div class="service-card__active-bg"></div></article></div><div data-dropdown="" role="listitem" class="services__col-item w-dyn-item"><a data-dropdown-toggle="" href="https://nova-dental-dev.webflow.io/services/surgical-dentistry" class="service-link w-inline-block"></a><article data-service-card="" class="service-card"><div class="service-card__top"><button type="button" data-book-trigger="" data-book-doctor="surgical-dentistry" data-stagger-link="" class="service-card__top-caption"><div data-stagger-link-text="" class="service-card__top-text">Book an Appointment</div></button><div class="service-card__top-plus"><div>(</div><div>+</div><div>)</div></div></div><div class="service-card__media"><img src="assets/doutor-interna.jpg" loading="lazy" alt="Harmonização Facial e Cirurgia Plástica" class="service-card__media-img"/></div><div class="service-card__info"><p class="service-card__number">(08)</p><div class="service-card__title w-richtext"><h3>Surgical <strong>dentistry</strong></h3></div><div data-dropdown-list="" class="service-card__descr-wrap"><div class="service-card__descr"><p class="text-b2--book">The most modern methods of surgical dentistry. Tooth extraction. Treatment of bone loss.</p></div></div></div><div class="service-card__active-bg"></div></article></div><div data-dropdown="" role="listitem" class="services__col-item w-dyn-item"><a data-dropdown-toggle="" href="https://nova-dental-dev.webflow.io/services/braces" class="service-link w-inline-block"></a><article data-service-card="" class="service-card"><div class="service-card__top"><button type="button" data-book-trigger="" data-book-doctor="braces" data-stagger-link="" class="service-card__top-caption"><div data-stagger-link-text="" class="service-card__top-text">Book an Appointment</div></button><div class="service-card__top-plus"><div>(</div><div>+</div><div>)</div></div></div><div class="service-card__media"><img src="assets/7_CR_Side_Profile_Af.png" loading="lazy" alt="Frontoplastia e Lifting Facial" class="service-card__media-img"/></div><div class="service-card__info"><p class="service-card__number">(09)</p><div class="service-card__title w-richtext"><h3>Braces</h3></div><div data-dropdown-list="" class="service-card__descr-wrap"><div class="service-card__descr"><p class="text-b2--book">Sometimes miracles happen suddenly, but dental braces work wonders gradually</p></div></div></div><div class="service-card__active-bg"></div></article></div></div>
-<div class="other-procedures-block" style="margin-top: 60px; padding: 45px 35px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 24px;">
-  <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
-    <div style="width: 8px; height: 8px; border-radius: 50%; background: #d4af37;"></div>
-    <span style="text-transform: uppercase; letter-spacing: 0.15em; font-size: 11px; opacity: 0.8; color: #d4af37;">Amplo Espectro Cirúrgico</span>
+<em>Cuidados além da beleza:</em> Atua na área de cirurgias de prótese de recuperação rápida R24R, mamas, rinoplastia, blefaroplastia, frontoplastia, abdominoplastia e harmonização facial.</p></div></div></div></div></div></section><section data-services="" class="services"><div class="page-padding"><div class="container"><div class="wrap services__wrap"><div data-services="heading" class="heading global-heading">
+  <div data-services="caption" class="caption">
+    <div class="caption__dot"></div>
+    <div class="text-b2--medium">Procedimentos Cirúrgicos</div>
   </div>
-  <h3 class="h2-grotesk" style="color: #fff; font-size: 1.8rem; margin-bottom: 14px;">Conheça Outros Procedimentos Realizados:</h3>
-  <p class="text-b1--book" style="color: rgba(245,243,239,0.7); font-size: 1rem; margin-bottom: 28px;">
-    Além da Rinoplastia e da Mamoplastia de Aumento R24R, o Dr. Ricardo Andrade realiza procedimentos cirúrgicos faciais e corporais com rigor hospitalar:
-  </p>
-  <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 14px; margin-bottom: 30px;">
-    <div style="background: rgba(255,255,255,0.05); padding: 14px 18px; border-radius: 12px; border-left: 3px solid #d4af37; font-size: 14.5px; font-weight: 500;">Frontoplastia</div>
-    <div style="background: rgba(255,255,255,0.05); padding: 14px 18px; border-radius: 12px; border-left: 3px solid #d4af37; font-size: 14.5px; font-weight: 500;">Abdominoplastia</div>
-    <div style="background: rgba(255,255,255,0.05); padding: 14px 18px; border-radius: 12px; border-left: 3px solid #d4af37; font-size: 14.5px; font-weight: 500;">Ginecomastia</div>
-    <div style="background: rgba(255,255,255,0.05); padding: 14px 18px; border-radius: 12px; border-left: 3px solid #d4af37; font-size: 14.5px; font-weight: 500;">Ninfoplastia</div>
-    <div style="background: rgba(255,255,255,0.05); padding: 14px 18px; border-radius: 12px; border-left: 3px solid #d4af37; font-size: 14.5px; font-weight: 500;">Otoplastia</div>
-    <div style="background: rgba(255,255,255,0.05); padding: 14px 18px; border-radius: 12px; border-left: 3px solid #d4af37; font-size: 14.5px; font-weight: 500;">Lifting Facial (Ritidoplastia)</div>
-    <div style="background: rgba(255,255,255,0.05); padding: 14px 18px; border-radius: 12px; border-left: 3px solid #d4af37; font-size: 14.5px; font-weight: 500;">Prótese de Glúteo</div>
-    <div style="background: rgba(255,255,255,0.05); padding: 14px 18px; border-radius: 12px; border-left: 3px solid #d4af37; font-size: 14.5px; font-weight: 500;">Toxina Botulínica e Preenchimento</div>
-    <div style="background: rgba(255,255,255,0.05); padding: 14px 18px; border-radius: 12px; border-left: 3px solid #d4af37; font-size: 14.5px; font-weight: 500;">Mini Lipo a Laser</div>
+  <div class="g-title services__title">
+    <h2 data-services="title" class="h1-grotesk">
+      Excelência e Precisão em <span class="h1-serif">Cirurgia Plástica</span>
+    </h2>
+    <div class="g-title__subtitle">
+      <p data-services="subtitle" class="text-b1--book">
+        Abordagens cirúrgicas personalizadas com rigor ético, segurança hospitalar e recuperação otimizada em Campinas.
+      </p>
+    </div>
   </div>
-  <a href="https://wa.me/5519989280809?text=Ol%C3%A1%20Dr.%20Ricardo,%20visitei%20o%20site%20e%20gostaria%20de%20agendar%20uma%20consulta." target="_blank" rel="noopener" class="text-btn w-inline-block" style="background: #d4af37; color: #171614; padding: 14px 30px; border-radius: 999px; text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 8px;">
-    <span>Fale Conosco no WhatsApp</span> &rarr;
-  </a>
 </div>
-</div></div></div></div><div id="services" class="anchor is-services"></div></section><section data-why-us="" class="why-us"><div class="page-padding"><div class="container"><div class="wrap why-us__wrap"><div data-why-us="heading" class="heading global-heading"><div data-why-us="caption" id="w-node-_27551c89-36ad-9613-65d8-43c54cece688-0659a311" class="caption"><div class="caption__dot"></div><div class="text-b2--medium">Why us?</div></div><div id="w-node-_27551c89-36ad-9613-65d8-43c54cece68c-0659a311" class="g-title why-us__title"><h2 data-why-us="title" class="h1-grotesk"><span class="h1-serif">Expert Solutions</span> <br/>with a Touch of Innovation</h2><div class="g-title__subtitle"><p data-why-us="subtitle" class="text-b1--book">Choosing the right dental clinic is important.  <br/>These are the reasons we stand out.</p></div></div></div><div class="why-us__sticky"><div class="why-us__cards"><article class="why-us__card-wrap is-first"><div class="why-us-card"><div class="why-us-card__bg-text-wrap"><div class="why-us-card__bg-text">Experienced Professionals</div></div><div class="why-us-card__heading"><div class="why-us-card__title"><h3 class="text-p1">Experienced Professionals</h3></div><p class="text-b2--book">Our skilled team brings years of experience and the latest advancements to deliver effective, innovative dental care for a confident smile.</p></div><div class="why-us-card__bottom"><div id="w-node-_08cfa31c-fe5f-bc9e-2f80-295079720a4b-0659a311" class="why-us-card__number-wrap"><div class="why-us-card__number">(01)</div></div><div id="w-node-cc5d3b61-baa3-9d68-ada1-e5552bf9bcd0-0659a311" class="why-us-card__label"><p class="text-b2--medium">(Precision &amp; Trust)</p></div><div id="w-node-fc4d8f78-3959-c655-eacb-759a8528f716-0659a311" class="why-us-card__img-box"><div class="why-us-card__img-wrap"><img src="assets/ricardo-andrade-imagem-doutor-secundaria.jpg" loading="lazy" width="465" height="225" alt="Dr. Ricardo Andrade — Cirurgião Plástico formado pela Unicamp" srcset="assets/6a4bf7d957f57e3e093e0c6c_Experienced_Professionals_Image-p-500.avif 500w, assets/6a4bf7d957f57e3e093e0c6c_Experienced_Professionals_Image-p-800.avif 800w, assets/6a4bf7d957f57e3e093e0c6c_Experienced_Professionals_Image.avif 930w" sizes="(max-width: 479px) 100vw, 465px" class="why-us-card__img"/></div><div class="circle-icn in-why-us-card"><div class="circle-icn__dot"></div></div></div></div></div></article><article class="why-us__card-wrap"><div class="why-us-card"><div class="why-us-card__bg-text-wrap"><div class="why-us-card__bg-text">State-of-the-Art Technology</div></div><div class="why-us-card__heading"><div class="why-us-card__title"><h3 class="text-p1">State-of-the-Art Technology</h3></div><p class="text-b2--book">We utilize the latest advancements and state-of-the-art technology to ensure accurate diagnostics and effective treatments for optimal patient care.</p></div><div class="why-us-card__bottom"><div id="w-node-a58e04c2-5ca2-762c-e37b-56b22c549d88-0659a311" class="why-us-card__number-wrap"><div class="why-us-card__number">(02)</div></div><div id="w-node-a58e04c2-5ca2-762c-e37b-56b22c549d8b-0659a311" class="why-us-card__label"><p class="text-b2--medium">(Cutting-Edge Perfection)</p></div><div id="w-node-a58e04c2-5ca2-762c-e37b-56b22c549d8e-0659a311" class="why-us-card__img-box"><div class="why-us-card__img-wrap"><img src="assets/procedimento-mamoplastia.jpg" loading="lazy" width="465" height="225" alt="Planejamento Cirúrgico Digital e Avaliação Anatômica" srcset="assets/6a4bf7d9888ea9beabebec9a_State-of-the-Art_Technology_Image-p-500.avif 500w, assets/6a4bf7d9888ea9beabebec9a_State-of-the-Art_Technology_Image-p-800.avif 800w, assets/6a4bf7d9888ea9beabebec9a_State-of-the-Art_Technology_Image.avif 930w" sizes="(max-width: 479px) 100vw, 465px" class="why-us-card__img"/></div><div class="circle-icn in-why-us-card"><div class="circle-icn__dot"></div></div></div></div></div></article><article class="why-us__card-wrap"><div class="why-us-card"><div class="why-us-card__bg-text-wrap"><div class="why-us-card__bg-text">Comfort-Focused Care</div></div><div class="why-us-card__heading"><div class="why-us-card__title"><h3 class="text-p1">Comfort-Focused Care</h3></div><p class="text-b2--book">We utilize the latest advancements and state-of-the-art technology to ensure accurate diagnostics and effective treatments for optimal patient care.</p></div><div class="why-us-card__bottom"><div id="w-node-e61174f3-ad18-0da6-e1b4-1fa2a8299c23-0659a311" class="why-us-card__number-wrap"><div class="why-us-card__number">(03)</div></div><div id="w-node-e61174f3-ad18-0da6-e1b4-1fa2a8299c26-0659a311" class="why-us-card__label"><p class="text-b2--medium">(Smiles with Ease)</p></div><div id="w-node-e61174f3-ad18-0da6-e1b4-1fa2a8299c29-0659a311" class="why-us-card__img-box"><div class="why-us-card__img-wrap"><img src="assets/centro-cirurgico.jpg" loading="lazy" width="465" height="225" alt="Centro Cirúrgico Hospitalar de Alta Complexidade" srcset="assets/6a4bf7d9888ea9beabebecb0_Comfort-Focused_Care_Image-p-500.avif 500w, assets/6a4bf7d9888ea9beabebecb0_Comfort-Focused_Care_Image-p-800.avif 800w, assets/6a4bf7d9888ea9beabebecb0_Comfort-Focused_Care_Image.avif 930w" sizes="(max-width: 479px) 100vw, 465px" class="why-us-card__img"/></div><div class="circle-icn in-why-us-card"><div class="circle-icn__dot"></div></div></div></div></div></article><article class="why-us__card-wrap"><div class="why-us-card"><div class="why-us-card__bg-text-wrap"><div class="why-us-card__bg-text">Patient-Centered Approach</div></div><div class="why-us-card__heading"><div class="why-us-card__title"><h3 class="text-p1">Patient-Centered Approach</h3></div><p class="text-b2--book">Your health and satisfaction are our top priority. We take the time to listen to your concerns and tailor our treatments to your needs.</p></div><div class="why-us-card__bottom"><div id="w-node-_605f2210-a3bb-93a6-5969-16af6ab61da3-0659a311" class="why-us-card__number-wrap"><div class="why-us-card__number">(04)</div></div><div id="w-node-_605f2210-a3bb-93a6-5969-16af6ab61da6-0659a311" class="why-us-card__label"><p class="text-b2--medium">(Focused on You)</p></div><div id="w-node-_605f2210-a3bb-93a6-5969-16af6ab61da9-0659a311" class="why-us-card__img-box"><div class="why-us-card__img-wrap"><img src="assets/clinica-foto-01.jpg" loading="lazy" width="465" height="225" alt="Consulta Médica Individualizada e Ética" srcset="assets/6a4bf7dabdb50aff9fc42c75_Patient-Centered_Approach_Image-p-500.avif 500w, assets/6a4bf7dabdb50aff9fc42c75_Patient-Centered_Approach_Image-p-800.avif 800w, assets/6a4bf7dabdb50aff9fc42c75_Patient-Centered_Approach_Image.avif 930w" sizes="(max-width: 479px) 100vw, 465px" class="why-us-card__img"/></div><div class="circle-icn in-why-us-card"><div class="circle-icn__dot"></div></div></div></div></div></article></div></div></div></div></div><div id="why-us" class="anchor is-why-us"></div></section>
+<div class="services__col-wrap w-dyn-list"><div role="list" class="services__col-list w-dyn-items">
+  
+  <div data-dropdown="" role="listitem" class="services__col-item w-dyn-item">
+    <article data-service-card="" class="service-card">
+      <div class="service-card__top">
+        <button type="button" data-book-trigger="" data-book-treatment="rinoplastia" class="service-card__top-caption">
+          <span class="service-card__top-text">Agendar Consulta</span>
+        </button>
+        <div class="service-card__top-plus">
+          <span>+</span>
+        </div>
+      </div>
+      <div class="service-card__media">
+        <img src="assets/11_KE_After_Side_Pro.jpg" loading="lazy" alt="Rinoplastia Estruturada — Dr. Ricardo Andrade" class="service-card__media-img"/>
+      </div>
+      <div class="service-card__info">
+        <p class="service-card__number">(01)</p>
+        <div class="service-card__title">
+          <h3>Rinoplastia <strong>Estruturada</strong></h3>
+        </div>
+        <div class="service-card__tag">
+          <span>Harmonia Facial & Perfilometria</span>
+        </div>
+        <div class="service-card__descr">
+          <p class="text-b2--book">Abordagem estruturada e preservadora que equilibra a estética do perfil nasal mantendo a função respiratória perfeita.</p>
+        </div>
+      </div>
+    </article>
+  </div>
+
+
+  <div data-dropdown="" role="listitem" class="services__col-item w-dyn-item">
+    <article data-service-card="" class="service-card">
+      <div class="service-card__top">
+        <button type="button" data-book-trigger="" data-book-treatment="protese-r24r" class="service-card__top-caption">
+          <span class="service-card__top-text">Agendar Consulta</span>
+        </button>
+        <div class="service-card__top-plus">
+          <span>+</span>
+        </div>
+      </div>
+      <div class="service-card__media">
+        <img src="assets/procedimento-mamoplastia.jpg" loading="lazy" alt="Prótese de Recuperação Rápida R24R — Dr. Ricardo Andrade" class="service-card__media-img"/>
+      </div>
+      <div class="service-card__info">
+        <p class="service-card__number">(02)</p>
+        <div class="service-card__title">
+          <h3>Prótese de Mama <strong>R24R</strong></h3>
+        </div>
+        <div class="service-card__tag">
+          <span>Recuperação Rápida em 24h</span>
+        </div>
+        <div class="service-card__descr">
+          <p class="text-b2--book">Protocolo cirúrgico de alta precisão que permite retomar atividades habituais leves e movimentar os braços em até 24 horas.</p>
+        </div>
+      </div>
+    </article>
+  </div>
+
+
+  <div data-dropdown="" role="listitem" class="services__col-item w-dyn-item">
+    <article data-service-card="" class="service-card">
+      <div class="service-card__top">
+        <button type="button" data-book-trigger="" data-book-treatment="blefaroplastia" class="service-card__top-caption">
+          <span class="service-card__top-text">Agendar Consulta</span>
+        </button>
+        <div class="service-card__top-plus">
+          <span>+</span>
+        </div>
+      </div>
+      <div class="service-card__media">
+        <img src="assets/blefaroplastia-interna.jpg" loading="lazy" alt="Blefaroplastia — Dr. Ricardo Andrade" class="service-card__media-img"/>
+      </div>
+      <div class="service-card__info">
+        <p class="service-card__number">(03)</p>
+        <div class="service-card__title">
+          <h3>Blefaroplastia <strong>do Olhar</strong></h3>
+        </div>
+        <div class="service-card__tag">
+          <span>Rejuvenescimento Palpebral</span>
+        </div>
+        <div class="service-card__descr">
+          <p class="text-b2--book">Remoção precisa de excessos cutâneos e bolsas de gordura, restaurando a vivacidade, leveza e juventude dos olhos.</p>
+        </div>
+      </div>
+    </article>
+  </div>
+
+
+  <div data-dropdown="" role="listitem" class="services__col-item w-dyn-item">
+    <article data-service-card="" class="service-card">
+      <div class="service-card__top">
+        <button type="button" data-book-trigger="" data-book-treatment="mastopexia" class="service-card__top-caption">
+          <span class="service-card__top-text">Agendar Consulta</span>
+        </button>
+        <div class="service-card__top-plus">
+          <span>+</span>
+        </div>
+      </div>
+      <div class="service-card__media">
+        <img src="assets/procedimento-mamas.jpg" loading="lazy" alt="Mastopexia e Cirurgia das Mamas — Dr. Ricardo Andrade" class="service-card__media-img"/>
+      </div>
+      <div class="service-card__info">
+        <p class="service-card__number">(04)</p>
+        <div class="service-card__title">
+          <h3>Mastopexia <strong>com/sem Prótese</strong></h3>
+        </div>
+        <div class="service-card__tag">
+          <span>Lifting e Firmeza Mamária</span>
+        </div>
+        <div class="service-card__descr">
+          <p class="text-b2--book">Suspensão e remodelação dos tecidos mamários com preenchimento harmônico do colo e reposicionamento das aréolas.</p>
+        </div>
+      </div>
+    </article>
+  </div>
+
+
+  <div data-dropdown="" role="listitem" class="services__col-item w-dyn-item">
+    <article data-service-card="" class="service-card">
+      <div class="service-card__top">
+        <button type="button" data-book-trigger="" data-book-treatment="frontoplastia" class="service-card__top-caption">
+          <span class="service-card__top-text">Agendar Consulta</span>
+        </button>
+        <div class="service-card__top-plus">
+          <span>+</span>
+        </div>
+      </div>
+      <div class="service-card__media">
+        <img src="assets/7_CR_Side_Profile_Af.png" loading="lazy" alt="Frontoplastia e Lifting Facial — Dr. Ricardo Andrade" class="service-card__media-img"/>
+      </div>
+      <div class="service-card__info">
+        <p class="service-card__number">(05)</p>
+        <div class="service-card__title">
+          <h3>Frontoplastia & <strong>Lifting</strong></h3>
+        </div>
+        <div class="service-card__tag">
+          <span>Rejuvenescimento Facial Superior</span>
+        </div>
+        <div class="service-card__descr">
+          <p class="text-b2--book">Elevação anatômica da fronte e sobrancelhas associada ao lifting cervicofacial para linhas naturais e duradouras.</p>
+        </div>
+      </div>
+    </article>
+  </div>
+
+
+  <div data-dropdown="" role="listitem" class="services__col-item w-dyn-item">
+    <article data-service-card="" class="service-card">
+      <div class="service-card__top">
+        <button type="button" data-book-trigger="" data-book-treatment="abdominoplastia" class="service-card__top-caption">
+          <span class="service-card__top-text">Agendar Consulta</span>
+        </button>
+        <div class="service-card__top-plus">
+          <span>+</span>
+        </div>
+      </div>
+      <div class="service-card__media">
+        <img src="assets/contorno-corporal.jpg" loading="lazy" alt="Abdominoplastia — Dr. Ricardo Andrade" class="service-card__media-img"/>
+      </div>
+      <div class="service-card__info">
+        <p class="service-card__number">(06)</p>
+        <div class="service-card__title">
+          <h3>Abdominoplastia <strong>Completa</strong></h3>
+        </div>
+        <div class="service-card__tag">
+          <span>Contorno Abdominal & Diástase</span>
+        </div>
+        <div class="service-card__descr">
+          <p class="text-b2--book">Correção cirúrgica da flacidez abdominal com plicatura da musculatura reto abdominal e restauração da cintura.</p>
+        </div>
+      </div>
+    </article>
+  </div>
+
+
+  <div data-dropdown="" role="listitem" class="services__col-item w-dyn-item">
+    <article data-service-card="" class="service-card">
+      <div class="service-card__top">
+        <button type="button" data-book-trigger="" data-book-treatment="mini-lipo" class="service-card__top-caption">
+          <span class="service-card__top-text">Agendar Consulta</span>
+        </button>
+        <div class="service-card__top-plus">
+          <span>+</span>
+        </div>
+      </div>
+      <div class="service-card__media">
+        <img src="assets/cirurgia-interna.jpg" loading="lazy" alt="Mini Lipo a Laser — Dr. Ricardo Andrade" class="service-card__media-img"/>
+      </div>
+      <div class="service-card__info">
+        <p class="service-card__number">(07)</p>
+        <div class="service-card__title">
+          <h3>Mini Lipo <strong>a Laser</strong></h3>
+        </div>
+        <div class="service-card__tag">
+          <span>Definição e Retração de Pele</span>
+        </div>
+        <div class="service-card__descr">
+          <p class="text-b2--book">Aspiração precisa de adiposidades localizadas com estímulo térmico de colágeno para retração dérmica superior.</p>
+        </div>
+      </div>
+    </article>
+  </div>
+
+
+  <div data-dropdown="" role="listitem" class="services__col-item w-dyn-item">
+    <article data-service-card="" class="service-card">
+      <div class="service-card__top">
+        <button type="button" data-book-trigger="" data-book-treatment="harmonizacao" class="service-card__top-caption">
+          <span class="service-card__top-text">Agendar Consulta</span>
+        </button>
+        <div class="service-card__top-plus">
+          <span>+</span>
+        </div>
+      </div>
+      <div class="service-card__media">
+        <img src="assets/doutor-interna.jpg" loading="lazy" alt="Harmonização Facial Médica — Dr. Ricardo Andrade" class="service-card__media-img"/>
+      </div>
+      <div class="service-card__info">
+        <p class="service-card__number">(08)</p>
+        <div class="service-card__title">
+          <h3>Harmonização <strong>Facial</strong></h3>
+        </div>
+        <div class="service-card__tag">
+          <span>Preenchimento & Toxina Botulínica</span>
+        </div>
+        <div class="service-card__descr">
+          <p class="text-b2--book">Mapeamento facial minucioso com preenchedores reabsorvíveis e neuromoduladores aplicados com precisão médica.</p>
+        </div>
+      </div>
+    </article>
+  </div>
+
+
+  <div data-dropdown="" role="listitem" class="services__col-item w-dyn-item">
+    <article data-service-card="" class="service-card">
+      <div class="service-card__top">
+        <button type="button" data-book-trigger="" data-book-treatment="consulta-avaliacao" class="service-card__top-caption">
+          <span class="service-card__top-text">Agendar Consulta</span>
+        </button>
+        <div class="service-card__top-plus">
+          <span>+</span>
+        </div>
+      </div>
+      <div class="service-card__media">
+        <img src="assets/consulta-medica.jpg" loading="lazy" alt="Consulta Médica com o Dr. Ricardo Andrade" class="service-card__media-img"/>
+      </div>
+      <div class="service-card__info">
+        <p class="service-card__number">(09)</p>
+        <div class="service-card__title">
+          <h3>Consulta de <strong>Avaliação</strong></h3>
+        </div>
+        <div class="service-card__tag">
+          <span>Planejamento Cirúrgico Digital</span>
+        </div>
+        <div class="service-card__descr">
+          <p class="text-b2--book">Atendimento médico individualizado e ético no Jardim Chapadão em Campinas com avaliação física completa.</p>
+        </div>
+      </div>
+    </article>
+  </div>
+
+</div>
+</div>
+
+<div class="other-procedures-luxury-box">
+  <div class="other-proc-badge">
+    <span class="badge-gold-dot"></span>
+    <span class="badge-gold-text">AMPLO ESPECTRO CIRÚRGICO</span>
+  </div>
+  <h3 class="other-proc-title">Conheça Outros Procedimentos Realizados:</h3>
+  <p class="other-proc-subtitle">
+    Além da Rinoplastia Estruturada e da Mamoplastia de Aumento R24R, o Dr. Ricardo Andrade realiza procedimentos cirúrgicos faciais e corporais com rigor hospitalar:
+  </p>
+  
+  <div class="other-proc-pills-wrap">
+    <div class="other-proc-pill"><span>Frontoplastia</span></div>
+    <div class="other-proc-pill"><span>Abdominoplastia</span></div>
+    <div class="other-proc-pill"><span>Ginecomastia</span></div>
+    <div class="other-proc-pill"><span>Ninfoplastia</span></div>
+    <div class="other-proc-pill"><span>Otoplastia</span></div>
+    <div class="other-proc-pill"><span>Lifting Facial (Ritidoplastia)</span></div>
+    <div class="other-proc-pill"><span>Prótese de Glúteo</span></div>
+    <div class="other-proc-pill"><span>Toxina Botulínica e Preenchimento</span></div>
+    <div class="other-proc-pill"><span>Mini Lipo a Laser</span></div>
+  </div>
+
+  <div class="other-proc-cta-area">
+    <a href="https://wa.me/5519989280809?text=Ol%C3%A1%20Dr.%20Ricardo,%20visitei%20o%20site%20e%20gostaria%20de%20tirar%20d%C3%BAvidas%20sobre%20os%20procedimentos." target="_blank" rel="noopener noreferrer" class="other-proc-whatsapp-btn">
+      <span>Fale Conosco no WhatsApp</span>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M5 12h14M12 5l7 7-7 7"/>
+      </svg>
+    </a>
+  </div>
+</div>
+
+<div id="services" class="anchor is-services"></div></section><section data-why-us="" class="why-us">
+  <div class="page-padding">
+    <div class="container">
+      <div class="wrap why-us__wrap">
+        <div data-why-us="heading" class="heading global-heading">
+          <div data-why-us="caption" id="w-node-_27551c89-36ad-9613-65d8-43c54cece688-0659a311" class="caption">
+            <div class="caption__dot"></div>
+            <div class="text-b2--medium">Diferenciais</div>
+          </div>
+          <div id="w-node-_27551c89-36ad-9613-65d8-43c54cece68c-0659a311" class="g-title why-us__title">
+            <h2 data-why-us="title" class="h1-grotesk">
+              <span class="h1-serif">Tradição &amp; Rigor Cirúrgico</span> <br/>com o que há de mais atual
+            </h2>
+            <div class="g-title__subtitle">
+              <p data-why-us="subtitle" class="text-b1--book">
+                A escolha do seu cirurgião plástico exige segurança, ética e comprovação técnica. Conheça nossos pilares de excelência em Campinas:
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="why-us__sticky">
+          <div class="why-us__cards">
+            <article class="why-us__card-wrap is-first">
+              <div class="why-us-card">
+                <div class="why-us-card__bg-text-wrap"><div class="why-us-card__bg-text">Formação Unicamp</div></div>
+                <div class="why-us-card__heading">
+                  <div class="why-us-card__title"><h3 class="text-p1">Mais de 30 Anos de Trajetória</h3></div>
+                  <p class="text-b2--book">Graduação em Medicina e residências em Cirurgia Geral e Cirurgia Plástica pelo Hospital de Clínicas da Unicamp, com mais de três décadas dedicadas ao aprimoramento cirúrgico contínuo.</p>
+                </div>
+                <div class="why-us-card__bottom">
+                  <div class="why-us-card__number-wrap"><div class="why-us-card__number">(01)</div></div>
+                  <div class="why-us-card__img-box"><img src="assets/clinica-foto-01.jpg" loading="lazy" alt="Clínica Dr. Ricardo Andrade em Campinas" class="why-us-card__img"/></div>
+                </div>
+              </div>
+            </article>
+
+            <article class="why-us__card-wrap">
+              <div class="why-us-card">
+                <div class="why-us-card__bg-text-wrap"><div class="why-us-card__bg-text">Segurança Hospitalar</div></div>
+                <div class="why-us-card__heading">
+                  <div class="why-us-card__title"><h3 class="text-p1">Rigor e Ambiente Hospitalar</h3></div>
+                  <p class="text-b2--book">Todas as cirurgias de médio e grande porte são realizadas exclusivamente em hospitais credenciados com UTI completa, anestesiologistas dedicados e máxima segurança biológica.</p>
+                </div>
+                <div class="why-us-card__bottom">
+                  <div class="why-us-card__number-wrap"><div class="why-us-card__number">(02)</div></div>
+                  <div class="why-us-card__img-box"><img src="assets/centro-cirurgico.jpg" loading="lazy" alt="Centro Cirúrgico Hospitalar" class="why-us-card__img"/></div>
+                </div>
+              </div>
+            </article>
+
+            <article class="why-us__card-wrap">
+              <div class="why-us-card">
+                <div class="why-us-card__bg-text-wrap"><div class="why-us-card__bg-text">Inovação &amp; R24R</div></div>
+                <div class="why-us-card__heading">
+                  <div class="why-us-card__title"><h3 class="text-p1">Tecnologias Atualizadas &amp; R24R</h3></div>
+                  <p class="text-b2--book">Protocolos cirúrgicos modernos de recuperação rápida (R24R) para prótese de mama, lipo a laser para retração dérmica e conceitos avançados de rinoplastia de preservação.</p>
+                </div>
+                <div class="why-us-card__bottom">
+                  <div class="why-us-card__number-wrap"><div class="why-us-card__number">(03)</div></div>
+                  <div class="why-us-card__img-box"><img src="assets/procedimento-mamoplastia.jpg" loading="lazy" alt="Tecnologia Cirúrgica R24R" class="why-us-card__img"/></div>
+                </div>
+              </div>
+            </article>
+
+            <article class="why-us__card-wrap is-last">
+              <div class="why-us-card">
+                <div class="why-us-card__bg-text-wrap"><div class="why-us-card__bg-text">Cuidado Integral</div></div>
+                <div class="why-us-card__heading">
+                  <div class="why-us-card__title"><h3 class="text-p1">Atendimento Humanizado &amp; Ético</h3></div>
+                  <p class="text-b2--book">Consultas completas com escuta atenta dos seus objetivos, simulações realistas e acompanhamento pós-operatório presencial contínuo até a consolidação do resultado final.</p>
+                </div>
+                <div class="why-us-card__bottom">
+                  <div class="why-us-card__number-wrap"><div class="why-us-card__number">(04)</div></div>
+                  <div class="why-us-card__img-box"><img src="assets/consulta-medica.jpg" loading="lazy" alt="Consulta médica individualizada" class="why-us-card__img"/></div>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 <section id="youtube" class="section-youtube" style="background: #171614; color: #f5f3ef; padding: 110px 0; border-top: 1px solid rgba(255,255,255,0.06); border-bottom: 1px solid rgba(255,255,255,0.06);">
   <div class="page-padding">
     <div class="container" style="max-width: 1200px; margin: 0 auto;">
@@ -2502,23 +3523,250 @@ a, button, .button, input, select, label.booking-treatment-card, label.booking-d
   }
 </style>
 
-<section data-testimonials="" data-slider-wrap="" class="testimonials"><div class="page-padding"><div class="container"><div class="wrap testimonials__wrap"><div data-testimonials="heading" class="heading global-heading"><div data-testimonials="caption" id="w-node-_05989b82-8fec-ced2-8428-98e951597dd7-0659a311" class="caption"><div class="caption__dot"></div><div class="text-b2--medium">Testimonials</div></div><div id="w-node-_05989b82-8fec-ced2-8428-98e951597ddb-0659a311" class="g-title testimonials__title"><h2 data-testimonials="title" class="h1-grotesk testimonials-title">Behind Every Smile <span class="h1-serif">There’s a Story</span></h2><div class="g-title__subtitle in-testimonials"><p data-testimonials="subtitle" class="text-b1--book">Comfort. Trust. Results. That’s what our patients talk about — and we’re honored to share their words.</p></div></div></div><div class="splide testimonials__splide"><div class="splide__track testimonials__track"><div class="splide__list testimonials__list"><div class="splide__slide testimonials__slide is-img-1"><div class="testimonials-card"><img src="assets/10_KE_Front_View_Aft.png" loading="lazy" width="676" sizes="(max-width: 767px) 100vw, 676px" alt="Resultado de Rinoplastia e Harmonia Facial" srcset="assets/6a4c2730db9083e06c9901c5_testimonials-img-1-p-500.avif 500w, assets/6a4c2730db9083e06c9901c5_testimonials-img-1-p-800.avif 800w, assets/6a4c2730db9083e06c9901c5_testimonials-img-1-p-1080.avif 1080w, assets/6a4c2730db9083e06c9901c5_testimonials-img-1.avif 1352w" class="testimonials-card__big-img"/></div></div><div class="splide__slide testimonials__slide"><div class="testimonials-card"><div class="testimonials-card__inner"><div class="testimonials-card__heading"><img src="assets/6a4c2ac096de74d658d33b02_stars-5.svg" loading="lazy" width="120" height="24" alt="5 stars" class="testimonials-card__stars"/><p class="text-b1--book">“The implantation process was much easier than I expected. The result feels just like a real tooth — I can finally eat and smile without hesitation.”</p></div><div class="testimonials-card__bottom"><img src="assets/paciente-avatar-1.jpg" loading="lazy" width="40" height="40" alt="Sophia" id="w-node-e021d1ae-3f5e-aa89-6024-958c257e56c8-0659a311" class="testimonials-card__min-img"/><div class="testimonials-card__author-name"><div class="text-b2--medium">Sophia</div></div><div class="text-caption">Implantation</div></div></div></div></div><div class="splide__slide testimonials__slide"><div class="testimonials-card"><div class="testimonials-card__inner"><div class="testimonials-card__heading"><img src="assets/6a4c2cada4ea4d771030db6e_stars-4.svg" loading="lazy" width="120" height="24" alt="4.5 stars" class="testimonials-card__stars"/><p class="text-b1--book">“The surgical procedure was complex, but the doctors’ care made it smooth. Recovery was faster than expected, and the results are great.”</p></div><div class="testimonials-card__bottom"><img src="assets/paciente-avatar-2.jpg" loading="lazy" width="40" height="40" alt="Jessica" id="w-node-c296f97c-1523-9871-4d28-0eccb0b2b7d2-0659a311" class="testimonials-card__min-img"/><div class="testimonials-card__author-name"><div class="text-b2--medium">Jessica</div></div><div class="text-caption">Surgical dentistry</div></div></div></div></div><div class="splide__slide testimonials__slide"><div class="testimonials-card"><div class="testimonials-card__inner"><div class="testimonials-card__heading"><img src="assets/6a4c2cada4ea4d771030db6e_stars-4.svg" loading="lazy" width="120" height="24" alt="4.5 stars" class="testimonials-card__stars"/><p class="text-b1--book">“I was dreading my wisdom tooth extraction, but the entire procedure was quick and painless. I couldn’t believe how smooth everything went.”</p></div><div class="testimonials-card__bottom"><img src="assets/paciente-avatar-3.jpg" loading="lazy" width="40" height="40" alt="Samantha" id="w-node-_1a968f73-5b14-a81a-30c3-df2daa85d84d-0659a311" class="testimonials-card__min-img"/><div class="testimonials-card__author-name"><div class="text-b2--medium">Samantha</div></div><div class="text-caption">Wisdom tooth extraction</div></div></div></div></div><div class="splide__slide testimonials__slide"><div class="testimonials-card"><div class="testimonials-card__inner"><div class="testimonials-card__heading"><img src="assets/6a4c2cada4ea4d771030db6e_stars-4.svg" loading="lazy" width="120" height="24" alt="4.5 stars" class="testimonials-card__stars"/><p class="text-b1--book">“My veneers look incredibly natural and completely transformed my smile. The whole process was comfortable, and I couldn’t be happier with the result.”</p></div><div class="testimonials-card__bottom"><img src="assets/paciente-avatar-4.jpg" loading="lazy" width="40" height="40" alt="Amelia" id="w-node-_206c8b1b-dfcb-96a3-2b50-400d2b3bc448-0659a311" class="testimonials-card__min-img"/><div class="testimonials-card__author-name"><div class="text-b2--medium">Amelia</div></div><div class="text-caption">Veneers</div></div></div></div></div><div class="splide__slide testimonials__slide"><div class="testimonials-card"><div class="testimonials-card__inner"><div class="testimonials-card__heading"><img src="assets/6a4c2ac096de74d658d33b02_stars-5.svg" loading="lazy" width="120" height="24" alt="5 stars" class="testimonials-card__stars"/><p class="text-b1--book">“Getting implantation was tough at first, but the support from the team made all the difference. After months of dedication, my smile is perfect, and I couldn’t be happier with the results.”</p></div><div class="testimonials-card__bottom"><img src="assets/paciente-avatar-5.jpg" loading="lazy" width="40" height="40" alt="Amanda" id="w-node-_95d9c6d0-c6d9-e9d3-013c-a6398a86b58f-0659a311" class="testimonials-card__min-img"/><div class="testimonials-card__author-name"><div class="text-b2--medium">Amanda</div></div><div class="text-caption">Braces</div></div></div></div></div><div class="splide__slide testimonials__slide is-img-2"><div class="testimonials-card"><img src="assets/7_CR_Side_Profile_Af.png" loading="lazy" width="334" height="334" alt="Pós-operatório e Acompanhamento de Rinoplastia" srcset="assets/6a4c27305b12fcf5c1a2cf5f_testimonials-img-2-p-500.avif 500w, assets/6a4c27305b12fcf5c1a2cf5f_testimonials-img-2.avif 668w" sizes="(max-width: 479px) 100vw, (max-width: 767px) 50vw, 334px" class="testimonials-card__big-img"/></div></div></div></div><div data-slider-nav="" class="slider-nav testimonials__splide-nav"><div data-slider-counter="" class="slide-counter"></div><div class="slider-btns"><button data-slider-btn-prev="" aria-label="prev slide" type="button" class="slider-btn slider-btn-prev"><div class="slider-btn__arrow-wrap"><div class="slider-btn__arrow w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 32 32" fill="none">
-  <path d="M10.5765 16.8858H26.4001V14.3144H10.5765L17.5497 7.41805L15.7115 5.6001L5.6001 15.6001L15.7115 25.6001L17.5497 23.7822L10.5765 16.8858Z" fill="currentcolor"/>
-</svg></div><div class="slider-btn__arrow w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 32 32" fill="none">
-  <path d="M10.5765 16.8858H26.4001V14.3144H10.5765L17.5497 7.41805L15.7115 5.6001L5.6001 15.6001L15.7115 25.6001L17.5497 23.7822L10.5765 16.8858Z" fill="currentcolor"/>
-</svg></div></div></button><button data-slider-btn-next="" aria-label="next slide" type="button" class="slider-btn slider-btn-next"><div class="slider-btn__arrow-wrap is-right"><div class="slider-btn__arrow w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 32 32" fill="none">
-  <path d="M21.4235 16.8858H5.5999V14.3144H21.4235L14.4503 7.41805L16.2885 5.6001L26.3999 15.6001L16.2885 25.6001L14.4503 23.7822L21.4235 16.8858Z" fill="currentcolor"/>
-</svg></div><div class="slider-btn__arrow w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 32 32" fill="none">
-  <path d="M21.4235 16.8858H5.5999V14.3144H21.4235L14.4503 7.41805L16.2885 5.6001L26.3999 15.6001L16.2885 25.6001L14.4503 23.7822L21.4235 16.8858Z" fill="currentcolor"/>
-</svg></div></div></button></div></div></div></div></div></div><div id="testimonials" class="anchor is-testimonials"></div></section><section data-team="" data-slider-wrap="" class="team"><div class="page-padding"><div class="container"><div class="wrap team__wrap"><div data-team="heading" class="heading team__heading"><div data-team="caption" id="w-node-cb1484e9-f910-d10b-fafc-663b00b9b849-0659a311" class="caption team__caption"><div class="caption__dot"></div><div class="text-b2--medium">Team</div></div><div id="w-node-cb1484e9-f910-d10b-fafc-663b00b9b84d-0659a311" class="team__title"><h2 data-team="title" class="h2-grotesk"><span class="team__title-span">Our team</span> of <span class="h2-serif">skilled professionals</span> is committed to providing you with <span class="h2-serif">personalized, high-quality</span> dental care.</h2></div></div><div class="splide team__splide"><div class="splide__track team__track"><div class="splide__list team__list"><div class="splide__slide team__slide"><article class="team-card"><div id="w-node-d4580f89-fad4-2230-ce66-36b33ebe9da7-0659a311" class="team-card__author"><div class="team-card__author-name"><h3 data-team="author-name" class="text-p1"><span class="text-p1-serif">Dr.</span>  <br/>Emily Peterson</h3></div><div data-team="author-job" class="text-b1--medium">Senior General Dentist</div></div><div id="w-node-_01c002a1-be73-9857-4acd-3f50356b18e1-0659a311" class="team-card__author-spec"><div class="text-caption mob--14">(Specialization)</div><div class="team-card__author-spec__row"><div class="text-b2--medium">Cavity Treatment</div><div class="text-b2--medium">Endodontics</div><div class="text-b2--medium">Tooth Restoration</div></div></div><div id="w-node-_015158a3-d4ff-1d0e-2e9d-09decefb5e4b-0659a311" class="team-card__img-wrap"><img src="assets/ricardo-andrade-imagem-doutor-secundaria.jpg" loading="lazy" width="426" height="479" alt="Dr. Ricardo Andrade — Cirurgião Plástico" style="object-fit:cover;object-position:top;" class="team-card__img"/></div><div id="w-node-_2e0db129-3737-f758-8af8-6e690467347a-0659a311" class="team-card__author-descr"><p data-team="author-descr" class="text-b2--book">Dr. Ricardo Andrade (Cirurgião Principal) has over 10 years of experience, specializing in personalized care. She focuses on individualized treatment in a calm environment and emphasizes prevention and oral hygiene.</p></div></article></div><div class="splide__slide team__slide"><article class="team-card"><div id="w-node-_60311de3-06b0-7ca4-9e53-ef4165211f4f-0659a311" class="team-card__author"><div class="team-card__author-name"><h3 data-team="author-name" class="text-p1"><span class="text-p1-serif">Dr.</span>  <br/>Lucas Marin</h3></div><div data-team="author-job" class="text-b1--medium">Senior General Dentist</div></div><div id="w-node-_60311de3-06b0-7ca4-9e53-ef4165211f59-0659a311" class="team-card__author-spec"><div class="text-caption mob--14">(Specialization)</div><div class="team-card__author-spec__row"><div class="text-b2--medium">Cavity Treatment</div><div class="text-b2--medium">Endodontics</div><div class="text-b2--medium">Tooth Restoration</div></div></div><div id="w-node-_60311de3-06b0-7ca4-9e53-ef4165211f63-0659a311" class="team-card__img-wrap"><img src="assets/procedimento-mamoplastia.jpg" loading="lazy" width="426" height="479" alt="Equipe Cirúrgica Hospitalar" class="team-card__img"/></div><div id="w-node-_60311de3-06b0-7ca4-9e53-ef4165211f65-0659a311" class="team-card__author-descr"><p data-team="author-descr" class="text-b2--book">Dr. Lucas Peterson has over 10 years of experience, specializing in personalized care. He focuses on individualized treatment in a calm environment and emphasizes prevention and oral hygiene.</p></div></article></div><div class="splide__slide team__slide"><article class="team-card"><div id="w-node-_4a3a4e5a-47cd-93ea-a28b-041fcc6058fd-0659a311" class="team-card__author"><div class="team-card__author-name"><h3 data-team="author-name" class="text-p1"><span class="text-p1-serif">Dr.</span>  <br/>Olivia Hartman</h3></div><div data-team="author-job" class="text-b1--medium">Aesthetic Dentistry Specialist</div></div><div id="w-node-_4a3a4e5a-47cd-93ea-a28b-041fcc605907-0659a311" class="team-card__author-spec"><div class="text-caption mob--14">(Specialization)</div><div class="team-card__author-spec__row"><div class="text-b2--medium">Digital Smile Design</div><div class="text-b2--medium">Whitening</div><div class="text-b2--medium">Cosmetic restoration</div></div></div><div id="w-node-_4a3a4e5a-47cd-93ea-a28b-041fcc605911-0659a311" class="team-card__img-wrap"><img src="assets/centro-cirurgico.jpg" loading="lazy" width="425" height="479" alt="Enfermagem &amp; Pós-Operatório" class="team-card__img"/></div><div id="w-node-_4a3a4e5a-47cd-93ea-a28b-041fcc605913-0659a311" class="team-card__author-descr"><p data-team="author-descr" class="text-b2--book">Enfermagem & Pós-Operatório R24R focuses on creating natural-looking results that enhance each patient’s unique features. She blends modern technology with artistic vision for refined outcomes.</p></div></article></div><div class="splide__slide team__slide"><article class="team-card"><div id="w-node-b8aff826-4d91-44bb-58c2-15959686e683-0659a311" class="team-card__author"><div class="team-card__author-name"><h3 data-team="author-name" class="text-p1"><span class="text-p1-serif">Dr.</span>  <br/>Marcus Bennett</h3></div><div data-team="author-job" class="text-b1--medium">Cosmetic Dentist</div></div><div id="w-node-b8aff826-4d91-44bb-58c2-15959686e68d-0659a311" class="team-card__author-spec"><div class="text-caption mob--14">(Specialization)</div><div class="team-card__author-spec__row"><div class="text-b2--medium">Dental Bonding</div><div class="text-b2--medium">Veneers</div><div class="text-b2--medium">Smile Makeovers</div></div></div><div id="w-node-b8aff826-4d91-44bb-58c2-15959686e697-0659a311" class="team-card__img-wrap"><img src="assets/clinica-foto-01.jpg" loading="lazy" width="426" height="479" alt="Fisioterapia Dermatofuncional" class="team-card__img"/></div><div id="w-node-b8aff826-4d91-44bb-58c2-15959686e699-0659a311" class="team-card__author-descr"><p data-team="author-descr" class="text-b2--book">Anestesiologia & Centro Cirúrgico specializes in advanced cosmetic procedures, helping patients achieve balanced and harmonious smiles. He is known for his attention to detail and minimally invasive techniques.</p></div></article></div><div class="splide__slide team__slide"><article class="team-card"><div id="w-node-_13ecaf18-668d-d114-e103-deb1a5be0b29-0659a311" class="team-card__author"><div class="team-card__author-name"><h3 data-team="author-name" class="text-p1"><span class="text-p1-serif">Dr.</span>  <br/>Liam Brooks</h3></div><div data-team="author-job" class="text-b1--medium">Restorative &amp; Cosmetic Dentist</div></div><div id="w-node-_13ecaf18-668d-d114-e103-deb1a5be0b33-0659a311" class="team-card__author-spec"><div class="text-caption mob--14">(Specialization)</div><div class="team-card__author-spec__row"><div class="text-b2--medium">Crowns</div><div class="text-b2--medium">Veneers</div><div class="text-b2--medium">Full Smile Rehabilitation</div></div></div><div id="w-node-_13ecaf18-668d-d114-e103-deb1a5be0b3d-0659a311" class="team-card__img-wrap"><img src="assets/doutor-interna.jpg" loading="lazy" width="426" height="479" alt="Concierge &amp; Atendimento" class="team-card__img"/></div><div id="w-node-_13ecaf18-668d-d114-e103-deb1a5be0b3f-0659a311" class="team-card__author-descr"><p data-team="author-descr" class="text-b2--book">Concierge & Atendimento VIP combines restorative expertise with aesthetic dentistry to improve both function and appearance. He prioritizes long-term results and patient comfort.</p></div></article></div></div></div><div data-slider-nav="" class="slider-nav team__splide-nav"><div data-slider-counter="" class="slide-counter"></div><div class="slider-btns"><button data-slider-btn-prev="" aria-label="prev slide" type="button" class="slider-btn slider-btn-prev"><div class="slider-btn__arrow-wrap"><div class="slider-btn__arrow w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 32 32" fill="none">
-  <path d="M10.5765 16.8858H26.4001V14.3144H10.5765L17.5497 7.41805L15.7115 5.6001L5.6001 15.6001L15.7115 25.6001L17.5497 23.7822L10.5765 16.8858Z" fill="currentcolor"/>
-</svg></div><div class="slider-btn__arrow w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 32 32" fill="none">
-  <path d="M10.5765 16.8858H26.4001V14.3144H10.5765L17.5497 7.41805L15.7115 5.6001L5.6001 15.6001L15.7115 25.6001L17.5497 23.7822L10.5765 16.8858Z" fill="currentcolor"/>
-</svg></div></div></button><button data-slider-btn-next="" aria-label="next slide" type="button" class="slider-btn slider-btn-next"><div class="slider-btn__arrow-wrap is-right"><div class="slider-btn__arrow w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 32 32" fill="none">
-  <path d="M21.4235 16.8858H5.5999V14.3144H21.4235L14.4503 7.41805L16.2885 5.6001L26.3999 15.6001L16.2885 25.6001L14.4503 23.7822L21.4235 16.8858Z" fill="currentcolor"/>
-</svg></div><div class="slider-btn__arrow w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 32 32" fill="none">
-  <path d="M21.4235 16.8858H5.5999V14.3144H21.4235L14.4503 7.41805L16.2885 5.6001L26.3999 15.6001L16.2885 25.6001L14.4503 23.7822L21.4235 16.8858Z" fill="currentcolor"/>
-</svg></div></div></button></div></div></div></div></div></div><div id="team" class="anchor is-team-anchor"></div></section><section data-cta="" class="cta"><div data-cta="bg" class="cta__bg"></div><div class="page-padding in-cta"><div class="container"><div class="wrap cta__wrap"><div data-cta="heading" class="heading cta__heading"><h2 data-cta="title" class="text-display">Experience Dental Care, <span class="text-display-serif">Redefined.</span></h2></div><div class="cta__bottom"><p data-cta="text" class="text-b1--book">Take the first step towards a healthier, more confident you. Schedule your consultation today.</p><a data-stagger-link="" data-cta="btn" data-book-trigger="" href="#" class="text-btn w-inline-block"><div>(</div><div data-stagger-link-text="">Book an Appointment</div><div>)</div></a></div></div></div></div></section></main>
+<section data-testimonials="" data-slider-wrap="" class="testimonials">
+  <div class="page-padding">
+    <div class="container">
+      <div class="wrap testimonials__wrap">
+        <div data-testimonials="heading" class="heading global-heading">
+          <div data-testimonials="caption" class="caption">
+            <div class="caption__dot"></div>
+            <div class="text-b2--medium">Resultados &amp; Depoimentos</div>
+          </div>
+          <div class="g-title testimonials__title">
+            <h2 data-testimonials="title" class="h1-grotesk testimonials-title">
+              Histórias Reais, <span class="h1-serif">Autoestima Renovada</span>
+            </h2>
+            <div class="g-title__subtitle in-testimonials">
+              <p data-testimonials="subtitle" class="text-b1--book">
+                Segurança, ética e transformação natural. Veja o relato de quem confiou sua cirurgia ao Dr. Ricardo Andrade em Campinas:
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="splide testimonials__splide">
+          <div class="splide__track testimonials__track">
+            <div class="splide__list testimonials__list">
+              
+              <div class="splide__slide testimonials__slide is-img-1">
+                <div class="testimonials-card">
+                  <img src="assets/10_KE_Front_View_Aft.png" loading="lazy" width="676" alt="Resultado de Rinoplastia e Harmonia Facial" class="testimonials-card__big-img"/>
+                </div>
+              </div>
+
+              <div class="splide__slide testimonials__slide">
+                <div class="testimonials-card">
+                  <div class="testimonials-card__inner">
+                    <div class="testimonials-card__heading">
+                      <img src="assets/6a4c2ac096de74d658d33b02_stars-5.svg" loading="lazy" width="120" height="24" alt="5 stars" class="testimonials-card__stars"/>
+                      <p class="text-b1--book">“Fiz minha rinoplastia com o Dr. Ricardo e o resultado superou tudo o que sonhei. Meu perfil ficou super natural, ninguém percebe que operei e minha respiração melhorou 100%. O pós-operatório foi tranquilo e com suporte impecável.”</p>
+                    </div>
+                    <div class="testimonials-card__bottom">
+                      <img src="assets/paciente-avatar-1.jpg" loading="lazy" width="40" height="40" alt="Juliana S." class="testimonials-card__min-img"/>
+                      <div class="testimonials-card__author-name"><div class="text-b2--medium">Juliana S.</div></div>
+                      <div class="text-caption">Rinoplastia Estruturada</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="splide__slide testimonials__slide">
+                <div class="testimonials-card">
+                  <div class="testimonials-card__inner">
+                    <div class="testimonials-card__heading">
+                      <img src="assets/6a4c2ac096de74d658d33b02_stars-5.svg" loading="lazy" width="120" height="24" alt="5 stars" class="testimonials-card__stars"/>
+                      <p class="text-b1--book">“A recuperação rápida R24R é fantástica. No dia seguinte já estava sem dores intensas, movimentando os braços com cuidado. As mamas ficaram com o colo perfeito e formato anatômico lindo.”</p>
+                    </div>
+                    <div class="testimonials-card__bottom">
+                      <img src="assets/paciente-avatar-2.jpg" loading="lazy" width="40" height="40" alt="Mariana C." class="testimonials-card__min-img"/>
+                      <div class="testimonials-card__author-name"><div class="text-b2--medium">Mariana C.</div></div>
+                      <div class="text-caption">Prótese de Mama R24R</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="splide__slide testimonials__slide">
+                <div class="testimonials-card">
+                  <div class="testimonials-card__inner">
+                    <div class="testimonials-card__heading">
+                      <img src="assets/6a4c2ac096de74d658d33b02_stars-5.svg" loading="lazy" width="120" height="24" alt="5 stars" class="testimonials-card__stars"/>
+                      <p class="text-b1--book">“Tinha o olhar muito pesado pelas pálpebras caídas. O Dr. Ricardo devolveu a jovialidade e a expressão descansada ao meu rosto com extrema naturalidade e delicadeza.”</p>
+                    </div>
+                    <div class="testimonials-card__bottom">
+                      <img src="assets/paciente-avatar-3.jpg" loading="lazy" width="40" height="40" alt="Camila R." class="testimonials-card__min-img"/>
+                      <div class="testimonials-card__author-name"><div class="text-b2--medium">Camila R.</div></div>
+                      <div class="text-caption">Blefaroplastia &amp; Frontoplastia</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="splide__slide testimonials__slide">
+                <div class="testimonials-card">
+                  <div class="testimonials-card__inner">
+                    <div class="testimonials-card__heading">
+                      <img src="assets/6a4c2ac096de74d658d33b02_stars-5.svg" loading="lazy" width="120" height="24" alt="5 stars" class="testimonials-card__stars"/>
+                      <p class="text-b1--book">“Depois da gestação, minha autoestima estava abalada. A mastopexia restaurou a firmeza e o contorno dos meus seios com cicatrizes finas e discretas. Sou imensamente grata a toda a equipe.”</p>
+                    </div>
+                    <div class="testimonials-card__bottom">
+                      <img src="assets/paciente-avatar-4.jpg" loading="lazy" width="40" height="40" alt="Patrícia M." class="testimonials-card__min-img"/>
+                      <div class="testimonials-card__author-name"><div class="text-b2--medium">Patrícia M.</div></div>
+                      <div class="text-caption">Mastopexia</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="splide__slide testimonials__slide">
+                <div class="testimonials-card">
+                  <div class="testimonials-card__inner">
+                    <div class="testimonials-card__heading">
+                      <img src="assets/6a4c2ac096de74d658d33b02_stars-5.svg" loading="lazy" width="120" height="24" alt="5 stars" class="testimonials-card__stars"/>
+                      <p class="text-b1--book">“Procurei o Dr. Ricardo para corrigir o septo e o dorso nasal. O resultado estético foi discreto, masculino e preservou totalmente meus traços, além de respirar com alívio.”</p>
+                    </div>
+                    <div class="testimonials-card__bottom">
+                      <img src="assets/paciente-avatar-5.jpg" loading="lazy" width="40" height="40" alt="Rodrigo A." class="testimonials-card__min-img"/>
+                      <div class="testimonials-card__author-name"><div class="text-b2--medium">Rodrigo A.</div></div>
+                      <div class="text-caption">Rinoplastia Funcional</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="results" class="anchor is-testimonials"></div>
+</section><section data-team="" data-slider-wrap="" class="team">
+  <div class="page-padding">
+    <div class="container">
+      <div class="wrap team__wrap">
+        <div data-team="heading" class="heading team__heading">
+          <div data-team="caption" class="caption team__caption">
+            <div class="caption__dot"></div>
+            <div class="text-b2--medium">Corpo Clínico</div>
+          </div>
+          <div class="team__title">
+            <h2 data-team="title" class="h2-grotesk">
+              <span class="team__title-span">Equipe cirúrgica dedicada</span> e comprometida com a sua <span class="h2-serif">segurança, acolhimento e bem-estar.</span>
+            </h2>
+          </div>
+        </div>
+        <div class="splide team__splide">
+          <div class="splide__track team__track">
+            <div class="splide__list team__list">
+
+              <div class="splide__slide team__slide">
+                <article class="team-card">
+                  <div class="team-card__author">
+                    <div class="team-card__author-name"><h3 data-team="author-name" class="text-p1"><span class="text-p1-serif">Dr.</span> <br/>Ricardo Andrade</h3></div>
+                    <div data-team="author-job" class="text-b1--medium">Cirurgião Plástico Titular • CRM-SP 66.351 • RQE 14.201</div>
+                  </div>
+                  <div class="team-card__author-spec">
+                    <div class="text-caption mob--14">(Especialidades Cirúrgicas)</div>
+                    <div class="team-card__author-spec__row">
+                      <div class="text-b2--medium">Rinoplastia Estruturada</div>
+                      <div class="text-b2--medium">Prótese de Mama R24R</div>
+                      <div class="text-b2--medium">Cirurgia Facial</div>
+                    </div>
+                  </div>
+                  <div class="team-card__img-wrap">
+                    <img src="assets/dr-ricardo-principal.jpg" loading="lazy" width="426" height="479" alt="Dr. Ricardo Andrade — Cirurgião Plástico" class="team-card__img"/>
+                  </div>
+                </article>
+              </div>
+
+              <div class="splide__slide team__slide">
+                <article class="team-card">
+                  <div class="team-card__author">
+                    <div class="team-card__author-name"><h3 data-team="author-name" class="text-p1">Equipe Cirúrgica Hospitalar</h3></div>
+                    <div data-team="author-job" class="text-b1--medium">Cirurgiões Assistentes Especializados</div>
+                  </div>
+                  <div class="team-card__author-spec">
+                    <div class="text-caption mob--14">(Atuação)</div>
+                    <div class="team-card__author-spec__row">
+                      <div class="text-b2--medium">Assistência Intraoperatória</div>
+                      <div class="text-b2--medium">Rigor de Assepsia</div>
+                      <div class="text-b2--medium">Segurança Biológica</div>
+                    </div>
+                  </div>
+                  <div class="team-card__img-wrap">
+                    <img src="assets/centro-cirurgico.jpg" loading="lazy" width="426" height="479" alt="Equipe Cirúrgica Hospitalar" class="team-card__img"/>
+                  </div>
+                </article>
+              </div>
+
+              <div class="splide__slide team__slide">
+                <article class="team-card">
+                  <div class="team-card__author">
+                    <div class="team-card__author-name"><h3 data-team="author-name" class="text-p1">Enfermagem &amp; Pós-Operatório R24R</h3></div>
+                    <div data-team="author-job" class="text-b1--medium">Acompanhamento e Cuidados Contínuos</div>
+                  </div>
+                  <div class="team-card__author-spec">
+                    <div class="text-caption mob--14">(Atuação)</div>
+                    <div class="team-card__author-spec__row">
+                      <div class="text-b2--medium">Protocolo R24R</div>
+                      <div class="text-b2--medium">Curativos &amp; Malhas</div>
+                      <div class="text-b2--medium">Suporte Telefônico 24h</div>
+                    </div>
+                  </div>
+                  <div class="team-card__img-wrap">
+                    <img src="assets/consulta-medica.jpg" loading="lazy" width="426" height="479" alt="Enfermagem Pós-Operatória" class="team-card__img"/>
+                  </div>
+                </article>
+              </div>
+
+              <div class="splide__slide team__slide">
+                <article class="team-card">
+                  <div class="team-card__author">
+                    <div class="team-card__author-name"><h3 data-team="author-name" class="text-p1">Fisioterapia Dermatofuncional</h3></div>
+                    <div data-team="author-job" class="text-b1--medium">Reabilitação Pós-Cirúrgica</div>
+                  </div>
+                  <div class="team-card__author-spec">
+                    <div class="text-caption mob--14">(Atuação)</div>
+                    <div class="team-card__author-spec__row">
+                      <div class="text-b2--medium">Drenagem Linfática</div>
+                      <div class="text-b2--medium">Taping Cirúrgico</div>
+                      <div class="text-b2--medium">Prevenção de Fibroses</div>
+                    </div>
+                  </div>
+                  <div class="team-card__img-wrap">
+                    <img src="assets/clinica-foto-03.jpg" loading="lazy" width="426" height="479" alt="Fisioterapia Dermatofuncional" class="team-card__img"/>
+                  </div>
+                </article>
+              </div>
+
+              <div class="splide__slide team__slide">
+                <article class="team-card">
+                  <div class="team-card__author">
+                    <div class="team-card__author-name"><h3 data-team="author-name" class="text-p1">Concierge &amp; Atendimento VIP</h3></div>
+                    <div data-team="author-job" class="text-b1--medium">Gestão de Consultas &amp; Hospital</div>
+                  </div>
+                  <div class="team-card__author-spec">
+                    <div class="text-caption mob--14">(Atuação)</div>
+                    <div class="team-card__author-spec__row">
+                      <div class="text-b2--medium">Agendamento Exclusivo</div>
+                      <div class="text-b2--medium">Recepção no Jd. Chapadão</div>
+                      <div class="text-b2--medium">Acolhimento Familiar</div>
+                    </div>
+                  </div>
+                  <div class="team-card__img-wrap">
+                    <img src="assets/clinica-foto-01.jpg" loading="lazy" width="426" height="479" alt="Concierge Dr. Ricardo Andrade" class="team-card__img"/>
+                  </div>
+                </article>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="team" class="anchor is-team"></div>
+</section></main>
 <section class="section-agendamento" style="background: #1c1b19; padding: 100px 0; border-top: 1px solid rgba(255,255,255,0.06);">
   <div class="page-padding">
     <div class="container" style="max-width: 1100px; margin: 0 auto; text-align: center;">
@@ -2557,21 +3805,297 @@ a, button, .button, input, select, label.booking-treatment-card, label.booking-d
   </div>
 </section>
 
-<footer class="footer"><div class="page-padding"><div class="container"><div class="wrap footer__wrap"><div class="footer__logo-box"><a href="/" aria-current="page" class="footer__logo-link w-inline-block w--current"><div class="footer__logo"><img src="assets/01-home-ricardo-andrade-logo-menu.png" alt="Dr. Ricardo Andrade — Cirurgia Plástica" /></div></a><p class="text-b1--book">Excellence in every smile.</p></div><div class="footer__nav"><div class="footer__nav-col"><div class="text-b1--medium mob-18">Menu</div><ul role="list" class="footer__nav-list in-footer-menu w-list-unstyled"><li class="footer__nav-item"><a data-stagger-link="" href="#about" class="footer__link w-inline-block"><div data-stagger-link-text="">About</div></a></li><li class="footer__nav-item"><a data-stagger-link="" href="#services" class="footer__link w-inline-block"><div data-stagger-link-text="">Services</div></a></li><li class="footer__nav-item"><a data-stagger-link="" href="#why-us" class="footer__link w-inline-block"><div data-stagger-link-text="">Why Us?</div></a></li><li class="footer__nav-item"><a data-stagger-link="" href="#testimonials" class="footer__link w-inline-block"><div data-stagger-link-text="">Testimonials</div></a></li><li class="footer__nav-item"><a data-stagger-link="" href="#team" class="footer__link w-inline-block"><div data-stagger-link-text="">Team</div></a></li></ul></div><div class="footer__nav-col"><div class="text-b1--medium mob-18">Contact Us</div><ul role="list" class="footer__nav-list w-list-unstyled"><li class="footer__nav-item"><a data-stagger-link="" href="mailto:hello@novadental.com" class="footer__link w-inline-block"><div data-stagger-link-text="">hello@novadental.com</div></a></li><li class="footer__nav-item"><a data-stagger-link="" href="tel:+15551234567" class="footer__link w-inline-block"><div data-stagger-link-text="">+1 (555) 123-4567</div></a></li><li class="footer__nav-item"><div class="footer__link">123 Smile Avenue, NY 10001</div></li></ul></div></div><div id="w-node-ba276a15-1236-2b85-a4ea-0030dcfeb07b-dcfeb055" class="footer__bottom"><div class="footer__rights"><div class="text-b1--book">© <span data-footer-year="">2026</span> Nova Dental. All rights reserved.</div><div class="dot-divider"></div><div class="made-by"><div class="text-b1--book">Made with love by</div><a href="https://phenomenonstudio.com/" target="_blank" class="simple-text-link w-inline-block"><div class="phn-icon w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 14 14" fill="none">
-  <path d="M11.0661 4.74438C10.6321 5.00066 9.98473 5.38298 9.42346 5.86813L9.51355 6.08662C10.254 6.03283 10.9828 5.84518 11.471 5.71945C11.6244 5.67995 11.754 5.64656 11.8528 5.62537C12.3221 5.52481 13.4798 5.48577 14 5.47886V8.52075C13.4798 8.51395 12.3221 8.47491 11.8528 8.37425C11.7539 8.35304 11.624 8.31961 11.4704 8.28005C10.9823 8.15441 10.2541 7.96696 9.5141 7.91314L9.42319 8.13163C9.98478 8.61709 10.6326 8.99961 11.0667 9.2559C11.2031 9.33644 11.3184 9.40451 11.4032 9.45939C11.8061 9.72009 12.6523 10.5111 13.0251 10.8741L10.8742 13.025C10.5111 12.6524 9.7201 11.8061 9.45948 11.4031C9.40451 11.3182 9.33631 11.2027 9.25562 11.0661C8.99935 10.6321 8.61703 9.98475 8.13191 9.42348L7.91316 9.51369C7.96694 10.2538 8.15442 10.9821 8.28008 11.4703C8.31964 11.624 8.35308 11.7539 8.37428 11.8528C8.47495 12.3221 8.51399 13.4798 8.52079 14H5.47891C5.48582 13.4798 5.52486 12.3221 5.62542 11.8528C5.64662 11.754 5.68001 11.6244 5.71951 11.471C5.84521 10.9828 6.03282 10.2543 6.08664 9.51388L5.86843 9.42309C5.38315 9.98444 5.00073 10.632 4.7444 11.066C4.66373 11.2026 4.59548 11.3182 4.54052 11.4031C4.2799 11.8061 3.4889 12.6524 3.12584 13.025L0.974914 10.8741C1.34766 10.5111 2.19387 9.72009 2.59678 9.45939C2.68164 9.40451 2.79693 9.33644 2.93334 9.2559C3.3673 8.99966 4.01496 8.61725 4.57647 8.13192L4.48643 7.91358C3.74628 7.96734 3.01789 8.15484 2.52968 8.28052C2.37613 8.32004 2.24604 8.35353 2.14715 8.37472C1.67792 8.47539 0.52023 8.51443 0 8.52122V5.47933C0.52023 5.48624 1.67792 5.52528 2.14715 5.62584C2.24594 5.64703 2.37555 5.6804 2.52888 5.71989C3.01696 5.84557 3.74554 6.03319 4.48581 6.08704L4.5768 5.86835C4.01547 5.3831 3.36796 5.0007 2.93394 4.74438C2.79729 4.66368 2.6818 4.59548 2.59684 4.5405C2.19385 4.27988 1.34764 3.48887 0.974974 3.12582L3.1259 0.974873C3.48888 1.34762 4.27988 2.19384 4.54058 2.59675C4.59546 2.68161 4.66353 2.7969 4.74407 2.9333C5.00031 3.36728 5.38273 4.01497 5.86807 4.57649L6.08666 4.48635C6.03286 3.7459 5.84522 3.01724 5.71951 2.52905C5.68003 2.3757 5.64661 2.24596 5.62542 2.14717C5.52486 1.67793 5.48582 0.520233 5.47891 0H8.52079C8.51399 0.520233 8.47495 1.67793 8.37428 2.14717C8.35309 2.24606 8.31969 2.37584 8.28016 2.52939C8.15453 3.01744 7.96703 3.74584 7.9132 4.48575L8.13175 4.57669C8.61718 4.01512 8.99966 3.36734 9.25593 2.93331C9.33647 2.7969 9.40454 2.68161 9.45942 2.59675C9.72012 2.19384 10.5111 1.34762 10.8741 0.974873L13.025 3.12582C12.6524 3.48887 11.8061 4.27988 11.4032 4.5405C11.3182 4.59546 11.2026 4.66372 11.0661 4.74438Z" fill="currentcolor"/>
-</svg></div><div class="text-b1--book">Design Kapital</div></a></div></div><ul role="list" class="footer__legal"><li class="footer__legal-item"><a data-stagger-link="" href="/terms-and-conditions" class="footer__link w-inline-block"><div data-stagger-link-text="">Terms</div></a></li><li class="footer__legal-item"><a data-stagger-link="" href="/privacy-policy" class="footer__link w-inline-block"><div data-stagger-link-text="">Privacy</div></a></li></ul></div></div></div></div></footer><div data-booking-modal="" class="booking-modal"><div data-booking-close="" class="booking-modal__overlay"></div><div data-modal-anim="box" class="booking-modal__box"><div class="booking-modal__inner"><div data-modal-anim="item" class="booking-modal__close-wrap"><button type="button" data-booking-close="" aria-label="Close booking form" class="booking-modal__close"><div class="booking-modal__close-icon w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none">
-  <path d="M19 6.41L17.59 5L12 10.59L6.41 5L5 6.41L10.59 12L5 17.59L6.41 19L12 13.41L17.59 19L19 17.59L13.41 12L19 6.41Z" fill="currentcolor" />
-</svg></div></button></div><div class="booking-modal__sidebar"><div data-modal-anim="item" class="booking-modal__steps"><div data-tab-step="1" class="booking-step is-active"><div class="booking-step__number-wrap"><div class="booking-step__number-icon"></div></div><div class="booking-step__label-wrap"><div class="booking-step__label">Service</div></div></div><div data-divider-after="1" class="booking-step__divider"></div><div data-tab-step="2" class="booking-step"><div class="booking-step__number-wrap"><div class="booking-step__number-icon"></div></div><div class="booking-step__label-wrap"><div class="booking-step__label">Contact details</div></div></div><div data-divider-after="2" class="booking-step__divider"></div><div data-tab-step="3" class="booking-step"><div class="booking-step__number-wrap"><div class="booking-step__number-icon"></div></div><div class="booking-step__label-wrap"><div class="booking-step__label">Confirmation</div></div></div></div></div><div class="booking-modal__content"><form id="booking-form" data-booking-form="" novalidate="" class="booking-form"><div data-step="1" class="booking-form__step"><h1 data-modal-anim="title" class="booking-form__title">Book an <span class="h1-serif">Appointment</span></h1><div class="booking-form__group"><div data-modal-anim="item" class="booking-form__group-label">Select service</div><div class="booking-form__field in-services"><label data-modal-anim="item" class="booking-form__field-label"><div>Treatment*</div></label><div aria-label="Select treatment" data-radio-group="treatment" role="radiogroup" aria-required="true" class="booking-treatments"><input id="treatment-aesthetic-dentistry" type="radio" name="treatment" required="" class="booking-treatments__input" value="aesthetic-dentistry"/><label for="treatment-aesthetic-dentistry" data-modal-anim="card" class="booking-treatment-card"><div class="booking-treatment-card__icon-wrap"><img width="52" height="52" alt="" src="assets/6a5537036086ab815dab681b_Aesthetic_dentistry_min.avif" loading="lazy" class="booking-treatment-card__icon"/></div><div class="booking-treatment-card__label">Aesthetic dentistry</div></label><input id="treatment-veneers" type="radio" name="treatment" required="" class="booking-treatments__input" value="veneers"/><label for="treatment-veneers" data-modal-anim="card" class="booking-treatment-card"><div class="booking-treatment-card__icon-wrap"><img width="52" height="52" alt="" src="assets/6a5537035842b0f559433b75_Veneers_min.avif" loading="lazy" class="booking-treatment-card__icon"/></div><div class="booking-treatment-card__label">Veneers</div></label><input id="treatment-surgical-dentistry" type="radio" name="treatment" required="" class="booking-treatments__input" value="surgical-dentistry"/><label for="treatment-surgical-dentistry" data-modal-anim="card" class="booking-treatment-card"><div class="booking-treatment-card__icon-wrap"><img width="52" height="52" alt="" src="assets/6a553703333bcab360a1d1ec_Surgical_dentistry_min.avif" loading="lazy" class="booking-treatment-card__icon"/></div><div class="booking-treatment-card__label">Surgical dentistry</div></label><input id="treatment-implantation" type="radio" name="treatment" required="" class="booking-treatments__input" value="implantation"/><label for="treatment-implantation" data-modal-anim="card" class="booking-treatment-card"><div class="booking-treatment-card__icon-wrap"><img width="52" height="52" alt="" src="assets/6a553703cd0003a39c9d90a7_Implantation_min.avif" loading="lazy" class="booking-treatment-card__icon"/></div><div class="booking-treatment-card__label">Implantation</div></label><input id="treatment-orthodontic-treatment" type="radio" name="treatment" required="" class="booking-treatments__input" value="orthodontic-treatment"/><label for="treatment-orthodontic-treatment" data-modal-anim="card" class="booking-treatment-card"><div class="booking-treatment-card__icon-wrap"><img width="52" height="52" alt="" src="assets/6a553703c21902a5a6867545_Orthodontic_treatment_min.avif" loading="lazy" class="booking-treatment-card__icon"/></div><div class="booking-treatment-card__label">Orthodontic treatment</div></label><input id="treatment-professional-hygiene" type="radio" name="treatment" required="" class="booking-treatments__input" value="professional-hygiene"/><label for="treatment-professional-hygiene" data-modal-anim="card" class="booking-treatment-card"><div class="booking-treatment-card__icon-wrap"><img width="52" height="52" alt="" src="assets/6a55370327c49757345ae3d5_Professional_hygiene_min.avif" loading="lazy" class="booking-treatment-card__icon"/></div><div class="booking-treatment-card__label">Professional hygiene</div></label><input id="treatment-teeth-whitening" type="radio" name="treatment" required="" class="booking-treatments__input" value="teeth-whitening"/><label for="treatment-teeth-whitening" data-modal-anim="card" class="booking-treatment-card"><div class="booking-treatment-card__icon-wrap"><img width="52" height="52" alt="" src="assets/6a553703256929bfb294f0ea_Teeth_whitening_min.avif" loading="lazy" class="booking-treatment-card__icon"/></div><div class="booking-treatment-card__label">Teeth whitening</div></label><input id="treatment-braces" type="radio" name="treatment" required="" class="booking-treatments__input" value="braces"/><label for="treatment-braces" data-modal-anim="card" class="booking-treatment-card"><div class="booking-treatment-card__icon-wrap"><img width="52" height="52" alt="" src="assets/6a5537035d2b7b22e0e58871_Braces_min.avif" loading="lazy" class="booking-treatment-card__icon"/></div><div class="booking-treatment-card__label">Braces</div></label><input id="treatment-wisdom-tooth-extraction" type="radio" name="treatment" required="" class="booking-treatments__input" value="wisdom-tooth-extraction"/><label for="treatment-wisdom-tooth-extraction" data-modal-anim="card" class="booking-treatment-card"><div class="booking-treatment-card__icon-wrap"><img width="52" height="52" alt="" src="assets/6a553703324f469b7e8736cf_Wisdom_tooth_extraction_min.avif" loading="lazy" class="booking-treatment-card__icon"/></div><div class="booking-treatment-card__label">Wisdom tooth extraction</div></label></div></div><div class="booking-form__field"><label data-modal-anim="item" class="booking-form__field-label"><div>Doctor*</div></label><div aria-label="Select doctor" data-radio-group="doctor" role="radiogroup" aria-required="true" class="booking-doctors"><input id="doctor-emily-peterson" type="radio" name="doctor" required="" class="booking-doctors__input" value="emily-peterson"/><label for="doctor-emily-peterson" data-modal-anim="card" class="booking-doctor-card"><div class="booking-doctor-card__avatar-wrap"><img width="52" height="52" alt="Dr. Ricardo Andrade (Cirurgião Principal)" src="assets/dr-ricardo-principal.jpg" loading="lazy" class="booking-doctor-card__avatar"/></div><div class="booking-doctor-card__label">Dr. Ricardo Andrade (Cirurgião Principal)</div></label><input id="doctor-adrian-keller" type="radio" name="doctor" required="" class="booking-doctors__input" value="adrian-keller"/><label for="doctor-adrian-keller" data-modal-anim="card" class="booking-doctor-card"><div class="booking-doctor-card__avatar-wrap"><img width="52" height="52" alt="Equipe Cirúrgica Hospitalar" src="assets/doutor-interna.jpg" loading="lazy" class="booking-doctor-card__avatar"/></div><div class="booking-doctor-card__label">Equipe Cirúrgica Hospitalar</div></label><input id="doctor-olivia-hartman" type="radio" name="doctor" required="" class="booking-doctors__input" value="olivia-hartman"/><label for="doctor-olivia-hartman" data-modal-anim="card" class="booking-doctor-card"><div class="booking-doctor-card__avatar-wrap"><img width="52" height="52" alt="Enfermagem & Pós-Operatório R24R" src="assets/consulta-medica.jpg" loading="lazy" class="booking-doctor-card__avatar"/></div><div class="booking-doctor-card__label">Enfermagem & Pós-Operatório R24R</div></label><input id="doctor-marcus-bennett" type="radio" name="doctor" required="" class="booking-doctors__input" value="marcus-bennett"/><label for="doctor-marcus-bennett" data-modal-anim="card" class="booking-doctor-card"><div class="booking-doctor-card__avatar-wrap"><img width="52" height="52" alt="Anestesiologia & Centro Cirúrgico" src="assets/centro-cirurgico.jpg" loading="lazy" class="booking-doctor-card__avatar"/></div><div class="booking-doctor-card__label">Anestesiologia & Centro Cirúrgico</div></label><input id="doctor-liam-brooks" type="radio" name="doctor" required="" class="booking-doctors__input" value="liam-brooks"/><label for="doctor-liam-brooks" data-modal-anim="card" class="booking-doctor-card"><div class="booking-doctor-card__avatar-wrap"><img width="52" height="52" alt="Concierge & Atendimento VIP" src="assets/clinica-foto-01.jpg" loading="lazy" class="booking-doctor-card__avatar"/></div><div class="booking-doctor-card__label">Concierge & Atendimento VIP</div></label></div></div></div><div data-modal-anim="item" class="booking-form__btns"><button type="button" data-next-step="2" data-stagger-link="" class="btn"><div class="btn__text"><div>(</div><div data-stagger-link-text="">Next</div><div>)</div></div></button></div></div><div data-step="2" class="booking-form__step"><h2 class="booking-form__title">Book an <span class="h1-serif">Appointment</span></h2><div class="booking-form__group"><div class="booking-form__group-label">Contact details</div><div class="booking-form__grid"><div class="booking-form__field"><label for="booking-name" class="booking-form__field-label is-bold"><div>Name*</div></label><input id="booking-name" type="text" name="Name" placeholder="Type your name" required="" maxlength="256" class="booking-form__input"/></div><div class="booking-form__field"><label for="booking-phone" class="booking-form__field-label is-bold"><div>Mobile number*</div></label><input id="booking-phone" type="tel" name="Phone" placeholder="Your mobile phone" required="" data-input-phone="" autocomplete="new-phone" class="booking-form__input"/></div><div class="booking-form__field"><label for="booking-email" class="booking-form__field-label is-bold"><div>E-mail*</div></label><input id="booking-email" type="email" name="Email" placeholder="Your e-mail" required="" maxlength="256" class="booking-form__input"/></div></div><div class="booking-form__field booking-form__field--comment"><label for="booking-comment" class="booking-form__field-label is-bold"><div>Your comment</div></label><textarea id="booking-comment" placeholder="Your comment" class="booking-form__input booking-form__input--textarea"></textarea></div></div><div class="booking-form__btns in-form"><button type="button" data-prev-step="1" data-stagger-link="" class="btn is-back-btn"><div class="btn__text"><div>(</div><div data-stagger-link-text="">Back</div><div>)</div></div></button><button type="submit" data-next-step="3" data-stagger-link="" class="btn"><div class="btn__text"><div>(</div><div data-stagger-link-text="">Next</div><div>)</div></div></button></div></div><div data-step="3" class="booking-form__step"><h2 class="booking-form__title in-step-3">Booking <span class="h1-serif">Confirmed!</span></h2><p class="booking-form__text">Thank you for booking with us.<br/>We will contact you shortly.</p><div class="booking-form__footer"><div class="booking-form__contact"><div class="booking-form__contact-text"><div class="booking-form__contact-icon w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 20 20" fill="none">
-  <g clip-path="url(#clip0_4459_2987)">
-    <path d="M16.415 5.36963C16.5456 5.80139 16.6409 6.24492 16.7044 6.69786C17.0267 9.03433 16.4197 11.3567 14.9962 13.2379C13.5726 15.1179 11.502 16.3332 9.16675 16.6543C8.76086 16.712 8.35028 16.739 7.94439 16.739C7.6891 16.739 7.43263 16.7285 7.17969 16.7061C8.22557 17.639 9.5491 18.2814 11.0409 18.4873C12.2656 18.6567 13.462 18.5132 14.5479 18.1167L17.8303 19.3743C18.2679 19.5414 18.7209 19.1708 18.6444 18.7096L18.0891 15.3626C18.7067 14.4602 19.1303 13.4014 19.2915 12.2437C19.6679 9.5061 18.4832 6.91551 16.415 5.37198V5.36963Z" fill="currentcolor"/>
-    <path d="M8.95808 15.1529C12.9616 14.5999 15.7569 10.9058 15.204 6.90345C15.0722 5.95051 14.7616 5.06698 14.3134 4.27992C12.8734 1.75875 10.004 0.235218 6.95337 0.658747C2.95102 1.21286 0.154547 4.90581 0.708665 8.90934C0.867489 10.0682 1.29219 11.1258 1.90984 12.0282L1.35572 15.3752C1.27925 15.8364 1.73337 16.207 2.16984 16.0399L5.45337 14.7823C5.53219 14.8105 5.61102 14.8387 5.69102 14.8646C6.71102 15.1987 7.82396 15.3117 8.95808 15.154V15.1529ZM4.62514 5.63522H11.2875C11.7075 5.63522 12.0451 5.97287 12.0451 6.39286C12.0451 6.81286 11.7075 7.15051 11.2875 7.15051H4.62514C4.20749 7.15051 3.86749 6.81169 3.86749 6.39286C3.86749 5.97404 4.20631 5.63522 4.62514 5.63522ZM4.62514 10.1776C4.20749 10.1776 3.86749 9.83875 3.86749 9.41992C3.86749 9.0011 4.20631 8.66228 4.62514 8.66228H8.71337C9.13337 8.66228 9.47102 8.99992 9.47102 9.41992C9.47102 9.83992 9.13337 10.1776 8.71337 10.1776H4.62514Z" fill="currentcolor"/>
-  </g>
-  <defs>
-    <clipPath id="clip0_4459_2987">
-      <rect width="20" height="20" fill="white"/>
-    </clipPath>
-  </defs>
-</svg></div><p>Questions?</p></div><div class="booking-form__support"><p>We’re here to help — contact us any time at</p><a data-stagger-link="" href="#" class="booking-form__support-link w-inline-block"><div data-stagger-link-text="">support@novadental.com</div></a></div></div><button type="button" data-booking-close="" data-booking-back-home="" data-stagger-link="" class="btn"><div class="btn__text"><div>(</div><div data-stagger-link-text="">Back Home</div><div>)</div></div></button></div></div></form></div></div></div></div></div><script src="assets/jquery-3.5.1.min.js" type="text/javascript"></script><script src="assets/webflow.min.js" type="text/javascript"></script><script src="assets/gsap.min.js" type="text/javascript"></script><script src="assets/ScrollTrigger.min.js" type="text/javascript"></script><script src="assets/SplitText.min.js" type="text/javascript"></script><script type="text/javascript">gsap.registerPlugin(ScrollTrigger,SplitText);</script><script src="assets/inputmask.min.js"></script>
+<footer class="footer">
+  <div class="page-padding">
+    <div class="container">
+      <div class="wrap footer__wrap">
+        <div class="footer__logo-box">
+          <a href="/" aria-current="page" class="footer__logo-link w-inline-block w--current">
+            <div class="footer__logo">
+              <img src="assets/01-home-ricardo-andrade-logo-menu.png" alt="Dr. Ricardo Andrade — Cirurgia Plástica" />
+            </div>
+          </a>
+          <p class="text-b1--book">Excelência, precisão e ética em Cirurgia Plástica e Rinoplastia.</p>
+        </div>
+        <div class="footer__nav">
+          <div class="footer__nav-col">
+            <div class="text-b1--medium mob-18">Navegação</div>
+            <ul role="list" class="footer__nav-list in-footer-menu w-list-unstyled">
+              <li class="footer__nav-item"><a data-stagger-link="" href="#about" class="footer__link w-inline-block"><div data-stagger-link-text="">Dr. Ricardo</div></a></li>
+              <li class="footer__nav-item"><a data-stagger-link="" href="#services" class="footer__link w-inline-block"><div data-stagger-link-text="">Cirurgias</div></a></li>
+              <li class="footer__nav-item"><a data-stagger-link="" href="#why-us" class="footer__link w-inline-block"><div data-stagger-link-text="">Diferenciais</div></a></li>
+              <li class="footer__nav-item"><a data-stagger-link="" href="#results" class="footer__link w-inline-block"><div data-stagger-link-text="">Resultados</div></a></li>
+              <li class="footer__nav-item"><a data-stagger-link="" href="#youtube" class="footer__link w-inline-block"><div data-stagger-link-text="">Vídeos</div></a></li>
+              <li class="footer__nav-item"><a data-stagger-link="" href="#team" class="footer__link w-inline-block"><div data-stagger-link-text="">Equipe</div></a></li>
+            </ul>
+          </div>
+          <div class="footer__nav-col">
+            <div class="text-b1--medium mob-18">Atendimento &amp; Localização</div>
+            <ul role="list" class="footer__nav-list w-list-unstyled">
+              <li class="footer__nav-item"><a data-stagger-link="" href="https://wa.me/5519989280809" target="_blank" rel="noopener noreferrer" class="footer__link w-inline-block"><div data-stagger-link-text="">WhatsApp: (19) 98928-0809</div></a></li>
+              <li class="footer__nav-item"><a data-stagger-link="" href="tel:+551932422777" class="footer__link w-inline-block"><div data-stagger-link-text="">Telefone: (19) 3242-2777</div></a></li>
+              <li class="footer__nav-item"><a data-stagger-link="" href="mailto:contato@drricardoandrade.com.br" class="footer__link w-inline-block"><div data-stagger-link-text="">contato@drricardoandrade.com.br</div></a></li>
+              <li class="footer__nav-item"><div class="footer__link" style="opacity: 0.85;">Rua Dr. Barbosa de Andrade, 485<br/>Jd. Chapadão – Campinas/SP • CEP 13070-158</div></li>
+            </ul>
+          </div>
+        </div>
+        <div id="w-node-ba276a15-1236-2b85-a4ea-0030dcfeb07b-dcfeb055" class="footer__bottom">
+          <div class="footer__rights">
+            <div class="text-b1--book">
+              © <span data-footer-year="">2026</span> Dr. Ricardo Andrade • Cirurgião Plástico CRM-SP 66.351 • RQE 14.201. Todos os direitos reservados.
+            </div>
+            <div class="dot-divider"></div>
+            <div class="made-by">
+              <div class="text-b1--book">Desenvolvido por</div>
+              <a href="https://raphaelolima.com.br" target="_blank" class="simple-text-link w-inline-block">
+                <div class="text-b1--book" style="color: #d4af37; font-weight: 600;">Raphael Lima</div>
+              </a>
+            </div>
+          </div>
+          <ul role="list" class="footer__legal">
+            <li class="footer__legal-item"><a data-stagger-link="" href="#about" class="footer__link w-inline-block"><div data-stagger-link-text="">Termos</div></a></li>
+            <li class="footer__legal-item"><a data-stagger-link="" href="#about" class="footer__link w-inline-block"><div data-stagger-link-text="">Privacidade</div></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer><div data-booking-modal="" class="booking-modal">
+  <div data-booking-close="" class="booking-modal__overlay"></div>
+  <div data-modal-anim="box" class="booking-modal__box">
+    <div class="booking-modal__inner">
+      <div data-modal-anim="item" class="booking-modal__close-wrap">
+        <button type="button" data-booking-close="" aria-label="Fechar agendamento" class="booking-modal__close">
+          <div class="booking-modal__close-icon w-embed">
+            <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none">
+              <path d="M19 6.41L17.59 5L12 10.59L6.41 5L5 6.41L10.59 12L5 17.59L6.41 19L12 13.41L17.59 19L19 17.59L13.41 12L19 6.41Z" fill="currentcolor" />
+            </svg>
+          </div>
+        </button>
+      </div>
+      <div class="booking-modal__sidebar">
+        <div data-modal-anim="item" class="booking-modal__steps">
+          <div data-tab-step="1" class="booking-step is-active">
+            <div class="booking-step__number-wrap"><div class="booking-step__number-icon"></div></div>
+            <div class="booking-step__label-wrap"><div class="booking-step__label">Procedimento</div></div>
+          </div>
+          <div data-divider-after="1" class="booking-step__divider"></div>
+          <div data-tab-step="2" class="booking-step">
+            <div class="booking-step__number-wrap"><div class="booking-step__number-icon"></div></div>
+            <div class="booking-step__label-wrap"><div class="booking-step__label">Seus Dados</div></div>
+          </div>
+          <div data-divider-after="2" class="booking-step__divider"></div>
+          <div data-tab-step="3" class="booking-step">
+            <div class="booking-step__number-wrap"><div class="booking-step__number-icon"></div></div>
+            <div class="booking-step__label-wrap"><div class="booking-step__label">Confirmação</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="booking-modal__content">
+        <form id="booking-form" data-booking-form="" novalidate="" class="booking-form">
+          <div data-step="1" class="booking-form__step">
+            <h1 data-modal-anim="title" class="booking-form__title">Agende sua <span class="h1-serif">Consulta</span></h1>
+            <div class="booking-form__group">
+              <div data-modal-anim="item" class="booking-form__group-label">Selecione o procedimento de interesse</div>
+              <div class="booking-form__field in-services">
+                <label data-modal-anim="item" class="booking-form__field-label"><div>Cirurgia / Procedimento*</div></label>
+                <div aria-label="Selecione o procedimento" data-radio-group="treatment" role="radiogroup" aria-required="true" class="booking-treatments">
+                  
+                  <input id="treatment-rinoplastia" type="radio" name="treatment" required="" class="booking-treatments__input" value="rinoplastia" checked/>
+                  <label for="treatment-rinoplastia" data-modal-anim="card" class="booking-treatment-card">
+                    <div class="booking-treatment-card__icon-wrap">
+                      <img width="52" height="52" alt="Rinoplastia" src="assets/11_KE_After_Side_Pro.jpg" style="object-fit:cover;border-radius:10px;" loading="lazy" class="booking-treatment-card__icon"/>
+                    </div>
+                    <div class="booking-treatment-card__label">Rinoplastia Estruturada</div>
+                  </label>
+
+                  <input id="treatment-protese-r24r" type="radio" name="treatment" required="" class="booking-treatments__input" value="protese-r24r"/>
+                  <label for="treatment-protese-r24r" data-modal-anim="card" class="booking-treatment-card">
+                    <div class="booking-treatment-card__icon-wrap">
+                      <img width="52" height="52" alt="Prótese R24R" src="assets/procedimento-mamoplastia.jpg" style="object-fit:cover;border-radius:10px;" loading="lazy" class="booking-treatment-card__icon"/>
+                    </div>
+                    <div class="booking-treatment-card__label">Prótese de Mama R24R</div>
+                  </label>
+
+                  <input id="treatment-blefaroplastia" type="radio" name="treatment" required="" class="booking-treatments__input" value="blefaroplastia"/>
+                  <label for="treatment-blefaroplastia" data-modal-anim="card" class="booking-treatment-card">
+                    <div class="booking-treatment-card__icon-wrap">
+                      <img width="52" height="52" alt="Blefaroplastia" src="assets/blefaroplastia-interna.jpg" style="object-fit:cover;border-radius:10px;" loading="lazy" class="booking-treatment-card__icon"/>
+                    </div>
+                    <div class="booking-treatment-card__label">Blefaroplastia (Pálpebras)</div>
+                  </label>
+
+                  <input id="treatment-mastopexia" type="radio" name="treatment" required="" class="booking-treatments__input" value="mastopexia"/>
+                  <label for="treatment-mastopexia" data-modal-anim="card" class="booking-treatment-card">
+                    <div class="booking-treatment-card__icon-wrap">
+                      <img width="52" height="52" alt="Mastopexia" src="assets/procedimento-mamas.jpg" style="object-fit:cover;border-radius:10px;" loading="lazy" class="booking-treatment-card__icon"/>
+                    </div>
+                    <div class="booking-treatment-card__label">Mastopexia</div>
+                  </label>
+
+                  <input id="treatment-frontoplastia" type="radio" name="treatment" required="" class="booking-treatments__input" value="frontoplastia"/>
+                  <label for="treatment-frontoplastia" data-modal-anim="card" class="booking-treatment-card">
+                    <div class="booking-treatment-card__icon-wrap">
+                      <img width="52" height="52" alt="Frontoplastia" src="assets/7_CR_Side_Profile_Af.png" style="object-fit:cover;border-radius:10px;" loading="lazy" class="booking-treatment-card__icon"/>
+                    </div>
+                    <div class="booking-treatment-card__label">Frontoplastia &amp; Lifting</div>
+                  </label>
+
+                  <input id="treatment-abdominoplastia" type="radio" name="treatment" required="" class="booking-treatments__input" value="abdominoplastia"/>
+                  <label for="treatment-abdominoplastia" data-modal-anim="card" class="booking-treatment-card">
+                    <div class="booking-treatment-card__icon-wrap">
+                      <img width="52" height="52" alt="Abdominoplastia" src="assets/contorno-corporal.jpg" style="object-fit:cover;border-radius:10px;" loading="lazy" class="booking-treatment-card__icon"/>
+                    </div>
+                    <div class="booking-treatment-card__label">Abdominoplastia</div>
+                  </label>
+
+                  <input id="treatment-mini-lipo" type="radio" name="treatment" required="" class="booking-treatments__input" value="mini-lipo"/>
+                  <label for="treatment-mini-lipo" data-modal-anim="card" class="booking-treatment-card">
+                    <div class="booking-treatment-card__icon-wrap">
+                      <img width="52" height="52" alt="Mini Lipo a Laser" src="assets/cirurgia-interna.jpg" style="object-fit:cover;border-radius:10px;" loading="lazy" class="booking-treatment-card__icon"/>
+                    </div>
+                    <div class="booking-treatment-card__label">Mini Lipo a Laser</div>
+                  </label>
+
+                  <input id="treatment-harmonizacao" type="radio" name="treatment" required="" class="booking-treatments__input" value="harmonizacao"/>
+                  <label for="treatment-harmonizacao" data-modal-anim="card" class="booking-treatment-card">
+                    <div class="booking-treatment-card__icon-wrap">
+                      <img width="52" height="52" alt="Harmonização Facial" src="assets/doutor-interna.jpg" style="object-fit:cover;border-radius:10px;" loading="lazy" class="booking-treatment-card__icon"/>
+                    </div>
+                    <div class="booking-treatment-card__label">Harmonização Facial</div>
+                  </label>
+
+                  <input id="treatment-consulta-avaliacao" type="radio" name="treatment" required="" class="booking-treatments__input" value="consulta-avaliacao"/>
+                  <label for="treatment-consulta-avaliacao" data-modal-anim="card" class="booking-treatment-card">
+                    <div class="booking-treatment-card__icon-wrap">
+                      <img width="52" height="52" alt="Consulta Médica de Avaliação" src="assets/consulta-medica.jpg" style="object-fit:cover;border-radius:10px;" loading="lazy" class="booking-treatment-card__icon"/>
+                    </div>
+                    <div class="booking-treatment-card__label">Consulta de Avaliação</div>
+                  </label>
+
+                </div>
+              </div>
+
+              <div class="booking-form__field">
+                <label data-modal-anim="item" class="booking-form__field-label"><div>Cirurgião / Atendimento*</div></label>
+                <div aria-label="Selecione o profissional" data-radio-group="doctor" role="radiogroup" aria-required="true" class="booking-doctors">
+                  
+                  <input id="doctor-dr-ricardo" type="radio" name="doctor" required="" class="booking-doctors__input" value="dr-ricardo" checked/>
+                  <label for="doctor-dr-ricardo" data-modal-anim="card" class="booking-doctor-card">
+                    <div class="booking-doctor-card__avatar-wrap">
+                      <img width="52" height="52" alt="Dr. Ricardo Andrade" src="assets/dr-ricardo-principal.jpg" loading="lazy" class="booking-doctor-card__avatar"/>
+                    </div>
+                    <div class="booking-doctor-card__label">Dr. Ricardo Andrade (Cirurgião Titular)</div>
+                  </label>
+
+                  <input id="doctor-equipe-hospitalar" type="radio" name="doctor" required="" class="booking-doctors__input" value="equipe-hospitalar"/>
+                  <label for="doctor-equipe-hospitalar" data-modal-anim="card" class="booking-doctor-card">
+                    <div class="booking-doctor-card__avatar-wrap">
+                      <img width="52" height="52" alt="Equipe Cirúrgica Hospitalar" src="assets/centro-cirurgico.jpg" loading="lazy" class="booking-doctor-card__avatar"/>
+                    </div>
+                    <div class="booking-doctor-card__label">Equipe Cirúrgica &amp; Hospitalar</div>
+                  </label>
+
+                  <input id="doctor-enfermagem-r24r" type="radio" name="doctor" required="" class="booking-doctors__input" value="enfermagem-r24r"/>
+                  <label for="doctor-enfermagem-r24r" data-modal-anim="card" class="booking-doctor-card">
+                    <div class="booking-doctor-card__avatar-wrap">
+                      <img width="52" height="52" alt="Enfermagem R24R" src="assets/consulta-medica.jpg" loading="lazy" class="booking-doctor-card__avatar"/>
+                    </div>
+                    <div class="booking-doctor-card__label">Enfermagem Especializada R24R</div>
+                  </label>
+
+                  <input id="doctor-concierge" type="radio" name="doctor" required="" class="booking-doctors__input" value="concierge"/>
+                  <label for="doctor-concierge" data-modal-anim="card" class="booking-doctor-card">
+                    <div class="booking-doctor-card__avatar-wrap">
+                      <img width="52" height="52" alt="Concierge VIP" src="assets/clinica-foto-01.jpg" loading="lazy" class="booking-doctor-card__avatar"/>
+                    </div>
+                    <div class="booking-doctor-card__label">Concierge &amp; Atendimento VIP</div>
+                  </label>
+
+                </div>
+              </div>
+            </div>
+
+            <div data-modal-anim="item" class="booking-form__btns">
+              <button type="button" data-next-step="2" data-stagger-link="" class="btn">
+                <div class="btn__text"><div>(</div><div data-stagger-link-text="">Avançar</div><div>)</div></div>
+              </button>
+            </div>
+          </div>
+
+          <div data-step="2" class="booking-form__step">
+            <h2 class="booking-form__title">Seus Dados de <span class="h1-serif">Contato</span></h2>
+            <div class="booking-form__group">
+              <div class="booking-form__group-label">Informações para agendamento em Campinas</div>
+              <div class="booking-form__grid">
+                <div class="booking-form__field">
+                  <label for="booking-name" class="booking-form__field-label is-bold"><div>Nome Completo*</div></label>
+                  <input id="booking-name" type="text" name="Name" placeholder="Digite seu nome completo" required="" maxlength="256" class="booking-form__input"/>
+                </div>
+                <div class="booking-form__field">
+                  <label for="booking-phone" class="booking-form__field-label is-bold"><div>WhatsApp / Telefone*</div></label>
+                  <input id="booking-phone" type="tel" name="Phone" placeholder="(19) 99999-9999" required="" data-input-phone="" autocomplete="new-phone" class="booking-form__input"/>
+                </div>
+                <div class="booking-form__field">
+                  <label for="booking-email" class="booking-form__field-label is-bold"><div>Seu E-mail*</div></label>
+                  <input id="booking-email" type="email" name="Email" placeholder="seuemail@exemplo.com.br" required="" maxlength="256" class="booking-form__input"/>
+                </div>
+              </div>
+              <div class="booking-form__field booking-form__field--comment">
+                <label for="booking-comment" class="booking-form__field-label is-bold"><div>Procedimento de interesse ou dúvidas</div></label>
+                <textarea id="booking-comment" placeholder="Conte-nos sobre a cirurgia que deseja avaliar..." class="booking-form__input booking-form__input--textarea"></textarea>
+              </div>
+            </div>
+            <div class="booking-form__btns in-form">
+              <button type="button" data-prev-step="1" data-stagger-link="" class="btn is-back-btn">
+                <div class="btn__text"><div>(</div><div data-stagger-link-text="">Voltar</div><div>)</div></div>
+              </button>
+              <button type="submit" data-next-step="3" data-stagger-link="" class="btn">
+                <div class="btn__text"><div>(</div><div data-stagger-link-text="">Confirmar Envio</div><div>)</div></div>
+              </button>
+            </div>
+          </div>
+
+          <div data-step="3" class="booking-form__step">
+            <h2 class="booking-form__title in-step-3">Agendamento <span class="h1-serif">Enviado!</span></h2>
+            <p class="booking-form__text">
+              Agradecemos a sua solicitação.<br/>Nossa concierge em Campinas entrará em contato em breve para confirmar data e horário.
+            </p>
+            <div class="booking-form__footer">
+              <div class="booking-form__contact">
+                <div class="booking-form__contact-text">
+                  <div class="booking-form__contact-icon w-embed">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 20 20" fill="none">
+                      <g clip-path="url(#clip0_4459_2987)">
+                        <path d="M16.415 5.36963C16.5456 5.80139 16.6409 6.24492 16.7044 6.69786C17.0267 9.03433 16.4197 11.3567 14.9962 13.2379C13.5726 15.1179 11.502 16.3332 9.16675 16.6543C8.76086 16.712 8.35028 16.739 7.94439 16.739C7.6891 16.739 7.43263 16.7285 7.17969 16.7061C8.22557 17.639 9.5491 18.2814 11.0409 18.4873C12.2656 18.6567 13.462 18.5132 14.5479 18.1167L17.8303 19.3743C18.2679 19.5414 18.7209 19.1708 18.6444 18.7096L18.0891 15.3626C18.7067 14.4602 19.1303 13.4014 19.2915 12.2437C19.6679 9.5061 18.4832 6.91551 16.415 5.37198V5.36963Z" fill="currentcolor"/>
+                        <path d="M8.95808 15.1529C12.9616 14.5999 15.7569 10.9058 15.204 6.90345C15.0722 5.95051 14.7616 5.06698 14.3134 4.27992C12.8734 1.75875 10.004 0.235218 6.95337 0.658747C2.95102 1.21286 0.154547 4.90581 0.708665 8.90934C0.867489 10.0682 1.29219 11.1258 1.90984 12.0282L1.35572 15.3752C1.27925 15.8364 1.73337 16.207 2.16984 16.0399L5.45337 14.7823C5.53219 14.8105 5.61102 14.8387 5.69102 14.8646C6.71102 15.1987 7.82396 15.3117 8.95808 15.154V15.1529ZM4.62514 5.63522H11.2875C11.7075 5.63522 12.0451 5.97287 12.0451 6.39286C12.0451 6.81286 11.7075 7.15051 11.2875 7.15051H4.62514C4.20749 7.15051 3.86749 6.81169 3.86749 6.39286C3.86749 5.97404 4.20631 5.63522 4.62514 5.63522ZM4.62514 10.1776C4.20749 10.1776 3.86749 9.83875 3.86749 9.41992C3.86749 9.0011 4.20631 8.66228 4.62514 8.66228H8.71337C9.13337 8.66228 9.47102 8.99992 9.47102 9.41992C9.47102 9.83992 9.13337 10.1776 8.71337 10.1776H4.62514Z" fill="currentcolor"/>
+                      </g>
+                      <defs>
+                        <clipPath id="clip0_4459_2987">
+                          <rect width="20" height="20" fill="white"/>
+                        </clipPath>
+                      </defs>
+                    </svg>
+                  </div>
+                  <p>Dúvidas?</p>
+                </div>
+                <div class="booking-form__support">
+                  <p>Nossa equipe está à disposição:</p>
+                  <a href="https://wa.me/5519989280809" target="_blank" rel="noopener noreferrer" class="booking-form__support-link">
+                    <div>(19) 98928-0809 • (19) 3242-2777</div>
+                  </a>
+                </div>
+              </div>
+              <button type="button" data-booking-close="" data-booking-back-home="" data-stagger-link="" class="btn">
+                <div class="btn__text"><div>(</div><div data-stagger-link-text="">Voltar ao Início</div><div>)</div></div>
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div><script src="assets/jquery-3.5.1.min.js" type="text/javascript"></script><script src="assets/webflow.min.js" type="text/javascript"></script><script src="assets/gsap.min.js" type="text/javascript"></script><script src="assets/ScrollTrigger.min.js" type="text/javascript"></script><script src="assets/SplitText.min.js" type="text/javascript"></script><script type="text/javascript">gsap.registerPlugin(ScrollTrigger,SplitText);</script><script src="assets/inputmask.min.js"></script>
 <script src="assets/jquery.validate.min.js"></script>
 
 <script>
