@@ -24,16 +24,14 @@ const customStyles = `
   /* 1. Logo com filtro branco para contraste impecável em fundos escuros */
   .logo__img img,
   .nav-logo img,
-  .footer__logo img,
   .nav-logo-link img,
-  .footer__logo-link img,
   img[src*="01-home-ricardo-andrade-logo-menu.png"] {
     filter: brightness(0) invert(1) !important;
     opacity: 0.95 !important;
     transition: opacity 0.3s ease !important;
   }
   .logo__img img:hover,
-  .footer__logo img:hover {
+  :hover {
     opacity: 1 !important;
   }
 
