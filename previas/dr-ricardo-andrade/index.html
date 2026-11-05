@@ -897,7 +897,7 @@ a, button, .button, input, select, label.booking-treatment-card, label.booking-d
   }
   .hero__bg {
     background-image: url('assets/hero-ricardo-andrade.avif') !important;
-    background-position: 72% center !important;
+    background-position: 88% center !important;
     background-size: cover !important;
     background-repeat: no-repeat !important;
     opacity: 0.92 !important;
@@ -1227,6 +1227,31 @@ a, button, .button, input, select, label.booking-treatment-card, label.booking-d
   .other-proc-whatsapp-btn,
   [data-stagger-link-text] {
     text-shadow: none !important;
+  }
+
+  /* 7. Otimização de rolagem da seção Why-Us: transição imediata e fluida após o último card */
+  .why-us {
+    height: 200vh !important;
+  }
+  @media (max-width: 479px) {
+    .why-us {
+      height: 210vh !important;
+    }
+  }
+  @media screen and (min-width: 1440px) {
+    .hero__bg {
+      background-position: 90% center !important;
+    }
+  }
+  @media screen and (max-width: 991px) {
+    .hero__bg {
+      background-position: 84% center !important;
+    }
+  }
+  /* Enquadramento da foto no Card 04 para exibir o rosto completo sem corte */
+  .why-us__card-wrap.is-last .why-us-card__img,
+  .why-us__card-wrap:nth-child(4) .why-us-card__img {
+    object-position: center 12% !important;
   }
 </style>
 
@@ -2666,8 +2691,8 @@ a, button, .button, input, select, label.booking-treatment-card, label.booking-d
           const cardTimeline = gsap.timeline({
             scrollTrigger: {
               trigger: cardsContainer,
-              start: () => `top+=${(index - 1) * (cardsContainer.offsetHeight / totalCards)} top`,
-              end: () => `top+=${index * (cardsContainer.offsetHeight / totalCards)} top`,
+              start: () => `top+=${(index - 1) * (cardsContainer.offsetHeight * 0.92 / (totalCards - 1))} top`,
+              end: () => `top+=${index * (cardsContainer.offsetHeight * 0.92 / (totalCards - 1))} top`,
               scrub: 1,
             },
           });
@@ -2842,8 +2867,8 @@ a, button, .button, input, select, label.booking-treatment-card, label.booking-d
           const cardTimeline = gsap.timeline({
             scrollTrigger: {
               trigger: cardsContainer,
-              start: () => `top+=${(index - 1) * (cardsContainer.offsetHeight / totalCards)} top`,
-              end: () => `top+=${index * (cardsContainer.offsetHeight / totalCards)} top`,
+              start: () => `top+=${(index - 1) * (cardsContainer.offsetHeight * 0.92 / (totalCards - 1))} top`,
+              end: () => `top+=${index * (cardsContainer.offsetHeight * 0.92 / (totalCards - 1))} top`,
               scrub: 1,
             },
           });

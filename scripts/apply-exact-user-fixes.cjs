@@ -57,7 +57,7 @@ const customStyles = `
   }
   .hero__bg {
     background-image: url('assets/hero-ricardo-andrade.avif') !important;
-    background-position: 72% center !important;
+    background-position: 88% center !important;
     background-size: cover !important;
     background-repeat: no-repeat !important;
     opacity: 0.92 !important;
