@@ -2094,150 +2094,68 @@ html, body {
 
 <style id="vkr-user-fixes-perfection">
 /* ==========================================================================
-   1. FEATURED PROJECTS: 3-COLUMN SHOWCASE (ZERO BLANK SPACE, IMAGES VISIBLE)
+   1. FEATURED PROJECTS: DYNAMIC INTERACTIVE SHOWCASE WITH SMOOTH ANIMATIONS
    ========================================================================== */
 .section-beidge {
   background-color: #f7f5f0 !important;
-  padding: 4.5rem 0 !important;
   position: relative !important;
 }
 
-.featured-heading {
-  position: relative !important;
-  top: auto !important;
-  left: auto !important;
-  inset: auto !important;
-  width: 100% !important;
-  margin-bottom: 2.5rem !important;
-  padding: 0 !important;
-  pointer-events: auto !important;
-  z-index: 5 !important;
-}
-
-.featured-label {
-  max-width: 650px !important;
-}
-
-.featured-label h2 {
-  font-family: 'Cormorant Garamond', Georgia, serif !important;
-  font-size: clamp(28px, 3.5vw, 44px) !important;
-  font-weight: 600 !important;
-  color: #1f1a17 !important;
-  line-height: 1.2 !important;
-  margin-bottom: 0.75rem !important;
-}
-
-.featured-label p {
-  font-size: 15px !important;
-  line-height: 1.6 !important;
-  color: #6e6259 !important;
-  max-width: 580px !important;
-}
-
-.featured-wrapper {
-  width: 100% !important;
-}
-
-.featured-list {
-  display: flex !important;
-  flex-direction: column !important;
-  gap: 1.75rem !important;
-  width: 100% !important;
-}
-
-/* Desktop layout for Featured Projects: Name | Image | Description */
 @media screen and (min-width: 992px) {
   .featured-items {
-    position: relative !important;
-    display: grid !important;
-    grid-template-columns: 280px 380px 1fr !important;
-    gap: 3rem !important;
-    align-items: center !important;
-    padding: 1.75rem 1rem !important;
-    border-bottom: 1px solid rgba(85, 72, 63, 0.12) !important;
-    transition: background-color 0.25s ease, transform 0.25s ease !important;
-    border-radius: 12px !important;
+    position: relative;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
   }
 
-  .featured-items:hover {
-    background-color: rgba(255, 255, 255, 0.5) !important;
+  .featured-items .featured-text {
+    opacity: 0.28;
+    transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1), transform 0.35s ease;
+  }
+
+  .featured-items:hover .featured-text,
+  .featured-items.is-active .featured-text {
+    opacity: 1 !important;
+  }
+
+  .featured-divider-active {
+    opacity: 0;
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+  }
+
+  .featured-items.is-active .featured-divider-active {
+    opacity: 1 !important;
+    transform: scaleX(1) !important;
   }
 
   .featured-image-wrap {
-    position: relative !important;
-    inset: auto !important;
-    width: 100% !important;
-    max-width: 380px !important;
-    height: 230px !important;
-    border-radius: 12px !important;
-    overflow: hidden !important;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08) !important;
-    display: block !important;
-    order: 2 !important;
+    pointer-events: none;
+    z-index: 3;
   }
 
   .featured-image {
-    width: 100% !important;
-    height: 100% !important;
-    max-width: 100% !important;
-    max-height: 100% !important;
-    display: block !important;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.16);
+    transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
   }
 
   .featured-image img {
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: cover !important;
-    display: block !important;
-    transition: transform 0.4s ease !important;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
   }
 
-  .featured-items:hover .featured-image img {
-    transform: scale(1.04) !important;
-  }
-
-  .featured-grid {
-    order: 1 !important;
-    display: contents !important;
-  }
-
-  .featured-grid .site-grid {
-    display: contents !important;
-  }
-
-  .featured-grid .site-grid > div:nth-child(1) {
-    display: none !important; /* Hide redundant numbering */
-  }
-
-  .featured-grid .site-grid > div:nth-child(2) {
-    order: 1 !important;
-  }
-
-  .featured-grid .site-grid > div:nth-child(2) .text-size-regular {
-    font-family: 'Cormorant Garamond', Georgia, serif !important;
-    font-size: 24px !important;
-    font-weight: 600 !important;
-    color: #1f1a17 !important;
-    line-height: 1.3 !important;
-  }
-
-  .featured-grid .site-grid > div:nth-child(3) {
-    order: 3 !important;
-  }
-
-  .featured-grid .site-grid > div:nth-child(3) .text-size-regular {
-    font-size: 14.5px !important;
-    line-height: 1.65 !important;
-    color: #55483f !important;
-  }
-
-  .featured-divider,
-  .featured-divider-active {
-    display: none !important;
+  .featured-items.is-active .featured-image img {
+    transform: scale(1.03);
   }
 }
 
-/* Mobile & Tablet layout for Featured Projects */
+/* Mobile & Tablet fallback */
 @media screen and (max-width: 991px) {
   .featured-items {
     position: relative !important;
@@ -2255,7 +2173,6 @@ html, body {
     aspect-ratio: 16 / 10 !important;
     border-radius: 12px !important;
     overflow: hidden !important;
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06) !important;
     display: block !important;
   }
 
@@ -2278,9 +2195,13 @@ html, body {
     gap: 0.5rem !important;
   }
 
+  .featured-grid .site-grid > div:nth-child(1) {
+    display: none !important;
+  }
+
   .featured-grid .site-grid > div:nth-child(2) .text-size-regular {
     font-family: 'Cormorant Garamond', Georgia, serif !important;
-    font-size: 22px !important;
+    font-size: 20px !important;
     font-weight: 600 !important;
     color: #1f1a17 !important;
   }
@@ -3878,7 +3799,7 @@ item.classList.remove('is-active', 'is-prev');
 var img = item.querySelector('.featured-image');
 
 if (img) {
-/* keep visible in layout */
+img.style.display = 'none';
 }
 });
 
