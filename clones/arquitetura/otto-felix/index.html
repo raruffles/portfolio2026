@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Otto Felix - Onde a arte e a técnica se encontram na arquitetura.</title>
+  <meta name="description" content="Entendemos a arquitetura como forma de expressão. Nossos projetos nascem do encontro entre um olhar autoral, as pessoas e o lugar.">
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header" id="header">
+    <div class="header-container">
+      
+      <!-- Navegação Esquerda (Desktop) -->
+      <nav class="nav-left" aria-label="Navegação Principal Esquerda">
+        <ul class="nav-list">
+          <li><a href="#" class="nav-link active">Home</a></li>
+          <li><a href="#studio" class="nav-link">Studio</a></li>
+        </ul>
+      </nav>
+
+      <!-- Logo Central -->
+      <div class="header-logo">
+        <a href="#" aria-label="Studio Otto Felix - Página Inicial">
+          <img src="assets/logo.png" alt="Otto Felix Arquitetura" width="34" height="70" class="logo-img">
+        </a>
+      </div>
+
+      <!-- Navegação Direita (Desktop) -->
+      <nav class="nav-right" aria-label="Navegação Principal Direita">
+        <ul class="nav-list">
+          <li><a href="#projetos" class="nav-link">Projetos</a></li>
+          <li><a href="https://www.ottofelix.com.br/contato/" target="_blank" rel="noopener noreferrer" class="nav-link">Contato</a></li>
+        </ul>
+        <div class="lang-switcher" aria-label="Idioma">
+          <span class="lang-current">PT</span>
+          <div class="lang-dropdown">
+            <a href="#">EN</a>
+            <a href="#">ES</a>
+            <a href="#">FR</a>
+            <a href="#">DE</a>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Botão Hambúrguer (Mobile) -->
+      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Abrir Menu" aria-expanded="false" aria-controls="mobileDrawer">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+
+    </div>
+
+    <!-- Menu Gaveta Mobile -->
+    <div class="mobile-drawer" id="mobileDrawer" aria-hidden="true">
+      <ul class="mobile-nav-list">
+        <li><a href="#" class="mobile-link active">Home</a></li>
+        <li><a href="#studio" class="mobile-link">Studio</a></li>
+        <li><a href="#projetos" class="mobile-link">Projetos</a></li>
+        <li><a href="https://www.ottofelix.com.br/contato/" target="_blank" rel="noopener noreferrer" class="mobile-link">Contato</a></li>
+      </ul>
+      <div class="mobile-lang-row">
+        <span class="lang-tag active">PT</span>
+        <span class="lang-tag">EN</span>
+        <span class="lang-tag">ES</span>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO SECTION (Vídeo Fullscreen) -->
+    <section class="hero-section" id="home">
+      <div class="video-wrapper">
+        <iframe 
+          src="https://player.vimeo.com/video/1180902284?background=1&autoplay=1&loop=1&muted=1&title=0&byline=0&portrait=0" 
+          title="Otto Felix Arquitetura - Reel de Projetos" 
+          frameborder="0" 
+          allow="autoplay; fullscreen; picture-in-picture" 
+          allowfullscreen 
+          class="hero-video">
+        </iframe>
+      </div>
+      <div class="hero-scroll-indicator" aria-hidden="true">
+        <a href="#studio" aria-label="Rolar para seção Studio">
+          <span class="scroll-arrow"></span>
+        </a>
+      </div>
+    </section>
+
+    <!-- SECTION STUDIO -->
+    <section class="studio-section" id="studio">
+      <div class="container studio-container">
+        <div class="studio-image-col">
+          <div class="image-frame">
+            <img src="assets/studio.jpg" alt="Foto do Studio Otto Felix" width="840" height="464" loading="lazy" class="studio-photo">
+          </div>
+        </div>
+        <div class="studio-text-col">
+          <h1 class="studio-title">Studio Otto Felix</h1>
+          <p class="studio-description">
+            Entendemos a arquitetura como forma de expressão. Nossos projetos nascem do encontro entre um olhar autoral, as pessoas e o lugar. Da escala do objeto à cidade, articulamos matéria, luz e proporção para criar espaços com identidade, unindo sensibilidade artística e rigor técnico.
+          </p>
+          <div class="studio-action">
+            <a href="https://www.ottofelix.com.br/studio/" target="_blank" rel="noopener noreferrer" class="btn-studio">
+              conheça melhor o studio
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION PROJETOS -->
+    <section class="projetos-section" id="projetos">
+      <div class="container">
+        
+        <div class="projetos-header">
+          <h2 class="projetos-title">Projetos</h2>
+          
+          <!-- Filtros de Taxonomia -->
+          <div class="filter-bar" role="tablist" aria-label="Filtrar Projetos por Categoria">
+            <button class="filter-btn active" data-filter="all" role="tab" aria-selected="true">Todos</button>
+            <button class="filter-btn" data-filter="residencial" role="tab" aria-selected="false">Residencial</button>
+            <button class="filter-btn" data-filter="comercial" role="tab" aria-selected="false">Comercial</button>
+            <button class="filter-btn" data-filter="interiores" role="tab" aria-selected="false">Interiores</button>
+            <button class="filter-btn" data-filter="design" role="tab" aria-selected="false">Design</button>
+            <button class="filter-btn" data-filter="mostras" role="tab" aria-selected="false">Mostras</button>
+            <button class="filter-btn" data-filter="restaurante" role="tab" aria-selected="false">Restaurante</button>
+            <button class="filter-btn" data-filter="edificio" role="tab" aria-selected="false">Edifício</button>
+          </div>
+        </div>
+
+        <!-- Grade de Projetos -->
+        <div class="projetos-grid" id="projetosGrid">
+
+          <!-- 1. CASA CJ -->
+          <article class="project-card" data-category="residencial">
+            <a href="https://www.ottofelix.com.br/projetos/casa-cj/" target="_blank" rel="noopener noreferrer" class="project-link">
+              <div class="project-thumb">
+                <img src="assets/proj-casa-cj.jpg" alt="CASA CJ" width="948" height="466" loading="lazy">
+              </div>
+              <h3 class="project-name">CASA CJ</h3>
+              <div class="project-meta">
+                <span class="meta-cat">Residencial</span>
+                <span class="meta-sep">|</span>
+                <span class="meta-year">2026</span>
+              </div>
+            </a>
+          </article>
+
+          <!-- 2. CASA DAMATA -->
+          <article class="project-card" data-category="residencial">
+            <a href="https://www.ottofelix.com.br/projetos/casa-damata/" target="_blank" rel="noopener noreferrer" class="project-link">
+              <div class="project-thumb">
+                <img src="assets/proj-casa-damata.jpg" alt="CASA DAMATA" width="948" height="466" loading="lazy">
+              </div>
+              <h3 class="project-name">CASA DAMATA</h3>
+              <div class="project-meta">
+                <span class="meta-cat">Residencial</span>
+                <span class="meta-sep">|</span>
+                <span class="meta-year">2025</span>
+              </div>
+            </a>
+          </article>
+
+          <!-- 3. CASA PAU FERRO -->
+          <article class="project-card" data-category="residencial interiores">
+            <a href="https://www.ottofelix.com.br/projetos/casa-pau-ferr/" target="_blank" rel="noopener noreferrer" class="project-link">
+              <div class="project-thumb">
+                <img src="assets/proj-casa-pau-ferro.jpg" alt="CASA PAU FERRO" width="948" height="466" loading="lazy">
+              </div>
+              <h3 class="project-name">CASA PAU FERRO</h3>
+              <div class="project-meta">
+                <span class="meta-cat">Residencial, Interiores</span>
+                <span class="meta-sep">|</span>
+                <span class="meta-year">2024</span>
+              </div>
+            </a>
+          </article>
+
+          <!-- 4. CASA MB -->
+          <article class="project-card" data-category="residencial interiores">
+            <a href="https://www.ottofelix.com.br/projetos/casa-mb/" target="_blank" rel="noopener noreferrer" class="project-link">
+              <div class="project-thumb">
+                <img src="assets/proj-casa-mb.jpg" alt="CASA MB" width="948" height="466" loading="lazy">
+              </div>
+              <h3 class="project-name">CASA MB</h3>
+              <div class="project-meta">
+                <span class="meta-cat">Residencial, Interiores</span>
+                <span class="meta-sep">|</span>
+                <span class="meta-year">2023</span>
+              </div>
+            </a>
+          </article>
+
+          <!-- 5. SCENARIO BUILDING -->
+          <article class="project-card" data-category="residencial interiores edificio">
+            <a href="https://www.ottofelix.com.br/projetos/scenario-building/" target="_blank" rel="noopener noreferrer" class="project-link">
+              <div class="project-thumb">
+                <img src="assets/proj-scenario.jpg" alt="SCENARIO BUILDING" width="948" height="466" loading="lazy">
+              </div>
+              <h3 class="project-name">SCENARIO BUILDING</h3>
+              <div class="project-meta">
+                <span class="meta-cat">Residencial, Interiores, Edifício</span>
+                <span class="meta-sep">|</span>
+                <span class="meta-year">2024</span>
+              </div>
+            </a>
+          </article>
+
+          <!-- 6. LE TT SPEAKEASY -->
+          <article class="project-card" data-category="interiores mostras">
+            <a href="https://www.ottofelix.com.br/projetos/le-tt-speakeasy/" target="_blank" rel="noopener noreferrer" class="project-link">
+              <div class="project-thumb">
+                <img src="assets/proj-speakeasy.jpg" alt="LE TT SPEAKEASY" width="948" height="466" loading="lazy">
+              </div>
+              <h3 class="project-name">LE TT SPEAKEASY</h3>
+              <div class="project-meta">
+                <span class="meta-cat">Interiores, Mostras</span>
+                <span class="meta-sep">|</span>
+                <span class="meta-year">2025</span>
+              </div>
+            </a>
+          </article>
+
+          <!-- 7. CASA CELEIRO -->
+          <article class="project-card" data-category="residencial interiores">
+            <a href="https://www.ottofelix.com.br/projetos/casa-celeiro/" target="_blank" rel="noopener noreferrer" class="project-link">
+              <div class="project-thumb">
+                <img src="assets/proj-casa-celeiro.jpg" alt="CASA CELEIRO" width="948" height="466" loading="lazy">
+              </div>
+              <h3 class="project-name">CASA CELEIRO</h3>
+              <div class="project-meta">
+                <span class="meta-cat">Residencial, Interiores</span>
+                <span class="meta-sep">|</span>
+                <span class="meta-year">2022</span>
+              </div>
+            </a>
+          </article>
+
+          <!-- 8. CASA PORTO FELIZ -->
+          <article class="project-card" data-category="residencial interiores">
+            <a href="https://www.ottofelix.com.br/projetos/casa-porto-feliz/" target="_blank" rel="noopener noreferrer" class="project-link">
+              <div class="project-thumb">
+                <img src="assets/proj-porto-feliz.jpg" alt="CASA PORTO FELIZ" width="948" height="466" loading="lazy">
+              </div>
+              <h3 class="project-name">CASA PORTO FELIZ</h3>
+              <div class="project-meta">
+                <span class="meta-cat">Residencial, Interiores</span>
+                <span class="meta-sep">|</span>
+                <span class="meta-year">2024</span>
+              </div>
+            </a>
+          </article>
+
+          <!-- 9. CASA SWISS -->
+          <article class="project-card" data-category="residencial interiores">
+            <a href="https://www.ottofelix.com.br/projetos/casa-swiss/" target="_blank" rel="noopener noreferrer" class="project-link">
+              <div class="project-thumb">
+                <img src="assets/proj-casa-swiss.jpg" alt="CASA SWISS" width="948" height="466" loading="lazy">
+              </div>
+              <h3 class="project-name">CASA SWISS</h3>
+              <div class="project-meta">
+                <span class="meta-cat">Residencial, Interiores</span>
+                <span class="meta-sep">|</span>
+                <span class="meta-year">2024</span>
+              </div>
+            </a>
+          </article>
+
+          <!-- 10. CASA AU -->
+          <article class="project-card" data-category="residencial interiores">
+            <a href="https://www.ottofelix.com.br/projetos/casa-au/" target="_blank" rel="noopener noreferrer" class="project-link">
+              <div class="project-thumb">
+                <img src="assets/proj-casa-au.jpg" alt="CASA AU" width="948" height="466" loading="lazy">
+              </div>
+              <h3 class="project-name">CASA AU</h3>
+              <div class="project-meta">
+                <span class="meta-cat">Residencial, Interiores</span>
+                <span class="meta-sep">|</span>
+                <span class="meta-year">2022</span>
+              </div>
+            </a>
+          </article>
+
+          <!-- 11. AG-ALE HOUSE -->
+          <article class="project-card" data-category="residencial interiores">
+            <a href="https://www.ottofelix.com.br/projetos/ag-ale-house/" target="_blank" rel="noopener noreferrer" class="project-link">
+              <div class="project-thumb">
+                <img src="assets/proj-ag-ale-house.jpg" alt="AG-ALE HOUSE" width="948" height="466" loading="lazy">
+              </div>
+              <h3 class="project-name">AG-ALE HOUSE</h3>
+              <div class="project-meta">
+                <span class="meta-cat">Residencial, Interiores</span>
+                <span class="meta-sep">|</span>
+                <span class="meta-year">2024</span>
+              </div>
+            </a>
+          </article>
+
+          <!-- 12. IÓ HOUSE -->
+          <article class="project-card" data-category="residencial interiores">
+            <a href="https://www.ottofelix.com.br/projetos/io-house/" target="_blank" rel="noopener noreferrer" class="project-link">
+              <div class="project-thumb">
+                <img src="assets/proj-io-house.jpg" alt="IÓ house" width="948" height="466" loading="lazy">
+              </div>
+              <h3 class="project-name">IÓ HOUSE</h3>
+              <div class="project-meta">
+                <span class="meta-cat">Residencial, Interiores</span>
+                <span class="meta-sep">|</span>
+                <span class="meta-year">2022</span>
+              </div>
+            </a>
+          </article>
+
+          <!-- 13. CASA A -->
+          <article class="project-card" data-category="residencial interiores">
+            <a href="https://www.ottofelix.com.br/projetos/casa-a/" target="_blank" rel="noopener noreferrer" class="project-link">
+              <div class="project-thumb">
+                <img src="assets/proj-casa-a.jpg" alt="CASA A" width="948" height="466" loading="lazy">
+              </div>
+              <h3 class="project-name">CASA A</h3>
+              <div class="project-meta">
+                <span class="meta-cat">Residencial, Interiores</span>
+                <span class="meta-sep">|</span>
+                <span class="meta-year">2021</span>
+              </div>
+            </a>
+          </article>
+
+          <!-- 14. CASA VERO -->
+          <article class="project-card" data-category="residencial interiores">
+            <a href="https://www.ottofelix.com.br/projetos/casa-vero/" target="_blank" rel="noopener noreferrer" class="project-link">
+              <div class="project-thumb">
+                <img src="assets/proj-casa-vero.jpg" alt="CASA VERO" width="948" height="466" loading="lazy">
+              </div>
+              <h3 class="project-name">CASA VERO</h3>
+              <div class="project-meta">
+                <span class="meta-cat">Residencial, Interiores</span>
+                <span class="meta-sep">|</span>
+                <span class="meta-year">2024</span>
+              </div>
+            </a>
+          </article>
+
+          <!-- 15. CASACOR 2022 -->
+          <article class="project-card" data-category="interiores mostras">
+            <a href="https://www.ottofelix.com.br/projetos/casacor-2022/" target="_blank" rel="noopener noreferrer" class="project-link">
+              <div class="project-thumb">
+                <img src="assets/proj-casacor.jpg" alt="CASACOR 2022" width="948" height="466" loading="lazy">
+              </div>
+              <h3 class="project-name">CASACOR 2022</h3>
+              <div class="project-meta">
+                <span class="meta-cat">Interiores, Mostras</span>
+                <span class="meta-sep">|</span>
+                <span class="meta-year">2022</span>
+              </div>
+            </a>
+          </article>
+
+          <!-- 16. RARO BUILDING -->
+          <article class="project-card" data-category="residencial interiores design edificio">
+            <a href="https://www.ottofelix.com.br/projetos/raro-building/" target="_blank" rel="noopener noreferrer" class="project-link">
+              <div class="project-thumb">
+                <img src="assets/proj-raro-building.jpg" alt="RARO BUILDING" width="948" height="466" loading="lazy">
+              </div>
+              <h3 class="project-name">RARO BUILDING</h3>
+              <div class="project-meta">
+                <span class="meta-cat">Residencial, Interiores, Design, Edifício</span>
+                <span class="meta-sep">|</span>
+                <span class="meta-year">2025</span>
+              </div>
+            </a>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION FRASE (Manifesto de Arte e Técnica) -->
+    <section class="frase-section" id="frase">
+      <div class="container frase-container">
+        <div class="frase-text-col">
+          <p class="frase-line">Cada obra ou peça</p>
+          <p class="frase-line">deve propor uma <strong>solução</strong></p>
+          <p class="frase-line">e deve também</p>
+          <p class="frase-line">contar uma <strong>historia, emocionar.</strong></p>
+        </div>
+        <div class="frase-image-col">
+          <div class="frase-photo-wrap">
+            <img src="assets/otto-frase.jpg" alt="Otto Felix" width="400" height="400" loading="lazy" class="frase-photo">
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-overlay"></div>
+    <div class="container footer-container">
+      <div class="footer-logo">
+        <a href="#" aria-label="Voltar ao início">
+          <img src="assets/logo-footer.png" alt="Studio Otto Felix" width="105" height="80" loading="lazy">
+        </a>
+      </div>
+      <div class="footer-links">
+        <a href="https://www.ottofelix.com.br/politica-de-cookies/" target="_blank" rel="noopener noreferrer">POLÍTICA DE COOKIES</a>
+        <span class="footer-sep">|</span>
+        <a href="https://www.ottofelix.com.br/politica-de-privacidade/" target="_blank" rel="noopener noreferrer">POLÍTICA DE PRIVACIDADE</a>
+      </div>
+      <div class="footer-credits">
+        <p>© 2026 Studio Otto Felix · Todos os direitos reservados</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
