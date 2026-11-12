@@ -22,17 +22,11 @@
   const modeToggleButtons = Array.from(document.querySelectorAll('.view-toggle-btn'));
   const vendorBanner = document.getElementById('vendor-mode-banner');
 
-  // Detecta se a página ou a URL solicita modo vendedor
+  // Detecta o modo estrito da página atual (sem vazamento entre telas)
   function detectInitialMode() {
-    const urlParams = new URLSearchParams(window.location.search);
-    const paramMode = urlParams.get('modo');
-    if (paramMode === 'vendedor') return 'vendedor';
-    if (paramMode === 'precos') return 'precos';
     if (document.body.dataset.defaultMode === 'vendedor') return 'vendedor';
+    if (document.body.dataset.defaultMode === 'precos') return 'precos';
     if (window.location.pathname.toLowerCase().includes('vendedor')) return 'vendedor';
-
-    const saved = localStorage.getItem('odv_catalog_mode');
-    if (saved === 'vendedor' || saved === 'precos') return saved;
     return 'precos';
   }
 
@@ -194,13 +188,8 @@
   function setMode(newMode) {
     if (newMode !== 'precos' && newMode !== 'vendedor') return;
     state.mode = newMode;
-    try {
-      localStorage.setItem('odv_catalog_mode', newMode);
-    } catch {
-      // Ignora restrição de storage
-    }
 
-    // Atualiza botões
+    // Atualiza botões se existirem
     modeToggleButtons.forEach((btn) => {
       const match = btn.dataset.mode === newMode;
       btn.classList.toggle('is-active', match);

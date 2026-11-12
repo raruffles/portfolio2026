@@ -1,8 +1,7 @@
 /**
  * Catálogo Oficial de Produtos — Origem do Vale
- * Distribuidora de Palmitos, Conservas, Bebidas, Doces, Temperos e Frios.
- * Dados atualizados com tabelas de 1,8kg, conservas 300g, frios Nalín, bebidas Itts e doces tradicionais.
- * Doces Suvenir removidos da lista conforme especificação.
+ * Distribuição de Palmitos Selecionados, Conservas Nobres, Frios, Queijos, Doces e Bebidas.
+ * Base de Dados Oficial: 41 Itens correspondentes à tabela do Excel (sem itens duplicados e sem doces Suvenir).
  */
 window.ORIGEM_DO_VALE_DATA = {
   brand: {
@@ -23,566 +22,630 @@ window.ORIGEM_DO_VALE_DATA = {
       items: [
         {
           id: 'pal-01',
-          title: 'Palmito Juçara Tolete 300g',
+          sku: 'ODV-024',
+          badge: 'Mais Nobre',
+          title: 'Palmito Juçara Tolete 540g',
+          sub: 'Juçara da Mata Atlântica',
+          marca: 'Pommer Conservas',
           embalagem: 'Vidro 540g (300g drenado)',
+          cx: 'Caixa c/ 15 un',
           varejo: '29,90',
           atacado: '25,90',
           image: 'assets/produtos/palmito-jucara-tolete-300g.jpg',
-          imageMode: 'contain'
+          imageMode: 'contain',
+          desc: 'A variedade mais premiada e valorizada pela alta gastronomia brasileira. Maciez extrema, toletes inteiros de sabor adocicado e manejo com certificação ambiental rigorosa.'
         },
         {
           id: 'pal-02',
-          title: 'Palmito Pupunha Tolete 300g',
+          sku: 'ODV-025',
+          badge: 'Mais Vendido',
+          title: 'Palmito Pupunha Tolete 540g',
+          sub: 'Pupunha Nobre',
+          marca: 'Pommer Conservas',
           embalagem: 'Vidro 540g (300g drenado)',
+          cx: 'Caixa c/ 15 un',
           varejo: '17,00',
           atacado: '14,90',
           image: 'assets/produtos/palmito-pupunha-tolete-300g.jpg',
-          imageMode: 'contain'
+          imageMode: 'contain',
+          desc: 'Palmito Pupunha cultivado de forma sustentável, com toletes uniformes, leve toque adocicado e excelente textura. O palmito mais versátil e consumido do Brasil.'
         },
         {
           id: 'pal-03',
-          title: 'Palmito Pupunha Mini Tolete p/ Churrasco 300g',
+          sku: 'ODV-026',
+          badge: 'Churrasco',
+          title: 'Palmito Pupunha Mini Tolete para Churrasco 570g',
+          sub: 'Pupunha Nobre',
+          marca: 'Ouro do Vale',
           embalagem: 'Vidro 570g (300g drenado)',
+          cx: 'Caixa c/ 15 un',
           varejo: '19,90',
           atacado: '16,90',
           image: 'assets/produtos/palmito-pupunha-mini-tolete-espeto-300g.jpg',
-          imageMode: 'contain'
+          imageMode: 'contain',
+          desc: 'Toletes curtos e firmes selecionados para espetos de churrasco e grelhados. Mantém a suculência por dentro com uma crosta dourada irresistível ao fogo.'
         },
         {
           id: 'pal-04',
-          title: 'Palmito Palmeira Real Tolete 300g',
+          sku: 'ODV-019',
+          badge: 'Premium',
+          title: 'Palmito de Palmeira Real Tolete 540g',
+          sub: 'Palmeira Real',
+          marca: 'Pommer Conservas',
           embalagem: 'Vidro 540g (300g drenado)',
+          cx: 'Caixa c/ 15 un',
           varejo: '23,00',
           atacado: '18,90',
           image: 'assets/produtos/palmito-palmeira-real-tolete-300g.jpg',
-          imageMode: 'contain'
+          imageMode: 'contain',
+          desc: 'Palmito nobre de Palmeira Real em toletes tenros, com textura aveludada e sabor suave característico. Ideal para saladas finas e pratos da alta gastronomia.'
         },
         {
           id: 'pal-05',
-          title: 'Palmito Palmeira Real Coração 300g',
+          sku: 'ODV-022',
+          badge: 'Coração',
+          title: 'Palmito de Palmeira Real Coração 540g',
+          sub: 'Palmeira Real',
+          marca: 'Pommer Conservas',
           embalagem: 'Vidro 540g (300g drenado)',
+          cx: 'Caixa c/ 15 un',
           varejo: '18,00',
           atacado: '15,90',
           image: 'assets/produtos/palmito-palmeira-real-coracao-300g.jpg',
-          imageMode: 'contain'
+          imageMode: 'contain',
+          desc: 'Coração do palmito de Palmeira Real, a porção de extrema maciez e sabor refinado. Desmancha na boca, ideal para carpaccios de palmito e entradas nobres.'
         },
         {
           id: 'pal-06',
-          title: 'Palmito Palmeira Real Rodela 300g',
+          sku: 'ODV-021',
+          title: 'Palmito de Palmeira Real Rodela 540g',
+          sub: 'Palmeira Real',
+          marca: 'Pommer Conservas',
           embalagem: 'Vidro 540g (300g drenado)',
+          cx: 'Caixa c/ 15 un',
           varejo: '15,00',
           atacado: '11,90',
           image: 'assets/produtos/palmito-palmeira-real-rodela-300g.jpg',
-          imageMode: 'contain'
+          imageMode: 'contain',
+          desc: 'Palmito Palmeira Real cortado em rodelas uniformes e macias. Apresentação impecável para coberturas de pizzas artesanais, tortas e saladas montadas.'
         },
         {
           id: 'pal-07',
-          title: 'Palmito Palmeira Real Picado 300g',
+          sku: 'ODV-020',
+          title: 'Palmito de Palmeira Real Picado 540g',
+          sub: 'Palmeira Real',
+          marca: 'Pommer Conservas',
           embalagem: 'Vidro 540g (300g drenado)',
+          cx: 'Caixa c/ 15 un',
           varejo: '15,00',
           atacado: '11,90',
           image: 'assets/produtos/palmito-palmeira-real-picado-300g.jpg',
-          imageMode: 'contain'
+          imageMode: 'contain',
+          desc: 'Cortes macios de Palmeira Real padronizados para recheios de tortas, empadas, pastéis e risotos gourmet. Máxima qualidade com excelente rendimento na culinária.'
         },
         {
           id: 'pal-08',
-          title: 'Palmito Palmeira Real Banda 300g',
+          sku: 'ODV-023',
+          title: 'Palmito de Palmeira Real Banda 540g',
+          sub: 'Palmeira Real',
+          marca: 'Pommer Conservas',
           embalagem: 'Vidro 540g (300g drenado)',
+          cx: 'Caixa c/ 15 un',
           varejo: '15,00',
           atacado: '11,90',
           image: 'assets/produtos/palmito-palmeira-real-banda-300g.jpg',
-          imageMode: 'contain'
+          imageMode: 'contain',
+          desc: 'Corte longitudinal em meias-partes (bandas) da Palmeira Real. Excelente para grelhar na manteiga com ervas, assar na brasa ou compor pratos contemporâneos.'
         },
-        {
-          id: 'pal-09',
-          title: 'Palmito Pupunha Tolete 1,8Kg',
-          embalagem: 'Balde/Vidro 3,1Kg (1,8Kg drenado)',
-          varejo: '79,90',
-          atacado: '75,00',
-          image: 'https://static.wixstatic.com/media/7cf12f_aeb59e67906741919b48ec3669a13508~mv2.jpeg',
-          imageMode: 'contain'
-        },
-        {
-          id: 'pal-10',
-          title: 'Palmito Pupunha Coração 1,8Kg',
-          embalagem: 'Balde/Vidro 3,1Kg (1,8Kg drenado)',
-          varejo: '60,00',
-          atacado: '53,90',
-          image: 'https://static.wixstatic.com/media/7cf12f_8a9c909737d4430799bb1ca03b252a96~mv2.jpeg',
-          imageMode: 'contain'
-        },
-        {
-          id: 'pal-11',
-          title: 'Palmito Pupunha Picado 1,8Kg',
-          embalagem: 'Balde/Vidro 3,1Kg (1,8Kg drenado)',
-          varejo: '45,00',
-          atacado: '38,90',
-          image: 'https://static.wixstatic.com/media/7cf12f_810fc3a8881547dd82c630fda957691e~mv2.jpeg',
-          imageMode: 'contain'
-        },
-        {
-          id: 'pal-12',
-          title: 'Palmito Pupunha Mini Tolete p/ Espeto 1,8Kg',
-          embalagem: 'Vidro 3,2Kg (1,8Kg drenado Ouro do Vale)',
-          varejo: '79,90',
-          atacado: '74,90',
-          image: 'assets/produtos/palmito-pupunha-mini-tolete-espeto-300g.jpg',
-          imageMode: 'contain'
-        },
-        {
-          id: 'pal-13',
-          title: 'Palmito Palmeira Real Tolete 1,8Kg',
-          embalagem: 'Balde/Vidro 3,1Kg (1,8Kg drenado)',
-          varejo: '89,90',
-          atacado: '83,90',
-          image: 'https://static.wixstatic.com/media/7cf12f_208b9591077a48d6b4ed3d9618ae7789~mv2.png',
-          imageMode: 'contain'
-        },
-        {
-          id: 'pal-14',
-          title: 'Palmito Palmeira Real Coração 1,8Kg',
-          embalagem: 'Balde/Vidro 3,1Kg (1,8Kg drenado)',
-          varejo: '65,90',
-          atacado: '59,90',
-          image: 'https://static.wixstatic.com/media/7cf12f_b38091316d0f4dc6953900eb154b7745~mv2.jpeg',
-          imageMode: 'contain'
-        },
-        {
-          id: 'pal-15',
-          title: 'Palmito Palmeira Real Picado 1,8Kg',
-          embalagem: 'Balde/Vidro 3,1Kg (1,8Kg drenado)',
-          varejo: '38,90',
-          atacado: '35,90',
-          image: 'https://static.wixstatic.com/media/7cf12f_5cc4f3eb371c458080ea8b9aa2ccef43~mv2.jpeg',
-          imageMode: 'contain'
-        },
-        {
-          id: 'pal-16',
-          title: 'Palmito Palmeira Real Rodela 1,8Kg',
-          embalagem: 'Balde/Vidro 3,1Kg (1,8Kg drenado)',
-          varejo: '49,90',
-          atacado: '45,90',
-          image: 'https://static.wixstatic.com/media/7cf12f_9b99c0d3e5504c5badadf07b6c9919d4~mv2.jpeg',
-          imageMode: 'contain'
-        },
-        {
-          id: 'pal-17',
-          title: 'Palmito Palmeira Real Banda 1,8Kg',
-          embalagem: 'Balde/Vidro 3,1Kg (1,8Kg drenado)',
-          varejo: '49,90',
-          atacado: '45,90',
-          image: 'assets/produtos/palmito-palmeira-real-banda-300g.jpg',
-          imageMode: 'contain'
-        },
-        {
-          id: 'pal-18',
-          title: 'Palmito Juçara Tolete 1,8Kg',
-          embalagem: 'Balde/Vidro 3,1Kg (1,8Kg drenado)',
-          varejo: '98,90',
-          atacado: '89,90',
-          image: 'https://static.wixstatic.com/media/7cf12f_208b9591077a48d6b4ed3d9618ae7789~mv2.png',
-          imageMode: 'contain'
-        }
       ]
     },
     {
       id: 'conservas',
       navKey: 'conservas',
       title: 'Conservas Especiais',
-      subtitle: 'Petiscos artesanais, ovos de codorna, batata rústica e picles de sabor marcante.',
+      subtitle: 'Ovos de codorna, batatinhas rústicas, pepinos e cebolas em receitas tradicionais coloniais.',
       items: [
         {
-          id: 'con-01',
-          title: 'Alho em Conserva Vale Beija-Flor',
+          id: 'con-09',
+          sku: 'ODV-001',
+          badge: 'Temperado',
+          title: 'Alho em Conserva 285g',
+          sub: 'Conservas Nobres',
+          marca: 'Vale Beija-Flor',
           embalagem: 'Vidro 285g (150g drenado)',
+          cx: 'Caixa c/ 15 un',
           varejo: '20,00',
           atacado: '18,90',
           image: 'assets/produtos/conserva-alho-300g.jpg',
-          imageMode: 'contain'
-        },
-        {
-          id: 'con-02',
-          title: 'Batata Rústica Danimar em Conserva',
-          embalagem: 'Vidro 540g (300g drenado)',
-          varejo: '18,00',
-          atacado: '15,90',
-          image: 'assets/produtos/conserva-batatinha-rustica-300g.jpg',
-          imageMode: 'contain'
-        },
-        {
-          id: 'con-03',
-          title: 'Cebola Branca Pommer em Conserva',
-          embalagem: 'Vidro 540g (300g drenado)',
-          varejo: '16,00',
-          atacado: '12,90',
-          image: 'assets/produtos/conserva-cebola-branca-300g.jpg',
-          imageMode: 'contain'
-        },
-        {
-          id: 'con-04',
-          title: 'Cebola Tinto Pommer em Conserva',
-          embalagem: 'Vidro 540g (300g drenado)',
-          varejo: '16,00',
-          atacado: '12,90',
-          image: 'assets/produtos/conserva-cebola-tinto-300g.jpg',
-          imageMode: 'contain'
-        },
-        {
-          id: 'con-05',
-          title: 'Ovo de Codorna Branco Pommer 300g',
-          embalagem: 'Vidro 540g (300g drenado)',
-          varejo: '18,00',
-          atacado: '15,90',
-          image: 'assets/produtos/conserva-ovo-codorna-branco-300g.jpg',
-          imageMode: 'contain'
-        },
-        {
-          id: 'con-06',
-          title: 'Ovo de Codorna Defumado Danimar 300g',
-          embalagem: 'Vidro 540g (300g drenado)',
-          varejo: '19,00',
-          atacado: '16,90',
-          image: 'assets/produtos/conserva-ovo-codorna-defumado-300g.jpg',
-          imageMode: 'contain'
-        },
-        {
-          id: 'con-07',
-          title: 'Pepino Inteiro Pommer em Conserva 300g',
-          embalagem: 'Vidro 540g (300g drenado)',
-          varejo: '16,00',
-          atacado: '12,90',
-          image: 'assets/produtos/conserva-pepino-inteiro-300g.jpg',
-          imageMode: 'contain'
-        },
-        {
-          id: 'con-08',
-          title: 'Pepino Agridoce Pommer em Conserva 300g',
-          embalagem: 'Vidro 540g (300g drenado)',
-          varejo: '16,00',
-          atacado: '12,90',
-          image: 'assets/produtos/conserva-pepino-agridoce-300g.jpg',
-          imageMode: 'contain'
-        },
-        {
-          id: 'con-09',
-          title: 'Picles Especial Pommer em Conserva 300g',
-          embalagem: 'Vidro 580g (300g drenado)',
-          varejo: '16,00',
-          atacado: '12,90',
-          image: 'assets/produtos/conserva-picles-300g.jpg',
-          imageMode: 'contain'
+          imageMode: 'contain',
+          desc: 'Dentes de alho inteiros selecionados em salmoura suave e ervas finas. Sabor marcante sem acidez excessiva, ideal para antepastos, churrascos e saladas.'
         },
         {
           id: 'con-10',
-          title: 'Pepino em Conserva Pommer 1,8Kg',
-          embalagem: 'Balde/Vidro 3,1Kg (1,8Kg drenado)',
-          varejo: '55,00',
-          atacado: '47,90',
-          image: 'assets/produtos/conserva-pepino-pommer-1800g.jpg',
-          imageMode: 'contain'
+          sku: 'ODV-002',
+          badge: 'Petisco',
+          title: 'Batatinha Rústica em Conserva 540g',
+          sub: 'Conservas Tradicionais',
+          marca: 'Danimar',
+          embalagem: 'Vidro 540g (300g drenado)',
+          cx: 'Caixa c/ 15 un',
+          varejo: '18,00',
+          atacado: '15,90',
+          image: 'assets/produtos/conserva-batatinha-rustica-300g.jpg',
+          imageMode: 'contain',
+          desc: 'Batatas bolinha tenras e cozidas no ponto perfeito, conservadas em tempero suave. O clássico petisco de boteco e acompanhamento ideal para carnes assadas.'
         },
         {
           id: 'con-11',
-          title: 'Ovos de Codorna Danimar 2,8Kg / 1,8Kg',
-          embalagem: 'Balde 2,8Kg (1,8Kg drenado)',
+          sku: 'ODV-003',
+          title: 'Cebolinha Branca em Conserva 540g',
+          sub: 'Conservas Tradicionais',
+          marca: 'Pommer Conservas',
+          embalagem: 'Vidro 540g (300g drenado)',
+          cx: 'Caixa c/ 15 un',
+          varejo: '16,00',
+          atacado: '12,90',
+          image: 'assets/produtos/conserva-cebola-branca-300g.jpg',
+          imageMode: 'contain',
+          desc: 'Mini cebolas aperitivo brancas, crocantes e de sabor equilibrado. Acompanhamento indispensável para feijoadas, tábuas de frios e churrascos.'
+        },
+        {
+          id: 'con-12',
+          sku: 'ODV-004',
+          title: 'Cebola Tinto em Conserva 540g',
+          sub: 'Conservas Nobres',
+          marca: 'Pommer Conservas',
+          embalagem: 'Vidro 540g (300g drenado)',
+          cx: 'Caixa c/ 15 un',
+          varejo: '16,00',
+          atacado: '12,90',
+          image: 'assets/produtos/conserva-cebola-tinto-300g.jpg',
+          imageMode: 'contain',
+          desc: 'Mini cebolas selecionadas maturadas em vinho tinto colonial e especiarias. Coloração púrpura exuberante e sabor levemente adocicado para tábuas nobres.'
+        },
+        {
+          id: 'con-13',
+          sku: 'ODV-005',
+          title: 'Ovos de Codorna Brancos em Conserva 540g',
+          sub: 'Conservas Tradicionais',
+          marca: 'Pommer Conservas',
+          embalagem: 'Vidro 540g (300g drenado)',
+          cx: 'Caixa c/ 15 un',
+          varejo: '18,00',
+          atacado: '15,90',
+          image: 'assets/produtos/conserva-ovo-codorna-branco-300g.jpg',
+          imageMode: 'contain',
+          desc: 'Ovos de codorna inteiros rigorosamente padronizados, com textura firme e salmoura equilibrada. Perfeitos para buffets, saladas e porções de aperitivo.'
+        },
+        {
+          id: 'con-14',
+          sku: 'ODV-006',
+          badge: 'Defumado a Lenha',
+          title: 'Ovos de Codorna Defumados em Conserva 540g',
+          sub: 'Conservas Nobres',
+          marca: 'Danimar',
+          embalagem: 'Vidro 540g (300g drenado)',
+          cx: 'Caixa c/ 15 un',
+          varejo: '19,00',
+          atacado: '16,90',
+          image: 'assets/produtos/conserva-ovo-codorna-defumado-300g.jpg',
+          imageMode: 'contain',
+          desc: 'Ovos de codorna com defumação lenta tradicional em lenha nobre. Aroma defumado marcante e cor dourada irresistível para petiscos e harmonizações com cervejas artesanais.'
+        },
+        {
+          id: 'con-15',
+          sku: 'ODV-007',
+          title: 'Pepino Inteiro em Conserva 540g',
+          sub: 'Conservas Tradicionais',
+          marca: 'Pommer Conservas',
+          embalagem: 'Vidro 540g (300g drenado)',
+          cx: 'Caixa c/ 15 un',
+          varejo: '16,00',
+          atacado: '12,90',
+          image: 'assets/produtos/conserva-pepino-inteiro-300g.jpg',
+          imageMode: 'contain',
+          desc: 'Pepinos tipo holandês pequenos e selecionados, preservados com máxima crocância em vinagre aromático e sementes de mostarda. Acompanhamento clássico para hambúrgueres e sanduíches.'
+        },
+        {
+          id: 'con-16',
+          sku: 'ODV-008',
+          badge: 'Agridoce Colonial',
+          title: 'Pepino Agridoce em Conserva 540g',
+          sub: 'Conservas Especiais',
+          marca: 'Pommer Conservas',
+          embalagem: 'Vidro 540g (300g drenado)',
+          cx: 'Caixa c/ 15 un',
+          varejo: '16,00',
+          atacado: '12,90',
+          image: 'assets/produtos/conserva-pepino-agridoce-300g.jpg',
+          imageMode: 'contain',
+          desc: 'Pepinos em fatias tenras e crocantes preparados segundo tradicional receita germânica agridoce. Combinação refinada para sanduíches gourmet, tábuas de queijos e saladas.'
+        },
+        {
+          id: 'con-17',
+          sku: 'ODV-009',
+          title: 'Picles Especial em Conserva 580g',
+          sub: 'Conservas Tradicionais',
+          marca: 'Pommer Conservas',
+          embalagem: 'Vidro 580g (300g drenado)',
+          cx: 'Caixa c/ 15 un',
+          varejo: '16,00',
+          atacado: '12,90',
+          image: 'assets/produtos/conserva-picles-300g.jpg',
+          imageMode: 'contain',
+          desc: 'Mix colorido e crocante de pepino, cenoura, couve-flor e cebolinha em conserva de vinagre branco refinado. Praticidade e frescor para aperitivos e pratos frios.'
+        },
+        {
+          id: 'con-18',
+          sku: 'ODV-034',
+          badge: 'Food Service 1,8Kg',
+          title: 'Ovos de Codorna Danimar Food Service 2,8kg',
+          sub: 'Food Service / Gastronomia',
+          marca: 'Danimar',
+          embalagem: 'Balde / Pote Econômico 2,8kg (1,8kg drenado)',
+          cx: 'Unidade / Fardo',
           varejo: '100,00',
           atacado: '97,90',
           image: 'assets/produtos/conserva-ovo-codorna-danimar-1800g.jpg',
-          imageMode: 'contain'
-        }
+          imageMode: 'contain',
+          desc: 'Ovos de codorna brancos selecionados em embalagem econômica de 1,8kg drenado. Alto rendimento com padrão uniforme para buffets, pizzarias, bares e restaurantes.'
+        },
+        {
+          id: 'con-19',
+          sku: 'ODV-035',
+          badge: 'Food Service 1,8Kg',
+          title: 'Pepino em Conserva Pommer Food Service 3,1kg',
+          sub: 'Food Service / Gastronomia',
+          marca: 'Pommer Conservas',
+          embalagem: 'Balde / Pote Econômico 3,1kg (1,8kg drenado)',
+          cx: 'Unidade / Fardo',
+          varejo: '55,00',
+          atacado: '47,90',
+          image: 'assets/produtos/conserva-pepino-pommer-1800g.jpg',
+          imageMode: 'contain',
+          desc: 'Pepinos selecionados em salmoura especial no tamanho profissional de 1,8kg drenado. Perfeito para hamburguerias, lanchonetes e cozinhas industriais.'
+        },
       ]
     },
     {
       id: 'frios',
       navKey: 'frios',
       title: 'Frios, Queijos & Carnes Nobres',
-      subtitle: 'Charcutaria artesanal, queijo minas fresco e linguiças nobres para tábuas e churrasco.',
+      subtitle: 'Linguiças especiais recheadas Nalín, queijo artesanal da serra, torresmo de rolo e salames curados.',
       items: [
         {
-          id: 'fri-01',
+          id: 'fri-20',
+          sku: 'ODV-027',
+          badge: 'Pururuca',
           title: 'Torresmo de Rolo Artesanal',
-          embalagem: 'Peça selecionada (venda por KG)',
+          sub: 'Suínos Artesanais',
+          marca: 'Origem do Vale',
+          embalagem: 'Pacote a Vácuo Peça a vácuo (~1kg) (1kg drenado)',
+          cx: 'Caixa c/ 10kg',
           varejo: '59,90',
-          atacado: '59,90',
+          atacado: '49,90',
           image: 'assets/produtos/frios-torresmo-de-rolo.jpg',
-          imageMode: 'contain'
+          imageMode: 'contain',
+          desc: 'Panceta suína enrolada artesanalmente, temperada com ervas e especiarias da serra. Ideal para fritar ou assar, resultando em pururuca crocante por fora e carne macia por dentro.'
         },
         {
-          id: 'fri-02',
-          title: 'Salame Corte Artesanal',
-          embalagem: 'Fatiado / Peça nobre',
+          id: 'fri-21',
+          sku: 'ODV-028',
+          title: 'Salame Fatiado Corte Artesanal',
+          sub: 'Embutidos Curados',
+          marca: 'Origem do Vale',
+          embalagem: 'Bandeja Atmosfera Modificada 100g',
+          cx: 'Caixa c/ 20 un',
           varejo: '15,20',
           atacado: '12,50',
           image: 'assets/produtos/frios-salame.jpg',
-          imageMode: 'contain'
+          imageMode: 'contain',
+          desc: 'Salame tipo italiano com maturação lenta em adega ventilada, fatiado finamente. Sabor equilibrado com toque de alho e vinho, pronto para tábuas de frios e lanches finos.'
         },
         {
-          id: 'fri-03',
-          title: 'Linguiça Suína com Tomate Seco, Queijo e Rúcula Nalín',
-          embalagem: 'Pacote 1Kg vácuo',
+          id: 'fri-22',
+          sku: 'ODV-029',
+          badge: 'Linha Gourmet',
+          title: 'Linguiça Suína com Rúcula, Tomate Seco e Queijo Nalín',
+          sub: 'Linguiças Nobres',
+          marca: 'Nalín',
+          embalagem: 'Pacote a Vácuo Pacote ~500g (500g drenado)',
+          cx: 'Caixa c/ 10 un',
           varejo: '38,90',
           atacado: '34,90',
           image: 'assets/produtos/frios-linguica-tomate-seco-queijo-rucula.jpg',
-          imageMode: 'contain'
+          imageMode: 'contain',
+          desc: 'Linguiça suína artesanal nobre recheada com queijo derretido, tomate seco artesanal e folhas de rúcula fresca. O carro-chefe dos churrascos gourmet.'
         },
         {
-          id: 'fri-04',
+          id: 'fri-23',
+          sku: 'ODV-030',
+          badge: 'Cuiabana',
           title: 'Linguiça Suína Cuiabana Nalín',
-          embalagem: 'Pacote 1Kg vácuo',
+          sub: 'Linguiças Nobres',
+          marca: 'Nalín',
+          embalagem: 'Pacote a Vácuo Pacote ~500g (500g drenado)',
+          cx: 'Caixa c/ 10 un',
           varejo: '38,90',
           atacado: '34,90',
           image: 'assets/produtos/frios-linguica-cuiabana.jpg',
-          imageMode: 'contain'
+          imageMode: 'contain',
+          desc: 'Receita tradicional cuiabana feita com carnes nobres suínas marinadas em leite e temperos verdes, entremeadas com queijo. Textura macia e suculência ímpar.'
         },
         {
-          id: 'fri-05',
+          id: 'fri-24',
+          sku: 'ODV-031',
           title: 'Linguiça Suína com Bacon Nalín',
-          embalagem: 'Pacote 1Kg vácuo',
+          sub: 'Linguiças Nobres',
+          marca: 'Nalín',
+          embalagem: 'Pacote a Vácuo Pacote ~500g (500g drenado)',
+          cx: 'Caixa c/ 10 un',
           varejo: '38,90',
           atacado: '34,90',
           image: 'assets/produtos/frios-linguica-com-bacon.jpg',
-          imageMode: 'contain'
+          imageMode: 'contain',
+          desc: 'Carne suína nobre selecionada combinada a cubos de bacon artesanal defumado em lenha nobre. Sabor intenso e suculência máxima para churrascos e petiscos.'
         },
         {
-          id: 'fri-06',
+          id: 'fri-25',
+          sku: 'ODV-032',
           title: 'Linguiça Suína com Pimenta Biquinho Nalín',
-          embalagem: 'Pacote 1Kg vácuo',
+          sub: 'Linguiças Nobres',
+          marca: 'Nalín',
+          embalagem: 'Pacote a Vácuo Pacote ~500g (500g drenado)',
+          cx: 'Caixa c/ 10 un',
           varejo: '38,90',
           atacado: '34,90',
           image: 'assets/produtos/frios-linguica-pimenta-biquinho.jpg',
-          imageMode: 'contain'
+          imageMode: 'contain',
+          desc: 'Linguiça suína especial temperada com pimenta biquinho inteira curtida. Entrega todo o sabor e aroma adocicado da pimenta tradicional mineira sem ardência forte.'
         },
         {
-          id: 'fri-07',
+          id: 'fri-26',
+          sku: 'ODV-033',
           title: 'Linguiça Suína com Alho Nalín',
-          embalagem: 'Pacote 1Kg vácuo',
+          sub: 'Linguiças Nobres',
+          marca: 'Nalín',
+          embalagem: 'Pacote a Vácuo Pacote ~500g (500g drenado)',
+          cx: 'Caixa c/ 10 un',
           varejo: '38,90',
           atacado: '34,90',
           image: 'assets/produtos/frios-linguica-com-alho.jpg',
-          imageMode: 'contain'
+          imageMode: 'contain',
+          desc: 'A combinação clássica mais amada do churrasqueiro brasileiro: cortes suínos nobres marinados em alho roxo fresco e especiarias coloniais na medida certa.'
         },
         {
-          id: 'fri-08',
-          title: 'Queijo de Minas Frescal Ecila',
-          embalagem: 'Pote artesanal com soro',
+          id: 'fri-27',
+          sku: 'ODV-036',
+          badge: 'Queijo da Serra',
+          title: 'Queijo Minas Frescal Artesanal Ecila',
+          sub: 'Laticínios da Serra',
+          marca: 'Ecila',
+          embalagem: 'Pacote a Vácuo Peça ~500g (500g drenado)',
+          cx: 'Caixa c/ 12 un',
           varejo: '32,90',
           atacado: '28,90',
           image: 'assets/produtos/frios-queijo-minas-ecila.jpg',
-          imageMode: 'contain'
-        }
+          imageMode: 'contain',
+          desc: 'Queijo Minas Frescal tradicional produzido com leite pasteurizado puro das montanhas. Massa leve, textura úmida e sabor delicado, ideal para café da manhã e antepastos.'
+        },
       ]
     },
     {
       id: 'doces',
       navKey: 'doces',
       title: 'Doces Tradicionais da Serra',
-      subtitle: 'Doces de colher cremosos, bananadas e pingados autênticos sem adição de doces artificiais.',
+      subtitle: 'Doces mineiros autênticos de tacho, bananadas, cocadas e doces de leite de fazenda (sem doces Suvenir).',
       items: [
         {
-          id: 'doc-01',
-          title: 'Doce de Leite Cremoso Ecila',
-          embalagem: 'Pote 400g',
+          id: 'doc-28',
+          sku: 'ODV-010',
+          badge: 'Puro Leite',
+          title: 'Doce de Leite Cremoso Tradicional Ecila',
+          sub: 'Doces de Leite',
+          marca: 'Ecila',
+          embalagem: 'Pote de Vidro Pote ~400g (400g drenado)',
+          cx: 'Caixa c/ 12 un',
           varejo: '18,00',
           atacado: '15,90',
           image: 'assets/produtos/doce-leite-ecila.jpg',
-          imageMode: 'contain'
+          imageMode: 'contain',
+          desc: 'Doce de leite mineiro feito com leite fresco integral e cozimento lento em tacho. Textura acetinada, cor de caramelo claro e dulçor equilibrado.'
         },
         {
-          id: 'doc-02',
+          id: 'doc-29',
+          sku: 'ODV-011',
           title: 'Doce de Leite com Coco Dom de Minas 400g',
-          embalagem: 'Pote 400g Serra Negra',
+          sub: 'Doces de Leite',
+          marca: 'Dom de Minas',
+          embalagem: 'Pote de Vidro 400g',
+          cx: 'Caixa c/ 12 un',
           varejo: '18,00',
           atacado: '15,90',
           image: 'assets/produtos/doce-dom-minas-coco-400g.jpg',
-          imageMode: 'contain'
+          imageMode: 'contain',
+          desc: 'Harmonização clássica do doce de leite cremoso Dom de Minas com flocos de coco in natura ralado. Sensação cremosa e pedacinhos crocantes de coco.'
         },
         {
-          id: 'doc-03',
+          id: 'doc-30',
+          sku: 'ODV-012',
+          badge: 'Café Arábica',
           title: 'Doce de Leite com Café Dom de Minas 400g',
-          embalagem: 'Pote 400g Serra Negra',
+          sub: 'Doces de Leite',
+          marca: 'Dom de Minas',
+          embalagem: 'Pote de Vidro 400g',
+          cx: 'Caixa c/ 12 un',
           varejo: '18,00',
           atacado: '15,90',
           image: 'assets/produtos/doce-dom-minas-cafe-400g.jpg',
-          imageMode: 'contain'
+          imageMode: 'contain',
+          desc: 'O encontro perfeito entre o doce de leite cremoso artesanal e notas encorpadas de café especial 100% arábica. Sabor sofisticado que agrada aos paladares mais exigentes.'
         },
         {
-          id: 'doc-04',
+          id: 'doc-31',
+          sku: 'ODV-013',
           title: 'Doce de Leite Tradicional Dom de Minas 400g',
-          embalagem: 'Pote 400g Serra Negra',
+          sub: 'Doces de Leite',
+          marca: 'Dom de Minas',
+          embalagem: 'Pote de Vidro 400g',
+          cx: 'Caixa c/ 12 un',
           varejo: '18,00',
           atacado: '15,90',
           image: 'assets/produtos/doce-dom-minas-tradicional-400g.jpg',
-          imageMode: 'contain'
+          imageMode: 'contain',
+          desc: 'Puro doce de leite colonial mineiro em ponto de colher sedoso. Sabor autêntico da roça sem adição de conservantes artificiais ou amido.'
         },
         {
-          id: 'doc-05',
-          title: 'Doce de Bananada Casagrande 250g',
-          embalagem: 'Pote 250g',
+          id: 'doc-32',
+          sku: 'ODV-014',
+          title: 'Doce de Bananada Artesanal Casagrande 250g',
+          sub: 'Doces de Frutas',
+          marca: 'Doces Casagrande',
+          embalagem: 'Pote Plástico Selado 250g',
+          cx: 'Caixa c/ 24 un',
           varejo: '15,00',
           atacado: '13,90',
           image: 'assets/produtos/doce-bananada-250g.jpg',
-          imageMode: 'contain'
+          imageMode: 'contain',
+          desc: 'Bananada cremosa artesanal elaborada exclusivamente com bananas selecionadas cozidas lentamente até caramelização natural. Energia pura e gostinho da infância.'
         },
         {
-          id: 'doc-06',
-          title: 'Foundant de Leite Pingado 250g',
-          embalagem: 'Pote 250g',
+          id: 'doc-33',
+          sku: 'ODV-015',
+          title: 'Doce Pingo de Leite Artesanal (Fondant) 250g',
+          sub: 'Doces Tradicionais',
+          marca: 'Origem do Vale',
+          embalagem: 'Pote Plástico Selado 250g',
+          cx: 'Caixa c/ 24 un',
           varejo: '15,00',
           atacado: '13,90',
           image: 'assets/produtos/doce-pingo-leite-250g.jpg',
-          imageMode: 'contain'
+          imageMode: 'contain',
+          desc: 'Pingos de leite tipo fondant artesanal. Casquinha crocante muito fina por fora que se rompe revelando recheio macio de doce de leite puro por dentro.'
         },
         {
-          id: 'doc-07',
-          title: 'Doce de Abóbora Pingado 250g',
-          embalagem: 'Pote 250g',
+          id: 'doc-34',
+          sku: 'ODV-016',
+          title: 'Doce de Abóbora Pingado Artesanal 250g',
+          sub: 'Doces Tradicionais',
+          marca: 'Origem do Vale',
+          embalagem: 'Pote Plástico Selado 250g',
+          cx: 'Caixa c/ 24 un',
           varejo: '15,00',
           atacado: '13,90',
           image: 'assets/produtos/doce-abobora-250g.jpg',
-          imageMode: 'contain'
+          imageMode: 'contain',
+          desc: 'Doce de abóbora em formato de coração/pingo pingado. Cozimento tradicional com canela, cravo-da-índia e coco ralado, remetendo às velhas fazendas paulistas e mineiras.'
         },
         {
-          id: 'doc-08',
+          id: 'doc-35',
+          sku: 'ODV-017',
           title: 'Cocada Cremosa Branca de Colher Maestro',
-          embalagem: 'Pote cremoso',
+          sub: 'Doces Cremosos',
+          marca: 'Maestro',
+          embalagem: 'Pote Pote ~300g (300g drenado)',
+          cx: 'Caixa c/ 12 un',
           varejo: '18,00',
           atacado: '15,90',
           image: 'assets/produtos/doce-cocada-cremosa-maestro.jpg',
-          imageMode: 'contain'
+          imageMode: 'contain',
+          desc: 'Cocada de colher premium elaborada com lascas frescas de coco e leite condensado cremoso. Ponto suave para comer direto no pote ou rechear sobremesas requintadas.'
         },
         {
-          id: 'doc-09',
+          id: 'doc-36',
+          sku: 'ODV-018',
+          badge: 'Zero Açúcar',
           title: 'Paçoca Cremosa de Colher Zero Açúcar Maestro 260g',
-          embalagem: 'Pote 260g Zero Açúcares',
+          sub: 'Doces Cremosos / Zero',
+          marca: 'Maestro',
+          embalagem: 'Pote de Vidro 260g',
+          cx: 'Caixa c/ 12 un',
           varejo: '18,00',
           atacado: '15,90',
           image: 'assets/produtos/doce-pacoca-cremosa-maestro-260g.jpg',
-          imageMode: 'contain'
-        }
+          imageMode: 'contain',
+          desc: 'Creme de amendoim torrado nobre com textura aveludada de paçoca de colher, totalmente sem adição de açúcar. Ideal para dietas restritivas e amantes do sabor autêntico do amendoim.'
+        },
       ]
     },
     {
       id: 'bebidas',
       navKey: 'bebidas',
       title: 'Bebidas & Sucos Integrais',
-      subtitle: 'Sucos integrais da serra e refrigerantes funcionais sem adição de açúcar.',
+      subtitle: 'Sucos 100% uva integral da serra e a linha refrescante Itts com sabores botânicos especiais.',
       items: [
         {
-          id: 'beb-01',
-          title: 'Suco de Uva Integral Casa da Serra 1,5L',
-          embalagem: 'Garrafa de vidro 1,5L 100% Suco',
+          id: 'beb-37',
+          sku: 'ODV-037',
+          badge: '100% Integral',
+          title: 'Suco de Uva 100% Integral Casa da Serra 1,5L',
+          sub: 'Sucos Integrais',
+          marca: 'Casa da Serra',
+          embalagem: 'Garrafa de Vidro 1,5L',
+          cx: 'Caixa c/ 6 un',
           varejo: '22,00',
           atacado: '18,90',
           image: 'assets/produtos/bebida-suco-uva-casa-da-serra-15l.jpg',
-          imageMode: 'contain'
+          imageMode: 'contain',
+          desc: 'Puro suco de uva tinto integral elaborado com uvas Bordô e Isabel colhidas nas encostas da serra. Sem adição de açúcar, corantes ou água. Rico em antioxidantes naturais.'
         },
         {
-          id: 'beb-02',
-          title: 'Itts Sero Maçã Verde Sem Açúcar 260ml',
-          embalagem: 'Lata 260ml Cafeína + Suco',
+          id: 'beb-38',
+          sku: 'ODV-038',
+          badge: 'Zero Açúcar',
+          title: 'Itts Sero Maçã Verde Zero Açúcar 260ml',
+          sub: 'Bebidas Funcionais',
+          marca: 'Itts (Sero)',
+          embalagem: 'Lata Sleek 260ml',
+          cx: 'Fardo c/ 12 un',
           varejo: '6,50',
           atacado: '5,20',
           image: 'assets/produtos/bebida-itts-maca-verde-260ml.jpg',
-          imageMode: 'contain'
+          imageMode: 'contain',
+          desc: 'Bebida levemente gaseificada com aroma refrescante de maçã verde e acidez equilibrada. Zero calorias e zero açúcares, a pedida perfeita para qualquer hora do dia.'
         },
         {
-          id: 'beb-03',
+          id: 'beb-39',
+          sku: 'ODV-039',
           title: 'Itts Sero Framboesa com Limão 260ml',
-          embalagem: 'Lata 260ml SuperDrink Premium',
+          sub: 'Bebidas Funcionais',
+          marca: 'Itts (Sero)',
+          embalagem: 'Lata Sleek 260ml',
+          cx: 'Fardo c/ 12 un',
           varejo: '6,50',
           atacado: '5,20',
           image: 'assets/produtos/bebida-itts-framboesa-com-limao-260ml.jpg',
-          imageMode: 'contain'
+          imageMode: 'contain',
+          desc: 'Combinação sofisticada do dulçor silvestre da framboesa com o toque cítrico do limão tahiti. Gaseificação fina, aroma vibrante e final seco muito agradável.'
         },
         {
-          id: 'beb-04',
+          id: 'beb-40',
+          sku: 'ODV-040',
           title: 'Itts Sero Cereja com Laranja 260ml',
-          embalagem: 'Lata 260ml SuperDrink Premium',
+          sub: 'Bebidas Funcionais',
+          marca: 'Itts (Sero)',
+          embalagem: 'Lata Sleek 260ml',
+          cx: 'Fardo c/ 12 un',
           varejo: '6,50',
           atacado: '5,20',
           image: 'assets/produtos/bebida-itts-cereja-com-laranja-260ml.jpg',
-          imageMode: 'contain'
+          imageMode: 'contain',
+          desc: 'Refresco sofisticado unindo notas aveludadas de cereja fresca à acidez solar da laranja da serra. Ideal como drink refrescante sem álcool para dias quentes.'
         },
         {
-          id: 'beb-05',
-          title: 'Itts Sero Morango com Hortelã Sem Açúcar 260ml',
-          embalagem: 'Lata 260ml Cafeína + Suco',
+          id: 'beb-41',
+          sku: 'ODV-041',
+          title: 'Itts Sero Morango com Hortelã Zero Açúcar 260ml',
+          sub: 'Bebidas Funcionais',
+          marca: 'Itts (Sero)',
+          embalagem: 'Lata Sleek 260ml',
+          cx: 'Fardo c/ 12 un',
           varejo: '6,50',
           atacado: '5,20',
           image: 'assets/produtos/bebida-itts-morango-com-hortela-260ml.jpg',
-          imageMode: 'contain'
+          imageMode: 'contain',
+          desc: 'Dupla clássica e revigorante de morango doce com hortelã fresca picada. Zero açúcares, gaseificada e leve, perfeita para acompanhar lanches e refeições leves.'
         },
-        {
-          id: 'beb-06',
-          title: 'Água Mineral Acquíssima 1,5L sem gás',
-          embalagem: 'Garrafa 1,5L',
-          varejo: '4,79',
-          atacado: '3,99',
-          image: 'https://static.wixstatic.com/media/7cf12f_b5883ef3c7ff4176b6ef5da7a701a0bc~mv2.png',
-          imageMode: 'contain'
-        },
-        {
-          id: 'beb-07',
-          title: 'Água Mineral Acquíssima 510ml com gás',
-          embalagem: 'Garrafa 510ml',
-          varejo: '2,89',
-          atacado: '2,39',
-          image: 'https://static.wixstatic.com/media/7cf12f_16c5b96781204683a45c3651167431e5~mv2.png',
-          imageMode: 'contain'
-        },
-        {
-          id: 'beb-08',
-          title: 'Água Mineral Acquíssima 510ml sem gás',
-          embalagem: 'Garrafa 510ml',
-          varejo: '2,59',
-          atacado: '2,15',
-          image: 'https://static.wixstatic.com/media/7cf12f_c18080f55cf74e8790eeafc6a995e869~mv2.png',
-          imageMode: 'contain'
-        }
-      ]
-    },
-    {
-      id: 'temperos',
-      navKey: 'temperos',
-      title: 'Temperos & Molhos',
-      subtitle: 'Pimentas artesanais, vinagretes e temperos com toque caseiro e ingredientes nobres.',
-      items: [
-        {
-          id: 'tem-01',
-          title: 'Pimenta Dedo-de-Moça Fatiada Beija-Flor 250g',
-          embalagem: 'Pote 250g',
-          varejo: '27,00',
-          atacado: '24,90',
-          image: 'https://static.wixstatic.com/media/7cf12f_32ee0f26f675411398d262d69afe2f77~mv2.jpg',
-          imageMode: 'contain'
-        },
-        {
-          id: 'tem-02',
-          title: 'Vinagrete de Pimenta Beija-Flor 160g',
-          embalagem: 'Pote 160g',
-          varejo: '20,00',
-          atacado: '17,90',
-          image: 'https://static.wixstatic.com/media/7cf12f_f80ee2cf93eb423bb0d744b825fb477c~mv2.jpg',
-          imageMode: 'contain'
-        },
-        {
-          id: 'tem-03',
-          title: 'Vinagrete de Pimenta Especial Beija-Flor 195g',
-          embalagem: 'Pote 195g',
-          varejo: '22,00',
-          atacado: '19,90',
-          image: 'https://static.wixstatic.com/media/7cf12f_a32fc33c3755490a8ff0f81d11cbfebe~mv2.jpg',
-          imageMode: 'contain'
-        },
-        {
-          id: 'tem-04',
-          title: 'Molho Especial de Alho com Ervas 200ml',
-          embalagem: 'Frasco 200ml',
-          varejo: '14,00',
-          atacado: '11,90',
-          image: 'https://static.wixstatic.com/media/7cf12f_688be5f5f4da412198083bf28ca87053~mv2.jpg',
-          imageMode: 'contain'
-        }
       ]
     }
   ]
