@@ -7,21 +7,13 @@ window.ORIGEM_DO_VALE_DATA = {
   brand: {
     name: 'Origem do Vale',
     tagline: 'Sabores Nobres da Serra — Varejo e Atacado',
-    phoneDisplay: '(12) 98880-1327',
-    whatsappPhone: '5512988801327',
+    phoneDisplay: '(12) 99623-3563',
+    whatsappPhone: '5512996233563',
     region: 'Vale do Paraíba, Litoral Norte e Serra da Mantiqueira',
     description: 'Distribuição especializada em palmitos selecionados, conservas nobres, frios artesanais, bebidas e doces da serra para empórios, restaurantes e consumidores exigentes.'
   },
-  whatsappPhone: '5512988801327',
+  whatsappPhone: '5512996233563',
   vendedores: {
-    central: {
-      id: 'central',
-      name: 'Raphael (Central Origem do Vale)',
-      shortName: 'Raphael',
-      phoneDisplay: '(12) 98880-1327',
-      whatsappPhone: '5512988801327',
-      role: 'Central de Pedidos e Atendimento'
-    },
     paulo: {
       id: 'paulo',
       name: 'Paulo (Representante Comercial)',

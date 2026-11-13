@@ -70,14 +70,6 @@
 
   // Representantes / Vendedores Oficiais
   const VENDEDORES = (catalogData && catalogData.vendedores) || {
-    central: {
-      id: 'central',
-      name: 'Raphael (Central Origem do Vale)',
-      shortName: 'Raphael',
-      phoneDisplay: '(12) 98880-1327',
-      whatsappPhone: '5512988801327',
-      role: 'Central de Pedidos e Atendimento'
-    },
     paulo: {
       id: 'paulo',
       name: 'Paulo (Representante Comercial)',
@@ -102,12 +94,11 @@
     if (sellerParam && VENDEDORES[sellerParam]) {
       return sellerParam;
     }
-    const isVendedorPage = window.location.pathname.includes('vendedor.html');
     const saved = localStorage.getItem('odv_active_seller');
     if (saved && VENDEDORES[saved]) {
       return saved;
     }
-    return isVendedorPage ? 'paulo' : 'central';
+    return 'paulo';
   }
 
   let activeSellerId = detectInitialSeller();
@@ -517,7 +508,7 @@
   }
 
   function setActiveSeller(sellerId, saveStorage = true) {
-    if (!VENDEDORES[sellerId]) sellerId = 'central';
+    if (!VENDEDORES[sellerId]) sellerId = 'paulo';
     activeSellerId = sellerId;
     if (saveStorage) {
       try {
@@ -573,7 +564,7 @@
   function checkoutWhatsApp() {
     if (cart.length === 0) return;
 
-    const seller = VENDEDORES[activeSellerId] || VENDEDORES.central;
+    const seller = VENDEDORES[activeSellerId] || VENDEDORES.paulo;
     const clientName = (orderClientName && orderClientName.value.trim()) || '';
     const clientCity = (orderClientCity && orderClientCity.value.trim()) || '';
     const paymentMethod = (orderClientPayment && orderClientPayment.value) || '';
@@ -687,7 +678,7 @@
   }
 
   function buildSingleWhatsAppUrl(productTitle, packaging = '') {
-    const seller = VENDEDORES[activeSellerId] || VENDEDORES.central;
+    const seller = VENDEDORES[activeSellerId] || VENDEDORES.paulo;
     const extra = packaging ? ` (${packaging})` : '';
     const message = isVendorMode
       ? `Olá ${seller.shortName}! Tenho interesse no produto: ${productTitle}${extra}. Gostaria de solicitar cotação e condições comerciais.`
