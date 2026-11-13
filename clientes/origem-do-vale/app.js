@@ -9,10 +9,34 @@
   const statusEl = document.getElementById('catalog-status');
   const searchInput = document.getElementById('catalog-search');
   const searchClearBtn = document.getElementById('catalog-search-clear');
-  const filterChips = Array.from(document.querySelectorAll('.filter-chip'));
-  const categoryShowcaseBtns = Array.from(document.querySelectorAll('[data-category-target]'));
-  const categoryHeroContainer = document.getElementById('category-hero-container');
   const navLinks = Array.from(document.querySelectorAll('.nav-links a[data-nav]'));
+
+  // Categorias Superiores Estilo iFood
+  const ifoodCatBtns = Array.from(document.querySelectorAll('.ifood-cat-item[data-cat-filter]'));
+
+  // Filtro Lateral Estilo Mercado Livre
+  const catalogSidebar = document.getElementById('catalog-sidebar');
+  const sidebarCatBtns = Array.from(document.querySelectorAll('.filter-cat-btn[data-sidebar-cat]'));
+  const modalidadeRadios = Array.from(document.querySelectorAll('input[name="filter-modalidade"]'));
+  const priceRangeBtns = Array.from(document.querySelectorAll('.filter-price-btn[data-price-range]'));
+  const priceMinInput = document.getElementById('price-min-input');
+  const priceMaxInput = document.getElementById('price-max-input');
+  const btnPriceApply = document.getElementById('btn-price-apply');
+  const packagingRadios = Array.from(document.querySelectorAll('input[name="filter-packaging"]'));
+  const sortSelect = document.getElementById('sidebar-sort-select');
+  const sidebarResetBtn = document.getElementById('sidebar-reset-btn');
+  const catalogResultsCount = document.getElementById('catalog-results-count');
+  const activeFilterTags = document.getElementById('active-filter-tags');
+
+  // Drawer de Filtros Mobile Estilo Mercado Livre
+  const btnMobileFilterToggle = document.getElementById('btn-mobile-filter-toggle');
+  const mobileFilterBadge = document.getElementById('mobile-filter-badge');
+  const mobileFilterDrawer = document.getElementById('mobile-filter-drawer');
+  const mobileFilterBackdrop = document.getElementById('mobile-filter-backdrop');
+  const mobileFilterClose = document.getElementById('mobile-filter-close');
+  const mobileFilterBody = document.getElementById('mobile-filter-body');
+  const btnMobileClear = document.getElementById('btn-mobile-clear');
+  const btnMobileApply = document.getElementById('btn-mobile-apply');
 
   // Mobile Drawer de navegação
   const menuToggle = document.getElementById('menu-toggle');
@@ -86,7 +110,13 @@
   const state = {
     filter: detectInitialCategory(),
     query: '',
-    mode: detectInitialMode()
+    mode: detectInitialMode(),
+    modalidade: 'all',
+    priceRange: 'all',
+    minPrice: null,
+    maxPrice: null,
+    packaging: 'all',
+    sortBy: 'relevance'
   };
 
   // Mapeamento de produtos por ID para acesso rápido
@@ -661,26 +691,261 @@
   }
 
   /* ==========================================================================
-     FILTRO DE PRODUTOS E CATEGORIAS (SIMPLES, RÁPIDO E FLUIDO)
+     FILTRO E ORDENAÇÃO DE PRODUTOS (MERCADO LIVRE + iFOOD)
      ========================================================================== */
 
-  function setFilter(filterId, updateUrl = true) {
-    state.filter = filterId;
+  function getItemNumericPrice(item) {
+    const raw = item.varejo || item.atacado || '0';
+    return parseFloat(String(raw).replace(/\./g, '').replace(',', '.')) || 0;
+  }
 
-    // Atualiza chips
-    filterChips.forEach((chip) => {
-      const match = chip.dataset.filter === filterId;
-      chip.classList.toggle('is-active', match);
-      chip.setAttribute('aria-pressed', match ? 'true' : 'false');
+  function matchesFilters(item, section) {
+    // 1. Categoria
+    if (state.filter !== 'all' && section.id !== state.filter) {
+      return false;
+    }
+
+    // 2. Busca
+    if (state.query && state.query.trim()) {
+      const q = normalizeText(state.query.trim());
+      const inTitle = normalizeText(item.title).includes(q);
+      const inEmbalagem = normalizeText(item.embalagem || '').includes(q);
+      const inMarca = normalizeText(item.marca || '').includes(q);
+      const inDesc = normalizeText(item.desc || '').includes(q);
+      if (!inTitle && !inEmbalagem && !inMarca && !inDesc) {
+        return false;
+      }
+    }
+
+    // 3. Modalidade de Compra
+    if (state.modalidade === 'atacado') {
+      if (!item.atacado) return false;
+    } else if (state.modalidade === 'varejo') {
+      if (!item.varejo) return false;
+    }
+
+    // 4. Faixa de Preço (Mercado Livre)
+    const price = getItemNumericPrice(item);
+    if (state.priceRange === 'under15') {
+      if (price > 15) return false;
+    } else if (state.priceRange === '15to25') {
+      if (price < 15 || price > 25) return false;
+    } else if (state.priceRange === '25to35') {
+      if (price < 25 || price > 35) return false;
+    } else if (state.priceRange === 'above35') {
+      if (price < 35) return false;
+    } else if (state.priceRange === 'custom') {
+      if (state.minPrice !== null && !isNaN(state.minPrice) && price < state.minPrice) return false;
+      if (state.maxPrice !== null && !isNaN(state.maxPrice) && price > state.maxPrice) return false;
+    }
+
+    // 5. Tipo de Embalagem
+    if (state.packaging !== 'all') {
+      const emb = normalizeText(item.embalagem || '');
+      if (state.packaging === 'vidro') {
+        if (!emb.includes('vidro')) return false;
+      } else if (state.packaging === 'vacuo') {
+        if (!emb.includes('vacuo') && !emb.includes('vácuo')) return false;
+      } else if (state.packaging === 'outros') {
+        if (emb.includes('vidro') || emb.includes('vacuo') || emb.includes('vácuo')) return false;
+      }
+    }
+
+    return true;
+  }
+
+  function sortItems(items) {
+    const list = [...items];
+    if (state.sortBy === 'price-asc') {
+      list.sort((a, b) => getItemNumericPrice(a) - getItemNumericPrice(b));
+    } else if (state.sortBy === 'price-desc') {
+      list.sort((a, b) => getItemNumericPrice(b) - getItemNumericPrice(a));
+    } else if (state.sortBy === 'name-asc') {
+      list.sort((a, b) => a.title.localeCompare(b.title, 'pt-BR'));
+    }
+    return list;
+  }
+
+  function syncFilterControlsUI() {
+    // iFood rail
+    ifoodCatBtns.forEach((btn) => {
+      const match = btn.dataset.catFilter === state.filter;
+      btn.classList.toggle('is-active', match);
+      btn.setAttribute('aria-selected', match ? 'true' : 'false');
     });
 
-    // Atualiza links do menu
+    // Sidebar categories
+    sidebarCatBtns.forEach((btn) => {
+      const match = btn.dataset.sidebarCat === state.filter;
+      btn.classList.toggle('is-active', match);
+    });
+
+    // Nav links
     navLinks.forEach((link) => {
-      const match = link.dataset.nav === filterId;
+      const match = link.dataset.nav === state.filter;
       link.classList.toggle('is-active', match);
     });
 
-    // Atualiza URL sem recarregar a tela
+    // Modalidade radios
+    modalidadeRadios.forEach((radio) => {
+      radio.checked = radio.value === state.modalidade;
+    });
+
+    // Price range buttons
+    priceRangeBtns.forEach((btn) => {
+      btn.classList.toggle('is-active', btn.dataset.priceRange === state.priceRange);
+    });
+
+    // Packaging radios
+    packagingRadios.forEach((radio) => {
+      radio.checked = radio.value === state.packaging;
+    });
+
+    // Sort select
+    if (sortSelect) {
+      sortSelect.value = state.sortBy;
+    }
+  }
+
+  function getActiveFiltersList() {
+    const list = [];
+    if (state.filter !== 'all') {
+      const sec = catalogData.sections.find((s) => s.id === state.filter);
+      const catName = sec ? sec.title.split(' ')[0] : state.filter;
+      list.push({ key: 'filter', label: `Categoria: ${catName}` });
+    }
+    if (state.modalidade === 'atacado') {
+      list.push({ key: 'modalidade', label: 'Com Atacado' });
+    } else if (state.modalidade === 'varejo') {
+      list.push({ key: 'modalidade', label: 'Varejo Unitário' });
+    }
+    if (state.priceRange === 'under15') {
+      list.push({ key: 'price', label: 'Até R$ 15' });
+    } else if (state.priceRange === '15to25') {
+      list.push({ key: 'price', label: 'R$ 15 a R$ 25' });
+    } else if (state.priceRange === '25to35') {
+      list.push({ key: 'price', label: 'R$ 25 a R$ 35' });
+    } else if (state.priceRange === 'above35') {
+      list.push({ key: 'price', label: 'Mais de R$ 35' });
+    } else if (state.priceRange === 'custom') {
+      let lbl = 'Preço';
+      if (state.minPrice !== null && state.maxPrice !== null) {
+        lbl = `R$ ${state.minPrice} - R$ ${state.maxPrice}`;
+      } else if (state.minPrice !== null) {
+        lbl = `>= R$ ${state.minPrice}`;
+      } else if (state.maxPrice !== null) {
+        lbl = `<= R$ ${state.maxPrice}`;
+      }
+      list.push({ key: 'price', label: lbl });
+    }
+    if (state.packaging === 'vidro') {
+      list.push({ key: 'packaging', label: 'Embalagem: Vidro' });
+    } else if (state.packaging === 'vacuo') {
+      list.push({ key: 'packaging', label: 'Embalagem: A Vácuo' });
+    } else if (state.packaging === 'outros') {
+      list.push({ key: 'packaging', label: 'Embalagem: Latas/Potes' });
+    }
+    if (state.query && state.query.trim()) {
+      list.push({ key: 'query', label: `Busca: "${state.query.trim()}"` });
+    }
+    if (state.sortBy && state.sortBy !== 'relevance') {
+      const sortLabels = {
+        'price-asc': 'Menor preço',
+        'price-desc': 'Maior preço',
+        'name-asc': 'A – Z'
+      };
+      list.push({ key: 'sort', label: `Ordem: ${sortLabels[state.sortBy] || state.sortBy}` });
+    }
+    return list;
+  }
+
+  function updateActiveFilterTags() {
+    if (!activeFilterTags) return;
+    const activeFilters = getActiveFiltersList();
+
+    if (mobileFilterBadge) {
+      if (activeFilters.length > 0) {
+        mobileFilterBadge.textContent = String(activeFilters.length);
+        mobileFilterBadge.hidden = false;
+      } else {
+        mobileFilterBadge.hidden = true;
+      }
+    }
+
+    if (activeFilters.length === 0) {
+      activeFilterTags.innerHTML = '';
+      return;
+    }
+
+    activeFilterTags.innerHTML = activeFilters
+      .map(
+        (f) => `
+        <span class="active-filter-pill">
+          <span>${escapeHtml(f.label)}</span>
+          <button type="button" data-remove-filter="${f.key}" aria-label="Remover filtro ${escapeHtml(f.label)}">&times;</button>
+        </span>
+      `
+      )
+      .join('');
+
+    activeFilterTags.querySelectorAll('[data-remove-filter]').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        removeFilterKey(btn.dataset.removeFilter);
+      });
+    });
+  }
+
+  function removeFilterKey(key) {
+    if (key === 'filter') {
+      setFilter('all');
+    } else if (key === 'modalidade') {
+      state.modalidade = 'all';
+    } else if (key === 'price') {
+      state.priceRange = 'all';
+      state.minPrice = null;
+      state.maxPrice = null;
+      if (priceMinInput) priceMinInput.value = '';
+      if (priceMaxInput) priceMaxInput.value = '';
+    } else if (key === 'packaging') {
+      state.packaging = 'all';
+    } else if (key === 'query') {
+      state.query = '';
+      if (searchInput) searchInput.value = '';
+    } else if (key === 'sort') {
+      state.sortBy = 'relevance';
+      if (sortSelect) sortSelect.value = 'relevance';
+    }
+    syncFilterControlsUI();
+    renderCatalog();
+  }
+
+  function resetAllFilters() {
+    state.filter = 'all';
+    state.query = '';
+    state.modalidade = 'all';
+    state.priceRange = 'all';
+    state.minPrice = null;
+    state.maxPrice = null;
+    state.packaging = 'all';
+    state.sortBy = 'relevance';
+
+    if (searchInput) searchInput.value = '';
+    if (priceMinInput) priceMinInput.value = '';
+    if (priceMaxInput) priceMaxInput.value = '';
+    if (sortSelect) sortSelect.value = 'relevance';
+
+    const url = new URL(window.location);
+    url.searchParams.delete('categoria');
+    window.history.pushState({}, '', url);
+
+    syncFilterControlsUI();
+    renderCatalog();
+  }
+
+  function setFilter(filterId, updateUrl = true) {
+    state.filter = filterId;
+    syncFilterControlsUI();
+
     if (updateUrl) {
       const url = new URL(window.location);
       if (filterId === 'all') {
@@ -694,26 +959,331 @@
     renderCatalog();
   }
 
-  // Cliques nos chips da barra de ferramentas
-  filterChips.forEach((chip) => {
-    chip.addEventListener('click', () => {
-      const targetFilter = chip.dataset.filter || 'all';
+  // Cliques nas Categorias Superiores (Estilo iFood)
+  ifoodCatBtns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const targetFilter = btn.dataset.catFilter || 'all';
+      setFilter(targetFilter);
+      // Scroll suave até o início da vitrine
+      if (sectionsRoot) {
+        sectionsRoot.scrollIntoView({ behavior: getScrollBehavior(), block: 'start' });
+      }
+    });
+  });
+
+  // Cliques nas Categorias Laterais (Estilo Mercado Livre)
+  sidebarCatBtns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const targetFilter = btn.dataset.sidebarCat || 'all';
       setFilter(targetFilter);
     });
   });
 
-  // Cliques nos botões de Categoria do Topo (Showcase Shopee / ML)
-  categoryShowcaseBtns.forEach((btn) => {
-    btn.addEventListener('click', () => {
-      const target = btn.dataset.categoryTarget;
-      if (target) {
-        setFilter(target);
-        if (categoryHeroContainer) {
-          categoryHeroContainer.scrollIntoView({ behavior: getScrollBehavior(), block: 'start' });
-        }
-      }
+  // Cliques na Modalidade de Compra
+  modalidadeRadios.forEach((radio) => {
+    radio.addEventListener('change', () => {
+      state.modalidade = radio.value;
+      renderCatalog();
     });
   });
+
+  // Cliques nas Faixas de Preço pré-definidas
+  priceRangeBtns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      state.priceRange = btn.dataset.priceRange || 'all';
+      state.minPrice = null;
+      state.maxPrice = null;
+      if (priceMinInput) priceMinInput.value = '';
+      if (priceMaxInput) priceMaxInput.value = '';
+      syncFilterControlsUI();
+      renderCatalog();
+    });
+  });
+
+  // Aplicação de faixa de preço manual
+  function applyCustomPriceRange() {
+    const minVal = priceMinInput && priceMinInput.value !== '' ? parseFloat(priceMinInput.value) : null;
+    const maxVal = priceMaxInput && priceMaxInput.value !== '' ? parseFloat(priceMaxInput.value) : null;
+    if (minVal === null && maxVal === null) {
+      state.priceRange = 'all';
+      state.minPrice = null;
+      state.maxPrice = null;
+    } else {
+      state.priceRange = 'custom';
+      state.minPrice = minVal;
+      state.maxPrice = maxVal;
+    }
+    syncFilterControlsUI();
+    renderCatalog();
+  }
+
+  if (btnPriceApply) {
+    btnPriceApply.addEventListener('click', applyCustomPriceRange);
+  }
+
+  if (priceMinInput) {
+    priceMinInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        applyCustomPriceRange();
+      }
+    });
+  }
+
+  if (priceMaxInput) {
+    priceMaxInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        applyCustomPriceRange();
+      }
+    });
+  }
+
+  // Cliques na Embalagem
+  packagingRadios.forEach((radio) => {
+    radio.addEventListener('change', () => {
+      state.packaging = radio.value;
+      renderCatalog();
+    });
+  });
+
+  // Ordenação
+  if (sortSelect) {
+    sortSelect.addEventListener('change', () => {
+      state.sortBy = sortSelect.value;
+      renderCatalog();
+    });
+  }
+
+  // Botão Limpar Tudo da Sidebar
+  if (sidebarResetBtn) {
+    sidebarResetBtn.addEventListener('click', resetAllFilters);
+  }
+
+  /* ==========================================================================
+     DRAWER DE FILTROS MOBILE (ESTILO MERCADO LIVRE)
+     ========================================================================== */
+
+  function renderMobileFilterDrawer() {
+    if (!mobileFilterBody) return;
+
+    const categories = [
+      { id: 'all', name: 'Todas as categorias', count: totalProductsCount },
+      ...catalogData.sections.map((s) => ({ id: s.id, name: s.title, count: (s.items || []).length }))
+    ];
+
+    const catButtonsHtml = categories
+      .map(
+        (cat) => `
+        <button type="button" class="filter-cat-btn ${state.filter === cat.id ? 'is-active' : ''}" data-mobile-cat="${cat.id}">
+          <span class="cat-name">${escapeHtml(cat.name)}</span>
+          <span class="cat-qty">${cat.count}</span>
+        </button>
+      `
+      )
+      .join('');
+
+    mobileFilterBody.innerHTML = `
+      <!-- Categorias -->
+      <div class="filter-group">
+        <h3 class="filter-group-title">Categorias</h3>
+        <div class="filter-category-list">
+          ${catButtonsHtml}
+        </div>
+      </div>
+
+      <!-- Modalidade -->
+      <div class="filter-group">
+        <h3 class="filter-group-title">Modalidade de Compra</h3>
+        <div class="filter-radio-list">
+          <label class="filter-radio-label">
+            <input type="radio" name="mobile-modalidade" value="all" ${state.modalidade === 'all' ? 'checked' : ''} />
+            <span>Varejo &amp; Atacado (Todos)</span>
+          </label>
+          <label class="filter-radio-label">
+            <input type="radio" name="mobile-modalidade" value="atacado" ${state.modalidade === 'atacado' ? 'checked' : ''} />
+            <span>Com Desconto Atacado</span>
+          </label>
+          <label class="filter-radio-label">
+            <input type="radio" name="mobile-modalidade" value="varejo" ${state.modalidade === 'varejo' ? 'checked' : ''} />
+            <span>Varejo Unitário</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Faixa de Preço -->
+      <div class="filter-group">
+        <h3 class="filter-group-title">Preço</h3>
+        <ul class="filter-price-list">
+          <li><button type="button" class="filter-price-btn ${state.priceRange === 'all' ? 'is-active' : ''}" data-mobile-price="all">Todos os preços</button></li>
+          <li><button type="button" class="filter-price-btn ${state.priceRange === 'under15' ? 'is-active' : ''}" data-mobile-price="under15">Até R$ 15,00</button></li>
+          <li><button type="button" class="filter-price-btn ${state.priceRange === '15to25' ? 'is-active' : ''}" data-mobile-price="15to25">R$ 15 a R$ 25</button></li>
+          <li><button type="button" class="filter-price-btn ${state.priceRange === '25to35' ? 'is-active' : ''}" data-mobile-price="25to35">R$ 25 a R$ 35</button></li>
+          <li><button type="button" class="filter-price-btn ${state.priceRange === 'above35' ? 'is-active' : ''}" data-mobile-price="above35">Mais de R$ 35,00</button></li>
+        </ul>
+        <div class="filter-price-inputs">
+          <div class="price-input-wrapper">
+            <span>R$</span>
+            <input type="number" id="mobile-price-min" placeholder="Mín" value="${state.minPrice || ''}" min="0" max="999" aria-label="Preço mínimo mobile" />
+          </div>
+          <span class="price-input-divider">-</span>
+          <div class="price-input-wrapper">
+            <span>R$</span>
+            <input type="number" id="mobile-price-max" placeholder="Máx" value="${state.maxPrice || ''}" min="0" max="999" aria-label="Preço máximo mobile" />
+          </div>
+          <button type="button" class="btn-price-apply" id="btn-mobile-price-apply" aria-label="Aplicar faixa mobile">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Embalagem -->
+      <div class="filter-group">
+        <h3 class="filter-group-title">Embalagem</h3>
+        <div class="filter-radio-list">
+          <label class="filter-radio-label">
+            <input type="radio" name="mobile-packaging" value="all" ${state.packaging === 'all' ? 'checked' : ''} />
+            <span>Todas as embalagens</span>
+          </label>
+          <label class="filter-radio-label">
+            <input type="radio" name="mobile-packaging" value="vidro" ${state.packaging === 'vidro' ? 'checked' : ''} />
+            <span>Vidros (540g / 570g / 285g)</span>
+          </label>
+          <label class="filter-radio-label">
+            <input type="radio" name="mobile-packaging" value="vacuo" ${state.packaging === 'vacuo' ? 'checked' : ''} />
+            <span>A Vácuo (Frios &amp; Queijos)</span>
+          </label>
+          <label class="filter-radio-label">
+            <input type="radio" name="mobile-packaging" value="outros" ${state.packaging === 'outros' ? 'checked' : ''} />
+            <span>Latas, Potes &amp; Garrafas</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Ordenar por -->
+      <div class="filter-group">
+        <h3 class="filter-group-title">Ordenar por</h3>
+        <select class="filter-select" id="mobile-sort-select" aria-label="Ordenar produtos mobile">
+          <option value="relevance" ${state.sortBy === 'relevance' ? 'selected' : ''}>Mais relevantes</option>
+          <option value="price-asc" ${state.sortBy === 'price-asc' ? 'selected' : ''}>Menor preço</option>
+          <option value="price-desc" ${state.sortBy === 'price-desc' ? 'selected' : ''}>Maior preço</option>
+          <option value="name-asc" ${state.sortBy === 'name-asc' ? 'selected' : ''}>Nome (A &ndash; Z)</option>
+        </select>
+      </div>
+    `;
+
+    // Listeners do Drawer Mobile
+    mobileFilterBody.querySelectorAll('[data-mobile-cat]').forEach((b) => {
+      b.addEventListener('click', () => {
+        setFilter(b.dataset.mobileCat);
+        renderMobileFilterDrawer();
+      });
+    });
+
+    mobileFilterBody.querySelectorAll('input[name="mobile-modalidade"]').forEach((r) => {
+      r.addEventListener('change', () => {
+        state.modalidade = r.value;
+        modalidadeRadios.forEach((mr) => {
+          mr.checked = mr.value === r.value;
+        });
+        renderCatalog();
+      });
+    });
+
+    mobileFilterBody.querySelectorAll('[data-mobile-price]').forEach((b) => {
+      b.addEventListener('click', () => {
+        state.priceRange = b.dataset.mobilePrice;
+        state.minPrice = null;
+        state.maxPrice = null;
+        syncFilterControlsUI();
+        renderMobileFilterDrawer();
+        renderCatalog();
+      });
+    });
+
+    const mobPriceMin = document.getElementById('mobile-price-min');
+    const mobPriceMax = document.getElementById('mobile-price-max');
+    const btnMobPriceApply = document.getElementById('btn-mobile-price-apply');
+    if (btnMobPriceApply) {
+      btnMobPriceApply.addEventListener('click', () => {
+        const minVal = mobPriceMin && mobPriceMin.value !== '' ? parseFloat(mobPriceMin.value) : null;
+        const maxVal = mobPriceMax && mobPriceMax.value !== '' ? parseFloat(mobPriceMax.value) : null;
+        if (minVal === null && maxVal === null) {
+          state.priceRange = 'all';
+          state.minPrice = null;
+          state.maxPrice = null;
+        } else {
+          state.priceRange = 'custom';
+          state.minPrice = minVal;
+          state.maxPrice = maxVal;
+        }
+        if (priceMinInput) priceMinInput.value = minVal !== null ? minVal : '';
+        if (priceMaxInput) priceMaxInput.value = maxVal !== null ? maxVal : '';
+        syncFilterControlsUI();
+        renderMobileFilterDrawer();
+        renderCatalog();
+      });
+    }
+
+    mobileFilterBody.querySelectorAll('input[name="mobile-packaging"]').forEach((r) => {
+      r.addEventListener('change', () => {
+        state.packaging = r.value;
+        packagingRadios.forEach((pr) => {
+          pr.checked = pr.value === r.value;
+        });
+        renderCatalog();
+      });
+    });
+
+    const mobSortSelect = document.getElementById('mobile-sort-select');
+    if (mobSortSelect) {
+      mobSortSelect.addEventListener('change', () => {
+        state.sortBy = mobSortSelect.value;
+        if (sortSelect) sortSelect.value = mobSortSelect.value;
+        renderCatalog();
+      });
+    }
+  }
+
+  function openMobileFilterDrawer() {
+    if (!mobileFilterDrawer || !mobileFilterBackdrop) return;
+    renderMobileFilterDrawer();
+    mobileFilterDrawer.hidden = false;
+    mobileFilterBackdrop.hidden = false;
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeMobileFilterDrawer() {
+    if (!mobileFilterDrawer || !mobileFilterBackdrop) return;
+    mobileFilterDrawer.hidden = true;
+    mobileFilterBackdrop.hidden = true;
+    document.body.style.overflow = '';
+  }
+
+  if (btnMobileFilterToggle) {
+    btnMobileFilterToggle.addEventListener('click', openMobileFilterDrawer);
+  }
+
+  if (mobileFilterClose) {
+    mobileFilterClose.addEventListener('click', closeMobileFilterDrawer);
+  }
+
+  if (mobileFilterBackdrop) {
+    mobileFilterBackdrop.addEventListener('click', closeMobileFilterDrawer);
+  }
+
+  if (btnMobileClear) {
+    btnMobileClear.addEventListener('click', () => {
+      resetAllFilters();
+      renderMobileFilterDrawer();
+    });
+  }
+
+  if (btnMobileApply) {
+    btnMobileApply.addEventListener('click', () => {
+      closeMobileFilterDrawer();
+    });
+  }
 
   // Responde ao botão voltar do navegador
   window.addEventListener('popstate', () => {
@@ -786,27 +1356,33 @@
   }
 
   function renderCatalog() {
-    const normalizedQuery = normalizeText(state.query.trim());
-    const isDedicatedCategory = state.filter !== 'all';
-    const isFiltering = isDedicatedCategory || normalizedQuery.length > 0;
+    updateSearchClearButton();
+    updateActiveFilterTags();
+
     let totalShown = 0;
     let visibleSectionIndex = 0;
-
-    updateSearchClearButton();
+    const isDedicatedCategory = state.filter !== 'all';
+    const hasActiveFilters =
+      isDedicatedCategory ||
+      state.query.trim().length > 0 ||
+      state.modalidade !== 'all' ||
+      state.priceRange !== 'all' ||
+      state.packaging !== 'all' ||
+      state.sortBy !== 'relevance';
 
     const fragment = document.createDocumentFragment();
 
     catalogData.sections.forEach((section) => {
+      // Se for categoria dedicada, filtra estritamente por ela
       if (isDedicatedCategory && section.id !== state.filter) return;
 
-      const filteredItems = section.items.filter((item) => {
-        if (!normalizedQuery) return true;
-        const inTitle = normalizeText(item.title).includes(normalizedQuery);
-        const inEmbalagem = normalizeText(item.embalagem || '').includes(normalizedQuery);
-        return inTitle || inEmbalagem;
-      });
+      // Filtra produtos pelos critérios do Mercado Livre e busca
+      let filteredItems = (section.items || []).filter((item) => matchesFilters(item, section));
 
       if (filteredItems.length === 0) return;
+
+      // Ordena produtos conforme seleção
+      filteredItems = sortItems(filteredItems);
 
       const currentSectionIndex = visibleSectionIndex;
       visibleSectionIndex += 1;
@@ -831,7 +1407,7 @@
               <span class="section-count">${filteredItems.length} ${countLabel}</span>
             </div>
             ${
-              isFiltering
+              hasActiveFilters
                 ? ''
                 : `
                   <div class="carousel-controls" aria-label="Navegar pelos produtos de ${escapeHtml(section.title)}">
@@ -859,10 +1435,10 @@
         </div>
       `;
 
-      // Se for categoria dedicada ou busca, exibe em grid estilo marketplace
-      const trackClass = isFiltering ? 'product-track is-grid' : 'product-track';
+      // Modo Grid contínua quando filtrado, carrossel quando em visão global sem filtros
+      const trackClass = hasActiveFilters ? 'product-track is-grid' : 'product-track';
       const cardsHtml = filteredItems
-        .map((item, index) => renderProductCard(item, currentSectionIndex, index, isFiltering))
+        .map((item, index) => renderProductCard(item, currentSectionIndex, index, hasActiveFilters))
         .join('');
 
       const bodyHtml = `
@@ -878,7 +1454,7 @@
             </div>
           </div>
           ${
-            isFiltering
+            hasActiveFilters
               ? ''
               : `
                 <div class="carousel-footer" aria-hidden="true">
@@ -902,8 +1478,8 @@
       emptyEl.innerHTML = `
         <div class="catalog-empty" role="status">
           <h3 class="empty-title">Nenhum produto encontrado</h3>
-          <p class="empty-text">Não encontramos itens para "<strong>${escapeHtml(state.query)}</strong>". Tente outro termo ou limpe os filtros.</p>
-          <button type="button" class="btn-clear-filter" id="btn-reset-filters">Limpar busca e filtros</button>
+          <p class="empty-text">Não encontramos itens com os filtros e busca selecionados. Tente ajustar os parâmetros ou limpar os filtros.</p>
+          <button type="button" class="btn-clear-filter" id="btn-reset-filters">Limpar todos os filtros</button>
         </div>
       `;
       fragment.appendChild(emptyEl);
@@ -911,14 +1487,17 @@
 
     sectionsRoot.replaceChildren(fragment);
 
+    // Atualiza contagem de resultados no topo da lista
+    if (catalogResultsCount) {
+      catalogResultsCount.innerHTML = `Exibindo <strong>${totalShown} produto${totalShown === 1 ? '' : 's'}</strong>`;
+    }
+
     // Atualiza status para leitores de tela
     if (statusEl) {
       if (totalShown === 0) {
         statusEl.textContent = 'Nenhum produto encontrado.';
-      } else if (isFiltering) {
-        statusEl.textContent = `${totalShown} produto${totalShown === 1 ? '' : 's'} encontrado${totalShown === 1 ? '' : 's'}.`;
       } else {
-        statusEl.textContent = '';
+        statusEl.textContent = `${totalShown} produto${totalShown === 1 ? '' : 's'} encontrado${totalShown === 1 ? '' : 's'}.`;
       }
     }
 
@@ -926,27 +1505,9 @@
     wireCarousels();
     initScrollSpy();
 
-    // Navegação dedicada a partir do botão dentro do cabeçalho da categoria
-    const groupNavBtns = sectionsRoot.querySelectorAll('[data-nav-group]');
-    groupNavBtns.forEach((btn) => {
-      btn.addEventListener('click', () => {
-        const targetGroup = btn.dataset.navGroup;
-        if (targetGroup) {
-          setFilter(targetGroup);
-          window.scrollTo({ top: 0, behavior: getScrollBehavior() });
-        }
-      });
-    });
-
     const resetBtn = document.getElementById('btn-reset-filters');
     if (resetBtn) {
-      resetBtn.addEventListener('click', () => {
-        setFilter('all');
-        if (searchInput) searchInput.value = '';
-        state.query = '';
-        renderCatalog();
-        if (searchInput) searchInput.focus();
-      });
+      resetBtn.addEventListener('click', resetAllFilters);
     }
   }
 
