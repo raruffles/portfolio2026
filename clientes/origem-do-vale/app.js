@@ -4,31 +4,70 @@
   const catalogData = window.ORIGEM_DO_VALE_DATA;
   if (!catalogData || !Array.isArray(catalogData.sections)) return;
 
+  // Elementos do DOM
   const sectionsRoot = document.getElementById('catalog-sections');
   const statusEl = document.getElementById('catalog-status');
   const searchInput = document.getElementById('catalog-search');
   const searchClearBtn = document.getElementById('catalog-search-clear');
   const filterChips = Array.from(document.querySelectorAll('.filter-chip'));
+  const categoryShowcaseBtns = Array.from(document.querySelectorAll('[data-category-target]'));
+  const categoryHeroContainer = document.getElementById('category-hero-container');
   const navLinks = Array.from(document.querySelectorAll('.nav-links a[data-nav]'));
 
+  // Mobile Drawer de navegação
   const menuToggle = document.getElementById('menu-toggle');
   const drawer = document.getElementById('mobile-drawer');
   const drawerClose = document.getElementById('drawer-close');
   const drawerBackdrop = document.getElementById('drawer-backdrop');
   const drawerLinks = Array.from(document.querySelectorAll('[data-drawer-link]'));
+
+  // Carrinho / Cotação DOM
+  const cartToggleBtn = document.getElementById('cart-toggle-btn');
+  const headerCartBadge = document.getElementById('header-cart-badge');
+  const floatingCartFab = document.getElementById('floating-cart-fab');
+  const fabCartBadge = document.getElementById('fab-cart-badge');
+  const fabCartTotal = document.getElementById('fab-cart-total');
+  const cartBackdrop = document.getElementById('cart-backdrop');
+  const cartDrawer = document.getElementById('cart-drawer');
+  const cartDrawerClose = document.getElementById('cart-drawer-close');
+  const cartItemsContainer = document.getElementById('cart-items-container');
+  const cartEmptyState = document.getElementById('cart-empty-state');
+  const cartCheckoutForm = document.getElementById('cart-checkout-form');
+  const cartDrawerFooter = document.getElementById('cart-drawer-footer');
+  const drawerItemsCount = document.getElementById('drawer-items-count');
+  const cartTotalQty = document.getElementById('cart-total-qty');
+  const cartTotalPrice = document.getElementById('cart-total-price');
+  const btnCheckoutWhatsapp = document.getElementById('btn-checkout-whatsapp');
+  const btnClearCart = document.getElementById('btn-clear-cart');
+  const orderClientName = document.getElementById('order-client-name');
+  const orderClientCity = document.getElementById('order-client-city');
+  const orderClientPayment = document.getElementById('order-client-payment');
+
   const pageLandmarks = Array.from(document.querySelectorAll('.skip-link, .site-header, main, .site-footer'));
 
-  // Botões de alternância de modo (com preço / sem preço para vendedores)
-  const modeToggleButtons = Array.from(document.querySelectorAll('.view-toggle-btn'));
-  const vendorBanner = document.getElementById('vendor-mode-banner');
-
-  // Detecta o modo estrito da página atual (sem vazamento entre telas)
+  // Detecta o modo da página atual ('precos' ou 'vendedor')
   function detectInitialMode() {
     if (document.body.dataset.defaultMode === 'vendedor') return 'vendedor';
     if (document.body.dataset.defaultMode === 'precos') return 'precos';
     if (window.location.pathname.toLowerCase().includes('vendedor')) return 'vendedor';
     return 'precos';
   }
+
+  // Detecta categoria inicial via URL param ou hash
+  function detectInitialCategory() {
+    const params = new URLSearchParams(window.location.search);
+    const catParam = params.get('categoria');
+    if (catParam) return catParam.toLowerCase();
+
+    if (window.location.hash) {
+      const hash = window.location.hash.substring(1).toLowerCase();
+      const valid = catalogData.sections.some((s) => s.id === hash);
+      if (valid) return hash;
+    }
+    return 'all';
+  }
+
+  const isVendorMode = detectInitialMode() === 'vendedor';
 
   const totalProductsCount = catalogData.sections.reduce(
     (sum, section) => sum + (Array.isArray(section.items) ? section.items.length : 0),
@@ -48,10 +87,390 @@
   }
 
   const state = {
-    filter: 'all',
+    filter: detectInitialCategory(),
     query: '',
-    mode: detectInitialMode() // 'precos' ou 'vendedor'
+    mode: detectInitialMode()
   };
+
+  // Mapeamento de produtos por ID para acesso rápido
+  const productMap = new Map();
+  catalogData.sections.forEach((sec) => {
+    (sec.items || []).forEach((item) => {
+      productMap.set(item.id, { ...item, sectionId: sec.id, sectionTitle: sec.title });
+    });
+  });
+
+  /* ==========================================================================
+     GERENCIAMENTO DE CARRINHO / COTAÇÃO (LOCALSTORAGE)
+     ========================================================================== */
+
+  const CART_STORAGE_KEY = isVendorMode ? 'odv_cotacao_v1' : 'odv_cart_v1';
+
+  let cart = [];
+
+  function loadCart() {
+    try {
+      const raw = localStorage.getItem(CART_STORAGE_KEY);
+      if (raw) {
+        const parsed = JSON.parse(raw);
+        if (Array.isArray(parsed)) {
+          cart = parsed;
+        }
+      }
+    } catch {
+      cart = [];
+    }
+  }
+
+  function saveCart() {
+    try {
+      localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(cart));
+    } catch {
+      // Fallback silencioso
+    }
+    updateCartUI();
+  }
+
+  // Adiciona ao carrinho (com modalidade Varejo ou Atacado)
+  function addToCart(productId, priceType, qty = 1) {
+    const product = productMap.get(productId);
+    if (!product) return;
+
+    const numericQty = Math.max(1, parseInt(qty, 10) || 1);
+    const itemKey = `${productId}_${priceType}`;
+
+    let priceValue = 0;
+    let priceFormatted = '';
+    if (!isVendorMode) {
+      if (priceType === 'atacado') {
+        priceFormatted = product.atacado || product.varejo || '0,00';
+      } else {
+        priceFormatted = product.varejo || product.atacado || '0,00';
+      }
+      priceValue = parseFloat(priceFormatted.replace(/\./g, '').replace(',', '.')) || 0;
+    }
+
+    const existingIndex = cart.findIndex((item) => item.key === itemKey);
+    if (existingIndex >= 0) {
+      cart[existingIndex].qty += numericQty;
+    } else {
+      cart.push({
+        key: itemKey,
+        id: product.id,
+        title: product.title,
+        embalagem: product.embalagem || '',
+        priceType: priceType, // 'varejo' ou 'atacado'
+        priceValue: priceValue,
+        priceFormatted: priceFormatted,
+        qty: numericQty,
+        image: product.image || ''
+      });
+    }
+
+    saveCart();
+  }
+
+  function updateCartItemQty(key, newQty) {
+    const index = cart.findIndex((item) => item.key === key);
+    if (index === -1) return;
+
+    if (newQty <= 0) {
+      cart.splice(index, 1);
+    } else {
+      cart[index].qty = Math.min(999, newQty);
+    }
+    saveCart();
+  }
+
+  function removeCartItem(key) {
+    cart = cart.filter((item) => item.key !== key);
+    saveCart();
+  }
+
+  function clearCart() {
+    cart = [];
+    saveCart();
+  }
+
+  function formatBrl(value) {
+    return value.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+  }
+
+  function updateCartUI() {
+    const totalQty = cart.reduce((sum, item) => sum + item.qty, 0);
+    const totalPrice = cart.reduce((sum, item) => sum + item.qty * item.priceValue, 0);
+
+    // Badges
+    if (headerCartBadge) {
+      headerCartBadge.textContent = String(totalQty);
+      headerCartBadge.dataset.count = String(totalQty);
+      headerCartBadge.hidden = totalQty === 0;
+    }
+
+    if (fabCartBadge) {
+      fabCartBadge.textContent = String(totalQty);
+    }
+
+    if (fabCartTotal) {
+      fabCartTotal.textContent = isVendorMode
+        ? `${totalQty} produto${totalQty === 1 ? '' : 's'}`
+        : formatBrl(totalPrice);
+    }
+
+    if (floatingCartFab) {
+      floatingCartFab.hidden = totalQty === 0;
+    }
+
+    // Drawer info
+    if (drawerItemsCount) {
+      drawerItemsCount.textContent = `${totalQty} item${totalQty === 1 ? '' : 's'}`;
+    }
+
+    if (cartTotalQty) {
+      cartTotalQty.textContent = `${totalQty} produto${totalQty === 1 ? '' : 's'}`;
+    }
+
+    if (cartTotalPrice) {
+      cartTotalPrice.textContent = isVendorMode ? 'Cotação Comercial' : formatBrl(totalPrice);
+    }
+
+    // Renderiza lista do drawer
+    renderCartDrawerList();
+  }
+
+  function renderCartDrawerList() {
+    if (!cartItemsContainer) return;
+
+    if (cart.length === 0) {
+      cartItemsContainer.innerHTML = '';
+      if (cartEmptyState) cartEmptyState.hidden = false;
+      if (cartCheckoutForm) cartCheckoutForm.hidden = true;
+      if (cartDrawerFooter) cartDrawerFooter.hidden = true;
+      return;
+    }
+
+    if (cartEmptyState) cartEmptyState.hidden = true;
+    if (cartCheckoutForm) cartCheckoutForm.hidden = false;
+    if (cartDrawerFooter) cartDrawerFooter.hidden = false;
+
+    const html = cart
+      .map((item) => {
+        const itemSubtotal = item.qty * item.priceValue;
+        const subtotalText = isVendorMode ? `${item.qty} un.` : formatBrl(itemSubtotal);
+        const badgeClass =
+          item.priceType === 'atacado' ? 'cart-item-badge cart-item-badge--atacado' : 'cart-item-badge cart-item-badge--varejo';
+        const typeLabel = item.priceType === 'atacado' ? 'Atacado' : 'Varejo';
+        const unitLabel = isVendorMode ? '' : ` &bull; R$ ${item.priceFormatted} cada`;
+
+        const imgTag = item.image
+          ? `<img src="${escapeHtml(item.image)}" alt="${escapeHtml(item.title)}" class="cart-item-img" loading="lazy">`
+          : `<div class="cart-item-img" style="display:flex;align-items:center;justify-content:center;background:#f1f5f3;color:#8ba396;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg></div>`;
+
+        return `
+          <div class="cart-item-card" data-key="${item.key}">
+            ${imgTag}
+            <div class="cart-item-details">
+              <span class="cart-item-name">${escapeHtml(item.title)}</span>
+              <div class="cart-item-meta">
+                ${isVendorMode ? '' : `<span class="${badgeClass}">${typeLabel}</span>`}
+                <span class="cart-item-unit-price">${escapeHtml(item.embalagem)}${unitLabel}</span>
+              </div>
+              <div class="qty-control" style="margin-top: 6px; height: 32px;">
+                <button type="button" class="qty-btn" data-cart-action="dec" data-key="${item.key}" aria-label="Diminuir quantidade">-</button>
+                <input type="number" class="qty-input" value="${item.qty}" min="1" max="999" data-cart-input="${item.key}" aria-label="Quantidade">
+                <button type="button" class="qty-btn" data-cart-action="inc" data-key="${item.key}" aria-label="Aumentar quantidade">+</button>
+              </div>
+            </div>
+            <div class="cart-item-actions">
+              <button type="button" class="cart-item-remove-btn" data-cart-remove="${item.key}" aria-label="Remover ${escapeHtml(item.title)} do pedido">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M3 6h18M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                </svg>
+              </button>
+              <span class="cart-item-subtotal">${subtotalText}</span>
+            </div>
+          </div>
+        `;
+      })
+      .join('');
+
+    cartItemsContainer.innerHTML = html;
+  }
+
+  // Eventos de clique na lista do carrinho (delegação)
+  if (cartItemsContainer) {
+    cartItemsContainer.addEventListener('click', (e) => {
+      const target = e.target.closest('button');
+      if (!target) return;
+
+      const action = target.dataset.cartAction;
+      const key = target.dataset.key;
+      const removeKey = target.dataset.cartRemove;
+
+      if (removeKey) {
+        removeCartItem(removeKey);
+        return;
+      }
+
+      if (action && key) {
+        const item = cart.find((i) => i.key === key);
+        if (!item) return;
+
+        if (action === 'inc') {
+          updateCartItemQty(key, item.qty + 1);
+        } else if (action === 'dec') {
+          updateCartItemQty(key, item.qty - 1);
+        }
+      }
+    });
+
+    cartItemsContainer.addEventListener('change', (e) => {
+      if (e.target.classList.contains('qty-input')) {
+        const key = e.target.dataset.cartInput;
+        const val = parseInt(e.target.value, 10);
+        if (key && !isNaN(val)) {
+          updateCartItemQty(key, Math.max(1, val));
+        }
+      }
+    });
+  }
+
+  // Abertura e Fechamento do Drawer do Carrinho
+  function openCartDrawer() {
+    if (!cartDrawer || !cartBackdrop) return;
+    cartDrawer.hidden = false;
+    cartBackdrop.hidden = false;
+    document.body.style.overflow = 'hidden';
+
+    if (cartToggleBtn) cartToggleBtn.setAttribute('aria-expanded', 'true');
+    if (floatingCartFab) floatingCartFab.setAttribute('aria-expanded', 'true');
+
+    if (prefersReducedMotion()) {
+      cartDrawer.classList.add('is-open');
+      cartBackdrop.classList.add('is-open');
+    } else {
+      window.requestAnimationFrame(() => {
+        cartDrawer.classList.add('is-open');
+        cartBackdrop.classList.add('is-open');
+      });
+    }
+
+    const firstFocusable = cartDrawerClose || cartDrawer.querySelector('button');
+    if (firstFocusable) firstFocusable.focus();
+  }
+
+  function closeCartDrawer() {
+    if (!cartDrawer || !cartBackdrop) return;
+    if (cartToggleBtn) cartToggleBtn.setAttribute('aria-expanded', 'false');
+    if (floatingCartFab) floatingCartFab.setAttribute('aria-expanded', 'false');
+
+    cartDrawer.classList.remove('is-open');
+    cartBackdrop.classList.remove('is-open');
+    document.body.style.overflow = '';
+
+    const finalizeClose = () => {
+      cartDrawer.hidden = true;
+      cartBackdrop.hidden = true;
+    };
+
+    if (prefersReducedMotion()) {
+      finalizeClose();
+    } else {
+      setTimeout(finalizeClose, 280);
+    }
+  }
+
+  if (cartToggleBtn) {
+    cartToggleBtn.addEventListener('click', openCartDrawer);
+  }
+
+  if (floatingCartFab) {
+    floatingCartFab.addEventListener('click', openCartDrawer);
+  }
+
+  if (cartDrawerClose) {
+    cartDrawerClose.addEventListener('click', closeCartDrawer);
+  }
+
+  if (cartBackdrop) {
+    cartBackdrop.addEventListener('click', closeCartDrawer);
+  }
+
+  if (btnClearCart) {
+    btnClearCart.addEventListener('click', () => {
+      if (confirm('Deseja limpar todos os itens do pedido?')) {
+        clearCart();
+      }
+    });
+  }
+
+  // Finalização do Pedido pelo WhatsApp com Mensagem Personalizada
+  function checkoutWhatsApp() {
+    if (cart.length === 0) return;
+
+    const clientName = (orderClientName && orderClientName.value.trim()) || '';
+    const clientCity = (orderClientCity && orderClientCity.value.trim()) || '';
+    const paymentMethod = (orderClientPayment && orderClientPayment.value) || '';
+
+    const totalQty = cart.reduce((sum, item) => sum + item.qty, 0);
+    const totalPrice = cart.reduce((sum, item) => sum + item.qty * item.priceValue, 0);
+
+    let message = '';
+
+    if (isVendorMode) {
+      // Modo Vendedor (Sem Preços)
+      message += '*SOLICITAÇÃO DE COTAÇÃO — ORIGEM DO VALE* 📋\n';
+      message += '----------------------------------------------\n';
+      message += 'Olá! Gostaria de solicitar cotação para os seguintes produtos:\n\n';
+
+      cart.forEach((item) => {
+        const extra = item.embalagem ? ` (${item.embalagem})` : '';
+        message += `• ${item.qty}x ${item.title}${extra}\n`;
+      });
+
+      message += '\n----------------------------------------------\n';
+      message += `📦 *Total de itens:* ${totalQty} produto${totalQty === 1 ? '' : 's'}\n`;
+      if (clientName) message += `👤 *Cliente / Razão Social:* ${clientName}\n`;
+      if (clientCity) message += `📍 *Cidade e Estado:* ${clientCity}\n`;
+      if (paymentMethod) message += `🏢 *Segmento:* ${paymentMethod}\n`;
+      message += '\nPoderiam me enviar a proposta comercial com condições de frete e prazos?';
+    } else {
+      // Modo Catálogo Oficial com Preços (Varejo e Atacado)
+      message += '*PEDIDO — CATÁLOGO ORIGEM DO VALE* 🛒\n';
+      message += '----------------------------------------------\n';
+      message += 'Olá! Gostaria de fazer o seguinte pedido pelo catálogo:\n\n';
+
+      cart.forEach((item) => {
+        const typeLabel = item.priceType === 'atacado' ? 'Atacado' : 'Varejo';
+        const unitVal = `R$ ${item.priceFormatted}`;
+        const subtotal = formatBrl(item.qty * item.priceValue);
+        const extra = item.embalagem ? ` ${item.embalagem}` : '';
+        message += `• ${item.qty}x ${item.title}${extra} (${typeLabel} - ${unitVal} cada) = ${subtotal}\n`;
+      });
+
+      message += '\n----------------------------------------------\n';
+      message += `📦 *Total de itens:* ${totalQty} produto${totalQty === 1 ? '' : 's'}\n`;
+      message += `💰 *Valor estimado:* ${formatBrl(totalPrice)}\n\n`;
+
+      if (clientName) message += `👤 *Nome:* ${clientName}\n`;
+      if (clientCity) message += `📍 *Cidade / Bairro para entrega:* ${clientCity}\n`;
+      if (paymentMethod) message += `💳 *Forma de pagamento:* ${paymentMethod}\n`;
+
+      message += '\nPoderiam confirmar a disponibilidade e o valor do frete para entrega?';
+    }
+
+    const waPhone = catalogData.whatsappPhone || '5512988801327';
+    const waUrl = `https://wa.me/${waPhone}?text=${encodeURIComponent(message)}`;
+    window.open(waUrl, '_blank', 'noopener,noreferrer');
+  }
+
+  if (btnCheckoutWhatsapp) {
+    btnCheckoutWhatsapp.addEventListener('click', checkoutWhatsApp);
+  }
+
+  /* ==========================================================================
+     RENDERIZAÇÃO DOS CARDS DE PRODUTOS
+     ========================================================================== */
 
   const WHATSAPP_SVG = `
     <svg class="icon-wa" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false">
@@ -74,45 +493,17 @@
       .replace(/"/g, '&quot;');
   }
 
-  function buildWhatsAppUrl(productTitle, packaging = '', isVendorMode = false) {
+  function buildSingleWhatsAppUrl(productTitle, packaging = '') {
     const extra = packaging ? ` (${packaging})` : '';
     const message = isVendorMode
-      ? `Olá! Tenho interesse no produto: ${productTitle}${extra}. Gostaria de solicitar cotação e condições para meu estabelecimento.`
-      : `Olá! Tenho interesse em pedir o produto: ${productTitle}${extra} pelo catálogo Origem do Vale.`;
+      ? `Olá! Tenho interesse no produto: ${productTitle}${extra}. Gostaria de solicitar cotação e condições comerciais.`
+      : `Olá! Tenho interesse no produto: ${productTitle}${extra} pelo catálogo Origem do Vale.`;
     return `https://wa.me/${catalogData.whatsappPhone}?text=${encodeURIComponent(message)}`;
   }
-
-  function formatPriceHtml(label, value, extraClass = '') {
-    if (!value) {
-      return `
-        <div class="price-col">
-          <span class="price-label">${label}</span>
-          <span class="price-value price-value--empty">Sob consulta</span>
-        </div>
-      `;
-    }
-    const valueClass = extraClass ? `price-value ${extraClass}` : 'price-value';
-    return `
-      <div class="price-col">
-        <span class="price-label">${label}</span>
-        <span class="${valueClass}">R$&nbsp;${escapeHtml(value)}</span>
-      </div>
-    `;
-  }
-
-  const PLACEHOLDER_ICON_SVG = `
-    <svg class="card-placeholder-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
-      <path d="M18 9h12" />
-      <path d="M16 14h16a3 3 0 0 1 3 3v18a5 5 0 0 1-5 5H18a5 5 0 0 1-5-5V17a3 3 0 0 1 3-3Z" />
-      <path d="M24 22c-3.5 0-6 2.5-6 5.5 0 3.2 2.7 5.5 6 5.5s6-2.3 6-5.5c0-3-2.5-5.5-6-5.5Z" />
-      <path d="M24 22v11" />
-    </svg>
-  `;
 
   function renderProductCard(item, sectionIndex, itemIndex, isFiltering) {
     const isVendor = state.mode === 'vendedor';
     const imgClass = item.imageMode === 'cover' ? 'card-img card-img--cover' : 'card-img card-img--contain';
-    const waHref = buildWhatsAppUrl(item.title, item.embalagem, isVendor);
     const safeTitle = escapeHtml(item.title);
     const loadingAttr = sectionIndex === 0 && itemIndex < 4 ? 'eager' : 'lazy';
     const shouldAnimate = (sectionIndex === 0 || isFiltering) && itemIndex < 6;
@@ -135,8 +526,7 @@
         </div>
       `
       : `
-        <div class="card-media card-media--placeholder" role="img" aria-label="Imagem em breve para ${safeTitle}">
-          ${PLACEHOLDER_ICON_SVG}
+        <div class="card-media card-media--placeholder" role="img" aria-label="Imagem de ${safeTitle}">
           <span class="card-placeholder-label">Foto em breve</span>
         </div>
       `;
@@ -145,69 +535,221 @@
       ? `<span class="card-spec">${escapeHtml(item.embalagem)}</span>`
       : '';
 
-    // No modo vendedor: NENHUM preço é exibido!
-    const priceBlockHtml = isVendor
-      ? `
-        <div class="card-vendor-badge">
+    let purchaseBlockHtml = '';
+
+    if (isVendor) {
+      // Modo Vendedor: Cotação comercial sem valores em R$
+      purchaseBlockHtml = `
+        <div class="card-vendor-badge" style="margin-bottom: 10px;">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
           <span>Catálogo de Representação &bull; Cotação Direta</span>
         </div>
-      `
-      : `
-        <div class="card-prices">
-          ${formatPriceHtml('VAREJO', item.varejo)}
-          ${formatPriceHtml('ATACADO', item.atacado, 'price-value--atacado')}
+        <div class="card-cart-action-group">
+          <div class="qty-control">
+            <button type="button" class="qty-btn" data-action="minus" aria-label="Diminuir">-</button>
+            <input type="number" class="qty-input" value="1" min="1" max="999" aria-label="Quantidade">
+            <button type="button" class="qty-btn" data-action="plus" aria-label="Aumentar">+</button>
+          </div>
+          <button type="button" class="btn-add-cart" data-add-to-cart="${item.id}" data-type="cotacao" aria-label="Adicionar ${safeTitle} à lista de cotação">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 5v14M5 12h14"/></svg>
+            <span>+ Cotação</span>
+          </button>
         </div>
       `;
+    } else {
+      // Modo Catálogo Oficial com Preços e Seletor Varejo / Atacado
+      const varejoVal = item.varejo ? `R$ ${escapeHtml(item.varejo)}` : 'Sob consulta';
+      const atacadoVal = item.atacado ? `R$ ${escapeHtml(item.atacado)}` : 'Sob consulta';
 
-    const btnText = isVendor ? 'Solicitar Cotação' : 'Pedir no WhatsApp';
+      purchaseBlockHtml = `
+        <div class="card-pricing-selector" role="group" aria-label="Modalidade de compra para ${safeTitle}">
+          <button
+            type="button"
+            class="pricing-pill is-active"
+            data-pricing-type="varejo"
+            aria-pressed="true"
+          >
+            <span class="pill-type">Varejo</span>
+            <span class="pill-val">${varejoVal}</span>
+            <span class="pill-sub">unidade</span>
+          </button>
+          <button
+            type="button"
+            class="pricing-pill"
+            data-pricing-type="atacado"
+            aria-pressed="false"
+          >
+            <span class="pill-type">Atacado</span>
+            <span class="pill-val">${atacadoVal}</span>
+            <span class="pill-sub">caixa / fardo</span>
+          </button>
+        </div>
+
+        <div class="card-cart-action-group">
+          <div class="qty-control">
+            <button type="button" class="qty-btn" data-action="minus" aria-label="Diminuir">-</button>
+            <input type="number" class="qty-input" value="1" min="1" max="999" aria-label="Quantidade">
+            <button type="button" class="qty-btn" data-action="plus" aria-label="Aumentar">+</button>
+          </div>
+          <button
+            type="button"
+            class="btn-add-cart"
+            data-add-to-cart="${item.id}"
+            data-selected-type="varejo"
+            aria-label="Adicionar ${safeTitle} ao carrinho"
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+            <span>+ Carrinho</span>
+          </button>
+        </div>
+      `;
+    }
+
+    const waDirectHref = buildSingleWhatsAppUrl(item.title, item.embalagem);
 
     return `
-      <article class="product-card${enterClass}${isVendor ? ' is-vendor-card' : ''}"${enterStyle}>
+      <article class="product-card${enterClass}${isVendor ? ' is-vendor-card' : ''}" data-product-card-id="${item.id}"${enterStyle}>
         ${mediaHtml}
         ${embalagemHtml}
         <h3 class="card-title">${safeTitle}</h3>
         <div class="card-bottom">
           <hr class="card-divider" aria-hidden="true" />
-          ${priceBlockHtml}
-          <a
-            href="${waHref}"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="btn-whatsapp card-btn"
-            aria-label="${btnText} para ${safeTitle}"
-          >
-            ${WHATSAPP_SVG}
-            <span>${btnText}</span>
-          </a>
+          ${purchaseBlockHtml}
+          <div style="margin-top: 8px; text-align: center;">
+            <a
+              href="${waDirectHref}"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="card-direct-wa-link"
+              style="font-size: 0.75rem; color: var(--color-muted); text-decoration: none; display: inline-flex; align-items: center; gap: 4px;"
+            >
+              ${WHATSAPP_SVG}
+              <span>Dúvida rápida sobre este item</span>
+            </a>
+          </div>
         </div>
       </article>
     `;
   }
 
-  function setMode(newMode) {
-    if (newMode !== 'precos' && newMode !== 'vendedor') return;
-    state.mode = newMode;
+  /* ==========================================================================
+     NAVEGAÇÃO POR CATEGORIA DEDICADA ESTILO SHOPEE / MERCADO LIVRE
+     ========================================================================== */
 
-    // Atualiza botões se existirem
-    modeToggleButtons.forEach((btn) => {
-      const match = btn.dataset.mode === newMode;
-      btn.classList.toggle('is-active', match);
-      btn.setAttribute('aria-pressed', match ? 'true' : 'false');
-    });
+  const categoryDescriptions = {
+    palmitos: 'Palmitos nobres de Palmeira Real, Juçara e Pupunha em toletes macios, picados e rodelas. Seleção nobre sem glúten.',
+    conservas: 'Receitas coloniais tradicionais da Serra Catarinense com alho, batatinhas rústicas, pepinos crocantes e ovos defumados.',
+    frios: 'Salames artesanais fatiados, linguiças coloniais defumadas e queijos nobres para aperitivos e buffets.',
+    doces: 'Pêssegos, figos verdes e frutas em calda límpida e suave com receita tradicional do interior catarinense.',
+    bebidas: 'Sucos integrais de uva e maçã 100% fruta natural, sem adição de açúcar, conservantes ou água.'
+  };
 
-    if (vendorBanner) {
-      vendorBanner.hidden = newMode !== 'vendedor';
+  function updateCategoryBanner() {
+    if (!categoryHeroContainer) return;
+
+    if (state.filter === 'all' || !state.filter) {
+      categoryHeroContainer.innerHTML = '';
+      return;
     }
 
+    const section = catalogData.sections.find((s) => s.id === state.filter);
+    if (!section) {
+      categoryHeroContainer.innerHTML = '';
+      return;
+    }
+
+    const desc = categoryDescriptions[state.filter] || section.subtitle || 'Linha selecionada com procedência artesanal.';
+
+    categoryHeroContainer.innerHTML = `
+      <div class="category-hero-banner" role="region" aria-label="Seção de ${escapeHtml(section.title)}">
+        <nav class="category-breadcrumb" aria-label="Navegação estrutural">
+          <a href="#" class="breadcrumb-link" data-cat-reset="all">Início / Todos os Produtos</a>
+          <span class="breadcrumb-separator">&rsaquo;</span>
+          <span class="breadcrumb-current">${escapeHtml(section.title)}</span>
+        </nav>
+        <div class="category-hero-header">
+          <div>
+            <h2 class="category-hero-title">${escapeHtml(section.title)}</h2>
+            <p class="category-hero-desc">${escapeHtml(desc)}</p>
+          </div>
+          <button type="button" class="btn-back-all-cats" data-cat-reset="all" aria-label="Ver todas as 5 categorias de produtos">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m15 18-6-6 6-6"/></svg>
+            <span>Ver Todos os 41 Produtos</span>
+          </button>
+        </div>
+      </div>
+    `;
+
+    const resetBtns = categoryHeroContainer.querySelectorAll('[data-cat-reset]');
+    resetBtns.forEach((btn) => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        setFilter('all');
+      });
+    });
+  }
+
+  function setFilter(filterId, updateUrl = true) {
+    state.filter = filterId;
+
+    // Atualiza chips
+    filterChips.forEach((chip) => {
+      const match = chip.dataset.filter === filterId;
+      chip.classList.toggle('is-active', match);
+      chip.setAttribute('aria-pressed', match ? 'true' : 'false');
+    });
+
+    // Atualiza cards de categorias do topo
+    categoryShowcaseBtns.forEach((btn) => {
+      const match = btn.dataset.categoryTarget === filterId;
+      btn.classList.toggle('is-active', match);
+    });
+
+    // Atualiza URL sem recarregar a tela
+    if (updateUrl) {
+      const url = new URL(window.location);
+      if (filterId === 'all') {
+        url.searchParams.delete('categoria');
+      } else {
+        url.searchParams.set('categoria', filterId);
+      }
+      window.history.pushState({}, '', url);
+    }
+
+    updateCategoryBanner();
     renderCatalog();
   }
 
-  modeToggleButtons.forEach((btn) => {
-    btn.addEventListener('click', () => {
-      setMode(btn.dataset.mode);
+  // Cliques nos chips da barra de ferramentas
+  filterChips.forEach((chip) => {
+    chip.addEventListener('click', () => {
+      const targetFilter = chip.dataset.filter || 'all';
+      setFilter(targetFilter);
     });
   });
+
+  // Cliques nos botões de Categoria do Topo (Showcase Shopee / ML)
+  categoryShowcaseBtns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const target = btn.dataset.categoryTarget;
+      if (target) {
+        setFilter(target);
+        if (categoryHeroContainer) {
+          categoryHeroContainer.scrollIntoView({ behavior: getScrollBehavior(), block: 'start' });
+        }
+      }
+    });
+  });
+
+  // Responde ao botão voltar do navegador
+  window.addEventListener('popstate', () => {
+    const cat = detectInitialCategory();
+    setFilter(cat, false);
+  });
+
+  /* ==========================================================================
+     CARROSSEL E RENDERIZAÇÃO GERAL DO CATÁLOGO
+     ========================================================================== */
 
   function updateCarouselState(sec) {
     if (!sec) return;
@@ -223,9 +765,7 @@
 
     if (track.classList.contains('is-grid')) {
       track.removeAttribute('data-scrollable');
-      if (viewport) {
-        viewport.classList.remove('has-scroll-left', 'has-scroll-right');
-      }
+      if (viewport) viewport.classList.remove('has-scroll-left', 'has-scroll-right');
       if (controls) controls.hidden = true;
       if (hint) hint.hidden = true;
       if (progressTrack) progressTrack.hidden = true;
@@ -259,8 +799,6 @@
     }
   }
 
-  let scrollObserver = null;
-
   function syncAllCarousels() {
     const sections = Array.from(sectionsRoot.querySelectorAll('.catalog-section'));
     sections.forEach((sec) => updateCarouselState(sec));
@@ -275,7 +813,8 @@
 
   function renderCatalog() {
     const normalizedQuery = normalizeText(state.query.trim());
-    const isFiltering = state.filter !== 'all' || normalizedQuery.length > 0;
+    const isDedicatedCategory = state.filter !== 'all';
+    const isFiltering = isDedicatedCategory || normalizedQuery.length > 0;
     let totalShown = 0;
     let visibleSectionIndex = 0;
 
@@ -284,7 +823,7 @@
     const fragment = document.createDocumentFragment();
 
     catalogData.sections.forEach((section) => {
-      if (state.filter !== 'all' && section.id !== state.filter) return;
+      if (isDedicatedCategory && section.id !== state.filter) return;
 
       const filteredItems = section.items.filter((item) => {
         if (!normalizedQuery) return true;
@@ -326,22 +865,18 @@
                       type="button"
                       class="carousel-nav-btn carousel-nav-btn--prev"
                       data-dir="-1"
-                      aria-label="Ver produtos anteriores de ${escapeHtml(section.title)}"
+                      aria-label="Ver produtos anteriores"
                       disabled
                     >
-                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
-                        <path d="m15 18-6-6 6-6" />
-                      </svg>
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="m15 18-6-6 6-6"/></svg>
                     </button>
                     <button
                       type="button"
                       class="carousel-nav-btn carousel-nav-btn--next"
                       data-dir="1"
-                      aria-label="Ver próximos produtos de ${escapeHtml(section.title)}"
+                      aria-label="Ver próximos produtos"
                     >
-                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
-                        <path d="m9 18 6-6-6-6" />
-                      </svg>
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="m9 18 6-6-6-6"/></svg>
                     </button>
                   </div>
                 `
@@ -350,6 +885,7 @@
         </div>
       `;
 
+      // Se for categoria dedicada ou busca, exibe em grid estilo marketplace
       const trackClass = isFiltering ? 'product-track is-grid' : 'product-track';
       const cardsHtml = filteredItems
         .map((item, index) => renderProductCard(item, currentSectionIndex, index, isFiltering))
@@ -391,10 +927,6 @@
       emptyEl.className = 'container';
       emptyEl.innerHTML = `
         <div class="catalog-empty" role="status">
-          <svg class="empty-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
-            <circle cx="24" cy="24" r="20" />
-            <path d="M16 16l16 16M32 16L16 32" />
-          </svg>
           <h3 class="empty-title">Nenhum produto encontrado</h3>
           <p class="empty-text">Não encontramos itens para "<strong>${escapeHtml(state.query)}</strong>". Tente outro termo ou limpe os filtros.</p>
           <button type="button" class="btn-clear-filter" id="btn-reset-filters">Limpar busca e filtros</button>
@@ -405,7 +937,7 @@
 
     sectionsRoot.replaceChildren(fragment);
 
-    // Atualiza status acessível
+    // Atualiza status para leitores de tela
     if (statusEl) {
       if (totalShown === 0) {
         statusEl.textContent = 'Nenhum produto encontrado.';
@@ -416,6 +948,7 @@
       }
     }
 
+    wireCardControls();
     wireCarousels();
     initScrollSpy();
 
@@ -429,6 +962,69 @@
         if (searchInput) searchInput.focus();
       });
     }
+  }
+
+  // Interações dentro dos Cards (Seletores de Varejo/Atacado, Qtd e Add Cart)
+  function wireCardControls() {
+    const cards = Array.from(sectionsRoot.querySelectorAll('.product-card'));
+    cards.forEach((card) => {
+      // Toggle de pílulas Varejo x Atacado
+      const pills = Array.from(card.querySelectorAll('.pricing-pill'));
+      const addBtn = card.querySelector('.btn-add-cart');
+      const qtyInput = card.querySelector('.qty-input');
+      const minusBtn = card.querySelector('[data-action="minus"]');
+      const plusBtn = card.querySelector('[data-action="plus"]');
+
+      pills.forEach((pill) => {
+        pill.addEventListener('click', () => {
+          pills.forEach((p) => {
+            p.classList.remove('is-active');
+            p.setAttribute('aria-pressed', 'false');
+          });
+          pill.classList.add('is-active');
+          pill.setAttribute('aria-pressed', 'true');
+          const type = pill.dataset.pricingType || 'varejo';
+          if (addBtn) {
+            addBtn.dataset.selectedType = type;
+          }
+        });
+      });
+
+      // Controles de quantidade
+      if (minusBtn && qtyInput) {
+        minusBtn.addEventListener('click', () => {
+          const val = parseInt(qtyInput.value, 10) || 1;
+          qtyInput.value = Math.max(1, val - 1);
+        });
+      }
+
+      if (plusBtn && qtyInput) {
+        plusBtn.addEventListener('click', () => {
+          const val = parseInt(qtyInput.value, 10) || 1;
+          qtyInput.value = Math.min(999, val + 1);
+        });
+      }
+
+      // Botão Adicionar ao Carrinho / Cotação
+      if (addBtn) {
+        addBtn.addEventListener('click', () => {
+          const productId = addBtn.dataset.addToCart;
+          const type = addBtn.dataset.selectedType || addBtn.dataset.type || 'varejo';
+          const qty = parseInt(qtyInput ? qtyInput.value : 1, 10) || 1;
+
+          addToCart(productId, type, qty);
+
+          // Feedback visual animado
+          addBtn.classList.add('is-added');
+          const originalHtml = addBtn.innerHTML;
+          addBtn.innerHTML = `<span>&check; Adicionado!</span>`;
+          setTimeout(() => {
+            addBtn.classList.remove('is-added');
+            addBtn.innerHTML = originalHtml;
+          }, 1400);
+        });
+      }
+    });
   }
 
   function wireCarousels() {
@@ -633,23 +1229,7 @@
     });
   }
 
-  function setFilter(filterId) {
-    state.filter = filterId;
-    filterChips.forEach((chip) => {
-      const match = chip.dataset.filter === filterId;
-      chip.classList.toggle('is-active', match);
-      chip.setAttribute('aria-pressed', match ? 'true' : 'false');
-    });
-  }
-
-  filterChips.forEach((chip) => {
-    chip.addEventListener('click', () => {
-      const targetFilter = chip.dataset.filter || 'all';
-      setFilter(targetFilter);
-      renderCatalog();
-    });
-  });
-
+  // Busca em tempo real com debounce
   if (searchInput) {
     let debounceTimer = null;
     searchInput.addEventListener('input', (e) => {
@@ -671,12 +1251,7 @@
   }
 
   function navigateToSection(targetId, moveFocus = false) {
-    if (state.filter !== 'all' || state.query.trim() !== '') {
-      setFilter('all');
-      if (searchInput) searchInput.value = '';
-      state.query = '';
-      renderCatalog();
-    }
+    setFilter(targetId);
     const target = document.getElementById(targetId);
     if (target) {
       target.scrollIntoView({ behavior: getScrollBehavior(), block: 'start' });
@@ -695,16 +1270,10 @@
       if (!id) return;
       e.preventDefault();
       navigateToSection(id);
-      setActiveNav(id);
     });
   });
 
-  function setActiveNav(activeId) {
-    navLinks.forEach((link) => {
-      link.classList.toggle('is-active', link.dataset.nav === activeId);
-    });
-  }
-
+  let scrollObserver = null;
   function initScrollSpy() {
     if (!('IntersectionObserver' in window)) return;
     if (scrollObserver) scrollObserver.disconnect();
@@ -713,32 +1282,26 @@
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             const id = entry.target.id;
-            const match = navLinks.some((link) => link.dataset.nav === id);
-            setActiveNav(match ? id : null);
+            navLinks.forEach((link) => {
+              link.classList.toggle('is-active', link.dataset.nav === id);
+            });
           }
         });
       },
       { rootMargin: '-30% 0px -55% 0px', threshold: 0 }
     );
 
-    const introSection = document.getElementById('catalogo');
-    if (introSection) scrollObserver.observe(introSection);
-
-    ['palmitos', 'conservas', 'frios', 'doces', 'bebidas', 'temperos'].forEach((id) => {
+    ['palmitos', 'conservas', 'frios', 'doces', 'bebidas'].forEach((id) => {
       const el = document.getElementById(id);
       if (el) scrollObserver.observe(el);
     });
   }
 
+  // Mobile Drawer do Menu Superior
   let lastFocusedEl = null;
   let drawerCloseTimer = 0;
 
-  function getDrawerFocusable() {
-    if (!drawer) return [];
-    return Array.from(drawer.querySelectorAll('a[href], button:not([disabled])'));
-  }
-
-  function openDrawer() {
+  function openMenuDrawer() {
     if (!drawer || !drawerBackdrop || !menuToggle) return;
     window.clearTimeout(drawerCloseTimer);
     lastFocusedEl = document.activeElement;
@@ -748,26 +1311,15 @@
     menuToggle.setAttribute('aria-expanded', 'true');
     document.body.style.overflow = 'hidden';
 
-    if (prefersReducedMotion()) {
-      drawer.classList.add('is-open');
-      drawerBackdrop.classList.add('is-open');
-    } else {
-      window.requestAnimationFrame(() => {
-        window.requestAnimationFrame(() => {
-          drawer.classList.add('is-open');
-          drawerBackdrop.classList.add('is-open');
-        });
-      });
-    }
+    drawer.classList.add('is-open');
+    drawerBackdrop.classList.add('is-open');
 
-    const focusables = getDrawerFocusable();
-    const firstFocusable = focusables[0] || drawerClose;
-    if (firstFocusable) {
-      window.setTimeout(() => firstFocusable.focus(), 60);
+    if (drawerClose) {
+      setTimeout(() => drawerClose.focus(), 60);
     }
   }
 
-  function closeDrawer() {
+  function closeMenuDrawer() {
     if (!drawer || !drawerBackdrop || !menuToggle) return;
     menuToggle.setAttribute('aria-expanded', 'false');
     drawer.classList.remove('is-open');
@@ -794,20 +1346,15 @@
     menuToggle.addEventListener('click', () => {
       const isOpen = menuToggle.getAttribute('aria-expanded') === 'true';
       if (isOpen) {
-        closeDrawer();
+        closeMenuDrawer();
       } else {
-        openDrawer();
+        openMenuDrawer();
       }
     });
   }
 
-  if (drawerClose) {
-    drawerClose.addEventListener('click', closeDrawer);
-  }
-
-  if (drawerBackdrop) {
-    drawerBackdrop.addEventListener('click', closeDrawer);
-  }
+  if (drawerClose) drawerClose.addEventListener('click', closeMenuDrawer);
+  if (drawerBackdrop) drawerBackdrop.addEventListener('click', closeMenuDrawer);
 
   drawerLinks.forEach((link) => {
     link.addEventListener('click', (e) => {
@@ -815,39 +1362,34 @@
       if (href && href.startsWith('#')) {
         e.preventDefault();
         const targetId = href.substring(1);
-        closeDrawer();
+        closeMenuDrawer();
         setTimeout(() => {
           navigateToSection(targetId, true);
         }, 180);
       } else {
-        closeDrawer();
+        closeMenuDrawer();
       }
     });
   });
 
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && menuToggle && menuToggle.getAttribute('aria-expanded') === 'true') {
-      e.preventDefault();
-      closeDrawer();
-      return;
-    }
-
-    if (e.key === 'Tab' && menuToggle && menuToggle.getAttribute('aria-expanded') === 'true') {
-      const focusables = getDrawerFocusable();
-      if (focusables.length === 0) return;
-      const first = focusables[0];
-      const last = focusables[focusables.length - 1];
-
-      if (e.shiftKey && document.activeElement === first) {
+    if (e.key === 'Escape') {
+      if (cartDrawer && !cartDrawer.hidden) {
         e.preventDefault();
-        last.focus();
-      } else if (!e.shiftKey && document.activeElement === last) {
+        closeCartDrawer();
+        return;
+      }
+      if (menuToggle && menuToggle.getAttribute('aria-expanded') === 'true') {
         e.preventDefault();
-        first.focus();
+        closeMenuDrawer();
+        return;
       }
     }
   });
 
-  // Inicialização com modo detectado
-  setMode(state.mode);
+  // Inicialização
+  loadCart();
+  updateCategoryBanner();
+  renderCatalog();
+  updateCartUI();
 })();
