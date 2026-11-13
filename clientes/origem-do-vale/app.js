@@ -45,11 +45,8 @@
 
   const pageLandmarks = Array.from(document.querySelectorAll('.skip-link, .site-header, main, .site-footer'));
 
-  // Detecta o modo da página atual ('precos' ou 'vendedor')
+  // Modo unificado de catálogo oficial com preços e carrinho completo
   function detectInitialMode() {
-    if (document.body.dataset.defaultMode === 'vendedor') return 'vendedor';
-    if (document.body.dataset.defaultMode === 'precos') return 'precos';
-    if (window.location.pathname.toLowerCase().includes('vendedor')) return 'vendedor';
     return 'precos';
   }
 
@@ -67,7 +64,7 @@
     return 'all';
   }
 
-  const isVendorMode = detectInitialMode() === 'vendedor';
+  const isVendorMode = false;
 
   const totalProductsCount = catalogData.sections.reduce(
     (sum, section) => sum + (Array.isArray(section.items) ? section.items.length : 0),
@@ -575,85 +572,71 @@
       ? `<span class="card-spec">${escapeHtml(item.embalagem)}</span>`
       : '';
 
-    let purchaseBlockHtml = '';
+    // Catálogo Oficial com Preços Reais, Seletor Varejo / Atacado e Atalho Dinâmico
+    const varejoVal = item.varejo ? `R$ ${escapeHtml(item.varejo)}` : 'Sob consulta';
+    const atacadoVal = item.atacado ? `R$ ${escapeHtml(item.atacado)}` : 'Sob consulta';
+    const minAtacado = item.minAtacado || 6;
+    const initialDiff = Math.max(1, minAtacado - 1);
+    const wholesaleRuleText = `Adicione +${initialDiff} para obter desconto de atacado`;
+    const atacadoSubText = item.cx ? escapeHtml(item.cx) : 'caixa / fardo';
 
-    if (isVendor) {
-      // Modo Vendedor: Cotação comercial sem valores em R$
-      purchaseBlockHtml = `
-        <div class="card-vendor-badge" style="margin-bottom: 10px;">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
-          <span>Catálogo de Representação &bull; Cotação Direta</span>
-        </div>
-        <div class="card-cart-action-group">
-          <div class="qty-control">
-            <button type="button" class="qty-btn" data-action="minus" aria-label="Diminuir">-</button>
-            <input type="number" class="qty-input" value="1" min="1" max="999" aria-label="Quantidade">
-            <button type="button" class="qty-btn" data-action="plus" aria-label="Aumentar">+</button>
-          </div>
-          <button type="button" class="btn-add-cart" data-add-to-cart="${item.id}" data-type="cotacao" aria-label="Adicionar ${safeTitle} à lista de cotação">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 5v14M5 12h14"/></svg>
-            <span>+ Cotação</span>
-          </button>
-        </div>
-      `;
-    } else {
-      // Modo Catálogo Oficial com Preços e Seletor Varejo / Atacado
-      const varejoVal = item.varejo ? `R$ ${escapeHtml(item.varejo)}` : 'Sob consulta';
-      const atacadoVal = item.atacado ? `R$ ${escapeHtml(item.atacado)}` : 'Sob consulta';
+    const purchaseBlockHtml = `
+      <button
+        type="button"
+        class="card-wholesale-rule is-actionable"
+        data-rule-for="${item.id}"
+        data-min-atacado="${minAtacado}"
+        title="Clique para adicionar +${initialDiff} e obter preço de atacado"
+      >
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>
+        <span class="rule-text">${wholesaleRuleText}</span>
+      </button>
+      <div class="card-pricing-selector" role="group" aria-label="Modalidade de compra para ${safeTitle}">
+        <button
+          type="button"
+          class="pricing-pill is-active"
+          data-pricing-type="varejo"
+          aria-pressed="true"
+        >
+          <span class="pill-type">Varejo</span>
+          <span class="pill-val">${varejoVal}</span>
+          <span class="pill-sub">unidade</span>
+        </button>
+        <button
+          type="button"
+          class="pricing-pill"
+          data-pricing-type="atacado"
+          aria-pressed="false"
+        >
+          <span class="pill-type">Atacado</span>
+          <span class="pill-val">${atacadoVal}</span>
+          <span class="pill-sub">${atacadoSubText}</span>
+        </button>
+      </div>
 
-      const wholesaleRuleText = escapeHtml(item.regraAtacado || `Atacado a partir de ${item.minAtacado || 6} un.`);
-      purchaseBlockHtml = `
-        <div class="card-wholesale-rule" data-rule-for="${item.id}">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-          <span class="rule-text">${wholesaleRuleText}</span>
+      <div class="card-cart-action-group">
+        <div class="qty-control">
+          <button type="button" class="qty-btn" data-action="minus" aria-label="Diminuir">-</button>
+          <input type="number" class="qty-input" value="1" min="1" max="999" aria-label="Quantidade">
+          <button type="button" class="qty-btn" data-action="plus" aria-label="Aumentar">+</button>
         </div>
-        <div class="card-pricing-selector" role="group" aria-label="Modalidade de compra para ${safeTitle}">
-          <button
-            type="button"
-            class="pricing-pill is-active"
-            data-pricing-type="varejo"
-            aria-pressed="true"
-          >
-            <span class="pill-type">Varejo</span>
-            <span class="pill-val">${varejoVal}</span>
-            <span class="pill-sub">unidade</span>
-          </button>
-          <button
-            type="button"
-            class="pricing-pill"
-            data-pricing-type="atacado"
-            aria-pressed="false"
-          >
-            <span class="pill-type">Atacado</span>
-            <span class="pill-val">${atacadoVal}</span>
-            <span class="pill-sub">com desconto</span>
-          </button>
-        </div>
-
-        <div class="card-cart-action-group">
-          <div class="qty-control">
-            <button type="button" class="qty-btn" data-action="minus" aria-label="Diminuir">-</button>
-            <input type="number" class="qty-input" value="1" min="1" max="999" aria-label="Quantidade">
-            <button type="button" class="qty-btn" data-action="plus" aria-label="Aumentar">+</button>
-          </div>
-          <button
-            type="button"
-            class="btn-add-cart"
-            data-add-to-cart="${item.id}"
-            data-selected-type="varejo"
-            aria-label="Adicionar ${safeTitle} ao carrinho"
-          >
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
-            <span>+ Carrinho</span>
-          </button>
-        </div>
-      `;
-    }
+        <button
+          type="button"
+          class="btn-add-cart"
+          data-add-to-cart="${item.id}"
+          data-selected-type="varejo"
+          aria-label="Adicionar ${safeTitle} ao carrinho"
+        >
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+          <span>+ Carrinho</span>
+        </button>
+      </div>
+    `;
 
     const waDirectHref = buildSingleWhatsAppUrl(item.title, item.embalagem);
 
     return `
-      <article class="product-card${enterClass}${isVendor ? ' is-vendor-card' : ''}" data-product-card-id="${item.id}"${enterStyle}>
+      <article class="product-card${enterClass}" data-product-card-id="${item.id}"${enterStyle}>
         ${mediaHtml}
         ${embalagemHtml}
         <h3 class="card-title">${safeTitle}</h3>
@@ -982,7 +965,7 @@
       const ruleBadge = card.querySelector('.card-wholesale-rule');
 
       function syncWholesaleByQuantity(newQty, explicitType = null) {
-        if (!product || isVendorMode) return;
+        if (!product) return;
         const qtyNum = Math.max(1, parseInt(newQty, 10) || 1);
         let targetType = explicitType;
 
@@ -1005,12 +988,28 @@
           const textSpan = ruleBadge.querySelector('.rule-text');
           if (targetType === 'atacado' || qtyNum >= minAtacado) {
             ruleBadge.classList.add('is-applied');
-            if (textSpan) textSpan.textContent = `Desconto atacado ativado (${qtyNum} un.)`;
+            ruleBadge.classList.remove('is-actionable');
+            if (textSpan) textSpan.textContent = `✓ Desconto de atacado ativado (${qtyNum} un.)`;
+            ruleBadge.title = `Preço de atacado ativo para ${qtyNum} unidades`;
           } else {
+            const diff = Math.max(1, minAtacado - qtyNum);
             ruleBadge.classList.remove('is-applied');
-            if (textSpan) textSpan.textContent = product.regraAtacado || `Atacado a partir de ${minAtacado} un.`;
+            ruleBadge.classList.add('is-actionable');
+            if (textSpan) textSpan.textContent = `Adicione +${diff} para obter desconto de atacado`;
+            ruleBadge.title = `Clique para adicionar +${diff} e obter preço de atacado (${minAtacado} un.)`;
           }
         }
+      }
+
+      // Atalho interativo no badge: clicar salta a quantidade para o atacado
+      if (ruleBadge) {
+        ruleBadge.addEventListener('click', () => {
+          const currentVal = parseInt(qtyInput ? qtyInput.value : 1, 10) || 1;
+          if (currentVal < minAtacado) {
+            if (qtyInput) qtyInput.value = minAtacado;
+            syncWholesaleByQuantity(minAtacado, 'atacado');
+          }
+        });
       }
 
       // Cliques nas pílulas Varejo / Atacado
@@ -1023,8 +1022,14 @@
             if (currentVal < minAtacado && qtyInput) {
               qtyInput.value = minAtacado;
             }
+            syncWholesaleByQuantity(qtyInput ? qtyInput.value : minAtacado, 'atacado');
+          } else {
+            const currentVal = parseInt(qtyInput ? qtyInput.value : 1, 10) || 1;
+            if (currentVal >= minAtacado && qtyInput) {
+              qtyInput.value = Math.max(1, minAtacado - 1);
+            }
+            syncWholesaleByQuantity(qtyInput ? qtyInput.value : 1, 'varejo');
           }
-          syncWholesaleByQuantity(qtyInput ? qtyInput.value : 1, chosenType);
         });
       });
 
