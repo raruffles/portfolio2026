@@ -13,6 +13,32 @@ window.ORIGEM_DO_VALE_DATA = {
     description: 'Distribuição especializada em palmitos selecionados, conservas nobres, frios artesanais, bebidas e doces da serra para empórios, restaurantes e consumidores exigentes.'
   },
   whatsappPhone: '5512988801327',
+  vendedores: {
+    central: {
+      id: 'central',
+      name: 'Raphael (Central Origem do Vale)',
+      shortName: 'Raphael',
+      phoneDisplay: '(12) 98880-1327',
+      whatsappPhone: '5512988801327',
+      role: 'Central de Pedidos e Atendimento'
+    },
+    paulo: {
+      id: 'paulo',
+      name: 'Paulo (Representante Comercial)',
+      shortName: 'Paulo',
+      phoneDisplay: '(12) 99623-3563',
+      whatsappPhone: '5512996233563',
+      role: 'Representante Comercial'
+    },
+    elaine: {
+      id: 'elaine',
+      name: 'Elaine (Representante Comercial)',
+      shortName: 'Elaine',
+      phoneDisplay: '(12) 99131-8893',
+      whatsappPhone: '5512991318893',
+      role: 'Representante Comercial'
+    }
+  },
   sections: [
     {
       id: 'palmitos',

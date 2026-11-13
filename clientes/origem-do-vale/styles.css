@@ -250,7 +250,87 @@ a {
   border-radius: 2px;
 }
 
-@media (min-width: 1040px) {
+/* Em telas abaixo de 1200px: esconde os textos dos botões mantendo ícones compactos e alinhados */
+@media (max-width: 1199px) {
+  .cart-btn-text {
+    display: none !important;
+  }
+
+  .nav-pill .nav-wa-btn {
+    width: 40px;
+    height: 40px;
+    min-height: 40px;
+    padding: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-pill);
+    flex-shrink: 0;
+  }
+
+  .nav-pill .nav-wa-btn span,
+  .nav-pill .nav-wa-text {
+    display: none !important;
+  }
+}
+
+/* Em telas muito compactas (smartphones pequenos <= 480px) */
+@media (max-width: 480px) {
+  .site-header {
+    top: 8px;
+    margin-bottom: 12px;
+  }
+
+  .nav-pill {
+    padding: 4px 8px;
+    gap: 6px;
+    min-height: 46px;
+  }
+
+  .brand-logo-svg {
+    width: clamp(86px, 24vw, 105px);
+  }
+
+  .btn-cart-trigger {
+    width: 36px;
+    height: 36px;
+    min-height: 36px;
+    padding: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+
+  .cart-badge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    font-size: 0.65rem;
+    min-width: 16px;
+    height: 16px;
+    padding: 0 3px;
+  }
+
+  .nav-pill .nav-wa-btn {
+    width: 36px;
+    height: 36px;
+    min-height: 36px;
+  }
+
+  .menu-toggle {
+    width: 36px;
+    height: 36px;
+    min-height: 36px;
+  }
+
+  .nav-actions {
+    gap: 6px;
+  }
+}
+
+/* Desktop amplo (>= 1200px) */
+@media (min-width: 1200px) {
   .nav-pill {
     padding: 6px 20px;
     gap: 20px;
@@ -263,8 +343,13 @@ a {
     flex: 1 1 auto;
   }
 
+  .nav-links {
+    gap: 4px;
+  }
+
   .nav-links a {
-    padding: 0 12px;
+    padding: 0 10px;
+    font-size: 0.84rem;
   }
 
   .menu-toggle {
@@ -272,46 +357,122 @@ a {
   }
 
   .brand-logo-svg {
-    width: 160px;
-  }
-}
-
-@media (max-width: 440px) {
-  .nav-pill {
-    padding: 5px 8px;
-    gap: 6px;
-  }
-
-  .brand-logo-svg {
-    width: 95px;
-  }
-
-  .btn-cart-trigger {
-    padding: 0 8px;
-    min-height: 38px;
-    font-size: 0.8125rem;
-    gap: 6px;
+    width: 155px;
   }
 
   .cart-btn-text {
-    display: none;
+    display: inline;
   }
 
   .nav-pill .nav-wa-btn {
-    width: 38px;
-    height: 38px;
-    min-height: 38px;
-    padding: 0;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: var(--radius-pill);
-    flex-shrink: 0;
+    width: auto;
+    padding: 0 14px;
   }
 
-  .nav-wa-btn span {
-    display: none;
+  .nav-pill .nav-wa-btn span,
+  .nav-pill .nav-wa-text {
+    display: inline;
   }
+}
+
+/* ==========================================================================
+   BARRA DE SELEÇÃO DE REPRESENTANTE / VENDEDOR
+   ========================================================================== */
+.seller-selector-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 10px 16px;
+  background: #f0f7f3;
+  border: 1px solid #d4e7dc;
+  border-radius: var(--radius-pill);
+  margin: 14px auto 20px;
+  max-width: 760px;
+  flex-wrap: wrap;
+}
+
+.seller-bar-label {
+  font-family: var(--font-heading);
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--color-brand);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.seller-pills-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.seller-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  background-color: #ffffff;
+  border: 1.5px solid #c8ded2;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--color-ink);
+  cursor: pointer;
+  transition: all 0.18s ease;
+  user-select: none;
+}
+
+.seller-pill:hover {
+  border-color: var(--color-brand);
+  background-color: #f7faf8;
+}
+
+.seller-pill.is-active {
+  background-color: var(--color-brand);
+  border-color: var(--color-brand);
+  color: #ffffff;
+  box-shadow: 0 2px 8px rgba(27, 67, 50, 0.25);
+}
+
+.seller-pill-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #10b981;
+}
+
+.seller-pill.is-active .seller-pill-dot {
+  background-color: #34d399;
+}
+
+.seller-pill-phone {
+  font-size: 0.72rem;
+  opacity: 0.88;
+}
+
+.seller-current-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  background-color: #e8f5ee;
+  border: 1px solid #b7dfca;
+  border-radius: var(--radius-pill);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--color-brand);
+  margin-top: 8px;
+}
+
+.seller-current-badge strong {
+  color: #064e3b;
 }
 
 /* ==========================================================================

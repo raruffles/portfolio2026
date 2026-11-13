@@ -88,16 +88,17 @@
           </button>
 
           <a
-            href="https://wa.me/5512988801327?text=Ol%C3%A1%2C%20gostaria%20de%20fazer%20um%20pedido%20pelo%20cat%C3%A1logo%20Origem%20do%20Vale."
+            href="https://wa.me/5512996233563?text=Ol%C3%A1%20Paulo%2C%20gostaria%20de%20fazer%20um%20pedido%20pelo%20cat%C3%A1logo%20Origem%20do%20Vale."
             target="_blank"
             rel="noopener noreferrer"
             class="btn-whatsapp nav-wa-btn"
+            id="header-wa-btn"
             aria-label="Atendimento pelo WhatsApp"
           >
             <svg class="icon-wa" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false">
               <path fill="currentColor" d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.4.366 2.76 1.057 3.965L0 16.001l4.204-1.103a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93a7.9 7.9 0 0 0-2.327-5.607M7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.25a6.56 6.56 0 0 1-1.007-3.506c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.64-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.1-.133.196-.513.645-.627.774-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.05c.098.132 1.394 2.131 3.383 2.991.47.205.84.326 1.129.418.475.152.904.13 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"/>
             </svg>
-            <span>WhatsApp</span>
+            <span class="nav-wa-text">WhatsApp</span>
           </a>
 
           <button
@@ -189,6 +190,31 @@
           <p class="catalog-eyebrow">Origem do Vale &bull; Tabela Oficial Varejo &amp; Atacado</p>
           <h1 class="catalog-title">Catálogo Completo de Produtos</h1>
           <p class="catalog-lead">Consulte preços de varejo unitário e atacado por caixa/fardo. Pedidos rápidos diretamente pelo WhatsApp com procedência da serra.</p>
+        </div>
+
+        <!-- Barra Interativa de Seleção de Representante / Vendedor -->
+        <div class="seller-selector-bar" id="seller-selector-bar">
+          <span class="seller-bar-label">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            Representante:
+          </span>
+          <div class="seller-pills-group" role="radiogroup" aria-label="Escolha o representante comercial">
+            <button type="button" class="seller-pill is-active" data-seller-id="paulo" role="radio" aria-checked="true">
+              <span class="seller-pill-dot"></span>
+              <span class="seller-pill-name">Paulo</span>
+              <span class="seller-pill-phone">(12) 99623-3563</span>
+            </button>
+            <button type="button" class="seller-pill" data-seller-id="elaine" role="radio" aria-checked="false">
+              <span class="seller-pill-dot"></span>
+              <span class="seller-pill-name">Elaine</span>
+              <span class="seller-pill-phone">(12) 99131-8893</span>
+            </button>
+            <button type="button" class="seller-pill" data-seller-id="central" role="radio" aria-checked="false">
+              <span class="seller-pill-dot"></span>
+              <span class="seller-pill-name">Central (Raphael)</span>
+              <span class="seller-pill-phone">(12) 98880-1327</span>
+            </button>
+          </div>
         </div>
 
         <div class="search-box" style="margin-top: 20px;">
@@ -523,6 +549,14 @@
 
       <!-- Formulário de identificação rápida para o WhatsApp -->
       <div class="cart-checkout-form" id="cart-checkout-form" hidden>
+        <div>
+          <label for="order-seller-select" class="form-field-label">Enviar Pedido Para (WhatsApp)</label>
+          <select id="order-seller-select" class="form-field-select">
+            <option value="paulo">Paulo (Representante) &bull; (12) 99623-3563</option>
+            <option value="elaine">Elaine (Representante) &bull; (12) 99131-8893</option>
+            <option value="central">Central (Raphael) &bull; (12) 98880-1327</option>
+          </select>
+        </div>
         <div>
           <label for="order-client-name" class="form-field-label">Seu Nome / Razão Social</label>
           <input type="text" id="order-client-name" class="form-field-input" placeholder="Ex: João da Silva / Empório Central" autocomplete="name">

@@ -66,6 +66,51 @@
   const orderClientName = document.getElementById('order-client-name');
   const orderClientCity = document.getElementById('order-client-city');
   const orderClientPayment = document.getElementById('order-client-payment');
+  const orderSellerSelect = document.getElementById('order-seller-select');
+
+  // Representantes / Vendedores Oficiais
+  const VENDEDORES = (catalogData && catalogData.vendedores) || {
+    central: {
+      id: 'central',
+      name: 'Raphael (Central Origem do Vale)',
+      shortName: 'Raphael',
+      phoneDisplay: '(12) 98880-1327',
+      whatsappPhone: '5512988801327',
+      role: 'Central de Pedidos e Atendimento'
+    },
+    paulo: {
+      id: 'paulo',
+      name: 'Paulo (Representante Comercial)',
+      shortName: 'Paulo',
+      phoneDisplay: '(12) 99623-3563',
+      whatsappPhone: '5512996233563',
+      role: 'Representante Comercial'
+    },
+    elaine: {
+      id: 'elaine',
+      name: 'Elaine (Representante Comercial)',
+      shortName: 'Elaine',
+      phoneDisplay: '(12) 99131-8893',
+      whatsappPhone: '5512991318893',
+      role: 'Representante Comercial'
+    }
+  };
+
+  function detectInitialSeller() {
+    const params = new URLSearchParams(window.location.search);
+    const sellerParam = (params.get('vendedor') || params.get('v') || '').toLowerCase();
+    if (sellerParam && VENDEDORES[sellerParam]) {
+      return sellerParam;
+    }
+    const isVendedorPage = window.location.pathname.includes('vendedor.html');
+    const saved = localStorage.getItem('odv_active_seller');
+    if (saved && VENDEDORES[saved]) {
+      return saved;
+    }
+    return isVendedorPage ? 'paulo' : 'central';
+  }
+
+  let activeSellerId = detectInitialSeller();
 
   const pageLandmarks = Array.from(document.querySelectorAll('.skip-link, .site-header, main, .site-footer'));
 
@@ -471,10 +516,64 @@
     return `${cleanTitle} (${embalagem})`;
   }
 
+  function setActiveSeller(sellerId, saveStorage = true) {
+    if (!VENDEDORES[sellerId]) sellerId = 'central';
+    activeSellerId = sellerId;
+    if (saveStorage) {
+      try {
+        localStorage.setItem('odv_active_seller', sellerId);
+      } catch {
+        // Fallback silencioso
+      }
+    }
+
+    const seller = VENDEDORES[sellerId];
+
+    // Atualiza links de WhatsApp do Header e Drawer
+    const headerWaBtn = document.getElementById('header-wa-btn') || document.querySelector('.nav-wa-btn');
+    if (headerWaBtn) {
+      headerWaBtn.href = `https://wa.me/${seller.whatsappPhone}?text=${encodeURIComponent(
+        `Olá ${seller.shortName}! Gostaria de atendimento pelo catálogo Origem do Vale.`
+      )}`;
+      headerWaBtn.setAttribute('aria-label', `Atendimento com ${seller.shortName} pelo WhatsApp`);
+    }
+
+    const drawerWaBtn = document.querySelector('.drawer-cta');
+    if (drawerWaBtn) {
+      drawerWaBtn.href = `https://wa.me/${seller.whatsappPhone}?text=${encodeURIComponent(
+        `Olá ${seller.shortName}! Gostaria de atendimento pelo catálogo Origem do Vale.`
+      )}`;
+    }
+
+    // Atualiza seletor de vendedor no formulário do carrinho
+    if (orderSellerSelect && orderSellerSelect.value !== sellerId) {
+      orderSellerSelect.value = sellerId;
+    }
+
+    // Atualiza pílulas interativas de vendedor (se presentes na página)
+    const sellerPills = Array.from(document.querySelectorAll('[data-seller-id]'));
+    sellerPills.forEach((p) => {
+      const match = p.dataset.sellerId === sellerId;
+      p.classList.toggle('is-active', match);
+      p.setAttribute('aria-checked', match ? 'true' : 'false');
+    });
+
+    // Atualiza badge de vendedor atual
+    const badgeEl = document.getElementById('seller-current-badge');
+    if (badgeEl) {
+      badgeEl.hidden = false;
+      badgeEl.innerHTML = `<span>🟢</span> Atendimento com <strong>${escapeHtml(seller.name)}</strong>`;
+    }
+
+    // Atualiza links de produtos
+    renderCatalog();
+  }
+
   // Finalização do Pedido pelo WhatsApp com Mensagem Personalizada
   function checkoutWhatsApp() {
     if (cart.length === 0) return;
 
+    const seller = VENDEDORES[activeSellerId] || VENDEDORES.central;
     const clientName = (orderClientName && orderClientName.value.trim()) || '';
     const clientCity = (orderClientCity && orderClientCity.value.trim()) || '';
     const paymentMethod = (orderClientPayment && orderClientPayment.value) || '';
@@ -488,11 +587,15 @@
       // Modo Vendedor (Sem Preços - Formatação Limpa sem caracteres quebrados)
       message += '*SOLICITAÇÃO DE COTAÇÃO — ORIGEM DO VALE*\n';
       message += '----------------------------------------------\n';
-      message += 'Olá! Gostaria de solicitar cotação para os seguintes produtos:\n\n';
+      message += `Olá ${seller.shortName}! Gostaria de solicitar cotação para o seguinte pedido:\n\n`;
 
       cart.forEach((item) => {
         const itemLabel = cleanProductItemLabel(item.title, item.embalagem);
-        message += `• ${item.qty}x ${itemLabel}\n`;
+        if (item.qty === 1) {
+          message += `• 1x ${itemLabel}\n`;
+        } else {
+          message += `• ${item.qty}x ${itemLabel} (${item.qty} unidades)\n`;
+        }
       });
 
       message += '\n----------------------------------------------\n';
@@ -500,19 +603,25 @@
       if (clientName) message += `*Cliente / Razão Social:* ${clientName}\n`;
       if (clientCity) message += `*Cidade e Estado:* ${clientCity}\n`;
       if (paymentMethod) message += `*Segmento:* ${paymentMethod}\n`;
+      message += `*Representante:* ${seller.name}\n`;
       message += '\nPoderiam me enviar a proposta comercial com condições de frete e prazos?';
     } else {
       // Modo Catálogo Oficial com Preços (Varejo e Atacado - Formatação 100% UTF-8 Segura)
       message += '*PEDIDO — CATÁLOGO ORIGEM DO VALE*\n';
       message += '----------------------------------------------\n';
-      message += 'Olá! Gostaria de fazer o seguinte pedido pelo catálogo:\n\n';
+      message += `Olá ${seller.shortName}! Gostaria de fazer o seguinte pedido pelo catálogo:\n\n`;
 
       cart.forEach((item) => {
         const itemLabel = cleanProductItemLabel(item.title, item.embalagem);
-        const typeLabel = item.priceType === 'atacado' ? 'Atacado' : 'Varejo';
-        const unitVal = `R$ ${item.priceFormatted}`;
-        const subtotal = formatBrl(item.qty * item.priceValue);
-        message += `• ${item.qty}x ${itemLabel} (${typeLabel} - ${unitVal} cada) = ${subtotal}\n`;
+        const subtotalFormatted = formatBrl(item.qty * item.priceValue);
+
+        if (item.priceType === 'atacado') {
+          message += `• ${item.qty}x ${itemLabel} (${item.qty} un. Atacado) - ${subtotalFormatted} (R$ ${item.priceFormatted} cada)\n`;
+        } else if (item.qty === 1) {
+          message += `• 1x ${itemLabel} - ${subtotalFormatted}\n`;
+        } else {
+          message += `• ${item.qty}x ${itemLabel} (${item.qty} unidades) - ${subtotalFormatted} (R$ ${item.priceFormatted} cada)\n`;
+        }
       });
 
       message += '\n----------------------------------------------\n';
@@ -522,11 +631,12 @@
       if (clientName) message += `*Nome:* ${clientName}\n`;
       if (clientCity) message += `*Cidade / Bairro para entrega:* ${clientCity}\n`;
       if (paymentMethod) message += `*Forma de pagamento:* ${paymentMethod}\n`;
+      message += `*Atendente selecionado:* ${seller.name}\n`;
 
       message += '\nPoderiam confirmar a disponibilidade e o valor do frete para entrega?';
     }
 
-    const waPhone = catalogData.whatsappPhone || '5512988801327';
+    const waPhone = seller.whatsappPhone;
     const waUrl = `https://wa.me/${waPhone}?text=${encodeURIComponent(message)}`;
     window.open(waUrl, '_blank', 'noopener,noreferrer');
   }
@@ -534,6 +644,22 @@
   if (btnCheckoutWhatsapp) {
     btnCheckoutWhatsapp.addEventListener('click', checkoutWhatsApp);
   }
+
+  if (orderSellerSelect) {
+    orderSellerSelect.addEventListener('change', () => {
+      setActiveSeller(orderSellerSelect.value);
+    });
+  }
+
+  const sellerPills = Array.from(document.querySelectorAll('[data-seller-id]'));
+  sellerPills.forEach((pill) => {
+    pill.addEventListener('click', () => {
+      const sellerId = pill.dataset.sellerId;
+      if (sellerId) {
+        setActiveSeller(sellerId);
+      }
+    });
+  });
 
   /* ==========================================================================
      RENDERIZAÇÃO DOS CARDS DE PRODUTOS
@@ -561,11 +687,12 @@
   }
 
   function buildSingleWhatsAppUrl(productTitle, packaging = '') {
+    const seller = VENDEDORES[activeSellerId] || VENDEDORES.central;
     const extra = packaging ? ` (${packaging})` : '';
     const message = isVendorMode
-      ? `Olá! Tenho interesse no produto: ${productTitle}${extra}. Gostaria de solicitar cotação e condições comerciais.`
-      : `Olá! Tenho interesse no produto: ${productTitle}${extra} pelo catálogo Origem do Vale.`;
-    return `https://wa.me/${catalogData.whatsappPhone}?text=${encodeURIComponent(message)}`;
+      ? `Olá ${seller.shortName}! Tenho interesse no produto: ${productTitle}${extra}. Gostaria de solicitar cotação e condições comerciais.`
+      : `Olá ${seller.shortName}! Tenho interesse no produto: ${productTitle}${extra} pelo catálogo Origem do Vale.`;
+    return `https://wa.me/${seller.whatsappPhone}?text=${encodeURIComponent(message)}`;
   }
 
   function renderProductCard(item, sectionIndex, itemIndex, isFiltering) {
