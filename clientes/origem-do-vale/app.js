@@ -678,61 +678,8 @@
   }
 
   /* ==========================================================================
-     NAVEGAÇÃO POR CATEGORIA DEDICADA ESTILO SHOPEE / MERCADO LIVRE
+     FILTRO DE PRODUTOS E CATEGORIAS (SIMPLES, RÁPIDO E FLUIDO)
      ========================================================================== */
-
-  const categoryDescriptions = {
-    palmitos: 'Palmitos nobres de Palmeira Real, Juçara e Pupunha em toletes macios, picados e rodelas. Seleção nobre sem glúten.',
-    conservas: 'Receitas coloniais tradicionais da Serra Catarinense com alho, batatinhas rústicas, pepinos crocantes e ovos defumados.',
-    frios: 'Salames artesanais fatiados, linguiças coloniais defumadas e queijos nobres para aperitivos e buffets.',
-    doces: 'Pêssegos, figos verdes e frutas em calda límpida e suave com receita tradicional do interior catarinense.',
-    bebidas: 'Sucos integrais de uva e maçã 100% fruta natural, sem adição de açúcar, conservantes ou água.'
-  };
-
-  function updateCategoryBanner() {
-    if (!categoryHeroContainer) return;
-
-    if (state.filter === 'all' || !state.filter) {
-      categoryHeroContainer.innerHTML = '';
-      return;
-    }
-
-    const section = catalogData.sections.find((s) => s.id === state.filter);
-    if (!section) {
-      categoryHeroContainer.innerHTML = '';
-      return;
-    }
-
-    const desc = categoryDescriptions[state.filter] || section.subtitle || 'Linha selecionada com procedência artesanal.';
-
-    categoryHeroContainer.innerHTML = `
-      <div class="category-hero-banner" role="region" aria-label="Seção de ${escapeHtml(section.title)}">
-        <nav class="category-breadcrumb" aria-label="Navegação estrutural">
-          <a href="#" class="breadcrumb-link" data-cat-reset="all">Início / Todos os Produtos</a>
-          <span class="breadcrumb-separator">&rsaquo;</span>
-          <span class="breadcrumb-current">${escapeHtml(section.title)}</span>
-        </nav>
-        <div class="category-hero-header">
-          <div>
-            <h2 class="category-hero-title">${escapeHtml(section.title)}</h2>
-            <p class="category-hero-desc">${escapeHtml(desc)}</p>
-          </div>
-          <button type="button" class="btn-back-all-cats" data-cat-reset="all" aria-label="Ver todas as 5 categorias de produtos">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m15 18-6-6 6-6"/></svg>
-            <span>Ver Todos os 41 Produtos</span>
-          </button>
-        </div>
-      </div>
-    `;
-
-    const resetBtns = categoryHeroContainer.querySelectorAll('[data-cat-reset]');
-    resetBtns.forEach((btn) => {
-      btn.addEventListener('click', (e) => {
-        e.preventDefault();
-        setFilter('all');
-      });
-    });
-  }
 
   function setFilter(filterId, updateUrl = true) {
     state.filter = filterId;
@@ -744,10 +691,10 @@
       chip.setAttribute('aria-pressed', match ? 'true' : 'false');
     });
 
-    // Atualiza cards de categorias do topo
-    categoryShowcaseBtns.forEach((btn) => {
-      const match = btn.dataset.categoryTarget === filterId;
-      btn.classList.toggle('is-active', match);
+    // Atualiza links do menu
+    navLinks.forEach((link) => {
+      const match = link.dataset.nav === filterId;
+      link.classList.toggle('is-active', match);
     });
 
     // Atualiza URL sem recarregar a tela
@@ -761,7 +708,6 @@
       window.history.pushState({}, '', url);
     }
 
-    updateCategoryBanner();
     renderCatalog();
   }
 
@@ -893,13 +839,6 @@
         ? `<p class="section-subtitle">${escapeHtml(section.subtitle)}</p>`
         : '';
 
-      const navGroupBtnHtml = !isDedicatedCategory
-        ? `<button type="button" class="btn-group-nav" data-nav-group="${section.id}" aria-label="Ver todos os ${filteredItems.length} produtos de ${escapeHtml(section.title)}">
-             <span>Ver todos os ${filteredItems.length}</span>
-             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="m9 18 6-6-6-6"/></svg>
-           </button>`
-        : '';
-
       const headerHtml = `
         <div class="container">
           <div class="section-header">
@@ -907,7 +846,6 @@
               <h2 class="section-heading" id="heading-${section.id}">${escapeHtml(section.title)}</h2>
               ${subtitleHtml}
               <span class="section-count">${filteredItems.length} ${countLabel}</span>
-              ${navGroupBtnHtml}
             </div>
             ${
               isFiltering
@@ -1362,7 +1300,9 @@
   }
 
   function navigateToSection(targetId, moveFocus = false) {
-    setFilter(targetId);
+    if (state.filter !== 'all' && state.filter !== targetId) {
+      setFilter(targetId);
+    }
     const target = document.getElementById(targetId);
     if (target) {
       target.scrollIntoView({ behavior: getScrollBehavior(), block: 'start' });
@@ -1500,7 +1440,6 @@
 
   // Inicialização
   loadCart();
-  updateCategoryBanner();
   renderCatalog();
   updateCartUI();
 })();
