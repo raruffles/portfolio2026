@@ -165,7 +165,7 @@ a {
   flex-shrink: 0;
 }
 
-.nav-wa-btn {
+.nav-pill .nav-wa-btn {
   width: auto;
   min-height: 40px;
   padding: 0 14px;
@@ -275,18 +275,31 @@ a {
 
 @media (max-width: 440px) {
   .nav-pill {
-    padding: 5px 10px;
-    gap: 8px;
+    padding: 5px 8px;
+    gap: 6px;
   }
 
   .brand-logo-svg {
-    width: 112px;
+    width: 105px;
   }
 
-  .nav-wa-btn {
-    padding: 0 10px;
+  .btn-cart-trigger {
+    padding: 0 8px;
     min-height: 38px;
-    font-size: 0.75rem;
+    font-size: 0.8125rem;
+    gap: 6px;
+  }
+
+  .nav-pill .nav-wa-btn {
+    width: 38px;
+    height: 38px;
+    min-height: 38px;
+    padding: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-pill);
+    flex-shrink: 0;
   }
 
   .nav-wa-btn span {
@@ -2160,6 +2173,74 @@ a {
 .btn-back-all-cats:hover {
   background-color: var(--color-brand);
   color: #ffffff;
+}
+
+/* Botão de Navegação Dentro do Cabeçalho de Linha / Grupo */
+.btn-group-nav {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  background-color: #f0f7f3;
+  color: var(--color-brand);
+  border: 1px solid #d3e7dc;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.18s ease;
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+.btn-group-nav:hover {
+  background-color: var(--color-brand);
+  color: #ffffff;
+  border-color: var(--color-brand);
+  transform: translateX(2px);
+  box-shadow: 0 2px 6px rgba(27, 67, 50, 0.16);
+}
+
+.btn-group-nav:active {
+  transform: scale(0.97);
+}
+
+/* Regra Informativa e Dinâmica de Atacado */
+.card-wholesale-rule {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin: 8px 0 4px;
+  padding: 5px 8px;
+  background-color: #f6faf7;
+  border: 1px dashed #c0ded0;
+  border-radius: var(--radius-sm, 6px);
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #24583f;
+  line-height: 1.25;
+  text-align: center;
+  transition: all 0.22s ease;
+}
+
+.card-wholesale-rule svg {
+  flex-shrink: 0;
+  color: var(--color-brand);
+}
+
+.card-wholesale-rule.is-applied {
+  background-color: #e6f6ec;
+  border: 1px solid #2e7d32;
+  color: #1b5e20;
+  font-weight: 700;
+  box-shadow: 0 1px 4px rgba(46, 125, 50, 0.15);
+}
+
+.card-wholesale-rule.is-applied svg {
+  color: #2e7d32;
 }
 
 /* ==========================================================================

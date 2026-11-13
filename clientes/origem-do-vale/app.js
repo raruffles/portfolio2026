@@ -131,39 +131,57 @@
     updateCartUI();
   }
 
-  // Adiciona ao carrinho (com modalidade Varejo ou Atacado)
+  function calculateItemPrice(product, requestedType, qty) {
+    if (isVendorMode) {
+      return { priceType: 'cotacao', priceValue: 0, priceFormatted: '' };
+    }
+    const minAtacado = product.minAtacado || 6;
+    let resolvedType = requestedType;
+
+    // Se atingir a quantidade mínima de atacado, aplica automaticamente atacado!
+    if (qty >= minAtacado) {
+      resolvedType = 'atacado';
+    } else if (requestedType !== 'atacado') {
+      resolvedType = 'varejo';
+    }
+
+    const priceFormatted =
+      (resolvedType === 'atacado'
+        ? product.atacado || product.varejo
+        : product.varejo || product.atacado) || '0,00';
+    const priceValue = parseFloat(priceFormatted.replace(/\./g, '').replace(',', '.')) || 0;
+
+    return { priceType: resolvedType, priceValue, priceFormatted };
+  }
+
+  // Adiciona ao carrinho (com aplicação automática de desconto de atacado)
   function addToCart(productId, priceType, qty = 1) {
     const product = productMap.get(productId);
     if (!product) return;
 
     const numericQty = Math.max(1, parseInt(qty, 10) || 1);
-    const itemKey = `${productId}_${priceType}`;
+    const existingIndex = cart.findIndex((item) => item.id === productId);
 
-    let priceValue = 0;
-    let priceFormatted = '';
-    if (!isVendorMode) {
-      if (priceType === 'atacado') {
-        priceFormatted = product.atacado || product.varejo || '0,00';
-      } else {
-        priceFormatted = product.varejo || product.atacado || '0,00';
-      }
-      priceValue = parseFloat(priceFormatted.replace(/\./g, '').replace(',', '.')) || 0;
-    }
-
-    const existingIndex = cart.findIndex((item) => item.key === itemKey);
     if (existingIndex >= 0) {
-      cart[existingIndex].qty += numericQty;
+      const updatedQty = cart[existingIndex].qty + numericQty;
+      const pricing = calculateItemPrice(product, priceType, updatedQty);
+      cart[existingIndex].qty = updatedQty;
+      cart[existingIndex].priceType = pricing.priceType;
+      cart[existingIndex].priceValue = pricing.priceValue;
+      cart[existingIndex].priceFormatted = pricing.priceFormatted;
     } else {
+      const pricing = calculateItemPrice(product, priceType, numericQty);
       cart.push({
-        key: itemKey,
+        key: product.id,
         id: product.id,
         title: product.title,
         embalagem: product.embalagem || '',
-        priceType: priceType, // 'varejo' ou 'atacado'
-        priceValue: priceValue,
-        priceFormatted: priceFormatted,
+        priceType: pricing.priceType,
+        priceValue: pricing.priceValue,
+        priceFormatted: pricing.priceFormatted,
         qty: numericQty,
-        image: product.image || ''
+        image: product.image || '',
+        minAtacado: product.minAtacado || 6
       });
     }
 
@@ -171,13 +189,20 @@
   }
 
   function updateCartItemQty(key, newQty) {
-    const index = cart.findIndex((item) => item.key === key);
+    const index = cart.findIndex((item) => item.key === key || item.id === key);
     if (index === -1) return;
 
     if (newQty <= 0) {
       cart.splice(index, 1);
     } else {
+      const product = productMap.get(cart[index].id);
       cart[index].qty = Math.min(999, newQty);
+      if (product && !isVendorMode) {
+        const pricing = calculateItemPrice(product, cart[index].priceType, cart[index].qty);
+        cart[index].priceType = pricing.priceType;
+        cart[index].priceValue = pricing.priceValue;
+        cart[index].priceFormatted = pricing.priceFormatted;
+      }
     }
     saveCart();
   }
@@ -404,6 +429,21 @@
     });
   }
 
+  // Formata o nome do item evitando repetições de gramatura (ex: 540g Vidro 540g)
+  function cleanProductItemLabel(title, embalagem) {
+    if (!embalagem) return title;
+    let cleanTitle = title;
+    const weightMatch = title.match(/\s+(\d+(?:[.,]\d+)?\s*(?:g|kg|l|ml))$/i);
+    if (weightMatch) {
+      const weightStr = weightMatch[1].toLowerCase().replace(/\s+/g, '');
+      const embClean = embalagem.toLowerCase().replace(/\s+/g, '');
+      if (embClean.includes(weightStr)) {
+        cleanTitle = title.replace(/\s+(\d+(?:[.,]\d+)?\s*(?:g|kg|l|ml))$/i, '').trim();
+      }
+    }
+    return `${cleanTitle} (${embalagem})`;
+  }
+
   // Finalização do Pedido pelo WhatsApp com Mensagem Personalizada
   function checkoutWhatsApp() {
     if (cart.length === 0) return;
@@ -418,43 +458,43 @@
     let message = '';
 
     if (isVendorMode) {
-      // Modo Vendedor (Sem Preços)
-      message += '*SOLICITAÇÃO DE COTAÇÃO — ORIGEM DO VALE* 📋\n';
+      // Modo Vendedor (Sem Preços - Formatação Limpa sem caracteres quebrados)
+      message += '*SOLICITAÇÃO DE COTAÇÃO — ORIGEM DO VALE*\n';
       message += '----------------------------------------------\n';
       message += 'Olá! Gostaria de solicitar cotação para os seguintes produtos:\n\n';
 
       cart.forEach((item) => {
-        const extra = item.embalagem ? ` (${item.embalagem})` : '';
-        message += `• ${item.qty}x ${item.title}${extra}\n`;
+        const itemLabel = cleanProductItemLabel(item.title, item.embalagem);
+        message += `• ${item.qty}x ${itemLabel}\n`;
       });
 
       message += '\n----------------------------------------------\n';
-      message += `📦 *Total de itens:* ${totalQty} produto${totalQty === 1 ? '' : 's'}\n`;
-      if (clientName) message += `👤 *Cliente / Razão Social:* ${clientName}\n`;
-      if (clientCity) message += `📍 *Cidade e Estado:* ${clientCity}\n`;
-      if (paymentMethod) message += `🏢 *Segmento:* ${paymentMethod}\n`;
+      message += `*Total de itens:* ${totalQty} produto${totalQty === 1 ? '' : 's'}\n`;
+      if (clientName) message += `*Cliente / Razão Social:* ${clientName}\n`;
+      if (clientCity) message += `*Cidade e Estado:* ${clientCity}\n`;
+      if (paymentMethod) message += `*Segmento:* ${paymentMethod}\n`;
       message += '\nPoderiam me enviar a proposta comercial com condições de frete e prazos?';
     } else {
-      // Modo Catálogo Oficial com Preços (Varejo e Atacado)
-      message += '*PEDIDO — CATÁLOGO ORIGEM DO VALE* 🛒\n';
+      // Modo Catálogo Oficial com Preços (Varejo e Atacado - Formatação 100% UTF-8 Segura)
+      message += '*PEDIDO — CATÁLOGO ORIGEM DO VALE*\n';
       message += '----------------------------------------------\n';
       message += 'Olá! Gostaria de fazer o seguinte pedido pelo catálogo:\n\n';
 
       cart.forEach((item) => {
+        const itemLabel = cleanProductItemLabel(item.title, item.embalagem);
         const typeLabel = item.priceType === 'atacado' ? 'Atacado' : 'Varejo';
         const unitVal = `R$ ${item.priceFormatted}`;
         const subtotal = formatBrl(item.qty * item.priceValue);
-        const extra = item.embalagem ? ` ${item.embalagem}` : '';
-        message += `• ${item.qty}x ${item.title}${extra} (${typeLabel} - ${unitVal} cada) = ${subtotal}\n`;
+        message += `• ${item.qty}x ${itemLabel} (${typeLabel} - ${unitVal} cada) = ${subtotal}\n`;
       });
 
       message += '\n----------------------------------------------\n';
-      message += `📦 *Total de itens:* ${totalQty} produto${totalQty === 1 ? '' : 's'}\n`;
-      message += `💰 *Valor estimado:* ${formatBrl(totalPrice)}\n\n`;
+      message += `*Total de itens:* ${totalQty} produto${totalQty === 1 ? '' : 's'}\n`;
+      message += `*Valor estimado:* ${formatBrl(totalPrice)}\n\n`;
 
-      if (clientName) message += `👤 *Nome:* ${clientName}\n`;
-      if (clientCity) message += `📍 *Cidade / Bairro para entrega:* ${clientCity}\n`;
-      if (paymentMethod) message += `💳 *Forma de pagamento:* ${paymentMethod}\n`;
+      if (clientName) message += `*Nome:* ${clientName}\n`;
+      if (clientCity) message += `*Cidade / Bairro para entrega:* ${clientCity}\n`;
+      if (paymentMethod) message += `*Forma de pagamento:* ${paymentMethod}\n`;
 
       message += '\nPoderiam confirmar a disponibilidade e o valor do frete para entrega?';
     }
@@ -561,7 +601,12 @@
       const varejoVal = item.varejo ? `R$ ${escapeHtml(item.varejo)}` : 'Sob consulta';
       const atacadoVal = item.atacado ? `R$ ${escapeHtml(item.atacado)}` : 'Sob consulta';
 
+      const wholesaleRuleText = escapeHtml(item.regraAtacado || `Atacado a partir de ${item.minAtacado || 6} un.`);
       purchaseBlockHtml = `
+        <div class="card-wholesale-rule" data-rule-for="${item.id}">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          <span class="rule-text">${wholesaleRuleText}</span>
+        </div>
         <div class="card-pricing-selector" role="group" aria-label="Modalidade de compra para ${safeTitle}">
           <button
             type="button"
@@ -581,7 +626,7 @@
           >
             <span class="pill-type">Atacado</span>
             <span class="pill-val">${atacadoVal}</span>
-            <span class="pill-sub">caixa / fardo</span>
+            <span class="pill-sub">com desconto</span>
           </button>
         </div>
 
@@ -848,6 +893,13 @@
         ? `<p class="section-subtitle">${escapeHtml(section.subtitle)}</p>`
         : '';
 
+      const navGroupBtnHtml = !isDedicatedCategory
+        ? `<button type="button" class="btn-group-nav" data-nav-group="${section.id}" aria-label="Ver todos os ${filteredItems.length} produtos de ${escapeHtml(section.title)}">
+             <span>Ver todos os ${filteredItems.length}</span>
+             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="m9 18 6-6-6-6"/></svg>
+           </button>`
+        : '';
+
       const headerHtml = `
         <div class="container">
           <div class="section-header">
@@ -855,6 +907,7 @@
               <h2 class="section-heading" id="heading-${section.id}">${escapeHtml(section.title)}</h2>
               ${subtitleHtml}
               <span class="section-count">${filteredItems.length} ${countLabel}</span>
+              ${navGroupBtnHtml}
             </div>
             ${
               isFiltering
@@ -952,6 +1005,18 @@
     wireCarousels();
     initScrollSpy();
 
+    // Navegação dedicada a partir do botão dentro do cabeçalho da categoria
+    const groupNavBtns = sectionsRoot.querySelectorAll('[data-nav-group]');
+    groupNavBtns.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const targetGroup = btn.dataset.navGroup;
+        if (targetGroup) {
+          setFilter(targetGroup);
+          window.scrollTo({ top: 0, behavior: getScrollBehavior() });
+        }
+      });
+    });
+
     const resetBtn = document.getElementById('btn-reset-filters');
     if (resetBtn) {
       resetBtn.addEventListener('click', () => {
@@ -964,44 +1029,90 @@
     }
   }
 
-  // Interações dentro dos Cards (Seletores de Varejo/Atacado, Qtd e Add Cart)
+  // Interações dentro dos Cards (Seletores Inteligentes de Varejo/Atacado, Qtd e Add Cart)
   function wireCardControls() {
     const cards = Array.from(sectionsRoot.querySelectorAll('.product-card'));
     cards.forEach((card) => {
-      // Toggle de pílulas Varejo x Atacado
+      const productId = card.dataset.productCardId;
+      const product = productMap.get(productId);
+      const minAtacado = (product && product.minAtacado) || 6;
       const pills = Array.from(card.querySelectorAll('.pricing-pill'));
       const addBtn = card.querySelector('.btn-add-cart');
       const qtyInput = card.querySelector('.qty-input');
       const minusBtn = card.querySelector('[data-action="minus"]');
       const plusBtn = card.querySelector('[data-action="plus"]');
+      const ruleBadge = card.querySelector('.card-wholesale-rule');
 
+      function syncWholesaleByQuantity(newQty, explicitType = null) {
+        if (!product || isVendorMode) return;
+        const qtyNum = Math.max(1, parseInt(newQty, 10) || 1);
+        let targetType = explicitType;
+
+        if (!targetType) {
+          // Muda sozinho para atacado se atingir a quantidade mínima!
+          targetType = qtyNum >= minAtacado ? 'atacado' : 'varejo';
+        }
+
+        pills.forEach((p) => {
+          const match = p.dataset.pricingType === targetType;
+          p.classList.toggle('is-active', match);
+          p.setAttribute('aria-pressed', match ? 'true' : 'false');
+        });
+
+        if (addBtn) {
+          addBtn.dataset.selectedType = targetType;
+        }
+
+        if (ruleBadge) {
+          const textSpan = ruleBadge.querySelector('.rule-text');
+          if (targetType === 'atacado' || qtyNum >= minAtacado) {
+            ruleBadge.classList.add('is-applied');
+            if (textSpan) textSpan.textContent = `Desconto atacado ativado (${qtyNum} un.)`;
+          } else {
+            ruleBadge.classList.remove('is-applied');
+            if (textSpan) textSpan.textContent = product.regraAtacado || `Atacado a partir de ${minAtacado} un.`;
+          }
+        }
+      }
+
+      // Cliques nas pílulas Varejo / Atacado
       pills.forEach((pill) => {
         pill.addEventListener('click', () => {
-          pills.forEach((p) => {
-            p.classList.remove('is-active');
-            p.setAttribute('aria-pressed', 'false');
-          });
-          pill.classList.add('is-active');
-          pill.setAttribute('aria-pressed', 'true');
-          const type = pill.dataset.pricingType || 'varejo';
-          if (addBtn) {
-            addBtn.dataset.selectedType = type;
+          const chosenType = pill.dataset.pricingType || 'varejo';
+          if (chosenType === 'atacado') {
+            const currentVal = parseInt(qtyInput ? qtyInput.value : 1, 10) || 1;
+            // Se clicou em atacado e tem menos que o mínimo, salta para o mínimo de atacado!
+            if (currentVal < minAtacado && qtyInput) {
+              qtyInput.value = minAtacado;
+            }
           }
+          syncWholesaleByQuantity(qtyInput ? qtyInput.value : 1, chosenType);
         });
       });
 
-      // Controles de quantidade
+      // Controles de quantidade sincronizados
       if (minusBtn && qtyInput) {
         minusBtn.addEventListener('click', () => {
           const val = parseInt(qtyInput.value, 10) || 1;
-          qtyInput.value = Math.max(1, val - 1);
+          const nextVal = Math.max(1, val - 1);
+          qtyInput.value = nextVal;
+          syncWholesaleByQuantity(nextVal);
         });
       }
 
       if (plusBtn && qtyInput) {
         plusBtn.addEventListener('click', () => {
           const val = parseInt(qtyInput.value, 10) || 1;
-          qtyInput.value = Math.min(999, val + 1);
+          const nextVal = Math.min(999, val + 1);
+          qtyInput.value = nextVal;
+          syncWholesaleByQuantity(nextVal);
+        });
+      }
+
+      if (qtyInput) {
+        qtyInput.addEventListener('input', () => {
+          const val = parseInt(qtyInput.value, 10) || 1;
+          syncWholesaleByQuantity(val);
         });
       }
 

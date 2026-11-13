@@ -161,78 +161,11 @@
           <p class="catalog-lead">Consulte preços de varejo unitário e atacado por caixa/fardo. Pedidos rápidos diretamente pelo WhatsApp com procedência da serra.</p>
         </div>
 
-        <!-- Showcase de Categorias em Destaque (Estilo Mercado Livre / Shopee) -->
-        <div class="category-showcase-card" style="margin-top: 24px;">
-          <div class="category-showcase-header">
-            <span class="category-showcase-badge">Linhas em Destaque</span>
-            <h2 class="category-showcase-title">Navegar por Linha de Produtos</h2>
-            <p class="category-showcase-desc">Clique na categoria para abrir a página dedicada com todos os itens, preços de atacado e varejo:</p>
-          </div>
-          <div class="category-grid" role="list">
-            <button type="button" class="category-card-btn" data-category-target="palmitos" aria-label="Ver produtos da categoria Palmitos">
-              <div class="category-card-thumb">
-                <img src="assets/produtos/palmito-palmeira-real-tolete-300g.jpg" alt="Palmitos da Serra" loading="lazy">
-              </div>
-              <span class="category-card-title">Palmitos</span>
-              <span class="category-card-count">9 produtos</span>
-            </button>
-            <button type="button" class="category-card-btn" data-category-target="conservas" aria-label="Ver produtos da categoria Conservas">
-              <div class="category-card-thumb">
-                <img src="assets/produtos/conserva-pepino-agridoce-300g.jpg" alt="Conservas Nobres" loading="lazy">
-              </div>
-              <span class="category-card-title">Conservas</span>
-              <span class="category-card-count">12 produtos</span>
-            </button>
-            <button type="button" class="category-card-btn" data-category-target="frios" aria-label="Ver produtos da categoria Frios e Carnes">
-              <div class="category-card-thumb">
-                <img src="assets/produtos/frios-salame.jpg" alt="Frios e Carnes" loading="lazy">
-              </div>
-              <span class="category-card-title">Frios &amp; Carnes</span>
-              <span class="category-card-count">6 produtos</span>
-            </button>
-            <button type="button" class="category-card-btn" data-category-target="doces" aria-label="Ver produtos da categoria Doces">
-              <div class="category-card-thumb">
-                <img src="assets/produtos/doce-dom-minas-tradicional-400g.jpg" alt="Doces Artesanais" loading="lazy">
-              </div>
-              <span class="category-card-title">Doces</span>
-              <span class="category-card-count">6 produtos</span>
-            </button>
-            <button type="button" class="category-card-btn" data-category-target="bebidas" aria-label="Ver produtos da categoria Bebidas e Sucos">
-              <div class="category-card-thumb">
-                <img src="assets/produtos/bebida-suco-uva-casa-da-serra-15l.jpg" alt="Bebidas e Sucos" loading="lazy">
-              </div>
-              <span class="category-card-title">Bebidas &amp; Sucos</span>
-              <span class="category-card-count">8 produtos</span>
-            </button>
-          </div>
-        </div>
+        <!-- Banner Dinâmico de Categoria Dedicada (ativado ao navegar dentro de um grupo) -->
+        <div id="category-hero-container" style="margin-top: 20px;"></div>
 
-        <!-- Banner Dinâmico de Categoria Dedicada -->
-        <div id="category-hero-container" style="margin-top: 24px;"></div>
-
-        <!-- Barra de ferramentas com filtros de categoria e busca -->
-        <div class="catalog-toolbar" style="margin-top: 20px;">
-          <div class="filter-chips" role="group" aria-label="Filtrar por categoria">
-            <button type="button" class="filter-chip is-active" data-filter="all" aria-pressed="true">
-              Todos <span class="chip-count" id="count-all">0</span>
-            </button>
-            <button type="button" class="filter-chip" data-filter="palmitos" aria-pressed="false">
-              Palmitos
-            </button>
-            <button type="button" class="filter-chip" data-filter="conservas" aria-pressed="false">
-              Conservas
-            </button>
-            <button type="button" class="filter-chip" data-filter="frios" aria-pressed="false">
-              Frios &amp; Carnes
-            </button>
-            <button type="button" class="filter-chip" data-filter="doces" aria-pressed="false">
-              Doces
-            </button>
-            <button type="button" class="filter-chip" data-filter="bebidas" aria-pressed="false">
-              Bebidas
-            </button>
-          </div>
-
+        <!-- Barra de ferramentas com busca rápida -->
+        <div class="catalog-toolbar" style="margin-top: 16px;">
           <div class="search-box">
             <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
               <circle cx="11" cy="11" r="8" />
@@ -242,7 +175,7 @@
               type="search"
               id="catalog-search"
               class="search-input"
-              placeholder="Buscar produto ou embalagem..."
+              placeholder="Buscar em todos os produtos, marcas ou embalagens..."
               aria-label="Buscar produto no catálogo"
               autocomplete="off"
             />
