@@ -1,0 +1,21 @@
+{
+  "name": "origem-do-vale",
+  "version": "1.0.0",
+  "description": "Catálogo Oficial de Produtos — Origem do Vale (Sabores Nobres da Serra)",
+  "private": true,
+  "scripts": {
+    "dev": "npx -y http-server . -p 3000 -c-1",
+    "start": "npx -y http-server . -p 3000 -c-1",
+    "deploy": "npx -y vercel --prod"
+  },
+  "keywords": [
+    "catalogo",
+    "origem-do-vale",
+    "palmito",
+    "conservas",
+    "varejo",
+    "atacado"
+  ],
+  "author": "Origem do Vale",
+  "license": "UNLICENSED"
+}
