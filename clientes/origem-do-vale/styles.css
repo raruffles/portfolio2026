@@ -3061,6 +3061,63 @@ a {
   color: #2e7d32;
 }
 
+/* Bloco de Apresentação Comercial / Sem Preço (Vendedor / Cotação) */
+.card-vendor-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  width: 100%;
+  height: 102px;
+  min-height: 102px;
+  max-height: 102px;
+  margin: 0 0 10px;
+  padding: 8px 12px;
+  background: linear-gradient(180deg, #f7faf8 0%, #edf4ef 100%);
+  border: 1.5px solid #d4e5db;
+  border-radius: var(--radius-md);
+  text-align: center;
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+
+.card-vendor-box-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-family: var(--font-display);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #1b4332;
+  background-color: #d8ecdf;
+  padding: 2px 10px;
+  border-radius: 999px;
+}
+
+.card-vendor-box-cx {
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--color-ink);
+  margin-top: 2px;
+}
+
+.card-vendor-box-hint {
+  font-size: 0.6875rem;
+  color: var(--color-muted);
+}
+
+.btn-add-cart.btn-add-cotacao {
+  background-color: #1b4332;
+}
+
+.btn-add-cart.btn-add-cotacao:hover {
+  background-color: #143326;
+}
+
 /* ==========================================================================
    SELETOR DE MODALIDADE (VAREJO X ATACADO) E CONTROLES DE COMPRA
    ========================================================================== */

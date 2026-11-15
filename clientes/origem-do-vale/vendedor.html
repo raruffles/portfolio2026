@@ -83,7 +83,7 @@
               <circle cx="20" cy="21" r="1"></circle>
               <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
             </svg>
-            <span class="cart-btn-text">Carrinho</span>
+            <span class="cart-btn-text">Cotação</span>
             <span class="cart-badge" id="header-cart-badge" data-count="0" aria-label="0 produtos no carrinho">0</span>
           </button>
 
@@ -157,9 +157,15 @@
     <section class="catalog-hero-section" id="catalogo" aria-label="Apresentação e busca do catálogo">
       <div class="container">
         <div class="catalog-intro">
-          <p class="catalog-eyebrow">Origem do Vale &bull; Tabela Oficial Varejo &amp; Atacado</p>
-          <h1 class="catalog-title">Catálogo Completo de Produtos</h1>
-          <p class="catalog-lead">Consulte preços de varejo unitário e atacado por caixa/fardo. Pedidos rápidos diretamente pelo WhatsApp com procedência da serra.</p>
+          <p class="catalog-eyebrow">Origem do Vale &bull; Apresentação Comercial para Clientes &amp; Representantes</p>
+          <h1 class="catalog-title">Catálogo de Produtos &bull; Cotação Comercial</h1>
+          <p class="catalog-lead">Consulte nossa linha completa de 41 produtos nobres sem exibição de preços. Monte seu pedido e solicite proposta personalizada com condições comerciais e frete direto no WhatsApp.</p>
+          <div id="seller-current-badge-wrapper">
+            <div class="seller-current-badge" id="seller-current-badge" hidden></div>
+          </div>
+          <div>
+            <a href="catalogo.html" class="catalog-mode-switch-link">&larr; Deseja ver a Tabela com Preços Padrão? Acesse aqui</a>
+          </div>
         </div>
 
         <!-- Barra Interativa de Seleção de Representante / Vendedor -->
@@ -311,48 +317,14 @@
           </ul>
         </div>
 
-        <!-- Grupo 2: Modalidade de Compra -->
+        <!-- Grupo 2: Modalidade de Cotação -->
         <div class="filter-group">
-          <h3 class="filter-group-title">Modalidade</h3>
-          <div class="filter-radio-list">
-            <label class="filter-radio-label">
-              <input type="radio" name="filter-modalidade" value="all" checked />
-              <span>Varejo &amp; Atacado (Todos)</span>
-            </label>
-            <label class="filter-radio-label">
-              <input type="radio" name="filter-modalidade" value="atacado" />
-              <span>Com Desconto Atacado</span>
-            </label>
-            <label class="filter-radio-label">
-              <input type="radio" name="filter-modalidade" value="varejo" />
-              <span>Varejo Unitário</span>
-            </label>
-          </div>
-        </div>
-
-        <!-- Grupo 3: Faixa de Preço (Mercado Livre) -->
-        <div class="filter-group">
-          <h3 class="filter-group-title">Preço</h3>
-          <ul class="filter-price-list">
-            <li><button type="button" class="filter-price-btn is-active" data-price-range="all">Todos os preços</button></li>
-            <li><button type="button" class="filter-price-btn" data-price-range="under15">Até R$ 15,00</button></li>
-            <li><button type="button" class="filter-price-btn" data-price-range="15to25">R$ 15 a R$ 25</button></li>
-            <li><button type="button" class="filter-price-btn" data-price-range="25to35">R$ 25 a R$ 35</button></li>
-            <li><button type="button" class="filter-price-btn" data-price-range="above35">Mais de R$ 35,00</button></li>
-          </ul>
-          <div class="filter-price-inputs">
-            <div class="price-input-wrapper">
-              <span>R$</span>
-              <input type="number" id="price-min-input" placeholder="Mín" min="0" max="999" aria-label="Preço mínimo" />
-            </div>
-            <span class="price-input-divider">-</span>
-            <div class="price-input-wrapper">
-              <span>R$</span>
-              <input type="number" id="price-max-input" placeholder="Máx" min="0" max="999" aria-label="Preço máximo" />
-            </div>
-            <button type="button" class="btn-price-apply" id="btn-price-apply" aria-label="Aplicar faixa de preço">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
-            </button>
+          <h3 class="filter-group-title">Apresentação</h3>
+          <div style="background-color: #f2f7f4; border: 1px solid #d3e5db; border-radius: var(--radius-md); padding: 10px 12px; margin-top: 6px;">
+            <span style="display: block; font-size: 0.6875rem; font-weight: 700; text-transform: uppercase; color: #1b4332; letter-spacing: 0.05em; margin-bottom: 4px;">Modo Cotação Ativo</span>
+            <p style="font-size: 0.8125rem; color: #3e5245; line-height: 1.4; margin: 0;">
+              Catálogo oficial sem preços exibidos. Adicione os itens desejados e solicite a cotação diretamente com o representante.
+            </p>
           </div>
         </div>
 
@@ -508,14 +480,14 @@
           <circle cx="20" cy="21" r="1"></circle>
           <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
         </svg>
-        <h3 class="cart-empty-title">Seu pedido está vazio</h3>
-        <p class="cart-empty-text">Escolha os produtos desejados no catálogo selecionando Varejo ou Atacado e clique em "Adicionar".</p>
+        <h3 class="cart-empty-title">Sua lista de cotação está vazia</h3>
+        <p class="cart-empty-text">Adicione produtos à sua cotação clicando em "+ Cotação" em qualquer item do catálogo.</p>
       </div>
 
       <!-- Formulário de identificação rápida para o WhatsApp -->
       <div class="cart-checkout-form" id="cart-checkout-form" hidden>
         <div>
-          <label for="order-seller-select" class="form-field-label">Enviar Pedido Para (WhatsApp)</label>
+          <label for="order-seller-select" class="form-field-label">Enviar Cotação Para (WhatsApp)</label>
           <select id="order-seller-select" class="form-field-select">
             <option value="paulo" selected>Paulo (Representante) &bull; (12) 99623-3563</option>
             <option value="elaine">Elaine (Representante) &bull; (12) 99131-8893</option>
@@ -523,19 +495,20 @@
         </div>
         <div>
           <label for="order-client-name" class="form-field-label">Seu Nome / Razão Social</label>
-          <input type="text" id="order-client-name" class="form-field-input" placeholder="Ex: João da Silva / Empório Central" autocomplete="name">
+          <input type="text" id="order-client-name" class="form-field-input" placeholder="Ex: João da Silva / Restaurante Serra Azul" autocomplete="name">
         </div>
         <div>
-          <label for="order-client-city" class="form-field-label">Cidade e Bairro para Entrega</label>
-          <input type="text" id="order-client-city" class="form-field-input" placeholder="Ex: Blumenau / Centro">
+          <label for="order-client-city" class="form-field-label">Cidade e Estado</label>
+          <input type="text" id="order-client-city" class="form-field-input" placeholder="Ex: São Paulo / SP">
         </div>
         <div>
-          <label for="order-client-payment" class="form-field-label">Forma de Pagamento Preferida</label>
+          <label for="order-client-payment" class="form-field-label">Segmento / Tipo de Estabelecimento</label>
           <select id="order-client-payment" class="form-field-select">
-            <option value="Pix (Chave Oficial)">Pix (Chave Oficial)</option>
-            <option value="Cartão de Crédito / Débito">Cartão de Crédito / Débito</option>
-            <option value="Boleto Faturado (Pessoa Jurídica / Atacado)">Boleto Faturado (Pessoa Jurídica / Atacado)</option>
-            <option value="A combinar com o atendente">A combinar com o atendente</option>
+            <option value="Restaurante / Bar / Gastronomia">Restaurante / Bar / Gastronomia</option>
+            <option value="Empório / Mercearia / Supermercado">Empório / Mercearia / Supermercado</option>
+            <option value="Distribuidora / Atacadista">Distribuidora / Atacadista</option>
+            <option value="Hotel / Pousada / Buffet">Hotel / Pousada / Buffet</option>
+            <option value="Consumidor Final / Outros">Consumidor Final / Outros</option>
           </select>
         </div>
       </div>
@@ -548,8 +521,8 @@
           <strong id="cart-total-qty">0 un.</strong>
         </div>
         <div class="cart-total-row cart-total-row--final">
-          <span>Total Estimado:</span>
-          <span class="total-amount" id="cart-total-price">R$ 0,00</span>
+          <span>Condição Comercial:</span>
+          <span class="total-amount" id="cart-total-price">Cotação Comercial</span>
         </div>
       </div>
 
@@ -557,7 +530,7 @@
         <svg class="icon-wa" viewBox="0 0 16 16" width="20" height="20" aria-hidden="true" focusable="false">
           <path fill="currentColor" d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.4.366 2.76 1.057 3.965L0 16.001l4.204-1.103a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93a7.9 7.9 0 0 0-2.327-5.607M7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.25a6.56 6.56 0 0 1-1.007-3.506c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.64-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.1-.133.196-.513.645-.627.774-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.05c.098.132 1.394 2.131 3.383 2.991.47.205.84.326 1.129.418.475.152.904.13 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"></path>
         </svg>
-        <span>Finalizar Pedido pelo WhatsApp</span>
+        <span>Solicitar Cotação no WhatsApp</span>
       </button>
 
       <button type="button" class="btn-clear-cart" id="btn-clear-cart">Limpar todos os produtos</button>

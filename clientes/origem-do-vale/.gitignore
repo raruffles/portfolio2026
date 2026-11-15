@@ -3,12 +3,24 @@
 Thumbs.db
 desktop.ini
 
+# Segurança e Variáveis de Ambiente (Nunca commitar segredos no Git/GitHub)
+.env
+.env.*
+*.env
+*.pem
+*.key
+*.cert
+credentials.json
+secrets/
+
 # Editor / IDE
 .vscode/
 .idea/
 
-# Vercel
+# Vercel e Builds
 .vercel/
+dist/
+build/
 
 # Logs e temporários
 *.log

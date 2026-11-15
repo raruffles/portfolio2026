@@ -94,6 +94,13 @@
     if (sellerParam && VENDEDORES[sellerParam]) {
       return sellerParam;
     }
+    const path = (window.location.pathname || '').toLowerCase();
+    if (path.includes('elaine')) {
+      return 'elaine';
+    }
+    if (path.includes('paulo')) {
+      return 'paulo';
+    }
     const saved = localStorage.getItem('odv_active_seller');
     if (saved && VENDEDORES[saved]) {
       return saved;
@@ -124,7 +131,25 @@
     return 'all';
   }
 
-  const isVendorMode = false;
+  function detectIsVendorMode() {
+    const path = (window.location.pathname || '').toLowerCase();
+    const params = new URLSearchParams(window.location.search);
+    if (
+      path.includes('vendedor') ||
+      path.includes('cotacao') ||
+      path.includes('sem-preco') ||
+      params.get('precos') === '0' ||
+      params.get('sem-preco') === '1' ||
+      params.get('modo') === 'sem-preco' ||
+      params.get('modo') === 'vendedor' ||
+      params.get('modo') === 'cotacao'
+    ) {
+      return true;
+    }
+    return false;
+  }
+
+  const isVendorMode = detectIsVendorMode();
 
   const totalProductsCount = catalogData.sections.reduce(
     (sum, section) => sum + (Array.isArray(section.items) ? section.items.length : 0),
@@ -556,6 +581,13 @@
       badgeEl.innerHTML = `<span>🟢</span> Atendimento com <strong>${escapeHtml(seller.name)}</strong>`;
     }
 
+    // Atualiza link de alternância de catálogo preservando o vendedor atual
+    const modeSwitchLink = document.querySelector('.catalog-mode-switch-link');
+    if (modeSwitchLink) {
+      const baseTarget = isVendorMode ? 'catalogo.html' : 'vendedor.html';
+      modeSwitchLink.href = `${baseTarget}?vendedor=${sellerId}`;
+    }
+
     // Atualiza links de produtos
     renderCatalog();
   }
@@ -720,66 +752,98 @@
       ? `<span class="card-spec">${escapeHtml(item.embalagem)}</span>`
       : '';
 
-    // Catálogo Oficial com Preços Reais, Seletor Varejo / Atacado e Atalho Dinâmico
-    const varejoVal = item.varejo ? `R$ ${escapeHtml(item.varejo)}` : 'Sob consulta';
-    const atacadoVal = item.atacado ? `R$ ${escapeHtml(item.atacado)}` : 'Sob consulta';
-    const minAtacado = item.minAtacado || 6;
-    const initialDiff = Math.max(1, minAtacado - 1);
-    const wholesaleRuleText = `Adicione +${initialDiff} para obter desconto de atacado`;
-    const atacadoSubText = item.cx ? escapeHtml(item.cx) : 'caixa / fardo';
+    let purchaseBlockHtml = '';
 
-    const purchaseBlockHtml = `
-      <button
-        type="button"
-        class="card-wholesale-rule is-actionable"
-        data-rule-for="${item.id}"
-        data-min-atacado="${minAtacado}"
-        title="Clique para adicionar +${initialDiff} e obter preço de atacado"
-      >
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>
-        <span class="rule-text">${wholesaleRuleText}</span>
-      </button>
-      <div class="card-pricing-selector" role="group" aria-label="Modalidade de compra para ${safeTitle}">
-        <button
-          type="button"
-          class="pricing-pill is-active"
-          data-pricing-type="varejo"
-          aria-pressed="true"
-        >
-          <span class="pill-type">Varejo</span>
-          <span class="pill-val">${varejoVal}</span>
-          <span class="pill-sub">unidade</span>
-        </button>
-        <button
-          type="button"
-          class="pricing-pill"
-          data-pricing-type="atacado"
-          aria-pressed="false"
-        >
-          <span class="pill-type">Atacado</span>
-          <span class="pill-val">${atacadoVal}</span>
-          <span class="pill-sub">${atacadoSubText}</span>
-        </button>
-      </div>
-
-      <div class="card-cart-action-group">
-        <div class="qty-control">
-          <button type="button" class="qty-btn" data-action="minus" aria-label="Diminuir">-</button>
-          <input type="number" class="qty-input" value="1" min="1" max="999" aria-label="Quantidade">
-          <button type="button" class="qty-btn" data-action="plus" aria-label="Aumentar">+</button>
+    if (isVendorMode) {
+      // MODO SEM PREÇO (Catálogo de Cotação Comercial / Vendedor)
+      const cxText = item.cx ? escapeHtml(item.cx) : 'Embalagem Nobre';
+      purchaseBlockHtml = `
+        <div class="card-vendor-box">
+          <span class="card-vendor-box-badge">Cotação Comercial</span>
+          <span class="card-vendor-box-cx">${cxText}</span>
+          <span class="card-vendor-box-hint">Condições e frete sob consulta</span>
         </div>
+
+        <div class="card-cart-action-group">
+          <div class="qty-control">
+            <button type="button" class="qty-btn" data-action="minus" aria-label="Diminuir">-</button>
+            <input type="number" class="qty-input" value="1" min="1" max="999" aria-label="Quantidade">
+            <button type="button" class="qty-btn" data-action="plus" aria-label="Aumentar">+</button>
+          </div>
+          <button
+            type="button"
+            class="btn-add-cart btn-add-cotacao"
+            data-add-to-cart="${item.id}"
+            data-selected-type="cotacao"
+            aria-label="Adicionar ${safeTitle} à cotação"
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+            <span>+ Cotação</span>
+          </button>
+        </div>
+      `;
+    } else {
+      // MODO COM PREÇO (Catálogo Oficial Padrão Varejo e Atacado)
+      const varejoVal = item.varejo ? `R$ ${escapeHtml(item.varejo)}` : 'Sob consulta';
+      const atacadoVal = item.atacado ? `R$ ${escapeHtml(item.atacado)}` : 'Sob consulta';
+      const minAtacado = item.minAtacado || 6;
+      const initialDiff = Math.max(1, minAtacado - 1);
+      const wholesaleRuleText = `Adicione +${initialDiff} para obter desconto de atacado`;
+      const atacadoSubText = item.cx ? escapeHtml(item.cx) : 'caixa / fardo';
+
+      purchaseBlockHtml = `
         <button
           type="button"
-          class="btn-add-cart"
-          data-add-to-cart="${item.id}"
-          data-selected-type="varejo"
-          aria-label="Adicionar ${safeTitle} ao carrinho"
+          class="card-wholesale-rule is-actionable"
+          data-rule-for="${item.id}"
+          data-min-atacado="${minAtacado}"
+          title="Clique para adicionar +${initialDiff} e obter preço de atacado"
         >
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
-          <span>+ Carrinho</span>
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>
+          <span class="rule-text">${wholesaleRuleText}</span>
         </button>
-      </div>
-    `;
+        <div class="card-pricing-selector" role="group" aria-label="Modalidade de compra para ${safeTitle}">
+          <button
+            type="button"
+            class="pricing-pill is-active"
+            data-pricing-type="varejo"
+            aria-pressed="true"
+          >
+            <span class="pill-type">Varejo</span>
+            <span class="pill-val">${varejoVal}</span>
+            <span class="pill-sub">unidade</span>
+          </button>
+          <button
+            type="button"
+            class="pricing-pill"
+            data-pricing-type="atacado"
+            aria-pressed="false"
+          >
+            <span class="pill-type">Atacado</span>
+            <span class="pill-val">${atacadoVal}</span>
+            <span class="pill-sub">${atacadoSubText}</span>
+          </button>
+        </div>
+
+        <div class="card-cart-action-group">
+          <div class="qty-control">
+            <button type="button" class="qty-btn" data-action="minus" aria-label="Diminuir">-</button>
+            <input type="number" class="qty-input" value="1" min="1" max="999" aria-label="Quantidade">
+            <button type="button" class="qty-btn" data-action="plus" aria-label="Aumentar">+</button>
+          </div>
+          <button
+            type="button"
+            class="btn-add-cart"
+            data-add-to-cart="${item.id}"
+            data-selected-type="varejo"
+            aria-label="Adicionar ${safeTitle} ao carrinho"
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+            <span>+ Carrinho</span>
+          </button>
+        </div>
+      `;
+    }
 
     const waDirectHref = buildSingleWhatsAppUrl(item.title, item.embalagem);
 
@@ -2124,6 +2188,6 @@
 
   // Inicialização
   loadCart();
-  renderCatalog();
+  setActiveSeller(activeSellerId, false);
   updateCartUI();
 })();

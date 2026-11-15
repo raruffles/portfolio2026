@@ -163,6 +163,29 @@
           <div id="seller-current-badge-wrapper">
             <div class="seller-current-badge" id="seller-current-badge" hidden></div>
           </div>
+          <div>
+            <a href="vendedor.html" class="catalog-mode-switch-link">Precisa de cotação sem exibir valores? Acesse o Catálogo Comercial &rarr;</a>
+          </div>
+        </div>
+
+        <!-- Barra Interativa de Seleção de Representante / Vendedor -->
+        <div class="seller-selector-bar" id="seller-selector-bar">
+          <span class="seller-bar-label">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            Representante:
+          </span>
+          <div class="seller-pills-group" role="radiogroup" aria-label="Escolha o representante comercial">
+            <button type="button" class="seller-pill is-active" data-seller-id="paulo" role="radio" aria-checked="true">
+              <span class="seller-pill-dot"></span>
+              <span class="seller-pill-name">Paulo</span>
+              <span class="seller-pill-phone">(12) 99623-3563</span>
+            </button>
+            <button type="button" class="seller-pill" data-seller-id="elaine" role="radio" aria-checked="false">
+              <span class="seller-pill-dot"></span>
+              <span class="seller-pill-name">Elaine</span>
+              <span class="seller-pill-phone">(12) 99131-8893</span>
+            </button>
+          </div>
         </div>
 
         <div class="search-box" style="margin-top: 20px;">
