@@ -2,19 +2,21 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "cleanUrls": true,
   "trailingSlash": false,
+  "redirects": [
+    { "source": "/paulo", "destination": "/catalogo?vendedor=paulo", "permanent": false },
+    { "source": "/elaine", "destination": "/catalogo?vendedor=elaine", "permanent": false },
+    { "source": "/paulo-cotacao", "destination": "/vendedor?vendedor=paulo", "permanent": false },
+    { "source": "/elaine-cotacao", "destination": "/vendedor?vendedor=elaine", "permanent": false }
+  ],
   "rewrites": [
     { "source": "/", "destination": "/index.html" },
     { "source": "/catalogo", "destination": "/catalogo.html" },
     { "source": "/tabela", "destination": "/catalogo.html" },
     { "source": "/precos", "destination": "/catalogo.html" },
-    { "source": "/paulo", "destination": "/catalogo.html?vendedor=paulo" },
-    { "source": "/elaine", "destination": "/catalogo.html?vendedor=elaine" },
     { "source": "/vendedor", "destination": "/vendedor.html" },
     { "source": "/representante", "destination": "/vendedor.html" },
     { "source": "/cotacao", "destination": "/vendedor.html" },
-    { "source": "/sem-preco", "destination": "/vendedor.html" },
-    { "source": "/paulo-cotacao", "destination": "/vendedor.html?vendedor=paulo" },
-    { "source": "/elaine-cotacao", "destination": "/vendedor.html?vendedor=elaine" }
+    { "source": "/sem-preco", "destination": "/vendedor.html" }
   ],
   "headers": [
     {
