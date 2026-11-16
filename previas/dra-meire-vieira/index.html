@@ -123,14 +123,47 @@
       letter-spacing: 2px;
     }
 
-    /* Acentos interativos de hover */
+    /* Acentos interativos de hover na Seção de Procedimentos (Alto Contraste) */
+    .service-row {
+      transition: background 0.3s ease, padding 0.35s ease, border-color 0.3s ease;
+    }
     .service-row:hover {
-      background: #fff;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.04);
+      background: rgba(255, 255, 255, 0.06) !important;
+      border-bottom-color: rgba(197, 160, 89, 0.45) !important;
+      box-shadow: none !important;
+    }
+    .service-row:hover h3 {
+      color: var(--gold) !important;
+      transition: color 0.25s ease;
+    }
+    .service-row:hover p {
+      color: #f8f6f2 !important;
+      transition: color 0.25s ease;
+    }
+    .service-row:hover > span {
+      color: #ffffff !important;
+      transition: color 0.25s ease;
     }
     .service-row:hover svg {
-      transform: translate(3px, -3px);
-      color: var(--gold);
+      transform: translate(5px, -5px) !important;
+      color: var(--gold) !important;
+      transition: transform 0.25s ease, color 0.25s ease;
+    }
+
+    /* Outros estados de hover com alto contraste */
+    .site-header nav > a:not(.nav-contact):hover {
+      color: var(--gold-dark) !important;
+    }
+    .text-link:hover {
+      color: var(--gold-dark) !important;
+      border-bottom-color: var(--gold-dark) !important;
+    }
+    .dani-faq-item summary:hover span {
+      color: var(--gold-dark);
+      transition: color 0.2s ease;
+    }
+    footer > div a:hover {
+      color: var(--gold) !important;
     }
 
     /* Links de Contato e Ação */
