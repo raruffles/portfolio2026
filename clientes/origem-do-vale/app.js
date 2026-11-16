@@ -756,11 +756,10 @@
 
     if (isVendorMode) {
       // MODO SEM PREÇO (Catálogo de Cotação Comercial / Vendedor)
-      const cxText = item.cx ? escapeHtml(item.cx) : 'Embalagem Nobre';
       purchaseBlockHtml = `
         <div class="card-vendor-box">
           <span class="card-vendor-box-badge">Cotação Comercial</span>
-          <span class="card-vendor-box-cx">${cxText}</span>
+          <span class="card-vendor-box-cx">Atendimento Atacado &amp; Varejo</span>
           <span class="card-vendor-box-hint">Condições e frete sob consulta</span>
         </div>
 
@@ -788,8 +787,8 @@
       const atacadoVal = item.atacado ? `R$ ${escapeHtml(item.atacado)}` : 'Sob consulta';
       const minAtacado = item.minAtacado || 6;
       const initialDiff = Math.max(1, minAtacado - 1);
-      const wholesaleRuleText = `Adicione +${initialDiff} para obter desconto de atacado`;
-      const atacadoSubText = item.cx ? escapeHtml(item.cx) : 'caixa / fardo';
+      const wholesaleRuleText = `Adicione +${initialDiff} para ativar atacado (${minAtacado} un.)`;
+      const atacadoSubText = `a partir de ${minAtacado} un.`;
 
       purchaseBlockHtml = `
         <button
@@ -797,7 +796,7 @@
           class="card-wholesale-rule is-actionable"
           data-rule-for="${item.id}"
           data-min-atacado="${minAtacado}"
-          title="Clique para adicionar +${initialDiff} e obter preço de atacado"
+          title="Clique para adicionar +${initialDiff} e ativar preço de atacado (${minAtacado} un.)"
         >
           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>
           <span class="rule-text">${wholesaleRuleText}</span>
@@ -811,7 +810,7 @@
           >
             <span class="pill-type">Varejo</span>
             <span class="pill-val">${varejoVal}</span>
-            <span class="pill-sub">unidade</span>
+            <span class="pill-sub">por unidade</span>
           </button>
           <button
             type="button"
@@ -1732,14 +1731,14 @@
           if (targetType === 'atacado' || qtyNum >= minAtacado) {
             ruleBadge.classList.add('is-applied');
             ruleBadge.classList.remove('is-actionable');
-            if (textSpan) textSpan.textContent = `✓ Desconto de atacado ativado (${qtyNum} un.)`;
+            if (textSpan) textSpan.textContent = `✓ Preço de atacado ativado (${qtyNum} un.)`;
             ruleBadge.title = `Preço de atacado ativo para ${qtyNum} unidades`;
           } else {
             const diff = Math.max(1, minAtacado - qtyNum);
             ruleBadge.classList.remove('is-applied');
             ruleBadge.classList.add('is-actionable');
-            if (textSpan) textSpan.textContent = `Adicione +${diff} para obter desconto de atacado`;
-            ruleBadge.title = `Clique para adicionar +${diff} e obter preço de atacado (${minAtacado} un.)`;
+            if (textSpan) textSpan.textContent = `Adicione +${diff} para ativar atacado (${minAtacado} un.)`;
+            ruleBadge.title = `Clique para adicionar +${diff} e ativar preço de atacado (${minAtacado} un.)`;
           }
         }
       }
