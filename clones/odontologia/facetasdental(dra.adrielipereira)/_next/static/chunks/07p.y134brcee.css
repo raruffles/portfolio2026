@@ -266,7 +266,280 @@ details.dani-faq-item p {
 @media (max-width: 1050px) {
   .google-reviews-grid { grid-template-columns: repeat(2, 1fr); }
 }
+/* Circle alignment & overlay specificity fixes (Desktop + Mobile) */
+.circle-link {
+  display: inline-flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: center !important;
+  text-align: center !important;
+  gap: 4px !important;
+  width: 96px !important;
+  height: 96px !important;
+  padding: 10px !important;
+  line-height: 1.15 !important;
+  letter-spacing: 0.08em !important;
+  flex-shrink: 0 !important;
+}
+.circle-link span {
+  display: block;
+  text-align: center;
+}
+.circle-link svg {
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
+}
+.image-seal {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: center !important;
+  text-align: center !important;
+  padding: 12px !important;
+}
+.image-seal span {
+  display: block;
+  letter-spacing: -0.06em !important;
+  text-indent: -0.06em;
+  line-height: 1 !important;
+}
+.image-seal small {
+  display: block;
+  letter-spacing: 0.14em !important;
+  text-indent: 0.14em;
+  text-align: center !important;
+  margin-top: 6px !important;
+}
+.project-image > .project-overlay {
+  inset: auto 20px 18px !important;
+  align-items: center !important;
+}
 @media (max-width: 760px) {
-  .dani-ba-grid, .google-reviews-grid { grid-template-columns: 1fr; }
-  details.dani-faq-item p { margin-left: 0; }
+  .site-header {
+    width: calc(100% - 24px) !important;
+    padding: 0 10px 0 16px !important;
+  }
+  .menu-button {
+    display: inline-flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 5px !important;
+    padding: 0 !important;
+    flex-shrink: 0 !important;
+  }
+  .menu-button span {
+    margin: 0 !important;
+  }
+  .eyebrow {
+    position: relative;
+    padding-left: 32px;
+    letter-spacing: 0.14em !important;
+    line-height: 1.55;
+  }
+  .eyebrow:before {
+    position: absolute;
+    left: 0;
+    top: 0.68em;
+    width: 20px !important;
+    margin: 0 !important;
+  }
+  .hero {
+    padding: 108px 20px 56px !important;
+    gap: 0 !important;
+  }
+  .hero h1 {
+    font-size: clamp(36px, 10.6vw, 48px) !important;
+    line-height: 0.98 !important;
+  }
+  .hero-photo-wrap {
+    width: 100% !important;
+    min-height: 430px !important;
+    margin: 28px 0 0 0 !important;
+  }
+  .hero-bottom {
+    width: 100%;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 18px !important;
+    margin-top: 26px !important;
+  }
+  .hero-bottom p {
+    flex: 1;
+    font-size: 14px !important;
+    line-height: 1.68 !important;
+  }
+  .circle-link {
+    width: 86px !important;
+    height: 86px !important;
+    font-size: 9.5px !important;
+  }
+  .statement {
+    padding: 80px 20px 96px !important;
+    gap: 24px !important;
+  }
+  .statement-copy h2 {
+    font-size: clamp(34px, 9.5vw, 42px) !important;
+    line-height: 1.06 !important;
+  }
+  .body-copy {
+    margin: 26px 0 22px 0 !important;
+  }
+  .statement-image {
+    width: 100% !important;
+    min-height: 450px !important;
+    margin: 24px 0 0 0 !important;
+  }
+  .image-seal {
+    width: 106px !important;
+    height: 106px !important;
+    right: 16px !important;
+    left: auto !important;
+    bottom: -26px !important;
+  }
+  .services-section {
+    padding: 84px 20px !important;
+  }
+  .section-heading h2 {
+    font-size: clamp(36px, 10vw, 48px) !important;
+    line-height: 1.05 !important;
+  }
+  .service-row {
+    grid-template-columns: 32px 1fr 22px !important;
+    align-items: start !important;
+    gap: 10px 12px !important;
+    padding: 26px 0 !important;
+  }
+  .service-row > span {
+    padding-top: 7px;
+  }
+  .service-row h3 {
+    grid-column: 2 !important;
+    grid-row: 1 !important;
+    font-size: clamp(23px, 6.4vw, 28px) !important;
+    line-height: 1.16 !important;
+  }
+  .service-row > svg {
+    grid-column: 3 !important;
+    grid-row: 1 !important;
+    margin-top: 6px;
+    justify-self: end;
+  }
+  .service-row p {
+    grid-column: 2 / 4 !important;
+    grid-row: 2 !important;
+    font-size: 13.5px !important;
+    line-height: 1.68 !important;
+  }
+  .projects-section {
+    padding: 84px 20px !important;
+  }
+  .projects-intro h2 {
+    font-size: clamp(36px, 10vw, 46px) !important;
+  }
+  .dani-extra-wrap {
+    margin-top: 56px !important;
+  }
+  .dani-ba-grid {
+    grid-template-columns: 1fr !important;
+    padding: 20px 18px 26px !important;
+    gap: 24px !important;
+  }
+  .dani-ba-tag {
+    bottom: 10px !important;
+    padding: 5px 9px !important;
+    font-size: 8px !important;
+    letter-spacing: 0.1em !important;
+  }
+  .dani-ba-tag.is-before { left: 10px !important; }
+  .dani-ba-tag.is-after { right: 10px !important; }
+  .text-link {
+    line-height: 1.5 !important;
+    justify-content: space-between !important;
+    width: 100%;
+  }
+  .portfolio-link {
+    max-width: 100%;
+    text-align: center;
+    justify-content: center;
+    line-height: 1.5;
+    margin-top: 48px !important;
+  }
+  .result-section {
+    padding: 84px 20px !important;
+    gap: 38px !important;
+  }
+  .result-quote blockquote {
+    font-size: clamp(32px, 8.8vw, 42px) !important;
+    line-height: 1.08 !important;
+  }
+  .google-summary-pill {
+    display: flex !important;
+    width: 100%;
+    padding: 10px 14px 10px 10px !important;
+    gap: 12px !important;
+    margin-top: 24px !important;
+  }
+  .google-reviews-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+  .google-review-card {
+    padding: 20px !important;
+  }
+  .process-section {
+    padding: 84px 20px !important;
+  }
+  .process-heading {
+    margin-bottom: 48px !important;
+  }
+  .process-heading h2 {
+    font-size: clamp(34px, 9.6vw, 44px) !important;
+    line-height: 1.06 !important;
+  }
+  details.dani-faq-item {
+    padding: 22px 0 !important;
+  }
+  details.dani-faq-item summary {
+    font-size: clamp(19px, 5.2vw, 24px) !important;
+    line-height: 1.25 !important;
+    align-items: flex-start !important;
+    gap: 12px !important;
+  }
+  .dani-faq-q-wrap {
+    gap: 12px !important;
+    align-items: flex-start !important;
+  }
+  .dani-faq-num {
+    padding-top: 6px;
+    flex-shrink: 0;
+  }
+  .dani-faq-icon {
+    font-size: 22px !important;
+    line-height: 1 !important;
+    margin-top: 2px;
+    flex-shrink: 0;
+  }
+  details.dani-faq-item p {
+    margin: 12px 0 0 0 !important;
+    font-size: 14px !important;
+    line-height: 1.75 !important;
+  }
+  .contact-section {
+    padding: 84px 20px 64px !important;
+    min-height: auto !important;
+    gap: 44px !important;
+  }
+  .contact-copy h2 {
+    font-size: clamp(38px, 10.5vw, 48px) !important;
+    line-height: 1.04 !important;
+  }
+  .primary-button {
+    width: 100% !important;
+    justify-content: center !important;
+    text-align: center !important;
+    padding: 0 20px !important;
+  }
 }
