@@ -6346,23 +6346,17 @@
     }
 
     function copyScript(scriptText) {
-      // Regra obrigatória: disparador em 1 única linha, com vírgulas e sem quebras de linha
-      const singleLine = (scriptText || '')
-        .replace(/[\r\n]+/g, ', ')
-        .replace(/\s*,\s*,+/g, ', ')
-        .replace(/\s+/g, ' ')
-        .trim();
-
-      navigator.clipboard.writeText(singleLine).then(() => {
-        showToast('📋 Mensagem em 1 linha (com vírgulas) copiada!');
+      // Instagram: mantém pontuação natural (pontos, vírgulas e parágrafos)
+      navigator.clipboard.writeText(scriptText).then(() => {
+        showToast('📋 Mensagem do Instagram copiada!');
       }).catch(() => {
         const temp = document.createElement('textarea');
-        temp.value = singleLine;
+        temp.value = scriptText;
         document.body.appendChild(temp);
         temp.select();
         document.execCommand('copy');
         document.body.removeChild(temp);
-        showToast('📋 Mensagem em 1 linha copiada!');
+        showToast('📋 Mensagem do Instagram copiada!');
       });
     }
 
