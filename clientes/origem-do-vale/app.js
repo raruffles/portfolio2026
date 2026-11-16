@@ -192,7 +192,15 @@
      GERENCIAMENTO DE CARRINHO / COTAÇÃO (LOCALSTORAGE)
      ========================================================================== */
 
-  const CART_STORAGE_KEY = isVendorMode ? 'odv_cotacao_v1' : 'odv_cart_v1';
+  const CART_STORAGE_KEY = isVendorMode ? 'odv_cotacao_v3' : 'odv_cart_v3';
+
+  // Limpeza preventiva de caches de carrinho legados (versões antigas com campos obsoletos)
+  try {
+    localStorage.removeItem('odv_cart_v1');
+    localStorage.removeItem('odv_cotacao_v1');
+    localStorage.removeItem('odv_cart_v2');
+    localStorage.removeItem('odv_cotacao_v2');
+  } catch {}
 
   let cart = [];
 
