@@ -1,0 +1,1292 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Disparo WhatsApp 17/11 — 30 Leads DDD 12 (Alta Venda)</title>
+  <style>
+    :root {
+      --bg: #090d16;
+      --card-bg: #111827;
+      --border: #1f2937;
+      --accent: #10b981;
+      --accent-hover: #059669;
+      --text: #f3f4f6;
+      --text-muted: #9ca3af;
+      --warning: #f59e0b;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+    body { background: var(--bg); color: var(--text); padding: 24px; line-height: 1.5; }
+    .container { max-width: 1000px; margin: 0 auto; }
+    
+    header { margin-bottom: 24px; padding-bottom: 20px; border-bottom: 1px solid var(--border); }
+    h1 { font-size: 24px; font-weight: 700; color: #fff; margin-bottom: 8px; display: flex; align-items: center; gap: 10px; }
+    .subtitle { color: var(--text-muted); font-size: 14px; }
+    .stats-bar { display: flex; gap: 16px; margin-top: 16px; flex-wrap: wrap; }
+    .stat-chip { background: #1e293b; padding: 8px 14px; border-radius: 8px; font-size: 13px; font-weight: 500; border: 1px solid #334155; }
+    .stat-chip strong { color: var(--accent); }
+
+    .tabs { display: flex; gap: 8px; margin-bottom: 20px; background: #1e293b; padding: 4px; border-radius: 10px; width: fit-content; }
+    .tab-btn { background: transparent; border: none; color: var(--text-muted); padding: 10px 20px; border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer; transition: all 0.2s; }
+    .tab-btn.active { background: var(--accent); color: #fff; }
+
+    .tab-content { display: none; }
+    .tab-content.active { display: grid; gap: 16px; }
+
+    .lead-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; padding: 18px; transition: transform 0.15s, border-color 0.15s; }
+    .lead-card.sent { opacity: 0.55; border-color: #374151; background: #0c121e; }
+    .card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; }
+    .title-wrap { display: flex; gap: 12px; align-items: center; }
+    .lead-num { background: #374151; color: #fff; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; flex-shrink: 0; }
+    .lead-name { font-size: 17px; font-weight: 700; color: #fff; }
+    .lead-meta { display: flex; gap: 8px; margin-top: 4px; }
+    .badge { font-size: 11px; padding: 3px 8px; border-radius: 6px; font-weight: 600; }
+    .badge-city { background: #1e293b; color: #93c5fd; }
+    .badge-niche { background: #2e1065; color: #d8b4fe; }
+
+    .check-sent { display: flex; align-items: center; gap: 6px; cursor: pointer; font-size: 13px; color: var(--text-muted); user-select: none; }
+    .check-sent input { accent-color: var(--accent); width: 16px; height: 16px; cursor: pointer; }
+
+    .gap-box { background: rgba(245, 158, 11, 0.08); border-left: 3px solid var(--warning); padding: 8px 12px; border-radius: 4px; font-size: 13px; color: #fbbf24; margin-bottom: 12px; }
+
+    .copy-box { background: #090d16; border: 1px solid #1f2937; padding: 12px; border-radius: 8px; margin-bottom: 14px; }
+    .copy-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-muted); margin-bottom: 6px; font-weight: 600; }
+    .copy-text { font-size: 13.5px; color: #e5e7eb; line-height: 1.45; }
+
+    .card-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 16px; border-radius: 8px; font-size: 13.5px; font-weight: 600; text-decoration: none; cursor: pointer; transition: all 0.2s; border: none; }
+    .btn-wa { background: var(--accent); color: #fff; flex: 1; min-width: 200px; justify-content: center; }
+    .btn-wa:hover { background: var(--accent-hover); }
+    .btn-copy { background: #1e293b; color: #e2e8f0; border: 1px solid #334155; }
+    .btn-copy:hover { background: #334155; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>⚡ Cockpit de Disparo WhatsApp — 17/11</h1>
+      <p class="subtitle">30 Leads Inéditos de Alta Venda em DDD 12 (SJC, Taubaté, Jacareí, Litoral Norte, Pinda, Guará) — Regra Estrita: 1 Linha Contínua com Vírgulas</p>
+      <div class="stats-bar">
+        <div class="stat-chip">Chip Ativo: <strong>Chip 1 (DDD 12)</strong></div>
+        <div class="stat-chip">Total Manhã: <strong>15 Leads</strong></div>
+        <div class="stat-chip">Total Tarde: <strong>15 Leads</strong></div>
+        <div class="stat-chip">Progresso Geral: <strong id="progress-text">0 / 30 enviados</strong></div>
+      </div>
+    </header>
+
+    <div class="tabs">
+      <button class="tab-btn active" onclick="switchTab('manha')">🌅 Lote Manhã (15 Leads)</button>
+      <button class="tab-btn" onclick="switchTab('tarde')">🌆 Lote Tarde (15 Leads)</button>
+    </div>
+
+    <div id="tab-manha" class="tab-content active">
+      
+    <div class="lead-card" id="card-manha-0">
+      <div class="card-header">
+        <div class="title-wrap">
+          <span class="lead-num">#1</span>
+          <div>
+            <h3 class="lead-name">Dra. Samia Arbache Dermatologia</h3>
+            <div class="lead-meta">
+              <span class="badge badge-city">📍 São José dos Campos</span>
+              <span class="badge badge-niche">🏷️ Dermatologia & Estética</span>
+            </div>
+          </div>
+        </div>
+        <label class="check-sent">
+          <input type="checkbox" onchange="toggleSent('manha-0')" id="check-manha-0">
+          <span>Enviado</span>
+        </label>
+      </div>
+
+      <div class="gap-box">
+        <strong>⚠️ Gap Digital Identificado:</strong> Página antiga sem tour visual, no Google cai no WhatsApp sem apresentar os protocolos antes
+      </div>
+
+      <div class="copy-box">
+        <div class="copy-label">Mensagem (1 Linha Contínua / 1 Balão):</div>
+        <p class="copy-text" id="text-manha-0">Oi, Dra. Samia, tudo bem, aqui é o Raphael da Yatagarasu, vi que vocês têm uma estrutura de estética e procedimentos impecável em São José dos Campos, reparei que quem busca pelo serviço no Google cai direto no WhatsApp sem ver uma página sua antes, posso te mostrar uma prévia rápida de como ficaria uma vitrine exclusiva para valorizar ainda mais o trabalho de vocês?</p>
+      </div>
+
+      <div class="card-actions">
+        <a href="https://wa.me/5512981711439?text=Oi%2C%20Dra.%20Samia%2C%20tudo%20bem%2C%20aqui%20%C3%A9%20o%20Raphael%20da%20Yatagarasu%2C%20vi%20que%20voc%C3%AAs%20t%C3%AAm%20uma%20estrutura%20de%20est%C3%A9tica%20e%20procedimentos%20impec%C3%A1vel%20em%20S%C3%A3o%20Jos%C3%A9%20dos%20Campos%2C%20reparei%20que%20quem%20busca%20pelo%20servi%C3%A7o%20no%20Google%20cai%20direto%20no%20WhatsApp%20sem%20ver%20uma%20p%C3%A1gina%20sua%20antes%2C%20posso%20te%20mostrar%20uma%20pr%C3%A9via%20r%C3%A1pida%20de%20como%20ficaria%20uma%20vitrine%20exclusiva%20para%20valorizar%20ainda%20mais%20o%20trabalho%20de%20voc%C3%AAs%3F" target="_blank" class="btn btn-wa" onclick="markSent('manha-0')">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.669-.699c.989.54 1.761.815 2.791.815 3.181 0 5.767-2.587 5.768-5.766.001-3.18-2.586-5.766-5.768-5.766zm9.969 5.766c0 5.514-4.486 10-10 10-1.823 0-3.539-.49-5.016-1.343l-5.984 1.565 1.593-5.832c-.933-1.529-1.472-3.32-1.472-5.234 0-5.514 4.486-10 10-10s10 4.486 10 10z"/></svg>
+          Chamar no WhatsApp (+5512981711439)
+        </a>
+        <button class="btn btn-copy" onclick="copyText('text-manha-0', this)">
+          📋 Copiar Mensagem
+        </button>
+      </div>
+    </div>
+  
+    <div class="lead-card" id="card-manha-1">
+      <div class="card-header">
+        <div class="title-wrap">
+          <span class="lead-num">#2</span>
+          <div>
+            <h3 class="lead-name">Faccia Armonica Harmonização</h3>
+            <div class="lead-meta">
+              <span class="badge badge-city">📍 São José dos Campos</span>
+              <span class="badge badge-niche">🏷️ Harmonização Facial</span>
+            </div>
+          </div>
+        </div>
+        <label class="check-sent">
+          <input type="checkbox" onchange="toggleSent('manha-1')" id="check-manha-1">
+          <span>Enviado</span>
+        </label>
+      </div>
+
+      <div class="gap-box">
+        <strong>⚠️ Gap Digital Identificado:</strong> Sem site institucional no topo do Google, bio cai no WhatsApp sem galeria dos casos
+      </div>
+
+      <div class="copy-box">
+        <div class="copy-label">Mensagem (1 Linha Contínua / 1 Balão):</div>
+        <p class="copy-text" id="text-manha-1">Oi, Equipe Faccia Armonica, tudo bem, aqui é o Raphael da Yatagarasu, vi que vocês têm uma estrutura de estética e procedimentos impecável em São José dos Campos, reparei que quem busca pelo serviço no Google cai direto no WhatsApp sem ver uma página sua antes, posso te mostrar uma prévia rápida de como ficaria uma vitrine exclusiva para valorizar ainda mais o trabalho de vocês?</p>
+      </div>
+
+      <div class="card-actions">
+        <a href="https://wa.me/5512998007476?text=Oi%2C%20Equipe%20Faccia%20Armonica%2C%20tudo%20bem%2C%20aqui%20%C3%A9%20o%20Raphael%20da%20Yatagarasu%2C%20vi%20que%20voc%C3%AAs%20t%C3%AAm%20uma%20estrutura%20de%20est%C3%A9tica%20e%20procedimentos%20impec%C3%A1vel%20em%20S%C3%A3o%20Jos%C3%A9%20dos%20Campos%2C%20reparei%20que%20quem%20busca%20pelo%20servi%C3%A7o%20no%20Google%20cai%20direto%20no%20WhatsApp%20sem%20ver%20uma%20p%C3%A1gina%20sua%20antes%2C%20posso%20te%20mostrar%20uma%20pr%C3%A9via%20r%C3%A1pida%20de%20como%20ficaria%20uma%20vitrine%20exclusiva%20para%20valorizar%20ainda%20mais%20o%20trabalho%20de%20voc%C3%AAs%3F" target="_blank" class="btn btn-wa" onclick="markSent('manha-1')">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.669-.699c.989.54 1.761.815 2.791.815 3.181 0 5.767-2.587 5.768-5.766.001-3.18-2.586-5.766-5.768-5.766zm9.969 5.766c0 5.514-4.486 10-10 10-1.823 0-3.539-.49-5.016-1.343l-5.984 1.565 1.593-5.832c-.933-1.529-1.472-3.32-1.472-5.234 0-5.514 4.486-10 10-10s10 4.486 10 10z"/></svg>
+          Chamar no WhatsApp (+5512998007476)
+        </a>
+        <button class="btn btn-copy" onclick="copyText('text-manha-1', this)">
+          📋 Copiar Mensagem
+        </button>
+      </div>
+    </div>
+  
+    <div class="lead-card" id="card-manha-2">
+      <div class="card-header">
+        <div class="title-wrap">
+          <span class="lead-num">#3</span>
+          <div>
+            <h3 class="lead-name">Alma Arquitetura & Interiores</h3>
+            <div class="lead-meta">
+              <span class="badge badge-city">📍 São José dos Campos</span>
+              <span class="badge badge-niche">🏷️ Arquitetura de Alto Padrão</span>
+            </div>
+          </div>
+        </div>
+        <label class="check-sent">
+          <input type="checkbox" onchange="toggleSent('manha-2')" id="check-manha-2">
+          <span>Enviado</span>
+        </label>
+      </div>
+
+      <div class="gap-box">
+        <strong>⚠️ Gap Digital Identificado:</strong> Site básico em formato institucional antigo, sem portfólio imersivo em tela cheia
+      </div>
+
+      <div class="copy-box">
+        <div class="copy-label">Mensagem (1 Linha Contínua / 1 Balão):</div>
+        <p class="copy-text" id="text-manha-2">Oi, Equipe Alma, tudo bem, aqui é o Raphael da Yatagarasu, vi que vocês têm projetos de arquitetura e interiores incríveis em São José dos Campos, reparei que quem busca pelo serviço no Google cai direto no WhatsApp sem ver uma página sua antes, posso te mostrar uma prévia rápida de como ficaria uma vitrine exclusiva para valorizar ainda mais o trabalho de vocês?</p>
+      </div>
+
+      <div class="card-actions">
+        <a href="https://wa.me/5512981616524?text=Oi%2C%20Equipe%20Alma%2C%20tudo%20bem%2C%20aqui%20%C3%A9%20o%20Raphael%20da%20Yatagarasu%2C%20vi%20que%20voc%C3%AAs%20t%C3%AAm%20projetos%20de%20arquitetura%20e%20interiores%20incr%C3%ADveis%20em%20S%C3%A3o%20Jos%C3%A9%20dos%20Campos%2C%20reparei%20que%20quem%20busca%20pelo%20servi%C3%A7o%20no%20Google%20cai%20direto%20no%20WhatsApp%20sem%20ver%20uma%20p%C3%A1gina%20sua%20antes%2C%20posso%20te%20mostrar%20uma%20pr%C3%A9via%20r%C3%A1pida%20de%20como%20ficaria%20uma%20vitrine%20exclusiva%20para%20valorizar%20ainda%20mais%20o%20trabalho%20de%20voc%C3%AAs%3F" target="_blank" class="btn btn-wa" onclick="markSent('manha-2')">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.669-.699c.989.54 1.761.815 2.791.815 3.181 0 5.767-2.587 5.768-5.766.001-3.18-2.586-5.766-5.768-5.766zm9.969 5.766c0 5.514-4.486 10-10 10-1.823 0-3.539-.49-5.016-1.343l-5.984 1.565 1.593-5.832c-.933-1.529-1.472-3.32-1.472-5.234 0-5.514 4.486-10 10-10s10 4.486 10 10z"/></svg>
+          Chamar no WhatsApp (+5512981616524)
+        </a>
+        <button class="btn btn-copy" onclick="copyText('text-manha-2', this)">
+          📋 Copiar Mensagem
+        </button>
+      </div>
+    </div>
+  
+    <div class="lead-card" id="card-manha-3">
+      <div class="card-header">
+        <div class="title-wrap">
+          <span class="lead-num">#4</span>
+          <div>
+            <h3 class="lead-name">Analu Andrade Arquitetura</h3>
+            <div class="lead-meta">
+              <span class="badge badge-city">📍 São José dos Campos</span>
+              <span class="badge badge-niche">🏷️ Arquitetura Residencial</span>
+            </div>
+          </div>
+        </div>
+        <label class="check-sent">
+          <input type="checkbox" onchange="toggleSent('manha-3')" id="check-manha-3">
+          <span>Enviado</span>
+        </label>
+      </div>
+
+      <div class="gap-box">
+        <strong>⚠️ Gap Digital Identificado:</strong> Mais de 25 anos de carreira mas sem vitrine moderna para captação no Google Aquarius
+      </div>
+
+      <div class="copy-box">
+        <div class="copy-label">Mensagem (1 Linha Contínua / 1 Balão):</div>
+        <p class="copy-text" id="text-manha-3">Oi, Analu, tudo bem, aqui é o Raphael da Yatagarasu, vi que vocês têm projetos de arquitetura e interiores incríveis em São José dos Campos, reparei que quem busca pelo serviço no Google cai direto no WhatsApp sem ver uma página sua antes, posso te mostrar uma prévia rápida de como ficaria uma vitrine exclusiva para valorizar ainda mais o trabalho de vocês?</p>
+      </div>
+
+      <div class="card-actions">
+        <a href="https://wa.me/5512981160843?text=Oi%2C%20Analu%2C%20tudo%20bem%2C%20aqui%20%C3%A9%20o%20Raphael%20da%20Yatagarasu%2C%20vi%20que%20voc%C3%AAs%20t%C3%AAm%20projetos%20de%20arquitetura%20e%20interiores%20incr%C3%ADveis%20em%20S%C3%A3o%20Jos%C3%A9%20dos%20Campos%2C%20reparei%20que%20quem%20busca%20pelo%20servi%C3%A7o%20no%20Google%20cai%20direto%20no%20WhatsApp%20sem%20ver%20uma%20p%C3%A1gina%20sua%20antes%2C%20posso%20te%20mostrar%20uma%20pr%C3%A9via%20r%C3%A1pida%20de%20como%20ficaria%20uma%20vitrine%20exclusiva%20para%20valorizar%20ainda%20mais%20o%20trabalho%20de%20voc%C3%AAs%3F" target="_blank" class="btn btn-wa" onclick="markSent('manha-3')">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.669-.699c.989.54 1.761.815 2.791.815 3.181 0 5.767-2.587 5.768-5.766.001-3.18-2.586-5.766-5.768-5.766zm9.969 5.766c0 5.514-4.486 10-10 10-1.823 0-3.539-.49-5.016-1.343l-5.984 1.565 1.593-5.832c-.933-1.529-1.472-3.32-1.472-5.234 0-5.514 4.486-10 10-10s10 4.486 10 10z"/></svg>
+          Chamar no WhatsApp (+5512981160843)
+        </a>
+        <button class="btn btn-copy" onclick="copyText('text-manha-3', this)">
+          📋 Copiar Mensagem
+        </button>
+      </div>
+    </div>
+  
+    <div class="lead-card" id="card-manha-4">
+      <div class="card-header">
+        <div class="title-wrap">
+          <span class="lead-num">#5</span>
+          <div>
+            <h3 class="lead-name">Habitar Arquitetura Fernanda Auler</h3>
+            <div class="lead-meta">
+              <span class="badge badge-city">📍 São José dos Campos</span>
+              <span class="badge badge-niche">🏷️ Arquitetura & Interiores</span>
+            </div>
+          </div>
+        </div>
+        <label class="check-sent">
+          <input type="checkbox" onchange="toggleSent('manha-4')" id="check-manha-4">
+          <span>Enviado</span>
+        </label>
+      </div>
+
+      <div class="gap-box">
+        <strong>⚠️ Gap Digital Identificado:</strong> Bio direciona para link genérico, sem página de autoridade para reformas de condomínio
+      </div>
+
+      <div class="copy-box">
+        <div class="copy-label">Mensagem (1 Linha Contínua / 1 Balão):</div>
+        <p class="copy-text" id="text-manha-4">Oi, Fernanda Auler, tudo bem, aqui é o Raphael da Yatagarasu, vi que vocês têm projetos de arquitetura e interiores incríveis em São José dos Campos, reparei que quem busca pelo serviço no Google cai direto no WhatsApp sem ver uma página sua antes, posso te mostrar uma prévia rápida de como ficaria uma vitrine exclusiva para valorizar ainda mais o trabalho de vocês?</p>
+      </div>
+
+      <div class="card-actions">
+        <a href="https://wa.me/5512996500454?text=Oi%2C%20Fernanda%20Auler%2C%20tudo%20bem%2C%20aqui%20%C3%A9%20o%20Raphael%20da%20Yatagarasu%2C%20vi%20que%20voc%C3%AAs%20t%C3%AAm%20projetos%20de%20arquitetura%20e%20interiores%20incr%C3%ADveis%20em%20S%C3%A3o%20Jos%C3%A9%20dos%20Campos%2C%20reparei%20que%20quem%20busca%20pelo%20servi%C3%A7o%20no%20Google%20cai%20direto%20no%20WhatsApp%20sem%20ver%20uma%20p%C3%A1gina%20sua%20antes%2C%20posso%20te%20mostrar%20uma%20pr%C3%A9via%20r%C3%A1pida%20de%20como%20ficaria%20uma%20vitrine%20exclusiva%20para%20valorizar%20ainda%20mais%20o%20trabalho%20de%20voc%C3%AAs%3F" target="_blank" class="btn btn-wa" onclick="markSent('manha-4')">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.669-.699c.989.54 1.761.815 2.791.815 3.181 0 5.767-2.587 5.768-5.766.001-3.18-2.586-5.766-5.768-5.766zm9.969 5.766c0 5.514-4.486 10-10 10-1.823 0-3.539-.49-5.016-1.343l-5.984 1.565 1.593-5.832c-.933-1.529-1.472-3.32-1.472-5.234 0-5.514 4.486-10 10-10s10 4.486 10 10z"/></svg>
+          Chamar no WhatsApp (+5512996500454)
+        </a>
+        <button class="btn btn-copy" onclick="copyText('text-manha-4', this)">
+          📋 Copiar Mensagem
+        </button>
+      </div>
+    </div>
+  
+    <div class="lead-card" id="card-manha-5">
+      <div class="card-header">
+        <div class="title-wrap">
+          <span class="lead-num">#6</span>
+          <div>
+            <h3 class="lead-name">Otta Albernaz Arquitetura</h3>
+            <div class="lead-meta">
+              <span class="badge badge-city">📍 São José dos Campos</span>
+              <span class="badge badge-niche">🏷️ Arquitetura Contemporânea</span>
+            </div>
+          </div>
+        </div>
+        <label class="check-sent">
+          <input type="checkbox" onchange="toggleSent('manha-5')" id="check-manha-5">
+          <span>Enviado</span>
+        </label>
+      </div>
+
+      <div class="gap-box">
+        <strong>⚠️ Gap Digital Identificado:</strong> Projetos de altíssimo padrão com site pesado e sem foco em conversão mobile
+      </div>
+
+      <div class="copy-box">
+        <div class="copy-label">Mensagem (1 Linha Contínua / 1 Balão):</div>
+        <p class="copy-text" id="text-manha-5">Oi, Equipe Otta Albernaz, tudo bem, aqui é o Raphael da Yatagarasu, vi que vocês têm projetos de arquitetura e interiores incríveis em São José dos Campos, reparei que quem busca pelo serviço no Google cai direto no WhatsApp sem ver uma página sua antes, posso te mostrar uma prévia rápida de como ficaria uma vitrine exclusiva para valorizar ainda mais o trabalho de vocês?</p>
+      </div>
+
+      <div class="card-actions">
+        <a href="https://wa.me/5512988926407?text=Oi%2C%20Equipe%20Otta%20Albernaz%2C%20tudo%20bem%2C%20aqui%20%C3%A9%20o%20Raphael%20da%20Yatagarasu%2C%20vi%20que%20voc%C3%AAs%20t%C3%AAm%20projetos%20de%20arquitetura%20e%20interiores%20incr%C3%ADveis%20em%20S%C3%A3o%20Jos%C3%A9%20dos%20Campos%2C%20reparei%20que%20quem%20busca%20pelo%20servi%C3%A7o%20no%20Google%20cai%20direto%20no%20WhatsApp%20sem%20ver%20uma%20p%C3%A1gina%20sua%20antes%2C%20posso%20te%20mostrar%20uma%20pr%C3%A9via%20r%C3%A1pida%20de%20como%20ficaria%20uma%20vitrine%20exclusiva%20para%20valorizar%20ainda%20mais%20o%20trabalho%20de%20voc%C3%AAs%3F" target="_blank" class="btn btn-wa" onclick="markSent('manha-5')">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.669-.699c.989.54 1.761.815 2.791.815 3.181 0 5.767-2.587 5.768-5.766.001-3.18-2.586-5.766-5.768-5.766zm9.969 5.766c0 5.514-4.486 10-10 10-1.823 0-3.539-.49-5.016-1.343l-5.984 1.565 1.593-5.832c-.933-1.529-1.472-3.32-1.472-5.234 0-5.514 4.486-10 10-10s10 4.486 10 10z"/></svg>
+          Chamar no WhatsApp (+5512988926407)
+        </a>
+        <button class="btn btn-copy" onclick="copyText('text-manha-5', this)">
+          📋 Copiar Mensagem
+        </button>
+      </div>
+    </div>
+  
+    <div class="lead-card" id="card-manha-6">
+      <div class="card-header">
+        <div class="title-wrap">
+          <span class="lead-num">#7</span>
+          <div>
+            <h3 class="lead-name">Okha Arquitetura & Design</h3>
+            <div class="lead-meta">
+              <span class="badge badge-city">📍 São José dos Campos</span>
+              <span class="badge badge-niche">🏷️ Arquitetura & Design</span>
+            </div>
+          </div>
+        </div>
+        <label class="check-sent">
+          <input type="checkbox" onchange="toggleSent('manha-6')" id="check-manha-6">
+          <span>Enviado</span>
+        </label>
+      </div>
+
+      <div class="gap-box">
+        <strong>⚠️ Gap Digital Identificado:</strong> Presença fragmentada em portais de arquitetura sem site próprio para fechar clientes
+      </div>
+
+      <div class="copy-box">
+        <div class="copy-label">Mensagem (1 Linha Contínua / 1 Balão):</div>
+        <p class="copy-text" id="text-manha-6">Oi, Equipe Okha, tudo bem, aqui é o Raphael da Yatagarasu, vi que vocês têm projetos de arquitetura e interiores incríveis em São José dos Campos, reparei que quem busca pelo serviço no Google cai direto no WhatsApp sem ver uma página sua antes, posso te mostrar uma prévia rápida de como ficaria uma vitrine exclusiva para valorizar ainda mais o trabalho de vocês?</p>
+      </div>
+
+      <div class="card-actions">
+        <a href="https://wa.me/5512997251955?text=Oi%2C%20Equipe%20Okha%2C%20tudo%20bem%2C%20aqui%20%C3%A9%20o%20Raphael%20da%20Yatagarasu%2C%20vi%20que%20voc%C3%AAs%20t%C3%AAm%20projetos%20de%20arquitetura%20e%20interiores%20incr%C3%ADveis%20em%20S%C3%A3o%20Jos%C3%A9%20dos%20Campos%2C%20reparei%20que%20quem%20busca%20pelo%20servi%C3%A7o%20no%20Google%20cai%20direto%20no%20WhatsApp%20sem%20ver%20uma%20p%C3%A1gina%20sua%20antes%2C%20posso%20te%20mostrar%20uma%20pr%C3%A9via%20r%C3%A1pida%20de%20como%20ficaria%20uma%20vitrine%20exclusiva%20para%20valorizar%20ainda%20mais%20o%20trabalho%20de%20voc%C3%AAs%3F" target="_blank" class="btn btn-wa" onclick="markSent('manha-6')">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.669-.699c.989.54 1.761.815 2.791.815 3.181 0 5.767-2.587 5.768-5.766.001-3.18-2.586-5.766-5.768-5.766zm9.969 5.766c0 5.514-4.486 10-10 10-1.823 0-3.539-.49-5.016-1.343l-5.984 1.565 1.593-5.832c-.933-1.529-1.472-3.32-1.472-5.234 0-5.514 4.486-10 10-10s10 4.486 10 10z"/></svg>
+          Chamar no WhatsApp (+5512997251955)
+        </a>
+        <button class="btn btn-copy" onclick="copyText('text-manha-6', this)">
+          📋 Copiar Mensagem
+        </button>
+      </div>
+    </div>
+  
+    <div class="lead-card" id="card-manha-7">
+      <div class="card-header">
+        <div class="title-wrap">
+          <span class="lead-num">#8</span>
+          <div>
+            <h3 class="lead-name">Clínica Moralle Odontologia</h3>
+            <div class="lead-meta">
+              <span class="badge badge-city">📍 Taubaté</span>
+              <span class="badge badge-niche">🏷️ Odontologia & Estética</span>
+            </div>
+          </div>
+        </div>
+        <label class="check-sent">
+          <input type="checkbox" onchange="toggleSent('manha-7')" id="check-manha-7">
+          <span>Enviado</span>
+        </label>
+      </div>
+
+      <div class="gap-box">
+        <strong>⚠️ Gap Digital Identificado:</strong> Estrutura premium em Taubaté mas quem busca no Google cai no WhatsApp sem triagem
+      </div>
+
+      <div class="copy-box">
+        <div class="copy-label">Mensagem (1 Linha Contínua / 1 Balão):</div>
+        <p class="copy-text" id="text-manha-7">Oi, Equipe Moralle, tudo bem, aqui é o Raphael da Yatagarasu, vi que vocês têm uma estrutura de estética e procedimentos impecável em Taubaté, reparei que quem busca pelo serviço no Google cai direto no WhatsApp sem ver uma página sua antes, posso te mostrar uma prévia rápida de como ficaria uma vitrine exclusiva para valorizar ainda mais o trabalho de vocês?</p>
+      </div>
+
+      <div class="card-actions">
+        <a href="https://wa.me/5512991212757?text=Oi%2C%20Equipe%20Moralle%2C%20tudo%20bem%2C%20aqui%20%C3%A9%20o%20Raphael%20da%20Yatagarasu%2C%20vi%20que%20voc%C3%AAs%20t%C3%AAm%20uma%20estrutura%20de%20est%C3%A9tica%20e%20procedimentos%20impec%C3%A1vel%20em%20Taubat%C3%A9%2C%20reparei%20que%20quem%20busca%20pelo%20servi%C3%A7o%20no%20Google%20cai%20direto%20no%20WhatsApp%20sem%20ver%20uma%20p%C3%A1gina%20sua%20antes%2C%20posso%20te%20mostrar%20uma%20pr%C3%A9via%20r%C3%A1pida%20de%20como%20ficaria%20uma%20vitrine%20exclusiva%20para%20valorizar%20ainda%20mais%20o%20trabalho%20de%20voc%C3%AAs%3F" target="_blank" class="btn btn-wa" onclick="markSent('manha-7')">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.669-.699c.989.54 1.761.815 2.791.815 3.181 0 5.767-2.587 5.768-5.766.001-3.18-2.586-5.766-5.768-5.766zm9.969 5.766c0 5.514-4.486 10-10 10-1.823 0-3.539-.49-5.016-1.343l-5.984 1.565 1.593-5.832c-.933-1.529-1.472-3.32-1.472-5.234 0-5.514 4.486-10 10-10s10 4.486 10 10z"/></svg>
+          Chamar no WhatsApp (+5512991212757)
+        </a>
+        <button class="btn btn-copy" onclick="copyText('text-manha-7', this)">
+          📋 Copiar Mensagem
+        </button>
+      </div>
+    </div>
+  
+    <div class="lead-card" id="card-manha-8">
+      <div class="card-header">
+        <div class="title-wrap">
+          <span class="lead-num">#9</span>
+          <div>
+            <h3 class="lead-name">Mantovani Odontologia Estética</h3>
+            <div class="lead-meta">
+              <span class="badge badge-city">📍 Taubaté</span>
+              <span class="badge badge-niche">🏷️ Odontologia & Lentes em Resina</span>
+            </div>
+          </div>
+        </div>
+        <label class="check-sent">
+          <input type="checkbox" onchange="toggleSent('manha-8')" id="check-manha-8">
+          <span>Enviado</span>
+        </label>
+      </div>
+
+      <div class="gap-box">
+        <strong>⚠️ Gap Digital Identificado:</strong> Sem página de lentes e facetas destacando os antes e depois antes do orçamento
+      </div>
+
+      <div class="copy-box">
+        <div class="copy-label">Mensagem (1 Linha Contínua / 1 Balão):</div>
+        <p class="copy-text" id="text-manha-8">Oi, Dr. Mantovani, tudo bem, aqui é o Raphael da Yatagarasu, vi que vocês têm uma entrega em odontologia e estética de altíssimo nível em Taubaté, reparei que quem busca pelo serviço no Google cai direto no WhatsApp sem ver uma página sua antes, posso te mostrar uma prévia rápida de como ficaria uma vitrine exclusiva para valorizar ainda mais o trabalho de vocês?</p>
+      </div>
+
+      <div class="card-actions">
+        <a href="https://wa.me/5512991044544?text=Oi%2C%20Dr.%20Mantovani%2C%20tudo%20bem%2C%20aqui%20%C3%A9%20o%20Raphael%20da%20Yatagarasu%2C%20vi%20que%20voc%C3%AAs%20t%C3%AAm%20uma%20entrega%20em%20odontologia%20e%20est%C3%A9tica%20de%20alt%C3%ADssimo%20n%C3%ADvel%20em%20Taubat%C3%A9%2C%20reparei%20que%20quem%20busca%20pelo%20servi%C3%A7o%20no%20Google%20cai%20direto%20no%20WhatsApp%20sem%20ver%20uma%20p%C3%A1gina%20sua%20antes%2C%20posso%20te%20mostrar%20uma%20pr%C3%A9via%20r%C3%A1pida%20de%20como%20ficaria%20uma%20vitrine%20exclusiva%20para%20valorizar%20ainda%20mais%20o%20trabalho%20de%20voc%C3%AAs%3F" target="_blank" class="btn btn-wa" onclick="markSent('manha-8')">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.669-.699c.989.54 1.761.815 2.791.815 3.181 0 5.767-2.587 5.768-5.766.001-3.18-2.586-5.766-5.768-5.766zm9.969 5.766c0 5.514-4.486 10-10 10-1.823 0-3.539-.49-5.016-1.343l-5.984 1.565 1.593-5.832c-.933-1.529-1.472-3.32-1.472-5.234 0-5.514 4.486-10 10-10s10 4.486 10 10z"/></svg>
+          Chamar no WhatsApp (+5512991044544)
+        </a>
+        <button class="btn btn-copy" onclick="copyText('text-manha-8', this)">
+          📋 Copiar Mensagem
+        </button>
+      </div>
+    </div>
+  
+    <div class="lead-card" id="card-manha-9">
+      <div class="card-header">
+        <div class="title-wrap">
+          <span class="lead-num">#10</span>
+          <div>
+            <h3 class="lead-name">Essenza Bem-Estar Clínica</h3>
+            <div class="lead-meta">
+              <span class="badge badge-city">📍 Taubaté</span>
+              <span class="badge badge-niche">🏷️ Estética Médica & Bem-Estar</span>
+            </div>
+          </div>
+        </div>
+        <label class="check-sent">
+          <input type="checkbox" onchange="toggleSent('manha-9')" id="check-manha-9">
+          <span>Enviado</span>
+        </label>
+      </div>
+
+      <div class="gap-box">
+        <strong>⚠️ Gap Digital Identificado:</strong> Site institucional estático, sem posicionamento local para procedimentos a laser
+      </div>
+
+      <div class="copy-box">
+        <div class="copy-label">Mensagem (1 Linha Contínua / 1 Balão):</div>
+        <p class="copy-text" id="text-manha-9">Oi, Equipe Essenza, tudo bem, aqui é o Raphael da Yatagarasu, vi que vocês têm uma estrutura de estética e procedimentos impecável em Taubaté, reparei que quem busca pelo serviço no Google cai direto no WhatsApp sem ver uma página sua antes, posso te mostrar uma prévia rápida de como ficaria uma vitrine exclusiva para valorizar ainda mais o trabalho de vocês?</p>
+      </div>
+
+      <div class="card-actions">
+        <a href="https://wa.me/5512991164545?text=Oi%2C%20Equipe%20Essenza%2C%20tudo%20bem%2C%20aqui%20%C3%A9%20o%20Raphael%20da%20Yatagarasu%2C%20vi%20que%20voc%C3%AAs%20t%C3%AAm%20uma%20estrutura%20de%20est%C3%A9tica%20e%20procedimentos%20impec%C3%A1vel%20em%20Taubat%C3%A9%2C%20reparei%20que%20quem%20busca%20pelo%20servi%C3%A7o%20no%20Google%20cai%20direto%20no%20WhatsApp%20sem%20ver%20uma%20p%C3%A1gina%20sua%20antes%2C%20posso%20te%20mostrar%20uma%20pr%C3%A9via%20r%C3%A1pida%20de%20como%20ficaria%20uma%20vitrine%20exclusiva%20para%20valorizar%20ainda%20mais%20o%20trabalho%20de%20voc%C3%AAs%3F" target="_blank" class="btn btn-wa" onclick="markSent('manha-9')">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.669-.699c.989.54 1.761.815 2.791.815 3.181 0 5.767-2.587 5.768-5.766.001-3.18-2.586-5.766-5.768-5.766zm9.969 5.766c0 5.514-4.486 10-10 10-1.823 0-3.539-.49-5.016-1.343l-5.984 1.565 1.593-5.832c-.933-1.529-1.472-3.32-1.472-5.234 0-5.514 4.486-10 10-10s10 4.486 10 10z"/></svg>
+          Chamar no WhatsApp (+5512991164545)
+        </a>
+        <button class="btn btn-copy" onclick="copyText('text-manha-9', this)">
+          📋 Copiar Mensagem
+        </button>
+      </div>
+    </div>
+  
+    <div class="lead-card" id="card-manha-10">
+      <div class="card-header">
+        <div class="title-wrap">
+          <span class="lead-num">#11</span>
+          <div>
+            <h3 class="lead-name">Inspira Estética Avançada</h3>
+            <div class="lead-meta">
+              <span class="badge badge-city">📍 Jacareí</span>
+              <span class="badge badge-niche">🏷️ Harmonização & Estética</span>
+            </div>
+          </div>
+        </div>
+        <label class="check-sent">
+          <input type="checkbox" onchange="toggleSent('manha-10')" id="check-manha-10">
+          <span>Enviado</span>
+        </label>
+      </div>
+
+      <div class="gap-box">
+        <strong>⚠️ Gap Digital Identificado:</strong> Unidade na Vila Branca sem site no topo das buscas locais do Google para injetáveis
+      </div>
+
+      <div class="copy-box">
+        <div class="copy-label">Mensagem (1 Linha Contínua / 1 Balão):</div>
+        <p class="copy-text" id="text-manha-10">Oi, Equipe Inspira, tudo bem, aqui é o Raphael da Yatagarasu, vi que vocês têm uma estrutura de estética e procedimentos impecável em Jacareí, reparei que quem busca pelo serviço no Google cai direto no WhatsApp sem ver uma página sua antes, posso te mostrar uma prévia rápida de como ficaria uma vitrine exclusiva para valorizar ainda mais o trabalho de vocês?</p>
+      </div>
+
+      <div class="card-actions">
+        <a href="https://wa.me/5512982787120?text=Oi%2C%20Equipe%20Inspira%2C%20tudo%20bem%2C%20aqui%20%C3%A9%20o%20Raphael%20da%20Yatagarasu%2C%20vi%20que%20voc%C3%AAs%20t%C3%AAm%20uma%20estrutura%20de%20est%C3%A9tica%20e%20procedimentos%20impec%C3%A1vel%20em%20Jacare%C3%AD%2C%20reparei%20que%20quem%20busca%20pelo%20servi%C3%A7o%20no%20Google%20cai%20direto%20no%20WhatsApp%20sem%20ver%20uma%20p%C3%A1gina%20sua%20antes%2C%20posso%20te%20mostrar%20uma%20pr%C3%A9via%20r%C3%A1pida%20de%20como%20ficaria%20uma%20vitrine%20exclusiva%20para%20valorizar%20ainda%20mais%20o%20trabalho%20de%20voc%C3%AAs%3F" target="_blank" class="btn btn-wa" onclick="markSent('manha-10')">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.669-.699c.989.54 1.761.815 2.791.815 3.181 0 5.767-2.587 5.768-5.766.001-3.18-2.586-5.766-5.768-5.766zm9.969 5.766c0 5.514-4.486 10-10 10-1.823 0-3.539-.49-5.016-1.343l-5.984 1.565 1.593-5.832c-.933-1.529-1.472-3.32-1.472-5.234 0-5.514 4.486-10 10-10s10 4.486 10 10z"/></svg>
+          Chamar no WhatsApp (+5512982787120)
+        </a>
+        <button class="btn btn-copy" onclick="copyText('text-manha-10', this)">
+          📋 Copiar Mensagem
+        </button>
+      </div>
+    </div>
+  
+    <div class="lead-card" id="card-manha-11">
+      <div class="card-header">
+        <div class="title-wrap">
+          <span class="lead-num">#12</span>
+          <div>
+            <h3 class="lead-name">Aura Vita Biomedicina Estética</h3>
+            <div class="lead-meta">
+              <span class="badge badge-city">📍 Jacareí</span>
+              <span class="badge badge-niche">🏷️ Biomedicina Estética</span>
+            </div>
+          </div>
+        </div>
+        <label class="check-sent">
+          <input type="checkbox" onchange="toggleSent('manha-11')" id="check-manha-11">
+          <span>Enviado</span>
+        </label>
+      </div>
+
+      <div class="gap-box">
+        <strong>⚠️ Gap Digital Identificado:</strong> Cai direto no WhatsApp sem página apresentando o conceito e a segurança dos procedimentos
+      </div>
+
+      <div class="copy-box">
+        <div class="copy-label">Mensagem (1 Linha Contínua / 1 Balão):</div>
+        <p class="copy-text" id="text-manha-11">Oi, Dra. Aura Vita, tudo bem, aqui é o Raphael da Yatagarasu, vi que vocês têm uma estrutura de estética e procedimentos impecável em Jacareí, reparei que quem busca pelo serviço no Google cai direto no WhatsApp sem ver uma página sua antes, posso te mostrar uma prévia rápida de como ficaria uma vitrine exclusiva para valorizar ainda mais o trabalho de vocês?</p>
+      </div>
+
+      <div class="card-actions">
+        <a href="https://wa.me/5512992308734?text=Oi%2C%20Dra.%20Aura%20Vita%2C%20tudo%20bem%2C%20aqui%20%C3%A9%20o%20Raphael%20da%20Yatagarasu%2C%20vi%20que%20voc%C3%AAs%20t%C3%AAm%20uma%20estrutura%20de%20est%C3%A9tica%20e%20procedimentos%20impec%C3%A1vel%20em%20Jacare%C3%AD%2C%20reparei%20que%20quem%20busca%20pelo%20servi%C3%A7o%20no%20Google%20cai%20direto%20no%20WhatsApp%20sem%20ver%20uma%20p%C3%A1gina%20sua%20antes%2C%20posso%20te%20mostrar%20uma%20pr%C3%A9via%20r%C3%A1pida%20de%20como%20ficaria%20uma%20vitrine%20exclusiva%20para%20valorizar%20ainda%20mais%20o%20trabalho%20de%20voc%C3%AAs%3F" target="_blank" class="btn btn-wa" onclick="markSent('manha-11')">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.669-.699c.989.54 1.761.815 2.791.815 3.181 0 5.767-2.587 5.768-5.766.001-3.18-2.586-5.766-5.768-5.766zm9.969 5.766c0 5.514-4.486 10-10 10-1.823 0-3.539-.49-5.016-1.343l-5.984 1.565 1.593-5.832c-.933-1.529-1.472-3.32-1.472-5.234 0-5.514 4.486-10 10-10s10 4.486 10 10z"/></svg>
+          Chamar no WhatsApp (+5512992308734)
+        </a>
+        <button class="btn btn-copy" onclick="copyText('text-manha-11', this)">
+          📋 Copiar Mensagem
+        </button>
+      </div>
+    </div>
+  
+    <div class="lead-card" id="card-manha-12">
+      <div class="card-header">
+        <div class="title-wrap">
+          <span class="lead-num">#13</span>
+          <div>
+            <h3 class="lead-name">Tete Estética Facial</h3>
+            <div class="lead-meta">
+              <span class="badge badge-city">📍 Jacareí</span>
+              <span class="badge badge-niche">🏷️ Estética Facial</span>
+            </div>
+          </div>
+        </div>
+        <label class="check-sent">
+          <input type="checkbox" onchange="toggleSent('manha-12')" id="check-manha-12">
+          <span>Enviado</span>
+        </label>
+      </div>
+
+      <div class="gap-box">
+        <strong>⚠️ Gap Digital Identificado:</strong> Utiliza plataforma gratuita temporária ueniweb sem domínio próprio nem autoridade
+      </div>
+
+      <div class="copy-box">
+        <div class="copy-label">Mensagem (1 Linha Contínua / 1 Balão):</div>
+        <p class="copy-text" id="text-manha-12">Oi, Tete, tudo bem, aqui é o Raphael da Yatagarasu, vi que vocês têm uma estrutura de estética e procedimentos impecável em Jacareí, reparei que quem busca pelo serviço no Google cai direto no WhatsApp sem ver uma página sua antes, posso te mostrar uma prévia rápida de como ficaria uma vitrine exclusiva para valorizar ainda mais o trabalho de vocês?</p>
+      </div>
+
+      <div class="card-actions">
+        <a href="https://wa.me/5512981605782?text=Oi%2C%20Tete%2C%20tudo%20bem%2C%20aqui%20%C3%A9%20o%20Raphael%20da%20Yatagarasu%2C%20vi%20que%20voc%C3%AAs%20t%C3%AAm%20uma%20estrutura%20de%20est%C3%A9tica%20e%20procedimentos%20impec%C3%A1vel%20em%20Jacare%C3%AD%2C%20reparei%20que%20quem%20busca%20pelo%20servi%C3%A7o%20no%20Google%20cai%20direto%20no%20WhatsApp%20sem%20ver%20uma%20p%C3%A1gina%20sua%20antes%2C%20posso%20te%20mostrar%20uma%20pr%C3%A9via%20r%C3%A1pida%20de%20como%20ficaria%20uma%20vitrine%20exclusiva%20para%20valorizar%20ainda%20mais%20o%20trabalho%20de%20voc%C3%AAs%3F" target="_blank" class="btn btn-wa" onclick="markSent('manha-12')">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.669-.699c.989.54 1.761.815 2.791.815 3.181 0 5.767-2.587 5.768-5.766.001-3.18-2.586-5.766-5.768-5.766zm9.969 5.766c0 5.514-4.486 10-10 10-1.823 0-3.539-.49-5.016-1.343l-5.984 1.565 1.593-5.832c-.933-1.529-1.472-3.32-1.472-5.234 0-5.514 4.486-10 10-10s10 4.486 10 10z"/></svg>
+          Chamar no WhatsApp (+5512981605782)
+        </a>
+        <button class="btn btn-copy" onclick="copyText('text-manha-12', this)">
+          📋 Copiar Mensagem
+        </button>
+      </div>
+    </div>
+  
+    <div class="lead-card" id="card-manha-13">
+      <div class="card-header">
+        <div class="title-wrap">
+          <span class="lead-num">#14</span>
+          <div>
+            <h3 class="lead-name">Dra. Anna Victória Biomédica</h3>
+            <div class="lead-meta">
+              <span class="badge badge-city">📍 Pindamonhangaba</span>
+              <span class="badge badge-niche">🏷️ Harmonização Facial</span>
+            </div>
+          </div>
+        </div>
+        <label class="check-sent">
+          <input type="checkbox" onchange="toggleSent('manha-13')" id="check-manha-13">
+          <span>Enviado</span>
+        </label>
+      </div>
+
+      <div class="gap-box">
+        <strong>⚠️ Gap Digital Identificado:</strong> Atendimento clínico central cadastrado apenas em diretórios, sem página oficial
+      </div>
+
+      <div class="copy-box">
+        <div class="copy-label">Mensagem (1 Linha Contínua / 1 Balão):</div>
+        <p class="copy-text" id="text-manha-13">Oi, Dra. Anna Victória, tudo bem, aqui é o Raphael da Yatagarasu, vi que vocês têm uma estrutura de estética e procedimentos impecável em Pindamonhangaba, reparei que quem busca pelo serviço no Google cai direto no WhatsApp sem ver uma página sua antes, posso te mostrar uma prévia rápida de como ficaria uma vitrine exclusiva para valorizar ainda mais o trabalho de vocês?</p>
+      </div>
+
+      <div class="card-actions">
+        <a href="https://wa.me/5512991669554?text=Oi%2C%20Dra.%20Anna%20Vict%C3%B3ria%2C%20tudo%20bem%2C%20aqui%20%C3%A9%20o%20Raphael%20da%20Yatagarasu%2C%20vi%20que%20voc%C3%AAs%20t%C3%AAm%20uma%20estrutura%20de%20est%C3%A9tica%20e%20procedimentos%20impec%C3%A1vel%20em%20Pindamonhangaba%2C%20reparei%20que%20quem%20busca%20pelo%20servi%C3%A7o%20no%20Google%20cai%20direto%20no%20WhatsApp%20sem%20ver%20uma%20p%C3%A1gina%20sua%20antes%2C%20posso%20te%20mostrar%20uma%20pr%C3%A9via%20r%C3%A1pida%20de%20como%20ficaria%20uma%20vitrine%20exclusiva%20para%20valorizar%20ainda%20mais%20o%20trabalho%20de%20voc%C3%AAs%3F" target="_blank" class="btn btn-wa" onclick="markSent('manha-13')">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.669-.699c.989.54 1.761.815 2.791.815 3.181 0 5.767-2.587 5.768-5.766.001-3.18-2.586-5.766-5.768-5.766zm9.969 5.766c0 5.514-4.486 10-10 10-1.823 0-3.539-.49-5.016-1.343l-5.984 1.565 1.593-5.832c-.933-1.529-1.472-3.32-1.472-5.234 0-5.514 4.486-10 10-10s10 4.486 10 10z"/></svg>
+          Chamar no WhatsApp (+5512991669554)
+        </a>
+        <button class="btn btn-copy" onclick="copyText('text-manha-13', this)">
+          📋 Copiar Mensagem
+        </button>
+      </div>
+    </div>
+  
+    <div class="lead-card" id="card-manha-14">
+      <div class="card-header">
+        <div class="title-wrap">
+          <span class="lead-num">#15</span>
+          <div>
+            <h3 class="lead-name">Cristiane Dias Estética</h3>
+            <div class="lead-meta">
+              <span class="badge badge-city">📍 Pindamonhangaba</span>
+              <span class="badge badge-niche">🏷️ Estética Avançada</span>
+            </div>
+          </div>
+        </div>
+        <label class="check-sent">
+          <input type="checkbox" onchange="toggleSent('manha-14')" id="check-manha-14">
+          <span>Enviado</span>
+        </label>
+      </div>
+
+      <div class="gap-box">
+        <strong>⚠️ Gap Digital Identificado:</strong> Bio do Instagram direciona para WhatsApp sem catálogo estruturado de tratamentos
+      </div>
+
+      <div class="copy-box">
+        <div class="copy-label">Mensagem (1 Linha Contínua / 1 Balão):</div>
+        <p class="copy-text" id="text-manha-14">Oi, Cristiane Dias, tudo bem, aqui é o Raphael da Yatagarasu, vi que vocês têm uma estrutura de estética e procedimentos impecável em Pindamonhangaba, reparei que quem busca pelo serviço no Google cai direto no WhatsApp sem ver uma página sua antes, posso te mostrar uma prévia rápida de como ficaria uma vitrine exclusiva para valorizar ainda mais o trabalho de vocês?</p>
+      </div>
+
+      <div class="card-actions">
+        <a href="https://wa.me/5512991372639?text=Oi%2C%20Cristiane%20Dias%2C%20tudo%20bem%2C%20aqui%20%C3%A9%20o%20Raphael%20da%20Yatagarasu%2C%20vi%20que%20voc%C3%AAs%20t%C3%AAm%20uma%20estrutura%20de%20est%C3%A9tica%20e%20procedimentos%20impec%C3%A1vel%20em%20Pindamonhangaba%2C%20reparei%20que%20quem%20busca%20pelo%20servi%C3%A7o%20no%20Google%20cai%20direto%20no%20WhatsApp%20sem%20ver%20uma%20p%C3%A1gina%20sua%20antes%2C%20posso%20te%20mostrar%20uma%20pr%C3%A9via%20r%C3%A1pida%20de%20como%20ficaria%20uma%20vitrine%20exclusiva%20para%20valorizar%20ainda%20mais%20o%20trabalho%20de%20voc%C3%AAs%3F" target="_blank" class="btn btn-wa" onclick="markSent('manha-14')">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.669-.699c.989.54 1.761.815 2.791.815 3.181 0 5.767-2.587 5.768-5.766.001-3.18-2.586-5.766-5.768-5.766zm9.969 5.766c0 5.514-4.486 10-10 10-1.823 0-3.539-.49-5.016-1.343l-5.984 1.565 1.593-5.832c-.933-1.529-1.472-3.32-1.472-5.234 0-5.514 4.486-10 10-10s10 4.486 10 10z"/></svg>
+          Chamar no WhatsApp (+5512991372639)
+        </a>
+        <button class="btn btn-copy" onclick="copyText('text-manha-14', this)">
+          📋 Copiar Mensagem
+        </button>
+      </div>
+    </div>
+  
+    </div>
+
+    <div id="tab-tarde" class="tab-content">
+      
+    <div class="lead-card" id="card-tarde-0">
+      <div class="card-header">
+        <div class="title-wrap">
+          <span class="lead-num">#1</span>
+          <div>
+            <h3 class="lead-name">Eliseu Marcenaria</h3>
+            <div class="lead-meta">
+              <span class="badge badge-city">📍 São José dos Campos</span>
+              <span class="badge badge-niche">🏷️ Móveis Sob Medida</span>
+            </div>
+          </div>
+        </div>
+        <label class="check-sent">
+          <input type="checkbox" onchange="toggleSent('tarde-0')" id="check-tarde-0">
+          <span>Enviado</span>
+        </label>
+      </div>
+
+      <div class="gap-box">
+        <strong>⚠️ Gap Digital Identificado:</strong> Página antiga não responsiva no mobile, perdendo clientes de condomínio fechado
+      </div>
+
+      <div class="copy-box">
+        <div class="copy-label">Mensagem (1 Linha Contínua / 1 Balão):</div>
+        <p class="copy-text" id="text-tarde-0">Oi, Eliseu, tudo bem, aqui é o Raphael da Yatagarasu, vi que vocês têm um padrão em móveis sob medida excelente em São José dos Campos, reparei que quem busca pelo serviço no Google cai direto no WhatsApp sem ver uma página sua antes, posso te mostrar uma prévia rápida de como ficaria uma vitrine exclusiva para valorizar ainda mais o trabalho de vocês?</p>
+      </div>
+
+      <div class="card-actions">
+        <a href="https://wa.me/5512981682119?text=Oi%2C%20Eliseu%2C%20tudo%20bem%2C%20aqui%20%C3%A9%20o%20Raphael%20da%20Yatagarasu%2C%20vi%20que%20voc%C3%AAs%20t%C3%AAm%20um%20padr%C3%A3o%20em%20m%C3%B3veis%20sob%20medida%20excelente%20em%20S%C3%A3o%20Jos%C3%A9%20dos%20Campos%2C%20reparei%20que%20quem%20busca%20pelo%20servi%C3%A7o%20no%20Google%20cai%20direto%20no%20WhatsApp%20sem%20ver%20uma%20p%C3%A1gina%20sua%20antes%2C%20posso%20te%20mostrar%20uma%20pr%C3%A9via%20r%C3%A1pida%20de%20como%20ficaria%20uma%20vitrine%20exclusiva%20para%20valorizar%20ainda%20mais%20o%20trabalho%20de%20voc%C3%AAs%3F" target="_blank" class="btn btn-wa" onclick="markSent('tarde-0')">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.669-.699c.989.54 1.761.815 2.791.815 3.181 0 5.767-2.587 5.768-5.766.001-3.18-2.586-5.766-5.768-5.766zm9.969 5.766c0 5.514-4.486 10-10 10-1.823 0-3.539-.49-5.016-1.343l-5.984 1.565 1.593-5.832c-.933-1.529-1.472-3.32-1.472-5.234 0-5.514 4.486-10 10-10s10 4.486 10 10z"/></svg>
+          Chamar no WhatsApp (+5512981682119)
+        </a>
+        <button class="btn btn-copy" onclick="copyText('text-tarde-0', this)">
+          📋 Copiar Mensagem
+        </button>
+      </div>
+    </div>
+  
+    <div class="lead-card" id="card-tarde-1">
+      <div class="card-header">
+        <div class="title-wrap">
+          <span class="lead-num">#2</span>
+          <div>
+            <h3 class="lead-name">Art Pedras Marmoraria</h3>
+            <div class="lead-meta">
+              <span class="badge badge-city">📍 São José dos Campos</span>
+              <span class="badge badge-niche">🏷️ Marmoraria & Quartzo</span>
+            </div>
+          </div>
+        </div>
+        <label class="check-sent">
+          <input type="checkbox" onchange="toggleSent('tarde-1')" id="check-tarde-1">
+          <span>Enviado</span>
+        </label>
+      </div>
+
+      <div class="gap-box">
+        <strong>⚠️ Gap Digital Identificado:</strong> Trabalho em pedras nobres sem mostruário digital interativo para arquitetos e construtores
+      </div>
+
+      <div class="copy-box">
+        <div class="copy-label">Mensagem (1 Linha Contínua / 1 Balão):</div>
+        <p class="copy-text" id="text-tarde-1">Oi, Equipe Art Pedras, tudo bem, aqui é o Raphael da Yatagarasu, vi que vocês têm uma qualidade em acabamentos e pedras nobres diferenciada em São José dos Campos, reparei que quem busca pelo serviço no Google cai direto no WhatsApp sem ver uma página sua antes, posso te mostrar uma prévia rápida de como ficaria uma vitrine exclusiva para valorizar ainda mais o trabalho de vocês?</p>
+      </div>
+
+      <div class="card-actions">
+        <a href="https://wa.me/5512974024269?text=Oi%2C%20Equipe%20Art%20Pedras%2C%20tudo%20bem%2C%20aqui%20%C3%A9%20o%20Raphael%20da%20Yatagarasu%2C%20vi%20que%20voc%C3%AAs%20t%C3%AAm%20uma%20qualidade%20em%20acabamentos%20e%20pedras%20nobres%20diferenciada%20em%20S%C3%A3o%20Jos%C3%A9%20dos%20Campos%2C%20reparei%20que%20quem%20busca%20pelo%20servi%C3%A7o%20no%20Google%20cai%20direto%20no%20WhatsApp%20sem%20ver%20uma%20p%C3%A1gina%20sua%20antes%2C%20posso%20te%20mostrar%20uma%20pr%C3%A9via%20r%C3%A1pida%20de%20como%20ficaria%20uma%20vitrine%20exclusiva%20para%20valorizar%20ainda%20mais%20o%20trabalho%20de%20voc%C3%AAs%3F" target="_blank" class="btn btn-wa" onclick="markSent('tarde-1')">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.669-.699c.989.54 1.761.815 2.791.815 3.181 0 5.767-2.587 5.768-5.766.001-3.18-2.586-5.766-5.768-5.766zm9.969 5.766c0 5.514-4.486 10-10 10-1.823 0-3.539-.49-5.016-1.343l-5.984 1.565 1.593-5.832c-.933-1.529-1.472-3.32-1.472-5.234 0-5.514 4.486-10 10-10s10 4.486 10 10z"/></svg>
+          Chamar no WhatsApp (+5512974024269)
+        </a>
+        <button class="btn btn-copy" onclick="copyText('text-tarde-1', this)">
+          📋 Copiar Mensagem
+        </button>
+      </div>
+    </div>
+  
+    <div class="lead-card" id="card-tarde-2">
+      <div class="card-header">
+        <div class="title-wrap">
+          <span class="lead-num">#3</span>
+          <div>
+            <h3 class="lead-name">Gonçalves Marmoraria</h3>
+            <div class="lead-meta">
+              <span class="badge badge-city">📍 São José dos Campos</span>
+              <span class="badge badge-niche">🏷️ Marmoraria</span>
+            </div>
+          </div>
+        </div>
+        <label class="check-sent">
+          <input type="checkbox" onchange="toggleSent('tarde-2')" id="check-tarde-2">
+          <span>Enviado</span>
+        </label>
+      </div>
+
+      <div class="gap-box">
+        <strong>⚠️ Gap Digital Identificado:</strong> Três números no WhatsApp mas sem catálogo web de bancadas e ilhas gourmet
+      </div>
+
+      <div class="copy-box">
+        <div class="copy-label">Mensagem (1 Linha Contínua / 1 Balão):</div>
+        <p class="copy-text" id="text-tarde-2">Oi, Equipe Gonçalves, tudo bem, aqui é o Raphael da Yatagarasu, vi que vocês têm uma qualidade em acabamentos e pedras nobres diferenciada em São José dos Campos, reparei que quem busca pelo serviço no Google cai direto no WhatsApp sem ver uma página sua antes, posso te mostrar uma prévia rápida de como ficaria uma vitrine exclusiva para valorizar ainda mais o trabalho de vocês?</p>
+      </div>
+
+      <div class="card-actions">
+        <a href="https://wa.me/5512988760132?text=Oi%2C%20Equipe%20Gon%C3%A7alves%2C%20tudo%20bem%2C%20aqui%20%C3%A9%20o%20Raphael%20da%20Yatagarasu%2C%20vi%20que%20voc%C3%AAs%20t%C3%AAm%20uma%20qualidade%20em%20acabamentos%20e%20pedras%20nobres%20diferenciada%20em%20S%C3%A3o%20Jos%C3%A9%20dos%20Campos%2C%20reparei%20que%20quem%20busca%20pelo%20servi%C3%A7o%20no%20Google%20cai%20direto%20no%20WhatsApp%20sem%20ver%20uma%20p%C3%A1gina%20sua%20antes%2C%20posso%20te%20mostrar%20uma%20pr%C3%A9via%20r%C3%A1pida%20de%20como%20ficaria%20uma%20vitrine%20exclusiva%20para%20valorizar%20ainda%20mais%20o%20trabalho%20de%20voc%C3%AAs%3F" target="_blank" class="btn btn-wa" onclick="markSent('tarde-2')">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.669-.699c.989.54 1.761.815 2.791.815 3.181 0 5.767-2.587 5.768-5.766.001-3.18-2.586-5.766-5.768-5.766zm9.969 5.766c0 5.514-4.486 10-10 10-1.823 0-3.539-.49-5.016-1.343l-5.984 1.565 1.593-5.832c-.933-1.529-1.472-3.32-1.472-5.234 0-5.514 4.486-10 10-10s10 4.486 10 10z"/></svg>
+          Chamar no WhatsApp (+5512988760132)
+        </a>
+        <button class="btn btn-copy" onclick="copyText('text-tarde-2', this)">
+          📋 Copiar Mensagem
+        </button>
+      </div>
+    </div>
+  
+    <div class="lead-card" id="card-tarde-3">
+      <div class="card-header">
+        <div class="title-wrap">
+          <span class="lead-num">#4</span>
+          <div>
+            <h3 class="lead-name">Ceoli Marmoraria</h3>
+            <div class="lead-meta">
+              <span class="badge badge-city">📍 São José dos Campos</span>
+              <span class="badge badge-niche">🏷️ Marmoraria</span>
+            </div>
+          </div>
+        </div>
+        <label class="check-sent">
+          <input type="checkbox" onchange="toggleSent('tarde-3')" id="check-tarde-3">
+          <span>Enviado</span>
+        </label>
+      </div>
+
+      <div class="gap-box">
+        <strong>⚠️ Gap Digital Identificado:</strong> Página básica em lista telefônica sem apresentação de materiais exóticos e cubas
+      </div>
+
+      <div class="copy-box">
+        <div class="copy-label">Mensagem (1 Linha Contínua / 1 Balão):</div>
+        <p class="copy-text" id="text-tarde-3">Oi, Equipe Ceoli, tudo bem, aqui é o Raphael da Yatagarasu, vi que vocês têm uma qualidade em acabamentos e pedras nobres diferenciada em São José dos Campos, reparei que quem busca pelo serviço no Google cai direto no WhatsApp sem ver uma página sua antes, posso te mostrar uma prévia rápida de como ficaria uma vitrine exclusiva para valorizar ainda mais o trabalho de vocês?</p>
+      </div>
+
+      <div class="card-actions">
+        <a href="https://wa.me/5512988004918?text=Oi%2C%20Equipe%20Ceoli%2C%20tudo%20bem%2C%20aqui%20%C3%A9%20o%20Raphael%20da%20Yatagarasu%2C%20vi%20que%20voc%C3%AAs%20t%C3%AAm%20uma%20qualidade%20em%20acabamentos%20e%20pedras%20nobres%20diferenciada%20em%20S%C3%A3o%20Jos%C3%A9%20dos%20Campos%2C%20reparei%20que%20quem%20busca%20pelo%20servi%C3%A7o%20no%20Google%20cai%20direto%20no%20WhatsApp%20sem%20ver%20uma%20p%C3%A1gina%20sua%20antes%2C%20posso%20te%20mostrar%20uma%20pr%C3%A9via%20r%C3%A1pida%20de%20como%20ficaria%20uma%20vitrine%20exclusiva%20para%20valorizar%20ainda%20mais%20o%20trabalho%20de%20voc%C3%AAs%3F" target="_blank" class="btn btn-wa" onclick="markSent('tarde-3')">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.669-.699c.989.54 1.761.815 2.791.815 3.181 0 5.767-2.587 5.768-5.766.001-3.18-2.586-5.766-5.768-5.766zm9.969 5.766c0 5.514-4.486 10-10 10-1.823 0-3.539-.49-5.016-1.343l-5.984 1.565 1.593-5.832c-.933-1.529-1.472-3.32-1.472-5.234 0-5.514 4.486-10 10-10s10 4.486 10 10z"/></svg>
+          Chamar no WhatsApp (+5512988004918)
+        </a>
+        <button class="btn btn-copy" onclick="copyText('text-tarde-3', this)">
+          📋 Copiar Mensagem
+        </button>
+      </div>
+    </div>
+  
+    <div class="lead-card" id="card-tarde-4">
+      <div class="card-header">
+        <div class="title-wrap">
+          <span class="lead-num">#5</span>
+          <div>
+            <h3 class="lead-name">Floratha Buffet & Decorações</h3>
+            <div class="lead-meta">
+              <span class="badge badge-city">📍 São José dos Campos</span>
+              <span class="badge badge-niche">🏷️ Buffet de Casamento & Eventos</span>
+            </div>
+          </div>
+        </div>
+        <label class="check-sent">
+          <input type="checkbox" onchange="toggleSent('tarde-4')" id="check-tarde-4">
+          <span>Enviado</span>
+        </label>
+      </div>
+
+      <div class="gap-box">
+        <strong>⚠️ Gap Digital Identificado:</strong> Mais de 15 anos no mercado mas sem site moderno com tour virtual e cardápio interativo
+      </div>
+
+      <div class="copy-box">
+        <div class="copy-label">Mensagem (1 Linha Contínua / 1 Balão):</div>
+        <p class="copy-text" id="text-tarde-4">Oi, Equipe Floratha, tudo bem, aqui é o Raphael da Yatagarasu, vi que vocês têm uma estrutura para casamentos e eventos maravilhosa em São José dos Campos, reparei que quem busca pelo serviço no Google cai direto no WhatsApp sem ver uma página sua antes, posso te mostrar uma prévia rápida de como ficaria uma vitrine exclusiva para valorizar ainda mais o trabalho de vocês?</p>
+      </div>
+
+      <div class="card-actions">
+        <a href="https://wa.me/5512988159431?text=Oi%2C%20Equipe%20Floratha%2C%20tudo%20bem%2C%20aqui%20%C3%A9%20o%20Raphael%20da%20Yatagarasu%2C%20vi%20que%20voc%C3%AAs%20t%C3%AAm%20uma%20estrutura%20para%20casamentos%20e%20eventos%20maravilhosa%20em%20S%C3%A3o%20Jos%C3%A9%20dos%20Campos%2C%20reparei%20que%20quem%20busca%20pelo%20servi%C3%A7o%20no%20Google%20cai%20direto%20no%20WhatsApp%20sem%20ver%20uma%20p%C3%A1gina%20sua%20antes%2C%20posso%20te%20mostrar%20uma%20pr%C3%A9via%20r%C3%A1pida%20de%20como%20ficaria%20uma%20vitrine%20exclusiva%20para%20valorizar%20ainda%20mais%20o%20trabalho%20de%20voc%C3%AAs%3F" target="_blank" class="btn btn-wa" onclick="markSent('tarde-4')">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.669-.699c.989.54 1.761.815 2.791.815 3.181 0 5.767-2.587 5.768-5.766.001-3.18-2.586-5.766-5.768-5.766zm9.969 5.766c0 5.514-4.486 10-10 10-1.823 0-3.539-.49-5.016-1.343l-5.984 1.565 1.593-5.832c-.933-1.529-1.472-3.32-1.472-5.234 0-5.514 4.486-10 10-10s10 4.486 10 10z"/></svg>
+          Chamar no WhatsApp (+5512988159431)
+        </a>
+        <button class="btn btn-copy" onclick="copyText('text-tarde-4', this)">
+          📋 Copiar Mensagem
+        </button>
+      </div>
+    </div>
+  
+    <div class="lead-card" id="card-tarde-5">
+      <div class="card-header">
+        <div class="title-wrap">
+          <span class="lead-num">#6</span>
+          <div>
+            <h3 class="lead-name">Aerobuffet Eventos</h3>
+            <div class="lead-meta">
+              <span class="badge badge-city">📍 São José dos Campos</span>
+              <span class="badge badge-niche">🏷️ Buffet & Recepções</span>
+            </div>
+          </div>
+        </div>
+        <label class="check-sent">
+          <input type="checkbox" onchange="toggleSent('tarde-5')" id="check-tarde-5">
+          <span>Enviado</span>
+        </label>
+      </div>
+
+      <div class="gap-box">
+        <strong>⚠️ Gap Digital Identificado:</strong> Tradicional buffet de casamentos sem landing page para noivas e eventos corporativos
+      </div>
+
+      <div class="copy-box">
+        <div class="copy-label">Mensagem (1 Linha Contínua / 1 Balão):</div>
+        <p class="copy-text" id="text-tarde-5">Oi, Equipe Aerobuffet, tudo bem, aqui é o Raphael da Yatagarasu, vi que vocês têm uma estrutura para casamentos e eventos maravilhosa em São José dos Campos, reparei que quem busca pelo serviço no Google cai direto no WhatsApp sem ver uma página sua antes, posso te mostrar uma prévia rápida de como ficaria uma vitrine exclusiva para valorizar ainda mais o trabalho de vocês?</p>
+      </div>
+
+      <div class="card-actions">
+        <a href="https://wa.me/5512981470396?text=Oi%2C%20Equipe%20Aerobuffet%2C%20tudo%20bem%2C%20aqui%20%C3%A9%20o%20Raphael%20da%20Yatagarasu%2C%20vi%20que%20voc%C3%AAs%20t%C3%AAm%20uma%20estrutura%20para%20casamentos%20e%20eventos%20maravilhosa%20em%20S%C3%A3o%20Jos%C3%A9%20dos%20Campos%2C%20reparei%20que%20quem%20busca%20pelo%20servi%C3%A7o%20no%20Google%20cai%20direto%20no%20WhatsApp%20sem%20ver%20uma%20p%C3%A1gina%20sua%20antes%2C%20posso%20te%20mostrar%20uma%20pr%C3%A9via%20r%C3%A1pida%20de%20como%20ficaria%20uma%20vitrine%20exclusiva%20para%20valorizar%20ainda%20mais%20o%20trabalho%20de%20voc%C3%AAs%3F" target="_blank" class="btn btn-wa" onclick="markSent('tarde-5')">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.669-.699c.989.54 1.761.815 2.791.815 3.181 0 5.767-2.587 5.768-5.766.001-3.18-2.586-5.766-5.768-5.766zm9.969 5.766c0 5.514-4.486 10-10 10-1.823 0-3.539-.49-5.016-1.343l-5.984 1.565 1.593-5.832c-.933-1.529-1.472-3.32-1.472-5.234 0-5.514 4.486-10 10-10s10 4.486 10 10z"/></svg>
+          Chamar no WhatsApp (+5512981470396)
+        </a>
+        <button class="btn btn-copy" onclick="copyText('text-tarde-5', this)">
+          📋 Copiar Mensagem
+        </button>
+      </div>
+    </div>
+  
+    <div class="lead-card" id="card-tarde-6">
+      <div class="card-header">
+        <div class="title-wrap">
+          <span class="lead-num">#7</span>
+          <div>
+            <h3 class="lead-name">Evosolar Fotovoltaica</h3>
+            <div class="lead-meta">
+              <span class="badge badge-city">📍 São José dos Campos</span>
+              <span class="badge badge-niche">🏷️ Energia Solar</span>
+            </div>
+          </div>
+        </div>
+        <label class="check-sent">
+          <input type="checkbox" onchange="toggleSent('tarde-6')" id="check-tarde-6">
+          <span>Enviado</span>
+        </label>
+      </div>
+
+      <div class="gap-box">
+        <strong>⚠️ Gap Digital Identificado:</strong> Instalações comerciais e rurais sem página de autoridade regional no Google
+      </div>
+
+      <div class="copy-box">
+        <div class="copy-label">Mensagem (1 Linha Contínua / 1 Balão):</div>
+        <p class="copy-text" id="text-tarde-6">Oi, Equipe Evosolar, tudo bem, aqui é o Raphael da Yatagarasu, vi que vocês têm uma entrega em engenharia e energia solar muito sólida em São José dos Campos, reparei que quem busca pelo serviço no Google cai direto no WhatsApp sem ver uma página sua antes, posso te mostrar uma prévia rápida de como ficaria uma vitrine exclusiva para valorizar ainda mais o trabalho de vocês?</p>
+      </div>
+
+      <div class="card-actions">
+        <a href="https://wa.me/5512981205955?text=Oi%2C%20Equipe%20Evosolar%2C%20tudo%20bem%2C%20aqui%20%C3%A9%20o%20Raphael%20da%20Yatagarasu%2C%20vi%20que%20voc%C3%AAs%20t%C3%AAm%20uma%20entrega%20em%20engenharia%20e%20energia%20solar%20muito%20s%C3%B3lida%20em%20S%C3%A3o%20Jos%C3%A9%20dos%20Campos%2C%20reparei%20que%20quem%20busca%20pelo%20servi%C3%A7o%20no%20Google%20cai%20direto%20no%20WhatsApp%20sem%20ver%20uma%20p%C3%A1gina%20sua%20antes%2C%20posso%20te%20mostrar%20uma%20pr%C3%A9via%20r%C3%A1pida%20de%20como%20ficaria%20uma%20vitrine%20exclusiva%20para%20valorizar%20ainda%20mais%20o%20trabalho%20de%20voc%C3%AAs%3F" target="_blank" class="btn btn-wa" onclick="markSent('tarde-6')">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.669-.699c.989.54 1.761.815 2.791.815 3.181 0 5.767-2.587 5.768-5.766.001-3.18-2.586-5.766-5.768-5.766zm9.969 5.766c0 5.514-4.486 10-10 10-1.823 0-3.539-.49-5.016-1.343l-5.984 1.565 1.593-5.832c-.933-1.529-1.472-3.32-1.472-5.234 0-5.514 4.486-10 10-10s10 4.486 10 10z"/></svg>
+          Chamar no WhatsApp (+5512981205955)
+        </a>
+        <button class="btn btn-copy" onclick="copyText('text-tarde-6', this)">
+          📋 Copiar Mensagem
+        </button>
+      </div>
+    </div>
+  
+    <div class="lead-card" id="card-tarde-7">
+      <div class="card-header">
+        <div class="title-wrap">
+          <span class="lead-num">#8</span>
+          <div>
+            <h3 class="lead-name">Adriano Scheurer Arquitetura</h3>
+            <div class="lead-meta">
+              <span class="badge badge-city">📍 Caraguatatuba</span>
+              <span class="badge badge-niche">🏷️ Arquitetura Litoral Norte</span>
+            </div>
+          </div>
+        </div>
+        <label class="check-sent">
+          <input type="checkbox" onchange="toggleSent('tarde-7')" id="check-tarde-7">
+          <span>Enviado</span>
+        </label>
+      </div>
+
+      <div class="gap-box">
+        <strong>⚠️ Gap Digital Identificado:</strong> Casas de praia de luxo mas sem página ultra-rápida para atrair proprietários de casas de veraneio
+      </div>
+
+      <div class="copy-box">
+        <div class="copy-label">Mensagem (1 Linha Contínua / 1 Balão):</div>
+        <p class="copy-text" id="text-tarde-7">Oi, Adriano, tudo bem, aqui é o Raphael da Yatagarasu, vi que vocês têm projetos de arquitetura e interiores incríveis em Caraguatatuba, reparei que quem busca pelo serviço no Google cai direto no WhatsApp sem ver uma página sua antes, posso te mostrar uma prévia rápida de como ficaria uma vitrine exclusiva para valorizar ainda mais o trabalho de vocês?</p>
+      </div>
+
+      <div class="card-actions">
+        <a href="https://wa.me/5512982847475?text=Oi%2C%20Adriano%2C%20tudo%20bem%2C%20aqui%20%C3%A9%20o%20Raphael%20da%20Yatagarasu%2C%20vi%20que%20voc%C3%AAs%20t%C3%AAm%20projetos%20de%20arquitetura%20e%20interiores%20incr%C3%ADveis%20em%20Caraguatatuba%2C%20reparei%20que%20quem%20busca%20pelo%20servi%C3%A7o%20no%20Google%20cai%20direto%20no%20WhatsApp%20sem%20ver%20uma%20p%C3%A1gina%20sua%20antes%2C%20posso%20te%20mostrar%20uma%20pr%C3%A9via%20r%C3%A1pida%20de%20como%20ficaria%20uma%20vitrine%20exclusiva%20para%20valorizar%20ainda%20mais%20o%20trabalho%20de%20voc%C3%AAs%3F" target="_blank" class="btn btn-wa" onclick="markSent('tarde-7')">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.669-.699c.989.54 1.761.815 2.791.815 3.181 0 5.767-2.587 5.768-5.766.001-3.18-2.586-5.766-5.768-5.766zm9.969 5.766c0 5.514-4.486 10-10 10-1.823 0-3.539-.49-5.016-1.343l-5.984 1.565 1.593-5.832c-.933-1.529-1.472-3.32-1.472-5.234 0-5.514 4.486-10 10-10s10 4.486 10 10z"/></svg>
+          Chamar no WhatsApp (+5512982847475)
+        </a>
+        <button class="btn btn-copy" onclick="copyText('text-tarde-7', this)">
+          📋 Copiar Mensagem
+        </button>
+      </div>
+    </div>
+  
+    <div class="lead-card" id="card-tarde-8">
+      <div class="card-header">
+        <div class="title-wrap">
+          <span class="lead-num">#9</span>
+          <div>
+            <h3 class="lead-name">NRC Marcenaria Litoral</h3>
+            <div class="lead-meta">
+              <span class="badge badge-city">📍 Caraguatatuba</span>
+              <span class="badge badge-niche">🏷️ Marcenaria & Lazer</span>
+            </div>
+          </div>
+        </div>
+        <label class="check-sent">
+          <input type="checkbox" onchange="toggleSent('tarde-8')" id="check-tarde-8">
+          <span>Enviado</span>
+        </label>
+      </div>
+
+      <div class="gap-box">
+        <strong>⚠️ Gap Digital Identificado:</strong> Móveis planejados para o Litoral Norte sem catálogo online contra maresia e umidade
+      </div>
+
+      <div class="copy-box">
+        <div class="copy-label">Mensagem (1 Linha Contínua / 1 Balão):</div>
+        <p class="copy-text" id="text-tarde-8">Oi, Equipe NRC, tudo bem, aqui é o Raphael da Yatagarasu, vi que vocês têm um padrão em móveis sob medida excelente em Caraguatatuba, reparei que quem busca pelo serviço no Google cai direto no WhatsApp sem ver uma página sua antes, posso te mostrar uma prévia rápida de como ficaria uma vitrine exclusiva para valorizar ainda mais o trabalho de vocês?</p>
+      </div>
+
+      <div class="card-actions">
+        <a href="https://wa.me/5512981959354?text=Oi%2C%20Equipe%20NRC%2C%20tudo%20bem%2C%20aqui%20%C3%A9%20o%20Raphael%20da%20Yatagarasu%2C%20vi%20que%20voc%C3%AAs%20t%C3%AAm%20um%20padr%C3%A3o%20em%20m%C3%B3veis%20sob%20medida%20excelente%20em%20Caraguatatuba%2C%20reparei%20que%20quem%20busca%20pelo%20servi%C3%A7o%20no%20Google%20cai%20direto%20no%20WhatsApp%20sem%20ver%20uma%20p%C3%A1gina%20sua%20antes%2C%20posso%20te%20mostrar%20uma%20pr%C3%A9via%20r%C3%A1pida%20de%20como%20ficaria%20uma%20vitrine%20exclusiva%20para%20valorizar%20ainda%20mais%20o%20trabalho%20de%20voc%C3%AAs%3F" target="_blank" class="btn btn-wa" onclick="markSent('tarde-8')">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.669-.699c.989.54 1.761.815 2.791.815 3.181 0 5.767-2.587 5.768-5.766.001-3.18-2.586-5.766-5.768-5.766zm9.969 5.766c0 5.514-4.486 10-10 10-1.823 0-3.539-.49-5.016-1.343l-5.984 1.565 1.593-5.832c-.933-1.529-1.472-3.32-1.472-5.234 0-5.514 4.486-10 10-10s10 4.486 10 10z"/></svg>
+          Chamar no WhatsApp (+5512981959354)
+        </a>
+        <button class="btn btn-copy" onclick="copyText('text-tarde-8', this)">
+          📋 Copiar Mensagem
+        </button>
+      </div>
+    </div>
+  
+    <div class="lead-card" id="card-tarde-9">
+      <div class="card-header">
+        <div class="title-wrap">
+          <span class="lead-num">#10</span>
+          <div>
+            <h3 class="lead-name">Pousada Isola Bella Náutica</h3>
+            <div class="lead-meta">
+              <span class="badge badge-city">📍 Ilhabela</span>
+              <span class="badge badge-niche">🏷️ Hospedagem & Passeios de Lancha</span>
+            </div>
+          </div>
+        </div>
+        <label class="check-sent">
+          <input type="checkbox" onchange="toggleSent('tarde-9')" id="check-tarde-9">
+          <span>Enviado</span>
+        </label>
+      </div>
+
+      <div class="gap-box">
+        <strong>⚠️ Gap Digital Identificado:</strong> Píer privativo e lanchas de luxo mas depende de intermediários em vez de reservas diretas
+      </div>
+
+      <div class="copy-box">
+        <div class="copy-label">Mensagem (1 Linha Contínua / 1 Balão):</div>
+        <p class="copy-text" id="text-tarde-9">Oi, Equipe Isola Bella, tudo bem, aqui é o Raphael da Yatagarasu, vi que vocês têm uma estrutura e experiência em Ilhabela fantástica em Ilhabela, reparei que quem busca pelo serviço no Google cai direto no WhatsApp sem ver uma página sua antes, posso te mostrar uma prévia rápida de como ficaria uma vitrine exclusiva para valorizar ainda mais o trabalho de vocês?</p>
+      </div>
+
+      <div class="card-actions">
+        <a href="https://wa.me/5512992324617?text=Oi%2C%20Equipe%20Isola%20Bella%2C%20tudo%20bem%2C%20aqui%20%C3%A9%20o%20Raphael%20da%20Yatagarasu%2C%20vi%20que%20voc%C3%AAs%20t%C3%AAm%20uma%20estrutura%20e%20experi%C3%AAncia%20em%20Ilhabela%20fant%C3%A1stica%20em%20Ilhabela%2C%20reparei%20que%20quem%20busca%20pelo%20servi%C3%A7o%20no%20Google%20cai%20direto%20no%20WhatsApp%20sem%20ver%20uma%20p%C3%A1gina%20sua%20antes%2C%20posso%20te%20mostrar%20uma%20pr%C3%A9via%20r%C3%A1pida%20de%20como%20ficaria%20uma%20vitrine%20exclusiva%20para%20valorizar%20ainda%20mais%20o%20trabalho%20de%20voc%C3%AAs%3F" target="_blank" class="btn btn-wa" onclick="markSent('tarde-9')">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.669-.699c.989.54 1.761.815 2.791.815 3.181 0 5.767-2.587 5.768-5.766.001-3.18-2.586-5.766-5.768-5.766zm9.969 5.766c0 5.514-4.486 10-10 10-1.823 0-3.539-.49-5.016-1.343l-5.984 1.565 1.593-5.832c-.933-1.529-1.472-3.32-1.472-5.234 0-5.514 4.486-10 10-10s10 4.486 10 10z"/></svg>
+          Chamar no WhatsApp (+5512992324617)
+        </a>
+        <button class="btn btn-copy" onclick="copyText('text-tarde-9', this)">
+          📋 Copiar Mensagem
+        </button>
+      </div>
+    </div>
+  
+    <div class="lead-card" id="card-tarde-10">
+      <div class="card-header">
+        <div class="title-wrap">
+          <span class="lead-num">#11</span>
+          <div>
+            <h3 class="lead-name">Face e Formas Estética</h3>
+            <div class="lead-meta">
+              <span class="badge badge-city">📍 Ubatuba</span>
+              <span class="badge badge-niche">🏷️ Estética Avançada</span>
+            </div>
+          </div>
+        </div>
+        <label class="check-sent">
+          <input type="checkbox" onchange="toggleSent('tarde-10')" id="check-tarde-10">
+          <span>Enviado</span>
+        </label>
+      </div>
+
+      <div class="gap-box">
+        <strong>⚠️ Gap Digital Identificado:</strong> Atendimento no centro de Ubatuba sem site estruturado para procedimentos estéticos no litoral
+      </div>
+
+      <div class="copy-box">
+        <div class="copy-label">Mensagem (1 Linha Contínua / 1 Balão):</div>
+        <p class="copy-text" id="text-tarde-10">Oi, Equipe Face e Formas, tudo bem, aqui é o Raphael da Yatagarasu, vi que vocês têm uma estrutura de estética e procedimentos impecável em Ubatuba, reparei que quem busca pelo serviço no Google cai direto no WhatsApp sem ver uma página sua antes, posso te mostrar uma prévia rápida de como ficaria uma vitrine exclusiva para valorizar ainda mais o trabalho de vocês?</p>
+      </div>
+
+      <div class="card-actions">
+        <a href="https://wa.me/5512992262432?text=Oi%2C%20Equipe%20Face%20e%20Formas%2C%20tudo%20bem%2C%20aqui%20%C3%A9%20o%20Raphael%20da%20Yatagarasu%2C%20vi%20que%20voc%C3%AAs%20t%C3%AAm%20uma%20estrutura%20de%20est%C3%A9tica%20e%20procedimentos%20impec%C3%A1vel%20em%20Ubatuba%2C%20reparei%20que%20quem%20busca%20pelo%20servi%C3%A7o%20no%20Google%20cai%20direto%20no%20WhatsApp%20sem%20ver%20uma%20p%C3%A1gina%20sua%20antes%2C%20posso%20te%20mostrar%20uma%20pr%C3%A9via%20r%C3%A1pida%20de%20como%20ficaria%20uma%20vitrine%20exclusiva%20para%20valorizar%20ainda%20mais%20o%20trabalho%20de%20voc%C3%AAs%3F" target="_blank" class="btn btn-wa" onclick="markSent('tarde-10')">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.669-.699c.989.54 1.761.815 2.791.815 3.181 0 5.767-2.587 5.768-5.766.001-3.18-2.586-5.766-5.768-5.766zm9.969 5.766c0 5.514-4.486 10-10 10-1.823 0-3.539-.49-5.016-1.343l-5.984 1.565 1.593-5.832c-.933-1.529-1.472-3.32-1.472-5.234 0-5.514 4.486-10 10-10s10 4.486 10 10z"/></svg>
+          Chamar no WhatsApp (+5512992262432)
+        </a>
+        <button class="btn btn-copy" onclick="copyText('text-tarde-10', this)">
+          📋 Copiar Mensagem
+        </button>
+      </div>
+    </div>
+  
+    <div class="lead-card" id="card-tarde-11">
+      <div class="card-header">
+        <div class="title-wrap">
+          <span class="lead-num">#12</span>
+          <div>
+            <h3 class="lead-name">Marmoraria Nova Era</h3>
+            <div class="lead-meta">
+              <span class="badge badge-city">📍 Taubaté</span>
+              <span class="badge badge-niche">🏷️ Marmoraria & Superfícies</span>
+            </div>
+          </div>
+        </div>
+        <label class="check-sent">
+          <input type="checkbox" onchange="toggleSent('tarde-11')" id="check-tarde-11">
+          <span>Enviado</span>
+        </label>
+      </div>
+
+      <div class="gap-box">
+        <strong>⚠️ Gap Digital Identificado:</strong> Bancadas em quartzo e granitos sem catálogo digital interativo para arquitetos da região
+      </div>
+
+      <div class="copy-box">
+        <div class="copy-label">Mensagem (1 Linha Contínua / 1 Balão):</div>
+        <p class="copy-text" id="text-tarde-11">Oi, Equipe Nova Era, tudo bem, aqui é o Raphael da Yatagarasu, vi que vocês têm uma qualidade em acabamentos e pedras nobres diferenciada em Taubaté, reparei que quem busca pelo serviço no Google cai direto no WhatsApp sem ver uma página sua antes, posso te mostrar uma prévia rápida de como ficaria uma vitrine exclusiva para valorizar ainda mais o trabalho de vocês?</p>
+      </div>
+
+      <div class="card-actions">
+        <a href="https://wa.me/5512974080220?text=Oi%2C%20Equipe%20Nova%20Era%2C%20tudo%20bem%2C%20aqui%20%C3%A9%20o%20Raphael%20da%20Yatagarasu%2C%20vi%20que%20voc%C3%AAs%20t%C3%AAm%20uma%20qualidade%20em%20acabamentos%20e%20pedras%20nobres%20diferenciada%20em%20Taubat%C3%A9%2C%20reparei%20que%20quem%20busca%20pelo%20servi%C3%A7o%20no%20Google%20cai%20direto%20no%20WhatsApp%20sem%20ver%20uma%20p%C3%A1gina%20sua%20antes%2C%20posso%20te%20mostrar%20uma%20pr%C3%A9via%20r%C3%A1pida%20de%20como%20ficaria%20uma%20vitrine%20exclusiva%20para%20valorizar%20ainda%20mais%20o%20trabalho%20de%20voc%C3%AAs%3F" target="_blank" class="btn btn-wa" onclick="markSent('tarde-11')">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.669-.699c.989.54 1.761.815 2.791.815 3.181 0 5.767-2.587 5.768-5.766.001-3.18-2.586-5.766-5.768-5.766zm9.969 5.766c0 5.514-4.486 10-10 10-1.823 0-3.539-.49-5.016-1.343l-5.984 1.565 1.593-5.832c-.933-1.529-1.472-3.32-1.472-5.234 0-5.514 4.486-10 10-10s10 4.486 10 10z"/></svg>
+          Chamar no WhatsApp (+5512974080220)
+        </a>
+        <button class="btn btn-copy" onclick="copyText('text-tarde-11', this)">
+          📋 Copiar Mensagem
+        </button>
+      </div>
+    </div>
+  
+    <div class="lead-card" id="card-tarde-12">
+      <div class="card-header">
+        <div class="title-wrap">
+          <span class="lead-num">#13</span>
+          <div>
+            <h3 class="lead-name">Astral Mármores e Granitos</h3>
+            <div class="lead-meta">
+              <span class="badge badge-city">📍 Taubaté</span>
+              <span class="badge badge-niche">🏷️ Marmoraria & Acabamentos</span>
+            </div>
+          </div>
+        </div>
+        <label class="check-sent">
+          <input type="checkbox" onchange="toggleSent('tarde-12')" id="check-tarde-12">
+          <span>Enviado</span>
+        </label>
+      </div>
+
+      <div class="gap-box">
+        <strong>⚠️ Gap Digital Identificado:</strong> Estrutura no Distrito Industrial de Taubaté mas sem landing page para captação de obras
+      </div>
+
+      <div class="copy-box">
+        <div class="copy-label">Mensagem (1 Linha Contínua / 1 Balão):</div>
+        <p class="copy-text" id="text-tarde-12">Oi, Equipe Astral, tudo bem, aqui é o Raphael da Yatagarasu, vi que vocês têm uma qualidade em acabamentos e pedras nobres diferenciada em Taubaté, reparei que quem busca pelo serviço no Google cai direto no WhatsApp sem ver uma página sua antes, posso te mostrar uma prévia rápida de como ficaria uma vitrine exclusiva para valorizar ainda mais o trabalho de vocês?</p>
+      </div>
+
+      <div class="card-actions">
+        <a href="https://wa.me/5512996792371?text=Oi%2C%20Equipe%20Astral%2C%20tudo%20bem%2C%20aqui%20%C3%A9%20o%20Raphael%20da%20Yatagarasu%2C%20vi%20que%20voc%C3%AAs%20t%C3%AAm%20uma%20qualidade%20em%20acabamentos%20e%20pedras%20nobres%20diferenciada%20em%20Taubat%C3%A9%2C%20reparei%20que%20quem%20busca%20pelo%20servi%C3%A7o%20no%20Google%20cai%20direto%20no%20WhatsApp%20sem%20ver%20uma%20p%C3%A1gina%20sua%20antes%2C%20posso%20te%20mostrar%20uma%20pr%C3%A9via%20r%C3%A1pida%20de%20como%20ficaria%20uma%20vitrine%20exclusiva%20para%20valorizar%20ainda%20mais%20o%20trabalho%20de%20voc%C3%AAs%3F" target="_blank" class="btn btn-wa" onclick="markSent('tarde-12')">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.669-.699c.989.54 1.761.815 2.791.815 3.181 0 5.767-2.587 5.768-5.766.001-3.18-2.586-5.766-5.768-5.766zm9.969 5.766c0 5.514-4.486 10-10 10-1.823 0-3.539-.49-5.016-1.343l-5.984 1.565 1.593-5.832c-.933-1.529-1.472-3.32-1.472-5.234 0-5.514 4.486-10 10-10s10 4.486 10 10z"/></svg>
+          Chamar no WhatsApp (+5512996792371)
+        </a>
+        <button class="btn btn-copy" onclick="copyText('text-tarde-12', this)">
+          📋 Copiar Mensagem
+        </button>
+      </div>
+    </div>
+  
+    <div class="lead-card" id="card-tarde-13">
+      <div class="card-header">
+        <div class="title-wrap">
+          <span class="lead-num">#14</span>
+          <div>
+            <h3 class="lead-name">A&G Eventos Espaço Casa Branca</h3>
+            <div class="lead-meta">
+              <span class="badge badge-city">📍 Jacareí</span>
+              <span class="badge badge-niche">🏷️ Espaço para Casamentos & Eventos</span>
+            </div>
+          </div>
+        </div>
+        <label class="check-sent">
+          <input type="checkbox" onchange="toggleSent('tarde-13')" id="check-tarde-13">
+          <span>Enviado</span>
+        </label>
+      </div>
+
+      <div class="gap-box">
+        <strong>⚠️ Gap Digital Identificado:</strong> Capacidade de até 800 convidados mas depende de portais de terceiros sem site oficial
+      </div>
+
+      <div class="copy-box">
+        <div class="copy-label">Mensagem (1 Linha Contínua / 1 Balão):</div>
+        <p class="copy-text" id="text-tarde-13">Oi, Equipe A&G, tudo bem, aqui é o Raphael da Yatagarasu, vi que vocês têm uma estrutura para casamentos e eventos maravilhosa em Jacareí, reparei que quem busca pelo serviço no Google cai direto no WhatsApp sem ver uma página sua antes, posso te mostrar uma prévia rápida de como ficaria uma vitrine exclusiva para valorizar ainda mais o trabalho de vocês?</p>
+      </div>
+
+      <div class="card-actions">
+        <a href="https://wa.me/5512992194996?text=Oi%2C%20Equipe%20A%26G%2C%20tudo%20bem%2C%20aqui%20%C3%A9%20o%20Raphael%20da%20Yatagarasu%2C%20vi%20que%20voc%C3%AAs%20t%C3%AAm%20uma%20estrutura%20para%20casamentos%20e%20eventos%20maravilhosa%20em%20Jacare%C3%AD%2C%20reparei%20que%20quem%20busca%20pelo%20servi%C3%A7o%20no%20Google%20cai%20direto%20no%20WhatsApp%20sem%20ver%20uma%20p%C3%A1gina%20sua%20antes%2C%20posso%20te%20mostrar%20uma%20pr%C3%A9via%20r%C3%A1pida%20de%20como%20ficaria%20uma%20vitrine%20exclusiva%20para%20valorizar%20ainda%20mais%20o%20trabalho%20de%20voc%C3%AAs%3F" target="_blank" class="btn btn-wa" onclick="markSent('tarde-13')">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.669-.699c.989.54 1.761.815 2.791.815 3.181 0 5.767-2.587 5.768-5.766.001-3.18-2.586-5.766-5.768-5.766zm9.969 5.766c0 5.514-4.486 10-10 10-1.823 0-3.539-.49-5.016-1.343l-5.984 1.565 1.593-5.832c-.933-1.529-1.472-3.32-1.472-5.234 0-5.514 4.486-10 10-10s10 4.486 10 10z"/></svg>
+          Chamar no WhatsApp (+5512992194996)
+        </a>
+        <button class="btn btn-copy" onclick="copyText('text-tarde-13', this)">
+          📋 Copiar Mensagem
+        </button>
+      </div>
+    </div>
+  
+    <div class="lead-card" id="card-tarde-14">
+      <div class="card-header">
+        <div class="title-wrap">
+          <span class="lead-num">#15</span>
+          <div>
+            <h3 class="lead-name">Rosa de Sarom Buffet & Eventos</h3>
+            <div class="lead-meta">
+              <span class="badge badge-city">📍 Jacareí</span>
+              <span class="badge badge-niche">🏷️ Buffet Completo & Decoração</span>
+            </div>
+          </div>
+        </div>
+        <label class="check-sent">
+          <input type="checkbox" onchange="toggleSent('tarde-14')" id="check-tarde-14">
+          <span>Enviado</span>
+        </label>
+      </div>
+
+      <div class="gap-box">
+        <strong>⚠️ Gap Digital Identificado:</strong> Solução completa para festas em Jacareí sem vitrine digital com fotos reais dos cardápios
+      </div>
+
+      <div class="copy-box">
+        <div class="copy-label">Mensagem (1 Linha Contínua / 1 Balão):</div>
+        <p class="copy-text" id="text-tarde-14">Oi, Equipe Rosa de Sarom, tudo bem, aqui é o Raphael da Yatagarasu, vi que vocês têm uma estrutura para casamentos e eventos maravilhosa em Jacareí, reparei que quem busca pelo serviço no Google cai direto no WhatsApp sem ver uma página sua antes, posso te mostrar uma prévia rápida de como ficaria uma vitrine exclusiva para valorizar ainda mais o trabalho de vocês?</p>
+      </div>
+
+      <div class="card-actions">
+        <a href="https://wa.me/5512981058026?text=Oi%2C%20Equipe%20Rosa%20de%20Sarom%2C%20tudo%20bem%2C%20aqui%20%C3%A9%20o%20Raphael%20da%20Yatagarasu%2C%20vi%20que%20voc%C3%AAs%20t%C3%AAm%20uma%20estrutura%20para%20casamentos%20e%20eventos%20maravilhosa%20em%20Jacare%C3%AD%2C%20reparei%20que%20quem%20busca%20pelo%20servi%C3%A7o%20no%20Google%20cai%20direto%20no%20WhatsApp%20sem%20ver%20uma%20p%C3%A1gina%20sua%20antes%2C%20posso%20te%20mostrar%20uma%20pr%C3%A9via%20r%C3%A1pida%20de%20como%20ficaria%20uma%20vitrine%20exclusiva%20para%20valorizar%20ainda%20mais%20o%20trabalho%20de%20voc%C3%AAs%3F" target="_blank" class="btn btn-wa" onclick="markSent('tarde-14')">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.669-.699c.989.54 1.761.815 2.791.815 3.181 0 5.767-2.587 5.768-5.766.001-3.18-2.586-5.766-5.768-5.766zm9.969 5.766c0 5.514-4.486 10-10 10-1.823 0-3.539-.49-5.016-1.343l-5.984 1.565 1.593-5.832c-.933-1.529-1.472-3.32-1.472-5.234 0-5.514 4.486-10 10-10s10 4.486 10 10z"/></svg>
+          Chamar no WhatsApp (+5512981058026)
+        </a>
+        <button class="btn btn-copy" onclick="copyText('text-tarde-14', this)">
+          📋 Copiar Mensagem
+        </button>
+      </div>
+    </div>
+  
+    </div>
+  </div>
+
+  <script>
+    function switchTab(tabId) {
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+      event.target.classList.add('active');
+      document.getElementById('tab-' + tabId).classList.add('active');
+    }
+
+    function copyText(id, btn) {
+      const text = document.getElementById(id).innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        const orig = btn.innerText;
+        btn.innerText = '✅ Copiado!';
+        btn.style.background = '#065f46';
+        setTimeout(() => {
+          btn.innerText = orig;
+          btn.style.background = '';
+        }, 2000);
+      });
+    }
+
+    function markSent(id) {
+      const chk = document.getElementById('check-' + id);
+      if (chk && !chk.checked) {
+        chk.checked = true;
+        toggleSent(id);
+      }
+    }
+
+    function toggleSent(id) {
+      const card = document.getElementById('card-' + id);
+      const chk = document.getElementById('check-' + id);
+      if (chk.checked) {
+        card.classList.add('sent');
+        localStorage.setItem('wa_sent_' + id, '1');
+      } else {
+        card.classList.remove('sent');
+        localStorage.removeItem('wa_sent_' + id);
+      }
+      updateProgress();
+    }
+
+    function updateProgress() {
+      const allChecks = document.querySelectorAll('.check-sent input');
+      let sentCount = 0;
+      allChecks.forEach(c => { if (c.checked) sentCount++; });
+      document.getElementById('progress-text').innerText = sentCount + ' / ' + allChecks.length + ' enviados';
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.check-sent input').forEach(input => {
+        const id = input.id.replace('check-', '');
+        if (localStorage.getItem('wa_sent_' + id) === '1') {
+          input.checked = true;
+          document.getElementById('card-' + id).classList.add('sent');
+        }
+      });
+      updateProgress();
+    });
+  </script>
+</body>
+</html>
