@@ -61,6 +61,7 @@
         <nav class="nav-desktop" aria-label="Categorias principais">
           <ul class="nav-links">
             <li><a href="index.html">A Marca</a></li>
+            <li><a href="#linha-18k" data-nav="linha-18k">Linha 1,8kg</a></li>
             <li><a href="#palmitos" data-nav="palmitos">Palmitos</a></li>
             <li><a href="#conservas" data-nav="conservas">Conservas</a></li>
             <li><a href="#frios" data-nav="frios">Frios &amp; Queijos</a></li>
@@ -132,7 +133,8 @@
     <nav aria-label="Navegação mobile">
       <ul class="drawer-links">
         <li><a href="index.html"><strong>Home da Marca Origem</strong></a></li>
-        <li><a href="#palmitos" data-drawer-link>Palmitos da Serra</a></li>
+        <li><a href="#linha-18k" data-drawer-link>Linha 1,8kg (Food Service)</a></li>
+        <li><a href="#palmitos" data-drawer-link>Palmitos da Serra (540g)</a></li>
         <li><a href="#conservas" data-drawer-link>Conservas Especiais</a></li>
         <li><a href="#frios" data-drawer-link>Frios, Queijos &amp; Carnes</a></li>
         <li><a href="#doces" data-drawer-link>Doces Tradicionais</a></li>
@@ -197,7 +199,7 @@
             type="search"
             id="catalog-search"
             class="search-input"
-            placeholder="Buscar em todos os 41 produtos, marcas ou embalagens..."
+            placeholder="Buscar em todos os 51 produtos, marcas ou embalagens..."
             aria-label="Buscar produto no catálogo"
             autocomplete="off"
           />
@@ -219,14 +221,22 @@
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
             </div>
             <span class="ifood-cat-title">Todos</span>
-            <span class="ifood-cat-count" id="count-all">41 itens</span>
+            <span class="ifood-cat-count" id="count-all">51 itens</span>
+          </button>
+
+          <button type="button" class="ifood-cat-item" data-cat-filter="linha-18k" role="tab" aria-selected="false" aria-controls="catalog-sections">
+            <div class="ifood-cat-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2h12l1 5v12a3 3 0 0 1-3 3H8a3 3 0 0 1-3-3V7l1-5z"/><path d="M6 7h12"/><circle cx="12" cy="14" r="2.5"/></svg>
+            </div>
+            <span class="ifood-cat-title">Linha 1,8kg</span>
+            <span class="ifood-cat-count">12 itens</span>
           </button>
 
           <button type="button" class="ifood-cat-item" data-cat-filter="palmitos" role="tab" aria-selected="false" aria-controls="catalog-sections">
             <div class="ifood-cat-icon">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
             </div>
-            <span class="ifood-cat-title">Palmitos</span>
+            <span class="ifood-cat-title">Palmitos (Potes)</span>
             <span class="ifood-cat-count">8 itens</span>
           </button>
 
@@ -235,7 +245,7 @@
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="4" rx="1"/><rect x="4" y="6" width="16" height="15" rx="3"/><line x1="4" y1="11" x2="20" y2="11"/></svg>
             </div>
             <span class="ifood-cat-title">Conservas</span>
-            <span class="ifood-cat-count">11 itens</span>
+            <span class="ifood-cat-count">9 itens</span>
           </button>
 
           <button type="button" class="ifood-cat-item" data-cat-filter="frios" role="tab" aria-selected="false" aria-controls="catalog-sections">
@@ -281,19 +291,25 @@
             <li>
               <button type="button" class="filter-cat-btn is-active" data-sidebar-cat="all">
                 <span class="cat-name">Todas as categorias</span>
-                <span class="cat-qty">41</span>
+                <span class="cat-qty">51</span>
+              </button>
+            </li>
+            <li>
+              <button type="button" class="filter-cat-btn" data-sidebar-cat="linha-18k">
+                <span class="cat-name">Linha 1,8kg (Food Service)</span>
+                <span class="cat-qty">12</span>
               </button>
             </li>
             <li>
               <button type="button" class="filter-cat-btn" data-sidebar-cat="palmitos">
-                <span class="cat-name">Palmitos</span>
+                <span class="cat-name">Palmitos (Potes 540g)</span>
                 <span class="cat-qty">8</span>
               </button>
             </li>
             <li>
               <button type="button" class="filter-cat-btn" data-sidebar-cat="conservas">
-                <span class="cat-name">Conservas</span>
-                <span class="cat-qty">11</span>
+                <span class="cat-name">Conservas Especiais</span>
+                <span class="cat-qty">9</span>
               </button>
             </li>
             <li>

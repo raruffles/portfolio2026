@@ -30,12 +30,17 @@ id_rsa.pub
 id_ed25519
 id_ed25519.pub
 
-# 3. Sites, protótipos e prévias de clientes
+# 3. Sites, protótipos e prévias de clientes (arquivadas na branch 'previas')
 clientes/*
 !clientes/origem-do-vale/
 !clientes/origem-do-vale.html
 previa/
 **/previa/
+previas/
+**/previas/
+previa-*.html
+clones/
+**/clones/
 janousek-photos/
 xandy-alves-artes/
 guuhsc-source/
