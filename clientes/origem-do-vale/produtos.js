@@ -35,13 +35,13 @@ window.ORIGEM_DO_VALE_DATA = {
     {
       "id": "linha-18k",
       "navKey": "linha-18k",
-      "title": "Linha Food Service (1,8kg)",
-      "subtitle": "Palmitos selecionados e conservas nobres em embalagens de 1,8kg drenado para restaurantes, pizzarias, buffets e revenda.",
+      "title": "Palmito Grande & Conserva Grande (1,8kg)",
+      "subtitle": "Palmitos selecionados e conservas nobres em embalagens de 1,8kg drenado para restaurantes, pizzarias, empórios e revenda.",
       "items": [
         {
           "id": "pal-09",
           "sku": "ODV-042",
-          "badge": "Palmito 1,8kg",
+          "badge": "Palmito Grande (1,8kg)",
           "title": "Palmito Palmeira Real Tolete 1,8kg",
           "sub": "Palmitos 1,8kg",
           "marca": "Pommer Conservas",
@@ -57,7 +57,7 @@ window.ORIGEM_DO_VALE_DATA = {
         {
           "id": "pal-10",
           "sku": "ODV-043",
-          "badge": "Palmito 1,8kg",
+          "badge": "Palmito Grande (1,8kg)",
           "title": "Palmito Palmeira Real Coração 1,8kg",
           "sub": "Palmitos 1,8kg",
           "marca": "Pommer Conservas",
@@ -73,7 +73,7 @@ window.ORIGEM_DO_VALE_DATA = {
         {
           "id": "pal-11",
           "sku": "ODV-044",
-          "badge": "Palmito 1,8kg",
+          "badge": "Palmito Grande (1,8kg)",
           "title": "Palmito Palmeira Real Picado 1,8kg",
           "sub": "Palmitos 1,8kg",
           "marca": "Pommer Conservas",
@@ -89,7 +89,7 @@ window.ORIGEM_DO_VALE_DATA = {
         {
           "id": "pal-12",
           "sku": "ODV-045",
-          "badge": "Palmito 1,8kg",
+          "badge": "Palmito Grande (1,8kg)",
           "title": "Palmito Palmeira Real Rodela 1,8kg",
           "sub": "Palmitos 1,8kg",
           "marca": "Pommer Conservas",
@@ -105,7 +105,7 @@ window.ORIGEM_DO_VALE_DATA = {
         {
           "id": "pal-13",
           "sku": "ODV-046",
-          "badge": "Palmito 1,8kg",
+          "badge": "Palmito Grande (1,8kg)",
           "title": "Palmito Palmeira Real Banda 1,8kg",
           "sub": "Palmitos 1,8kg",
           "marca": "Pommer Conservas",
@@ -121,7 +121,7 @@ window.ORIGEM_DO_VALE_DATA = {
         {
           "id": "pal-14",
           "sku": "ODV-047",
-          "badge": "Palmito 1,8kg",
+          "badge": "Palmito Grande (1,8kg)",
           "title": "Palmito Juçara Tolete 1,8kg",
           "sub": "Palmitos 1,8kg",
           "marca": "Pommer Conservas",
@@ -137,7 +137,7 @@ window.ORIGEM_DO_VALE_DATA = {
         {
           "id": "pal-15",
           "sku": "ODV-048",
-          "badge": "Palmito 1,8kg",
+          "badge": "Palmito Grande (1,8kg)",
           "title": "Palmito Pupunha Tolete 1,8kg",
           "sub": "Palmitos 1,8kg",
           "marca": "Pommer Conservas",
@@ -153,7 +153,7 @@ window.ORIGEM_DO_VALE_DATA = {
         {
           "id": "pal-16",
           "sku": "ODV-049",
-          "badge": "Palmito 1,8kg",
+          "badge": "Palmito Grande (1,8kg)",
           "title": "Palmito Pupunha Coração 1,8kg",
           "sub": "Palmitos 1,8kg",
           "marca": "Pommer Conservas",
@@ -169,7 +169,7 @@ window.ORIGEM_DO_VALE_DATA = {
         {
           "id": "pal-17",
           "sku": "ODV-050",
-          "badge": "Palmito 1,8kg",
+          "badge": "Palmito Grande (1,8kg)",
           "title": "Palmito Pupunha Picado 1,8kg",
           "sub": "Palmitos 1,8kg",
           "marca": "Pommer Conservas",
@@ -185,7 +185,7 @@ window.ORIGEM_DO_VALE_DATA = {
         {
           "id": "pal-18",
           "sku": "ODV-051",
-          "badge": "Palmito 1,8kg",
+          "badge": "Palmito Grande (1,8kg)",
           "title": "Palmito Pupunha Mini Tolete para Espeto 1,8kg",
           "sub": "Palmitos 1,8kg",
           "marca": "Ouro do Vale",
@@ -201,7 +201,7 @@ window.ORIGEM_DO_VALE_DATA = {
         {
           "id": "con-18",
           "sku": "ODV-034",
-          "badge": "Conserva 1,8kg",
+          "badge": "Conserva Grande (1,8kg)",
           "title": "Ovos de Codorna Danimar Food Service 2,8kg",
           "sub": "Conservas 1,8kg",
           "marca": "Danimar",
@@ -217,7 +217,7 @@ window.ORIGEM_DO_VALE_DATA = {
         {
           "id": "con-19",
           "sku": "ODV-035",
-          "badge": "Conserva 1,8kg",
+          "badge": "Conserva Grande (1,8kg)",
           "title": "Pepino em Conserva Pommer Food Service 3,1kg",
           "sub": "Conservas 1,8kg",
           "marca": "Pommer Conservas",

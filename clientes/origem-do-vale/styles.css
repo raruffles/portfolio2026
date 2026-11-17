@@ -3125,11 +3125,10 @@ a {
 .card-pricing-selector {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 6px;
-  margin: 0 0 10px;
-  height: 66px;
-  min-height: 66px;
-  max-height: 66px;
+  gap: 10px;
+  margin: 0 0 8px;
+  min-height: 60px;
+  height: auto;
   box-sizing: border-box;
   flex-shrink: 0;
 }
@@ -3139,8 +3138,7 @@ a {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100%;
-  padding: 4px;
+  padding: 7px 6px;
   background-color: var(--color-surface-soft);
   border: 1.5px solid var(--color-border);
   border-radius: var(--radius-md);
@@ -3152,12 +3150,13 @@ a {
 
 .pricing-pill:hover {
   border-color: var(--color-brand);
+  background-color: #fafdfb;
 }
 
 .pricing-pill.is-active {
   border-color: var(--color-brand);
   background-color: #f0f7f3;
-  box-shadow: 0 0 0 1px var(--color-brand);
+  box-shadow: 0 0 0 1.5px var(--color-brand);
 }
 
 .pill-type {
@@ -3173,8 +3172,8 @@ a {
 }
 
 .pill-val {
-  font-size: 0.9375rem;
-  font-weight: 700;
+  font-size: 1.025rem;
+  font-weight: 800;
   color: var(--color-ink);
   line-height: 1.2;
 }
@@ -3186,13 +3185,47 @@ a {
 .pill-sub {
   font-size: 0.6875rem;
   color: var(--color-muted);
+  margin-top: 2px;
+  font-weight: 500;
+}
+
+.pricing-pill.is-active .pill-sub {
+  color: #2e7d32;
+  font-weight: 600;
+}
+
+/* Indicador dinâmico de Desconto Ativado no Card */
+.card-tier-feedback {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  min-height: 20px;
+  margin: 0 0 8px;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  text-align: center;
+  border-radius: 4px;
+  padding: 2px 6px;
+  transition: all 0.18s ease;
+}
+
+.card-tier-feedback.has-discount {
+  color: #1b5e20;
+  background-color: #e8f5e9;
+  border: 1px solid #c8e6c9;
+}
+
+.card-tier-feedback.is-retail {
+  color: var(--color-muted);
+  background-color: transparent;
 }
 
 /* Quantidade e Botão Adicionar */
 .card-cart-action-group {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
   height: 42px;
   min-height: 42px;
   max-height: 42px;
@@ -3861,14 +3894,14 @@ a {
 .card-pricing-table-header {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 6px;
-  margin: 0 0 4px;
+  gap: 10px;
+  margin: 0 0 6px;
   padding: 0 2px;
   box-sizing: border-box;
 }
 
 .pricing-col-head {
-  font-size: 0.6875rem;
+  font-size: 0.72rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.06em;

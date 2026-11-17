@@ -803,38 +803,39 @@
       const varejoVal = item.varejo ? `R$ ${escapeHtml(item.varejo)}` : 'Sob consulta';
       const atacadoVal = item.atacado ? `R$ ${escapeHtml(item.atacado)}` : 'Sob consulta';
       const minAtacado = item.minAtacado || (is18k ? 2 : 6);
-      const atacadoSubText = is18k ? 'a partir de 2 baldes/un.' : `a partir de ${minAtacado} un.`;
-      const isAtacadoDefault = is18k;
-      const initialQty = isAtacadoDefault ? minAtacado : 1;
+      const atacadoSubText = `a partir de ${minAtacado} un.`;
+      const isAtacadoDefault = false;
+      const initialQty = 1;
 
       purchaseBlockHtml = `
         <div class="card-pricing-table-header" aria-hidden="true">
           <span class="pricing-col-head atacado-col-head">Atacado</span>
           <span class="pricing-col-head varejo-col-head">Varejo</span>
         </div>
-        <div class="card-pricing-selector" role="group" aria-label="Modalidade de compra para ${safeTitle}">
+        <div class="card-pricing-selector" role="group" aria-label="Preços por quantidade para ${safeTitle}">
           <button
             type="button"
-            class="pricing-pill atacado-pill ${isAtacadoDefault ? 'is-active' : ''}"
+            class="pricing-pill atacado-pill"
             data-pricing-type="atacado"
-            aria-pressed="${isAtacadoDefault ? 'true' : 'false'}"
-            title="Preço de atacado: ${atacadoVal} (${atacadoSubText})"
+            aria-pressed="false"
+            title="Preço com desconto por volume: ${atacadoVal} (${atacadoSubText})"
           >
-            <span class="pill-type">Atacado</span>
             <span class="pill-val">${atacadoVal}</span>
             <span class="pill-sub">${atacadoSubText}</span>
           </button>
           <button
             type="button"
-            class="pricing-pill varejo-pill ${!isAtacadoDefault ? 'is-active' : ''}"
+            class="pricing-pill varejo-pill is-active"
             data-pricing-type="varejo"
-            aria-pressed="${!isAtacadoDefault ? 'true' : 'false'}"
-            title="Preço de varejo: ${varejoVal} por unidade"
+            aria-pressed="true"
+            title="Preço unitário avulso: ${varejoVal} por unidade"
           >
-            <span class="pill-type">Varejo</span>
             <span class="pill-val">${varejoVal}</span>
             <span class="pill-sub">por unidade</span>
           </button>
+        </div>
+        <div class="card-tier-feedback is-retail" data-tier-feedback="${item.id}">
+          A partir de ${minAtacado} un. entra valor com desconto
         </div>
 
         <div class="card-cart-action-group">
@@ -847,7 +848,7 @@
             type="button"
             class="btn-add-cart"
             data-add-to-cart="${item.id}"
-            data-selected-type="${isAtacadoDefault ? 'atacado' : 'varejo'}"
+            data-selected-type="varejo"
             aria-label="Adicionar ${safeTitle} ao carrinho"
           >
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
@@ -1658,7 +1659,7 @@
                 <div class="subgroup-banner-left">
                   <span class="subgroup-icon">🎋</span>
                   <div>
-                    <h3 class="subgroup-title">Palmitos Food Service 1,8kg Drenado</h3>
+                    <h3 class="subgroup-title">Palmitos Grandes (1,8kg Drenado)</h3>
                     <span class="subgroup-count">${palmitos18k.length} variedades (Toletes, Coração, Picado, Rodela, Banda e Espeto)</span>
                   </div>
                 </div>
@@ -1683,7 +1684,7 @@
                 <div class="subgroup-banner-left">
                   <span class="subgroup-icon">🫒</span>
                   <div>
-                    <h3 class="subgroup-title">Conservas Nobres Food Service 1,8kg Drenado</h3>
+                    <h3 class="subgroup-title">Conservas Grandes (1,8kg Drenado)</h3>
                     <span class="subgroup-count">${conservas18k.length} variedades (Ovos de Codorna Danimar 2,8kg e Pepino Pommer 3,1kg)</span>
                   </div>
                 </div>
@@ -1807,7 +1808,7 @@
         let targetType = explicitType;
 
         if (!targetType) {
-          // Muda sozinho para atacado se atingir a quantidade mínima!
+          // Muda automaticamente para atacado (custo com desconto) ao atingir a quantidade mínima!
           targetType = qtyNum >= minAtacado ? 'atacado' : 'varejo';
         }
 
@@ -1819,6 +1820,17 @@
 
         if (addBtn) {
           addBtn.dataset.selectedType = targetType;
+        }
+
+        const feedbackEl = card.querySelector(`[data-tier-feedback="${productId}"]`);
+        if (feedbackEl) {
+          if (targetType === 'atacado') {
+            feedbackEl.className = 'card-tier-feedback has-discount';
+            feedbackEl.innerHTML = `<span>&check; Desconto por volume ativado (${qtyNum} un.)</span>`;
+          } else {
+            feedbackEl.className = 'card-tier-feedback is-retail';
+            feedbackEl.textContent = `A partir de ${minAtacado} un. entra valor com desconto`;
+          }
         }
       }
 
@@ -1873,8 +1885,8 @@
       // Clique em Adicionar ao Carrinho
       if (addBtn) {
         addBtn.addEventListener('click', () => {
-          const chosenType = addBtn.dataset.selectedType || (is18k ? 'atacado' : 'varejo');
           const qty = parseInt(qtyInput ? qtyInput.value : 1, 10) || 1;
+          const chosenType = qty >= minAtacado ? 'atacado' : 'varejo';
           addToCart(productId, chosenType, qty);
 
           addBtn.classList.add('is-added');
