@@ -142,8 +142,8 @@
     ) {
       return true;
     }
-    // Apenas ativa modo sem preço se for vendedor.html e não tiver sido pedido explicitamente precos=1
-    if (path.includes('vendedor.html') && params.get('precos') !== '1') {
+    // Apenas ativa modo sem preço se for vendedor ou cotação e não tiver sido pedido explicitamente precos=1
+    if ((path.includes('vendedor') || path.includes('cotacao') || path.includes('sem-preco')) && params.get('precos') !== '1') {
       return true;
     }
     return false;

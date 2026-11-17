@@ -1,0 +1,41 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "rewrites": [
+    { "source": "/paulo", "destination": "/clientes/origem-do-vale/catalogo.html?vendedor=paulo" },
+    { "source": "/elaine", "destination": "/clientes/origem-do-vale/catalogo.html?vendedor=elaine" },
+    { "source": "/paulo-cotacao", "destination": "/clientes/origem-do-vale/vendedor.html?vendedor=paulo" },
+    { "source": "/elaine-cotacao", "destination": "/clientes/origem-do-vale/vendedor.html?vendedor=elaine" },
+    { "source": "/origem-do-vale/paulo", "destination": "/clientes/origem-do-vale/catalogo.html?vendedor=paulo" },
+    { "source": "/origem-do-vale/elaine", "destination": "/clientes/origem-do-vale/catalogo.html?vendedor=elaine" },
+    { "source": "/origem-do-vale/paulo-cotacao", "destination": "/clientes/origem-do-vale/vendedor.html?vendedor=paulo" },
+    { "source": "/origem-do-vale/elaine-cotacao", "destination": "/clientes/origem-do-vale/vendedor.html?vendedor=elaine" },
+    { "source": "/origem-do-vale", "destination": "/clientes/origem-do-vale/index.html" },
+    { "source": "/origem-do-vale/(.*)", "destination": "/clientes/origem-do-vale/$1" }
+  ],
+  "headers": [
+    {
+      "source": "/clientes/origem-do-vale/assets/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        }
+      ]
+    }
+  ]
+}

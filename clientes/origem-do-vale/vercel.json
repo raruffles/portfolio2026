@@ -2,13 +2,13 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "cleanUrls": true,
   "trailingSlash": false,
-  "redirects": [
-    { "source": "/paulo", "destination": "/catalogo?vendedor=paulo", "permanent": false },
-    { "source": "/elaine", "destination": "/catalogo?vendedor=elaine", "permanent": false },
-    { "source": "/paulo-cotacao", "destination": "/vendedor?vendedor=paulo", "permanent": false },
-    { "source": "/elaine-cotacao", "destination": "/vendedor?vendedor=elaine", "permanent": false }
-  ],
   "rewrites": [
+    { "source": "/paulo", "destination": "/catalogo.html?vendedor=paulo" },
+    { "source": "/elaine", "destination": "/catalogo.html?vendedor=elaine" },
+    { "source": "/paulo-cotacao", "destination": "/vendedor.html?vendedor=paulo" },
+    { "source": "/elaine-cotacao", "destination": "/vendedor.html?vendedor=elaine" },
+    { "source": "/paulo/cotacao", "destination": "/vendedor.html?vendedor=paulo" },
+    { "source": "/elaine/cotacao", "destination": "/vendedor.html?vendedor=elaine" },
     { "source": "/", "destination": "/index.html" },
     { "source": "/catalogo", "destination": "/catalogo.html" },
     { "source": "/tabela", "destination": "/catalogo.html" },
@@ -46,7 +46,7 @@
         },
         {
           "key": "X-Frame-Options",
-          "value": "DENY"
+          "value": "SAMEORIGIN"
         },
         {
           "key": "X-XSS-Protection",
