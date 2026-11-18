@@ -231,15 +231,13 @@
     if (isVendorMode) {
       return { priceType: 'cotacao', priceValue: 0, priceFormatted: '' };
     }
-    const minAtacado = product.minAtacado || 6;
-    let resolvedType = requestedType;
+    const is18k = (product.badge && product.badge.includes('1,8kg')) || (product.sub && product.sub.includes('1,8kg'));
+    const minAtacado = product.minAtacado || (is18k ? 2 : 15);
+    const numericQty = Math.max(1, parseInt(qty, 10) || 1);
 
-    // Se atingir a quantidade mínima de atacado, aplica automaticamente atacado!
-    if (qty >= minAtacado) {
-      resolvedType = 'atacado';
-    } else if (requestedType !== 'atacado') {
-      resolvedType = 'varejo';
-    }
+    // Regra canônica: se a quantidade atingir ou superar a quantidade mínima de atacado
+    // (caixa fechada ou 2 unidades 1,8kg), entra automaticamente o custo de varejo com desconto (atacado)!
+    const resolvedType = numericQty >= minAtacado ? 'atacado' : 'varejo';
 
     const priceFormatted =
       (resolvedType === 'atacado'
@@ -255,6 +253,7 @@
     const product = productMap.get(productId);
     if (!product) return;
 
+    const is18k = (product.badge && product.badge.includes('1,8kg')) || (product.sub && product.sub.includes('1,8kg'));
     const numericQty = Math.max(1, parseInt(qty, 10) || 1);
     const existingIndex = cart.findIndex((item) => item.id === productId);
 
@@ -277,7 +276,7 @@
         priceFormatted: pricing.priceFormatted,
         qty: numericQty,
         image: product.image || '',
-        minAtacado: product.minAtacado || 6
+        minAtacado: product.minAtacado || (is18k ? 2 : 15)
       });
     }
 
@@ -802,7 +801,7 @@
       const is18k = (item.badge && item.badge.includes('1,8kg')) || (item.sub && item.sub.includes('1,8kg'));
       const varejoVal = item.varejo ? `R$ ${escapeHtml(item.varejo)}` : 'Sob consulta';
       const atacadoVal = item.atacado ? `R$ ${escapeHtml(item.atacado)}` : 'Sob consulta';
-      const minAtacado = item.minAtacado || (is18k ? 2 : 6);
+      const minAtacado = item.minAtacado || (is18k ? 2 : 15);
       const atacadoSubText = `a partir de ${minAtacado} un.`;
       const isAtacadoDefault = false;
       const initialQty = 1;
@@ -1795,7 +1794,7 @@
       const productId = card.dataset.productCardId;
       const product = productMap.get(productId);
       const is18k = product && ((product.badge && product.badge.includes('1,8kg')) || (product.sub && product.sub.includes('1,8kg')));
-      const minAtacado = (product && product.minAtacado) || (is18k ? 2 : 6);
+      const minAtacado = (product && product.minAtacado) || (is18k ? 2 : 15);
       const pills = Array.from(card.querySelectorAll('.pricing-pill'));
       const addBtn = card.querySelector('.btn-add-cart');
       const qtyInput = card.querySelector('.qty-input');

@@ -3125,7 +3125,7 @@ a {
 .card-pricing-selector {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 10px;
+  gap: 12px;
   margin: 0 0 8px;
   min-height: 60px;
   height: auto;
@@ -3894,7 +3894,7 @@ a {
 .card-pricing-table-header {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 10px;
+  gap: 12px;
   margin: 0 0 6px;
   padding: 0 2px;
   box-sizing: border-box;
