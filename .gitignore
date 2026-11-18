@@ -38,7 +38,9 @@ previa/
 **/previa/
 previas/
 **/previas/
+!previas/lu-dias-concept/
 previa-*.html
+!previa-lu-dias-concept.html
 clones/
 **/clones/
 janousek-photos/

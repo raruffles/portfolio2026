@@ -12,9 +12,22 @@
     { "source": "/origem-do-vale/paulo-cotacao", "destination": "/clientes/origem-do-vale/vendedor.html?vendedor=paulo" },
     { "source": "/origem-do-vale/elaine-cotacao", "destination": "/clientes/origem-do-vale/vendedor.html?vendedor=elaine" },
     { "source": "/origem-do-vale", "destination": "/clientes/origem-do-vale/index.html" },
-    { "source": "/origem-do-vale/(.*)", "destination": "/clientes/origem-do-vale/$1" }
+    { "source": "/origem-do-vale/(.*)", "destination": "/clientes/origem-do-vale/$1" },
+    { "source": "/lu-dias-concept", "destination": "/previas/lu-dias-concept/index.html" },
+    { "source": "/lu-dias-concept/(.*)", "destination": "/previas/lu-dias-concept/$1" },
+    { "source": "/previa/lu-dias-concept", "destination": "/previas/lu-dias-concept/index.html" },
+    { "source": "/previa/lu-dias-concept/(.*)", "destination": "/previas/lu-dias-concept/$1" }
   ],
   "headers": [
+    {
+      "source": "/previas/lu-dias-concept/assets/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
     {
       "source": "/clientes/origem-do-vale/assets/(.*)",
       "headers": [
