@@ -3,20 +3,17 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "rewrites": [
+    { "source": "/portfolio", "destination": "/portfolio.html" },
     { "source": "/paulo", "destination": "/catalogo.html?vendedor=paulo" },
     { "source": "/elaine", "destination": "/catalogo.html?vendedor=elaine" },
-    { "source": "/paulo-cotacao", "destination": "/vendedor.html?vendedor=paulo" },
-    { "source": "/elaine-cotacao", "destination": "/vendedor.html?vendedor=elaine" },
-    { "source": "/paulo/cotacao", "destination": "/vendedor.html?vendedor=paulo" },
-    { "source": "/elaine/cotacao", "destination": "/vendedor.html?vendedor=elaine" },
+    { "source": "/paulo-cotacao", "destination": "/portfolio.html" },
+    { "source": "/elaine-cotacao", "destination": "/portfolio.html" },
+    { "source": "/cotacao", "destination": "/portfolio.html" },
+    { "source": "/vendedor", "destination": "/portfolio.html" },
     { "source": "/", "destination": "/index.html" },
     { "source": "/catalogo", "destination": "/catalogo.html" },
     { "source": "/tabela", "destination": "/catalogo.html" },
-    { "source": "/precos", "destination": "/catalogo.html" },
-    { "source": "/vendedor", "destination": "/vendedor.html" },
-    { "source": "/representante", "destination": "/vendedor.html" },
-    { "source": "/cotacao", "destination": "/vendedor.html" },
-    { "source": "/sem-preco", "destination": "/vendedor.html" }
+    { "source": "/precos", "destination": "/catalogo.html" }
   ],
   "headers": [
     {

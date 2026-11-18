@@ -131,7 +131,21 @@
     return 'all';
   }
 
+  function detectIsPortfolioMode() {
+    const bodyMode = (document.body.dataset.defaultMode || '').toLowerCase();
+    const path = (window.location.pathname || '').toLowerCase();
+    const params = new URLSearchParams(window.location.search);
+    return (
+      bodyMode === 'portfolio' ||
+      path.includes('portfolio') ||
+      params.get('modo') === 'portfolio'
+    );
+  }
+
+  const isPortfolioMode = detectIsPortfolioMode();
+
   function detectIsVendorMode() {
+    if (isPortfolioMode) return false;
     const path = (window.location.pathname || '').toLowerCase();
     const params = new URLSearchParams(window.location.search);
     if (
@@ -769,7 +783,19 @@
 
     let purchaseBlockHtml = '';
 
-    if (isVendorMode) {
+    if (isPortfolioMode) {
+      // MODO PORTFÓLIO (Vitrine Completa de Produtos — Sem Preços e Sem WhatsApp para Ninguém)
+      purchaseBlockHtml = `
+        <div class="card-portfolio-box">
+          <span class="card-portfolio-badge">
+            <span class="dot"></span>
+            Linha Nobre da Serra
+          </span>
+          <span class="card-portfolio-desc">Padrão de Excelência &amp; Procedência</span>
+          <span class="card-portfolio-hint">Disponível em Varejo e Atacado</span>
+        </div>
+      `;
+    } else if (isVendorMode) {
       // MODO SEM PREÇO (Catálogo de Cotação Comercial / Vendedor)
       purchaseBlockHtml = `
         <div class="card-vendor-box">
@@ -805,6 +831,7 @@
       const atacadoSubText = `a partir de ${minAtacado} un.`;
       const isAtacadoDefault = false;
       const initialQty = 1;
+      const initialTotal = item.varejo ? `R$ ${escapeHtml(item.varejo)}` : '';
 
       purchaseBlockHtml = `
         <div class="card-pricing-table-header" aria-hidden="true">
@@ -833,8 +860,14 @@
             <span class="pill-sub">por unidade</span>
           </button>
         </div>
-        <div class="card-tier-feedback is-retail" data-tier-feedback="${item.id}">
-          A partir de ${minAtacado} un. entra valor com desconto
+
+        <div class="card-live-row">
+          <div class="card-tier-feedback is-retail" data-tier-feedback="${item.id}">
+            A partir de ${minAtacado} un. entra desconto
+          </div>
+          <div class="card-subtotal-display" data-subtotal-display="${item.id}">
+            Total: <strong>${initialTotal}</strong>
+          </div>
         </div>
 
         <div class="card-cart-action-group">
@@ -870,6 +903,7 @@
         <div class="card-bottom">
           <hr class="card-divider" aria-hidden="true" />
           ${purchaseBlockHtml}
+${!isPortfolioMode ? `
           <div style="margin-top: 8px; text-align: center;">
             <a
               href="${waDirectHref}"
@@ -881,7 +915,7 @@
               ${WHATSAPP_SVG}
               <span>Dúvida rápida sobre este item</span>
             </a>
-          </div>
+          </div>` : ''}
         </div>
       </article>
     `;
@@ -1821,6 +1855,16 @@
           addBtn.dataset.selectedType = targetType;
         }
 
+        const rawPrice = targetType === 'atacado' ? (product.atacado || product.varejo) : (product.varejo || product.atacado);
+        const unitVal = parseFloat(String(rawPrice || '0').replace(/\./g, '').replace(',', '.')) || 0;
+        const subtotalVal = unitVal * qtyNum;
+        const subtotalFormatted = subtotalVal.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+
+        const subtotalEl = card.querySelector(`[data-subtotal-display="${productId}"]`);
+        if (subtotalEl) {
+          subtotalEl.innerHTML = `Total: <strong>R$ ${subtotalFormatted}</strong>`;
+        }
+
         const feedbackEl = card.querySelector(`[data-tier-feedback="${productId}"]`);
         if (feedbackEl) {
           if (targetType === 'atacado') {
@@ -1828,7 +1872,7 @@
             feedbackEl.innerHTML = `<span>&check; Desconto por volume ativado (${qtyNum} un.)</span>`;
           } else {
             feedbackEl.className = 'card-tier-feedback is-retail';
-            feedbackEl.textContent = `A partir de ${minAtacado} un. entra valor com desconto`;
+            feedbackEl.textContent = `A partir de ${minAtacado} un. entra desconto`;
           }
         }
       }

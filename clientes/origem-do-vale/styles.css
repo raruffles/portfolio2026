@@ -3118,6 +3118,62 @@ a {
   background-color: #143326;
 }
 
+
+/* Bloco do Modo Portfólio (Vitrine de Demonstração Institucional — Sem WhatsApp / Sem Preços) */
+.card-portfolio-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 100%;
+  height: 94px;
+  min-height: 94px;
+  max-height: 94px;
+  margin: 0 0 6px;
+  padding: 10px 12px;
+  background: linear-gradient(180deg, #f7faf8 0%, #edf4ef 100%);
+  border: 1.5px solid #d4e5db;
+  border-radius: var(--radius-md);
+  text-align: center;
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+
+.card-portfolio-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-display);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #1b4332;
+  background-color: #d8ecdf;
+  padding: 3px 10px;
+  border-radius: 999px;
+}
+
+.card-portfolio-badge .dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #2d5143;
+}
+
+.card-portfolio-desc {
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--color-ink);
+}
+
+.card-portfolio-hint {
+  font-size: 0.6875rem;
+  color: var(--color-muted);
+}
+
 /* ==========================================================================
    SELETOR DE MODALIDADE (VAREJO X ATACADO) E CONTROLES DE COMPRA
    ========================================================================== */
@@ -3125,9 +3181,9 @@ a {
 .card-pricing-selector {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 12px;
-  margin: 0 0 8px;
-  min-height: 60px;
+  gap: 16px;
+  margin: 0 0 10px;
+  min-height: 64px;
   height: auto;
   box-sizing: border-box;
   flex-shrink: 0;
@@ -3138,14 +3194,15 @@ a {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 7px 6px;
+  padding: 8px 8px;
   background-color: var(--color-surface-soft);
   border: 1.5px solid var(--color-border);
   border-radius: var(--radius-md);
   cursor: pointer;
-  transition: all 0.18s ease;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
   text-align: center;
   box-sizing: border-box;
+  position: relative;
 }
 
 .pricing-pill:hover {
@@ -3156,26 +3213,23 @@ a {
 .pricing-pill.is-active {
   border-color: var(--color-brand);
   background-color: #f0f7f3;
-  box-shadow: 0 0 0 1.5px var(--color-brand);
+  box-shadow: 0 0 0 2px var(--color-brand), 0 2px 6px rgba(36, 72, 59, 0.12);
 }
 
 .pill-type {
-  font-size: 0.6875rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--color-muted);
+  display: none; /* Não repete atacado/varejo no botão, cabeçalho já identifica */
 }
 
 .pricing-pill.is-active .pill-type {
-  color: var(--color-brand);
+  display: none;
 }
 
 .pill-val {
-  font-size: 1.025rem;
+  font-size: 1.05rem;
   font-weight: 800;
   color: var(--color-ink);
   line-height: 1.2;
+  letter-spacing: -0.01em;
 }
 
 .pricing-pill.is-active .pill-val {
@@ -3183,31 +3237,38 @@ a {
 }
 
 .pill-sub {
-  font-size: 0.6875rem;
+  font-size: 0.7rem;
   color: var(--color-muted);
-  margin-top: 2px;
+  margin-top: 3px;
   font-weight: 500;
 }
 
 .pricing-pill.is-active .pill-sub {
-  color: #2e7d32;
+  color: #1b5e20;
   font-weight: 600;
 }
 
-/* Indicador dinâmico de Desconto Ativado no Card */
-.card-tier-feedback {
+/* Linha com Feedback de Desconto e Subtotal do Item */
+.card-live-row {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 5px;
-  min-height: 20px;
-  margin: 0 0 8px;
-  font-size: 0.6875rem;
+  justify-content: space-between;
+  gap: 10px;
+  min-height: 24px;
+  margin: 0 0 10px;
+  box-sizing: border-box;
+}
+
+.card-tier-feedback {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.7rem;
   font-weight: 600;
-  text-align: center;
   border-radius: 4px;
-  padding: 2px 6px;
+  padding: 3px 6px;
   transition: all 0.18s ease;
+  line-height: 1.2;
 }
 
 .card-tier-feedback.has-discount {
@@ -3221,14 +3282,28 @@ a {
   background-color: transparent;
 }
 
-/* Quantidade e Botão Adicionar */
+.card-subtotal-display {
+  font-size: 0.78rem;
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  white-space: nowrap;
+  margin-left: auto;
+}
+
+.card-subtotal-display strong {
+  color: var(--color-brand);
+  font-weight: 800;
+  font-size: 0.875rem;
+}
+
+/* Quantidade e Botão Adicionar com Distância Confortável */
 .card-cart-action-group {
   display: flex;
   align-items: center;
-  gap: 10px;
-  height: 42px;
-  min-height: 42px;
-  max-height: 42px;
+  gap: 14px;
+  height: 44px;
+  min-height: 44px;
+  max-height: 44px;
   margin: 0 0 8px;
   box-sizing: border-box;
   flex-shrink: 0;
@@ -3894,7 +3969,7 @@ a {
 .card-pricing-table-header {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 12px;
+  gap: 16px;
   margin: 0 0 6px;
   padding: 0 2px;
   box-sizing: border-box;
