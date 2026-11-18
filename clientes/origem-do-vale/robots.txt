@@ -1,0 +1,5 @@
+# robots.txt — Origem do Vale (São José dos Campos e Vale do Paraíba)
+User-agent: *
+Allow: /
+
+Sitemap: https://origem-do-vale.vercel.app/sitemap.xml
