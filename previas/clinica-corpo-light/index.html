@@ -106,504 +106,190 @@
   }
 
   /* ==============================================================
-     ANTI-OVERLAP ARCHITECTURE — CLÍNICA CORPO LIGHT
+     CLÍNICA CORPO LIGHT — AJUSTES CIRÚRGICOS DE ANTI-SOBREPOSIÇÃO
+     Preserva 100% da estrutura DOM original e todas as animações
+     Webflow/GSAP/Scroll/Swiper intactas.
      ============================================================== */
 
-  /* Global text wrap & containment safety */
-  *, *::before, *::after {
-    box-sizing: border-box !important;
-  }
-  h1, h2, h3, h4, h5, h6, p {
-    overflow-wrap: break-word !important;
-    word-break: normal !important;
-  }
-
-  /* 1. HERO (HEADER81) ANTI-OVERLAP */
-  .section_header81 {
-    position: relative !important;
-    overflow: hidden !important;
-  }
-  .header81_component {
-    height: 100vh !important;
-    min-height: 600px !important;
-    position: relative !important;
-  }
-  .header81_content-wrapper {
-    height: 100% !important;
-    display: grid !important;
-    grid-template-columns: 1.1fr 0.9fr !important;
-    position: relative !important;
-    top: auto !important;
-    align-items: center !important;
-  }
-  .header81_content-left {
-    max-width: 100% !important;
-    width: 100% !important;
-    z-index: 5 !important;
-    position: relative !important;
-    padding-top: 5rem !important;
-    padding-bottom: 3rem !important;
-    margin-left: 5vw !important;
-    margin-right: 2rem !important;
-  }
-  .header81_top-updated {
-    width: 100% !important;
-    max-width: 100% !important;
-  }
-  .heading-style-h1-services {
-    font-size: clamp(2.2rem, 4.2vw, 4rem) !important;
-    line-height: 1.1 !important;
-    word-break: break-word !important;
-    color: var(--color--text) !important;
-  }
-  .header81_content-right {
-    position: relative !important;
-    inset: auto !important;
-    width: 100% !important;
-    max-width: 100% !important;
-    height: 100% !important;
-    z-index: 1 !important;
-  }
-  .header81_image-wrapper {
-    width: 100% !important;
-    height: 100% !important;
-    position: relative !important;
-  }
-  .header81_image {
-    object-fit: cover !important;
-    width: 100% !important;
-    height: 100% !important;
-    display: block !important;
-  }
-  @media screen and (max-width: 991px) {
-    .header81_component {
-      height: auto !important;
-      min-height: auto !important;
-    }
-    .header81_content-wrapper {
-      display: flex !important;
-      flex-direction: column !important;
-      padding-top: 5rem !important;
-      height: auto !important;
-      position: static !important;
-    }
-    .header81_content-left {
-      margin-inline: 1.5rem !important;
-      padding-top: 1rem !important;
-      padding-bottom: 2rem !important;
-      max-width: 100% !important;
-    }
-    .header81_content-right {
-      height: auto !important;
-      position: relative !important;
-      overflow: hidden !important;
-      border-radius: 12px !important;
-      margin: 0 1.5rem 3rem !important;
-      width: calc(100% - 3rem) !important;
-    }
-    .header81_image-wrapper {
-      aspect-ratio: 4 / 3 !important;
-      height: auto !important;
-      padding-top: 0 !important;
-      position: relative !important;
-      overflow: hidden !important;
-    }
-    .header81_image {
-      position: relative !important;
-      width: 100% !important;
-      height: 100% !important;
-      object-fit: cover !important;
-      inset: auto !important;
-    }
-  }
-
-  /* 2. GALLERY25 (SOBRE A CLÍNICA / MODELO LAVIEEN) ANTI-OVERLAP */
-  .section_gallery25 {
-    position: relative !important;
-    overflow: visible !important;
-    margin: 4rem 0 !important;
-    padding: 2rem 0 !important;
-  }
-  .gallery25_component-2 {
-    display: flex !important;
-    flex-direction: row !important;
-    align-items: center !important;
-    justify-content: space-between !important;
-    gap: 4rem !important;
-    position: relative !important;
-    max-width: 80rem !important;
-    margin: 0 auto !important;
-    padding: 0 5% !important;
-  }
+  /* 1. SEÇÃO SOBRE A CLÍNICA (GALLERY25)
+     - Mantém animações Webflow nos textos (.animate-1, .animate-2)
+     - Conclui o texto descritivo na Coluna 1, impedindo que invada a Coluna 2 (foto Lavieen)
+     - Garante espaçamento na base para que o título "CORPO LIGHT" não toque a imagem */
+  #w-node-d2f9910b-b197-6888-275c-74bce4274a43-ad5729d3.gallery25_content-left,
   .gallery25_content-left {
-    position: static !important;
-    display: flex !important;
-    flex-direction: column !important;
-    justify-content: center !important;
-    align-items: flex-start !important;
-    z-index: 2 !important;
-    padding: 0 !important;
-    flex: 1 1 50% !important;
-    max-width: 36rem !important;
-    grid-area: auto !important;
+    grid-column: 1 / 2 !important;
+    grid-area: 2 / 1 / 3 / 2 !important;
+    max-width: 100% !important;
+    z-index: 3 !important;
   }
-  .gallery25_header-wrapper {
-    position: static !important;
-    inset: auto !important;
-    z-index: 1 !important;
-    width: 100% !important;
-    margin-bottom: 1.75rem !important;
-  }
-  .gallery25_header-wrapper .small-cap {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: flex-start !important;
-    gap: 0.5rem !important;
-    padding: 0 !important;
-    text-align: left !important;
-  }
-  .gallery25_header-wrapper .animate-1,
-  .gallery25_header-wrapper .animate-2 {
-    opacity: 1 !important;
-    transform: none !important;
-  }
-  .gallery25_header-wrapper .heading-style-h2 {
-    font-size: clamp(1.8rem, 2.5vw, 2.6rem) !important;
-    letter-spacing: 0.08em !important;
-    margin-bottom: 0.25rem !important;
-    color: var(--color--text) !important;
-  }
-  .gallery25_header-wrapper .heading-style-h5 {
-    font-size: clamp(1rem, 1.2vw, 1.25rem) !important;
-    font-weight: 400 !important;
-    color: var(--color--text) !important;
-    opacity: 0.85 !important;
-    text-transform: uppercase !important;
-    letter-spacing: 0.12em !important;
+  .gallery25_header-wrapper .small-cap.is-right {
+    justify-content: flex-start !important;
+    padding-left: 14vw !important;
   }
   .gallery25_heading-wrapper-custom {
-    margin: 0 !important;
-    width: 100% !important;
-    max-width: 100% !important;
-    display: block !important;
+    max-width: 540px !important;
   }
   .gallery25_heading-wrapper-custom p {
-    font-size: clamp(1.05rem, 1.2vw, 1.25rem) !important;
-    line-height: 1.75 !important;
-    color: var(--color--text) !important;
-    margin-bottom: 2rem !important;
-    max-width: 100% !important;
-  }
-  .gallery25_footer-wrapper {
-    position: static !important;
-    inset: auto !important;
-    z-index: 1 !important;
-    width: 100% !important;
-    margin-top: 1rem !important;
-  }
-  .gallery25_footer-wrapper .small-cap {
-    display: flex !important;
-    justify-content: flex-start !important;
-    padding: 0 !important;
-    text-align: left !important;
-  }
-  .gallery25_footer-wrapper .heading-style-h2 {
-    font-size: clamp(2rem, 3.2vw, 3.2rem) !important;
-    letter-spacing: 0.15em !important;
-    color: var(--color--text) !important;
-    opacity: 0.75 !important;
+    max-width: 520px !important;
+    line-height: 1.5 !important;
+    overflow-wrap: break-word !important;
   }
   .gallery25_ssingle {
-    position: relative !important;
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
-    flex: 1 1 50% !important;
-    width: 100% !important;
-    padding: 0 !important;
-    z-index: 1 !important;
-    grid-area: auto !important;
+    margin-bottom: 5.5rem !important;
+    align-self: start !important;
   }
-  .gallery25_mask-copy {
-    width: 100% !important;
-    max-width: 32rem !important;
-  }
-  .gallery25_image-wrapper {
-    aspect-ratio: 4 / 5 !important;
-    border-radius: 14px !important;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.18) !important;
-    overflow: hidden !important;
-  }
-  .gallery25_image {
-    object-fit: cover !important;
-    width: 100% !important;
-    height: 100% !important;
-    display: block !important;
-  }
-  @media screen and (max-width: 991px) {
-    .gallery25_component-2 {
-      flex-direction: column !important;
-      gap: 3rem !important;
-      padding: 0 1.5rem !important;
+  @media screen and (max-width: 767px) {
+    #w-node-d2f9910b-b197-6888-275c-74bce4274a43-ad5729d3.gallery25_content-left,
+    .gallery25_content-left {
+      grid-column: 1 / -1 !important;
+      grid-area: auto !important;
     }
-    .gallery25_content-left,
-    .gallery25_ssingle {
-      flex: 0 0 auto !important;
+    .gallery25_heading-wrapper-custom,
+    .gallery25_heading-wrapper-custom p {
+      max-width: 100% !important;
+    }
+    .gallery25_footer-wrapper {
+      position: relative !important;
+      inset: auto !important;
+      margin-top: 2rem !important;
+    }
+  }
+
+  /* 2. SEÇÃO "POR QUE A CORPO LIGHT?" (HEADER80)
+     - Preserva o scroll GSAP de 300vh e a translação vertical das imagens
+     - Mantém as imagens da esquerda na calha esquerda (left: 0; width: 14vw)
+     - Mantém as imagens da direita na calha direita (right: 0; width: 14vw)
+     - Centraliza o bloco de texto (max-width: 700px) com folga limpa de ambos os lados
+     - No mobile, oculta as imagens laterais flutuantes para garantir leitura perfeita */
+  .header80_images-wrapper:not(.images-wrapper-right) {
+    left: 1.5vw !important;
+    width: 15vw !important;
+    z-index: 1 !important;
+  }
+  .header80_images-wrapper.images-wrapper-right {
+    right: 1.5vw !important;
+    width: 15vw !important;
+    z-index: 1 !important;
+  }
+  .header80_image-wrapper.is-image-1,
+  .header80_image-wrapper.is-image-2,
+  .header80_image-wrapper.is-image-3,
+  .header80_image-wrapper.is-image-4 {
+    left: 0 !important;
+    right: auto !important;
+    width: 14vw !important;
+    max-width: 190px !important;
+    margin-top: 2.5rem !important;
+  }
+  .header80_image-wrapper.is-image-5,
+  .header80_image-wrapper.is-image-6 {
+    right: 0 !important;
+    left: auto !important;
+    width: 14vw !important;
+    max-width: 190px !important;
+    margin-top: 2.5rem !important;
+  }
+  .header-80-service {
+    z-index: 10 !important;
+    position: relative !important;
+  }
+  .header-80-service .max-width-xlarge {
+    max-width: 700px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    z-index: 10 !important;
+  }
+  @media screen and (max-width: 767px) {
+    .header80_images-wrapper {
+      display: none !important;
+    }
+    .header-80-service .max-width-xlarge {
+      max-width: 100% !important;
+    }
+  }
+
+  /* 3. SEÇÃO DE DEPOIMENTOS (TESTIMONIAL15)
+     - O título "O Que Dizem Nossas Pacientes" ocupa a Linha 1 do Grid em largura total
+     - Os cards de depoimentos e a foto da Dra. Alessandra ficam na Linha 2
+     - Zero sobreposição na foto da doutora, legibilidade cristalina */
+  .section_testimonial15 .testimonial15_slide-content {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr 1fr !important;
+    grid-template-rows: auto auto !important;
+    row-gap: 2.5rem !important;
+    align-items: center !important;
+  }
+  .section_testimonial15 .blending-difference {
+    position: relative !important;
+    grid-column: 1 / -1 !important;
+    grid-row: 1 !important;
+    inset: auto !important;
+    top: auto !important;
+    text-align: center !important;
+    width: 100% !important;
+    margin-bottom: 0 !important;
+  }
+  .section_testimonial15 .testimonial15_content-right {
+    grid-row: 2 !important;
+    grid-column: 1 / 2 !important;
+  }
+  .section_testimonial15 .testimonial15_client-image-wrapper {
+    grid-row: 2 !important;
+    grid-column: 2 / 3 !important;
+  }
+  .section_testimonial15 .div-block-11 {
+    grid-row: 2 !important;
+    grid-column: 3 / 4 !important;
+  }
+  @media screen and (max-width: 767px) {
+    .section_testimonial15 .testimonial15_slide-content {
+      grid-template-columns: 1fr !important;
+      grid-template-rows: auto !important;
+      row-gap: 1.5rem !important;
+    }
+    .section_testimonial15 .blending-difference,
+    .section_testimonial15 .testimonial15_content-right,
+    .section_testimonial15 .testimonial15_client-image-wrapper,
+    .section_testimonial15 .div-block-11 {
+      grid-column: 1 / -1 !important;
+      grid-row: auto !important;
+    }
+  }
+
+  /* 4. HERO HEADER (HEADER81)
+     - Ajuste de proporção no título H1 para caber na coluna esquerda (44vw)
+     - A animação de expansão da foto feminina ao rolar permanece 100% ativa */
+  .heading-style-h1-services {
+    font-size: clamp(2.2rem, 3.8vw, 3.8rem) !important;
+    line-height: 1.15 !important;
+    max-width: 44vw !important;
+    overflow-wrap: break-word !important;
+  }
+  .header81_top-updated {
+    width: 44vw !important;
+    max-width: 44vw !important;
+  }
+  .header81_content-left .max-width-medium {
+    max-width: 42vw !important;
+  }
+  @media screen and (max-width: 767px) {
+    .heading-style-h1-services {
+      font-size: clamp(2rem, 8vw, 2.8rem) !important;
+      max-width: 100% !important;
+    }
+    .header81_top-updated,
+    .header81_content-left,
+    .header81_content-left .max-width-medium {
       max-width: 100% !important;
       width: 100% !important;
     }
-    .gallery25_mask-copy {
-      max-width: 24rem !important;
-      margin: 0 auto !important;
-    }
   }
 
-  /* 3. HEADER80 ("POR QUE A CORPO LIGHT?") ANTI-OVERLAP */
-  .section_header80 {
-    position: relative !important;
-    overflow: hidden !important;
-    padding: 5rem 0 !important;
-    min-height: auto !important;
-  }
-  .header80_component {
-    height: auto !important;
-    min-height: auto !important;
-    position: relative !important;
-  }
-  .header80_content-wrapper {
-    height: auto !important;
-    position: relative !important;
-    min-height: auto !important;
-    overflow: visible !important;
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
-    padding: 2rem 0 !important;
-  }
-  /* Decorative side photos on desktop positioned cleanly in outer margins */
-  .header80_images-wrapper {
-    position: absolute !important;
-    top: 50% !important;
-    transform: translateY(-50%) !important;
-    left: 2vw !important;
-    max-width: 18vw !important;
-    pointer-events: none !important;
-    z-index: 1 !important;
-    display: block !important;
-  }
-  .header80_image-list {
-    padding-top: 0 !important;
-    gap: 1.5rem !important;
-  }
-  .header80_image-wrapper.is-image-1,
-  .header80_image-wrapper.is-image-3 {
-    width: 14vw !important;
-    max-width: 200px !important;
-    margin: 0 !important;
-    left: 0 !important;
-    border-radius: 10px !important;
-    overflow: hidden !important;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.12) !important;
-  }
-  .header80_image-wrapper.is-image-2,
-  .header80_image-wrapper.is-image-4 {
-    display: none !important;
-  }
-
-  .header80_images-wrapper.images-wrapper-right {
-    position: absolute !important;
-    top: 50% !important;
-    transform: translateY(-50%) !important;
-    right: 2vw !important;
-    left: auto !important;
-    max-width: 18vw !important;
-    pointer-events: none !important;
-    z-index: 1 !important;
-    display: block !important;
-  }
-  .header80_image-wrapper.is-image-5 {
-    width: 14vw !important;
-    max-width: 200px !important;
-    margin: 0 0 0 auto !important;
-    right: 0 !important;
-    left: auto !important;
-    border-radius: 10px !important;
-    overflow: hidden !important;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.12) !important;
-  }
-  .header80_image-wrapper.is-image-6 {
-    display: none !important;
-  }
-
-  /* Center protected card */
-  .header-80-service {
-    position: relative !important;
-    z-index: 10 !important;
-    max-width: 52rem !important;
-    width: 100% !important;
-    margin: 0 auto !important;
-    padding: 1rem 1.5rem !important;
-    height: auto !important;
-  }
-  .header-80-service .max-width-xlarge {
-    max-width: 100% !important;
-    width: 100% !important;
-  }
-  .layout48_content {
-    background: rgba(255, 255, 255, 0.88) !important;
-    -webkit-backdrop-filter: blur(14px) !important;
-    backdrop-filter: blur(14px) !important;
-    border-radius: 18px !important;
-    padding: 3rem 2.5rem !important;
-    box-shadow: 0 16px 36px rgba(0,0,0,0.08) !important;
-    border: 1px solid rgba(150, 132, 111, 0.25) !important;
-    gap: 2.5rem !important;
-    max-width: 48rem !important;
-    margin: 0 auto !important;
-  }
-  .layout48_content-left .heading-style-h2 {
-    font-size: clamp(2rem, 3.2vw, 3rem) !important;
-    color: var(--color--text) !important;
-    margin-bottom: 0.75rem !important;
-  }
-  .layout48_content-left p {
-    font-size: clamp(1.05rem, 1.2vw, 1.25rem) !important;
-    line-height: 1.7 !important;
-    color: var(--color--text) !important;
-    max-width: 38rem !important;
-    margin: 0 auto !important;
-  }
-  .layout48_item-list {
-    display: grid !important;
-    grid-template-columns: 1fr 1fr !important;
-    gap: 2rem !important;
-    max-width: 100% !important;
-  }
-  .layout48_text-wrapper {
-    mix-blend-mode: normal !important;
-    background: rgba(255, 255, 255, 0.7) !important;
-    padding: 1.5rem !important;
-    border-radius: 12px !important;
-    border: 1px solid rgba(150, 132, 111, 0.18) !important;
-    text-align: left !important;
-  }
-  .layout48_text-wrapper h3 {
-    font-size: 1.25rem !important;
-    margin-bottom: 0.5rem !important;
-    color: var(--color--text) !important;
-  }
-  .layout48_text-wrapper p {
-    font-size: 0.95rem !important;
-    line-height: 1.6 !important;
-    color: var(--color--text) !important;
-  }
-  @media screen and (max-width: 991px) {
-    .header80_images-wrapper,
-    .header80_images-wrapper.images-wrapper-right,
-    .header80_image-list,
-    .header80_image-wrapper {
-      display: none !important;
-      visibility: hidden !important;
-      opacity: 0 !important;
-      pointer-events: none !important;
-    }
-    .layout48_content {
-      padding: 2rem 1.5rem !important;
-    }
-    .layout48_item-list {
-      grid-template-columns: 1fr !important;
-      gap: 1.5rem !important;
-    }
-  }
-
-  /* 4. TESTIMONIAL15 ("O QUE DIZEM NOSSAS PACIENTES") ANTI-OVERLAP */
-  .section_testimonial15 {
-    position: relative !important;
-    padding: 5rem 0 !important;
-  }
-  .blending-difference {
-    position: static !important;
-    inset: auto !important;
-    text-align: center !important;
-    width: 100% !important;
-    margin-bottom: 3.5rem !important;
-    mix-blend-mode: normal !important;
-  }
-  .blending-difference .heading-style-h2 {
-    font-size: clamp(2rem, 3.5vw, 3.2rem) !important;
-    color: var(--color--text) !important;
-    letter-spacing: 0.05em !important;
-    margin-bottom: 0.5rem !important;
-  }
-  .testimonial15_slide-content {
-    display: grid !important;
-    grid-template-columns: 1.15fr 1fr 0.85fr !important;
-    align-items: center !important;
-    gap: 3rem !important;
-    max-width: 80rem !important;
-    margin: 0 auto !important;
-  }
-  .testimonial15_client-image-wrapper {
-    aspect-ratio: 3 / 4 !important;
-    max-width: 22rem !important;
-    margin: 0 auto !important;
-    border-radius: 14px !important;
-    overflow: hidden !important;
-    box-shadow: 0 16px 36px rgba(0,0,0,0.2) !important;
-  }
-  .testimonial15_client-image {
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: cover !important;
-    display: block !important;
-  }
-  @media screen and (max-width: 991px) {
-    .testimonial15_slide-content {
-      grid-template-columns: 1fr !important;
-      gap: 2.5rem !important;
-      text-align: center !important;
-    }
-    .testimonial15_client-image-wrapper {
-      max-width: 18rem !important;
-      order: -1 !important;
-    }
-  }
-
-  /* 5. CTA SECTION & FOOTER SAFE FLOW */
-  .section_layout517-2 {
-    position: relative !important;
-    padding: 4rem 0 !important;
-  }
-  .layout517_component {
-    height: auto !important;
-    min-height: auto !important;
-  }
-  .layout517_content {
-    height: auto !important;
-    position: static !important;
-    padding: 2rem 0 !important;
-  }
-  .layout517_content-bottom {
-    position: static !important;
-    transform: none !important;
-    padding: 0 5% !important;
-  }
-  .layout517_card-2 {
-    background-color: #96846f !important;
-    border-radius: 14px !important;
-    border: 1px solid rgba(255,255,255,0.2) !important;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.2) !important;
-    max-width: 50rem !important;
-    margin: 0 auto !important;
-  }
-  .layout517_image-wrapper {
-    display: none !important;
-  }
+  /* 5. FOOTER NORMALIZADO */
   .footer15_component {
     position: relative !important;
     top: auto !important;
     z-index: 10 !important;
-    overflow: visible !important;
   }
 </style>
 
@@ -1924,35 +1610,7 @@ margin: 0rem !important;
 .header81_vertical-text {
 	writing-mode: vertical-rl;
   }
-</style></div><div class="w-layout-vflex max-width-medium"><div class="w-layout-vflex flex-block-4" style="will-change: opacity; opacity: 1;"><div class="div-block-16 hide-mobile-landscape"><div class="header81_vertical-text">Scroll</div><div data-w-id="8c8f7b50-bdd4-e276-b2ba-0d9f7bd3a5c7" style="height: 4.391%; width: 0.3125px; will-change: width, height;" class="animated-vertical"></div></div><div class="w-layout-vflex"><div class="margin-bottom margin-medium"><h3 class="heading-style-h5">Contorno, equilíbrio e luz no seu corpo.</h3></div><p class="text-size-medium">Harmonização corporal real e personalizada. Protocolos pensados para o seu biotipo, sem promessas de milagre — com acompanhamento de perto e resultados construídos no tempo certo. Sob a responsabilidade técnica da Dra. Alessandra Carvalho no Pátio das Américas, São José dos Campos.</p></div></div></div></div><div class="header81_content-right" style="will-change: width, height; width: 50%;"><div class="header81_image-wrapper"><img src="assets/images/hero-mulher-alta-beleza.jpg" loading="lazy" alt="Clínica Corpo Light — Harmonização Corporal em São José dos Campos" class="header81_image"></div></div></div><div data-w-id="8c8f7b50-bdd4-e276-b2ba-0d9f7bd3a5cf" class="header81_ix-trigger"></div></div></header><section class="section_gallery25" id="sobre">
-  <div class="padding-vertical padding-large">
-    <div class="gallery25_component-2">
-      <div class="gallery25_content-left">
-        <div class="gallery25_header-wrapper">
-          <div class="small-cap is-custom">
-            <div class="animate-1"><h2 class="heading-style-h2">SOBRE A CLÍNICA</h2></div>
-            <div class="animate-2"><h3 class="heading-style-h5">Feito para o seu corpo</h3></div>
-          </div>
-        </div>
-        <div class="gallery25_heading-wrapper-custom">
-          <p class="text-size-large is-smaller">A Corpo Light nasceu da crença de que a estética corporal vai muito além de procedimentos: é escutar, avaliar e construir um caminho junto com cada paciente. Sob a responsabilidade técnica da Dra. Alessandra Carvalho, desenvolvemos protocolos individuais no Pátio das Américas, São José dos Campos.</p>
-        </div>
-        <div class="gallery25_footer-wrapper">
-          <div class="small-cap is-top-align-right">
-            <h2 class="heading-style-h2">CORPO LIGHT</h2>
-          </div>
-        </div>
-      </div>
-      <div class="gallery25_ssingle">
-        <div class="gallery25_mask-copy">
-          <div class="gallery25_image-wrapper">
-            <img src="assets/images/modelo-lavieen-glow.jpg" loading="lazy" alt="Clínica Corpo Light — Protocolos Corporais e Faciais Personalizados" class="gallery25_image">
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section><header animate-body-to="1" class="section_header80"><div class="padding-global"><div class="header80_component"><div class="header80_content-wrapper"><div class="header80_images-wrapper"><div class="header80_image-list" style="will-change: transform; transform: translate3d(0px, 0%, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d;"><div data-gsap="img.4" class="header80_image-wrapper is-image-1"><img id="w-node-_1726c86a-90e3-019b-7b84-94ffa1702ab7-ad5729d3" loading="lazy" alt="Harmonização e Contorno Facial" src="assets/images/mulher-contorno-facial.jpg" class="header80_image _1"></div><div data-gsap="img.4" class="header80_image-wrapper is-image-2"><img id="w-node-_1726c86a-90e3-019b-7b84-94ffa1702ab9-ad5729d3" loading="lazy" alt="" src="assets/images/mulher-contorno-gluteos.jpg" class="header80_image w-dyn-bind-empty"></div><div data-gsap="img.4" class="header80_image-wrapper is-image-3"><img id="w-node-_1726c86a-90e3-019b-7b84-94ffa1702abb-ad5729d3" loading="lazy" alt="" src="assets/images/dra-alessandra-clinica.jpg" class="header80_image"></div><div data-gsap="img.4" class="header80_image-wrapper is-image-4"><img id="w-node-_1726c86a-90e3-019b-7b84-94ffa1702abd-ad5729d3" loading="lazy" alt="" src="assets/images/mulher-gluteos-lifting.jpg" class="header80_image w-dyn-bind-empty"></div></div></div><div class="header80_images-wrapper images-wrapper-right"><div class="header80_image-list image-list-right" style="will-change: transform; transform: translate3d(0px, 0%, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d;"><div data-gsap="img.4" class="header80_image-wrapper is-image-5"><img id="w-node-_1726c86a-90e3-019b-7b84-94ffa1702ac1-ad5729d3" loading="lazy" alt="" src="assets/images/resultado-onix-3.jpg" class="header80_image _2"></div><div data-gsap="img.4" class="header80_image-wrapper is-image-6"><img id="w-node-_1726c86a-90e3-019b-7b84-94ffa1702ac3-ad5729d3" loading="lazy" alt="" src="assets/images/mulher-pele-rejuvenescimento.jpg" class="header80_image w-dyn-bind-empty"></div></div></div><div class="header-80-service"><div class="w-layout-vflex max-width-xlarge is-align-center"><div class="w-layout-grid layout48_content"><div class="layout48_content-left"><div class="w-layout-vflex margin-bottom margin-medium"><div class="w-layout-vflex logo-brand-wrapper"><div class="everlogo brow icon-height-xxsmall w-condition-invisible w-embed"><svg width=" 100%" height=" 100%" viewBox="0 0 1602 177" fill="none" xmlns="http://www.w3.org/2000/svg">
+</style></div><div class="w-layout-vflex max-width-medium"><div class="w-layout-vflex flex-block-4" style="will-change: opacity; opacity: 1;"><div class="div-block-16 hide-mobile-landscape"><div class="header81_vertical-text">Scroll</div><div data-w-id="8c8f7b50-bdd4-e276-b2ba-0d9f7bd3a5c7" style="height: 4.391%; width: 0.3125px; will-change: width, height;" class="animated-vertical"></div></div><div class="w-layout-vflex"><div class="margin-bottom margin-medium"><h3 class="heading-style-h5">Contorno, equilíbrio e luz no seu corpo.</h3></div><p class="text-size-medium">Harmonização corporal real e personalizada. Protocolos pensados para o seu biotipo, sem promessas de milagre — com acompanhamento de perto e resultados construídos no tempo certo. Sob a responsabilidade técnica da Dra. Alessandra Carvalho no Pátio das Américas, São José dos Campos.</p></div></div></div></div><div class="header81_content-right" style="will-change: width, height; width: 50%;"><div class="header81_image-wrapper"><img src="assets/images/hero-mulher-alta-beleza.jpg" loading="lazy" alt="Clínica Corpo Light — Harmonização Corporal em São José dos Campos" class="header81_image"></div></div></div><div data-w-id="8c8f7b50-bdd4-e276-b2ba-0d9f7bd3a5cf" class="header81_ix-trigger"></div></div></header><section class="section_gallery25"><div class="padding-vertical padding-large"><div class="gallery25_component-2"><div class="gallery25_header-wrapper"><div class="container-large"><div data-w-id="d2f9910b-b197-6888-275c-74bce4274a2c" class="small-cap is-custom"><div style="opacity: 0; transform: translate3d(0px, 1rem, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d;" class="animate-1"><h2 class="heading-style-h2">SOBRE A CLÍNICA</h2></div><div class="animate-2"><h2 class="heading-style-h5">feito para o</h2></div></div><div data-w-id="d2f9910b-b197-6888-275c-74bce4274a33" class="small-cap is-right"><div style="opacity: 0; transform: translate3d(0px, 1rem, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d;" class="animate-1"><h2 class="heading-style-h5">seu</h2></div><div style="opacity: 0; transform: translate3d(0px, 1rem, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d;" class="animate-2"><h2 class="heading-style-h2">corpo <br></h2></div></div></div></div><div class="gallery25_footer-wrapper"><div class="container-large"><div data-w-id="d2f9910b-b197-6888-275c-74bce4274a3c" class="small-cap is-top-align-right"><div style="opacity: 0; transform: translate3d(0px, 1rem, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d;" class="animate-1"><h2 class="heading-style-h5"></h2></div><div style="opacity: 0; transform: translate3d(0px, 1rem, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d;" class="animate-2"><h2 class="heading-style-h2">CORPO LIGHT</h2></div></div></div></div><div id="w-node-d2f9910b-b197-6888-275c-74bce4274a43-ad5729d3" class="gallery25_content-left"><div class="container-large"><div class="gallery25_heading-wrapper-custom"><p id="w-node-d2f9910b-b197-6888-275c-74bce4274a47-ad5729d3" class="text-size-large is-smaller">A Corpo Light nasceu da crença de que a estética corporal vai muito além de procedimentos: é escutar, avaliar e construir um caminho junto com cada paciente. Sob a responsabilidade técnica da Dra. Alessandra Carvalho, desenvolvemos protocolos individuais no Pátio das Américas, São José dos Campos.</p></div></div></div><div id="w-node-d2f9910b-b197-6888-275c-74bce4274a49-ad5729d3" class="gallery25_ssingle"><div class="gallery25_mask-copy"><div class="gallery25_image-wrapper"><img src="assets/images/modelo-lavieen-glow.jpg" loading="lazy" alt="Clínica Corpo Light — Modelo e Estética Integrativa" class="gallery25_image"></div></div></div></div></div></section><header animate-body-to="1" class="section_header80"><div class="padding-global"><div class="header80_component"><div class="header80_content-wrapper"><div class="header80_images-wrapper"><div class="header80_image-list" style="will-change: transform; transform: translate3d(0px, 0%, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d;"><div data-gsap="img.4" class="header80_image-wrapper is-image-1"><img id="w-node-_1726c86a-90e3-019b-7b84-94ffa1702ab7-ad5729d3" loading="lazy" alt="Harmonização e Contorno Facial" src="assets/images/mulher-contorno-facial.jpg" class="header80_image _1"></div><div data-gsap="img.4" class="header80_image-wrapper is-image-2"><img id="w-node-_1726c86a-90e3-019b-7b84-94ffa1702ab9-ad5729d3" loading="lazy" alt="" src="assets/images/mulher-contorno-gluteos.jpg" class="header80_image w-dyn-bind-empty"></div><div data-gsap="img.4" class="header80_image-wrapper is-image-3"><img id="w-node-_1726c86a-90e3-019b-7b84-94ffa1702abb-ad5729d3" loading="lazy" alt="" src="assets/images/dra-alessandra-clinica.jpg" class="header80_image"></div><div data-gsap="img.4" class="header80_image-wrapper is-image-4"><img id="w-node-_1726c86a-90e3-019b-7b84-94ffa1702abd-ad5729d3" loading="lazy" alt="" src="assets/images/mulher-gluteos-lifting.jpg" class="header80_image w-dyn-bind-empty"></div></div></div><div class="header80_images-wrapper images-wrapper-right"><div class="header80_image-list image-list-right" style="will-change: transform; transform: translate3d(0px, 0%, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d;"><div data-gsap="img.4" class="header80_image-wrapper is-image-5"><img id="w-node-_1726c86a-90e3-019b-7b84-94ffa1702ac1-ad5729d3" loading="lazy" alt="" src="assets/images/resultado-onix-3.jpg" class="header80_image _2"></div><div data-gsap="img.4" class="header80_image-wrapper is-image-6"><img id="w-node-_1726c86a-90e3-019b-7b84-94ffa1702ac3-ad5729d3" loading="lazy" alt="" src="assets/images/mulher-pele-rejuvenescimento.jpg" class="header80_image w-dyn-bind-empty"></div></div></div><div class="header-80-service"><div class="w-layout-vflex max-width-xlarge is-align-center"><div class="w-layout-grid layout48_content"><div class="layout48_content-left"><div class="w-layout-vflex margin-bottom margin-medium"><div class="w-layout-vflex logo-brand-wrapper"><div class="everlogo brow icon-height-xxsmall w-condition-invisible w-embed"><svg width=" 100%" height=" 100%" viewBox="0 0 1602 177" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M106.6 2.1C98.0998 5.5 84.2998 7 59.9998 7C35.3998 7 29.7998 7.8 20.7998 12.7C14.6998 16 7.99981 23.2 4.59981 29.8C2.29981 34.3 1.29981 38 2.29981 38C2.49981 38 5.29981 37.1 8.59981 36C19.7998 32.1 29.9998 31 53.9998 31C66.4998 31 79.0998 30.5 82.0998 30C97.4998 27.1 110.8 15.8 113.5 3.2C114.3 -0.599998 113.6 -0.699998 106.6 2.1Z" fill="currentColor"></path>
 <path d="M493 1.5998C484.3 5.3998 477.7 6.1998 447.5 6.8998C413.6 7.6998 410.9 8.2998 400.9 16.1998C394.1 21.5998 385.2 35.5998 387.3 37.6998C387.6 37.8998 391.1 36.9998 395.1 35.5998C406 31.9998 415.6 30.9998 439.9 30.9998C463.6 30.9998 470.7 30.0998 479 26.1998C486.3 22.7998 495.2 13.6998 497.4 7.3998C500.1 -0.500202 499.5 -1.2002 493 1.5998Z" fill="currentColor"></path>
 <path d="M294.501 6.69961C291.801 6.99961 291.301 7.59961 290.301 11.7996C289.101 16.4996 245.701 116.7 244.101 118.3C243.001 119.4 197.001 13.9996 197.001 10.0996V6.99961H178.501H160.101L166.301 18.6996C169.701 25.1996 186.701 62.3996 204.101 101.5L235.601 172.5L243.701 172.8L251.701 173.1L281.501 105.8C311.601 37.7996 318.401 22.9996 324.001 12.9996L327.001 7.49961L322.301 6.79961C317.201 6.09961 299.601 6.09961 294.501 6.69961Z" fill="currentColor"></path>
@@ -2370,7 +2028,7 @@ margin: 0rem !important;
 <path d="M406.501 40.0002C400.601 41.2002 391.401 44.9002 389.901 46.6002C389.001 47.7002 388.601 59.1002 388.401 94.8002C388.201 136.6 387.201 162.5 385.501 169.3C384.901 171.6 385.201 171.7 391.101 172.4C399.101 173.2 463.701 173.2 480.301 172.3L493.001 171.7V159.2V146.7L486.301 147.3C482.501 147.7 465.901 148.3 449.301 148.6L419.001 149.3V124.5V99.7002L448.801 100.2C465.101 100.5 479.301 101.1 480.301 101.5C481.901 102.2 482.001 101.2 482.001 88.5002V74.7002L475.301 75.4002C471.501 75.7002 457.101 76.3002 443.301 76.7002L418.001 77.3002V58.2002V39.0002L414.301 39.1002C412.201 39.2002 408.701 39.6002 406.501 40.0002Z" fill="currentColor"></path>
 </svg></div><div class="everlogo lash icon-height-xxsmall w-embed"><svg width="100%" height="100%" viewBox="0 0 1477 177" fill="none" xmlns="http://www.w3.org/2000/svg">
   <text x="50%" y="58%" dominant-baseline="middle" text-anchor="middle" fill="currentColor" font-family="'Maax', 'Helvetica Neue', sans-serif" font-weight="700" font-size="105" letter-spacing="22">CORPO LIGHT</text>
-</svg></div></div></div></div><div class="brand-services"><h3 class="heading-style-h4 text-style-body">Intradermoterapia &amp; Injetáveis</h3><div><div class="w-richtext"><p>Microinjeções direcionadas e suplementos injetáveis personalizados que auxiliam na queima de gordura, definição muscular e tônus corporal.</p></div></div><div class="margin-bottom"></div></div></div><div class="option-image"><img src="assets/images/resultado-pernas-1.jpg" loading="lazy" alt="Intradermoterapia e Definição Corporal" class="gallery25_image"></div></div></div></div><span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div></div></div></section><section animate-body-to="2" class="section_testimonial15"><div class="padding-global"><div class="container-large is-relative"><div class="padding-section-large"><div class="blending-difference"><h2 class="heading-style-h2 z-index-2">O Que Dizem Nossas Pacientes</h2></div><div class="w-layout-grid testimonial15_slide-content"><div id="w-node-_58e5e50c-8a63-39ae-210b-d7d1203eeff0-ad5729d3" class="testimonial15_content-right"><div id="w-node-_58e5e50c-8a63-39ae-210b-d7d1203eeff1-ad5729d3"><div class="title-wrapper"><div class="text-size-small">Avaliações 5,0 no Google ★★★★★</div><h2 class="heading-style-h4 text-align-center">Juliana B Pereira &amp; Marta Bartelega</h2></div></div><div id="w-node-_58e5e50c-8a63-39ae-210b-d7d1203eeff7-ad5729d3" class="div-block-2">
+</svg></div></div></div></div><div class="brand-services"><h3 class="heading-style-h4 text-style-body">Intradermoterapia &amp; Injetáveis</h3><div><div class="w-richtext"><p>Microinjeções direcionadas e suplementos injetáveis personalizados que auxiliam na queima de gordura, definição muscular e tônus corporal.</p></div></div><div class="margin-bottom"></div></div></div><div class="option-image"><img src="assets/images/resultado-pernas-1.jpg" loading="lazy" alt="Intradermoterapia e Definição Corporal" class="gallery25_image"></div></div></div></div><span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div></div></div></section><section animate-body-to="2" class="section_testimonial15"><div class="padding-global"><div class="container-large is-relative"><div class="padding-section-large"><div class="w-layout-grid testimonial15_slide-content"><div class="blending-difference"><h2 class="heading-style-h2 z-index-2">O Que Dizem Nossas Pacientes</h2></div><div id="w-node-_58e5e50c-8a63-39ae-210b-d7d1203eeff0-ad5729d3" class="testimonial15_content-right"><div id="w-node-_58e5e50c-8a63-39ae-210b-d7d1203eeff1-ad5729d3"><div class="title-wrapper"><div class="text-size-small">Avaliações 5,0 no Google ★★★★★</div><h2 class="heading-style-h4 text-align-center">Juliana B Pereira &amp; Marta Bartelega</h2></div></div><div id="w-node-_58e5e50c-8a63-39ae-210b-d7d1203eeff7-ad5729d3" class="div-block-2">
   <p class="text-size-small text-weight-bold text-style-italic" style="color: var(--color--text-subtle);">Depoimentos no Google</p>
   <p class="text-size-small text-style-italic" style="margin-bottom: 0.85rem; font-size: 1.05rem; line-height: 1.6;">
     “Clínica linda e atendimento excelente, recomendo muito!! Fiz meu protocolo de harmonização corporal com a Dra. Alessandra e o resultado superou todas as expectativas. Ambiente acolhedor e profissionais impecáveis.”
