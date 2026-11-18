@@ -1,0 +1,9 @@
+{
+  "name": "juliana-donzelli-arquitetura",
+  "version": "1.0.0",
+  "description": "Juliana Donzelli Arquitetura + Interiores — Landing Page de Alto Padrão (São José dos Campos)",
+  "scripts": {
+    "dev": "npx -y http-server . -p 3004 -c-1",
+    "start": "npx -y http-server . -p 3004 -c-1"
+  }
+}
